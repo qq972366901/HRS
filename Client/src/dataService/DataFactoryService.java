@@ -1,11 +1,14 @@
 package dataService;
+
+import java.rmi.Remote;
+
 /**
  * 职责是定义提供数据接口的接口
  * @author LZ
  * @version 1.0
  * @see
  */
-public interface DataFactoryService {
+public interface DataFactoryService extends Remote{
 	/**
 	 * 定义提供客户数据的接口
 	 * @param

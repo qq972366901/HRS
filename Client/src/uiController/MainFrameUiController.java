@@ -20,6 +20,11 @@ import uiService.MainFrameUiService;
 public class MainFrameUiController extends JFrame implements MainFrameUiService {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
      * 打开程序的主界面
      * 
      * @param args0  程序打开时的参数

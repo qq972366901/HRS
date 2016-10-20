@@ -19,6 +19,11 @@ import uiService.hotelUserUiService;
 public class hotelUserUiController extends JFrame implements hotelUserUiService {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
      * 酒店工作人员的初始界面
      * 
      * @param 

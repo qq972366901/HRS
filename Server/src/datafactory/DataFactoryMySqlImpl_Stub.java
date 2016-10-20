@@ -1,15 +1,21 @@
 package datafactory;
 
+import java.io.Serializable;
+
 import creditrecordData.CreditRecordDataServiceMySqlImpl_Stub;
 import dataService.DataService;
-import datafactoryService.DataFactoryService;
 import hotelData.HotelDataServiceMySqlImpl_Stub;
 import orderData.OrderDataServiceMySqlImpl_Stub;
 import promotionData.PromotionDataServiceMySqlImpl_Stub;
 import roomData.RoomDataServiceMySqlImpl_Stub;
 import userData.UserDataServiceMySqlImpl_Stub;
 
-public class DataFactoryMySqlImpl_Stub implements DataFactoryService{
+public class DataFactoryMySqlImpl_Stub implements dataService.DataFactoryService, Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Override
 	public DataService getUserData() {

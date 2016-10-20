@@ -1,16 +1,21 @@
 package datafactory;
 
+import java.io.Serializable;
 import java.rmi.RemoteException;
 
 import dataService.DataService;
-import datafactoryService.DataFactoryService;
+import hotelData.HotelDataServiceMySqlImpl_Stub;
 /**
  * 职责是提供不同种类的数据接口
  * @author LZ
  * @version 1.0
  * @see datafactoryService.DataFactoryService
  */
-public class DataFactoryMySqlImpl implements DataFactoryService{
+public class DataFactoryMySqlImpl implements Serializable,dataService.DataFactoryService{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	/**
 	 * 提供客户数据接口
 	 * @param
@@ -66,11 +71,13 @@ public class DataFactoryMySqlImpl implements DataFactoryService{
 	 * @throws RemoteException
 	 * @see dataService.DataService
 	 */
+	
 	@Override
 	public DataService getHotelData() throws RemoteException  {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 	/**
 	 * 提供房间数据接口
 	 * @param
