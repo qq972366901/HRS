@@ -21,8 +21,8 @@ public class RemoteHelper implements Serializable{
 		DataRemoteObject dataRemoteObject;
 		try {
 			dataRemoteObject = new DataRemoteObject();
-			LocateRegistry.createRegistry(8888);
-			Naming.bind("rmi://localhost:8888/DataRemoteObject",dataRemoteObject);
+			LocateRegistry.createRegistry(7777);
+			Naming.bind("rmi://localhost:7777/DataRemoteObject",dataRemoteObject);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		} catch (MalformedURLException e) {

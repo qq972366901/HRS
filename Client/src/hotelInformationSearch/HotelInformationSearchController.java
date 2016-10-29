@@ -1,13 +1,9 @@
 package hotelInformationSearch;
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import Object.Hotel;
 import VO.HotelVO;
-import VO.OrderVO;
 import common.MessageInput;
 import common.ResultMessage;
-import common.UserType;
 import hotelBLService.HotelBLService_realize;
 public class HotelInformationSearchController extends HotelBLService_realize{
 	/**

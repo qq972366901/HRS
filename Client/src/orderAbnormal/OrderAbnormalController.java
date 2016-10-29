@@ -1,14 +1,9 @@
 package orderAbnormal;
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import Object.Hotel;
-import VO.HotelVO;
 import VO.OrderVO;
-import VO.UserVO;
 import common.Choice;
 import common.ResultMessage;
-import common.UserType;
 import orderBLService.OrderBLService_realize;
 public class OrderAbnormalController extends OrderBLService_realize{
 	/**

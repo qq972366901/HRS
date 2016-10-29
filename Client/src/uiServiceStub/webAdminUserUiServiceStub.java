@@ -19,6 +19,11 @@ import uiService.webAdminUserUiService;
 public class webAdminUserUiServiceStub extends JFrame implements webAdminUserUiService {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
      * 网站管理人员的初始界面
      * 
      * @param 

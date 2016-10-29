@@ -18,38 +18,8 @@ public class DataRemoteObject extends UnicastRemoteObject implements Serializabl
 	}
 
 	@Override
-	public DataService getUserData() throws RemoteException {
+	public DataService getDataService(String type) throws RemoteException {
 		// TODO Auto-generated method stub
-		return dataFactoryService.getUserData();
-	}
-
-	@Override
-	public DataService getCreditRecordData() throws RemoteException {
-		// TODO Auto-generated method stub
-		return dataFactoryService.getCreditRecordData();
-	}
-
-	@Override
-	public DataService getPromotionData() throws RemoteException {
-		// TODO Auto-generated method stub
-		return dataFactoryService.getPromotionData();
-	}
-
-	@Override
-	public DataService getOrderData() throws RemoteException {
-		// TODO Auto-generated method stub
-		return dataFactoryService.getOrderData();
-	}
-
-	@Override
-	public DataService getHotelData() throws RemoteException {
-		// TODO Auto-generated method stub
-		return dataFactoryService.getHotelData();
-	}
-
-	@Override
-	public DataService getRoomData() throws RemoteException {
-		// TODO Auto-generated method stub
-		return dataFactoryService.getRoomData();
+		return dataFactoryService.getDataService(type);
 	}
 }

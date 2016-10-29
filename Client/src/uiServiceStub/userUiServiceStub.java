@@ -19,6 +19,11 @@ import uiService.userUiService;
 public class userUiServiceStub extends JFrame implements userUiService {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
      * 客户的初始界面
      * 
      * @param 

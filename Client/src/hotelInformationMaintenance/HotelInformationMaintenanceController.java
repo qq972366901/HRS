@@ -1,13 +1,6 @@
 package hotelInformationMaintenance;
-import java.rmi.RemoteException;
-import java.util.ArrayList;
-
-import Object.Hotel;
-import VO.HotelVO;
-import VO.OrderVO;
 import common.MessageInput;
 import common.ResultMessage;
-import common.UserType;
 import hotelBLService.HotelBLService_realize;
 public class HotelInformationMaintenanceController  extends HotelBLService_realize{
 	/**

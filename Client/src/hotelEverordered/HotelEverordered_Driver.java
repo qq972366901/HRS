@@ -1,9 +1,7 @@
 package hotelEverordered;
 import java.util.ArrayList;
 
-import Object.Hotel;
 import VO.*;
-import common.*;
 import hotelBLService.HotelBLService;
 
 public class HotelEverordered_Driver {

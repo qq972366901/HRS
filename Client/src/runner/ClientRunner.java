@@ -27,7 +27,7 @@ public class ClientRunner implements Serializable{
 	private void linkToServer() {
 		try {
 			remoteHelper = RemoteHelper.getInstance();
-			remoteHelper.setRemote(Naming.lookup("rmi://localhost:8888/DataRemoteObject"));
+			remoteHelper.setRemote(Naming.lookup("rmi://localhost:7777/DataRemoteObject"));
 			System.out.println("linked");
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
@@ -43,7 +43,7 @@ public class ClientRunner implements Serializable{
 		u.init();
 		/*
 		DataFactoryService df=RemoteHelper.getInstance().getDataFactoryService();
-		HotelDataService dh=(HotelDataService) df.getHotelData();
+		HotelDataService dh=(HotelDataService) df.getDataService("Hotel");
 		ArrayList<HotelPO> a=new ArrayList<HotelPO>();
 		HotelPO po=dh.find("423523");
 		a=dh.findByDistrict("оиаж");

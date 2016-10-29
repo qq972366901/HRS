@@ -77,7 +77,7 @@ public class HotelBLService_realize implements HotelBLService{
      * @see bussinesslogic.Hotel
      */
 	public boolean setscore(int  score){
-		return (Boolean) null;
+		return true;
 	}
 	
 	
@@ -89,7 +89,7 @@ public class HotelBLService_realize implements HotelBLService{
      * @see bussinesslogic.Hotel
      */
 	public boolean setcomment(String  comment){
-		return (Boolean) null;
+		return true;
 	}
 	
 	
@@ -101,7 +101,7 @@ public class HotelBLService_realize implements HotelBLService{
      * @see bussinesslogic.Hotel
      */
 	public boolean getroominfo(HotelVO vo){
-		return (Boolean) null;
+		return true;
 	}
 	
 	

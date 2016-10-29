@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import Object.Promotion;
 import VO.*;
 import common.*;
-import hotelBLService.HotelBLService;
 public class PromotionBLService_Driver {
 	public void drive(PromotionBLService promotionBLService){
 	ResultMessage result1=promotionBLService.madebyhotel(new PromotionVO());

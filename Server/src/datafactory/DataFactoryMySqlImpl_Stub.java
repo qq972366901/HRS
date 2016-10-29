@@ -18,51 +18,36 @@ public class DataFactoryMySqlImpl_Stub implements dataService.DataFactoryService
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	public DataService getUserData() {
+	public DataService getDataService(String type) {
 		// TODO Auto-generated method stub
-		DataService userData=new UserDataServiceMySqlImpl_Stub();
-		System.out.println("UserData!");
-		return userData;
+		DataService dataService;
+		if(type.equals("User")){
+			dataService=new UserDataServiceMySqlImpl_Stub();
+			System.out.println("UserData!");
+		}
+		else if(type.equals("CreditRecord")){
+			dataService=new CreditRecordDataServiceMySqlImpl_Stub();
+			System.out.println("CreditRecordData!");
+		}
+		else if(type.equals("Hotel")){
+			dataService=new HotelDataServiceMySqlImpl_Stub();
+			System.out.println("HotelData!");
+		}
+		else if(type.equals("Promotion")){
+			dataService=new PromotionDataServiceMySqlImpl_Stub();
+			System.out.println("PromotionData!");
+		}
+		else if(type.equals("Room")){
+			dataService=new RoomDataServiceMySqlImpl_Stub();
+			System.out.println("RoomData!");
+		}
+		else if(type.equals("Order")){
+			dataService=new OrderDataServiceMySqlImpl_Stub();
+			System.out.println("OrderData!");
+		}
+		else{
+			dataService=null;
+		}
+		return dataService;
 	}
-
-	@Override
-	public DataService getCreditRecordData() {
-		// TODO Auto-generated method stub
-		DataService creditRecordData=new CreditRecordDataServiceMySqlImpl_Stub();
-		System.out.println("CreditRecordData!");
-		return creditRecordData;
-	}
-
-	@Override
-	public DataService getPromotionData() {
-		// TODO Auto-generated method stub
-		DataService promotionData=new PromotionDataServiceMySqlImpl_Stub();
-		System.out.println("PromotionData!");
-		return promotionData;
-	}
-
-	@Override
-	public DataService getOrderData() {
-		// TODO Auto-generated method stub
-		DataService orderData=new OrderDataServiceMySqlImpl_Stub();
-		System.out.println("OrderData!");
-		return orderData;
-	}
-
-	@Override
-	public DataService getHotelData() {
-		// TODO Auto-generated method stub
-		DataService hotelData=new HotelDataServiceMySqlImpl_Stub();
-		System.out.println("HotelData!");
-		return hotelData;
-	}
-
-	@Override
-	public DataService getRoomData() {
-		// TODO Auto-generated method stub
-		DataService roomData=new RoomDataServiceMySqlImpl_Stub();
-		System.out.println("RoomData!");
-		return roomData;
-	}
-
 }

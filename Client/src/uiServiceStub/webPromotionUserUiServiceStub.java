@@ -19,6 +19,11 @@ import uiService.webPromotionUserUiService;
 public class webPromotionUserUiServiceStub extends JFrame implements webPromotionUserUiService {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
      * 网站营销人员的初始界面
      * 
      * @param 

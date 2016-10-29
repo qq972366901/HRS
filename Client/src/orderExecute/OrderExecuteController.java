@@ -1,15 +1,7 @@
 package orderExecute;
 
-import java.rmi.RemoteException;
 import java.sql.Time;
-import java.util.ArrayList;
-
-import Object.Hotel;
-import VO.HotelVO;
 import VO.OrderVO;
-import VO.UserVO;
-import common.ResultMessage;
-import common.UserType;
 import orderBLService.OrderBLService_realize;
 public class OrderExecuteController extends OrderBLService_realize{
 	

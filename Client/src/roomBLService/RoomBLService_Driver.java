@@ -1,7 +1,6 @@
 package roomBLService;
 import java.util.ArrayList;
 
-import Object.Room;
 import VO.*;
 import common.*;
 import roomBLService.RoomBLService;

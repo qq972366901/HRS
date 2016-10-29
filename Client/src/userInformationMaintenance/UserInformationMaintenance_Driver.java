@@ -1,8 +1,5 @@
 package userInformationMaintenance;
 import java.rmi.RemoteException;
-import java.util.ArrayList;
-
-import Object.User;
 import VO.*;
 import common.*;
 import userBLService.UserBLService;

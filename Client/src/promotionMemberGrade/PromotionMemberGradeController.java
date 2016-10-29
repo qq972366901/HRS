@@ -1,11 +1,8 @@
 package promotionMemberGrade;
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import Object.Promotion;
 import VO.PromotionVO;
-import common.ResultMessage;
-import common.UserType;
 import promotionBLService.PromotionBLService_realize;
 public class PromotionMemberGradeController extends PromotionBLService_realize{	
 	/**

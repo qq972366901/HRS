@@ -1,9 +1,6 @@
 package promotionHotel;
-import java.rmi.RemoteException;
-
 import VO.PromotionVO;
 import common.ResultMessage;
-import common.UserType;
 import promotionBLService.PromotionBLService_realize;
 public class PromotionHotelController extends PromotionBLService_realize {
 	  /**
