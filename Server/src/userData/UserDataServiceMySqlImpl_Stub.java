@@ -16,7 +16,7 @@ public class UserDataServiceMySqlImpl_Stub implements Serializable,dataService.U
 	public UserPO find(String id) throws RemoteException {
 		// TODO Auto-generated method stub
 		System.out.println("Find Succeed!");
-		UserPO po=new UserPO("lz","xxx","54290544383",2,"企业会员","2016/3/3","xxx");
+		UserPO po=new UserPO("lz","xxx","54290544383",2,"企业会员",1,"2016/3/3","xxx");
 		return po;
 	}
 

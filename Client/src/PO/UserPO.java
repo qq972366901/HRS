@@ -13,7 +13,8 @@ public class UserPO extends PO implements Serializable{
 	private String useraccount;
 	private String contactway;
 	private int level;
-	private String type;
+	private String membertype;
+	private int type;
 	private String birthday;
 	private String enterprise;
 	/**
@@ -22,19 +23,21 @@ public class UserPO extends PO implements Serializable{
 	 * @param ua String型，逻辑层传来的客户账号
 	 * @param co String型，逻辑层传来的客户联系方式
 	 * @param l int型，逻辑层传来的客户会员等级
-	 * @param t String型，逻辑层传来的客户种类
+	 * @param mt String型，逻辑层传来的客户会员种类
+	 * @param t int型，逻辑层传来的用户种类
 	 * @param b String型，逻辑层传来的客户生日
 	 * @param e String型，逻辑层传来的客户所在企业
 	 * @return 
 	 * @throws
 	 * @see
 	 */
-	public UserPO(String un,String ua,String co,int l,String t,String b,String e){
+	public UserPO(String un,String ua,String co,int l,String mt,int t,String b,String e){
 		username=un;
 		useraccount=ua;
 		contactway=co;
 		level=l;
 		type=t;
+		membertype=mt;
 		birthday=b;
 		enterprise=e;
 	}
@@ -119,23 +122,43 @@ public class UserPO extends PO implements Serializable{
 		level=l;
 	}
 	/**
-	 * 获取客户种类
+	 * 获取客户会员种类
 	 * @param
-	 * @return 返回客户种类
+	 * @return 返回客户会员种类
 	 * @throws
 	 * @see
 	 */
-	public String getType(){
-		return type;
+	public String getMemberType(){
+		return membertype;
 	}
 	/**
-	 * 设置客户种类
-	 * @param t String 型，逻辑层传来的客户种类
+	 * 设置客户会员种类
+	 * @param t String 型，逻辑层传来的客户会员种类
 	 * @return
 	 * @throws
 	 * @see
 	 */
-	public void setType(String t){
+	public void setMemberType(String t){
+		membertype=t;
+	}
+	/**
+	 * 获取用户种类
+	 * @param
+	 * @return 返回用户种类
+	 * @throws
+	 * @see
+	 */
+	public int getType(){
+		return type;
+	}
+	/**
+	 * 设置用户种类
+	 * @param t String 型，逻辑层传来的用户种类
+	 * @return
+	 * @throws
+	 * @see
+	 */
+	public void setType(int t){
 		type=t;
 	}
 	/**

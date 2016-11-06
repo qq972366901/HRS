@@ -33,7 +33,7 @@ public class UserCreditRecordController extends UserBLService_realize{
 			 * @see bussinesslogic.User
 			 */
 				public CreditRecordVO showCreditRecord(UserVO vo) {
-				CreditRecordVO cr=new CreditRecordVO();
+				CreditRecordVO cr=new CreditRecordVO("1@nju.edu.cn","2016/2/2 12/4/6","4728",0,50,3000);
 				return cr;
 			}	
 				/**

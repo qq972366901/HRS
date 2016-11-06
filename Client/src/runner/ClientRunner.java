@@ -5,13 +5,10 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
-import java.util.ArrayList;
 
-import PO.HotelPO;
-import dataService.DataFactoryService;
-import dataService.HotelDataService;
+import VO.UserVO;
 import rmi.RemoteHelper;
-import uiController.userUiController;
+import userBLImpl.User;
 
 public class ClientRunner implements Serializable{
 /**
@@ -39,8 +36,8 @@ public class ClientRunner implements Serializable{
 	}
 	
 	private void initGUI() throws RemoteException {
-		userUiController u=new userUiController();
-		u.init();
+		//userUiController u=new userUiController();
+		//u.init();
 		/*
 		DataFactoryService df=RemoteHelper.getInstance().getDataFactoryService();
 		HotelDataService dh=(HotelDataService) df.getDataService("Hotel");
@@ -66,6 +63,5 @@ public class ClientRunner implements Serializable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
 }

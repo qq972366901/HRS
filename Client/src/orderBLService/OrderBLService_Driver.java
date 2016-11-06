@@ -12,7 +12,7 @@ public class OrderBLService_Driver {
 		ResultMessage result2=orderBLService.getRoomInfo(new OrderVO());
     	if(result2 ==ResultMessage.Exist) System.out.println("getRoomInfo success");
     	System.out.println("cancel success");
-		ArrayList<Hotel> result3=orderBLService.gethistory(new UserVO());
+		ArrayList<Hotel> result3=orderBLService.gethistory(new UserVO("1","1@nju.edu.cn","3414141","1",false,1,78,"∆’Õ®ª·‘±",1,"1981/2/2",""));
     	if(result3 ==new ArrayList<Hotel>()) System.out.println("gethistory success");
 		ArrayList<OrderVO> result4=orderBLService.findByType(new HotelVO());
     	if(result4 ==new ArrayList<OrderVO>()) System.out.println("findByType1 success");

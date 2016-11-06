@@ -9,6 +9,7 @@ import java.io.Serializable;
  */
 public class CreditRecordPO  extends PO implements Serializable{
 	private static final long serialVersionUID = 1L;
+	private String crid;
 	private String time;
 	private int action;
 	private long creditchange;
@@ -22,11 +23,26 @@ public class CreditRecordPO  extends PO implements Serializable{
 	 * @param cu long型，逻辑层传来的当前信用值
 	 * 
 	 */
-	public CreditRecordPO(String t,int act,long ch,long cu){
+	public CreditRecordPO(String id,String t,int act,long ch,long cu){
+		crid=id;
 		time=t;
 		action=act;
 		creditchange=ch;
 		currentcredit=cu;
+	}
+	/**
+	 * 获取ID
+	 * @return 返回信用记录ID
+	 */
+	public String getID(){
+		return crid;
+	}
+	/**
+	 * 设置信用记录ID
+	 * @param id String型，逻辑层传来的ID
+	 */
+	public void setID(String id){
+		crid=id;
 	}
 	/**
 	 * 获取时间

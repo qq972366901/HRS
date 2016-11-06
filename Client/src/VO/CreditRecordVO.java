@@ -15,6 +15,14 @@ public class CreditRecordVO extends VO {
 	public int action;
 	public long creditchange;
 	public long currentcredit;
+	public CreditRecordVO(String a,String t,String id,int act,long cre,long cur){
+		account=a;
+		time=t;
+		orderID=id;
+		action=act;
+		creditchange=cre;
+		currentcredit=cur;
+	}
 
 	/**
      * 更新信用记录信息

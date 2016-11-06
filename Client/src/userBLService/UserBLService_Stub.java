@@ -128,7 +128,7 @@ public class UserBLService_Stub implements UserBLService{
 	 * @see bussinesslogic.User
 	 */
 		public CreditRecordVO showCreditRecord(UserVO vo){
-			return new CreditRecordVO();
+			return new CreditRecordVO("1@nju.edu.cn","2016/2/2 12/4/6","4728",0,50,3000);
 		}
 	/**
 	 * 订单支付成功后的信用更新

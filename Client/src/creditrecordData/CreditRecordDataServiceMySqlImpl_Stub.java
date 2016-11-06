@@ -15,7 +15,7 @@ public class CreditRecordDataServiceMySqlImpl_Stub implements Serializable, data
 	public CreditRecordPO find(String id) throws RemoteException {
 		// TODO Auto-generated method stub
 		System.out.println("Find Succeed!");
-		CreditRecordPO po=new CreditRecordPO("2016/10/15 14/03",1,16,80);
+		CreditRecordPO po=new CreditRecordPO("3223","2016/10/15 14/03",1,16,80);
 		return po;
 	}
 
