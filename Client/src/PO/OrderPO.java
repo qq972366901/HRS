@@ -2,6 +2,7 @@ package PO;
 
 import java.io.Serializable;
 import java.sql.Time;
+import java.util.Date;
 /**
  * 订单的数据实体
  * @author LZ
@@ -17,9 +18,11 @@ public class OrderPO extends PO implements Serializable{
 	private boolean child;
 	private String roomType;
 	private int roomNumber;
-	private Time expectedCheckIn;
-	private Time expectedCheckOut;
-	private Time latest;
+	private Date expectedCheckIn;
+	private Date expectedCheckOut;
+	private Date latest;
+	private Date cancel;
+	private Date generationTime;
 	private String comment;
 	private int score;	
 	/**
@@ -31,16 +34,18 @@ public class OrderPO extends PO implements Serializable{
 	 * @param ch boolean型，逻辑层传来的有无儿童
 	 * @param rType String型，逻辑层传来的房间类型
 	 * @param rNum int型，逻辑层传来的订购数量
-	 * @param in Time型，逻辑层传来的预订入住时间
-	 * @param out Time型，逻辑层传来的预订离开时间
-	 * @param la Time型，逻辑层传来的最晚执行时间
+	 * @param in Date型，逻辑层传来的预订入住时间
+	 * @param out Date型，逻辑层传来的预订离开时间
+	 * @param la Date型，逻辑层传来的最晚执行时间
+	 * @param can Date型，逻辑层传来的取消时间
+	 * @param gen Date型，逻辑层传来的订单操作时间
 	 * @param comm String型，逻辑层传来的订单评价
 	 * @param sco int型，逻辑层传来的订单评分
 	 * @return
 	 * @throws
 	 * @see
 	 */
-	public OrderPO (String oNum, int state, int value, int pnum,boolean ch,String rType, int rNum, Time in, Time out,Time la, String comm, int sco) {
+	public OrderPO (String oNum, int state, int value, int pnum,boolean ch,String rType, int rNum, Date in, Date out,Date la ,Date can,Date gen,String comm, int sco) {
 		
 		orderNumber = oNum;
 		orderState = state;
@@ -52,6 +57,8 @@ public class OrderPO extends PO implements Serializable{
 		expectedCheckIn = in;
 		expectedCheckOut = out;
 		latest=la;
+		cancel=can;
+		generationTime=gen;
 		comment = comm;
 		score = sco;
 
@@ -133,7 +140,7 @@ public class OrderPO extends PO implements Serializable{
 	 * @throws
 	 * @see
 	 */
-	public Time getExpectedCheckIn() {
+	public Date getExpectedCheckIn() {
 		return expectedCheckIn;
 	}
 	/**
@@ -143,7 +150,7 @@ public class OrderPO extends PO implements Serializable{
 	 * @throws
 	 * @see
 	 */
-	public Time getExpectedCheckOut() {
+	public Date getExpectedCheckOut() {
 		return expectedCheckOut;
 	}
 	/**
@@ -153,7 +160,7 @@ public class OrderPO extends PO implements Serializable{
 	 * @throws
 	 * @see
 	 */
-	public Time getLatest(){
+	public Date getLatest(){
 		return latest;
 	}
 	/**
@@ -297,6 +304,46 @@ public class OrderPO extends PO implements Serializable{
 	 */
 	public void setScore(int sco) {
 		score = sco;
+	}
+	/**
+	 * 获取取消时间
+	 * @param
+	 * @return 返回取消时间
+	 * @throws
+	 * @see
+	 */
+	public Date getCancel() {
+		return cancel;
+	}
+	/**
+	 * 获取操作时间
+	 * @param
+	 * @return 返回操作时间
+	 * @throws
+	 * @see
+	 */
+	public Date getgenerationTime() {
+		return generationTime;
+	}
+	/**
+	 * 设置取消时间
+	 * @param can Date型，逻辑层传来的取消时间
+	 * @return
+	 * @throws
+	 * @see
+	 */
+	public void setcancel(Date can) {
+		cancel = can;
+	}
+	/**
+	 * 设置操作时间
+	 * @param gen Date型，逻辑层传来的操作时间
+	 * @return
+	 * @throws
+	 * @see
+	 */
+	public void setgenerationTime(Date gen) {
+		generationTime = gen;
 	}
 
 }

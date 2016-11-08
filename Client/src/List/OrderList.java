@@ -12,18 +12,14 @@ import VO.UserVO;
  * @see
  */
 public class OrderList {
-
-	List<OrderLineItem> orders;
-	
+	List<OrderLineItem> orders;	
 	/**
 	 * 订单列表
 	 * @param
 	 * @return
 	 */
-	public OrderList () {
-		
-		orders = new ArrayList<OrderLineItem>();
-		
+	public OrderList () {		
+		orders = new ArrayList<OrderLineItem>();		
 	}
 	
 	/**
@@ -65,7 +61,14 @@ public class OrderList {
 	 * @return 返回list
 	 */
 	public List<OrderLineItem> gethotel(HotelVO vo) {		
-		return orders;
+		String name=vo.hotelName;
+		List<OrderLineItem> list=new ArrayList<OrderLineItem>();
+		for(int i=0;i<orders.size();i++){
+			if(orders.get(i).getvo().hotelID.equals(name)){
+				list.add(orders.get(i));
+			}
+		}
+		return list;
 	}
 	/**
 	 * 显示符合条件的订单
@@ -75,7 +78,7 @@ public class OrderList {
 	public List<OrderLineItem> find(String str) {
 		List<OrderLineItem> list=new ArrayList<OrderLineItem>();
 		for(int i=0;i<orders.size();i++){
-			if(orders.get(i).getorder().getRoomType().equals(str)){
+			if(orders.get(i).getvo().roomType.equals(str)){
 				list.add(orders.get(i));
 			}
 		}
@@ -83,12 +86,12 @@ public class OrderList {
 	}
 	/**
 	 * 显示符合条件的订单
-	 * @param str String型，id
+	 * @param str String型，订单号
 	 * @return 返回订单
 	 */
 	public OrderLineItem showdetail(String orderID) {
 		for(int i=0;i<orders.size();i++){
-			if(orders.get(i).getorder().getOrderNumber().equals(orderID)){
+			if(orders.get(i).getvo().orderNumber.equals(orderID)){
 				return orders.get(i);
 			}
 		}
@@ -101,8 +104,8 @@ public class OrderList {
 	 */
 	public void cancel(String orderID, Date currentTime) {
 		for(int i=0;i<orders.size();i++){
-			if(orders.get(i).getorder().getOrderNumber().equals(orderID)){
-				orders.get(0).cancel(currentTime);
+			if(orders.get(i).getvo().orderNumber.equals(orderID)){
+				orders.get(i).cancel(currentTime);
 			}
 		}
 	}
@@ -121,7 +124,8 @@ public class OrderList {
 	 */
 	public OrderLineItem find(String userID, String orderID) {
 		for(int i=0;i<orders.size();i++){
-			if(orders.get(i).getorder().getOrderNumber().equals(orderID)){
+			if(orders.get(i).getvo().userID.equals(userID)&&
+					orders.get(i).getvo().orderNumber.equals(orderID)){
 				return orders.get(i);
 			}
 		}
@@ -135,7 +139,7 @@ public class OrderList {
 	 */
 	public OrderLineItem findByID(String iD) {
 		for(int i=0;i<orders.size();i++){
-			if(orders.get(i).getorder().getOrderNumber().equals(iD)){
+			if(orders.get(i).getvo().orderNumber.equals(iD)){
 				return orders.get(i);
 			}
 		}
@@ -147,6 +151,26 @@ public class OrderList {
 	 * @return 返回list
 	 */
 	public List<OrderLineItem> gethistory(UserVO vo) {
-		return orders;
+		List<OrderLineItem> list=new ArrayList<OrderLineItem>();
+		for(int i=0;i<orders.size();i++){
+			if(orders.get(i).getvo().userID.equals(vo.id)){
+				list.add(orders.get(i));
+			}
+		}
+		return list;
+	}
+	public boolean generation (String userID){
+		List<OrderLineItem> list=new ArrayList<OrderLineItem>();
+		for(int i=0;i<orders.size();i++){
+			if(orders.get(i).getvo().userID.equals(userID)){
+				list.add(orders.get(i));
+			}
+		}
+		if(list.isEmpty()){
+			return false;
+		}
+		else{
+			return true;
+		}
 	}
 }

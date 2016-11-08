@@ -19,7 +19,10 @@ public class HotelVO extends VO {
 	public String hotelReservation;
 	public String hotelAccount;
 	public double score;
-	
+	public HotelVO(String id){
+		hotelName=id;
+	}
+	public HotelVO(){}
 	/**
      * 更新酒店信息
      * 
@@ -27,7 +30,7 @@ public class HotelVO extends VO {
      * @return 
      * @see Object.Hotel
      */
-	public void update(Hotel hotel) {
+	public void update(HotelVO hotel) {
 		
 	}
 	
