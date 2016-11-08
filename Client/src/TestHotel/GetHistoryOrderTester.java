@@ -8,16 +8,17 @@ import LineItem.OrderLineItem;
 import List.OrderList;
 import Object.Hotel;
 import Object.Order;
+import VO.OrderVO;
 
 public class GetHistoryOrderTester {
 
 	@Test
 	public void test() {
 
-		Order order1 = new Order();
-		Order order2 = new Order();
-		Order order3 = new Order();
-		Order order4 = new Order();
+		OrderVO order1 = new OrderVO();
+		OrderVO order2 = new OrderVO();
+		OrderVO order3 = new OrderVO();
+		OrderVO order4 = new OrderVO();
 		
 		OrderLineItem orderLineItem1 = new OrderLineItem(order1);
 		OrderLineItem orderLineItem2 = new OrderLineItem(order2);

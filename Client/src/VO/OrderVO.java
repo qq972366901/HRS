@@ -1,16 +1,19 @@
 package VO;
 import java.sql.Time;
+import java.util.Date;
+import PO.*;
 import Object.Order;
 
 /**
  * 订单的属性及数据创建与更新
- * @author 刘宗侃
- * @version 1.0
+ * @author 刘宇翔
+ * @version 1.1
  * @see Object.Order
  */
 
 public class OrderVO extends VO {
-
+    public String userID;
+    public String hotelID;
 	public String orderNumber;
 	public int orderState;
 	public int orderValue;
@@ -18,12 +21,49 @@ public class OrderVO extends VO {
 	public boolean child;
 	public String roomType;
 	public int roomNumber;
-	public Time expectedCheckIn;
-	public Time expectedCheckOut;
-	public Time latest;
+	public Date expectedCheckIn;
+	public Date expectedCheckOut;
+	public Date latest;
+	public Date cancel;
+	public Date generationTime;
 	public String comment;
 	public int score;	
-
+    public OrderVO (String hotelID,String userid,String oNum, int state, int value, int pnum,boolean ch,String rType, int rNum, Date in, Date out,Date la,Date cal,Date gen, String comm, int sco) {
+		this.hotelID=hotelID;
+    	userID=userid;
+    	orderNumber = oNum;
+		orderState = state;
+		orderValue = value;
+		numOfPerson=pnum;
+		child=ch;
+		roomType = rType;
+		roomNumber = rNum;
+		expectedCheckIn = in;
+		expectedCheckOut = out;
+		latest=la;
+		comment = comm;
+		score = sco;
+        cancel=cal;
+        generationTime=gen;
+	}
+    public OrderVO (HotelPO po1,OrderPO po){
+    	hotelID=po1.gethotelName();
+		orderNumber=po.getOrderNumber();
+		orderState=po.getOrderState();
+		orderValue=po.getOrderValue();
+		numOfPerson=po.getNumOfPerson();
+		child=po.getChild();
+		roomType=po.getRoomType();
+		roomNumber=po.getRoomNumber();
+		expectedCheckIn=po.getExpectedCheckIn();
+		expectedCheckOut=po.getExpectedCheckOut();
+		latest=po.getLatest();
+		cancel=po.getCancel();
+		generationTime=po.getgenerationTime();
+		comment=po.getComment();
+		score=po.getScore();	
+    }
+    public OrderVO(){}
 	/**
      * 更新订单信息
      * 
@@ -31,8 +71,23 @@ public class OrderVO extends VO {
      * @return 
      * @see Object.Order
      */
-	public void update(Order ord) {
-		
+	public void update(OrderVO vo) {
+		hotelID=vo.hotelID;
+		userID=vo.userID;
+		orderNumber=vo.orderNumber;
+		orderState=vo.orderState;
+		orderValue=vo.orderValue;
+		numOfPerson=vo.numOfPerson;
+		child=vo.child;
+		roomType=vo.roomType;
+		roomNumber=vo.roomNumber;
+		expectedCheckIn=vo.expectedCheckIn;
+		expectedCheckOut=vo.expectedCheckOut;
+		latest=vo.latest;
+		cancel=vo.cancel;
+		generationTime=vo.generationTime;
+		comment=vo.comment;
+		score=vo.score;	
 	}
 	
 	/**
@@ -41,8 +96,7 @@ public class OrderVO extends VO {
      * @return 一个新下的订单
      * @see Object.Order
      */
-	public Order makeOrder() {
-		
+	public Order makeOrder() {		
 		return new Order();
 	}
 	

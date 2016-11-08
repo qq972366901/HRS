@@ -18,7 +18,7 @@ import common.*;
 /**
  * Test_Order
  * @author ¡ı”ÓœË
- * @version 1.0
+ * @version 1.1
  * @see
  */
 public class Test_comment {
@@ -27,9 +27,9 @@ public class Test_comment {
 	Date time4=new Date(2016,9,3,4,13,29);
 	Date time5=new Date(2017,12,3,23,16,0);
 	Date time3=null;
-    MockOrder a=new MockOrder("000", 2, 100, 3, false, "double", 303, time1, time2, time3, "good", 100, time3);
-    MockOrder b=new MockOrder("023", 1, 155, 4, true, "one", 305, time4, time5, time1, "very good", 98, time4);
-    MockOrder c=new MockOrder("025", 1, 155, 3, true, "three", 307, time4, time5, time1, "", 70, time3);
+    MockOrder a=new MockOrder("000001","00101","000", 2, 100, 3, false, "double", 303, time1, time2, time3,time3,time4, "good", 100);
+    MockOrder b=new MockOrder("000001","00101","023", 1, 155, 4, true, "one", 305, time4, time5, time1,time3,time4, "very good", 98);
+    MockOrder c=new MockOrder("000001","00101","025", 1, 155, 3, true, "three", 307, time4, time5, time1,time3,time4, "just so so", 70);
 	@Test
 	public void test() {
 		OrderList list=new OrderList();
@@ -41,8 +41,8 @@ public class Test_comment {
 		list.addOrderLineItems(item3);
 		Order order=new Order();
 		order.addorderlist(list);
-		order.comment("just so so", item3.getorder());
-		assertEquals(item3.getorder().getComment(),"just so so");
+		order.comment("just so so", item3.getvo());
+		assertEquals(item3.getvo().comment,"just so so");
 	}
 
 }

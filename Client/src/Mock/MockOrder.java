@@ -1,32 +1,23 @@
 package Mock;
 
+import java.sql.Time;
 import java.util.Date;
 
 import Object.Order;
+import VO.OrderVO;
 /**
  * MockOrder
  * @author 刘宇翔
  * @version 1.0
  * @see
  */
-public class MockOrder extends Order{
+public class MockOrder extends OrderVO{
 		private static final long serialVersionUID = 1L;
-		private String orderNumber;
-		private int orderState;
-		private int orderValue;
-		private int numOfPerson;
-		private boolean child;
-		private String roomType;
-		private int roomNumber;
-		private Date expectedCheckIn;
-		private Date expectedCheckOut;
-		private Date latest;
-		private Date cancel;
-		private String comment;
-		private int score;	
 		/**
 		 * 构造订单数据实体
 		 * @param oNum String型，逻辑层传来的订单编号
+		 * @param userID String型，逻辑层传来的用户标号
+		 * @param hotelID String型，逻辑层传来的酒店id
 		 * @param state int型，逻辑层传来的订单状态
 		 * @param value int型，逻辑层传来的订单价值
 		 * @param pnum int型，逻辑层传来的人数
@@ -36,15 +27,17 @@ public class MockOrder extends Order{
 		 * @param in Date型，逻辑层传来的预订入住时间
 		 * @param out Date型，逻辑层传来的预订离开时间
 		 * @param la Date型，逻辑层传来的最晚执行时间
+		 * @param can Date型，逻辑层传来的取消时间
+		 * @param gen Date型，逻辑层传来的操作时间
 		 * @param comm String型，逻辑层传来的订单评价
 		 * @param sco int型，逻辑层传来的订单评分
-		 * @param cancel Date型，逻辑层传来的撤销时间
 		 * @return
 		 * @throws
 		 * @see
 		 */
-		public MockOrder (String oNum, int state, int value, int pnum,boolean ch,String rType, int rNum, Date in, Date out,Date la, String comm, int sco,Date cancel) {
-			
+		public MockOrder (String hotelID,String userid,String oNum, int state, int value, int pnum,boolean ch,String rType, int rNum, Date in, Date out,Date la ,Date can,Date gen,String comm, int sco) {
+			userID=userid;
+			this.hotelID=hotelID;
 			orderNumber = oNum;
 			orderState = state;
 			orderValue = value;
@@ -55,30 +48,11 @@ public class MockOrder extends Order{
 			expectedCheckIn = in;
 			expectedCheckOut = out;
 			latest=la;
+			cancel=can;
+			generationTime=gen;
 			comment = comm;
 			score = sco;
-	        this.cancel=cancel;
-		}
-		public MockOrder(){}
-		/**
-		 * 获取撤销时间
-		 * @param
-		 * @return 返回时间
-		 * @throws
-		 * @see
-		 */
-		public Date getcancel() {
-			return cancel;
-		}
-		/**
-		 * 获取订单编号
-		 * @param
-		 * @return 返回订单编号
-		 * @throws
-		 * @see
-		 */
-		public void setcancel(Date t) {
-			cancel=t;
+
 		}
 		/**
 		 * 获取订单编号
@@ -279,7 +253,7 @@ public class MockOrder extends Order{
 		 * @throws
 		 * @see
 		 */
-		public void setExpectedCheckIn(Date in) {
+		public void setExpectedCheckIn(Time in) {
 			expectedCheckIn = in;
 		}
 		/**
@@ -289,7 +263,7 @@ public class MockOrder extends Order{
 		 * @throws
 		 * @see
 		 */
-		public void setLatest(Date la){
+		public void setLatest(Time la){
 			latest=la;
 		}
 		/**
@@ -299,7 +273,7 @@ public class MockOrder extends Order{
 		 * @throws
 		 * @see
 		 */
-		public void setExpectedCheckOut(Date out) {
+		public void setExpectedCheckOut(Time out) {
 			expectedCheckOut = out;
 		}
 		/**
@@ -321,5 +295,45 @@ public class MockOrder extends Order{
 		 */
 		public void setScore(int sco) {
 			score = sco;
+		}
+		/**
+		 * 获取取消时间
+		 * @param
+		 * @return 返回取消时间
+		 * @throws
+		 * @see
+		 */
+		public Date getCancel() {
+			return cancel;
+		}
+		/**
+		 * 获取操作时间
+		 * @param
+		 * @return 返回操作时间
+		 * @throws
+		 * @see
+		 */
+		public Date getgenerationTime() {
+			return generationTime;
+		}
+		/**
+		 * 设置取消时间
+		 * @param can Date型，逻辑层传来的取消时间
+		 * @return
+		 * @throws
+		 * @see
+		 */
+		public void setcancel(Date can) {
+			cancel = can;
+		}
+		/**
+		 * 设置操作时间
+		 * @param gen Date型，逻辑层传来的操作时间
+		 * @return
+		 * @throws
+		 * @see
+		 */
+		public void setgenerationTime(Date gen) {
+			generationTime = gen;
 		}
 }
