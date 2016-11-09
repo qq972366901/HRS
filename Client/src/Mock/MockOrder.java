@@ -55,6 +55,51 @@ public class MockOrder extends OrderVO{
 
 		}
 		/**
+		 * 构造订单数据实体
+		 * @param oNum String型，逻辑层传来的订单编号
+		 * @param level int型，逻辑层传来的客户等级
+		 * @param credit long型，逻辑层传来的客户信用值
+		 * @param userID String型，逻辑层传来的用户标号
+		 * @param hotelID String型，逻辑层传来的酒店id
+		 * @param state int型，逻辑层传来的订单状态
+		 * @param value int型，逻辑层传来的订单价值
+		 * @param pnum int型，逻辑层传来的人数
+		 * @param ch boolean型，逻辑层传来的有无儿童
+		 * @param rType String型，逻辑层传来的房间类型
+		 * @param rNum int型，逻辑层传来的订购数量
+		 * @param in Date型，逻辑层传来的预订入住时间
+		 * @param out Date型，逻辑层传来的预订离开时间
+		 * @param la Date型，逻辑层传来的最晚执行时间
+		 * @param can Date型，逻辑层传来的取消时间
+		 * @param gen Date型，逻辑层传来的操作时间
+		 * @param comm String型，逻辑层传来的订单评价
+		 * @param sco int型，逻辑层传来的订单评分
+		 * @return
+		 * @throws
+		 * @see
+		 */
+		public MockOrder (String hotelID,int level,long credit,String userid,String oNum, int state, int value, int pnum,boolean ch,String rType, int rNum, Date in, Date out,Date la ,Date can,Date gen,String comm, int sco) {
+			userID=userid;
+			this.userLevel=level;
+			this.credit=credit;
+			this.hotelID=hotelID;
+			orderNumber = oNum;
+			orderState = state;
+			orderValue = value;
+			numOfPerson=pnum;
+			child=ch;
+			roomType = rType;
+			roomNumber = rNum;
+			expectedCheckIn = in;
+			expectedCheckOut = out;
+			latest=la;
+			cancel=can;
+			generationTime=gen;
+			comment = comm;
+			score = sco;
+
+		}
+		/**
 		 * 获取订单编号
 		 * @param
 		 * @return 返回订单编号
@@ -335,5 +380,45 @@ public class MockOrder extends OrderVO{
 		 */
 		public void setgenerationTime(Date gen) {
 			generationTime = gen;
+		}
+		/**
+		 * 获取客户信用值
+		 * @param
+		 * @return 返回客户信用值
+		 * @throws
+		 * @see
+		 */
+		public long getcredit() {
+			return credit;
+		}
+		/**
+		 * 获取客户等级
+		 * @param
+		 * @return 返回客户等级
+		 * @throws
+		 * @see
+		 */
+		public int getlevel() {
+			return userLevel;
+		}
+		/**
+		 * 设置客户信用值
+		 * @param can long型，逻辑层传来的信用值总额
+		 * @return
+		 * @throws
+		 * @see
+		 */
+		public void setcredit(long can) {
+			credit = can;
+		}
+		/**
+		 * 设置客户登记
+		 * @param gen long型，逻辑层传来的客户等级
+		 * @return
+		 * @throws
+		 * @see
+		 */
+		public void setlevel(int gen) {
+			userLevel = gen;
 		}
 }

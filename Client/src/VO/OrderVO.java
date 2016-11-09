@@ -13,6 +13,8 @@ import Object.Order;
 
 public class OrderVO extends VO {
     public String userID;
+    public int userLevel;
+    public long credit;
     public String hotelID;
 	public String orderNumber;
 	public int orderState;
@@ -28,8 +30,10 @@ public class OrderVO extends VO {
 	public Date generationTime;
 	public String comment;
 	public int score;	
-    public OrderVO (String hotelID,String userid,String oNum, int state, int value, int pnum,boolean ch,String rType, int rNum, Date in, Date out,Date la,Date cal,Date gen, String comm, int sco) {
+    public OrderVO (String hotelID,int level,long credit,String userid,String oNum, int state, int value, int pnum,boolean ch,String rType, int rNum, Date in, Date out,Date la,Date cal,Date gen, String comm, int sco) {
 		this.hotelID=hotelID;
+		userLevel=level;
+		this.credit=credit;
     	userID=userid;
     	orderNumber = oNum;
 		orderState = state;
@@ -48,6 +52,41 @@ public class OrderVO extends VO {
 	}
     public OrderVO (HotelPO po1,OrderPO po){
     	hotelID=po1.gethotelName();
+		orderNumber=po.getOrderNumber();
+		orderState=po.getOrderState();
+		orderValue=po.getOrderValue();
+		numOfPerson=po.getNumOfPerson();
+		child=po.getChild();
+		roomType=po.getRoomType();
+		roomNumber=po.getRoomNumber();
+		expectedCheckIn=po.getExpectedCheckIn();
+		expectedCheckOut=po.getExpectedCheckOut();
+		latest=po.getLatest();
+		cancel=po.getCancel();
+		generationTime=po.getgenerationTime();
+		comment=po.getComment();
+		score=po.getScore();	
+    }
+    public OrderVO (UserPO po1,OrderPO po){
+    	userLevel=po1.getLevel();
+    	userID=po1.getAccount();
+		orderNumber=po.getOrderNumber();
+		orderState=po.getOrderState();
+		orderValue=po.getOrderValue();
+		numOfPerson=po.getNumOfPerson();
+		child=po.getChild();
+		roomType=po.getRoomType();
+		roomNumber=po.getRoomNumber();
+		expectedCheckIn=po.getExpectedCheckIn();
+		expectedCheckOut=po.getExpectedCheckOut();
+		latest=po.getLatest();
+		cancel=po.getCancel();
+		generationTime=po.getgenerationTime();
+		comment=po.getComment();
+		score=po.getScore();	
+    }
+    public OrderVO (CreditRecordPO po1,OrderPO po){
+    	credit=po1.getCurrentcredit();
 		orderNumber=po.getOrderNumber();
 		orderState=po.getOrderState();
 		orderValue=po.getOrderValue();
