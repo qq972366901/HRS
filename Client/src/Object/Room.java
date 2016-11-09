@@ -1,152 +1,18 @@
 package Object;
 
-import java.io.Serializable;
-import java.util.List;
-
 import LineItem.RoomLineItem;
 import List.OrderList;
 import List.RoomList;
+import VO.RoomVO;
 import common.ResultMessage;
 
 /**
- * 房间的数据实体
- * @author LZ
+ * 房间
+ * @author 刘宗侃
  * @version 1.0
  * @see
  */
-public class Room implements Serializable{
-	private static final long serialVersionUID = 1L;
-	private String roomId;
-    private String roomStatue;
-    private String roomType;
-    private int roomS;
-    private int roomPrice;
-    /**
-	 * 构造房间的数据实体
-	 * @param roomid String型，数据层传来的房间号
-	 * @param roomstatue String型，数据层传来的房间状态
-	 * @param roomtype String型，数据层传来的房间类型
-	 * @param rooms int型，数据层传来的房间数量
-	 * @param roomprice int型，数据层传来的房间价格
-	 * @return
-	 * @throws
-	 * @see
-	 */
-    public Room (String roomid,String roomstatue,String roomtype,int rooms,int roomprice){
-	    roomId=roomid;
-	    roomStatue=roomstatue;
-	    roomType=roomtype;
-	    roomS=rooms;
-	    roomPrice=roomprice;
-    }
-    /**
-	 * 构造房间的数据实体
-	 * @return
-	 */
-    public Room (){
-	    
-    }
-    /**
-	 * 获取房间号
-	 * @param
-	 * @return 返回房间号
-	 * @throws
-	 * @see
-	 */
-    public String getroomId() {
-    	return roomId;
-    } 
-    /**
-	 * 设置房间号
-	 * @param id String型，逻辑层传来的房间号
-	 * @return
-	 * @throws
-	 * @see
-	 */
-    public void setroomId (String id){
-    	roomId=id;
-    }
-    /**
-	 * 获取房间状态
-	 * @param
-	 * @return 返回房间状态
-	 * @throws
-	 * @see
-	 */
-    public String getroomStatue() {
-    	return roomStatue;
-    }
-    /**
-	 * 设置房间状态
-	 * @param sta String型，逻辑层传来的房间状态
-	 * @return
-	 * @throws
-	 * @see
-	 */
-    public void setroomStatue (String sta){
-    	roomStatue=sta;
-    }
-    /**
-	 * 获取房间类型
-	 * @param
-	 * @return 返回房间类型
-	 * @throws
-	 * @see
-	 */
-    public String getroomType() {
-    	return roomType;
-    }
-    /**
-	 * 设置房间类型
-	 * @param type String型，逻辑层传来的房间类型
-	 * @return 
-	 * @throws
-	 * @see
-	 */
-    public void setroomType (String type){
-		roomType=type;
-	}
-    /**
-	 * 获取房间数量
-	 * @param
-	 * @return 返回房间数量
-	 * @throws
-	 * @see
-	 */
-    public int getroomS() {
-		return roomS;
-	}
-    /**
-	 * 设置房间数量
-	 * @param room int型，逻辑层传来的房间数量
-	 * @return
-	 * @throws
-	 * @see
-	 */
-    public void setroomS (int room){
-		roomS=room;
-	}
-    /**
-	 * 获取房间价格
-	 * @param
-	 * @return 返回房间价格
-	 * @throws
-	 * @see
-	 */
-    public int getroomPrice() {
-		return roomPrice;
-	}
-    /**
-	 * 设置房间价格
-	 * @param price int型，逻辑层传来的房间价格
-	 * @return
-	 * @throws
-	 * @see
-	 */
-    public void setroomPrice (int price){
-		roomPrice=price;
-	}
-    
+public class Room {
     
     private RoomList roomList;
     private OrderList orderList;
@@ -168,13 +34,13 @@ public class Room implements Serializable{
     }
     /**
 	 * 获取房间价格
-	 * @param
+	 * @param rvo RoomVo型
 	 * @return 返回房间价格
 	 * @throws
 	 * @see
 	 */
-    public int getPrice() {
-    	return roomPrice;
+    public int getPrice(RoomVO rvo) {
+    	return roomList.getPrice(rvo);
     }
     /**
    	 * 获得房间列表
@@ -196,7 +62,7 @@ public class Room implements Serializable{
 	 * @see
 	 */
     public int messageAdd(String roomid, String roomstatue, String roomtype, int rooms, int roomprice) {
-    	roomList.addRoomLineItems(new RoomLineItem(new Room(roomid, roomstatue, roomtype, rooms, roomprice)));
+    	roomList.addRoomLineItems(new RoomLineItem(new RoomVO(roomid, roomstatue, roomtype, rooms, roomprice)));
     	return roomList.getRoom();
     }
     /**

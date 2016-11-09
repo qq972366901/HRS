@@ -8,6 +8,7 @@ import LineItem.HotelLineItem;
 import List.HotelList;
 import Mock.MockHotel;
 import Object.Hotel;
+import VO.HotelVO;
 import common.ResultMessage;
 
 public class AcountAdminTester {
@@ -30,7 +31,7 @@ public class AcountAdminTester {
 		
 		hotel.addHotelList(hotelList);
 		
-		assertEquals(ResultMessage.Exist, hotel.acountAdmin(new Hotel()));
+		assertEquals(ResultMessage.Exist, hotel.acountAdmin(new HotelVO()));
 		
 		
 	}
