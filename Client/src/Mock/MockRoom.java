@@ -1,10 +1,9 @@
 package Mock;
 
-import Object.Room;
+import VO.RoomVO;
 
-public class MockRoom extends Room {
+public class MockRoom extends RoomVO {
 
-	private static final long serialVersionUID = 1L;
 	private String roomId;
     private String roomStatue;
     private String roomType;

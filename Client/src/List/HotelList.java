@@ -5,7 +5,11 @@ import java.util.*;
 import LineItem.HotelLineItem;
 import Object.Hotel;
 import common.ResultMessage;
-
+/**
+ * ¾ÆµêÁÐ±í
+ * @author Áõ×ÚÙ©
+ * @version 1.0
+ */
 public class HotelList {
 
 	List<HotelLineItem> hotels;
