@@ -40,7 +40,7 @@ public class Test_getprice {
 		list.addOrderLineItems(item3);
 		Order order=new Order();
 		order.addorderlist(list);
-		assertEquals(b.getOrderValue(),order.getPrice(item2, "00101"));
+		assertEquals(b.getOrderValue(),order.getPrice("023","00101"));
 	}
 
 }

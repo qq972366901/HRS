@@ -26,23 +26,9 @@ import common.ResultMessage;
  */
 public class Order {
 	OrderLineItem orderitem;
-	CreditRecordLineItem credititem;
-	UserLineItem useritem;
-	RoomLineItem roomitem;
 	OrderList orderlist;
-	RoomList roomlist;
-	UserList userlist;
-	HotelList hotellist;
-	HotelLineItem hotelitem;
-	User user;
 	public void addorderlist(OrderList list){
 		orderlist=list;
-	}
-	public void addorderuser(UserLineItem use){
-		useritem=use;
-	}
-	public void addordcredit(CreditRecordLineItem use){
-		credititem=use;
 	}
 	/**
      * 显示所有订单信息
@@ -147,13 +133,7 @@ public class Order {
      * @see bussinesslogic.Order
      */
 	public Boolean whetherDeduct(Date currentTime,String orderID){
-		orderitem=orderlist.showdetail(orderID);
-		if(orderitem.getcancel()==currentTime){
-			return true;
-		}
-		else{
-			return false;
-		}
+		return orderlist.whetherDeduct(currentTime, orderID);
 	}
 	
 	
@@ -174,16 +154,7 @@ public class Order {
 			String roomType,int num,
 			int numOfPerson,
 			boolean haveChild ) {
-		OrderVO b=new OrderVO();
-		b.generationTime=currentTime;
-		b.expectedCheckIn=in;
-		b.expectedCheckOut=out;
-		b.roomType=roomType;
-		b.roomNumber=num;
-		b.numOfPerson=numOfPerson;
-		b.child=haveChild;
-	    OrderLineItem a=new OrderLineItem(b);	
-		orderlist.addOrderLineItems(a);
+		orderlist.makeOrder(currentTime, in, out, roomType, num, numOfPerson, haveChild);
 	}
 	
 	
@@ -209,9 +180,7 @@ public class Order {
      * @see bussinesslogic.Order
      */
 	public void done(String orderID,String userID){
-		orderlist.find(userID,orderID).getvo().orderState=3;
-		credititem.getUser().setCurrentcredit(3);
-		useritem.getUser().setLevel(3);
+		orderlist.updatedone(orderID,userID);
 	}
 	
 	
@@ -223,9 +192,7 @@ public class Order {
      * @see bussinesslogic.Order
      */
 	public void abnormalOrder(String orderID,String userID){
-		orderlist.find(userID,orderID).getvo().orderState=1;
-		credititem.getUser().setCurrentcredit(1);
-		useritem.getUser().setLevel(1);
+		orderlist.updateabnormal(orderID,userID);
 	}
 	
 	
@@ -237,9 +204,7 @@ public class Order {
      * @see bussinesslogic.Order
      */
 	public void delayIn(String orderID,String userID){
-		orderlist.find(userID,orderID).getvo().orderState=3;
-		credititem.getUser().setCurrentcredit(3);
-		useritem.getUser().setLevel(3);
+		orderlist.updatedone(orderID, userID);
 	}
 	
 	
@@ -261,8 +226,7 @@ public class Order {
      * @see bussinesslogic.Order
      */
 	public void comment(String comment,OrderVO vo){
-		vo.comment=comment;
-		vo.update(vo);
+		orderlist.comment(comment,vo);
 	}
 	
 	
@@ -286,8 +250,7 @@ public class Order {
      * @see bussinesslogic.Order
      */
 	public void regain(OrderVO vo,Choice choice){
-		credititem.getUser().setCurrentcredit(3);
-		useritem.getUser().setLevel(3);
+		orderlist.updatedone(vo.orderNumber, vo.userID);
 	}
 	
 	
@@ -299,8 +262,8 @@ public class Order {
      * @return long，订单的价值
      * @see bussinesslogic.Order
      */
-	public long getPrice(OrderLineItem item,String userID){
-		return item.getvo().orderValue;
+	public long getPrice(String orderID,String userID){
+		return orderlist.getPrice(orderID,userID);
 	}
 	
 	
