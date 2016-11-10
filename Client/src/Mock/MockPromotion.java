@@ -1,234 +1,307 @@
 package Mock;
-import java.sql.Time;
 
-import LineItem.PromotionLineItem;
-import List.PromotionList;
-import Object.Promotion;
-import common.ResultMessage;
-public class MockPromotion extends Promotion{
+import java.util.Calendar;
+
+import VO.PromotionVO;
+
+public class MockPromotion extends PromotionVO{
 		   private static final long serialVersionUID=1L;
-		   private String promotionNumber;
-		   private String promotionId;
-		   private Time beginTime;
-		   private Time endTime;
-		   private Time Birthday;
-		   private int roomNumber;
-		   private boolean corporateMember;
-		   private String hotelDistrict;
-		   private ResultMessage memberGrade;
-		   private double discount;
-		   
 		   /**
-			 * ¹¹ÔìÓªÏú²ßÂÔÊı¾İÊµÌå
-			 * @param promotionnumber StringĞÍ£¬Âß¼­²ã´«À´µÄÓªÏú²ßÂÔ±àºÅ
-			 * @param promotionid StringĞÍ£¬Âß¼­²ã´«À´µÄÓªÏú²ßÂÔÃû³Æ
-			 * @param begintime TimeĞÍ£¬Âß¼­²ã´«À´µÄ¿ªÊ¼Ê±¼ä
-			 * @param endtime TimeĞÍ£¬Âß¼­²ã´«À´µÄ½áÊøÊ±¼ä
-			 * @param birthday TimeĞÍ£¬Êı¾İ²ã´«À´µÄÉúÈÕ
-			 * @param roomnumber intĞÍ£¬Âß¼­²ã´«À´µÄ·¿¼äÊıÁ¿
-			 * @param corporatemember booleanĞÍ£¬Êı¾İ²ã´«À´µÄÊÇ·ñÊÇÆóÒµ»áÔ±
-			 * @param hoteldistrict StringĞÍ£¬Âß¼­²à´«À´µÄÉÌÈ¦
-			 * @param membergrade ResultMessageĞÍ£¬Êı¾İ²ã´«À´µÄ»áÔ±µÈ¼¶
-			 * @param dcount doubleĞÍ£¬Âß¼­²à´«À´µÄÕÛ¿Û
+			 * æ„é€ è¥é”€ç­–ç•¥æ•°æ®å®ä½“
+			 * @param promotionnumber Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„è¥é”€ç­–ç•¥ç¼–å·
+			 * @param promotionname Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„è¥é”€ç­–ç•¥åç§°
+			 * @param promotionstate intå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„è¥é”€ç­–ç•¥çŠ¶æ€
+			 * @param begintime Calendarå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„å¼€å§‹æ—¶é—´
+			 * @param endtime Calendarå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„ç»“æŸæ—¶é—´
+			 * @param applyusertype Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„é€‚ç”¨ç”¨æˆ·ç±»å‹
+			 * @param applybcircle Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„é€‚ç”¨å•†åœˆ
+			 * @param applyusershipgrade intå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„é€‚ç”¨ç”¨æˆ·ç­‰çº§
+			 * @param mininum intå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„æœ€å°‘æˆ¿é—´æ•°
+			 * @param promotiondiscount doubleå‹ï¼Œé€»è¾‘ä¾§ä¼ æ¥çš„æŠ˜æ‰£
+			 * @param usertype Stringå‹ï¼Œæ•°æ®å±‚ä¼ æ¥çš„ç”¨æˆ·ç±»å‹
+			 * @param usershipgrade intå‹ï¼Œæ•°æ®å±‚ä¼ æ¥çš„ç”¨æˆ·ç­‰çº§
+			 * @param roomnum intå‹ï¼Œæ•°æ®å±‚ä¼ æ¥è®¢è´­æˆ¿é—´æ•°
+			 * @param birthday Calendarå‹ï¼Œæ•°æ®å±‚ä¼ æ¥çš„ç”Ÿæ—¥
+			 *
 			 * @return
 			 * @throws
 			 * @see
 			 */
-		   public MockPromotion(String promotionnumber,String promotionid,Time begintime,Time endtime,Time birthday,int roomnumber,boolean corporatemember,String hoteldistrict,ResultMessage membergrade,double dcount){
-			  super(promotionnumber,promotionid,begintime,endtime,birthday,roomnumber,corporatemember,hoteldistrict,membergrade,dcount);
-		   }
-		   /**
-			 * ÉèÖÃÓªÏú²ßÂÔºÅ
-			 * @param number StringĞÍ£¬Âß¼­²ã´«À´µÄÓªÏú²ßÂÔºÅ
+		   public MockPromotion(String promotionnumber,String promotionname,int promotionstate,Calendar promotionbegintime,Calendar promotionendtime,String applyusertype,String applybcircle,int applyusershipgrade,int mininum, double promotiondiscount,String usertype,int usershipgrade,int roomnum,Calendar birthday) {
+				 promotionNumber=promotionnumber;
+				 promotionName=promotionname;
+				 promotionState=promotionstate;
+				 promotionBegintime=promotionbegintime;
+				 promotionEndtime=promotionendtime;
+				 applyuserType=applyusertype;
+				 applybusinesscircle=applybcircle;
+				 applyuserShipgrade=applyusershipgrade;
+				 miniNum=mininum;
+				 promotionDiscount=promotiondiscount;
+				 userType=usertype;
+				 userShipgrade=usershipgrade;
+				 roomNum=roomnum;
+				 Birthday=birthday;
+				}
+			/**
+			 * æ„é€ ä¼šå‘˜ç­‰çº§åˆ¶åº¦
+			 * @param a int[]å‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„æ¯ä¸ªç­‰çº§çš„ä¿¡ç”¨å€¼
+			 * @param b int[]å‹ã€‚é€»è¾‘å±‚ä¼ æ¥çš„æ¯ä¸ªç­‰çº§çš„æŠ˜æ‰£
+			 * @return 
 			 * @return
 			 * @throws
 			 * @see
 			 */
-		  public void setpromotionNumber(String number){
-		  	promotionNumber=number;
-		  }
-		  /**
-			 * »ñÈ¡ÓªÏú²ßÂÔºÅ
+			public void PromotionPO(int a[],double b[]){
+				for(int i=0;i<a.length;i++){
+					creditOfLevel[i]=a[i];
+				}
+				for(int i=0;i<b.length;i++){
+					discountOfLevel[i]=b[i];
+				}
+			}
+			/**
+			 * è·å–æ¯ä¸ªç­‰çº§çš„ä¿¡ç”¨å€¼
 			 * @param
-			 * @return ·µ»ØÓªÏú²ßÂÔºÅ
+			 * @return è¿”å›æ¯ä¸ªç­‰çº§çš„ä¿¡ç”¨å€¼
 			 * @throws
 			 * @see
 			 */
-		  public String getpromotionNumber() {
-		  	return promotionNumber;
-		  } 
-		  /**
-			 * ÉèÖÃÓªÏú²ßÂÔÃû
-			 * @param id StringĞÍ£¬Âß¼­²ã´«À´µÄÓªÏú²ßÂÔÃû
-			 * @return
-			 * @throws
-			 * @see
-			 */
-		public void setpromotionId(String id){
-			promotionId=id;
-		}
-		/**
-			 * »ñÈ¡ÓªÏú²ßÂÔÃû
-			 * @param
-			 * @return ·µ»ØÓªÏú²ßÂÔÃû
-			 * @throws
-			 * @see
-			 */
-		public String getpromotionId() {
-			return promotionId;
-		} 
-		/**
-		 * ÉèÖÃ¿ªÊ¼Ê±¼ä
-		 * @param date1 TimeĞÍ£¬Âß¼­²ã´«À´µÄ¿ªÊ¼Ê±¼ä
-		 * @return
-		 * @throws
-		 * @see
-		 */
-		public void setbeginTime(Time date1){
-			beginTime=date1;
-		}
-		/**
-		 * »ñÈ¡¿ªÊ¼Ê±¼ä
-		 * @param
-		 * @return ·µ»Ø¿ªÊ¼Ê±¼ä
-		 * @throws
-		 * @see
-		 */
-		public Time getbeginTime() {
-			return beginTime;
-		} 
-		/**
-		 * ÉèÖÃ½áÊøÊ±¼ä
-		 * @param date2 TimeĞÍ£¬Âß¼­²ã´«À´µÄ½áÊøÊ±¼ä
-		 * @return
-		 * @throws
-		 * @see
-		 */
-		public void setendTime(Time date2){
-			endTime=date2;
-		}
-		/**
-		 * »ñÈ¡½áÊøÊ±¼ä
-		 * @param
-		 * @return ·µ»Ø½áÊøÊ±¼ä
-		 * @throws
-		 * @see
-		 */
-		public Time getendTime() {
-			return endTime;
-		} 
-		/**
-		 * ÉèÖÃÕÛ¿Û
-		 * @param dc doubleĞÍ£¬Âß¼­²ã´«À´µÄÕÛ¿Û
-		 * @return
-		 * @throws
-		 * @see
-		 */
-		public void setdiscount(double dc){
-			discount=dc;
-		}
-		/**
-		 * »ñÈ¡ÕÛ¿Û
-		 * @param
-		 * @return ·µ»ØÕÛ¿Û
-		 * @throws
-		 * @see
-		 */
-		public double getdiscount() {
-			return discount;
-		} 
-		/**
-		 * ÉèÖÃ»áÔ±µÈ¼¶
-		 * @param memberGrade ResultMessageĞÍ£¬Êı¾İ²ã´«À´µÄ»áÔ±µÈ¼¶
-		 * @return ·µ»Ø»áÔ±µÈ¼¶
-		 * @throws
-		 * @see
-		 */
-		public ResultMessage setmemberGrade(int creditvalue){
-			return memberGrade;
-		}
-		/**
-		 * ÉèÖÃ»áÔ±µÈ¼¶ÕÛ¿Û
-		 * @param memberGrade ResultMessageĞÍ£¬Êı¾İ²ã´«À´µÄ»áÔ±µÈ¼¶
-		 * @return ·µ»ØÕÛ¿Û
-		 * @throws
-		 * @see
-		 */
-		public double setmemberGradeDiscount(ResultMessage membergrade){
-			return discount;
-		}
-		/**
-		 * ÉèÖÃ»áÔ±ÉúÈÕÕÛ¿Û
-		 * @param  birthday TimeĞÍ£¬Êı¾İ²ã´«À´µÄÉúÈÕ
-		 * @return ·µ»ØÕÛ¿Û
-		 * @throws
-		 * @see
-		 */
-		public double setbirthdayDiscount(Time birthday){
-			return discount;
-		}
-		/**
-		 * ÉèÖÃÆóÒµ»áÔ±ÕÛ¿Û
-		 * @param  coporateMember booleanĞÍ£¬Êı¾İ²ã´«À´µÄ»áÔ±ÖÖÀà
-		 * @return ·µ»ØÕÛ¿Û
-		 * @throws
-		 * @see
-		 */
-		public double setcorporateMemberDiscount(boolean corporateMember){
-			return discount;
-		}
-		/**
-		 * ÉèÖÃ·¿¼äÊıÁ¿ÕÛ¿Û
-		 * @param  roomNumber intĞÍ£¬Âß¼­²ã´«À´µÄ·¿¼äÊıÁ¿
-		 * @return ·µ»ØÕÛ¿Û
-		 * @throws
-		 * @see
-		 */
-		public double setroomNumberDiscount(int roomNumber){
-			return discount;
-		}
-		private PromotionList promotionList;
-		/**
-		 * »ñµÃÓªÏú²ßÂÔÁĞ±í
-		 * @param pl PromotionListĞÍ£¬¶ÔÓ¦µÄ¶©µ¥ÁĞ±í
-		 * @return
-		 */
-	public void addPromotionList(PromotionList pl) {
-		promotionList = pl;
-	}
-	/**
-	 * Ìí¼ÓÓªÏú²ßÂÔ
-	 * @param promotionnumber StringĞÍ£¬ÓªÏú²ßÂÔºÅ
-	 * @param promotionid StringĞÍ£¬ÓªÏú²ßÂÔÃû
-	 * @param begintime TimeĞÍ£¬¿ªÊ¼Ê±¼ä
-	 * @param endtime TimeĞÍ£¬½áÊøÊ±¼ä
-	 * @param hoteldistrict StringĞÍ£¬ÉÌÈ¦
-	 * @param dcount doubleĞÍ£¬ÕÛ¿Û
-	 * @return
-	 * @throws
-	 * @see
-	 */
-		public int add(String promotionnumber,String promotionid,Time begintime,Time endtime,Time birthday,int roomnumber,boolean corporatemember,String hoteldistrict,ResultMessage membergrade,double dcount) {
-			promotionList.addPromotionLineItems(new PromotionLineItem(new Promotion(promotionnumber,promotionid,begintime,endtime,birthday,roomnumber,corporatemember,hoteldistrict, membergrade,dcount)));
-			return promotionList.getPromotion();
-		}
-		/**
-			 * ²éÕÒÓÃ»§¿ÉÓÃµÄÓªÏú²ßÂÔ
-			 * @param id StringĞÍ£¬ÓÃ»§ÕËºÅ
-			 * @return ¿ÉÓÃµÄÓªÏú²ßÂÔÊı
-			 */
-		public int getPromotion(String userID) {
-			return promotionList.getPromotion(userID);
-		}
-		/**
-		 * É¾³ıÓªÏú²ßÂÔ
-		 * @param promotionnumber StringĞÍ£¬ÓªÏú²ßÂÔºÅ
-		 * @return
-		 * @throws
-		 * @see
-		 */
-		public int delete(Promotion promotion) {
-			promotionList.deletePromotionLineItems(new PromotionLineItem(promotion));
-			return promotionList.getPromotion();
-		}
+			 public int[] getCreditOfLevel(){
+				 return creditOfLevel;
+			 }
+			 /**
+				 * è®¾ç½®ç­–ç•¥æ¯ä¸ªç­‰çº§ä¿¡ç”¨å€¼
+				 * @param a int[]å‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„æ¯ä¸ªç­‰çº§çš„ä¿¡ç”¨å€¼
+				 * @return 
+				 * @throws
+				 * @see
+				 */
+			 public void setCreditOfLevel(int[] a){
+				 for(int i=0;i<a.length;i++){
+					creditOfLevel[i]=a[i];
+				}
+			 }
+			 /**
+				 * è·å–æ¯ä¸ªç­‰çº§çš„æŠ˜æ‰£
+				 * @param
+				 * @return è¿”å›æ¯ä¸ªç­‰çº§çš„æŠ˜æ‰£
+				 * @throws
+				 * @see
+				 */
+			 public double[] getDiscountOfLevel(){
+				 return discountOfLevel;
+			 }
+			 /**
+				 * è®¾ç½®ç­–ç•¥æ¯ä¸ªç­‰çº§æŠ˜æ‰£
+				 * @param b int[]å‹ã€‚é€»è¾‘å±‚ä¼ æ¥çš„æ¯ä¸ªç­‰çº§çš„æŠ˜æ‰£
+				 * @return
+				 * @throws
+				 * @see
+				 */
+			 public void setDiscountOfLevel(double[] b){
+				 for(int i=0;i<b.length;i++){
+						discountOfLevel[i]=b[i];
+					}
+			 }
+			 /**
+				 * è·å–ç­–ç•¥ç¼–å·
+				 * @param
+				 * @return è¿”å›ç­–ç•¥ç¼–å·
+				 * @throws
+				 * @see
+				 */
+			 public String getPromotionNumber(){
+			     return promotionNumber;
+			 }
+			 /**
+				 * è®¾ç½®ç­–ç•¥ç¼–å·
+				 * @param number Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„ç­–ç•¥ç¼–å·
+				 * @return
+				 * @throws
+				 * @see
+				 */
+			 public void setPromotionNumber(String number){
+			     promotionNumber=number;
+			 }
+			 /**
+				 * è·å–ç­–ç•¥åç§°
+				 * @param
+				 * @return è¿”å›ç­–ç•¥åç§°
+				 * @throws
+				 * @see
+				 */
+			 public String getPromotionName(){
+			     return promotionName;
+			 }
+			 /**
+				 * è®¾ç½®ç­–ç•¥åç§°
+				 * @param name Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„ç­–ç•¥åç§°
+				 * @return
+				 * @throws
+				 * @see
+				 */
+			 public void setPromotionName(String name){
+			     promotionName=name;
+			 }
+			 /**
+				 * è·å–ç­–ç•¥çŠ¶æ€
+				 * @param
+				 * @return è¿”å›ç­–ç•¥çŠ¶æ€
+				 * @throws
+				 * @see
+				 */
+			 public int getPromotionState(){
+			     return promotionState;
+			 }
+			 /**
+				 * è®¾ç½®ç­–ç•¥çŠ¶æ€
+				 * @param state intå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„ç­–ç•¥çŠ¶æ€
+				 * @return
+				 * @throws
+				 * @see
+				 */
+			 public void setPromotionState(int state){
+			     promotionState=state;
+			 }
+			 /**
+				 * è·å–ç­–ç•¥å¼€å§‹æ—¶é—´
+				 * @param
+				 * @return è¿”å›ç­–ç•¥å¼€å§‹æ—¶é—´
+				 * @throws
+				 * @see
+				 */
+			 public Calendar getPromotionBegintime(){
+			     return promotionBegintime;
+			 }
+			 /**
+				 * è®¾ç½®ç­–ç•¥å¼€å§‹æ—¶é—´
+				 * @param begintime Timeå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„å¼€å§‹æ—¶é—´
+				 * @return
+				 * @throws
+				 * @see
+				 */
+			 public void setPromotionBegintime(Calendar begintime){
+			     promotionBegintime=begintime;
+			 }
+			 /**
+				 * è·å–ç­–ç•¥ç»“æŸæ—¶é—´
+				 * @param
+				 * @return è¿”å›ç­–ç•¥ç»“æŸæ—¶é—´
+				 * @throws
+				 * @see
+				 */
+			 public Calendar getPromotionEndtime(){
+			     return promotionEndtime;
+			 }
+			 /**
+				 * è®¾ç½®ç­–ç•¥ç»“æŸæ—¶é—´
+				 * @param endtime Timeå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„ç»“æŸæ—¶é—´
+				 * @return
+				 * @throws
+				 * @see
+				 */
+			 public void setPromotionEndtime(Calendar endtime){
+			     promotionEndtime=endtime;
+			 }
+			 /**
+				 * è·å–å®¢æˆ·é€‚ç”¨ç±»å‹
+				 * @param
+				 * @return è¿”å›å®¢æˆ·é€‚ç”¨ç±»å‹
+				 * @throws
+				 * @see
+				 */   
+			 public String getUserType(){
+			     return applyuserType;
+			 }
+			 /**
+				 * è®¾ç½®å®¢æˆ·é€‚ç”¨ç§ç±»
+				 * @param type String å‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„å®¢æˆ·é€‚ç”¨ç§ç±»
+				 * @return
+				 * @throws
+				 * @see
+				 */
+			 public void setUserType(String type){
+			    applyuserType=type;
+			 }
+			 /**
+				 * è·å–é€‚ç”¨å•†åœˆ
+				 * @param 
+				 * @return è¿”å›é€‚ç”¨å•†åœˆ
+				 * @throws
+				 * @see
+				 */
+			 public String getHotelBussinesscircle(){
+			    return applybusinesscircle;
+			 }
+			 /**
+				 * è®¾ç½®é€‚ç”¨å•†åœˆ
+				 * @param circle Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„é€‚ç”¨å•†åœˆ
+				 * @return
+				 * @throws
+				 * @see
+				 */
+			 public void setHotelBussinesscircle(String circle){
+				 applybusinesscircle=circle;
+			 }
+			 /**
+				 * è·å–å®¢æˆ·é€‚ç”¨ç­‰çº§
+				 * @param
+				 * @return è¿”å›å®¢æˆ·é€‚ç”¨ç­‰çº§
+				 * @throws
+				 * @see
+				 */
+			 public int getUserShipgrade(){
+			     return applyuserShipgrade;
+			 }
+			 /**
+				 * è®¾ç½®å®¢æˆ·é€‚ç”¨ç­‰çº§
+				 * @param grade intå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„å®¢æˆ·é€‚ç”¨ç­‰çº§
+				 * @return
+				 * @throws
+				 * @see
+				 */
+			 public void setUserShipgrade(int grade){
+			     applyuserShipgrade=grade;
+			 }
+			 /**
+				 * è·å–æœ€ä½è®¢è´­æ•°é‡
+				 * @param
+				 * @return è¿”å›æœ€ä½è®¢è´­æ•°é‡
+				 * @throws
+				 * @see
+				 */
+			 public int getMiniNum(){
+			     return miniNum;
+			 }
+			 /**
+				 * è®¾ç½®æœ€ä½è®¢è´­æ•°é‡
+				 * @param num intå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„æœ€ä½è®¢è´­æ•°é‡
+				 * @return
+				 * @throws
+				 * @see
+				 */
+			 public void setMiniNUm(int num){
+			     miniNum=num;
+			 }
+			 /**
+				 * è·å–ç­–ç•¥æŠ˜æ‰£
+				 * @param
+				 * @return è¿”å›ç­–ç•¥æŠ˜æ‰£
+				 * @throws
+				 * @see
+				 */
+			 public double getPromotionDiscount(){
+			     return promotionDiscount;
+			 }
+			 /**
+				 * è®¾ç½®ç­–ç•¥æŠ˜æ‰£
+				 * @param discount doubleå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„ç­–ç•¥æŠ˜æ‰£
+				 * @return
+				 * @throws
+				 * @see
+				 */
+			 public void setPromotionDiscount(double discount){
+			     promotionDiscount=discount;
+			 }
 		}
