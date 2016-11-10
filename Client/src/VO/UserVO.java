@@ -1,5 +1,7 @@
 package VO;
 
+import java.util.Calendar;
+
 import Object.User;
 
 /**
@@ -20,9 +22,9 @@ public class UserVO extends VO {
 	public long credit;
 	public String membertype;
 	public int type;//1：客户 2：酒店工作人员 3：网站营销人员 4：网站管理人员
-	public String birthday;
+	public Calendar birthday;
 	public String enterprise;
-	public UserVO(String usern,String usera,String con,String ID,boolean io,int le,long cr,String mt,int t,String birth,String enter){
+	public UserVO(String usern,String usera,String con,String ID,boolean io,int le,long cr,String mt,int t,Calendar birth,String enter){
 		username=usern;
 		useraccount=usera;
 		contactway=con;

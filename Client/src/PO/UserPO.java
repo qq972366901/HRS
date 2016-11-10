@@ -1,6 +1,7 @@
 package PO;
 
 import java.io.Serializable;
+import java.util.Calendar;
 /**
  * 客户的数据实体
  * @author LZ
@@ -15,7 +16,7 @@ public class UserPO extends PO implements Serializable{
 	private int level;
 	private String membertype;
 	private int type;
-	private String birthday;
+	private Calendar birthday;
 	private String enterprise;
 	/**
 	 * 构造客户数据实体
@@ -31,7 +32,7 @@ public class UserPO extends PO implements Serializable{
 	 * @throws
 	 * @see
 	 */
-	public UserPO(String un,String ua,String co,int l,String mt,int t,String b,String e){
+	public UserPO(String un,String ua,String co,int l,String mt,int t,Calendar b,String e){
 		username=un;
 		useraccount=ua;
 		contactway=co;
@@ -168,7 +169,7 @@ public class UserPO extends PO implements Serializable{
 	 * @throws
 	 * @see
 	 */
-	public String getBirthday(){
+	public Calendar getBirthday(){
 		return birthday;
 	}
 	/**
@@ -178,7 +179,7 @@ public class UserPO extends PO implements Serializable{
 	 * @throws
 	 * @see
 	 */
-	public void setBirthday(String b){
+	public void setBirthday(Calendar b){
 		birthday=b;
 	}
 	/**

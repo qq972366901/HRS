@@ -41,7 +41,9 @@ public class Test_gethistroy {
 		list.addOrderLineItems(item3);
 		Order order=new Order();
 		order.addorderlist(list);
-		assertEquals(list.gethistory(new UserVO("1","1@nju.edu.cn","3414141","1",false,1,78,"普通会员",1,"1981/2/2","")).get(0).getvo().child,false);
+		Calendar time1=Calendar.getInstance();
+		time1.set(2016,11,11);
+		assertEquals(list.gethistory(new UserVO("1","1@nju.edu.cn","3414141","1",false,1,78,"普通会员",1,time1,"")).get(0).getvo().child,false);
 	}
 
 }
