@@ -1,13 +1,15 @@
 package List;
 import java.util.*;
 
+import VO.UserVO;
+import LineItem.OrderLineItem;
 import LineItem.PromotionLineItem;
 public class PromotionList {
 
 	List<PromotionLineItem> promotions;
 	
 	/**
-	 * ÓªÏú²ßÂÔÁÐ±í
+	 * è¥é”€ç­–ç•¥åˆ—è¡¨
 	 * @param
 	 * @return
 	 */
@@ -18,52 +20,70 @@ public class PromotionList {
 	}
 	
 	/**
-	 * Ìí¼Óµ¥¸öÓªÏú²ßÂÔ
-	 * @param pli PromotionLineItemÐÍ£¬Ìí¼ÓµÄµ¥¸öÓªÏú²ßÂÔ
+	 * æ·»åŠ å•ä¸ªè¥é”€ç­–ç•¥
+	 * @param pli PromotionLineItemåž‹ï¼Œæ·»åŠ çš„å•ä¸ªè¥é”€ç­–ç•¥
 	 * @return 
 	 */
 	public void addPromotionLineItems(PromotionLineItem  pli) {
 		promotions.add(pli);
 	}
 	/**
-	 * É¾³ýµ¥¸öÓªÏú²ßÂÔ
-	 * @param pli PromotionLineItemÐÍ£¬É¾³ýµÄµ¥¸öÓªÏú²ßÂÔ
-	 * @return 
+	 * æ˜¾ç¤ºè¥é”€ç­–ç•¥åˆ—è¡¨
+	 * @param pli PromotionLineItemåž‹ï¼Œæ˜¾ç¤ºçš„å•ä¸ªè¥é”€ç­–ç•¥
+	 * @return liståˆ—è¡¨
 	 */
-	public void deletePromotionLineItems(PromotionLineItem  pli) {
-		promotions.remove(pli);
+	public List<PromotionLineItem> show(){
+		return promotions;
 	}
 	/**
-	 * µÃµ½ÓªÏú²ßÂÔÁÐ±íÊýÁ¿
+	 * å–æ¶ˆè¥é”€ç­–ç•¥
+	 * @param str Stringåž‹ï¼Œid
+	 * @param time Timeåž‹ï¼Œæ’¤é”€æ—¶é—´
+	 */
+	public void cancel(String promotionnumber) {
+		for(int i=0;i<promotions.size();i++){
+			if(promotions.get(i).getvo().promotionNumber.equals(promotionnumber)){
+				promotions.get(i).cancel();
+			}
+		}
+	}
+	/**
+	 * å–æ¶ˆè¥é”€ç­–ç•¥
+	 *
+	 */
+	public void cancel() {
+		promotions.get(0).cancel();
+	}
+	/**
+	 * å¾—åˆ°è¥é”€ç­–ç•¥åˆ—è¡¨æ•°é‡
 	 * @param
-	 * @return ·µ»ØÓªÏú²ßÂÔÁÐ±íÊýÁ¿
+	 * @return è¿”å›žè¥é”€ç­–ç•¥åˆ—è¡¨æ•°é‡
 	 */
 	public int getPromotionInfo() {
 		return promotions.size();
 	}
 	/**
-	 * µÃµ½ÓªÏú²ßÂÔÁÐ±íÊýÁ¿
+	 * å¾—åˆ°è¥é”€ç­–ç•¥åˆ—è¡¨æ•°é‡
 	 * @param
-	 * @return ·µ»ØÓªÏú²ßÂÔÁÐ±íÊýÁ¿
+	 * @return è¿”å›žè¥é”€ç­–ç•¥åˆ—è¡¨æ•°é‡
 	 */
-	public int getPromotion() {
+	public int getPromotion2() {
 		return promotions.size();
 	}
 	/**
-	 * µÃµ½·ûºÏÌõ¼þµÄÓªÏú²ßÂÔ
+	 * å¾—åˆ°ç”¨æˆ·å¯ç”¨çš„è¥é”€ç­–ç•¥
 	 * @param
-	 * @return ·µ»ØÓªÏú²ßÂÔÊý
+	 * @return è¿”å›žè¥é”€ç­–ç•¥
 	 */
-	public int getPromotion(String userID) {
-		int num = 0;
-		for(int i=0;i<promotions.size();i++) {
-			if(promotions.get(i).pro().equals(userID)) {
-				num++;
+	public List<PromotionLineItem> getPromotion(){
+		List<PromotionLineItem> list=new ArrayList<PromotionLineItem>();
+		for(int i=0;i<promotions.size();i++){
+			if((promotions.get(i).getvo().applyuserType.equals(promotions.get(i).getvo().userType))&&(promotions.get(i).getvo().applyuserShipgrade==promotions.get(i).getvo().userShipgrade)){
+				list.add(promotions.get(i));
 			}
 		}
-		return num;
+		   return list;
 	}
-}	
-
+}
 
 
