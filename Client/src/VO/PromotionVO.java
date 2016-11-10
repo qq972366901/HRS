@@ -1,33 +1,70 @@
 package VO;
 
-import java.sql.Time;
-
+import java.util.Calendar;
 import Object.Promotion;
+import PO.*;
 
 /**
- * ´ÙÏú²ßÂÔµÄÊôĞÔ¼°Êı¾İ´´½¨Óë¸üĞÂ
- * @author Áõ×ÚÙ©
+ * ä¿ƒé”€ç­–ç•¥çš„å±æ€§åŠæ•°æ®åˆ›å»ºä¸æ›´æ–°
+ * @author åˆ˜å®—ä¾ƒ
  * @version 1.0
  * @see Object.Promotion
  */
 
 public class PromotionVO extends VO {
-
 	 public String promotionNumber;
 	 public String promotionName;
-	 public Time promotionBegintime;
-	 public Time promotionEndtime;
-	 public String userType;
-	 public String businesscircle;
-	 public int userShipgrade;
+	 public int promotionState;
+	 public Calendar promotionBegintime;
+	 public Calendar promotionEndtime;
+	 public String applyuserType;
+	 public String applybusinesscircle;
+	 public int applyuserShipgrade;
 	 public int miniNum;
 	 public double promotionDiscount;
 	 public int[] creditOfLevel=new int[5];
 	 public double[] discountOfLevel=new double[5];
+	 public String userType;
+	 public int userShipgrade;
+	 public int roomNum;
+	 public Calendar Birthday;
+	 public PromotionVO (String promotionnumber,String promotionname,int promotionstate,Calendar promotionbegintime,Calendar promotionendtime,String applyusertype,String applybcircle,int applyusershipgrade,int mininum, double promotiondiscount,String usertype,int usershipgrade,int roomnum,Calendar birthday) {
+		 promotionNumber=promotionnumber;
+		 promotionName=promotionname;
+		 promotionState=promotionstate;
+		 promotionBegintime=promotionbegintime;
+		 promotionEndtime=promotionendtime;
+		 applyuserType=applyusertype;
+		 applybusinesscircle=applybcircle;
+		 applyuserShipgrade=applyusershipgrade;
+		 miniNum=mininum;
+		 promotionDiscount=promotiondiscount;
+		 userType=usertype;
+		 userShipgrade=usershipgrade;
+		 roomNum=roomnum;
+		 Birthday=birthday;
+		}
+	    public PromotionVO (UserPO po1,OrderPO po2,PromotionPO po){
+	    	promotionNumber=po.getPromotionNumber();
+	    	promotionName=po.getPromotionName();
+	        promotionState=po.getPromotionState();
+	    	promotionBegintime=po.getPromotionBegintime();
+	    	promotionEndtime=po.getPromotionEndtime();
+	    	applyuserType=po.getUserType();
+	    	applybusinesscircle	=po.getHotelBussinesscircle();	
+	    	applyuserShipgrade=po.getUserShipgrade();
+	    	miniNum=po.getMiniNum();
+	    	promotionDiscount=po.getPromotionDiscount();
+	    	userType=po1.getMemberType();
+	    	userShipgrade=po1.getLevel();
+	    	roomNum=po2.getRoomNumber();
+	    	Birthday=po1.getBirthday();
+	    }
+	    public PromotionVO(){};
 	/**
-     * ¸üĞÂ´ÙÏú²ßÂÔĞÅÏ¢
+     * æ›´æ–°ä¿ƒé”€ç­–ç•¥ä¿¡æ¯
      * 
-     * @param promo PromotionĞÍ£¬Ò»¸öÓÃÀ´¸üĞÂÊı¾İµÄ´ÙÏú²ßÂÔ¶ÔÏó
+     * @param promo Promotionå‹ï¼Œä¸€ä¸ªç”¨æ¥æ›´æ–°æ•°æ®çš„ä¿ƒé”€ç­–ç•¥å¯¹è±¡
      * @return 
      * @see Object.Promotion
      */
@@ -36,9 +73,9 @@ public class PromotionVO extends VO {
 	}
 	
 	/**
-     * ´´½¨´ÙÏú²ßÂÔ¶ÔÏó
+     * åˆ›å»ºä¿ƒé”€ç­–ç•¥å¯¹è±¡
      * 
-     * @return Ò»¸öĞÂ½¨Á¢µÄ´ÙÏú²ßÂÔ
+     * @return ä¸€ä¸ªæ–°å»ºç«‹çš„ä¿ƒé”€ç­–ç•¥
      * @see Object.Promotion
      */
 	public Promotion makePromotion() {

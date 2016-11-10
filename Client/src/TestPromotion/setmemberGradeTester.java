@@ -12,9 +12,9 @@ public class setmemberGradeTester {
 
 	@Test
 	public void test() {
-		MockPromotion promotion = new MockPromotion(null, null, null, null, null, 0, false, null, null, 0);
-		ResultMessage memberGrade=promotion.setmemberGrade(20);
-		assertEquals(memberGrade, memberGrade);
+		Promotion promotion = new Promotion();
+		promotion.setmemberGradeDiscount(0.1,0.2,0.3,0.4,0.5);
+		assertEquals(5,5);
 	}
 
 }
