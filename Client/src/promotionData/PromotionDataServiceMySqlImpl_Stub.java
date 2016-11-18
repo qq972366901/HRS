@@ -2,7 +2,7 @@ package promotionData;
 
 import java.io.Serializable;
 import java.rmi.RemoteException;
-import java.sql.Time;
+import java.util.Calendar;
 
 import PO.PromotionPO;
 
@@ -17,7 +17,11 @@ public class PromotionDataServiceMySqlImpl_Stub implements Serializable,dataServ
 	public PromotionPO find(String id) throws RemoteException {
 		// TODO Auto-generated method stub
 		System.out.println("Find Succeed!");
-		PromotionPO po=new PromotionPO("D8dC3","双十一",new Time(0),new Time(0),"普通会员","",0,0,6.5);
+		Calendar time1=Calendar.getInstance();
+		time1.set(2016,11,11);
+		Calendar time2=Calendar.getInstance();
+		time2.set(2016,11,12);
+		PromotionPO po=new PromotionPO("D8dC3","双十一",time1,time2,"普通会员","",0,0,6.5);
 		return po;
 	}
 

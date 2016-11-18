@@ -1,10 +1,13 @@
 package Mock;
 
-import Object.Hotel;
+import VO.HotelVO;
+/**
+ * Ä£Äâ¾Æµê¶ÔÏó
+ * @author Áõ×ÚÙ©
+ * @version 1.0
+ */
+public class MockHotel extends HotelVO {
 
-public class MockHotel extends Hotel {
-
-	private static final long serialVersionUID = 1L;
 	private String hotelAddress;
 	private String hotelDistrict;
 	private int hotelStar;
@@ -33,7 +36,16 @@ public class MockHotel extends Hotel {
 	 */
 	public MockHotel(String hAddress, String hDistrict, int hStar, String hProfile, String hService, String hName,
 			String hPhone, String hReservation, String hAccount, double sco) {
-		super(hAddress, hDistrict, hStar, hProfile, hService, hName, hPhone, hReservation, hAccount, sco);
+		hotelAddress=hAddress;
+		hotelDistrict=hDistrict;
+		hotelStar=hStar;
+		hotelProfile=hProfile;
+		hotelService=hService;
+		hotelName=hName;
+		hotelPhone=hPhone;
+		hotelReservation=hReservation;
+		hotelAccount=hAccount;
+	    score=sco;
 	}
 
 	/**

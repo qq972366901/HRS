@@ -1,5 +1,7 @@
 package userBLService;
 import java.rmi.RemoteException;
+import java.util.List;
+
 import VO.*;
 import common.*;
 /**
@@ -114,4 +116,5 @@ public interface UserBLService {
  * @see bussinesslogic.User
  */
 	public ResultMessage logout(String ID);
+	public List<CreditRecordVO> showCreditRecord(String userID) ;
 }

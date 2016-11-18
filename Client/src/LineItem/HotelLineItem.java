@@ -1,18 +1,22 @@
 package LineItem;
 
-import Object.Hotel;
-
+import VO.HotelVO;
+/**
+ * H单个酒店
+ * @author 刘宗侃
+ * @version 1.0
+ */
 public class HotelLineItem {
 
-	Hotel hotel;
+	HotelVO hotelVO;
 	
 	/**
 	 * 单个酒店
 	 * @param h Hotel型，传入酒店对象
 	 * @return 单个酒店
 	 */
-	public HotelLineItem (Hotel h) {
-		hotel = h;
+	public HotelLineItem (HotelVO hvo) {
+		hotelVO = hvo;
 	}
 	
 	/**
@@ -20,7 +24,7 @@ public class HotelLineItem {
 	 * @return 酒店商圈
 	 */
 	public String location () {
-		return hotel.gethotelDistrict();	
+		return hotelVO.hotelDistrict;	
 	}
 	
 	/**
@@ -28,7 +32,7 @@ public class HotelLineItem {
 	 * @return 酒店名称
 	 */
 	public String name () {
-		return hotel.gethotelName();	
+		return hotelVO.hotelName;	
 	}
 	
 }

@@ -4,8 +4,13 @@ import java.util.*;
 
 import LineItem.RoomLineItem;
 import Object.Order;
-import Object.Room;
-
+import VO.RoomVO;
+/**
+ * 房间列表
+ * @author 刘宗侃
+ * @version 1.0
+ * @see
+ */
 public class RoomList {
 
 	List<RoomLineItem> rooms;
@@ -31,6 +36,15 @@ public class RoomList {
 	}
 	
 	/**
+	 * 得到房间价格
+	 * @param rvo RoomVO型
+	 * @return 返回房间价格
+	 */
+	public int getPrice(RoomVO rvo) {
+		return 300;
+	}
+	
+	/**
 	 * 得到房间列表数量
 	 * @param
 	 * @return 返回房间列表数量
@@ -49,7 +63,7 @@ public class RoomList {
 	 * @return
 	 */
 	public void messageUpdate(String roomid, String roomstatue, String roomtype, int rooms, int roomprice) {
-		this.rooms.add(new RoomLineItem(new Room(roomid, roomstatue, roomtype, rooms, roomprice)));
+		this.rooms.add(new RoomLineItem(new RoomVO(roomid, roomstatue, roomtype, rooms, roomprice)));
 	}
 
 	/**

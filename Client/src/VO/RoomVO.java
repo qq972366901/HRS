@@ -15,7 +15,25 @@ public class RoomVO extends VO {
     public String roomType;
     public int roomS;
     public int roomPrice;
-	
+    public RoomVO(){};
+    /**
+	 * 房间数据
+	 * @param roomid String型，数据层传来的房间号
+	 * @param roomstatue String型，数据层传来的房间状态
+	 * @param roomtype String型，数据层传来的房间类型
+	 * @param rooms int型，数据层传来的房间数量
+	 * @param roomprice int型，数据层传来的房间价格
+	 * @return
+	 * @throws
+	 * @see
+	 */
+    public RoomVO (String roomid,String roomstatue,String roomtype,int rooms,int roomprice){
+	    roomId=roomid;
+	    roomStatue=roomstatue;
+	    roomType=roomtype;
+	    roomS=rooms;
+	    roomPrice=roomprice;
+    }
     /**
      * 更新房间信息
      * 

@@ -25,7 +25,6 @@ import common.ResultMessage;
  * @see
  */
 public class Order {
-	OrderLineItem orderitem;
 	OrderList orderlist;
 	public void addorderlist(OrderList list){
 		orderlist=list;

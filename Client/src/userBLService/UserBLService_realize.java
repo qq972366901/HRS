@@ -1,6 +1,7 @@
 package userBLService;
 
 import java.rmi.RemoteException;
+import java.util.List;
 
 import VO.CreditRecordVO;
 import VO.UserVO;
@@ -143,5 +144,8 @@ public class UserBLService_realize implements UserBLService {
 		public ResultMessage logout(String ID) {
 		return null;
 	}
+		public List<CreditRecordVO> showCreditRecord(String userID) {
+			return null;
+		}
 
 }

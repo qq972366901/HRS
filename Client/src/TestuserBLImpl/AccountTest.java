@@ -3,6 +3,7 @@ package TestuserBLImpl;
 import static org.junit.Assert.*;
 
 import java.rmi.RemoteException;
+import java.util.Calendar;
 
 import org.junit.Before;
 import org.junit.FixMethodOrder;
@@ -25,9 +26,15 @@ public class AccountTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		user1=new UserVO("1","1@nju.edu.cn","3414141","1",false,1,78,"普通会员",1,"1981/2/2","");
-		user2=new UserVO("2","2@nju.edu.cn","3415641","1",false,5,41780,"企业会员",1,"1979/2/2","Goldman Sachs");
-		user3=new UserVO("3","3@nju.edu.cn","9414141","1",false,3,4178,"普通会员",1,"1990/2/2","");
+		Calendar time1=Calendar.getInstance();
+		time1.set(2016,11,11);
+		Calendar time2=Calendar.getInstance();
+		time2.set(2016,11,11);
+		Calendar time3=Calendar.getInstance();
+		time3.set(2016,11,11);
+		user1=new UserVO("1","1@nju.edu.cn","3414141","1",false,1,78,"普通会员",1,time1,"");
+		user2=new UserVO("2","2@nju.edu.cn","3415641","1",false,5,41780,"企业会员",1,time2,"Goldman Sachs");
+		user3=new UserVO("3","3@nju.edu.cn","9414141","1",false,3,4178,"普通会员",1,time3,"");
 		account=new Account(user1.type);
 	}
 	@Test

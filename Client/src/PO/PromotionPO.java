@@ -1,56 +1,58 @@
 package PO;
 
 import java.io.Serializable;
-import java.sql.Time;
+import java.util.Calendar;
 /**
- * ´ÙÏú²ßÂÔµÄÊı¾İÊµÌå
+ * æ·‡å†®æ”¢ç»›æ «æšé¨å‹¬æšŸé¹î†¼ç–„æµ£ï¿½
  * @author LZ
  * @version 1.0
  * @see
  */
+
 public class PromotionPO extends PO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String promotionNumber;
 	private String promotionName;
-	private Time promotionBegintime;
-	private Time promotionEndtime;
-	private String userType;
-	private String businesscircle;
-	private int userShipgrade;
+	private int promotionState;
+	private Calendar promotionBegintime;
+	private Calendar promotionEndtime;
+	private String applyuserType;
+	private String applybusinesscircle;
+	private int applyuserShipgrade;
 	private int miniNum;
 	private double promotionDiscount;
 	private int[] creditOfLevel=new int[5];
 	private double[] discountOfLevel=new double[5];
 	/**
-	 * ¹¹ÔìÆÕÍ¨´ÙÏú²ßÂÔ
-	 * @param promotionnumber StringĞÍ£¬Âß¼­²ã´«À´µÄ²ßÂÔ±àºÅ
-	 * @param promotionname StringĞÍ£¬Âß¼­²ã´«À´µÄ²ßÂÔÃû³Æ
-	 * @param promotionbegintime TimeĞÍ£¬Âß¼­²ã´«À´µÄ²ßÂÔ¿ªÊ¼Ê±¼ä
-	 * @param promotionendtime TimeĞÍ£¬Âß¼­²ã´«À´µÄ²ßÂÔ½áÊøÊ±¼ä
-	 * @param usertype TimeĞÍ£¬Âß¼­²ã´«À´µÄ¿Í»§ÀàĞÍ
-	 * @param hotelbusinesscircle StringĞÍ£¬Âß¼­²ã´«À´µÄÊÊÓÃÉÌÈ¦
-	 * @param usershipgrade intĞÍ£¬Âß¼­²ã´«À´µÄ¿Í»§ÊÊÓÃµÈ¼¶
-	 * @param num intĞÍ£¬Âß¼­²ã´«À´µÄ×îµÍ¶©¹ºÊıÁ¿
-	 * @param promotiondiscount doubleĞÍ£¬Âß¼­²ã´«À´µÄÕÛ¿Û
+	 * é‹å‹¯ï¿½çŠ³æ«˜é–«æ°«ç¸¾é–¿ï¿½ç»›æ «æš
+	 * @param promotionnumber Stringé¨å¬¶ç´é–«æ˜ç·«çå‚™ç´¶é‰ãƒ§æ®‘ç»›æ «æšç¼‚æ §å½¿
+	 * @param promotionname Stringé¨å¬¶ç´é–«æ˜ç·«çå‚™ç´¶é‰ãƒ§æ®‘ç»›æ «æšéšå¶‡Ğ
+	 * @param promotionbegintime Timeé¨å¬¶ç´é–«æ˜ç·«çå‚™ç´¶é‰ãƒ§æ®‘ç»›æ «æšå¯®ï¿½æ¿®å¬«æ¤‚é—‚ï¿½
+	 * @param promotionendtime Timeé¨å¬¶ç´é–«æ˜ç·«çå‚™ç´¶é‰ãƒ§æ®‘ç»›æ «æšç¼æ’´æ½«éƒå •æ£¿
+	 * @param usertype Timeé¨å¬¶ç´é–«æ˜ç·«çå‚™ç´¶é‰ãƒ§æ®‘ç€¹ãˆ¡åŸ›ç»«è¯²ç€·
+	 * @param hotelbusinesscircle Stringé¨å¬¶ç´é–«æ˜ç·«çå‚™ç´¶é‰ãƒ§æ®‘é–«å‚œæ•¤éŸå——æ¹€
+	 * @param usershipgrade inté¨å¬¶ç´é–«æ˜ç·«çå‚™ç´¶é‰ãƒ§æ®‘ç€¹ãˆ¡åŸ›é–«å‚œæ•¤ç»›å¤Œéª‡
+	 * @param num inté¨å¬¶ç´é–«æ˜ç·«çå‚™ç´¶é‰ãƒ§æ®‘éˆï¿½æµ£åº¤î…¹ç’î…ŸæšŸé–²ï¿½
+	 * @param promotiondiscount doubleé¨å¬¶ç´é–«æ˜ç·«çå‚™ç´¶é‰ãƒ§æ®‘é¶æ¨»å¢¸
 	 * @return
 	 * @throws
 	 * @see
 	 */
-	public PromotionPO(String promotionnumber,String promotionname,Time promotionbegintime,Time promotionendtime, String usertype,String hotelbusinesscircle,int usershipgrade,int num,double promotiondiscount){
+	public PromotionPO(String promotionnumber,String promotionname,Calendar promotionbegintime,Calendar promotionendtime, String usertype,String hotelbusinesscircle,int usershipgrade,int num,double promotiondiscount){
 	     promotionNumber=promotionnumber;
 	     promotionName=promotionname;
 	     promotionBegintime=promotionbegintime;
 	     promotionEndtime=promotionendtime;
-	     userType=usertype;
-	     businesscircle=hotelbusinesscircle;
-	     userShipgrade=usershipgrade;
+	     applyuserType=usertype;
+	     applybusinesscircle=hotelbusinesscircle;
+	     applyuserShipgrade=usershipgrade;
 	     miniNum=num;
 	     promotionDiscount=promotiondiscount;
 	 }
 	/**
-	 * ¹¹Ôì»áÔ±µÈ¼¶ÖÆ¶È
-	 * @param a int[]ĞÍ£¬Âß¼­²ã´«À´µÄÃ¿¸öµÈ¼¶µÄĞÅÓÃÖµ
-	 * @param b int[]ĞÍ¡£Âß¼­²ã´«À´µÄÃ¿¸öµÈ¼¶µÄÕÛ¿Û
+	 * é‹å‹¯ï¿½çŠ±ç´°é›æ¨¼ç“‘ç»¾ÑƒåŸ—æ´ï¿½
+	 * @param a int[]é¨å¬¶ç´é–«æ˜ç·«çå‚™ç´¶é‰ãƒ§æ®‘å§£å¿é‡œç»›å¤Œéª‡é¨å‹ªä¿Šé¢ã„¥ï¿½ï¿½
+	 * @param b int[]é¨å¬¨ï¿½å‚ï¿½æ˜ç·«çå‚™ç´¶é‰ãƒ§æ®‘å§£å¿é‡œç»›å¤Œéª‡é¨å‹¬å§Œéµï¿½
 	 * @return
 	 * @throws
 	 * @see
@@ -64,9 +66,9 @@ public class PromotionPO extends PO implements Serializable{
 		}
 	}
 	/**
-	 * »ñÈ¡Ã¿¸öµÈ¼¶µÄĞÅÓÃÖµ
+	 * é‘¾å³°å½‡å§£å¿é‡œç»›å¤Œéª‡é¨å‹ªä¿Šé¢ã„¥ï¿½ï¿½
 	 * @param
-	 * @return ·µ»ØÃ¿¸öµÈ¼¶µÄĞÅÓÃÖµ
+	 * @return æ©æ–¿æ´–å§£å¿é‡œç»›å¤Œéª‡é¨å‹ªä¿Šé¢ã„¥ï¿½ï¿½
 	 * @throws
 	 * @see
 	 */
@@ -74,8 +76,8 @@ public class PromotionPO extends PO implements Serializable{
 		 return creditOfLevel;
 	 }
 	 /**
-		 * ÉèÖÃ²ßÂÔÃ¿¸öµÈ¼¶ĞÅÓÃÖµ
-		 * @param a int[]ĞÍ£¬Âß¼­²ã´«À´µÄÃ¿¸öµÈ¼¶µÄĞÅÓÃÖµ
+		 * ç’å‰§ç–†ç»›æ «æšå§£å¿é‡œç»›å¤Œéª‡æ·‡ï¼„æ•¤éŠï¿½
+		 * @param a int[]é¨å¬¶ç´é–«æ˜ç·«çå‚™ç´¶é‰ãƒ§æ®‘å§£å¿é‡œç»›å¤Œéª‡é¨å‹ªä¿Šé¢ã„¥ï¿½ï¿½
 		 * @return 
 		 * @throws
 		 * @see
@@ -86,9 +88,9 @@ public class PromotionPO extends PO implements Serializable{
 		}
 	 }
 	 /**
-		 * »ñÈ¡Ã¿¸öµÈ¼¶µÄÕÛ¿Û
+		 * é‘¾å³°å½‡å§£å¿é‡œç»›å¤Œéª‡é¨å‹¬å§Œéµï¿½
 		 * @param
-		 * @return ·µ»ØÃ¿¸öµÈ¼¶µÄÕÛ¿Û
+		 * @return æ©æ–¿æ´–å§£å¿é‡œç»›å¤Œéª‡é¨å‹¬å§Œéµï¿½
 		 * @throws
 		 * @see
 		 */
@@ -96,8 +98,8 @@ public class PromotionPO extends PO implements Serializable{
 		 return discountOfLevel;
 	 }
 	 /**
-		 * ÉèÖÃ²ßÂÔÃ¿¸öµÈ¼¶ÕÛ¿Û
-		 * @param b int[]ĞÍ¡£Âß¼­²ã´«À´µÄÃ¿¸öµÈ¼¶µÄÕÛ¿Û
+		 * ç’å‰§ç–†ç»›æ «æšå§£å¿é‡œç»›å¤Œéª‡é¶æ¨»å¢¸
+		 * @param b int[]é¨å¬¨ï¿½å‚ï¿½æ˜ç·«çå‚™ç´¶é‰ãƒ§æ®‘å§£å¿é‡œç»›å¤Œéª‡é¨å‹¬å§Œéµï¿½
 		 * @return
 		 * @throws
 		 * @see
@@ -108,9 +110,9 @@ public class PromotionPO extends PO implements Serializable{
 			}
 	 }
 	 /**
-		 * »ñÈ¡²ßÂÔ±àºÅ
+		 * é‘¾å³°å½‡ç»›æ «æšç¼‚æ §å½¿
 		 * @param
-		 * @return ·µ»Ø²ßÂÔ±àºÅ
+		 * @return æ©æ–¿æ´–ç»›æ «æšç¼‚æ §å½¿
 		 * @throws
 		 * @see
 		 */
@@ -118,8 +120,8 @@ public class PromotionPO extends PO implements Serializable{
 	     return promotionNumber;
 	 }
 	 /**
-		 * ÉèÖÃ²ßÂÔ±àºÅ
-		 * @param number StringĞÍ£¬Âß¼­²ã´«À´µÄ²ßÂÔ±àºÅ
+		 * ç’å‰§ç–†ç»›æ «æšç¼‚æ §å½¿
+		 * @param number Stringé¨å¬¶ç´é–«æ˜ç·«çå‚™ç´¶é‰ãƒ§æ®‘ç»›æ «æšç¼‚æ §å½¿
 		 * @return
 		 * @throws
 		 * @see
@@ -128,9 +130,9 @@ public class PromotionPO extends PO implements Serializable{
 	     promotionNumber=number;
 	 }
 	 /**
-		 * »ñÈ¡²ßÂÔÃû³Æ
+		 * é‘¾å³°å½‡ç»›æ «æšéšå¶‡Ğ
 		 * @param
-		 * @return ·µ»Ø²ßÂÔÃû³Æ
+		 * @return æ©æ–¿æ´–ç»›æ «æšéšå¶‡Ğ
 		 * @throws
 		 * @see
 		 */
@@ -138,8 +140,8 @@ public class PromotionPO extends PO implements Serializable{
 	     return promotionName;
 	 }
 	 /**
-		 * ÉèÖÃ²ßÂÔÃû³Æ
-		 * @param name StringĞÍ£¬Âß¼­²ã´«À´µÄ²ßÂÔÃû³Æ
+		 * ç’å‰§ç–†ç»›æ «æšéšå¶‡Ğ
+		 * @param name Stringé¨å¬¶ç´é–«æ˜ç·«çå‚™ç´¶é‰ãƒ§æ®‘ç»›æ «æšéšå¶‡Ğ
 		 * @return
 		 * @throws
 		 * @see
@@ -148,109 +150,129 @@ public class PromotionPO extends PO implements Serializable{
 	     promotionName=name;
 	 }
 	 /**
-		 * »ñÈ¡²ßÂÔ¿ªÊ¼Ê±¼ä
+		 * é‘¾å³°å½‡ç»›æ «æšé˜èˆµï¿½ï¿½
 		 * @param
-		 * @return ·µ»Ø²ßÂÔ¿ªÊ¼Ê±¼ä
+		 * @return æ©æ–¿æ´–ç»›æ «æšé˜èˆµï¿½ï¿½
 		 * @throws
 		 * @see
 		 */
-	 public Time getPromotionBegintime(){
+	 public int getPromotionState(){
+	     return promotionState;
+	 }
+	 /**
+		 * ç’å‰§ç–†ç»›æ «æšé˜èˆµï¿½ï¿½
+		 * @param state inté¨å¬¶ç´é–«æ˜ç·«çå‚™ç´¶é‰ãƒ§æ®‘ç»›æ «æšé˜èˆµï¿½ï¿½
+		 * @return
+		 * @throws
+		 * @see
+		 */
+	 public void setPromotionState(int state){
+	     promotionState=state;
+	 }
+	 /**
+		 * é‘¾å³°å½‡ç»›æ «æšå¯®ï¿½æ¿®å¬«æ¤‚é—‚ï¿½
+		 * @param
+		 * @return æ©æ–¿æ´–ç»›æ «æšå¯®ï¿½æ¿®å¬«æ¤‚é—‚ï¿½
+		 * @throws
+		 * @see
+		 */
+	 public Calendar getPromotionBegintime(){
 	     return promotionBegintime;
 	 }
 	 /**
-		 * ÉèÖÃ²ßÂÔ¿ªÊ¼Ê±¼ä
-		 * @param begintime TimeĞÍ£¬Âß¼­²ã´«À´µÄ¿ªÊ¼Ê±¼ä
+		 * ç’å‰§ç–†ç»›æ «æšå¯®ï¿½æ¿®å¬«æ¤‚é—‚ï¿½
+		 * @param begintime Timeé¨å¬¶ç´é–«æ˜ç·«çå‚™ç´¶é‰ãƒ§æ®‘å¯®ï¿½æ¿®å¬«æ¤‚é—‚ï¿½
 		 * @return
 		 * @throws
 		 * @see
 		 */
-	 public void setPromotionBegintime(Time begintime){
+	 public void setPromotionBegintime(Calendar begintime){
 	     promotionBegintime=begintime;
 	 }
 	 /**
-		 * »ñÈ¡²ßÂÔ½áÊøÊ±¼ä
+		 * é‘¾å³°å½‡ç»›æ «æšç¼æ’´æ½«éƒå •æ£¿
 		 * @param
-		 * @return ·µ»Ø²ßÂÔ½áÊøÊ±¼ä
+		 * @return æ©æ–¿æ´–ç»›æ «æšç¼æ’´æ½«éƒå •æ£¿
 		 * @throws
 		 * @see
 		 */
-	 public Time getPromotionEndtime(){
+	 public Calendar getPromotionEndtime(){
 	     return promotionEndtime;
 	 }
 	 /**
-		 * ÉèÖÃ²ßÂÔ½áÊøÊ±¼ä
-		 * @param endtime TimeĞÍ£¬Âß¼­²ã´«À´µÄ½áÊøÊ±¼ä
+		 * ç’å‰§ç–†ç»›æ «æšç¼æ’´æ½«éƒå •æ£¿
+		 * @param endtime Timeé¨å¬¶ç´é–«æ˜ç·«çå‚™ç´¶é‰ãƒ§æ®‘ç¼æ’´æ½«éƒå •æ£¿
 		 * @return
 		 * @throws
 		 * @see
 		 */
-	 public void setPromotionEndtime(Time endtime){
+	 public void setPromotionEndtime(Calendar endtime){
 	     promotionEndtime=endtime;
 	 }
 	 /**
-		 * »ñÈ¡¿Í»§ÊÊÓÃÀàĞÍ
+		 * é‘¾å³°å½‡ç€¹ãˆ¡åŸ›é–«å‚œæ•¤ç»«è¯²ç€·
 		 * @param
-		 * @return ·µ»Ø¿Í»§ÊÊÓÃÀàĞÍ
+		 * @return æ©æ–¿æ´–ç€¹ãˆ¡åŸ›é–«å‚œæ•¤ç»«è¯²ç€·
 		 * @throws
 		 * @see
 		 */   
 	 public String getUserType(){
-	     return userType;
+	     return applyuserType;
 	 }
 	 /**
-		 * ÉèÖÃ¿Í»§ÊÊÓÃÖÖÀà
-		 * @param type String ĞÍ£¬Âß¼­²ã´«À´µÄ¿Í»§ÊÊÓÃÖÖÀà
+		 * ç’å‰§ç–†ç€¹ãˆ¡åŸ›é–«å‚œæ•¤ç»‰å¶‡è¢«
+		 * @param type String é¨å¬¶ç´é–«æ˜ç·«çå‚™ç´¶é‰ãƒ§æ®‘ç€¹ãˆ¡åŸ›é–«å‚œæ•¤ç»‰å¶‡è¢«
 		 * @return
 		 * @throws
 		 * @see
 		 */
 	 public void setUserType(String type){
-	    userType=type;
+	    applyuserType=type;
 	 }
 	 /**
-		 * »ñÈ¡ÊÊÓÃÉÌÈ¦
+		 * é‘¾å³°å½‡é–«å‚œæ•¤éŸå——æ¹€
 		 * @param 
-		 * @return ·µ»ØÊÊÓÃÉÌÈ¦
+		 * @return æ©æ–¿æ´–é–«å‚œæ•¤éŸå——æ¹€
 		 * @throws
 		 * @see
 		 */
 	 public String getHotelBussinesscircle(){
-	    return businesscircle;
+	    return applybusinesscircle;
 	 }
 	 /**
-		 * ÉèÖÃÊÊÓÃÉÌÈ¦
-		 * @param circle StringĞÍ£¬Âß¼­²ã´«À´µÄÊÊÓÃÉÌÈ¦
+		 * ç’å‰§ç–†é–«å‚œæ•¤éŸå——æ¹€
+		 * @param circle Stringé¨å¬¶ç´é–«æ˜ç·«çå‚™ç´¶é‰ãƒ§æ®‘é–«å‚œæ•¤éŸå——æ¹€
 		 * @return
 		 * @throws
 		 * @see
 		 */
 	 public void setHotelBussinesscircle(String circle){
-		 businesscircle=circle;
+		 applybusinesscircle=circle;
 	 }
 	 /**
-		 * »ñÈ¡¿Í»§ÊÊÓÃµÈ¼¶
+		 * é‘¾å³°å½‡ç€¹ãˆ¡åŸ›é–«å‚œæ•¤ç»›å¤Œéª‡
 		 * @param
-		 * @return ·µ»Ø¿Í»§ÊÊÓÃµÈ¼¶
+		 * @return æ©æ–¿æ´–ç€¹ãˆ¡åŸ›é–«å‚œæ•¤ç»›å¤Œéª‡
 		 * @throws
 		 * @see
 		 */
 	 public int getUserShipgrade(){
-	     return userShipgrade;
+	     return applyuserShipgrade;
 	 }
 	 /**
-		 * ÉèÖÃ¿Í»§ÊÊÓÃµÈ¼¶
-		 * @param grade intĞÍ£¬Âß¼­²ã´«À´µÄ¿Í»§ÊÊÓÃµÈ¼¶
+		 * ç’å‰§ç–†ç€¹ãˆ¡åŸ›é–«å‚œæ•¤ç»›å¤Œéª‡
+		 * @param grade inté¨å¬¶ç´é–«æ˜ç·«çå‚™ç´¶é‰ãƒ§æ®‘ç€¹ãˆ¡åŸ›é–«å‚œæ•¤ç»›å¤Œéª‡
 		 * @return
 		 * @throws
 		 * @see
 		 */
 	 public void setUserShipgrade(int grade){
-	     userShipgrade=grade;
+	     applyuserShipgrade=grade;
 	 }
 	 /**
-		 * »ñÈ¡×îµÍ¶©¹ºÊıÁ¿
+		 * é‘¾å³°å½‡éˆï¿½æµ£åº¤î…¹ç’î…ŸæšŸé–²ï¿½
 		 * @param
-		 * @return ·µ»Ø×îµÍ¶©¹ºÊıÁ¿
+		 * @return æ©æ–¿æ´–éˆï¿½æµ£åº¤î…¹ç’î…ŸæšŸé–²ï¿½
 		 * @throws
 		 * @see
 		 */
@@ -258,8 +280,8 @@ public class PromotionPO extends PO implements Serializable{
 	     return miniNum;
 	 }
 	 /**
-		 * ÉèÖÃ×îµÍ¶©¹ºÊıÁ¿
-		 * @param num intĞÍ£¬Âß¼­²ã´«À´µÄ×îµÍ¶©¹ºÊıÁ¿
+		 * ç’å‰§ç–†éˆï¿½æµ£åº¤î…¹ç’î…ŸæšŸé–²ï¿½
+		 * @param num inté¨å¬¶ç´é–«æ˜ç·«çå‚™ç´¶é‰ãƒ§æ®‘éˆï¿½æµ£åº¤î…¹ç’î…ŸæšŸé–²ï¿½
 		 * @return
 		 * @throws
 		 * @see
@@ -268,9 +290,9 @@ public class PromotionPO extends PO implements Serializable{
 	     miniNum=num;
 	 }
 	 /**
-		 * »ñÈ¡²ßÂÔÕÛ¿Û
+		 * é‘¾å³°å½‡ç»›æ «æšé¶æ¨»å¢¸
 		 * @param
-		 * @return ·µ»Ø²ßÂÔÕÛ¿Û
+		 * @return æ©æ–¿æ´–ç»›æ «æšé¶æ¨»å¢¸
 		 * @throws
 		 * @see
 		 */
@@ -278,8 +300,8 @@ public class PromotionPO extends PO implements Serializable{
 	     return promotionDiscount;
 	 }
 	 /**
-		 * ÉèÖÃ²ßÂÔÕÛ¿Û
-		 * @param discount doubleĞÍ£¬Âß¼­²ã´«À´µÄ²ßÂÔÕÛ¿Û
+		 * ç’å‰§ç–†ç»›æ «æšé¶æ¨»å¢¸
+		 * @param discount doubleé¨å¬¶ç´é–«æ˜ç·«çå‚™ç´¶é‰ãƒ§æ®‘ç»›æ «æšé¶æ¨»å¢¸
 		 * @return
 		 * @throws
 		 * @see

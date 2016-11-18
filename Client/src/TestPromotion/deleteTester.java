@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 import java.sql.Time;
+import java.util.Calendar;
+
 import LineItem.PromotionLineItem;
 import List.PromotionList;
 import Mock.MockPromotion;
@@ -12,24 +14,34 @@ public class deleteTester {
 
 	@Test
 	public void test() {
-		Time time1 = null;
-		Time time2 = null;
-		Time time3 = null;
-		MockPromotion promotion1=new MockPromotion("1","˫ʮһ",time1,time2,time3,3,false,null,null,2);
-		MockPromotion promotion2=new MockPromotion("2","˫ʮ��",time1,time2,time3,0,false,"�½ֿ�",null,3);
+		Calendar time1=Calendar.getInstance();
+		time1.set(Calendar.YEAR,2006);
+		time1.set(Calendar.MONTH,8);
+		time1.set(Calendar.DAY_OF_MONTH,3);
+		Calendar time2 =Calendar.getInstance();;
+		time2.set(Calendar.YEAR, 2007);
+		time2.set(Calendar.MONTH, 8);
+		time2.set(Calendar.DAY_OF_MONTH, 3);
+		Calendar time3 =Calendar.getInstance();
+		time3.set(Calendar.YEAR, 2000);
+		time3.set(Calendar.MONTH, 8);
+		time3.set(Calendar.DAY_OF_MONTH, 3);
+		MockPromotion promotion1=new MockPromotion("1","双十一",1,time1,time2,"1",null,0,1,0.8,null,0,0,time3);
+		MockPromotion promotion2=new MockPromotion("2","双十二",1,time1,time2,null,"新街口",2,0,0.8,null,0,0,time3);
+		PromotionList list=new PromotionList();
 		
-		PromotionList promotionList=new PromotionList();
+		PromotionLineItem item1 = new PromotionLineItem(promotion1);
+		PromotionLineItem item2 = new PromotionLineItem(promotion2);
 		
-		PromotionLineItem promotionLineItem1 = new PromotionLineItem(promotion1);
-		PromotionLineItem promotionLineItem2 = new PromotionLineItem(promotion2);
-		
-		promotionList.addPromotionLineItems(promotionLineItem1);
-		promotionList.addPromotionLineItems(promotionLineItem2);
+		list.addPromotionLineItems(item1);
+		list.addPromotionLineItems(item2);
 		
 		Promotion promotion = new Promotion();
-		promotion.addPromotionList(promotionList);
-		
-		assertEquals(2, promotion.delete(promotion1));
+		promotion.addpromotionlist(list);
+		promotion.hoteladd("1","双十一",time1,time2,"1",1,0.8);
+		promotion.webadd("2","双十二",time1,time2,"新街口",2,0.8);
+	    promotion.delete("1");
+		assertEquals(list.getPromotion2(),1);
 	}
 
 }
