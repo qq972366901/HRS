@@ -4,6 +4,7 @@ import java.util.*;
 
 import LineItem.RoomLineItem;
 import Object.Order;
+import VO.OrderVO;
 import VO.RoomVO;
 /**
  * 房间列表
@@ -79,7 +80,7 @@ public class RoomList {
 	 * @param
 	 * @return 返回房间列表数量
 	 */
-	public int getRoomInfo(Order vo){
+	public int getRoomInfo(OrderVO vo){
 		return  0;
 	}
 }

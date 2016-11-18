@@ -10,9 +10,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import WebPromotionView.WebPromotionUserView;
 import rmi.RemoteHelper;
-import uiController.webPromotionUserUiController;
+
 import uiService.webPromotionUserUiService;
 
 public class ClientRunner implements Serializable{
@@ -49,17 +48,12 @@ public class ClientRunner implements Serializable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        mFrame = new JFrame("HRS");
-        mFrame.setSize(1000, 700);
-        mFrame.setLocation(10, 10);
-        //´ý²¹³ä
-        		
-        webPromotionUserUiService controller=new webPromotionUserUiController();
-        WebPromotionUserView view=new WebPromotionUserView(controller);
-        controller.setView(view);
-        mFrame.getContentPane().add(view);
-        		
-        mFrame.setVisible(true);
+        	mFrame = new JFrame("HRS");
+       	 	mFrame.setSize(1000, 700);
+        	mFrame.setLocation(10, 10);
+        	//´ý²¹³ä
+        	mFrame.setVisible(true);
+
 		/*
 		DataFactoryService df=RemoteHelper.getInstance().getDataFactoryService();
 		HotelDataService dh=(HotelDataService) df.getDataService("Hotel");

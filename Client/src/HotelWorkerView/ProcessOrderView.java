@@ -239,7 +239,6 @@ public class ProcessOrderView extends JPanel{
 			if(!list.isEmpty()){
 				for (OrderVO orderVo : controller.getAllOrders(hotelId)) {
 					orderListModel.addRow(orderVo);
-					cancel.setEnabled(false);
 				}
 			}
 			//设置控件可用类型
@@ -430,4 +429,5 @@ public class ProcessOrderView extends JPanel{
 		// TODO Auto-generated method stub
 		cancel.setEnabled(true);
 	}
+
 }

@@ -1,15 +1,13 @@
 package List;
 import java.util.*;
 
-import VO.UserVO;
-import LineItem.OrderLineItem;
 import LineItem.PromotionLineItem;
 public class PromotionList {
 
 	List<PromotionLineItem> promotions;
 	
 	/**
-	 * 营销策略列表
+	 * 钀ラ攢绛栫暐鍒楄〃
 	 * @param
 	 * @return
 	 */
@@ -20,25 +18,25 @@ public class PromotionList {
 	}
 	
 	/**
-	 * 添加单个营销策略
-	 * @param pli PromotionLineItem型，添加的单个营销策略
+	 * 娣诲姞鍗曚釜钀ラ攢绛栫暐
+	 * @param pli PromotionLineItem鍨嬶紝娣诲姞鐨勫崟涓惀閿�绛栫暐
 	 * @return 
 	 */
 	public void addPromotionLineItems(PromotionLineItem  pli) {
 		promotions.add(pli);
 	}
 	/**
-	 * 显示营销策略列表
-	 * @param pli PromotionLineItem型，显示的单个营销策略
-	 * @return list列表
+	 * 鏄剧ず钀ラ攢绛栫暐鍒楄〃
+	 * @param pli PromotionLineItem鍨嬶紝鏄剧ず鐨勫崟涓惀閿�绛栫暐
+	 * @return list鍒楄〃
 	 */
 	public List<PromotionLineItem> show(){
 		return promotions;
 	}
 	/**
-	 * 取消营销策略
-	 * @param str String型，id
-	 * @param time Time型，撤销时间
+	 * 鍙栨秷钀ラ攢绛栫暐
+	 * @param str String鍨嬶紝id
+	 * @param time Time鍨嬶紝鎾ら攢鏃堕棿
 	 */
 	public void cancel(String promotionnumber) {
 		for(int i=0;i<promotions.size();i++){
@@ -48,32 +46,32 @@ public class PromotionList {
 		}
 	}
 	/**
-	 * 取消营销策略
+	 * 鍙栨秷钀ラ攢绛栫暐
 	 *
 	 */
 	public void cancel() {
 		promotions.get(0).cancel();
 	}
 	/**
-	 * 得到营销策略列表数量
+	 * 寰楀埌钀ラ攢绛栫暐鍒楄〃鏁伴噺
 	 * @param
-	 * @return 返回营销策略列表数量
+	 * @return 杩斿洖钀ラ攢绛栫暐鍒楄〃鏁伴噺
 	 */
 	public int getPromotionInfo() {
 		return promotions.size();
 	}
 	/**
-	 * 得到营销策略列表数量
+	 * 寰楀埌钀ラ攢绛栫暐鍒楄〃鏁伴噺
 	 * @param
-	 * @return 返回营销策略列表数量
+	 * @return 杩斿洖钀ラ攢绛栫暐鍒楄〃鏁伴噺
 	 */
 	public int getPromotion2() {
 		return promotions.size();
 	}
 	/**
-	 * 得到用户可用的营销策略
+	 * 寰楀埌鐢ㄦ埛鍙敤鐨勮惀閿�绛栫暐
 	 * @param
-	 * @return 返回营销策略
+	 * @return 杩斿洖钀ラ攢绛栫暐
 	 */
 	public List<PromotionLineItem> getPromotion(){
 		List<PromotionLineItem> list=new ArrayList<PromotionLineItem>();

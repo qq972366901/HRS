@@ -121,6 +121,7 @@ public class webPromotionUserUiController implements webPromotionUserUiService {
 		
 		hotelFrame.getContentPane().add(toHotelPanel);
 		hotelFrame.setVisible(true);
+
 	}
 
 }

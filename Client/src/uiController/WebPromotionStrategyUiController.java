@@ -18,6 +18,7 @@ public class WebPromotionStrategyUiController implements WebPromotionStrategyUiS
 	public WebPromotionStrategyUiController(){
 		proService=new PromotionBLService_realize();
 	}
+
 	@Override
 	public void setView(WebPromotionStrategyView view) {
 		// TODO Auto-generated method stub
@@ -37,6 +38,7 @@ public class WebPromotionStrategyUiController implements WebPromotionStrategyUiS
 	public List<PromotionVO> getAllWebPromotion() {
 		// TODO Auto-generated method stub
 		return proService.getAllWebPromotion();
+
 	}
 
 	@Override

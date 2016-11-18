@@ -1,6 +1,7 @@
 package uiService;
 
 import VO.PromotionVO;
+
 import WebPromotionView.MemberLevelSystemView;
 
 public interface MemberLevelSystemUiService {

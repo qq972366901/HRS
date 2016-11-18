@@ -1,5 +1,6 @@
 package uiController;
 
+
 import VO.PromotionVO;
 import WebPromotionView.MemberLevelSystemView;
 import WebPromotionView.WebPromotionUserView;
@@ -41,5 +42,6 @@ public class MemberLevelSystemUiController implements MemberLevelSystemUiService
 		// TODO Auto-generated method stub
 		return proService.getMemberLevelSystem();
 	}
+
 
 }

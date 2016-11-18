@@ -2,7 +2,7 @@ package LineItem;
 
 import VO.HotelVO;
 /**
- * H单个酒店
+ * 单个酒店
  * @author 刘宗侃
  * @version 1.0
  */
