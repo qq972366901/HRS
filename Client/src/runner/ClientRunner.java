@@ -6,9 +6,16 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
-import VO.UserVO;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+import HotelWorkerView.HotelMainView;
+import WebPromotionView.WebPromotionUserView;
 import rmi.RemoteHelper;
-import userBLImpl.User;
+import uiController.HotelMainUiController;
+import uiController.webPromotionUserUiController;
+import uiService.HotelMainUiService;
+import uiService.webPromotionUserUiService;
 
 public class ClientRunner implements Serializable{
 /**
@@ -16,6 +23,7 @@ public class ClientRunner implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	private RemoteHelper remoteHelper;
+	private static JFrame mFrame;
 	public ClientRunner() throws RemoteException {
 		linkToServer();
 		initGUI();
@@ -36,8 +44,17 @@ public class ClientRunner implements Serializable{
 	}
 	
 	private void initGUI() throws RemoteException {
-		//userUiController u=new userUiController();
-		//u.init();
+		mFrame = new JFrame("HRS");
+		mFrame.setSize(1000, 700);
+		mFrame.setLocation(10, 10);
+		//´ý²¹³ä
+		
+		HotelMainUiService controller=new HotelMainUiController();
+		HotelMainView view=new HotelMainView(controller);
+		controller.setView(view);
+		mFrame.getContentPane().add(view);
+		
+		mFrame.setVisible(true);
 		/*
 		DataFactoryService df=RemoteHelper.getInstance().getDataFactoryService();
 		HotelDataService dh=(HotelDataService) df.getDataService("Hotel");
@@ -54,7 +71,11 @@ public class ClientRunner implements Serializable{
 		dh.finish();
 		*/
 	}
-	
+	public static void change(JPanel view){
+		mFrame.getContentPane().removeAll();
+		mFrame.getContentPane().add(view);
+		mFrame.setVisible(true);
+	}
 	
 	public static void main(String[] args){
 		try {

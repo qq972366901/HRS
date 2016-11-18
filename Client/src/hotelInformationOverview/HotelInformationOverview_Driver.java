@@ -3,7 +3,6 @@ import java.util.ArrayList;
 
 import Object.Hotel;
 import VO.*;
-import common.*;
 import hotelBLService.HotelBLService;
 
 public class HotelInformationOverview_Driver {

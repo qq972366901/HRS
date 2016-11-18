@@ -1,9 +1,16 @@
 package uiController;
 
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import javax.swing.JFrame;
-
+import HotelWorkerView.ProcessOrderView;
+import WebPromotionView.CreditManagementView;
+import WebPromotionView.MemberLevelSystemView;
+import WebPromotionView.WebPromotionStrategyView;
+import WebPromotionView.WebPromotionUserView;
+import common.UserType;
+import runner.ClientRunner;
+import uiService.CreditManagementUiService;
+import uiService.MemberLevelSystemUiService;
+import uiService.ProcessOrderUiService;
+import uiService.WebPromotionStrategyUiService;
 import uiService.webPromotionUserUiService;
 
 /**
@@ -17,30 +24,59 @@ import uiService.webPromotionUserUiService;
  * 
  */
 
-public class webPromotionUserUiController extends JFrame implements webPromotionUserUiService {
+public class webPromotionUserUiController implements webPromotionUserUiService {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private WebPromotionUserView view;
+	@Override
+	public void toWebPromotionStrategyView() {
+		// TODO Auto-generated method stub
+		WebPromotionStrategyUiService controller=new WebPromotionStrategyUiController();
+		WebPromotionStrategyView view=new WebPromotionStrategyView(controller);
+		controller.setView(view);
+		ClientRunner.change(view);
+	}
 
-	/**
-     * 网站营销人员的初始界面
-     * 
-     * @param 
-     * @return 
-     */
-	public void init() {
-		this.setLocation(400, 300);
-		this.setSize(300, 300);
-		this.setVisible(true);
-		this.addWindowListener(new WindowAdapter() {
+	@Override
+	public void toCreditManagementView() {
+		// TODO Auto-generated method stub
+		CreditManagementUiService controller=new CreditManagementUiController();
+		CreditManagementView view=new CreditManagementView(controller);
+		controller.setView(view);
+		ClientRunner.change(view);
+	}
 
-			public void windowClosing(WindowEvent e) {
-				System.exit(0);
-			}
-			
-		});
+	@Override
+	public void toMemberLevelSystemView() {
+		// TODO Auto-generated method stub
+		MemberLevelSystemUiService controller=new MemberLevelSystemUiController();
+		MemberLevelSystemView view=new MemberLevelSystemView(controller);
+		controller.setView(view);
+		ClientRunner.change(view);
+	}
+
+	@Override
+	public void toLogView() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setView(WebPromotionUserView view) {
+		// TODO Auto-generated method stub
+		this.view=view;
+	}
+
+	@Override
+	public void toProcessOrderOrderView() {
+		// TODO Auto-generated method stub
+		ProcessOrderUiService controller=new ProcessOrderUiController(1,UserType.WebPromotionWorker);
+		ProcessOrderView view=new ProcessOrderView(controller);
+		controller.setView(view);
+		ClientRunner.change(view);
 	}
 
 }
