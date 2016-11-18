@@ -5,6 +5,13 @@ import VO.OrderVO;
 import common.ResultMessage;
 import orderBLService.OrderBLService_realize;
 public class OrderBuildController extends OrderBLService_realize{
+	public OrderBuildController(int hotelId) {
+		super(hotelId);
+		// TODO Auto-generated constructor stub
+	}
+
+
+
 	/**
      * 生成一个订单对象
      * 

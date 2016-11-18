@@ -114,4 +114,6 @@ public interface UserBLService {
  * @see bussinesslogic.User
  */
 	public ResultMessage logout(String ID);
+	
+    public UserVO findByAccount(String acc);
 }

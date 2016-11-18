@@ -5,6 +5,12 @@ import VO.OrderVO;
 import orderBLService.OrderBLService_realize;
 public class OrderExecuteController extends OrderBLService_realize{
 	
+	public OrderExecuteController(int hotelId) {
+		super(hotelId);
+		// TODO Auto-generated constructor stub
+	}
+
+
 	/**
      * 将一个订单类型变为已撤销，并保存撤销时间
      * 

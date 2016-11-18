@@ -8,13 +8,19 @@ import VO.UserVO;
 import common.ResultMessage;
 import orderBLService.OrderBLService_realize;
 public class OrderOverviewController extends OrderBLService_realize{
-	 /**
+	 public OrderOverviewController(int hotelId) {
+		super(hotelId);
+		// TODO Auto-generated constructor stub
+	}
+
+
+	/**
      * 显示所有订单信息
      * 
      * @return ArrayList<OrderVO>，一个订单值对象的列表
      * @see bussinesslogic.Order
      */
-	public ArrayList<OrderVO> show() {
+	public ArrayList<OrderVO> show(int hotelid) {
 		ArrayList<OrderVO> array=new ArrayList<OrderVO>();
 		return array;
 	}

@@ -95,4 +95,29 @@ public class PromotionBLService_Stub implements PromotionBLService{
 	public ArrayList<PromotionVO> getPromotion(String userID){
 		return new ArrayList<PromotionVO>();
 	}
+	@Override
+	public ArrayList<PromotionVO> getAllWebPromotion() {
+		// TODO Auto-generated method stub
+		return new ArrayList<PromotionVO>();
+	}
+	@Override
+	public boolean deleteStrategy(int strategyNo) {
+		// TODO Auto-generated method stub
+		return true;
+	}
+	@Override
+	public void updateMemberLevelSystem(PromotionVO vo) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void addMemberLevelSystem(PromotionVO vo) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public PromotionVO getMemberLevelSystem() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

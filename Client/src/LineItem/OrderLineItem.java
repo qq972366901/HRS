@@ -1,9 +1,6 @@
 package LineItem;
 
 import java.util.Date;
-import java.util.HashMap;
-
-import Object.Order;
 import VO.OrderVO;
 /**
  * OrderLineItem

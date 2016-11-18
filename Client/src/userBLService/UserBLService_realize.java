@@ -143,5 +143,13 @@ public class UserBLService_realize implements UserBLService {
 		public ResultMessage logout(String ID) {
 		return null;
 	}
+	/**
+	 * 按账号查找客户
+	 */
+	@Override
+	public UserVO findByAccount(String acc) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

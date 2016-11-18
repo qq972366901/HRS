@@ -6,9 +6,14 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
-import VO.UserVO;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import WebPromotionView.WebPromotionUserView;
 import rmi.RemoteHelper;
-import userBLImpl.User;
+import uiController.webPromotionUserUiController;
+import uiService.webPromotionUserUiService;
 
 public class ClientRunner implements Serializable{
 /**
@@ -16,6 +21,7 @@ public class ClientRunner implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	private RemoteHelper remoteHelper;
+	private static JFrame mFrame;
 	public ClientRunner() throws RemoteException {
 		linkToServer();
 		initGUI();
@@ -36,8 +42,24 @@ public class ClientRunner implements Serializable{
 	}
 	
 	private void initGUI() throws RemoteException {
-		//userUiController u=new userUiController();
-		//u.init();
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
+				| UnsupportedLookAndFeelException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        mFrame = new JFrame("HRS");
+        mFrame.setSize(1000, 700);
+        mFrame.setLocation(10, 10);
+        //´ý²¹³ä
+        		
+        webPromotionUserUiService controller=new webPromotionUserUiController();
+        WebPromotionUserView view=new WebPromotionUserView(controller);
+        controller.setView(view);
+        mFrame.getContentPane().add(view);
+        		
+        mFrame.setVisible(true);
 		/*
 		DataFactoryService df=RemoteHelper.getInstance().getDataFactoryService();
 		HotelDataService dh=(HotelDataService) df.getDataService("Hotel");
@@ -54,7 +76,11 @@ public class ClientRunner implements Serializable{
 		dh.finish();
 		*/
 	}
-	
+	public static void change(JPanel view){
+		mFrame.getContentPane().removeAll();
+		mFrame.getContentPane().add(view);
+		mFrame.setVisible(true);
+	}
 	
 	public static void main(String[] args){
 		try {

@@ -8,7 +8,7 @@ import common.*;
 import orderBLService.OrderBLService;
 public class OrderOverview_Driver {
 	 public void drive(OrderBLService orderBLService){
-		 ArrayList<OrderVO> result1=orderBLService.show();
+		 ArrayList<OrderVO> result1=orderBLService.show(1);
 	    	if(result1==new ArrayList<OrderVO>()) System.out.println("show success");
 	    	ResultMessage result2=orderBLService.getRoomInfo(new OrderVO());
 	    	if(result2 ==ResultMessage.Exist) System.out.println("getRoomInfo success");

@@ -32,7 +32,7 @@ public class userUiController extends JFrame implements userUiService {
      */
 	public void init() {
 		this.setLocation(400, 300);
-		this.setSize(300, 300);
+		this.setSize(300, 200);
 		this.setVisible(true);
 		this.addWindowListener(new WindowAdapter() {
 

@@ -2,6 +2,12 @@ package orderEvaluation;
 import VO.OrderVO;
 import orderBLService.OrderBLService_realize;
 public class OrderEvaluationController extends OrderBLService_realize{
+	public OrderEvaluationController(int hotelId) {
+		super(hotelId);
+		// TODO Auto-generated constructor stub
+	}
+
+
 	/**
      * 更新订单信息并显示评价
      * 

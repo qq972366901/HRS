@@ -49,7 +49,7 @@ public class UserManagementController extends UserBLService_realize{
 		 * @see bussinesslogic.User
 		 */
 			public UserType login(String ID, String password)throws RemoteException {
-			return UserType.Webworker;
+			return UserType.Customer;
 		}
 		/**
 		 * ¿Í»§µÇ³ö

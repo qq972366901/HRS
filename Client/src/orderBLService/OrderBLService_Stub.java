@@ -1,6 +1,7 @@
 package orderBLService;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import Object.Hotel;
 import Object.RoomType;
@@ -59,7 +60,7 @@ public class OrderBLService_Stub implements OrderBLService{
      * @return ArrayList<OrderVO>，一个订单值对象的列表
      * @see bussinesslogic.Order
      */
-	public ArrayList<OrderVO> show(){
+	public ArrayList<OrderVO> show(int hotelid){
 		return new ArrayList<OrderVO>();
 	}
 	
@@ -310,5 +311,20 @@ public class OrderBLService_Stub implements OrderBLService{
      */
 	public ResultMessage payment(OrderVO vo){
 		return ResultMessage.Exist;
+	}
+	@Override
+	public List<OrderVO> getUnfinishedOrders(int hotelId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public List<OrderVO> getFinishedOrders(int hotelId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public List<OrderVO> getAbnormalOrders(int hotelId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

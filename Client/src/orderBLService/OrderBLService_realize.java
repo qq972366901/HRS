@@ -1,6 +1,7 @@
 package orderBLService;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import Object.Hotel;
 import Object.RoomType;
@@ -12,13 +13,18 @@ import common.Choice;
 import common.ResultMessage;
 
 public class OrderBLService_realize implements OrderBLService{
-    /**
+    public OrderBLService_realize(int hotelId) {
+		// TODO Auto-generated constructor stub
+	}
+
+
+	/**
      * 显示所有订单信息
      * 
      * @return ArrayList<OrderVO>，一个订单值对象的列表
      * @see bussinesslogic.Order
      */
-	public ArrayList<OrderVO> show(){
+	public ArrayList<OrderVO> show(int hotelid){
 		return null;
 	}
 	
@@ -259,5 +265,29 @@ public class OrderBLService_realize implements OrderBLService{
      */
 	public ResultMessage payment(OrderVO vo) {
 		return null;
+	}
+
+
+	@Override
+	public List<OrderVO> getUnfinishedOrders(int hotelId) {
+		// TODO Auto-generated method stub
+		List<OrderVO> list=new ArrayList<OrderVO>();
+		return list;
+	}
+
+
+	@Override
+	public List<OrderVO> getFinishedOrders(int hotelId) {
+		// TODO Auto-generated method stub
+		List<OrderVO> list=new ArrayList<OrderVO>();
+		return list;
+	}
+
+
+	@Override
+	public List<OrderVO> getAbnormalOrders(int hotelId) {
+		// TODO Auto-generated method stub
+		List<OrderVO> list=new ArrayList<OrderVO>();
+		return list;
 	}
 }

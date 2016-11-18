@@ -6,6 +6,10 @@ import common.Choice;
 import common.ResultMessage;
 import orderBLService.OrderBLService_realize;
 public class OrderAbnormalController extends OrderBLService_realize{
+	public OrderAbnormalController(int hotelId) {
+		super(hotelId);
+		// TODO Auto-generated constructor stub
+	}
 	/**
      * 根据选择的类型查找所有订单，并显示
      * 

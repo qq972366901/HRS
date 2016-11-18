@@ -6,6 +6,11 @@ import VO.OrderVO;
 import common.Choice;
 import orderBLService.OrderBLService_realize;
 public class OrderManagementController extends OrderBLService_realize{
+	public OrderManagementController(int hotelId) {
+		super(hotelId);
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
      * 根据选择的类型查找所有订单，并显示
      * 

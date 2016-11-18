@@ -18,7 +18,7 @@ public interface OrderBLService {
      * @return ArrayList<OrderVO>，一个订单值对象的列表
      * @see bussinesslogic.Order
      */
-	public ArrayList<OrderVO> show();
+	public ArrayList<OrderVO> show(int hotelId);
 	
 	
 	/**
@@ -219,4 +219,13 @@ public interface OrderBLService {
      * @see bussinesslogic.Order
      */
 	public ResultMessage payment(OrderVO vo);
+
+
+	public List<OrderVO> getUnfinishedOrders(int hotelId);
+
+
+	public List<OrderVO> getFinishedOrders(int hotelId);
+
+
+	public List<OrderVO> getAbnormalOrders(int hotelId);
 }

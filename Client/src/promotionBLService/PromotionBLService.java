@@ -60,4 +60,18 @@ public interface PromotionBLService {
      * @see bussinesslogic.Promotion
      */
 	public ArrayList<PromotionVO> getPromotion(String userID);
+	
+	public ArrayList<PromotionVO> getAllWebPromotion();
+
+
+	public boolean deleteStrategy(int strategyNo);
+
+
+	public void updateMemberLevelSystem(PromotionVO vo);
+
+
+	public void addMemberLevelSystem(PromotionVO vo);
+
+
+	public PromotionVO getMemberLevelSystem();
 }

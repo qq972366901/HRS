@@ -1,9 +1,6 @@
 package uiServiceStub;
 
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import javax.swing.JFrame;
-
+import WebPromotionView.WebPromotionUserView;
 import uiService.webPromotionUserUiService;
 
 /**
@@ -16,30 +13,47 @@ import uiService.webPromotionUserUiService;
  * @see java.awt.event.WindowEvent;
  * 
  */
-public class webPromotionUserUiServiceStub extends JFrame implements webPromotionUserUiService {
+public class webPromotionUserUiServiceStub implements webPromotionUserUiService {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	/**
-     * 网站营销人员的初始界面
-     * 
-     * @param 
-     * @return 
-     */
-	public void init() {
-		this.setLocation(400, 300);
-		this.setSize(300, 300);
-		this.setVisible(true);
-		this.addWindowListener(new WindowAdapter() {
+	@Override
+	public void toWebPromotionStrategyView() {
+		// TODO Auto-generated method stub
+		
+	}
 
-			public void windowClosing(WindowEvent e) {
-				System.exit(0);
-			}
-			
-		});
+	@Override
+	public void toCreditManagementView() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void toMemberLevelSystemView() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void toLogView() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setView(WebPromotionUserView view) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void toProcessOrderOrderView() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
