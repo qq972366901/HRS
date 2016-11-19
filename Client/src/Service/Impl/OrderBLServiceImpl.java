@@ -1,6 +1,7 @@
 package Service.Impl;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import Object.Hotel;
 import Object.RoomType;
@@ -133,6 +134,26 @@ public class OrderBLServiceImpl implements OrderBLService {
 
 	@Override
 	public ResultMessage payment(OrderVO vo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public ArrayList<OrderVO> show(int hotelId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public List<OrderVO> getUnfinishedOrders(int hotelId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public List<OrderVO> getFinishedOrders(int hotelId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public List<OrderVO> getAbnormalOrders(int hotelId) {
 		// TODO Auto-generated method stub
 		return null;
 	}

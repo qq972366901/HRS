@@ -290,4 +290,11 @@ public class OrderBLService_realize implements OrderBLService{
 		List<OrderVO> list=new ArrayList<OrderVO>();
 		return list;
 	}
+
+
+	@Override
+	public ArrayList<OrderVO> show() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

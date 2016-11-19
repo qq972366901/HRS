@@ -228,4 +228,7 @@ public interface OrderBLService {
 
 
 	public List<OrderVO> getAbnormalOrders(int hotelId);
+
+
+	ArrayList<OrderVO> show();
 }

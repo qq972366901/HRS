@@ -102,5 +102,10 @@ public class UserBLServiceImpl implements UserBLService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
+	public UserVO findByAccount(String acc) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<classpath>
-	<classpathentry kind="src" path=""/>
-	<classpathentry kind="lib" path="lib/weblaf-complete-1.29.jar"/>
-	<classpathentry kind="output" path="bin"/>
-</classpath>

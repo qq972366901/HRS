@@ -10,9 +10,14 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import rmi.RemoteHelper;
 
-import uiService.webPromotionUserUiService;
+import CreditView.CreditView;
+import CreditView.CreditViewControllerImpl;
+import CreditView.CreditViewControllerService;
+import LoginView.LoginView;
+import LoginView.LoginViewControllerImpl;
+import LoginView.LoginViewControllerService;
+import rmi.RemoteHelper;
 
 public class ClientRunner implements Serializable{
 /**
@@ -51,7 +56,13 @@ public class ClientRunner implements Serializable{
         	mFrame = new JFrame("HRS");
        	 	mFrame.setSize(1000, 700);
         	mFrame.setLocation(10, 10);
-        	//´ý²¹³ä
+        	LoginViewControllerService controller =  new LoginViewControllerImpl();
+    		LoginView view = new LoginView(controller);
+    		controller.setView(view);
+    		CreditViewControllerService con=new CreditViewControllerImpl("123");
+    		CreditView vie=new CreditView(con);
+    		con.setView(vie);
+    		mFrame.getContentPane().add(view);
         	mFrame.setVisible(true);
 
 		/*
