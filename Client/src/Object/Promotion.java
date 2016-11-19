@@ -1,4 +1,4 @@
-package Object;
+﻿package Object;
 import java.util.Calendar;
 import java.util.List;
 
@@ -7,7 +7,7 @@ import List.OrderList;
 import List.PromotionList;
 import VO.PromotionVO;
 /**
- * 钀ラ攢绛栫暐鐨勬暟鎹疄浣�
+ * 营销策略的数据实体
  * @author LW
  * @version 1.0
  * @see
@@ -17,14 +17,14 @@ public class Promotion{
 	PromotionList promotionlist;
     private PromotionList promotionList;
 /**
- * 鍒跺畾浼氬憳绛夌骇鎶樻墸
- * @param promotionnumber String鍨嬶紝钀ラ攢绛栫暐鍙�
- * @param promotionname String鍨嬶紝钀ラ攢绛栫暐鍚�
- * @param begintime Calendar鍨嬶紝寮�濮嬫椂闂�
- * @param endtime Calendar鍨嬶紝缁撴潫鏃堕棿
- * @param appluusertype String鍨嬶紝閫傜敤瀹㈡埛绫诲瀷
- * @param num int鍨嬶紝璁㈣喘鏈�浣庢埧闂存暟
- * @param dcount double鍨嬶紝鎶樻墸
+ * 制定会员等级折扣
+ * @param promotionnumber String型，营销策略号
+ * @param promotionname String型，营销策略名
+ * @param begintime Calendar型，开始时间
+ * @param endtime Calendar型，结束时间
+ * @param appluusertype String型，适用客户类型
+ * @param num int型，订购最低房间数
+ * @param dcount double型，折扣
  * @return
  * @throws
  * @see
@@ -37,7 +37,7 @@ public class Promotion{
 	}
 	else if(vo.userShipgrade==2){
 		discount=b;
-    }
+    	}
 	else if(vo.userShipgrade==3){
 		discount=c;
 	}
@@ -50,14 +50,14 @@ public class Promotion{
 	return discount;
   }
 /**
- * 娣诲姞閰掑簵钀ラ攢绛栫暐
- * @param promotionnumber String鍨嬶紝钀ラ攢绛栫暐鍙�
- * @param promotionname String鍨嬶紝钀ラ攢绛栫暐鍚�
- * @param begintime Calendar鍨嬶紝寮�濮嬫椂闂�
- * @param endtime Calendar鍨嬶紝缁撴潫鏃堕棿
- * @param appluusertype String鍨嬶紝閫傜敤瀹㈡埛绫诲瀷
- * @param num int鍨嬶紝璁㈣喘鏈�浣庢埧闂存暟
- * @param dcount double鍨嬶紝鎶樻墸
+ * 添加酒店营销策略
+ * @param promotionnumber String型，营销策略号
+ * @param promotionname String型，营销策略名
+ * @param begintime Calendar型，开始时间
+ * @param endtime Calendar型，结束时间
+ * @param appluusertype String型，适用客户类型
+ * @param num int型，订购最低房间数
+ * @param dcount double型，折扣
  * @return
  * @throws
  * @see
@@ -79,14 +79,14 @@ public void addpromotionlist(PromotionList list){
 	promotionlist=list;
 }
 /**
- * 娣诲姞缃戠珯钀ラ攢绛栫暐
- * @param promotionnumber String鍨嬶紝钀ラ攢绛栫暐鍙�
- * @param promotionid String鍨嬶紝钀ラ攢绛栫暐鍚�
- * @param begintime Calendar鍨嬶紝寮�濮嬫椂闂�
- * @param endtime Calendar鍨嬶紝缁撴潫鏃堕棿
- * @param circle String鍨嬶紝鍟嗗湀
- * @param grade int鍨嬶紝浼氬憳绛夌骇
- * @param dcount double鍨嬶紝鎶樻墸
+ * 添加网站营销策略
+ * @param promotionnumber String型，营销策略号
+ * @param promotionid String型，营销策略名
+ * @param begintime Calendar型，开始时间
+ * @param endtime Calendar型，结束时间
+ * @param circle String型，商圈
+ * @param grade int型，会员等级
+ * @param dcount double型，折扣
  * @return
  * @throws
  * @see
@@ -105,9 +105,9 @@ public void webadd(String promotionnumber,String promotionname,Calendar begintim
     promotionList.addPromotionLineItems(a);
 }
 /**
-	 * 鏌ユ壘鐢ㄦ埛鍙敤鐨勮惀閿�绛栫暐骞堕�夋嫨浼樻儬鏈�澶х瓥鐣�
-	 * @param id String鍨嬶紝鐢ㄦ埛璐﹀彿
-	 * @return 鍙敤鐨勮惀閿�绛栫暐鏁�
+	 * 查找用户可用的营销策略并选择优惠最大策略
+	 * @param id String型，用户账号
+	 * @return 可用的营销策略数
 	 */
 public double getPromotion() {
 	List<PromotionLineItem> list=promotionList.getPromotion();
@@ -120,8 +120,8 @@ public double getPromotion() {
 	return min;
 }
 /**
- * 鍒犻櫎钀ラ攢绛栫暐
- * @param promotionnumber String鍨嬶紝钀ラ攢绛栫暐鍙�
+ * 删除营销策略
+ * @param promotionnumber String型，营销策略号
  * @return
  * @throws
  * @see

@@ -3,6 +3,7 @@ package hotelBLService;
 import java.util.ArrayList;
 
 import Object.Hotel;
+import Object.Order;
 import VO.HotelVO;
 import VO.OrderVO;
 import common.MessageInput;

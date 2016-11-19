@@ -1,6 +1,7 @@
 package userBLService;
 
 import java.rmi.RemoteException;
+import java.util.List;
 
 import VO.CreditRecordVO;
 import VO.UserVO;
@@ -149,6 +150,9 @@ public class UserBLService_realize implements UserBLService {
 	@Override
 	public UserVO findByAccount(String acc) {
 		// TODO Auto-generated method stub
+		return null;
+	}
+	public List<CreditRecordVO> showCreditRecord(String userID) {
 		return null;
 	}
 

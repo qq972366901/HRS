@@ -29,6 +29,7 @@ public class Test_abnormal {
 	Date time2=new Date(2017,11,3,20,13,20);
 	Date time4=new Date(2016,9,3,4,13,29);
 	Date time5=new Date(2017,12,3,23,16,0);
+	Calendar time6=Calendar.getInstance();
 	Date time3=null;
     MockOrder a=new MockOrder("000001",5,5,"012","000", 2, 100, 3, false, "double", 303, time1, time2, time3,time3,time4, "good", 100);
     MockOrder b=new MockOrder("000001",5,5,"00101","023", 1, 155, 4, true, "one", 305, time4, time5, time1,time3,time4, "very good", 98);
