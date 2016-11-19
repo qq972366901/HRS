@@ -10,14 +10,29 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-
 import CreditView.CreditView;
 import CreditView.CreditViewControllerImpl;
 import CreditView.CreditViewControllerService;
 import LoginView.LoginView;
 import LoginView.LoginViewControllerImpl;
 import LoginView.LoginViewControllerService;
+import MemberRegisterView.MemberRegisterView;
+import UserView.HotelBrowseView;
+import UserView.HotelSearchView;
+import UserView.OrderBuildView;
+import VO.UserVO;
+import WebAdminView.AddHotelView;
+import WebAdminView.UserManagementView;
+import WebAdminView.WebAdminUserView;
 import rmi.RemoteHelper;
+import uiController.HotelSearchUiController;
+import uiController.MemberRegisterUiController;
+import uiController.webAdminUserUiController;
+import uiService.HotelSearchUiService;
+import uiService.MemberRegisterUiService;
+import uiService.webAdminUserUiService;
+import userBLImpl.User;
+
 
 public class ClientRunner implements Serializable{
 /**
@@ -25,7 +40,7 @@ public class ClientRunner implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	private RemoteHelper remoteHelper;
-	private static JFrame mFrame;
+	static JFrame mFrame;
 	public ClientRunner() throws RemoteException {
 		linkToServer();
 		initGUI();
@@ -64,7 +79,6 @@ public class ClientRunner implements Serializable{
     		con.setView(vie);
     		mFrame.getContentPane().add(view);
         	mFrame.setVisible(true);
-
 		/*
 		DataFactoryService df=RemoteHelper.getInstance().getDataFactoryService();
 		HotelDataService dh=(HotelDataService) df.getDataService("Hotel");
@@ -79,13 +93,44 @@ public class ClientRunner implements Serializable{
 		dh.delete(po);
 		dh.init();
 		dh.finish();
-		*/
+		*/mFrame = new JFrame("Fuck");
+		mFrame.setSize(1000, 700);
+		mFrame.setLocation(10, 10);
+		HotelSearchUiService con=new HotelSearchUiController();
+		HotelSearchView view=new HotelSearchView(con);
+		con.setView(view);
+		mFrame.getContentPane().add(view);
+		mFrame.setVisible(true);
 	}
 	public static void change(JPanel view){
 		mFrame.getContentPane().removeAll();
 		mFrame.getContentPane().add(view);
 		mFrame.setVisible(true);
+		if(view instanceof WebAdminUserView) {
+        mFrame.setTitle("网站管理人员主界面");
+		}
+		else if(view instanceof UserManagementView) {
+	    mFrame.setTitle("用户管理");
+		}
+		else if(view instanceof AddHotelView) {
+	    mFrame.setTitle("添加酒店");
+		}
+		else if(view instanceof MemberRegisterView) {
+		mFrame.setTitle("会员注册");
+		}
+		else if(view instanceof HotelSearchView) {
+		mFrame.setTitle("酒店搜索");
+		}
+		else if(view instanceof HotelBrowseView) {
+		mFrame.setTitle("酒店浏览");
+		}
+		else if(view instanceof OrderBuildView) {
+		mFrame.setTitle("生成订单");
+		}
+	
+		
 	}
+
 	
 	public static void main(String[] args){
 		try {

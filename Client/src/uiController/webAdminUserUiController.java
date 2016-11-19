@@ -1,47 +1,36 @@
 package uiController;
 
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import javax.swing.JFrame;
+import javax.swing.JPanel;
 
+import WebAdminView.AddHotelView;
+import WebAdminView.UserManagementView;
+import WebAdminView.WebAdminUserView;
+import runner.ClientRunner;
+import uiService.AddHotelUiService;
+import uiService.UserManagementUiService;
 import uiService.webAdminUserUiService;
 
-/**
- * 负责实现酒店管理系统的网站管理人员的界面的控制器
- * @author 刘宗侃
- * @version 1.0
- * @see uiService.webAdminUserUiService
- * @see javax.swing.JFrame
- * @see java.awt.event.WindowAdapter;
- * @see java.awt.event.WindowEvent;
- * 
- */
-
-public class webAdminUserUiController extends JFrame implements webAdminUserUiService {
-
-	/**
-	 * 
-	 */
+public class webAdminUserUiController implements webAdminUserUiService{
 	private static final long serialVersionUID = 1L;
-
-	/**
-     * 网站管理人员的初始界面
-     * 
-     * @param 
-     * @return 
-     */
-	public void init() {
-		this.setLocation(400, 300);
-		this.setSize(300, 300);
-		this.setVisible(true);
-		this.addWindowListener(new WindowAdapter() {
-
-			public void windowClosing(WindowEvent e) {
-				System.exit(0);
-			}
-			
-		});
-	}
-
+	private JPanel view;
+	@Override
+	public void setView(WebAdminUserView view) {
+		// TODO Auto-generated method stub
+		this.view=view;
 }
-
+	public void toAddHotelView(){
+		AddHotelUiService controller=new AddHotelUiController();
+		AddHotelView view=new AddHotelView(controller);
+		controller.setView(view);
+		ClientRunner.change(view);
+	}
+	public void toUserManagementView(){
+		UserManagementUiService controller=new UserManagementUiController();
+		UserManagementView view=new UserManagementView(controller);
+		controller.setView(view);
+		ClientRunner.change(view);
+	}
+	public void toLogView(){
+		
+	}
+}
