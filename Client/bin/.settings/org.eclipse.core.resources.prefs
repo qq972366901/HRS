@@ -1,0 +1,9 @@
+eclipse.preferences.version=1
+<<<<<<< HEAD
+encoding//src/Object/Promotion.java=UTF-8
+=======
+encoding//src/List/PromotionList.java=UTF-8
+>>>>>>> 45b2c53847b3c3c3b1c055f6dce5626910842c39
+encoding//src/PO=GBK
+encoding//src/PO/PromotionPO.java=UTF-8
+encoding/<project>=GBK
