@@ -93,14 +93,7 @@ public class ClientRunner implements Serializable{
 		dh.delete(po);
 		dh.init();
 		dh.finish();
-		*/mFrame = new JFrame("Fuck");
-		mFrame.setSize(1000, 700);
-		mFrame.setLocation(10, 10);
-		HotelSearchUiService con=new HotelSearchUiController();
-		HotelSearchView view=new HotelSearchView(con);
-		con.setView(view);
-		mFrame.getContentPane().add(view);
-		mFrame.setVisible(true);
+		*/
 	}
 	public static void change(JPanel view){
 		mFrame.getContentPane().removeAll();
@@ -127,8 +120,6 @@ public class ClientRunner implements Serializable{
 		else if(view instanceof OrderBuildView) {
 		mFrame.setTitle("Éú³É¶©µ¥");
 		}
-	
-		
 	}
 
 	
