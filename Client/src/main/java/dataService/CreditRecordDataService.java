@@ -5,50 +5,50 @@ import dataService.DataService;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-/**¸ºÔğÊµÏÖĞÅÓÃ¼ÇÂ¼Êı¾İ´¢´æËùĞèÒªµÄ·şÎñ½Ó¿Ú
- * @author ÁõÎ°
+/**è´Ÿè´£å®ç°ä¿¡ç”¨è®°å½•æ•°æ®å‚¨å­˜æ‰€éœ€è¦çš„æœåŠ¡æ¥å£
+ * @author åˆ˜ä¼Ÿ
  * @version 1.0
  * see presentation.CreditRecord
  */
 public interface CreditRecordDataService extends DataService, Remote{
 /**
- * °´ID½øĞĞ²éÕÒ·µ»ØÏàÓ¦µÄCreditRecordPO½á¹û
- * @param in MessageInputĞÍ£¬½çÃæÊäÈëµÄ¿Í»§ID
- * @return ·µ»ØResultMessageÃ¶¾ÙµÄÒ»Ïî
+ * æŒ‰IDè¿›è¡ŒæŸ¥æ‰¾è¿”å›ç›¸åº”çš„CreditRecordPOç»“æœ
+ * @param in MessageInputå‹ï¼Œç•Œé¢è¾“å…¥çš„å®¢æˆ·ID
+ * @return è¿”å›ResultMessageæšä¸¾çš„ä¸€é¡¹
  * @see data.CreditRecord
  */
 	public CreditRecordPO find(String id) throws RemoteException;
 /**
- * ÔÚÊı¾İ¿âÖĞÔö¼ÓÒ»¸öpo¼ÇÂ¼
- * @param in MessageInputĞÍ£¬½çÃæµÄÑ¡Ôñ
+ * åœ¨æ•°æ®åº“ä¸­å¢åŠ ä¸€ä¸ªpoè®°å½•
+ * @param in MessageInputå‹ï¼Œç•Œé¢çš„é€‰æ‹©
  * @return 
  * @see data.CreditRecord
  */
 	public void insert(CreditRecordPO po) throws RemoteException;
 /**
- * ÔÚÊı¾İ¿âÖĞÉ¾³ıÒ»¸öpo
- * @param in MessageInputĞÍ£¬½çÃæµÄÑ¡Ôñ
+ * åœ¨æ•°æ®åº“ä¸­åˆ é™¤ä¸€ä¸ªpo
+ * @param in MessageInputå‹ï¼Œç•Œé¢çš„é€‰æ‹©
  * @return 
  * @see data.CreditRecord
  */
 	public void delete(CreditRecordPO po) throws RemoteException;
 /**
- *ÔÚÊı¾İ¿âÖĞ¸üĞÂÒ»¸öpo
- * @param in MessageInputĞÍ£¬½çÃæµÄÑ¡Ôñ
+ *åœ¨æ•°æ®åº“ä¸­æ›´æ–°ä¸€ä¸ªpo
+ * @param in MessageInputå‹ï¼Œç•Œé¢çš„é€‰æ‹©
  * @return 
  * @see data.CreditRecord
  */
 	public void update(CreditRecordPO po) throws RemoteException;
 /**
- * °´³õÊ¼»¯³Ö¾Ã»¯Êı¾İ¿â
- * @param in MessageInputĞÍ£¬½çÃæµÄÑ¡Ôñ
+ * æŒ‰åˆå§‹åŒ–æŒä¹…åŒ–æ•°æ®åº“
+ * @param in MessageInputå‹ï¼Œç•Œé¢çš„é€‰æ‹©
  * @return 
  * @see data.CreditRecord
  */
 	public void init() throws RemoteException;
 /**
- * ½áÊø³Ö¾Ã»¯Êı¾İ¿âµÄÊ¹ÓÃ
- * @param in MessageInputĞÍ£¬½çÃæµÄÑ¡Ôñ
+ * ç»“æŸæŒä¹…åŒ–æ•°æ®åº“çš„ä½¿ç”¨
+ * @param in MessageInputå‹ï¼Œç•Œé¢çš„é€‰æ‹©
  * @return 
  * @see data.CreditRecord
  */

@@ -57,34 +57,34 @@ public class revisePasswordView extends JPanel {
 		panel_1.setLayout(null);
 		
 		oldpassword = new JLabel("\u539F\u5BC6\u7801 \uFF1A");
-		oldpassword.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		oldpassword.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		oldpassword.setBounds(140, 59, 113, 60);
 		panel_1.add(oldpassword);
 		
 		newpassword = new JLabel("\u65B0\u5BC6\u7801 \uFF1A");
-		newpassword.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		newpassword.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		newpassword.setBounds(140, 152, 120, 60);
 		panel_1.add(newpassword);
 		
 		againrevise = new JLabel("\u518D\u6B21\u8F93\u5165\u65B0\u5BC6\u7801 \uFF1A");
-		againrevise.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		againrevise.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		againrevise.setBounds(46, 246, 213, 60);
 		panel_1.add(againrevise);
 		
 		Vector<String> data=new Vector<String>();
 		
 		passwordField = new JPasswordField();
-		passwordField.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		passwordField.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		passwordField.setBounds(289, 59, 300, 60);
 		panel_1.add(passwordField);
 		
 		passwordField_1 = new JPasswordField();
-		passwordField_1.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		passwordField_1.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		passwordField_1.setBounds(289, 152, 300, 60);
 		panel_1.add(passwordField_1);
 		
 		passwordField_2 = new JPasswordField();
-		passwordField_2.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		passwordField_2.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		passwordField_2.setBounds(289, 246, 300, 60);
 		panel_1.add(passwordField_2);
 		
@@ -100,25 +100,25 @@ public class revisePasswordView extends JPanel {
 				same=controller.checksame(String.valueOf(passwordField_1.getPassword()),String.valueOf(passwordField_2.getPassword()));
 				same_oldnew=controller.checksame_old(String.valueOf(passwordField_1.getPassword()),String.valueOf(passwordField.getPassword()));
 				if(!oldPassword){
-					JOptionPane.showMessageDialog(null, "Ô­ÃÜÂëÊäÈëÓĞÎó£¡","", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "åŸå¯†ç è¾“å…¥æœ‰è¯¯ï¼","", JOptionPane.ERROR_MESSAGE);
 					return;
 				}
 				else if(!newPassword){
-					JOptionPane.showMessageDialog(null, "ĞÂÃÜÂë²»ºÏ·¨£¡","", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "æ–°å¯†ç ä¸åˆæ³•ï¼","", JOptionPane.ERROR_MESSAGE);
 					return;
 				}
 				else if(!same){
-					JOptionPane.showMessageDialog(null, "Á½´ÎÖØ¸´ÊäÈëµÄÃÜÂë²»Í¬£¡","", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "ä¸¤æ¬¡é‡å¤è¾“å…¥çš„å¯†ç ä¸åŒï¼","", JOptionPane.ERROR_MESSAGE);
 					return;
 				}
 				else if(same_oldnew){
-					JOptionPane.showMessageDialog(null, "ĞÂ¾ÉÃÜÂëÒ»ÖÂ£¡","", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "æ–°æ—§å¯†ç ä¸€è‡´ï¼","", JOptionPane.ERROR_MESSAGE);
 					return;
 				}
 				controller.revisepassword(data);
 			}
 		});
-		revisepassword.setFont(new Font("ËÎÌå", Font.PLAIN, 20));
+		revisepassword.setFont(new Font("å®‹ä½“", Font.PLAIN, 20));
 		revisepassword.setBounds(281, 345, 180, 60);
 		panel_1.add(revisepassword);
 	}
@@ -134,7 +134,7 @@ public class revisePasswordView extends JPanel {
 			controller.exit();
 			}
 		});
-		back.setFont(new Font("ËÎÌå", Font.PLAIN, 30));
+		back.setFont(new Font("å®‹ä½“", Font.PLAIN, 30));
 		back.setBounds(10, 5, 150, 60);
 		panel.add(back);
 		

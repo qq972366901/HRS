@@ -16,7 +16,7 @@ import VO.HotelVO;
 import common.*;
 /**
  * Test_Order
- * @author ÁõÓîÏè
+ * @author åˆ˜å®‡ç¿”
  * @version 1.1
  * @see
  */

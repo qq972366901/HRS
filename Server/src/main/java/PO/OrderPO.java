@@ -3,7 +3,7 @@ package PO;
 import java.io.Serializable;
 import java.sql.Time;
 /**
- * ¶©µ¥µÄÊı¾İÊµÌå
+ * è®¢å•çš„æ•°æ®å®ä½“
  * @author LZ
  * @version 1.0
  * @see
@@ -23,19 +23,19 @@ public class OrderPO extends PO implements Serializable{
 	private String comment;
 	private int score;	
 	/**
-	 * ¹¹Ôì¶©µ¥Êı¾İÊµÌå
-	 * @param oNum StringĞÍ£¬Âß¼­²ã´«À´µÄ¶©µ¥±àºÅ
-	 * @param state intĞÍ£¬Âß¼­²ã´«À´µÄ¶©µ¥×´Ì¬
-	 * @param value intĞÍ£¬Âß¼­²ã´«À´µÄ¶©µ¥¼ÛÖµ
-	 * @param pnum intĞÍ£¬Âß¼­²ã´«À´µÄÈËÊı
-	 * @param ch booleanĞÍ£¬Âß¼­²ã´«À´µÄÓĞÎŞ¶ùÍ¯
-	 * @param rType StringĞÍ£¬Âß¼­²ã´«À´µÄ·¿¼äÀàĞÍ
-	 * @param rNum intĞÍ£¬Âß¼­²ã´«À´µÄ¶©¹ºÊıÁ¿
-	 * @param in TimeĞÍ£¬Âß¼­²ã´«À´µÄÔ¤¶©Èë×¡Ê±¼ä
-	 * @param out TimeĞÍ£¬Âß¼­²ã´«À´µÄÔ¤¶©Àë¿ªÊ±¼ä
-	 * @param la TimeĞÍ£¬Âß¼­²ã´«À´µÄ×îÍíÖ´ĞĞÊ±¼ä
-	 * @param comm StringĞÍ£¬Âß¼­²ã´«À´µÄ¶©µ¥ÆÀ¼Û
-	 * @param sco intĞÍ£¬Âß¼­²ã´«À´µÄ¶©µ¥ÆÀ·Ö
+	 * æ„é€ è®¢å•æ•°æ®å®ä½“
+	 * @param oNum Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„è®¢å•ç¼–å·
+	 * @param state intå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„è®¢å•çŠ¶æ€
+	 * @param value intå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„è®¢å•ä»·å€¼
+	 * @param pnum intå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„äººæ•°
+	 * @param ch booleanå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„æœ‰æ— å„¿ç«¥
+	 * @param rType Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„æˆ¿é—´ç±»å‹
+	 * @param rNum intå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„è®¢è´­æ•°é‡
+	 * @param in Timeå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„é¢„è®¢å…¥ä½æ—¶é—´
+	 * @param out Timeå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„é¢„è®¢ç¦»å¼€æ—¶é—´
+	 * @param la Timeå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„æœ€æ™šæ‰§è¡Œæ—¶é—´
+	 * @param comm Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„è®¢å•è¯„ä»·
+	 * @param sco intå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„è®¢å•è¯„åˆ†
 	 * @return
 	 * @throws
 	 * @see
@@ -57,9 +57,9 @@ public class OrderPO extends PO implements Serializable{
 
 	}
 	/**
-	 * »ñÈ¡¶©µ¥±àºÅ
+	 * è·å–è®¢å•ç¼–å·
 	 * @param
-	 * @return ·µ»Ø¶©µ¥±àºÅ
+	 * @return è¿”å›è®¢å•ç¼–å·
 	 * @throws
 	 * @see
 	 */
@@ -67,9 +67,9 @@ public class OrderPO extends PO implements Serializable{
 		return orderNumber;
 	}
 	/**
-	 * »ñÈ¡¶©µ¥×´Ì¬
+	 * è·å–è®¢å•çŠ¶æ€
 	 * @param
-	 * @return ·µ»Ø¶©µ¥×´Ì¬
+	 * @return è¿”å›è®¢å•çŠ¶æ€
 	 * @throws
 	 * @see
 	 */
@@ -77,9 +77,9 @@ public class OrderPO extends PO implements Serializable{
 		return orderState;
 	}
 	/**
-	 * »ñÈ¡¶©µ¥¼ÛÖµ
+	 * è·å–è®¢å•ä»·å€¼
 	 * @param
-	 * @return ·µ»Ø¶©µ¥¼ÛÖµ
+	 * @return è¿”å›è®¢å•ä»·å€¼
 	 * @throws
 	 * @see
 	 */
@@ -87,9 +87,9 @@ public class OrderPO extends PO implements Serializable{
 		return orderValue;
 	}
 	/**
-	 * »ñÈ¡ÈËÊı
+	 * è·å–äººæ•°
 	 * @param
-	 * @return ·µ»ØÈËÊı
+	 * @return è¿”å›äººæ•°
 	 * @throws
 	 * @see
 	 */
@@ -97,9 +97,9 @@ public class OrderPO extends PO implements Serializable{
 		return numOfPerson;
 	}
 	/**
-	 * »ñÈ¡ÓĞÎŞ¶ùÍ¯
+	 * è·å–æœ‰æ— å„¿ç«¥
 	 * @param
-	 * @return ·µ»ØÓĞÎŞ¶ùÍ¯
+	 * @return è¿”å›æœ‰æ— å„¿ç«¥
 	 * @throws
 	 * @see
 	 */
@@ -107,9 +107,9 @@ public class OrderPO extends PO implements Serializable{
 		return child;
 	}
 	/**
-	 * »ñÈ¡·¿¼äÀàĞÍ
+	 * è·å–æˆ¿é—´ç±»å‹
 	 * @param
-	 * @return ·µ»Ø·¿¼äÀàĞÍ
+	 * @return è¿”å›æˆ¿é—´ç±»å‹
 	 * @throws
 	 * @see
 	 */
@@ -117,9 +117,9 @@ public class OrderPO extends PO implements Serializable{
 		return roomType;
 	}
 	/**
-	 * »ñÈ¡¶©¹ºÊıÁ¿
+	 * è·å–è®¢è´­æ•°é‡
 	 * @param
-	 * @return ·µ»Ø¶©¹ºÊıÁ¿
+	 * @return è¿”å›è®¢è´­æ•°é‡
 	 * @throws
 	 * @see
 	 */
@@ -127,9 +127,9 @@ public class OrderPO extends PO implements Serializable{
 		return roomNumber;
 	}
 	/**
-	 * »ñÈ¡Ô¤¶©Èë×¡Ê±¼ä
+	 * è·å–é¢„è®¢å…¥ä½æ—¶é—´
 	 * @param
-	 * @return ·µ»ØÔ¤¶©Èë×¡Ê±¼ä
+	 * @return è¿”å›é¢„è®¢å…¥ä½æ—¶é—´
 	 * @throws
 	 * @see
 	 */
@@ -137,9 +137,9 @@ public class OrderPO extends PO implements Serializable{
 		return expectedCheckIn;
 	}
 	/**
-	 * »ñÈ¡Ô¤¶©Àë¿ªÊ±¼ä
+	 * è·å–é¢„è®¢ç¦»å¼€æ—¶é—´
 	 * @param
-	 * @return ·µ»ØÔ¤¶©Àë¿ªÊ±¼ä
+	 * @return è¿”å›é¢„è®¢ç¦»å¼€æ—¶é—´
 	 * @throws
 	 * @see
 	 */
@@ -147,9 +147,9 @@ public class OrderPO extends PO implements Serializable{
 		return expectedCheckOut;
 	}
 	/**
-	 * »ñÈ¡×îÍíÖ´ĞĞÊ±¼ä
+	 * è·å–æœ€æ™šæ‰§è¡Œæ—¶é—´
 	 * @param
-	 * @return ·µ»Ø×îÍíÖ´ĞĞÊ±¼ä
+	 * @return è¿”å›æœ€æ™šæ‰§è¡Œæ—¶é—´
 	 * @throws
 	 * @see
 	 */
@@ -157,9 +157,9 @@ public class OrderPO extends PO implements Serializable{
 		return latest;
 	}
 	/**
-	 * »ñÈ¡¶©µ¥ÆÀ¼Û
+	 * è·å–è®¢å•è¯„ä»·
 	 * @param
-	 * @return ·µ»Ø¶©µ¥ÆÀ¼Û
+	 * @return è¿”å›è®¢å•è¯„ä»·
 	 * @throws
 	 * @see
 	 */
@@ -167,9 +167,9 @@ public class OrderPO extends PO implements Serializable{
 		return comment;
 	}
 	/**
-	 * »ñÈ¡¶©µ¥ÆÀ·Ö
+	 * è·å–è®¢å•è¯„åˆ†
 	 * @param
-	 * @return ·µ»Ø¶©µ¥ÆÀ·Ö
+	 * @return è¿”å›è®¢å•è¯„åˆ†
 	 * @throws
 	 * @see
 	 */
@@ -177,8 +177,8 @@ public class OrderPO extends PO implements Serializable{
 		return score;
 	}
 	/**
-	 * ÉèÖÃ¶©µ¥±àºÅ
-	 * @param oNum StringĞÍ£¬Âß¼­²ã´«À´µÄ¶©µ¥±àºÅ
+	 * è®¾ç½®è®¢å•ç¼–å·
+	 * @param oNum Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„è®¢å•ç¼–å·
 	 * @return
 	 * @throws
 	 * @see
@@ -188,8 +188,8 @@ public class OrderPO extends PO implements Serializable{
 
 	}
 	/**
-	 * ÉèÖÃ¶©µ¥×´Ì¬
-	 * @param state intĞÍ£¬Âß¼­²ã´«À´µÄ¶©µ¥×´Ì¬
+	 * è®¾ç½®è®¢å•çŠ¶æ€
+	 * @param state intå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„è®¢å•çŠ¶æ€
 	 * @return
 	 * @throws
 	 * @see
@@ -199,8 +199,8 @@ public class OrderPO extends PO implements Serializable{
 	}
 
 	/**
-	 * ÉèÖÃ¶©µ¥¼ÛÖµ
-	 * @param value intĞÍ£¬Âß¼­²ã´«À´µÄ¶©µ¥¼ÛÖµ
+	 * è®¾ç½®è®¢å•ä»·å€¼
+	 * @param value intå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„è®¢å•ä»·å€¼
 	 * @return
 	 * @throws
 	 * @see
@@ -209,8 +209,8 @@ public class OrderPO extends PO implements Serializable{
 		orderValue = value;
 	}
 	/**
-	 * ÉèÖÃÈËÊı
-	 * @param pnum intĞÍ£¬Âß¼­²ã´«À´µÄÈËÊı
+	 * è®¾ç½®äººæ•°
+	 * @param pnum intå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„äººæ•°
 	 * @return
 	 * @throws
 	 * @see
@@ -219,8 +219,8 @@ public class OrderPO extends PO implements Serializable{
 		numOfPerson=num;
 	}
 	/**
-	 * ÉèÖÃÓĞÎŞ¶ùÍ¯
-	 * @param ch booleanĞÍ£¬Âß¼­²ã´«À´µÄÓĞÎŞ¶ùÍ¯
+	 * è®¾ç½®æœ‰æ— å„¿ç«¥
+	 * @param ch booleanå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„æœ‰æ— å„¿ç«¥
 	 * @return
 	 * @throws
 	 * @see
@@ -229,8 +229,8 @@ public class OrderPO extends PO implements Serializable{
 		child=ch;
 	}
 	/**
-	 * ÉèÖÃ·¿¼äÀàĞÍ
-	 * @param rType StringĞÍ£¬Âß¼­²ã´«À´µÄ·¿¼äÀàĞÍ
+	 * è®¾ç½®æˆ¿é—´ç±»å‹
+	 * @param rType Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„æˆ¿é—´ç±»å‹
 	 * @return
 	 * @throws
 	 * @see
@@ -239,8 +239,8 @@ public class OrderPO extends PO implements Serializable{
 		roomType = rType;
 	}
 	/**
-	 * ÉèÖÃ¶©¹ºÊıÁ¿
-	 * @param rNum intĞÍ£¬Âß¼­²ã´«À´µÄ¶©¹ºÊıÁ¿
+	 * è®¾ç½®è®¢è´­æ•°é‡
+	 * @param rNum intå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„è®¢è´­æ•°é‡
 	 * @return
 	 * @throws
 	 * @see
@@ -249,8 +249,8 @@ public class OrderPO extends PO implements Serializable{
 		roomNumber = rNum;
 	}
 	/**
-	 * ÉèÖÃÔ¤¶©Èë×¡Ê±¼ä
-	 * @param in TimeĞÍ£¬Âß¼­²ã´«À´µÄÔ¤¶©Èë×¡Ê±¼ä
+	 * è®¾ç½®é¢„è®¢å…¥ä½æ—¶é—´
+	 * @param in Timeå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„é¢„è®¢å…¥ä½æ—¶é—´
 	 * @return
 	 * @throws
 	 * @see
@@ -259,8 +259,8 @@ public class OrderPO extends PO implements Serializable{
 		expectedCheckIn = in;
 	}
 	/**
-	 * ÉèÖÃ×îÍíÖ´ĞĞÊ±¼ä
-	 * @param la TimeĞÍ£¬Âß¼­²ã´«À´µÄ×îÍíÖ´ĞĞÊ±¼ä
+	 * è®¾ç½®æœ€æ™šæ‰§è¡Œæ—¶é—´
+	 * @param la Timeå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„æœ€æ™šæ‰§è¡Œæ—¶é—´
 	 * @return
 	 * @throws
 	 * @see
@@ -269,8 +269,8 @@ public class OrderPO extends PO implements Serializable{
 		latest=la;
 	}
 	/**
-	 * ÉèÖÃÔ¤¶©Èë×¡Ê±¼ä
-	 * @param out TimeĞÍ£¬Âß¼­²ã´«À´µÄÔ¤¶©Àë¿ªÊ±¼ä
+	 * è®¾ç½®é¢„è®¢å…¥ä½æ—¶é—´
+	 * @param out Timeå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„é¢„è®¢ç¦»å¼€æ—¶é—´
 	 * @return
 	 * @throws
 	 * @see
@@ -279,8 +279,8 @@ public class OrderPO extends PO implements Serializable{
 		expectedCheckOut = out;
 	}
 	/**
-	 * ÉèÖÃ¶©µ¥ÆÀ¼Û
-	 * @param comm StringĞÍ£¬Âß¼­²ã´«À´µÄ¶©µ¥ÆÀ¼Û
+	 * è®¾ç½®è®¢å•è¯„ä»·
+	 * @param comm Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„è®¢å•è¯„ä»·
 	 * @return
 	 * @throws
 	 * @see
@@ -289,8 +289,8 @@ public class OrderPO extends PO implements Serializable{
 		comment = comm;
 	}
 	/**
-	 * ÉèÖÃ¶©µ¥ÆÀ·Ö
-	 * @param sco intĞÍ£¬Âß¼­²ã´«À´µÄ¶©µ¥ÆÀ·Ö
+	 * è®¾ç½®è®¢å•è¯„åˆ†
+	 * @param sco intå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„è®¢å•è¯„åˆ†
 	 * @return
 	 * @throws
 	 * @see

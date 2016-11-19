@@ -4,10 +4,10 @@ import common.ResultMessage;
 import hotelBLService.HotelBLService_realize;
 public class HotelInformationMaintenanceController  extends HotelBLService_realize{
 	/**
-     * Î¬»¤¾ÆµêµÄ»ù±¾ĞÅÏ¢£¬¸üĞÂ¾ÆµêÊı¾İ
+     * ç»´æŠ¤é…’åº—çš„åŸºæœ¬ä¿¡æ¯ï¼Œæ›´æ–°é…’åº—æ•°æ®
      * 
-     * @param in MessageInputĞÍ£¬½çÃæÊäÈëµÄĞŞ¸ÄĞÅÏ¢
-     * @return ·µ»ØResultMessageÃ¶¾ÙÖµÖĞµÄÒ»Ïî
+     * @param in MessageInputå‹ï¼Œç•Œé¢è¾“å…¥çš„ä¿®æ”¹ä¿¡æ¯
+     * @return è¿”å›ResultMessageæšä¸¾å€¼ä¸­çš„ä¸€é¡¹
      * @see bussinesslogic.Hotel
      */
 	public ResultMessage messagemaintain(MessageInput  in) {
@@ -16,10 +16,10 @@ public class HotelInformationMaintenanceController  extends HotelBLService_reali
 	
 	
 	/**
-     * Ôö¼Ó¾ÆµêÕËºÅÃû³Æ²¢ÇÒ´´½¨Ò»¸ö¸Ã¾Æµê¹¤×÷ÈËÔ±µÄÕËºÅ
+     * å¢åŠ é…’åº—è´¦å·åç§°å¹¶ä¸”åˆ›å»ºä¸€ä¸ªè¯¥é…’åº—å·¥ä½œäººå‘˜çš„è´¦å·
      * 
-     * @param in MessageInputĞÍ£¬½çÃæÊäÈëµÄ¾ÆµêÏà¹ØĞÅÏ¢
-     * @return ·µ»ØResultMessageÃ¶¾ÙÖµÖĞµÄÒ»Ïî
+     * @param in MessageInputå‹ï¼Œç•Œé¢è¾“å…¥çš„é…’åº—ç›¸å…³ä¿¡æ¯
+     * @return è¿”å›ResultMessageæšä¸¾å€¼ä¸­çš„ä¸€é¡¹
      * @see bussinesslogic.Hotel
      */
 	public ResultMessage accuntadmin(MessageInput  in) {

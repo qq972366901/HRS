@@ -15,9 +15,9 @@ public class OrderOverviewController extends OrderBLService_realize{
 
 
 	/**
-     * ÏÔÊ¾ËùÓĞ¶©µ¥ĞÅÏ¢
+     * æ˜¾ç¤ºæ‰€æœ‰è®¢å•ä¿¡æ¯
      * 
-     * @return ArrayList<OrderVO>£¬Ò»¸ö¶©µ¥Öµ¶ÔÏóµÄÁĞ±í
+     * @return ArrayList<OrderVO>ï¼Œä¸€ä¸ªè®¢å•å€¼å¯¹è±¡çš„åˆ—è¡¨
      * @see bussinesslogic.Order
      */
 	public ArrayList<OrderVO> show(int hotelid) {
@@ -27,20 +27,20 @@ public class OrderOverviewController extends OrderBLService_realize{
 	
 	
 	/**
-     * ÏÔÊ¾¶©µ¥ÖĞ¹ØÓÚ·¿¼äµÄĞÅÏ¢
+     * æ˜¾ç¤ºè®¢å•ä¸­å…³äºæˆ¿é—´çš„ä¿¡æ¯
      * 
-     * @param vo OrderVOĞÍ£¬Ò»¸ö¶©µ¥µÄÖµ¶ÔÏó
-     * @return ·µ»ØResultMessageµÄÒ»¸öÃ¶¾ÙÖµ
+     * @param vo OrderVOå‹ï¼Œä¸€ä¸ªè®¢å•çš„å€¼å¯¹è±¡
+     * @return è¿”å›ResultMessageçš„ä¸€ä¸ªæšä¸¾å€¼
      * @see bussinesslogic.Order
      */
 	public ResultMessage getRoomInfo (OrderVO vo) {
 		return ResultMessage.Exist;
 	}
 	/**
-     * ÏÔÊ¾¶©µ¥ÖĞ¹ØÓÚ·¿¼äµÄĞÅÏ¢
+     * æ˜¾ç¤ºè®¢å•ä¸­å…³äºæˆ¿é—´çš„ä¿¡æ¯
      * 
-     * @param vo UserVOĞÍ£¬Ò»¸ö¿Í»§µÄÖµ¶ÔÏó
-     * @return ArrayList<Hotel> £¬Ò»¸ö¾ÆµêµÄÁĞ±í
+     * @param vo UserVOå‹ï¼Œä¸€ä¸ªå®¢æˆ·çš„å€¼å¯¹è±¡
+     * @return ArrayList<Hotel> ï¼Œä¸€ä¸ªé…’åº—çš„åˆ—è¡¨
      * @see bussinesslogic.Order
      */
 	public ArrayList<Hotel> gethistory(UserVO vo) {
@@ -48,10 +48,10 @@ public class OrderOverviewController extends OrderBLService_realize{
 		return ht;
 	}
 	/**
-     * ÏÔÊ¾Ñ¡ÖĞµÄ¾ÆµêµÄËùÓĞÀúÊ·¶©µ¥
+     * æ˜¾ç¤ºé€‰ä¸­çš„é…’åº—çš„æ‰€æœ‰å†å²è®¢å•
      * 
-     * @param vo HotelVOĞÍ£¬Ò»¸ö¾ÆµêµÄÖµ¶ÔÏó
-     * @return ArrayList<Order> £¬Ò»¸ö¶©µ¥Öµ¶ÔÏóµÄÁĞ±í
+     * @param vo HotelVOå‹ï¼Œä¸€ä¸ªé…’åº—çš„å€¼å¯¹è±¡
+     * @return ArrayList<Order> ï¼Œä¸€ä¸ªè®¢å•å€¼å¯¹è±¡çš„åˆ—è¡¨
      * @see bussinesslogic.Order
      */
 	public ArrayList<OrderVO> findByType(HotelVO vo) {
@@ -61,10 +61,10 @@ public class OrderOverviewController extends OrderBLService_realize{
 	
 	
 	/**
-     * ¸ù¾İÑ¡ÔñµÄÀàĞÍ²éÕÒËùÓĞ¶©µ¥£¬²¢ÏÔÊ¾
+     * æ ¹æ®é€‰æ‹©çš„ç±»å‹æŸ¥æ‰¾æ‰€æœ‰è®¢å•ï¼Œå¹¶æ˜¾ç¤º
      * 
-     * @param type StringĞÍ£¬Ò»ÖÖ¶©µ¥µÄÀàĞÍ
-     * @return ArrayList<OrderVO>£¬Ò»¸ö¶©µ¥Öµ¶ÔÏóµÄÁĞ±í
+     * @param type Stringå‹ï¼Œä¸€ç§è®¢å•çš„ç±»å‹
+     * @return ArrayList<OrderVO>ï¼Œä¸€ä¸ªè®¢å•å€¼å¯¹è±¡çš„åˆ—è¡¨
      * @see bussinesslogic.Order
      */
 	public ArrayList<OrderVO> findByType(String type) {
@@ -74,10 +74,10 @@ public class OrderOverviewController extends OrderBLService_realize{
 	
 	
 	/**
-     * ¸ù¾İ¶©µ¥ºÅ²éÕÒ¶©µ¥ÏêÇé£¬²¢ÏÔÊ¾
+     * æ ¹æ®è®¢å•å·æŸ¥æ‰¾è®¢å•è¯¦æƒ…ï¼Œå¹¶æ˜¾ç¤º
      * 
-     * @param orderID StringĞÍ£¬¶©µ¥ºÅ
-     * @return OrderVO£¬Ò»¸ö¶©µ¥µÄÖµ¶ÔÏó
+     * @param orderID Stringå‹ï¼Œè®¢å•å·
+     * @return OrderVOï¼Œä¸€ä¸ªè®¢å•çš„å€¼å¯¹è±¡
      * @see bussinesslogic.Order
      */
 	public OrderVO showDetail(String orderID) {
@@ -85,10 +85,10 @@ public class OrderOverviewController extends OrderBLService_realize{
 		return ov;
 	}
 	/**
-     * ¸ù¾İÊäÈëµÄID²éÕÒ¶©µ¥²¢ÏÔÊ¾
+     * æ ¹æ®è¾“å…¥çš„IDæŸ¥æ‰¾è®¢å•å¹¶æ˜¾ç¤º
      * 
-     * @param ID StringĞÍ£¬¶©µ¥ºÅ
-     * @return OrderVO£¬Ò»¸ö¶©µ¥µÄÖµ¶ÔÏó
+     * @param ID Stringå‹ï¼Œè®¢å•å·
+     * @return OrderVOï¼Œä¸€ä¸ªè®¢å•çš„å€¼å¯¹è±¡
      * @see bussinesslogic.Order
      */
 	public OrderVO findByID(String ID) {
@@ -96,11 +96,11 @@ public class OrderOverviewController extends OrderBLService_realize{
 		return ov;
 	}
 	/**
-     * ¼ÆËã¶©µ¥¼ÛÖµ²¢ÏÔÊ¾
+     * è®¡ç®—è®¢å•ä»·å€¼å¹¶æ˜¾ç¤º
      * 
-     * @param vo OrderVOĞÍ£¬¶©µ¥µÄÖµ¶ÔÏó
-     * @param userID StringĞÍ£¬¿Í»§±àºÅ
-     * @return long£¬¶©µ¥µÄ¼ÛÖµ
+     * @param vo OrderVOå‹ï¼Œè®¢å•çš„å€¼å¯¹è±¡
+     * @param userID Stringå‹ï¼Œå®¢æˆ·ç¼–å·
+     * @return longï¼Œè®¢å•çš„ä»·å€¼
      * @see bussinesslogic.Order
      */
 	public long getPrice(OrderVO vo,String userID) {
@@ -109,10 +109,10 @@ public class OrderOverviewController extends OrderBLService_realize{
 	
 	
 	/**
-     * ¼ÆËã¶©µ¥¼ÛÖµ²¢ÏÔÊ¾
+     * è®¡ç®—è®¢å•ä»·å€¼å¹¶æ˜¾ç¤º
      * 
-     * @param vo OrderVOĞÍ£¬¶©µ¥µÄÖµ¶ÔÏó
-     * @return ResultMessageµÄÒ»¸öÃ¶¾ÙÖµ
+     * @param vo OrderVOå‹ï¼Œè®¢å•çš„å€¼å¯¹è±¡
+     * @return ResultMessageçš„ä¸€ä¸ªæšä¸¾å€¼
      * @see bussinesslogic.Order
      */
 	public ResultMessage payment(OrderVO vo) {

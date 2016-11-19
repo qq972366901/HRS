@@ -6,10 +6,10 @@ import hotelBLService.HotelBLService_realize;
 
 public class HotelManagementController extends HotelBLService_realize{
 	/**
-     * Î¬»¤¾ÆµêµÄ»ù±¾ĞÅÏ¢£¬¸üĞÂ¾ÆµêÊı¾İ
+     * ç»´æŠ¤é…’åº—çš„åŸºæœ¬ä¿¡æ¯ï¼Œæ›´æ–°é…’åº—æ•°æ®
      * 
-     * @param in MessageInputĞÍ£¬½çÃæÊäÈëµÄĞŞ¸ÄĞÅÏ¢
-     * @return ·µ»ØResultMessageÃ¶¾ÙÖµÖĞµÄÒ»Ïî
+     * @param in MessageInputå‹ï¼Œç•Œé¢è¾“å…¥çš„ä¿®æ”¹ä¿¡æ¯
+     * @return è¿”å›ResultMessageæšä¸¾å€¼ä¸­çš„ä¸€é¡¹
      * @see bussinesslogic.Hotel
      */
 	public ResultMessage messagemaintain(MessageInput  in) {

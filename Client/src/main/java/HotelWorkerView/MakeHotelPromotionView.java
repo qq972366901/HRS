@@ -45,7 +45,7 @@ public class MakeHotelPromotionView extends JPanel {
 		this.add(backPanel, BorderLayout.NORTH);
 		backPanel.setLayout(new BorderLayout(0, 0));
 		
-		backButton = new JButton("·µ»Ø");
+		backButton = new JButton("è¿”å›");
 		backPanel.add(backButton, BorderLayout.EAST);
 		backButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
@@ -64,7 +64,7 @@ public class MakeHotelPromotionView extends JPanel {
 		JPanel panel_1_1 = new JPanel();
 		panel_1.add(panel_1_1);
 		
-		JLabel promotionNameLabel = new JLabel("ÓªÏú²ßÂÔÃû³Æ£º");
+		JLabel promotionNameLabel = new JLabel("è¥é”€ç­–ç•¥åç§°ï¼š");
 		promotionNameLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_1.add(promotionNameLabel);
 		
@@ -85,7 +85,7 @@ public class MakeHotelPromotionView extends JPanel {
 		JPanel panel_3_1 = new JPanel();
 		panel_3.add(panel_3_1);
 		
-		JLabel startTimeLabel = new JLabel("»î¶¯¿ªÊ¼Ê±¼ä£º");
+		JLabel startTimeLabel = new JLabel("æ´»åŠ¨å¼€å§‹æ—¶é—´ï¼š");
 		startTimeLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_3.add(startTimeLabel);
 		
@@ -106,7 +106,7 @@ public class MakeHotelPromotionView extends JPanel {
 		JPanel panel_5_1 = new JPanel();
 		panel_5.add(panel_5_1);
 		
-		JLabel endTimeLabel = new JLabel("»î¶¯½áÊøÊ±¼ä£º");
+		JLabel endTimeLabel = new JLabel("æ´»åŠ¨ç»“æŸæ—¶é—´ï¼š");
 		endTimeLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_5.add(endTimeLabel);
 		
@@ -127,7 +127,7 @@ public class MakeHotelPromotionView extends JPanel {
 		JPanel panel_7_1 = new JPanel();
 		panel_7.add(panel_7_1);
 		
-		JLabel discountLabel = new JLabel("»î¶¯ÕÛ¿Û£º");
+		JLabel discountLabel = new JLabel("æ´»åŠ¨æŠ˜æ‰£ï¼š");
 		discountLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_7.add(discountLabel);
 		
@@ -148,7 +148,7 @@ public class MakeHotelPromotionView extends JPanel {
 		JPanel panel_9_1 = new JPanel();
 		panel_9.add(panel_9_1);
 		
-		JLabel birthdayDiscountLabel = new JLabel("¿Í»§ÉúÈÕÓÅ»İÕÛ¿Û£º");
+		JLabel birthdayDiscountLabel = new JLabel("å®¢æˆ·ç”Ÿæ—¥ä¼˜æƒ æŠ˜æ‰£ï¼š");
 		birthdayDiscountLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_9.add(birthdayDiscountLabel);
 		
@@ -169,7 +169,7 @@ public class MakeHotelPromotionView extends JPanel {
 		JPanel panel_11_1 = new JPanel();
 		panel_11.add(panel_11_1);
 		
-		JLabel threeRoomsDiscountLabel = new JLabel("¿Í»§¶©·¿ÂúÈı¼äÕÛ¿Û£º");
+		JLabel threeRoomsDiscountLabel = new JLabel("å®¢æˆ·è®¢æˆ¿æ»¡ä¸‰é—´æŠ˜æ‰£ï¼š");
 		threeRoomsDiscountLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_11.add(threeRoomsDiscountLabel);
 		
@@ -190,7 +190,7 @@ public class MakeHotelPromotionView extends JPanel {
 		JPanel panel_13_1 = new JPanel();
 		panel_13.add(panel_13_1);
 		
-		JLabel businessDiscountLabel = new JLabel("ÆóÒµºÏ×÷¿Í»§ÕÛ¿Û£º");
+		JLabel businessDiscountLabel = new JLabel("ä¼ä¸šåˆä½œå®¢æˆ·æŠ˜æ‰£ï¼š");
 		businessDiscountLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_13.add(businessDiscountLabel);
 		
@@ -207,11 +207,11 @@ public class MakeHotelPromotionView extends JPanel {
 		JPanel panel_15 = new JPanel();
 		hotelPromotionPanel.add(panel_15);
 		
-		submitButton = new JButton("È·¶¨");
+		submitButton = new JButton("ç¡®å®š");
 		panel_15.add(submitButton);
 		submitButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
-				//ÏµÍ³Ìí¼Ó¾ÆµêÓªÏú²ßÂÔ
+				//ç³»ç»Ÿæ·»åŠ é…’åº—è¥é”€ç­–ç•¥
 			}
 			
 		});

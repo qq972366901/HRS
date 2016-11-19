@@ -43,7 +43,7 @@ public class HotelSearchView extends JPanel{
 	private void initReturnButton() {
 		JPanel panel= new JPanel();
 		panel.setLayout(new FlowLayout(FlowLayout.RIGHT));
-		button1=new JButton("·µ»Ø");
+		button1=new JButton("è¿”å›");
 		panel.add(button1);
 		this.add(panel);
 		button1.addActionListener(new ActionListener() {			
@@ -56,11 +56,11 @@ public class HotelSearchView extends JPanel{
 	private void initCombobox() {
 		        JPanel panel1 = new JPanel();
 				panel1.setLayout(new FlowLayout(FlowLayout.LEFT));
-				label1=new JLabel("µØÖ·");
+				label1=new JLabel("åœ°å€");
 				comboBox1= new JComboBox<String>();
-				label2=new JLabel("     ÉÌÈ¦");
+				label2=new JLabel("     å•†åœˆ");
 				comboBox2= new JComboBox<String>();
-				label3=new JLabel("     ĞÇ¼¶");
+				label3=new JLabel("     æ˜Ÿçº§");
 				comboBox3= new JComboBox<Integer>();
 				for(int i=1;i<6;i++){
 				   comboBox3.addItem(i);
@@ -74,7 +74,7 @@ public class HotelSearchView extends JPanel{
 				this.add(panel1);
 				JPanel panel2 = new JPanel();
 				panel2.setLayout(new FlowLayout(FlowLayout.LEFT));
-				label4=new JLabel("¼Û¸ñÇø¼ä");
+				label4=new JLabel("ä»·æ ¼åŒºé—´");
 				comboBox4= new JComboBox<Integer>();
 				for(int i=0;i<100;i++){
 				    comboBox4.addItem(100*i);
@@ -84,7 +84,7 @@ public class HotelSearchView extends JPanel{
 				for(int i=0;i<100;i++){
 				    comboBox5.addItem(100*i);
 					}
-				label6=new JLabel("     ÆÀ·ÖÇø¼ä");
+				label6=new JLabel("     è¯„åˆ†åŒºé—´");
 				comboBox6= new JComboBox<Integer>();
 				for(int i=0;i<6;i++){
 				    comboBox6.addItem(i);
@@ -105,9 +105,9 @@ public class HotelSearchView extends JPanel{
 				this.add(panel2);
 				JPanel panel3 = new JPanel();
 				panel3.setLayout(new FlowLayout(FlowLayout.LEFT));
-				label8=new JLabel("·¿¼äÀàĞÍ");
+				label8=new JLabel("æˆ¿é—´ç±»å‹");
 				comboBox8= new JComboBox<String>();
-				label9=new JLabel("     ·¿¼äÊıÁ¿");
+				label9=new JLabel("     æˆ¿é—´æ•°é‡");
 				comboBox9= new JComboBox<Integer>();
 				for(int i=1;i<101;i++){
 				    comboBox9.addItem(i);
@@ -119,38 +119,38 @@ public class HotelSearchView extends JPanel{
 				this.add(panel3);
 				JPanel panel4 = new JPanel();
 				panel4.setLayout(new FlowLayout(FlowLayout.LEFT));
-				label10=new JLabel("Èë×¡ÈÕÆÚ");
+				label10=new JLabel("å…¥ä½æ—¥æœŸ");
 				comboBox10= new JComboBox<Integer>();
 				for(int i=2016;i<2018;i++){
 				    comboBox10.addItem(i);
 					}
-				label11=new JLabel("Äê");
+				label11=new JLabel("å¹´");
 				comboBox11= new JComboBox<Integer>();
 				for(int i=1;i<13;i++){
 				    comboBox11.addItem(i);
 					}
-				label12=new JLabel("ÔÂ");
+				label12=new JLabel("æœˆ");
 				comboBox12= new JComboBox<Integer>();
 				for(int i=1;i<32;i++){
 				    comboBox12.addItem(i);
 					}
-				label13=new JLabel("ÈÕ");
-				label14=new JLabel("     Èë×¡ÈÕÆÚ");
+				label13=new JLabel("æ—¥");
+				label14=new JLabel("     å…¥ä½æ—¥æœŸ");
 				comboBox13= new JComboBox<Integer>();
 				for(int i=2016;i<2018;i++){
 				    comboBox13.addItem(i);
 					}
-				label15=new JLabel("Äê");
+				label15=new JLabel("å¹´");
 				comboBox14= new JComboBox<Integer>();
 				for(int i=1;i<13;i++){
 				    comboBox14.addItem(i);
 					}
-				label16=new JLabel("ÔÂ");
+				label16=new JLabel("æœˆ");
 				comboBox15= new JComboBox<Integer>();
 				for(int i=1;i<32;i++){
 				    comboBox15.addItem(i);
 					}
-				label17=new JLabel("ÈÕ");
+				label17=new JLabel("æ—¥");
 				panel4.add(label10);
 				panel4.add(comboBox10);
 				panel4.add(label11);
@@ -169,17 +169,17 @@ public class HotelSearchView extends JPanel{
 				JPanel panel5 = new JPanel();
 				panel5.setLayout(new FlowLayout(FlowLayout.LEFT));
 				comboBox16= new JComboBox<String>();
-				comboBox16.addItem("ËùÓĞ¾Æµê");
-				comboBox16.addItem("Ô¤¶¨¹ıµÄ¾Æµê");
-				comboBox16.addItem("Î´Ô¤¶¨¹ıµÄ¾Æµê");
+				comboBox16.addItem("æ‰€æœ‰é…’åº—");
+				comboBox16.addItem("é¢„å®šè¿‡çš„é…’åº—");
+				comboBox16.addItem("æœªé¢„å®šè¿‡çš„é…’åº—");
 				panel5.add(comboBox16);
 				this.add(panel5);
 	}
 	private void initButton(){
 		JPanel panel6 = new JPanel();
 		panel6.setLayout(new FlowLayout(FlowLayout.LEFT));
-		button2=new JButton("ä¯ÀÀ¾ÆµêĞÅÏ¢");
-		button3=new JButton("ÏÂ¶©µ¥");
+		button2=new JButton("æµè§ˆé…’åº—ä¿¡æ¯");
+		button3=new JButton("ä¸‹è®¢å•");
 		panel6.add(button2);
 		panel6.add(button3);
 		this.add(panel6);
@@ -198,12 +198,12 @@ public class HotelSearchView extends JPanel{
         JScrollPane scrollPane = new JScrollPane();
         
 		Vector<String> vColumns = new Vector<String>();
-		vColumns.add("¾ÆµêÃû³Æ");
-		vColumns.add("¾ÆµêµØÖ·");
-		vColumns.add("¾ÆµêĞÇ¼¶");
-		vColumns.add("¾ÆµêÆÀ·Ö");
-		vColumns.add("ÓªÏú²ßÂÔ");
-		vColumns.add("¾Æµê¼Û¸ñ");
+		vColumns.add("é…’åº—åç§°");
+		vColumns.add("é…’åº—åœ°å€");
+		vColumns.add("é…’åº—æ˜Ÿçº§");
+		vColumns.add("é…’åº—è¯„åˆ†");
+		vColumns.add("è¥é”€ç­–ç•¥");
+		vColumns.add("é…’åº—ä»·æ ¼");
 		model= new DefaultTableModel(null, vColumns);
 		table = new JTable(model){
 			private static final long serialVersionUID = 1L;

@@ -9,27 +9,27 @@ import userBLService.UserBLService_realize;
 
 public class UserCreditRecordController extends UserBLService_realize{
 	/**
-	 * ¸ù¾İ¿Í»§ID²éÕÒ¿Í»§ĞÅÏ¢²¢·µ»Ø
-	 * @param  in MessageInputĞÍ£¬½çÃæÊäÈëµÄ¿Í»§ID
-	 * @return ·µ»ØResultMessageµÄËùÓĞÃ¶¾ÙÖµ
+	 * æ ¹æ®å®¢æˆ·IDæŸ¥æ‰¾å®¢æˆ·ä¿¡æ¯å¹¶è¿”å›
+	 * @param  in MessageInputå‹ï¼Œç•Œé¢è¾“å…¥çš„å®¢æˆ·ID
+	 * @return è¿”å›ResultMessageçš„æ‰€æœ‰æšä¸¾å€¼
 	 * @see bussinesslogic.User
 	 */
 		public ResultMessage findByID(String userID) {
 		return ResultMessage.Exist;
 	}
 		/**
-		 * ÏÔÊ¾ĞÅÓÃÖµ
-		 * @param in MessageInputĞÍ£¬½çÃæÊäÈëÓÃ»§ID
-		 * @return StringĞÍ£¬·µ»Ø¿Í»§µÄĞÅÓÃÖµ
+		 * æ˜¾ç¤ºä¿¡ç”¨å€¼
+		 * @param in MessageInputå‹ï¼Œç•Œé¢è¾“å…¥ç”¨æˆ·ID
+		 * @return Stringå‹ï¼Œè¿”å›å®¢æˆ·çš„ä¿¡ç”¨å€¼
 		 * @see bussinesslogic.User
 		 */
 			public long showCredit(String userID) {
 			return 200;
 		}
 			/**
-			 * ĞÅÓÃ¼ÇÂ¼ÏÔÊ¾
-			 * @param in MessageInputĞÍ£¬½çÃæÑ¡ÔñµÄĞÅÏ¢
-			 * @return ·µ»ØResultMessageµÄÒ»¸öÃ¶¾ÙÖµ
+			 * ä¿¡ç”¨è®°å½•æ˜¾ç¤º
+			 * @param in MessageInputå‹ï¼Œç•Œé¢é€‰æ‹©çš„ä¿¡æ¯
+			 * @return è¿”å›ResultMessageçš„ä¸€ä¸ªæšä¸¾å€¼
 			 * @see bussinesslogic.User
 			 */
 				public CreditRecordVO showCreditRecord(UserVO vo) {
@@ -37,18 +37,18 @@ public class UserCreditRecordController extends UserBLService_realize{
 				return cr;
 			}	
 				/**
-				 * ¿Í»§µÇÂ¼
-				 * @param in MessageInputĞÍ£¬½çÃæÊäÈëµÄ¸üĞÂĞÅÏ¢
-				 * @return ·µ»ØUserTypeµÄËùÓĞÃ¶¾ÙÖµ
+				 * å®¢æˆ·ç™»å½•
+				 * @param in MessageInputå‹ï¼Œç•Œé¢è¾“å…¥çš„æ›´æ–°ä¿¡æ¯
+				 * @return è¿”å›UserTypeçš„æ‰€æœ‰æšä¸¾å€¼
 				 * @see bussinesslogic.User
 				 */
 					public UserType login(String ID, String password)throws RemoteException {
 					return UserType.Customer;
 				}
 				/**
-				 * ¿Í»§µÇ³ö
-				 * @param in MessageInputĞÍ£¬½çÃæÑ¡ÔñµÄĞÅÏ¢
-				 * @return ·µ»ØResultMessageµÄÒ»¸öÃ¶¾ÙÖµ
+				 * å®¢æˆ·ç™»å‡º
+				 * @param in MessageInputå‹ï¼Œç•Œé¢é€‰æ‹©çš„ä¿¡æ¯
+				 * @return è¿”å›ResultMessageçš„ä¸€ä¸ªæšä¸¾å€¼
 				 * @see bussinesslogic.User
 				 */
 					public ResultMessage logout(String ID) {

@@ -85,7 +85,7 @@ public class CommentView extends JPanel {
 			controller.exit();
 			}
 		});
-		back.setFont(new Font("ËÎÌå", Font.PLAIN, 30));
+		back.setFont(new Font("å®‹ä½“", Font.PLAIN, 30));
 		back.setBounds(10, 5, 150, 60);
 		panel.add(back);
 		
@@ -103,63 +103,63 @@ public class CommentView extends JPanel {
 		panel_2.setLayout(null);
 		
 		hotelName = new JLabel("\u9152\u5E97\u540D\u79F0\uFF1A");
-		hotelName.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		hotelName.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		hotelName.setBounds(45, 27, 320, 47);
 		panel_2.add(hotelName);
 		
 		hotelType = new JLabel("\u623F\u95F4\u7C7B\u578B\uFF1A");
-		hotelType.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		hotelType.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		hotelType.setBounds(45, 97, 320, 47);
 		panel_2.add(hotelType);
 		
 		orderID = new JLabel("\u8BA2\u5355\u53F7\uFF1A");
-		orderID.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		orderID.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		orderID.setBounds(45, 166, 320, 47);
 		panel_2.add(orderID);
 		
 		orderValue = new JLabel("\u8BA2\u5355\u4EF7\u683C\uFF1A");
-		orderValue.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		orderValue.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		orderValue.setBounds(45, 233, 320, 47);
 		panel_2.add(orderValue);
 		
 		numOfPeople = new JLabel("\u4F4F\u623F\u4EBA\u6570\uFF1A");
-		numOfPeople.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		numOfPeople.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		numOfPeople.setBounds(437, 27, 320, 47);
 		panel_2.add(numOfPeople);
 		
 		roomNumber = new JLabel("\u623F\u95F4\u53F7\uFF1A");
-		roomNumber.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		roomNumber.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		roomNumber.setBounds(437, 97, 320, 47);
 		panel_2.add(roomNumber);
 		
 		inTime = new JLabel("\u5165\u4F4F\u65F6\u95F4\uFF1A");
-		inTime.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		inTime.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		inTime.setBounds(437, 166, 320, 47);
 		panel_2.add(inTime);
 		
 		lastTime = new JLabel("\u6700\u665A\u5165\u4F4F\u65F6\u95F4\uFF1A");
-		lastTime.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		lastTime.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		lastTime.setBounds(437, 233, 368, 47);
 		panel_2.add(lastTime);
 		
 		score = new JLabel("\u8BC4\u5206\uFF1A");
-		score.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		score.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		score.setBounds(265, 290, 75, 39);
 		panel_2.add(score);
 		
 		scoreinput = new JTextField();
-		scoreinput.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		scoreinput.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		scoreinput.setBounds(350, 290, 96, 39);
 		panel_2.add(scoreinput);
 		scoreinput.setColumns(10);
 		
 		lblNewLabel = new JLabel("\u8BC4\u5206\u6570\u503C\u57280\u5230100\u4E4B\u95F4");
-		lblNewLabel.setFont(new Font("ËÎÌå", Font.PLAIN, 15));
+		lblNewLabel.setFont(new Font("å®‹ä½“", Font.PLAIN, 15));
 		lblNewLabel.setBounds(485, 290, 197, 39);
 		panel_2.add(lblNewLabel);
 		
 		comment = new JLabel("\u8BC4\u4EF7\uFF1A");
-		comment.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		comment.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		comment.setBounds(23, 335, 100, 39);
 		panel_2.add(comment);
 		
@@ -174,11 +174,11 @@ public class CommentView extends JPanel {
 				judgeScore=controller.judgeScore(scoreinput.getText());
 				judgeComment=controller.judgeComment(commentinput.getText());
 				if(!judgeScore){
-			    	   JOptionPane.showMessageDialog(null, "Çë¼ì²éÆÀ·ÖÊÇ·ñÌîĞ´»òÊÇ·ñÕıÈ·£¡","", JOptionPane.ERROR_MESSAGE);
+			    	   JOptionPane.showMessageDialog(null, "è¯·æ£€æŸ¥è¯„åˆ†æ˜¯å¦å¡«å†™æˆ–æ˜¯å¦æ­£ç¡®ï¼","", JOptionPane.ERROR_MESSAGE);
 			    	   return;
 			       }
 			       else if(!judgeComment){
-			    	   JOptionPane.showMessageDialog(null, "Çë¼ì²éÆÀ¼ÛÊÇ·ñ´óÓÚµÈÓÚ5¸ö×Ö£¡","", JOptionPane.ERROR_MESSAGE);
+			    	   JOptionPane.showMessageDialog(null, "è¯·æ£€æŸ¥è¯„ä»·æ˜¯å¦å¤§äºç­‰äº5ä¸ªå­—ï¼","", JOptionPane.ERROR_MESSAGE);
 			    	   return;
 			       }
 			       else{
@@ -186,17 +186,17 @@ public class CommentView extends JPanel {
 			       }
 			}
 		});
-		commentButton.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		commentButton.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		commentButton.setBounds(341, 531, 159, 47);
 		panel_2.add(commentButton);
 		
 		lblNewLabel_1 = new JLabel("\u8BC4\u4EF7\u57285\u4E2A\u5B57\u53CA\u4EE5\u4E0A");
-		lblNewLabel_1.setFont(new Font("ËÎÌå", Font.PLAIN, 15));
+		lblNewLabel_1.setFont(new Font("å®‹ä½“", Font.PLAIN, 15));
 		lblNewLabel_1.setBounds(539, 544, 216, 28);
 		panel_2.add(lblNewLabel_1);
 		
 		
-		commentinput.setFont(new Font("ËÎÌå", Font.PLAIN, 20));
+		commentinput.setFont(new Font("å®‹ä½“", Font.PLAIN, 20));
 		commentinput.setLineWrap(true);
 		commentinput.setBounds(107, 335, 677, 184);
 		panel_2.add(commentinput);

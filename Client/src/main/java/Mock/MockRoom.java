@@ -10,12 +10,12 @@ public class MockRoom extends RoomVO {
     private int roomS;
     private int roomPrice;
     /**
-	 * Ä£Äâ·¿¼ä
-	 * @param roomid StringĞÍ£¬Êı¾İ²ã´«À´µÄ·¿¼äºÅ
-	 * @param roomstatue StringĞÍ£¬Êı¾İ²ã´«À´µÄ·¿¼ä×´Ì¬
-	 * @param roomtype StringĞÍ£¬Êı¾İ²ã´«À´µÄ·¿¼äÀàĞÍ
-	 * @param rooms intĞÍ£¬Êı¾İ²ã´«À´µÄ·¿¼äÊıÁ¿
-	 * @param roomprice intĞÍ£¬Êı¾İ²ã´«À´µÄ·¿¼ä¼Û¸ñ
+	 * æ¨¡æ‹Ÿæˆ¿é—´
+	 * @param roomid Stringå‹ï¼Œæ•°æ®å±‚ä¼ æ¥çš„æˆ¿é—´å·
+	 * @param roomstatue Stringå‹ï¼Œæ•°æ®å±‚ä¼ æ¥çš„æˆ¿é—´çŠ¶æ€
+	 * @param roomtype Stringå‹ï¼Œæ•°æ®å±‚ä¼ æ¥çš„æˆ¿é—´ç±»å‹
+	 * @param rooms intå‹ï¼Œæ•°æ®å±‚ä¼ æ¥çš„æˆ¿é—´æ•°é‡
+	 * @param roomprice intå‹ï¼Œæ•°æ®å±‚ä¼ æ¥çš„æˆ¿é—´ä»·æ ¼
 	 * @return
 	 * @throws
 	 * @see
@@ -25,9 +25,9 @@ public class MockRoom extends RoomVO {
 	}
 	
 	/**
-	 * »ñÈ¡·¿¼äºÅ
+	 * è·å–æˆ¿é—´å·
 	 * @param
-	 * @return ·µ»Ø·¿¼äºÅ
+	 * @return è¿”å›æˆ¿é—´å·
 	 * @throws
 	 * @see
 	 */
@@ -35,8 +35,8 @@ public class MockRoom extends RoomVO {
     	return roomId;
     } 
     /**
-	 * ÉèÖÃ·¿¼äºÅ
-	 * @param id StringĞÍ£¬Âß¼­²ã´«À´µÄ·¿¼äºÅ
+	 * è®¾ç½®æˆ¿é—´å·
+	 * @param id Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„æˆ¿é—´å·
 	 * @return
 	 * @throws
 	 * @see
@@ -45,9 +45,9 @@ public class MockRoom extends RoomVO {
     	roomId=id;
     }
     /**
-	 * »ñÈ¡·¿¼ä×´Ì¬
+	 * è·å–æˆ¿é—´çŠ¶æ€
 	 * @param
-	 * @return ·µ»Ø·¿¼ä×´Ì¬
+	 * @return è¿”å›æˆ¿é—´çŠ¶æ€
 	 * @throws
 	 * @see
 	 */
@@ -55,8 +55,8 @@ public class MockRoom extends RoomVO {
     	return roomStatue;
     }
     /**
-	 * ÉèÖÃ·¿¼ä×´Ì¬
-	 * @param sta StringĞÍ£¬Âß¼­²ã´«À´µÄ·¿¼ä×´Ì¬
+	 * è®¾ç½®æˆ¿é—´çŠ¶æ€
+	 * @param sta Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„æˆ¿é—´çŠ¶æ€
 	 * @return
 	 * @throws
 	 * @see
@@ -65,9 +65,9 @@ public class MockRoom extends RoomVO {
     	roomStatue=sta;
     }
     /**
-	 * »ñÈ¡·¿¼äÀàĞÍ
+	 * è·å–æˆ¿é—´ç±»å‹
 	 * @param
-	 * @return ·µ»Ø·¿¼äÀàĞÍ
+	 * @return è¿”å›æˆ¿é—´ç±»å‹
 	 * @throws
 	 * @see
 	 */
@@ -75,8 +75,8 @@ public class MockRoom extends RoomVO {
     	return roomType;
     }
     /**
-	 * ÉèÖÃ·¿¼äÀàĞÍ
-	 * @param type StringĞÍ£¬Âß¼­²ã´«À´µÄ·¿¼äÀàĞÍ
+	 * è®¾ç½®æˆ¿é—´ç±»å‹
+	 * @param type Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„æˆ¿é—´ç±»å‹
 	 * @return 
 	 * @throws
 	 * @see
@@ -85,9 +85,9 @@ public class MockRoom extends RoomVO {
 		roomType=type;
 	}
     /**
-	 * »ñÈ¡·¿¼äÊıÁ¿
+	 * è·å–æˆ¿é—´æ•°é‡
 	 * @param
-	 * @return ·µ»Ø·¿¼äÊıÁ¿
+	 * @return è¿”å›æˆ¿é—´æ•°é‡
 	 * @throws
 	 * @see
 	 */
@@ -95,8 +95,8 @@ public class MockRoom extends RoomVO {
 		return roomS;
 	}
     /**
-	 * ÉèÖÃ·¿¼äÊıÁ¿
-	 * @param room intĞÍ£¬Âß¼­²ã´«À´µÄ·¿¼äÊıÁ¿
+	 * è®¾ç½®æˆ¿é—´æ•°é‡
+	 * @param room intå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„æˆ¿é—´æ•°é‡
 	 * @return
 	 * @throws
 	 * @see
@@ -105,9 +105,9 @@ public class MockRoom extends RoomVO {
 		roomS=room;
 	}
     /**
-	 * »ñÈ¡·¿¼ä¼Û¸ñ
+	 * è·å–æˆ¿é—´ä»·æ ¼
 	 * @param
-	 * @return ·µ»Ø·¿¼ä¼Û¸ñ
+	 * @return è¿”å›æˆ¿é—´ä»·æ ¼
 	 * @throws
 	 * @see
 	 */
@@ -115,8 +115,8 @@ public class MockRoom extends RoomVO {
 		return roomPrice;
 	}
     /**
-	 * ÉèÖÃ·¿¼ä¼Û¸ñ
-	 * @param price intĞÍ£¬Âß¼­²ã´«À´µÄ·¿¼ä¼Û¸ñ
+	 * è®¾ç½®æˆ¿é—´ä»·æ ¼
+	 * @param price intå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„æˆ¿é—´ä»·æ ¼
 	 * @return
 	 * @throws
 	 * @see

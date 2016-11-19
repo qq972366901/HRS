@@ -24,8 +24,8 @@ import uiService.WebPromotionStrategyUiService;
 import uiService.webPromotionUserUiService;
 
 /**
- * ¸ºÔğÊµÏÖ¾Æµê¹ÜÀíÏµÍ³µÄÍøÕ¾ÓªÏúÈËÔ±½çÃæµÄ¿ØÖÆÆ÷
- * @author Áõ×ÚÙ©
+ * è´Ÿè´£å®ç°é…’åº—ç®¡ç†ç³»ç»Ÿçš„ç½‘ç«™è¥é”€äººå‘˜ç•Œé¢çš„æ§åˆ¶å™¨
+ * @author åˆ˜å®—ä¾ƒ
  * @version 1.0
  * @see uiService.webPromotionUserUiService
  * @see javax.swing.JFrame
@@ -89,9 +89,9 @@ public class webPromotionUserUiController implements webPromotionUserUiService {
 		
 		JPanel hotelPanel = new JPanel();
 		hotelPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
-		JLabel hotelLabel= new JLabel("ÊäÈë¾ÆµêÕËºÅ£º");
+		JLabel hotelLabel= new JLabel("è¾“å…¥é…’åº—è´¦å·ï¼š");
 		JTextField hotelField = new JTextField(10);
-		JButton hotelButton = new JButton("È·¶¨");
+		JButton hotelButton = new JButton("ç¡®å®š");
 		hotelButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int acc=Integer.valueOf(hotelField.getText());
@@ -103,11 +103,11 @@ public class webPromotionUserUiController implements webPromotionUserUiService {
 				hotelFrame.dispose();
 			}
 		});
-		JButton cancelButton = new JButton("È¡Ïû");
+		JButton cancelButton = new JButton("å–æ¶ˆ");
 		cancelButton.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
-				//¹Ø±Õ´°¿Ú
+				//å…³é—­çª—å£
 				hotelFrame.dispose();
 				
 			}

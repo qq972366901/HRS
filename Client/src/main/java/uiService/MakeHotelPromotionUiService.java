@@ -6,6 +6,6 @@ public interface MakeHotelPromotionUiService {
 
 	public void setView(MakeHotelPromotionView view);
 	public void toHotelMainView();
-	public void makeHotelPromotion();//系统更新酒店营销策略
+	public void makeHotelPromotion();//绯荤粺鏇存柊閰掑簵钀ラ攢绛栫暐
 	
 }

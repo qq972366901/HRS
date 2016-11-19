@@ -7,10 +7,10 @@ import VO.OrderVO;
 import hotelBLService.HotelBLService_realize;
 public class HotelInformationOverviewController extends HotelBLService_realize{
 	/**
-     * ÏÔÊ¾¾ÆµêµÄÏêÏ¸ĞÅÏ¢
+     * æ˜¾ç¤ºé…’åº—çš„è¯¦ç»†ä¿¡æ¯
      * 
-     * @param vo HotelVOĞÍ£¬Ò»¸ö¾ÆµêµÄÖµ¶ÔÏó
-     * @return booleanĞÍ£¬ÏÔÊ¾³É¹¦Ôò·µ»Øtrue£¬·ñÔò·µ»Øfalse
+     * @param vo HotelVOå‹ï¼Œä¸€ä¸ªé…’åº—çš„å€¼å¯¹è±¡
+     * @return booleanå‹ï¼Œæ˜¾ç¤ºæˆåŠŸåˆ™è¿”å›trueï¼Œå¦åˆ™è¿”å›false
      * @see bussinesslogic.Hotel
      */
 public boolean getroominfo(HotelVO vo) {
@@ -19,10 +19,10 @@ public boolean getroominfo(HotelVO vo) {
 
 
 /**
- * °´¼Û¸ñ´ÓµÍµ½¸ßÏÔÊ¾¾ÆµêÁĞ±í
+ * æŒ‰ä»·æ ¼ä»ä½åˆ°é«˜æ˜¾ç¤ºé…’åº—åˆ—è¡¨
  * 
- * @param ah ArrayList<Hotel>ĞÍ£¬Ò»¸ö¾ÆµêÖµ¶ÔÏóµÄÁĞ±í
- * @return Ò»¸öHotelVOÖµ¶ÔÏó
+ * @param ah ArrayList<Hotel>å‹ï¼Œä¸€ä¸ªé…’åº—å€¼å¯¹è±¡çš„åˆ—è¡¨
+ * @return ä¸€ä¸ªHotelVOå€¼å¯¹è±¡
  * @see bussinesslogic.Hotel
  */
 public HotelVO pricesort(ArrayList<Hotel>  ah) {
@@ -32,10 +32,10 @@ public HotelVO pricesort(ArrayList<Hotel>  ah) {
 
 
 /**
- * °´ĞÇ¼¶´ÓµÍµ½¸ßÏÔÊ¾¾ÆµêÁĞ±í
+ * æŒ‰æ˜Ÿçº§ä»ä½åˆ°é«˜æ˜¾ç¤ºé…’åº—åˆ—è¡¨
  * 
- * @param ah ArrayList<Hotel>ĞÍ£¬Ò»¸ö¾ÆµêÖµ¶ÔÏóµÄÁĞ±í
- * @return Ò»¸öHotelVOÖµ¶ÔÏó
+ * @param ah ArrayList<Hotel>å‹ï¼Œä¸€ä¸ªé…’åº—å€¼å¯¹è±¡çš„åˆ—è¡¨
+ * @return ä¸€ä¸ªHotelVOå€¼å¯¹è±¡
  * @see bussinesslogic.Hotel
  */
 public HotelVO starsort(ArrayList<Hotel>  ah) {
@@ -45,10 +45,10 @@ public HotelVO starsort(ArrayList<Hotel>  ah) {
 
 
 /**
- * °´ÆÀ·Ö´ÓµÍµ½¸ßÏÔÊ¾¾ÆµêÁĞ±í
+ * æŒ‰è¯„åˆ†ä»ä½åˆ°é«˜æ˜¾ç¤ºé…’åº—åˆ—è¡¨
  * 
- * @param ah ArrayList<Hotel>ĞÍ£¬Ò»¸ö¾ÆµêÖµ¶ÔÏóµÄÁĞ±í
- * @return Ò»¸öHotelVOÖµ¶ÔÏó
+ * @param ah ArrayList<Hotel>å‹ï¼Œä¸€ä¸ªé…’åº—å€¼å¯¹è±¡çš„åˆ—è¡¨
+ * @return ä¸€ä¸ªHotelVOå€¼å¯¹è±¡
  * @see bussinesslogic.Hotel
  */
 public HotelVO scoresort(ArrayList<Hotel>  ah) {
@@ -56,10 +56,10 @@ public HotelVO scoresort(ArrayList<Hotel>  ah) {
 	return hv;
 }
 /**
- * ÏÔÊ¾¿Í»§ÔÚ¾ÆµêµÄÏ¸½ÚÒÔ¼°ÀúÊ·¶©µ¥
+ * æ˜¾ç¤ºå®¢æˆ·åœ¨é…’åº—çš„ç»†èŠ‚ä»¥åŠå†å²è®¢å•
  * 
- * @param vo HotelVOĞÍ£¬Ò»¸ö¾ÆµêÖµ¶ÔÏó
- * @return Ò»¸öOrderVOÖµ¶ÔÏó
+ * @param vo HotelVOå‹ï¼Œä¸€ä¸ªé…’åº—å€¼å¯¹è±¡
+ * @return ä¸€ä¸ªOrderVOå€¼å¯¹è±¡
  * @see bussinesslogic.Hotel
  */
 public OrderVO gethistoryorder(HotelVO  vo) {

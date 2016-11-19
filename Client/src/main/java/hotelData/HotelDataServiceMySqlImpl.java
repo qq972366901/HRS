@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import PO.HotelPO;
 /**
- * Ö°ÔğÊÇ½«Âß¼­²ãÃæ·¢À´µÄÇëÇó×ª·¢¸øºóÌ¨HotelData´¦Àí
+ * èŒè´£æ˜¯å°†é€»è¾‘å±‚é¢å‘æ¥çš„è¯·æ±‚è½¬å‘ç»™åå°HotelDataå¤„ç†
  * @author LZ
  * @version 1.0
  * @see businesslogic.Hotel
@@ -17,9 +17,9 @@ public class HotelDataServiceMySqlImpl implements Serializable,dataService.Hotel
 	 */
 	private static final long serialVersionUID = 1L;
 	/**
-	 * °´ID½øĞĞ²éÕÒ·µ»ØÏàÓ¦µÄHotelPO½á¹û
-	 * @param id StringĞÍ£¬Âß¼­²ã´«À´µÄ¾ÆµêÕËºÅ
-	 * @return ·µ»ØÕÒµ½µÄPOÊµÌå
+	 * æŒ‰IDè¿›è¡ŒæŸ¥æ‰¾è¿”å›ç›¸åº”çš„HotelPOç»“æœ
+	 * @param id Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„é…’åº—è´¦å·
+	 * @return è¿”å›æ‰¾åˆ°çš„POå®ä½“
 	 * @throws RemoteException
 	 * @see PO.HotelPO
 	 */
@@ -29,8 +29,8 @@ public class HotelDataServiceMySqlImpl implements Serializable,dataService.Hotel
 		return null;
 	}
 	/**
-	 * ÔÚÊı¾İ¿âÖĞÔö¼ÓÒ»¸öpoÊµÌå
-	 * @param po HotelPOĞÍ£¬Âß¼­²ã´«À´µÄPOÊµÌå
+	 * åœ¨æ•°æ®åº“ä¸­å¢åŠ ä¸€ä¸ªpoå®ä½“
+	 * @param po HotelPOå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„POå®ä½“
 	 * @return 
 	 * @throws RemoteException
 	 * @see PO.HotelPO
@@ -41,8 +41,8 @@ public class HotelDataServiceMySqlImpl implements Serializable,dataService.Hotel
 		
 	}
 	/**
-	 * ÔÚÊı¾İ¿âÖĞÉ¾³ıÒ»¸öpo
-	 * @param po HotelPOĞÍ£¬Âß¼­²ã´«À´µÄPOÊµÌå
+	 * åœ¨æ•°æ®åº“ä¸­åˆ é™¤ä¸€ä¸ªpo
+	 * @param po HotelPOå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„POå®ä½“
 	 * @return
 	 * @throws RemoteException
 	 * @see PO.HotelPO
@@ -53,8 +53,8 @@ public class HotelDataServiceMySqlImpl implements Serializable,dataService.Hotel
 		
 	}
 	/**
-	 * ÔÚÊı¾İ¿âÖĞ¸üĞÂÒ»¸öpo
-	 * @param po HotelPOĞÍ£¬Âß¼­²ã´«À´µÄPOÊµÌå
+	 * åœ¨æ•°æ®åº“ä¸­æ›´æ–°ä¸€ä¸ªpo
+	 * @param po HotelPOå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„POå®ä½“
 	 * @return
 	 * @throws RemoteException
 	 * @see PO.HotelPO
@@ -65,7 +65,7 @@ public class HotelDataServiceMySqlImpl implements Serializable,dataService.Hotel
 		
 	}
 	/**
-	 * °´³õÊ¼»¯³Ö¾Ã»¯Êı¾İ¿â
+	 * æŒ‰åˆå§‹åŒ–æŒä¹…åŒ–æ•°æ®åº“
 	 * @param
 	 * @return
 	 * @throws RemoteException
@@ -76,7 +76,7 @@ public class HotelDataServiceMySqlImpl implements Serializable,dataService.Hotel
 		// TODO Auto-generated method stub
 	}
 	/**
-	 * ½áÊø³Ö¾Ã»¯Êı¾İ¿âµÄÊ¹ÓÃ
+	 * ç»“æŸæŒä¹…åŒ–æ•°æ®åº“çš„ä½¿ç”¨
 	 * @param
 	 * @return
 	 * @throws RemoteException
@@ -88,9 +88,9 @@ public class HotelDataServiceMySqlImpl implements Serializable,dataService.Hotel
 		
 	}
 	/**
-	 * °´Ãû³Æ½øĞĞ²éÕÒ·µ»ØÏàÓ¦µÄHotelPO½á¹û
-	 * @param name StringĞÍ£¬Âß¼­²ã´«À´µÄ¾ÆµêÃû³Æ
-	 * @return ·µ»ØÕÒµ½µÄPOÊµÌå
+	 * æŒ‰åç§°è¿›è¡ŒæŸ¥æ‰¾è¿”å›ç›¸åº”çš„HotelPOç»“æœ
+	 * @param name Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„é…’åº—åç§°
+	 * @return è¿”å›æ‰¾åˆ°çš„POå®ä½“
 	 * @throws RemoteException
 	 * @see PO.HotelPO
 	 */
@@ -100,9 +100,9 @@ public class HotelDataServiceMySqlImpl implements Serializable,dataService.Hotel
 		return null;
 	}
 	/**
-	 * °´ÉÌÈ¦½øĞĞ²éÕÒ·µ»ØÏàÓ¦µÄHotelPO½á¹û
-	 * @param district String ĞÍ£¬Âß¼­²ã´«À´µÄ¾ÆµêÉÌÈ¦
-	 * @return ·µ»ØÕÒµ½µÄPOÁĞ±í
+	 * æŒ‰å•†åœˆè¿›è¡ŒæŸ¥æ‰¾è¿”å›ç›¸åº”çš„HotelPOç»“æœ
+	 * @param district String å‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„é…’åº—å•†åœˆ
+	 * @return è¿”å›æ‰¾åˆ°çš„POåˆ—è¡¨
 	 * @throws RemoteException
 	 * @see PO.HotelPO
 	 */
@@ -112,9 +112,9 @@ public class HotelDataServiceMySqlImpl implements Serializable,dataService.Hotel
 		return null;
 	}
 	/**
-	 * °´ĞÇ¼¶½øĞĞ²éÕÒ·µ»ØÏàÓ¦µÄHotelPO½á¹û
-	 * @param star intĞÍ£¬Âß¼­²ã´«À´µÄ¾ÆµêĞÇ¼¶
-	 * @return ·µ»ØÕÒµ½µÄPOÁĞ±í
+	 * æŒ‰æ˜Ÿçº§è¿›è¡ŒæŸ¥æ‰¾è¿”å›ç›¸åº”çš„HotelPOç»“æœ
+	 * @param star intå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„é…’åº—æ˜Ÿçº§
+	 * @return è¿”å›æ‰¾åˆ°çš„POåˆ—è¡¨
 	 * @throws RemoteException
 	 * @see PO.HotelPO
 	 */

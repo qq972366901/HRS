@@ -26,7 +26,7 @@ public class WebAdminUserView extends JPanel{
 	private void initButton(){
 		JPanel p1=new JPanel();
 		p1.setLayout(new FlowLayout(FlowLayout.RIGHT));
-		button1=new JButton("ÍË³ö");
+		button1=new JButton("é€€å‡º");
 		p1.add(button1);
 		this.add(p1);
 		button1.addActionListener(new ActionListener() {			
@@ -36,7 +36,7 @@ public class WebAdminUserView extends JPanel{
 		});
 		JPanel p2=new JPanel();
 		p2.setLayout(new FlowLayout(FlowLayout.CENTER));
-		button2=new JButton("ÓÃ»§¹ÜÀí");
+		button2=new JButton("ç”¨æˆ·ç®¡ç†");
 		p2.add(button2);
 		this.add(p2);
 		button2.addActionListener(new ActionListener() {			
@@ -46,7 +46,7 @@ public class WebAdminUserView extends JPanel{
 		});
 		JPanel p3=new JPanel();
 		p3.setLayout(new FlowLayout(FlowLayout.CENTER));
-		button3=new JButton("Ìí¼Ó¾Æµê");
+		button3=new JButton("æ·»åŠ é…’åº—");
 		p3.add(button3);
 		this.add(p3);
 		button3.addActionListener(new ActionListener() {			

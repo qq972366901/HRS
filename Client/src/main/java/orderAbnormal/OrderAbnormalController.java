@@ -11,10 +11,10 @@ public class OrderAbnormalController extends OrderBLService_realize{
 		// TODO Auto-generated constructor stub
 	}
 	/**
-     * ¸ù¾İÑ¡ÔñµÄÀàĞÍ²éÕÒËùÓĞ¶©µ¥£¬²¢ÏÔÊ¾
+     * æ ¹æ®é€‰æ‹©çš„ç±»å‹æŸ¥æ‰¾æ‰€æœ‰è®¢å•ï¼Œå¹¶æ˜¾ç¤º
      * 
-     * @param type StringĞÍ£¬Ò»ÖÖ¶©µ¥µÄÀàĞÍ
-     * @return ArrayList<OrderVO>£¬Ò»¸ö¶©µ¥Öµ¶ÔÏóµÄÁĞ±í
+     * @param type Stringå‹ï¼Œä¸€ç§è®¢å•çš„ç±»å‹
+     * @return ArrayList<OrderVO>ï¼Œä¸€ä¸ªè®¢å•å€¼å¯¹è±¡çš„åˆ—è¡¨
      * @see bussinesslogic.Order
      */
 	public ArrayList<OrderVO> findByType(String type) {
@@ -27,17 +27,17 @@ public class OrderAbnormalController extends OrderBLService_realize{
 	
 	
 	/**
-     * ¹Ø±Õ¶©µ¥½çÃæ
+     * å…³é—­è®¢å•ç•Œé¢
      * 
      * @see bussinesslogic.Order
      */
 	public void cancel() {
 	}
 	/**
-     * ¸ù¾İÑ¡ÔñµÄÀàĞÍ²éÕÒËùÓĞ¶©µ¥£¬²¢ÏÔÊ¾
+     * æ ¹æ®é€‰æ‹©çš„ç±»å‹æŸ¥æ‰¾æ‰€æœ‰è®¢å•ï¼Œå¹¶æ˜¾ç¤º
      * 
-     * @param type StringĞÍ£¬Ò»ÖÖ¶©µ¥µÄÀàĞÍ
-     * @return ArrayList<OrderVO>£¬Ò»¸ö¶©µ¥Öµ¶ÔÏóµÄÁĞ±í
+     * @param type Stringå‹ï¼Œä¸€ç§è®¢å•çš„ç±»å‹
+     * @return ArrayList<OrderVO>ï¼Œä¸€ä¸ªè®¢å•å€¼å¯¹è±¡çš„åˆ—è¡¨
      * @see bussinesslogic.Order
      */
 	public OrderVO showDetail(String orderID) {
@@ -49,10 +49,10 @@ public void done(String orderID,String userID) {
 	
 	
 	/**
-     * ¸üĞÂ¶©µ¥ÀàĞÍÎªÒì³££¬Îª¿Í»§¼õÈ¥ĞÅÓÃÖµ£¬¸üĞÂ»áÔ±µÈ¼¶ 
+     * æ›´æ–°è®¢å•ç±»å‹ä¸ºå¼‚å¸¸ï¼Œä¸ºå®¢æˆ·å‡å»ä¿¡ç”¨å€¼ï¼Œæ›´æ–°ä¼šå‘˜ç­‰çº§ 
      * 
-     * @param userID StringĞÍ£¬¿Í»§±àºÅ
-     * @param orderID StringĞÍ£¬¶©µ¥ºÅ
+     * @param userID Stringå‹ï¼Œå®¢æˆ·ç¼–å·
+     * @param orderID Stringå‹ï¼Œè®¢å•å·
      * @see bussinesslogic.Order
      */
 	public void abnormalOrder(String orderID,String userID) {
@@ -60,10 +60,10 @@ public void done(String orderID,String userID) {
 	
 	
 	/**
-     * ¸üĞÂ¶©µ¥ÀàĞÍÎªÒÑÖ´ĞĞ£¬Îª¿Í»§»Ö¸´ĞÅÓÃÖµ£¬¸üĞÂ»áÔ±µÈ¼¶  
+     * æ›´æ–°è®¢å•ç±»å‹ä¸ºå·²æ‰§è¡Œï¼Œä¸ºå®¢æˆ·æ¢å¤ä¿¡ç”¨å€¼ï¼Œæ›´æ–°ä¼šå‘˜ç­‰çº§  
      * 
-     * @param userID StringĞÍ£¬¿Í»§±àºÅ
-     * @param orderID StringĞÍ£¬¶©µ¥ºÅ
+     * @param userID Stringå‹ï¼Œå®¢æˆ·ç¼–å·
+     * @param orderID Stringå‹ï¼Œè®¢å•å·
      * @see bussinesslogic.Order
      */
 	public void delayIn(String orderID,String userID) {
@@ -71,7 +71,7 @@ public void done(String orderID,String userID) {
 	
 	
 	/**
-     * ½áÊø¶©µ¥Ö´ĞĞÈÎÎñ£¬³Ö¾Ã»¯¸üĞÂÉæ¼°µÄÁìÓò¶ÔÏóµÄÊı¾İ ÏµÍ³½áÊø
+     * ç»“æŸè®¢å•æ‰§è¡Œä»»åŠ¡ï¼ŒæŒä¹…åŒ–æ›´æ–°æ¶‰åŠçš„é¢†åŸŸå¯¹è±¡çš„æ•°æ® ç³»ç»Ÿç»“æŸ
      * 
      * @see bussinesslogic.Order
      */
@@ -84,10 +84,10 @@ public void done(String orderID,String userID) {
 	
 	
 	/**
-     * »Ö¸´¿Í»§ĞÅÓÃÖµ£¬¸üĞÂ»áÔ±µÈ¼¶
+     * æ¢å¤å®¢æˆ·ä¿¡ç”¨å€¼ï¼Œæ›´æ–°ä¼šå‘˜ç­‰çº§
      * 
-     * @param vo OrderVOĞÍ£¬¶©µ¥µÄÖµ¶ÔÏó
-     * @param choice ChoiceĞÍ£¬Ò»¸öÃ¶¾ÙÖµ
+     * @param vo OrderVOå‹ï¼Œè®¢å•çš„å€¼å¯¹è±¡
+     * @param choice Choiceå‹ï¼Œä¸€ä¸ªæšä¸¾å€¼
      * @see bussinesslogic.Order
      */
 	public void regain(OrderVO vo,Choice choice) {

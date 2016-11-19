@@ -4,14 +4,14 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 /**
- * Ö°ÔğÊÇ¶¨ÒåÌá¹©Êı¾İ½Ó¿ÚµÄ½Ó¿Ú
+ * èŒè´£æ˜¯å®šä¹‰æä¾›æ•°æ®æ¥å£çš„æ¥å£
  * @author LZ
  * @version 2.0
  * @see
  */
 public interface DataFactoryService extends Remote{
 	/**
-	 * ¶¨ÒåÌá¹©Êı¾İµÄ½Ó¿Ú
+	 * å®šä¹‰æä¾›æ•°æ®çš„æ¥å£
 	 * @param
 	 * @return
 	 * @throws

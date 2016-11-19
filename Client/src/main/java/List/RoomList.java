@@ -7,8 +7,8 @@ import Object.Order;
 import VO.OrderVO;
 import VO.RoomVO;
 /**
- * ·¿¼äÁĞ±í
- * @author Áõ×ÚÙ©
+ * æˆ¿é—´åˆ—è¡¨
+ * @author åˆ˜å®—ä¾ƒ
  * @version 1.0
  * @see
  */
@@ -17,7 +17,7 @@ public class RoomList {
 	List<RoomLineItem> rooms;
 	
 	/**
-	 * ·¿¼äÁĞ±í
+	 * æˆ¿é—´åˆ—è¡¨
 	 * @param
 	 * @return
 	 */
@@ -28,8 +28,8 @@ public class RoomList {
 	}
 	
 	/**
-	 * Ìí¼Óµ¥¸ö·¿¼ä
-	 * @param rli RoomLineItemĞÍ£¬Ìí¼ÓµÄµ¥¸ö·¿¼ä 
+	 * æ·»åŠ å•ä¸ªæˆ¿é—´
+	 * @param rli RoomLineItemå‹ï¼Œæ·»åŠ çš„å•ä¸ªæˆ¿é—´ 
 	 * @return 
 	 */
 	public void addRoomLineItems(RoomLineItem  rli) {
@@ -37,30 +37,30 @@ public class RoomList {
 	}
 	
 	/**
-	 * µÃµ½·¿¼ä¼Û¸ñ
-	 * @param rvo RoomVOĞÍ
-	 * @return ·µ»Ø·¿¼ä¼Û¸ñ
+	 * å¾—åˆ°æˆ¿é—´ä»·æ ¼
+	 * @param rvo RoomVOå‹
+	 * @return è¿”å›æˆ¿é—´ä»·æ ¼
 	 */
 	public int getPrice(RoomVO rvo) {
 		return 300;
 	}
 	
 	/**
-	 * µÃµ½·¿¼äÁĞ±íÊıÁ¿
+	 * å¾—åˆ°æˆ¿é—´åˆ—è¡¨æ•°é‡
 	 * @param
-	 * @return ·µ»Ø·¿¼äÁĞ±íÊıÁ¿
+	 * @return è¿”å›æˆ¿é—´åˆ—è¡¨æ•°é‡
 	 */
 	public int getRoom() {
 		return rooms.size();
 	}
 	
 	/**
-	 * ¸üĞÂ·¿¼äĞÅÏ¢
-	 * @param roomid StringĞÍ£¬·¿¼äºÅ
-	 * @param roomstatue StringĞÍ£¬·¿¼ä×´Ì¬
-	 * @param roomtype StringĞÍ£¬·¿¼äÀàĞÍ
-	 * @param rooms intĞÍ£¬·¿¼äÊıÁ¿
-	 * @param roomprice intĞÍ£¬·¿¼ä¼Û¸ñ
+	 * æ›´æ–°æˆ¿é—´ä¿¡æ¯
+	 * @param roomid Stringå‹ï¼Œæˆ¿é—´å·
+	 * @param roomstatue Stringå‹ï¼Œæˆ¿é—´çŠ¶æ€
+	 * @param roomtype Stringå‹ï¼Œæˆ¿é—´ç±»å‹
+	 * @param rooms intå‹ï¼Œæˆ¿é—´æ•°é‡
+	 * @param roomprice intå‹ï¼Œæˆ¿é—´ä»·æ ¼
 	 * @return
 	 */
 	public void messageUpdate(String roomid, String roomstatue, String roomtype, int rooms, int roomprice) {
@@ -68,17 +68,17 @@ public class RoomList {
 	}
 
 	/**
-	 * µÃµ½·¿¼äÁĞ±íÊıÁ¿
+	 * å¾—åˆ°æˆ¿é—´åˆ—è¡¨æ•°é‡
 	 * @param
-	 * @return ·µ»Ø·¿¼äÁĞ±íÊıÁ¿
+	 * @return è¿”å›æˆ¿é—´åˆ—è¡¨æ•°é‡
 	 */
 	public int getRoomInfo() {
 		return rooms.size();
 	}
 	/**
-	 * µÃµ½·¿¼äÁĞ±íÊıÁ¿
+	 * å¾—åˆ°æˆ¿é—´åˆ—è¡¨æ•°é‡
 	 * @param
-	 * @return ·µ»Ø·¿¼äÁĞ±íÊıÁ¿
+	 * @return è¿”å›æˆ¿é—´åˆ—è¡¨æ•°é‡
 	 */
 	public int getRoomInfo(OrderVO vo){
 		return  0;

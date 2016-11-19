@@ -7,8 +7,8 @@ import VO.RoomVO;
 import common.ResultMessage;
 
 /**
- * ·¿¼ä
- * @author Áõ×ÚÙ©
+ * æˆ¿é—´
+ * @author åˆ˜å®—ä¾ƒ
  * @version 1.0
  * @see
  */
@@ -17,25 +17,25 @@ public class Room {
     private RoomList roomList;
     private OrderList orderList;
     /**
-   	 * »ñµÃ·¿¼äÁĞ±í
-   	 * @param rl RoomListĞÍ£¬¶ÔÓ¦µÄ·¿¼äÁĞ±í
+   	 * è·å¾—æˆ¿é—´åˆ—è¡¨
+   	 * @param rl RoomListå‹ï¼Œå¯¹åº”çš„æˆ¿é—´åˆ—è¡¨
    	 * @return
    	 */
     public void addRoomList(RoomList rl) {
     	roomList = rl;
     }
     /**
-   	 * »ñµÃ¶©µ¥ÁĞ±í
-   	 * @param ol OrderListĞÍ£¬¶ÔÓ¦µÄ¶©µ¥ÁĞ±í
+   	 * è·å¾—è®¢å•åˆ—è¡¨
+   	 * @param ol OrderListå‹ï¼Œå¯¹åº”çš„è®¢å•åˆ—è¡¨
    	 * @return
    	 */
     public void addOrderList(OrderList ol) {
     	orderList = ol;
     }
     /**
-	 * »ñÈ¡·¿¼ä¼Û¸ñ
-	 * @param rvo RoomVoĞÍ
-	 * @return ·µ»Ø·¿¼ä¼Û¸ñ
+	 * è·å–æˆ¿é—´ä»·æ ¼
+	 * @param rvo RoomVoå‹
+	 * @return è¿”å›æˆ¿é—´ä»·æ ¼
 	 * @throws
 	 * @see
 	 */
@@ -43,20 +43,20 @@ public class Room {
     	return roomList.getPrice(rvo);
     }
     /**
-   	 * »ñµÃ·¿¼äÁĞ±í
+   	 * è·å¾—æˆ¿é—´åˆ—è¡¨
    	 * @param
-   	 * @return ¶ÔÓ¦µÄ·¿¼äÁĞ±í
+   	 * @return å¯¹åº”çš„æˆ¿é—´åˆ—è¡¨
    	 */
     public int getRoom() {
     	return roomList.getRoom();
     }
     /**
-	 * Ìí¼Ó·¿¼ä
-	 * @param roomid StringĞÍ£¬·¿¼äºÅ
-	 * @param roomstatue StringĞÍ£¬·¿¼ä×´Ì¬
-	 * @param roomtype StringĞÍ£¬·¿¼äÀàĞÍ
-	 * @param rooms intĞÍ£¬·¿¼äÊıÁ¿
-	 * @param roomprice intĞÍ£¬·¿¼ä¼Û¸ñ
+	 * æ·»åŠ æˆ¿é—´
+	 * @param roomid Stringå‹ï¼Œæˆ¿é—´å·
+	 * @param roomstatue Stringå‹ï¼Œæˆ¿é—´çŠ¶æ€
+	 * @param roomtype Stringå‹ï¼Œæˆ¿é—´ç±»å‹
+	 * @param rooms intå‹ï¼Œæˆ¿é—´æ•°é‡
+	 * @param roomprice intå‹ï¼Œæˆ¿é—´ä»·æ ¼
 	 * @return
 	 * @throws
 	 * @see
@@ -66,12 +66,12 @@ public class Room {
     	return roomList.getRoom();
     }
     /**
-	 * ¸üĞÂ·¿¼ä
-	 * @param roomid StringĞÍ£¬·¿¼äºÅ
-	 * @param roomstatue StringĞÍ£¬·¿¼ä×´Ì¬
-	 * @param roomtype StringĞÍ£¬·¿¼äÀàĞÍ
-	 * @param rooms intĞÍ£¬·¿¼äÊıÁ¿
-	 * @param roomprice intĞÍ£¬·¿¼ä¼Û¸ñ
+	 * æ›´æ–°æˆ¿é—´
+	 * @param roomid Stringå‹ï¼Œæˆ¿é—´å·
+	 * @param roomstatue Stringå‹ï¼Œæˆ¿é—´çŠ¶æ€
+	 * @param roomtype Stringå‹ï¼Œæˆ¿é—´ç±»å‹
+	 * @param rooms intå‹ï¼Œæˆ¿é—´æ•°é‡
+	 * @param roomprice intå‹ï¼Œæˆ¿é—´ä»·æ ¼
 	 * @return
 	 * @throws
 	 * @see
@@ -81,9 +81,9 @@ public class Room {
     	return ResultMessage.Exist;
     }
     /**
-	 * »ñÈ¡¶©µ¥ĞÅÏ¢
+	 * è·å–è®¢å•ä¿¡æ¯
 	 * @param
-	 * @return ·µ»Ø¶©µ¥ĞÅÏ¢
+	 * @return è¿”å›è®¢å•ä¿¡æ¯
 	 * @throws
 	 * @see
 	 */

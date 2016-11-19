@@ -7,10 +7,10 @@ import common.ResultMessage;
 import hotelBLService.HotelBLService_realize;
 public class HotelInformationSearchController extends HotelBLService_realize{
 	/**
-     * ¸ù¾İµØÖ·ºÍÉÌÈ¦»ñµÃ·¶Î§ÄÚµÄ¾ÆµêĞÅÏ¢
+     * æ ¹æ®åœ°å€å’Œå•†åœˆè·å¾—èŒƒå›´å†…çš„é…’åº—ä¿¡æ¯
      * 
-     * @param hvo HotelVOĞÍ£¬½çÃæ´«µİÀ´µÄhotelÖµ¶ÔÏó
-     * @return ·µ»ØResultMessageÃ¶¾ÙÖµÖĞµÄÒ»Ïî
+     * @param hvo HotelVOå‹ï¼Œç•Œé¢ä¼ é€’æ¥çš„hotelå€¼å¯¹è±¡
+     * @return è¿”å›ResultMessageæšä¸¾å€¼ä¸­çš„ä¸€é¡¹
      * @see bussinesslogic.Hotel
      */
 	public ResultMessage messagelook(HotelVO hvo) {
@@ -19,10 +19,10 @@ public class HotelInformationSearchController extends HotelBLService_realize{
 	
 	
 	/**
-     * ¸ù¾İÊäÈëµÄÌõ¼ş·µ»Ø·ûºÏµÄ¾ÆµêÁĞ±í
+     * æ ¹æ®è¾“å…¥çš„æ¡ä»¶è¿”å›ç¬¦åˆçš„é…’åº—åˆ—è¡¨
      * 
-     * @param in MessageInputĞÍ£¬½çÃæÊäÈëµÄÌõ¼ş
-     * @return ·µ»ØHotelVOµÄÒ»¸öÁĞ±í
+     * @param in MessageInputå‹ï¼Œç•Œé¢è¾“å…¥çš„æ¡ä»¶
+     * @return è¿”å›HotelVOçš„ä¸€ä¸ªåˆ—è¡¨
      * @see bussinesslogic.Hotel 
      */
 	public ArrayList<HotelVO> messagesearch(MessageInput in) {

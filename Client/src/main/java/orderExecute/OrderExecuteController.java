@@ -12,10 +12,10 @@ public class OrderExecuteController extends OrderBLService_realize{
 
 
 	/**
-     * ½«Ò»¸ö¶©µ¥ÀàĞÍ±äÎªÒÑ³·Ïú£¬²¢±£´æ³·ÏúÊ±¼ä
+     * å°†ä¸€ä¸ªè®¢å•ç±»å‹å˜ä¸ºå·²æ’¤é”€ï¼Œå¹¶ä¿å­˜æ’¤é”€æ—¶é—´
      * 
-     * @param orderID StringĞÍ£¬¶©µ¥ºÅ
-     * @param currentTime TimeĞÍ£¬µ±Ç°Ê±¼ä
+     * @param orderID Stringå‹ï¼Œè®¢å•å·
+     * @param currentTime Timeå‹ï¼Œå½“å‰æ—¶é—´
      * @see bussinesslogic.Order
      */
 	public void cancelOrder(String orderID,Time currentTime) {
@@ -23,9 +23,9 @@ public class OrderExecuteController extends OrderBLService_realize{
 	
 	
 	/**
-     * ½øĞĞ³·Ïú¶©µ¥µÄ²Ù×÷
+     * è¿›è¡Œæ’¤é”€è®¢å•çš„æ“ä½œ
      * 
-     * @param order OrderVOĞÍ£¬Ò»¸ö¶©µ¥µÄÖµ¶ÔÏó
+     * @param order OrderVOå‹ï¼Œä¸€ä¸ªè®¢å•çš„å€¼å¯¹è±¡
      * @see bussinesslogic.Order
      */
 	public void duduct(OrderVO order) {
@@ -33,21 +33,21 @@ public class OrderExecuteController extends OrderBLService_realize{
 	
 	
 	/**
-     * ÅĞ¶Ï¶©µ¥ÊÇ·ñÒÑ±»³·Ïú
+     * åˆ¤æ–­è®¢å•æ˜¯å¦å·²è¢«æ’¤é”€
      * 
-     * @param orderID StringĞÍ£¬¿Í»§±àºÅ
-     * @param currentTime TimeĞÍ£¬³·Ïú¶©µ¥µÄÊ±¼ä
-     * @return ÈôÒÑ³·ÏúÔò·µ»Øtrue£¬·ñÔò·µ»Øfalse
+     * @param orderID Stringå‹ï¼Œå®¢æˆ·ç¼–å·
+     * @param currentTime Timeå‹ï¼Œæ’¤é”€è®¢å•çš„æ—¶é—´
+     * @return è‹¥å·²æ’¤é”€åˆ™è¿”å›trueï¼Œå¦åˆ™è¿”å›false
      * @see bussinesslogic.Order
      */
 	public Boolean whetherDeduct(Time currentTime,String orderID) {
 		return false;
 	}
 	/**
-     * ¸ü¸Ä¶©µ¥×´Ì¬ÎªÒÑÖ´ĞĞ£¬Îª¿Í»§Ôö¼ÓĞÅÓÃÖµ£¬¸üĞÂ»áÔ±µÈ¼¶ 
+     * æ›´æ”¹è®¢å•çŠ¶æ€ä¸ºå·²æ‰§è¡Œï¼Œä¸ºå®¢æˆ·å¢åŠ ä¿¡ç”¨å€¼ï¼Œæ›´æ–°ä¼šå‘˜ç­‰çº§ 
      * 
-     * @param userID StringĞÍ£¬¿Í»§±àºÅ
-     * @param orderID StringĞÍ£¬¶©µ¥ºÅ
+     * @param userID Stringå‹ï¼Œå®¢æˆ·ç¼–å·
+     * @param orderID Stringå‹ï¼Œè®¢å•å·
      * @see bussinesslogic.Order
      */
 	public void done(String orderID,String userID) {
@@ -55,10 +55,10 @@ public class OrderExecuteController extends OrderBLService_realize{
 	
 	
 	/**
-     * ¸üĞÂ¶©µ¥ÀàĞÍÎªÒì³££¬Îª¿Í»§¼õÈ¥ĞÅÓÃÖµ£¬¸üĞÂ»áÔ±µÈ¼¶ 
+     * æ›´æ–°è®¢å•ç±»å‹ä¸ºå¼‚å¸¸ï¼Œä¸ºå®¢æˆ·å‡å»ä¿¡ç”¨å€¼ï¼Œæ›´æ–°ä¼šå‘˜ç­‰çº§ 
      * 
-     * @param userID StringĞÍ£¬¿Í»§±àºÅ
-     * @param orderID StringĞÍ£¬¶©µ¥ºÅ
+     * @param userID Stringå‹ï¼Œå®¢æˆ·ç¼–å·
+     * @param orderID Stringå‹ï¼Œè®¢å•å·
      * @see bussinesslogic.Order
      */
 	public void abnormalOrder(String orderID,String userID) {
@@ -66,17 +66,17 @@ public class OrderExecuteController extends OrderBLService_realize{
 	
 	
 	/**
-     * ¸üĞÂ¶©µ¥ÀàĞÍÎªÒÑÖ´ĞĞ£¬Îª¿Í»§»Ö¸´ĞÅÓÃÖµ£¬¸üĞÂ»áÔ±µÈ¼¶  
+     * æ›´æ–°è®¢å•ç±»å‹ä¸ºå·²æ‰§è¡Œï¼Œä¸ºå®¢æˆ·æ¢å¤ä¿¡ç”¨å€¼ï¼Œæ›´æ–°ä¼šå‘˜ç­‰çº§  
      * 
-     * @param userID StringĞÍ£¬¿Í»§±àºÅ
-     * @param orderID StringĞÍ£¬¶©µ¥ºÅ
+     * @param userID Stringå‹ï¼Œå®¢æˆ·ç¼–å·
+     * @param orderID Stringå‹ï¼Œè®¢å•å·
      * @see bussinesslogic.Order
      */
 	public void delayIn(String orderID,String userID) {
 	}
 
 	/**
-     * ½áÊø¶©µ¥Ö´ĞĞÈÎÎñ£¬³Ö¾Ã»¯¸üĞÂÉæ¼°µÄÁìÓò¶ÔÏóµÄÊı¾İ ÏµÍ³½áÊø
+     * ç»“æŸè®¢å•æ‰§è¡Œä»»åŠ¡ï¼ŒæŒä¹…åŒ–æ›´æ–°æ¶‰åŠçš„é¢†åŸŸå¯¹è±¡çš„æ•°æ® ç³»ç»Ÿç»“æŸ
      * 
      * @see bussinesslogic.Order
      */

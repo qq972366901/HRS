@@ -22,7 +22,7 @@ public class InputRoomInfoUiController implements InputRoomInfoUiService {
 	}
 
 	public void inputRoomInfo() {
-		//ϵͳ���¾Ƶ�ӵ�еķ�����Ϣ
+		//系统更新酒店拥有的房间信息
 	}
 
 }

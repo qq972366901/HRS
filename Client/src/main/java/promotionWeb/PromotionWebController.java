@@ -4,10 +4,10 @@ import common.ResultMessage;
 import promotionBLService.PromotionBLService_realize;
 public class PromotionWebController extends PromotionBLService_realize{
 	/**
-     * Ìí¼ÓÒ»ÖÖĞÂµÄÍøÕ¾ÓªÏú²ßÂÔ£¬²¢¹«²¼
+     * æ·»åŠ ä¸€ç§æ–°çš„ç½‘ç«™è¥é”€ç­–ç•¥ï¼Œå¹¶å…¬å¸ƒ
      * 
-     * @param vo PromotionVOĞÍ£¬½çÃæÊäÈëµÄÓªÏú²ßÂÔ
-     * @return ·µ»ØResultMessageÃ¶¾ÙÖµÖĞµÄÒ»Ïî
+     * @param vo PromotionVOå‹ï¼Œç•Œé¢è¾“å…¥çš„è¥é”€ç­–ç•¥
+     * @return è¿”å›ResultMessageæšä¸¾å€¼ä¸­çš„ä¸€é¡¹
      * @see bussinesslogic.Promotion
      */
 	public ResultMessage madebyweb (PromotionVO vo ) {
@@ -16,10 +16,10 @@ public class PromotionWebController extends PromotionBLService_realize{
 
 	
 	/**
-     * ±ê¼Ç»áÔ±µÈ¼¶±ê×¼
+     * æ ‡è®°ä¼šå‘˜ç­‰çº§æ ‡å‡†
      * 
-     * @param vo PromotionVOĞÍ£¬½çÃæÊäÈëµÄ»áÔ±µÈ¼¶±ê×¢
-     * @return ·µ»ØResultMessageÃ¶¾ÙÖµÖĞµÄÒ»Ïî
+     * @param vo PromotionVOå‹ï¼Œç•Œé¢è¾“å…¥çš„ä¼šå‘˜ç­‰çº§æ ‡æ³¨
+     * @return è¿”å›ResultMessageæšä¸¾å€¼ä¸­çš„ä¸€é¡¹
      * @see bussinesslogic.Promotion
      */
 	public ResultMessage memberlevelmade(PromotionVO vo) {

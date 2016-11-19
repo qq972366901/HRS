@@ -31,9 +31,9 @@ public class UserTest {
 		time2.set(2016,11,11);
 		Calendar time3=Calendar.getInstance();
 		time3.set(2016,11,11);
-		user1=new UserVO("1","1@nju.edu.cn","3414141","1",false,1,78,"ÆÕÍ¨»áÔ±",1,time1,"");
-		user2=new UserVO("2","2@nju.edu.cn","3415641","2",true,5,41780,"ÆóÒµ»áÔ±",1,time2,"Goldman Sachs");
-		user3=new UserVO("3","3@nju.edu.cn","9414141","3",false,2,4178,"ÆÕÍ¨»áÔ±",1,time3,"");
+		user1=new UserVO("1","1@nju.edu.cn","3414141","1",false,1,78,"æ™®é€šä¼šå‘˜",1,time1,"");
+		user2=new UserVO("2","2@nju.edu.cn","3415641","2",true,5,41780,"ä¼ä¸šä¼šå‘˜",1,time2,"Goldman Sachs");
+		user3=new UserVO("3","3@nju.edu.cn","9414141","3",false,2,4178,"æ™®é€šä¼šå‘˜",1,time3,"");
 		user=new User();
 		
 	}

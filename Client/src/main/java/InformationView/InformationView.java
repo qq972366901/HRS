@@ -63,43 +63,43 @@ public class InformationView extends JPanel {
 		add(panel_1);
 		panel_1.setLayout(null);
 		
-		name = new JLabel("ĞÕÃû £º");
-		name.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		name = new JLabel("å§“å ï¼š");
+		name.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		name.setBounds(39, 10, 279, 60);
 		panel_1.add(name);
 		
 		birth = new JLabel("\u751F\u65E5 \uFF1A1997/02/02");
-		birth.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		birth.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		birth.setBounds(39, 72, 229, 60);
 		panel_1.add(birth);
 		
 		tel = new JLabel("\u8054\u7CFB\u65B9\u5F0F \uFF1A15214338969");
-		tel.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		tel.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		tel.setBounds(39, 140, 401, 60);
 		panel_1.add(tel);
 		
 		enterprise = new JLabel("\u516C\u53F8 \uFF1A\u5357\u4EAC\u5927\u5B66     ");
-		enterprise.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		enterprise.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		enterprise.setBounds(39, 212, 279, 60);
 		panel_1.add(enterprise);
 		
 		email = new JLabel("\u90AE\u7BB1 \uFF1Alam0054321@qq.com");
-		email.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		email.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		email.setBounds(39, 282, 422, 60);
 		panel_1.add(email);
 		
 		type = new JLabel("\u4F1A\u5458\u79CD\u7C7B \uFF1A\u666E\u901A\u4F1A\u5458");
-		type.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		type.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		type.setBounds(39, 352, 279, 60);
 		panel_1.add(type);
 		
 		level = new JLabel("\u4F1A\u5458\u7B49\u7EA7 \uFF1A3");
-		level.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		level.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		level.setBounds(39, 422, 174, 60);
 		panel_1.add(level);
 		
 		credit = new JLabel("\u4FE1\u7528\u503C \uFF1A1000");
-		credit.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		credit.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		credit.setBounds(39, 492, 271, 60);
 		panel_1.add(credit);
 		
@@ -109,7 +109,7 @@ public class InformationView extends JPanel {
 				controller.reviseinformation();
 			}
 		});
-		reviseinformation.setFont(new Font("ËÎÌå", Font.PLAIN, 20));
+		reviseinformation.setFont(new Font("å®‹ä½“", Font.PLAIN, 20));
 		reviseinformation.setBounds(349, 424, 180, 60);
 		panel_1.add(reviseinformation);
 		
@@ -119,7 +119,7 @@ public class InformationView extends JPanel {
 				controller.revisepassword();
 			}
 		});
-		revisepassword.setFont(new Font("ËÎÌå", Font.PLAIN, 20));
+		revisepassword.setFont(new Font("å®‹ä½“", Font.PLAIN, 20));
 		revisepassword.setBounds(349, 494, 180, 60);
 		panel_1.add(revisepassword);
 	}
@@ -135,7 +135,7 @@ public class InformationView extends JPanel {
 			controller.exit();
 			}
 		});
-		back.setFont(new Font("ËÎÌå", Font.PLAIN, 30));
+		back.setFont(new Font("å®‹ä½“", Font.PLAIN, 30));
 		back.setBounds(10, 5, 150, 60);
 		panel.add(back);
 		

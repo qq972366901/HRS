@@ -32,7 +32,7 @@ public class MemberRegisterView extends JPanel{
 	private void initButton() {
 		JPanel p1=new JPanel();
 		p1.setLayout(new FlowLayout(FlowLayout.RIGHT));
-		button1=new JButton("·µ»Ø");
+		button1=new JButton("è¿”å›");
 		p1.add(button1);
 		this.add(p1);
 		button1.addActionListener(new ActionListener() {			
@@ -42,45 +42,45 @@ public class MemberRegisterView extends JPanel{
 		});
 		JPanel panel2 = new JPanel();
 		panel2.setLayout(new FlowLayout(FlowLayout.CENTER));
-		label2 = new JLabel("      ÓÃ»§Ãû");
+		label2 = new JLabel("      ç”¨æˆ·å");
 		textField2 = new JTextField(10);
 		panel2.add(label2);
 		panel2.add(textField2);
 		this.add(panel2);
 		JPanel panel3 = new JPanel();
 		panel3.setLayout(new FlowLayout(FlowLayout.CENTER));
-		label3 = new JLabel("                                                              ÃÜÂë");
+		label3 = new JLabel("                                                              å¯†ç ");
 		passwordField3 = new JPasswordField(10);
-		label_3= new JLabel("£¨Ö»ÄÜÌîĞ´×Ö·ûºÍÊı×Ö£©  ");
+		label_3= new JLabel("ï¼ˆåªèƒ½å¡«å†™å­—ç¬¦å’Œæ•°å­—ï¼‰  ");
 		panel3.add(label3);
 		panel3.add(passwordField3);
 		panel3.add(label_3);
 		this.add(panel3);
 		JPanel panel4 = new JPanel();
 		panel4.setLayout(new FlowLayout(FlowLayout.CENTER));
-		label4 = new JLabel("È·ÈÏÃÜÂë ");
+		label4 = new JLabel("ç¡®è®¤å¯†ç  ");
 		passwordField4 = new JPasswordField(10);
 		panel4.add(label4);
 		panel4.add(passwordField4);
 		this.add(panel4);
 		JPanel panel5 = new JPanel();
 		panel5.setLayout(new FlowLayout(FlowLayout.CENTER));
-		label5 = new JLabel("ÉúÈÕ");
+		label5 = new JLabel("ç”Ÿæ—¥");
 		comboBox1=new JComboBox<Integer>();
 		for(int i=1900;i<2017;i++){
 			comboBox1.addItem(i);
 		}
-		label5_1 = new JLabel("Äê");
+		label5_1 = new JLabel("å¹´");
 		comboBox2=new JComboBox<Integer>();
 		for(int i=1;i<13;i++){
 			comboBox2.addItem(i);
 		}
-		label5_2 = new JLabel("ÔÂ");
+		label5_2 = new JLabel("æœˆ");
 		comboBox3=new JComboBox<Integer>();
 		for(int i=1;i<32;i++){
 			comboBox3.addItem(i);
 		}
-		label5_3 = new JLabel("ÈÕ");
+		label5_3 = new JLabel("æ—¥");
 		panel5.add(label5);
 		panel5.add(comboBox1);
 		panel5.add(label5_1);
@@ -91,23 +91,23 @@ public class MemberRegisterView extends JPanel{
 		this.add(panel5);
 		JPanel panel6 = new JPanel();
 		panel6.setLayout(new FlowLayout(FlowLayout.CENTER));
-		label6 = new JLabel("ÁªÏµ·½Ê½");
+		label6 = new JLabel("è”ç³»æ–¹å¼");
 		textField6 = new JTextField(10);
 		panel6.add(label6);
 		panel6.add(textField6);
 		this.add(panel6);
 		JPanel panel7 = new JPanel();
 		panel7.setLayout(new FlowLayout(FlowLayout.CENTER));
-		label7 = new JLabel("                                                          ËùÊô¾Æµê");
+		label7 = new JLabel("                                                          æ‰€å±é…’åº—");
 		textField7 = new JTextField(10);
-		label_7=new JLabel("£¨·Ç¾Æµê¹¤×÷ÈËÔ±²»ÓÃÌîĞ´£©");
+		label_7=new JLabel("ï¼ˆéé…’åº—å·¥ä½œäººå‘˜ä¸ç”¨å¡«å†™ï¼‰");
 		panel7.add(label7);
 		panel7.add(textField7);
 		panel7.add(label_7);
 		this.add(panel7);
 		JPanel panel8 = new JPanel();
 		panel8.setLayout(new FlowLayout(FlowLayout.CENTER));
-		button2=new JButton("Á¢¼´×¢²á");
+		button2=new JButton("ç«‹å³æ³¨å†Œ");
 		panel8.add(button2);
 		this.add(panel8);
 		button2.addActionListener(new ActionListener() {			
@@ -120,12 +120,12 @@ public class MemberRegisterView extends JPanel{
 				frame.getContentPane().add(panel);
 				JPanel panel1= new JPanel();
 				panel1.setLayout(new FlowLayout(FlowLayout.CENTER));
-				JLabel label = new JLabel("×¢²á³É¹¦£¡");
+				JLabel label = new JLabel("æ³¨å†ŒæˆåŠŸï¼");
 				panel1.add(label);
 				panel.add(panel1);
 				JPanel panel2= new JPanel();
 				panel2.setLayout(new FlowLayout(FlowLayout.CENTER));
-				JButton button = new JButton("È·¶¨");
+				JButton button = new JButton("ç¡®å®š");
 				panel2.add(button);
 				panel.add(panel2);
 				button.addActionListener(new ActionListener() {			

@@ -22,7 +22,7 @@ public class MakeHotelPromotionController implements MakeHotelPromotionUiService
 	}
 
 	public void makeHotelPromotion() {
-		//系统添加酒店营销策略
+		//绯荤粺娣诲姞閰掑簵钀ラ攢绛栫暐
 	}
 
 }

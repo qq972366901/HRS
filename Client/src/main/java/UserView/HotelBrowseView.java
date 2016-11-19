@@ -38,7 +38,7 @@ public class HotelBrowseView extends JPanel{
 	private void initButton() {
 		JPanel panel= new JPanel();
 		panel.setLayout(new FlowLayout(FlowLayout.RIGHT));
-		button1=new JButton("·µ»Ø");
+		button1=new JButton("è¿”å›");
 		panel.add(button1);
 		this.add(panel);
 		button1.addActionListener(new ActionListener() {			
@@ -48,52 +48,52 @@ public class HotelBrowseView extends JPanel{
 		});
 		JPanel panel1= new JPanel();
 		panel1.setLayout(new FlowLayout(FlowLayout.LEFT));
-		label1=new JLabel("¾ÆµêÃû³Æ£º");
+		label1=new JLabel("é…’åº—åç§°ï¼š");
 		panel1.add(label1);
 		this.add(panel1);
 		JPanel panel2= new JPanel();
 		panel2.setLayout(new FlowLayout(FlowLayout.LEFT));
-		label2=new JLabel("¾ÆµêĞÇ¼¶£º");
+		label2=new JLabel("é…’åº—æ˜Ÿçº§ï¼š");
 		panel2.add(label2);
 		this.add(panel2);
 		JPanel panel3= new JPanel();
 		panel3.setLayout(new FlowLayout(FlowLayout.LEFT));
-		label3=new JLabel("ËùÊôµØÖ·£º");
+		label3=new JLabel("æ‰€å±åœ°å€ï¼š");
 		panel3.add(label3);
 		this.add(panel3);
 		JPanel panel4= new JPanel();
 		panel4.setLayout(new FlowLayout(FlowLayout.LEFT));
-		label4=new JLabel("ËùÊôÉÌÈ¦£º");
+		label4=new JLabel("æ‰€å±å•†åœˆï¼š");
 		panel4.add(label4);
 		this.add(panel4);
 		JPanel panel5= new JPanel();
 		panel5.setLayout(new FlowLayout(FlowLayout.LEFT));
-		label5=new JLabel("ÉèÊ©·şÎñ£º");
+		label5=new JLabel("è®¾æ–½æœåŠ¡ï¼š");
 		panel5.add(label5);
 		this.add(panel5);
 		JPanel panel6= new JPanel();
 		panel6.setLayout(new FlowLayout(FlowLayout.LEFT));
-		label6=new JLabel("¾Æµê¼ò½é£º");
+		label6=new JLabel("é…’åº—ç®€ä»‹ï¼š");
 		panel6.add(label6);
 		this.add(panel6);
 		JPanel panel7= new JPanel();
 		panel7.setLayout(new FlowLayout(FlowLayout.LEFT));
-		label7=new JLabel("¾ÆµêÁªÏµ·½Ê½£º");
+		label7=new JLabel("é…’åº—è”ç³»æ–¹å¼ï¼š");
 		panel7.add(label7);
 		this.add(panel7);
 		JPanel panel8= new JPanel();
 		panel8.setLayout(new FlowLayout(FlowLayout.LEFT));
-		label8=new JLabel("¾ÆµêÓªÏú²ßÂÔ£º");
+		label8=new JLabel("é…’åº—è¥é”€ç­–ç•¥ï¼š");
 		panel8.add(label8);
 		this.add(panel8);
 		JPanel panel9= new JPanel();
 		panel9.setLayout(new FlowLayout(FlowLayout.LEFT));
-		label9=new JLabel("¾Æµê¸÷ÀàĞÍ·¿¼ä¼Û¸ñ£º");
+		label9=new JLabel("é…’åº—å„ç±»å‹æˆ¿é—´ä»·æ ¼ï¼š");
 		panel9.add(label9);
 		this.add(panel9);
 		JPanel panel10= new JPanel();
 		panel10.setLayout(new FlowLayout(FlowLayout.CENTER));
-		button2=new JButton("ÏÂ¶©µ¥");
+		button2=new JButton("ä¸‹è®¢å•");
 		panel10.add(button2);
 		this.add(panel10);
 		button2.addActionListener(new ActionListener() {			
@@ -103,7 +103,7 @@ public class HotelBrowseView extends JPanel{
 		});
 		JPanel panel11= new JPanel();
 		panel11.setLayout(new FlowLayout(FlowLayout.LEFT));
-		label11=new JLabel("¾ÆµêÆÀ·Ö£º");
+		label11=new JLabel("é…’åº—è¯„åˆ†ï¼š");
 		panel11.add(label11);
 		this.add(panel11);
 	}
@@ -111,8 +111,8 @@ public class HotelBrowseView extends JPanel{
         JScrollPane scrollPane = new JScrollPane();
         
 		Vector<String> vColumns = new Vector<String>();
-		vColumns.add("¿Í»§ÕËºÅ");
-		vColumns.add("¿Í»§ÆÀ¼Û");
+		vColumns.add("å®¢æˆ·è´¦å·");
+		vColumns.add("å®¢æˆ·è¯„ä»·");
 		model= new DefaultTableModel(null, vColumns);
 		table = new JTable(model){
 			private static final long serialVersionUID = 1L;

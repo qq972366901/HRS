@@ -4,7 +4,7 @@ import java.rmi.RemoteException;
 
 import VO.UserVO;
 /**
- * ¸ºÔğÓë×¢²áÏà¹ØµÄÈÎÎñ
+ * è´Ÿè´£ä¸æ³¨å†Œç›¸å…³çš„ä»»åŠ¡
  * @author LZ
  * @version 1.0
  * @see VO.UserVO
@@ -15,8 +15,8 @@ public class Register {
 		user=new User();
 	}
 	/**
-	 * Ôö¼ÓÒ»Î»ÓÃ»§
-	 * @param vo ½çÃæ²ã´«À´µÄVO¶ÔÏó
+	 * å¢åŠ ä¸€ä½ç”¨æˆ·
+	 * @param vo ç•Œé¢å±‚ä¼ æ¥çš„VOå¯¹è±¡
 	 * @throws RemoteException
 	 * @see VO.UserVO
 	 */
@@ -24,9 +24,9 @@ public class Register {
 		user.create(vo);
 	}
 	/**
-	 * »ñÈ¡ÓÃ»§ĞÅÏ¢
-	 * @param id ½çÃæ²ã´«À´µÄÓÃ»§ID
-	 * @return ·µ»ØÊôÓÚ´ËIDµÄÓÃ»§ĞÅÏ¢
+	 * è·å–ç”¨æˆ·ä¿¡æ¯
+	 * @param id ç•Œé¢å±‚ä¼ æ¥çš„ç”¨æˆ·ID
+	 * @return è¿”å›å±äºæ­¤IDçš„ç”¨æˆ·ä¿¡æ¯
 	 * @see VO.UserVO
 	 */
 	public UserVO getUser(String id){

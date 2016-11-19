@@ -13,16 +13,16 @@ public class OrderBuildController extends OrderBLService_realize{
 
 
 	/**
-     * Éú³ÉÒ»¸ö¶©µ¥¶ÔÏó
+     * ç”Ÿæˆä¸€ä¸ªè®¢å•å¯¹è±¡
      * 
-     * @param currentTime TimeĞÍ£¬µ±Ç°Ê±¼ä
-     * @param in TimeĞÍ£¬Èë×¡Ê±¼ä
-     * @param out TimeĞÍ£¬Àë¿ªÊ±¼ä
-     * @param ddl TimeĞÍ£¬Ô¤¼ÆÀë¿ªÊ±¼ä
-     * @param roomType RoomTypeĞÍ£¬·¿¼äÀàĞÍ
-     * @param num intĞÍ£¬·¿¼äºÅ
-     * @param numOfPerson intĞÍ£¬×¡µêÈËÊı
-     * @param hasChild BooleanĞÍ£¬ÊÇ·ñÓĞĞ¡º¢
+     * @param currentTime Timeå‹ï¼Œå½“å‰æ—¶é—´
+     * @param in Timeå‹ï¼Œå…¥ä½æ—¶é—´
+     * @param out Timeå‹ï¼Œç¦»å¼€æ—¶é—´
+     * @param ddl Timeå‹ï¼Œé¢„è®¡ç¦»å¼€æ—¶é—´
+     * @param roomType RoomTypeå‹ï¼Œæˆ¿é—´ç±»å‹
+     * @param num intå‹ï¼Œæˆ¿é—´å·
+     * @param numOfPerson intå‹ï¼Œä½åº—äººæ•°
+     * @param hasChild Booleanå‹ï¼Œæ˜¯å¦æœ‰å°å­©
      * @see bussinesslogic.Order
      */
 	public void makeOrder(Time currentTime,
@@ -35,21 +35,21 @@ public class OrderBuildController extends OrderBLService_realize{
 	
 	
 	/**
-     * ÅĞ¶Ï¶©µ¥ÊÇ·ñÉú³É
+     * åˆ¤æ–­è®¢å•æ˜¯å¦ç”Ÿæˆ
      * 
-     * @param userID StringĞÍ£¬¿Í»§±àºÅ
-     * @return ÈôÒÑÉú³ÉÔò·µ»Øtrue£¬·ñÔò·µ»Øfalse
+     * @param userID Stringå‹ï¼Œå®¢æˆ·ç¼–å·
+     * @return è‹¥å·²ç”Ÿæˆåˆ™è¿”å›trueï¼Œå¦åˆ™è¿”å›false
      * @see bussinesslogic.Order
      */
 	public boolean whetherMake(String uerID) {
 		return false;
 	}
 	/**
-     * ¼ÆËã¶©µ¥¼ÛÖµ²¢ÏÔÊ¾
+     * è®¡ç®—è®¢å•ä»·å€¼å¹¶æ˜¾ç¤º
      * 
-     * @param vo OrderVOĞÍ£¬¶©µ¥µÄÖµ¶ÔÏó
-     * @param userID StringĞÍ£¬¿Í»§±àºÅ
-     * @return long£¬¶©µ¥µÄ¼ÛÖµ
+     * @param vo OrderVOå‹ï¼Œè®¢å•çš„å€¼å¯¹è±¡
+     * @param userID Stringå‹ï¼Œå®¢æˆ·ç¼–å·
+     * @return longï¼Œè®¢å•çš„ä»·å€¼
      * @see bussinesslogic.Order
      */
 	public long getPrice(OrderVO vo,String userID) {
@@ -58,10 +58,10 @@ public class OrderBuildController extends OrderBLService_realize{
 	
 	
 	/**
-     * ¼ÆËã¶©µ¥¼ÛÖµ²¢ÏÔÊ¾
+     * è®¡ç®—è®¢å•ä»·å€¼å¹¶æ˜¾ç¤º
      * 
-     * @param vo OrderVOĞÍ£¬¶©µ¥µÄÖµ¶ÔÏó
-     * @return ResultMessageµÄÒ»¸öÃ¶¾ÙÖµ
+     * @param vo OrderVOå‹ï¼Œè®¢å•çš„å€¼å¯¹è±¡
+     * @return ResultMessageçš„ä¸€ä¸ªæšä¸¾å€¼
      * @see bussinesslogic.Order
      */
 	public ResultMessage payment(OrderVO vo) {

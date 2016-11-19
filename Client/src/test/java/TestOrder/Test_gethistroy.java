@@ -17,7 +17,7 @@ import VO.UserVO;
 import common.*;
 /**
  * Test_Order
- * @author ÁõÓîÏè
+ * @author åˆ˜å®‡ç¿”
  * @version 1.1
  * @see
  */
@@ -43,7 +43,7 @@ public class Test_gethistroy {
 		order.addorderlist(list);
 		Calendar time1=Calendar.getInstance();
 		time1.set(2016,11,11);
-		assertEquals(list.gethistory(new UserVO("1","1@nju.edu.cn","3414141","1",false,1,78,"ÆÕÍ¨»áÔ±",1,time1,"")).get(0).getvo().child,false);
+		assertEquals(list.gethistory(new UserVO("1","1@nju.edu.cn","3414141","1",false,1,78,"æ™®é€šä¼šå‘˜",1,time1,"")).get(0).getvo().child,false);
 	}
 
 }

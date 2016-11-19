@@ -15,8 +15,8 @@ public class ScoreSortTester {
 	@Test
 	public void testScoreSort() {
 
-		MockHotel hotel1 = new MockHotel("ѧ��·2��","���ִ�ѧ��",2,"�Ƶ���1","�Ƶ����1","��ҿ�ݾƵ�","18022223333","Ԥ��״̬1","161000001",4.2);
-		MockHotel hotel2 = new MockHotel("����·5��","��¥",5,"�Ƶ���2","�Ƶ����2","ϣ���پƵ�","18800006688","Ԥ��״̬2","161000002",4.8);
+		MockHotel hotel1 = new MockHotel("学海路2号","仙林大学城",2,"酒店简介1","酒店服务1","如家快捷酒店","18022223333","预定状态1","161000001",4.2);
+		MockHotel hotel2 = new MockHotel("广州路5号","鼓楼",5,"酒店简介2","酒店服务2","希尔顿酒店","18800006688","预定状态2","161000002",4.8);
 		
 		HotelList hotelList = new HotelList();
 		

@@ -9,10 +9,10 @@ import common.ResultMessage;
 
 public class RoomBLService_realize implements RoomBLService{
 	/**
-     * ĞŞ¸Ä·¿¼äĞÅÏ¢
+     * ä¿®æ”¹æˆ¿é—´ä¿¡æ¯
      * 
-     * @param in MessageInputĞÍ£¬½çÃæÊäÈëµÄĞŞ¸ÄĞÅÏ¢
-     * @return ·µ»ØResultMessageÃ¶¾ÙÖµÖĞµÄÒ»Ïî
+     * @param in MessageInputå‹ï¼Œç•Œé¢è¾“å…¥çš„ä¿®æ”¹ä¿¡æ¯
+     * @return è¿”å›ResultMessageæšä¸¾å€¼ä¸­çš„ä¸€é¡¹
      * @see bussinesslogic.Room
      */
 	public ResultMessage messageupdate(MessageInput in){
@@ -22,10 +22,10 @@ public class RoomBLService_realize implements RoomBLService{
 	
 	
     /**
-     * ĞŞ¸Ä¾Æµêº¬ÓĞµÄ·¿¼äĞÅÏ¢
+     * ä¿®æ”¹é…’åº—å«æœ‰çš„æˆ¿é—´ä¿¡æ¯
      * 
-     * @param in MessageInputĞÍ£¬½çÃæÊäÈëµÄĞŞ¸ÄĞÅÏ¢
-     * @return ·µ»ØResultMessageÃ¶¾ÙÖµÖĞµÄÒ»Ïî
+     * @param in MessageInputå‹ï¼Œç•Œé¢è¾“å…¥çš„ä¿®æ”¹ä¿¡æ¯
+     * @return è¿”å›ResultMessageæšä¸¾å€¼ä¸­çš„ä¸€é¡¹
      * @see bussinesslogic.Room
      */
 	public ResultMessage messageadd(MessageInput  in) {
@@ -34,10 +34,10 @@ public class RoomBLService_realize implements RoomBLService{
 	
 	
 	/**
-     * »ñµÃ¶©µ¥ÉÏµÄ¿Í»§µÄ¸öÈËĞÅÏ¢ºÍÈë×¡ÍË·¿Ê±¼ä
+     * è·å¾—è®¢å•ä¸Šçš„å®¢æˆ·çš„ä¸ªäººä¿¡æ¯å’Œå…¥ä½é€€æˆ¿æ—¶é—´
      * 
-     * @param vo OrderVOĞÍ£¬Ò»¸öOrderVO£¬¶©µ¥Öµ¶ÔÏó
-     * @return RoomVO·µ»ØÒ»¸ö·¿¼äÖµ¶ÔÏó
+     * @param vo OrderVOå‹ï¼Œä¸€ä¸ªOrderVOï¼Œè®¢å•å€¼å¯¹è±¡
+     * @return RoomVOè¿”å›ä¸€ä¸ªæˆ¿é—´å€¼å¯¹è±¡
      * @see bussinesslogic.Room
      */
 	public RoomVO messageadd(OrderVO  vo) {
@@ -46,9 +46,9 @@ public class RoomBLService_realize implements RoomBLService{
 	
 	
 	/**
-     * ·µ»Ø¿ÉÈë×¡·¿¼ä
+     * è¿”å›å¯å…¥ä½æˆ¿é—´
      * 
-     * @return ArrayList<RoomVO>,Ò»¸ö·¿¼äÖµ¶ÔÏóÁĞ±í
+     * @return ArrayList<RoomVO>,ä¸€ä¸ªæˆ¿é—´å€¼å¯¹è±¡åˆ—è¡¨
      * @see bussinesslogic.Room
      */
 	public ArrayList<RoomVO> getRoom() {
@@ -57,10 +57,10 @@ public class RoomBLService_realize implements RoomBLService{
 	
 	
 	/**
-     * ·µ»Ø·¿¼äµÄ¼Û¸ñ
+     * è¿”å›æˆ¿é—´çš„ä»·æ ¼
      * 
-     * @param roomType StringĞÍ£¬Ò»ÖÖ·¿¼äÀàĞÍ
-     * @return ·µ»ØÒ»¸ölongÊıÖµ
+     * @param roomType Stringå‹ï¼Œä¸€ç§æˆ¿é—´ç±»å‹
+     * @return è¿”å›ä¸€ä¸ªlongæ•°å€¼
      * @see bussinesslogic.Room
      */
 	public long getPrice(String roomType) {

@@ -3,8 +3,8 @@ package uiService;
 import WebPromotionView.WebPromotionUserView;
 
 /**
- * ¸ºÔğÊµÏÖ¾Æµê¹ÜÀíÏµÍ³µÄÍøÕ¾ÓªÏúÈËÔ±µÄ³õÊ¼½çÃæ
- * @author Áõ×ÚÙ©
+ * è´Ÿè´£å®ç°é…’åº—ç®¡ç†ç³»ç»Ÿçš„ç½‘ç«™è¥é”€äººå‘˜çš„åˆå§‹ç•Œé¢
+ * @author åˆ˜å®—ä¾ƒ
  * @version 1.0
  */
 public interface webPromotionUserUiService {

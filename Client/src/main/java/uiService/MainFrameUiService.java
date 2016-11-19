@@ -1,16 +1,16 @@
 package uiService;
 
 /**
- * ¸ºÔğÊµÏÖ¾Æµê¹ÜÀíÏµÍ³µÄÖ÷µÇÂ¼½çÃæ
- * @author Áõ×ÚÙ©
+ * è´Ÿè´£å®ç°é…’åº—ç®¡ç†ç³»ç»Ÿçš„ä¸»ç™»å½•ç•Œé¢
+ * @author åˆ˜å®—ä¾ƒ
  * @version 1.0
  */
 public interface MainFrameUiService {
 
 	/**
-     * ´ò¿ª³ÌĞòµÄÖ÷½çÃæ
+     * æ‰“å¼€ç¨‹åºçš„ä¸»ç•Œé¢
      * 
-     * @param args0  ³ÌĞò´ò¿ªÊ±µÄ²ÎÊı
+     * @param args0  ç¨‹åºæ‰“å¼€æ—¶çš„å‚æ•°
      * @return 
      */
 	public void init(String[] args0);

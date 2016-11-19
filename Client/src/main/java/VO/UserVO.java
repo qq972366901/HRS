@@ -5,8 +5,8 @@ import java.util.Calendar;
 import Object.User;
 
 /**
- * ÓÃ»§µÄÊôĞÔ¼°Êı¾İ´´½¨Óë¸üĞÂ
- * @author Áõ×ÚÙ©
+ * ç”¨æˆ·çš„å±æ€§åŠæ•°æ®åˆ›å»ºä¸æ›´æ–°
+ * @author åˆ˜å®—ä¾ƒ
  * @version 1.0
  * @see Object.User
  */
@@ -21,7 +21,7 @@ public class UserVO extends VO {
 	public int level;
 	public long credit;
 	public String membertype;
-	public int type;//1£º¿Í»§ 2£º¾Æµê¹¤×÷ÈËÔ± 3£ºÍøÕ¾ÓªÏúÈËÔ± 4£ºÍøÕ¾¹ÜÀíÈËÔ±
+	public int type;//1ï¼šå®¢æˆ· 2ï¼šé…’åº—å·¥ä½œäººå‘˜ 3ï¼šç½‘ç«™è¥é”€äººå‘˜ 4ï¼šç½‘ç«™ç®¡ç†äººå‘˜
 	public Calendar birthday;
 	public String enterprise;
 
@@ -41,9 +41,9 @@ public class UserVO extends VO {
 		enterprise=enter;
 	}
 	/**
-     * ¸üĞÂÓÃ»§ĞÅÏ¢
+     * æ›´æ–°ç”¨æˆ·ä¿¡æ¯
      * 
-     * @param user UserVOĞÍ£¬Ò»¸öÓÃÀ´¸üĞÂÊı¾İµÄÓÃ»§¶ÔÏó
+     * @param user UserVOå‹ï¼Œä¸€ä¸ªç”¨æ¥æ›´æ–°æ•°æ®çš„ç”¨æˆ·å¯¹è±¡
      * @return 
      * @see VO.UserVO
      */
@@ -59,9 +59,9 @@ public class UserVO extends VO {
 	}
 	
 	/**
-     * ´´½¨ÓÃ»§¶ÔÏó
+     * åˆ›å»ºç”¨æˆ·å¯¹è±¡
      * 
-     * @return Ò»¸öĞÂ×¢²áµÄÓÃ»§
+     * @return ä¸€ä¸ªæ–°æ³¨å†Œçš„ç”¨æˆ·
      * @see Object.User
      */
 	public User makeUser() {

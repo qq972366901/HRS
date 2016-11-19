@@ -14,7 +14,7 @@ import customerMainView.customerMainViewControllerService;
 public class main {
 	static JFrame mFrame;
 	public static void main(String[] args){
-		mFrame = new JFrame("�Ƶ�Ԥ��ϵͳ V1.0");
+		mFrame = new JFrame("酒店预订系统 V1.0");
 		mFrame.setSize(1000, 700);
 		mFrame.setLocation(300, 300);
 		LoginViewControllerService controller =  new LoginViewControllerImpl();

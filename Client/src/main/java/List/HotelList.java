@@ -6,8 +6,8 @@ import LineItem.HotelLineItem;
 import Object.Hotel;
 import common.ResultMessage;
 /**
- * ¾ÆµêÁĞ±í
- * @author Áõ×ÚÙ©
+ * é…’åº—åˆ—è¡¨
+ * @author åˆ˜å®—ä¾ƒ
  * @version 1.0
  */
 public class HotelList {
@@ -15,7 +15,7 @@ public class HotelList {
 	List<HotelLineItem> hotels;
 	
 	/**
-	 * ¾ÆµêÁĞ±í
+	 * é…’åº—åˆ—è¡¨
 	 * @param
 	 * @return
 	 */
@@ -26,8 +26,8 @@ public class HotelList {
 	}
 	
 	/**
-	 * Ìí¼Óµ¥¸ö¾Æµê
-	 * @param hli HotelLineItemĞÍ£¬Ìí¼ÓµÄµ¥¸ö¾Æµê 
+	 * æ·»åŠ å•ä¸ªé…’åº—
+	 * @param hli HotelLineItemå‹ï¼Œæ·»åŠ çš„å•ä¸ªé…’åº— 
 	 * @return 
 	 */
 	public void addHotelLineItems(HotelLineItem  hli) {
@@ -35,18 +35,18 @@ public class HotelList {
 	}
 	
 	/**
-	 * µÃµ½¾Æµê
+	 * å¾—åˆ°é…’åº—
 	 * @param
-	 * @return ·µ»Ø¾Æµê
+	 * @return è¿”å›é…’åº—
 	 */
 	public int getHotel() {
 		return hotels.size();
 	}
 	
 	/**
-	 * µÃµ½·ûºÏÌõ¼şµÄ¾Æµê
+	 * å¾—åˆ°ç¬¦åˆæ¡ä»¶çš„é…’åº—
 	 * @param
-	 * @return ·µ»Ø¾Æµê¸öÊı
+	 * @return è¿”å›é…’åº—ä¸ªæ•°
 	 */
 	public int messageLook(String location) {
 		int num = 0;
@@ -59,18 +59,18 @@ public class HotelList {
 	}
 
 	/**
-	 * Î¬»¤¾ÆµêĞÅÏ¢
-	 * @param h HotelĞÍ£¬ĞÂµÄ¾ÆµêÊı¾İ
-	 * @return ·µ»Ø¾Æµê¸üĞÂ½á¹û
+	 * ç»´æŠ¤é…’åº—ä¿¡æ¯
+	 * @param h Hotelå‹ï¼Œæ–°çš„é…’åº—æ•°æ®
+	 * @return è¿”å›é…’åº—æ›´æ–°ç»“æœ
 	 */
 	public ResultMessage messageMaintain(Hotel h) {
 		return ResultMessage.Exist;
 	}
 	
 	/**
-	 * ËÑË÷¾Æµê
-	 * @param name StringĞÍ£¬¾ÆµêÃû³Æ
-	 * @return ·µ»Ø¾ÆµêÊıÁ¿
+	 * æœç´¢é…’åº—
+	 * @param name Stringå‹ï¼Œé…’åº—åç§°
+	 * @return è¿”å›é…’åº—æ•°é‡
 	 */
 	public int messageSearch(String name) {
 		int num = 0;
@@ -83,42 +83,42 @@ public class HotelList {
 	}
 
 	/**
-	 * °´¼Û¸ñ¸ø¾ÆµêÅÅĞò
-	 * @return ·µ»ØÅÅĞò½á¹û
+	 * æŒ‰ä»·æ ¼ç»™é…’åº—æ’åº
+	 * @return è¿”å›æ’åºç»“æœ
 	 */
 	public ResultMessage priceSort() {
 		return ResultMessage.Exist;
 	}
 	
 	/**
-	 * °´ÆÀ·Ö¸ø¾ÆµêÅÅĞò
-	 * @return ·µ»ØÅÅĞò½á¹û
+	 * æŒ‰è¯„åˆ†ç»™é…’åº—æ’åº
+	 * @return è¿”å›æ’åºç»“æœ
 	 */
 	public ResultMessage scoreSort() {
 		return ResultMessage.Exist;
 	}
 	
 	/**
-	 * °´ĞÇ¼¶¸ø¾ÆµêÅÅĞò
-	 * @return ·µ»ØÅÅĞò½á¹û
+	 * æŒ‰æ˜Ÿçº§ç»™é…’åº—æ’åº
+	 * @return è¿”å›æ’åºç»“æœ
 	 */
 	public ResultMessage starSort() {
 		return ResultMessage.Exist;
 	}
 
 	/**
-	 * ¸ø¾ÆµêÆÀ¼Û
-	 * @param comment StringĞÍ£¬ÆÀÂÛÄÚÈİ
-	 * @return ·µ»ØÆÀ¼Û½á¹û
+	 * ç»™é…’åº—è¯„ä»·
+	 * @param comment Stringå‹ï¼Œè¯„è®ºå†…å®¹
+	 * @return è¿”å›è¯„ä»·ç»“æœ
 	 */
 	public ResultMessage setComment(String comment) {
 		return ResultMessage.Exist;
 	}
 	
 	/**
-	 * ¸ø¾ÆµêÆÀ·Ö
-	 * @param score intĞÍ£¬ÆÀ·Ö
-	 * @return ·µ»ØÆÀ·Ö½á¹û
+	 * ç»™é…’åº—è¯„åˆ†
+	 * @param score intå‹ï¼Œè¯„åˆ†
+	 * @return è¿”å›è¯„åˆ†ç»“æœ
 	 */
 	public ResultMessage setScore(int score) {
 		return ResultMessage.Exist;

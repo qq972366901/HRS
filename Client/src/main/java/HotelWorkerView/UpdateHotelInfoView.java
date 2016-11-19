@@ -39,7 +39,7 @@ public class UpdateHotelInfoView extends JPanel {
 		this.add(backPanel, BorderLayout.NORTH);
 		backPanel.setLayout(new BorderLayout(0, 0));
 		
-		backButton = new JButton("·µ»Ø");
+		backButton = new JButton("è¿”å›");
 		backPanel.add(backButton, BorderLayout.EAST);
 		backButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
@@ -62,7 +62,7 @@ public class UpdateHotelInfoView extends JPanel {
 		hotelNamePanel.add(panel1);
 		panel1.setLayout(new GridLayout(1, 2, 0, 0));
 		
-		JLabel hotelNameLabel = new JLabel("¾ÆµêÃû³Æ");
+		JLabel hotelNameLabel = new JLabel("é…’åº—åç§°");
 		panel1.add(hotelNameLabel);
 		hotelNameLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		
@@ -80,7 +80,7 @@ public class UpdateHotelInfoView extends JPanel {
 		hotelLocationPanel.add(panel2);
 		panel2.setLayout(new GridLayout(1, 2, 0, 0));
 		
-		JLabel hotelLocationLabel = new JLabel("¾ÆµêµØÖ·");
+		JLabel hotelLocationLabel = new JLabel("é…’åº—åœ°å€");
 		panel2.add(hotelLocationLabel);
 		hotelLocationLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		
@@ -98,7 +98,7 @@ public class UpdateHotelInfoView extends JPanel {
 		hotelServicePanel.add(panel5);
 		panel5.setLayout(new GridLayout(1, 2, 0, 0));
 		
-		JLabel hotelServiceLabel = new JLabel("ÉèÊ©·şÎñ");
+		JLabel hotelServiceLabel = new JLabel("è®¾æ–½æœåŠ¡");
 		panel5.add(hotelServiceLabel);
 		hotelServiceLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		
@@ -117,7 +117,7 @@ public class UpdateHotelInfoView extends JPanel {
 		hotelAreaPanel.add(panel3);
 		panel3.setLayout(new GridLayout(1, 2, 0, 0));
 		
-		JLabel hotelAreaLabel = new JLabel("ËùÊôÉÌÈ¦");
+		JLabel hotelAreaLabel = new JLabel("æ‰€å±å•†åœˆ");
 		panel3.add(hotelAreaLabel);
 		hotelAreaLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		
@@ -136,7 +136,7 @@ public class UpdateHotelInfoView extends JPanel {
 		hotelIntroducePanel.add(panel4);
 		panel4.setLayout(new GridLayout(1, 2, 0, 0));
 		
-		JLabel hotelIntroduceLabel = new JLabel("¾Æµê¼ò½é");
+		JLabel hotelIntroduceLabel = new JLabel("é…’åº—ç®€ä»‹");
 		panel4.add(hotelIntroduceLabel);
 		hotelIntroduceLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		
@@ -154,7 +154,7 @@ public class UpdateHotelInfoView extends JPanel {
 		hotelStarPanel.add(panel6);
 		panel6.setLayout(new GridLayout(1, 2, 0, 0));
 		
-		JLabel hotelStarLabel = new JLabel("ĞÇ¼¶");
+		JLabel hotelStarLabel = new JLabel("æ˜Ÿçº§");
 		panel6.add(hotelStarLabel);
 		hotelStarLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		
@@ -172,11 +172,11 @@ public class UpdateHotelInfoView extends JPanel {
 		JPanel submitPanel = new JPanel();
 		updatePanel.add(submitPanel);
 		
-		submitButton = new JButton("Ìá½»");
+		submitButton = new JButton("æäº¤");
 		submitPanel.add(submitButton);
 		submitButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
-				//ÏµÍ³¸üĞÂ¾ÆµêĞÅÏ¢
+				//ç³»ç»Ÿæ›´æ–°é…’åº—ä¿¡æ¯
 			}
 			
 		});

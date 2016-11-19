@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 import VO.CreditRecordVO;
 /**
- * ¸ºÔğ¶ÔÓÚĞÅÓÃÖµµÄ²Ù×÷
+ * è´Ÿè´£å¯¹äºä¿¡ç”¨å€¼çš„æ“ä½œ
  * @author LZ
  * @version 1.0
  * @see VO.CreditRecordVO
@@ -17,17 +17,17 @@ public class Credit {
 		map=new HashMap<String,Long>();
 	}
 	/**
-	 * ÏÔÊ¾ĞÅÓÃÖµ
-	 * @param id StringĞÍ£¬½çÃæ²ã´«À´µÄ¿Í»§ID
-	 * @return ·µ»ØÊôÓÚ´ËIDµÄĞÅÓÃÖµ
+	 * æ˜¾ç¤ºä¿¡ç”¨å€¼
+	 * @param id Stringå‹ï¼Œç•Œé¢å±‚ä¼ æ¥çš„å®¢æˆ·ID
+	 * @return è¿”å›å±äºæ­¤IDçš„ä¿¡ç”¨å€¼
 	 */
 	public long showCredit(String id){
 		return map.get(id);
 	}
 	/**
-	 * ¸üĞÂĞÅÓÃÖµ
-	 * @param userID StringĞÍ£¬½çÃæ²ã´«À´µÄ¿Í»§ID
-	 * @param vo CreditRecordVOĞÍ£¬½çÃæ²ã´«À´µÄVO¶ÔÏó
+	 * æ›´æ–°ä¿¡ç”¨å€¼
+	 * @param userID Stringå‹ï¼Œç•Œé¢å±‚ä¼ æ¥çš„å®¢æˆ·ID
+	 * @param vo CreditRecordVOå‹ï¼Œç•Œé¢å±‚ä¼ æ¥çš„VOå¯¹è±¡
 	 * @throws RemoteException
 	 * @see VO.CreditRecordVO
 	 */

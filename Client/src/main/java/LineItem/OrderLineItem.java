@@ -4,16 +4,16 @@ import java.util.Date;
 import VO.OrderVO;
 /**
  * OrderLineItem
- * @author ÁõÓîÏè
+ * @author åˆ˜å®‡ç¿”
  * @version 1.0
  * @see
  */
 public class OrderLineItem {
 	OrderVO vo;
      /**
-      * µ¥¸ö¶©µ¥
-      * @param o OrderVOĞÍ£¬´«Èë¶©µ¥¶ÔÏó
-      * @return µ¥¸ö¶©µ¥
+      * å•ä¸ªè®¢å•
+      * @param o OrderVOå‹ï¼Œä¼ å…¥è®¢å•å¯¹è±¡
+      * @return å•ä¸ªè®¢å•
       */
      public OrderLineItem(OrderVO vo){
     	 this.vo=vo;
@@ -22,8 +22,8 @@ public class OrderLineItem {
     	 return vo;
      }
      /**
- 	 * È¡Ïû¶©µ¥
- 	 * @param Time£¬Ê±¼ä
+ 	 * å–æ¶ˆè®¢å•
+ 	 * @param Timeï¼Œæ—¶é—´
  	 *
  	 */
      public void cancel(Date currentTime){
@@ -32,61 +32,61 @@ public class OrderLineItem {
     	 
      }
      /**
-  	 * »ñµÃ¶©µ¥¼Û¸ñ
-  	 * @return ¼Û¸ñ£¬long
+  	 * è·å¾—è®¢å•ä»·æ ¼
+  	 * @return ä»·æ ¼ï¼Œlong
   	 *
   	 */
      public long getprice(){
     	 return vo.orderValue;
      }
      /**
- 	 * È¡Ïû¶©µ¥ĞĞÎª
+ 	 * å–æ¶ˆè®¢å•è¡Œä¸º
  	 * 
  	 */
      public void cancel(){
     	 vo.orderState=-1;
      }
      /**
- 	 * »ñµÃÈ¡ÏûÊ±¼ä
- 	 * @return ·µ»ØÊ±¼ä
+ 	 * è·å¾—å–æ¶ˆæ—¶é—´
+ 	 * @return è¿”å›æ—¶é—´
  	 */
 	public Date getcancel() {
 		return vo.cancel;
 	}
 	/**
- 	 * »ñµÃ¶©µ¥id
- 	 * @return ·µ»ØÊ±¼ä
+ 	 * è·å¾—è®¢å•id
+ 	 * @return è¿”å›æ—¶é—´
  	 */
 	public String getorderID() {
 		return vo.orderNumber;
 	}
 	/**
- 	 * »ñµÃÓÃ»§id
- 	 * @return ·µ»ØÊ±¼ä
+ 	 * è·å¾—ç”¨æˆ·id
+ 	 * @return è¿”å›æ—¶é—´
  	 */
 	public String getuserID() {
 		return vo.userID;
 	}
 	/**
- 	 * »ñµÃ¾Æµêid
- 	 * @return ·µ»ØÊ±¼ä
+ 	 * è·å¾—é…’åº—id
+ 	 * @return è¿”å›æ—¶é—´
  	 */
 	public String gethotelID() {
 		return vo.hotelID;
 	}
 	/**
- 	 * »ñµÃ·¿¼äÀàĞÍ
- 	 * @return ·µ»ØÊ±¼ä
+ 	 * è·å¾—æˆ¿é—´ç±»å‹
+ 	 * @return è¿”å›æ—¶é—´
  	 */
 	public String getroomType() {
 		return vo.roomType;
 	}
 	/**
      *
-     * ¸üĞÂ¶©µ¥ÀàĞÍ£¬Îª¿Í»§ĞŞ¸ÄĞÅÓÃÖµ£¬¸üĞÂ»áÔ±µÈ¼¶ 
+     * æ›´æ–°è®¢å•ç±»å‹ï¼Œä¸ºå®¢æˆ·ä¿®æ”¹ä¿¡ç”¨å€¼ï¼Œæ›´æ–°ä¼šå‘˜ç­‰çº§ 
      * 
-     * @param userID StringĞÍ£¬¿Í»§±àºÅ
-     * @param orderID StringĞÍ£¬¶©µ¥ºÅ
+     * @param userID Stringå‹ï¼Œå®¢æˆ·ç¼–å·
+     * @param orderID Stringå‹ï¼Œè®¢å•å·
      * @see bussinesslogic.Order
      */
 	public void update(String orderID,String userID,int state){
@@ -95,10 +95,10 @@ public class OrderLineItem {
 		vo.orderState=state;
 	}
 	/**
-     * ¸üĞÂ¶©µ¥ĞÅÏ¢²¢ÏÔÊ¾ÆÀ¼Û
+     * æ›´æ–°è®¢å•ä¿¡æ¯å¹¶æ˜¾ç¤ºè¯„ä»·
      * 
-     * @param comment StringĞÍ£¬¿Í»§ÆÀ¼Û
-     * @param order OrderVOĞÍ£¬Ò»¸ö¶©µ¥µÄÖµ¶ÔÏó
+     * @param comment Stringå‹ï¼Œå®¢æˆ·è¯„ä»·
+     * @param order OrderVOå‹ï¼Œä¸€ä¸ªè®¢å•çš„å€¼å¯¹è±¡
      * @see bussinesslogic.Order
      */
 	public void comment(String comment){

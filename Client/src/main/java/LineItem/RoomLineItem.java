@@ -2,8 +2,8 @@ package LineItem;
 
 import VO.RoomVO;
 /**
- * µ¥¸ö·¿¼ä
- * @author Áõ×ÚÙ©
+ * å•ä¸ªæˆ¿é—´
+ * @author åˆ˜å®—ä¾ƒ
  * @version 1.0
  */
 public class RoomLineItem {
@@ -11,18 +11,18 @@ public class RoomLineItem {
 	RoomVO roomVO;
 	
 	/**
-	 * µ¥¸ö·¿¼ä
-	 * @param r RoomĞÍ£¬´«Èë·¿¼ä¶ÔÏó
-	 * @return µ¥¸ö·¿¼ä
+	 * å•ä¸ªæˆ¿é—´
+	 * @param r Roomå‹ï¼Œä¼ å…¥æˆ¿é—´å¯¹è±¡
+	 * @return å•ä¸ªæˆ¿é—´
 	 */
 	public RoomLineItem (RoomVO rvo) {
 		roomVO = rvo;
 	}
 	
 	/**
-	 * µÃµ½·¿¼ä¼Û¸ñ
+	 * å¾—åˆ°æˆ¿é—´ä»·æ ¼
 	 * @param 
-	 * @return ·µ»Ø·¿¼ä¼Û¸ñ
+	 * @return è¿”å›æˆ¿é—´ä»·æ ¼
 	 */
 	public int getPrice() {
 		return roomVO.roomPrice;

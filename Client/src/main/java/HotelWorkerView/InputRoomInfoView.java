@@ -41,7 +41,7 @@ public class InputRoomInfoView extends JPanel {
 		this.add(backPanel, BorderLayout.NORTH);
 		backPanel.setLayout(new BorderLayout(0, 0));
 		
-		backButton = new JButton("·µ»Ø");
+		backButton = new JButton("è¿”å›");
 		backPanel.add(backButton, BorderLayout.EAST);
 		backButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
@@ -63,7 +63,7 @@ public class InputRoomInfoView extends JPanel {
 		JPanel panel_2_1 = new JPanel();
 		panel_2.add(panel_2_1);
 		
-		JLabel roomTypeLabel = new JLabel("¿Í·¿ÀàĞÍ£º");
+		JLabel roomTypeLabel = new JLabel("å®¢æˆ¿ç±»å‹ï¼š");
 		roomTypeLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_2.add(roomTypeLabel);
 		
@@ -84,7 +84,7 @@ public class InputRoomInfoView extends JPanel {
 		JPanel panel_4_1 = new JPanel();
 		panel_4.add(panel_4_1);
 		
-		JLabel roomNumberLabel = new JLabel("¿Í·¿ÊıÁ¿£º");
+		JLabel roomNumberLabel = new JLabel("å®¢æˆ¿æ•°é‡ï¼š");
 		roomNumberLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_4.add(roomNumberLabel);
 		
@@ -105,7 +105,7 @@ public class InputRoomInfoView extends JPanel {
 		JPanel panel_6_1 = new JPanel();
 		panel_6.add(panel_6_1);
 		
-		JLabel roomPriceLabel = new JLabel("¿Í·¿Ô­Ê¼¼Û¸ñ£º");
+		JLabel roomPriceLabel = new JLabel("å®¢æˆ¿åŸå§‹ä»·æ ¼ï¼š");
 		roomPriceLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_6.add(roomPriceLabel);
 		
@@ -122,12 +122,12 @@ public class InputRoomInfoView extends JPanel {
 		JPanel panel_8 = new JPanel();
 		inputPanel.add(panel_8);
 		
-		submitButton = new JButton("Ìá½»");
+		submitButton = new JButton("æäº¤");
 		panel_8.add(submitButton);
 		submitButton.addActionListener(new ActionListener(){
 
 			public void actionPerformed(ActionEvent arg0) {
-				//ÏµÍ³¸üĞÂ¾ÆµêÓµÓĞµÄ·¿¼äĞÅÏ¢
+				//ç³»ç»Ÿæ›´æ–°é…’åº—æ‹¥æœ‰çš„æˆ¿é—´ä¿¡æ¯
 			}
 			
 		});

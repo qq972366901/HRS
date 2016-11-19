@@ -9,7 +9,7 @@ import dataService.CreditRecordDataService;
 import dataService.DataFactoryService;
 import rmi.RemoteHelper;
 /**
- * ¸ºÔğ¶ÔÓÚĞÅÓÃ¼ÇÂ¼µÄ²Ù×÷
+ * è´Ÿè´£å¯¹äºä¿¡ç”¨è®°å½•çš„æ“ä½œ
  * @author LZ
  *@version 1.0
  *@see VO.CreditRecordVO
@@ -22,18 +22,18 @@ public class CreditRecord {
 		df=RemoteHelper.getInstance().getDataFactoryService();
 	}
 	/**
-	 * ÏÔÊ¾ĞÅÓÃ¼ÇÂ¼
-	 * @param id StringĞÍ£¬½çÃæ²ã´«À´µÄ¿Í»§ID
-	 * @return ·µ»ØÊôÓÚ´ËIDµÄËùÓĞĞÅÓÃ¼ÇÂ¼
+	 * æ˜¾ç¤ºä¿¡ç”¨è®°å½•
+	 * @param id Stringå‹ï¼Œç•Œé¢å±‚ä¼ æ¥çš„å®¢æˆ·ID
+	 * @return è¿”å›å±äºæ­¤IDçš„æ‰€æœ‰ä¿¡ç”¨è®°å½•
 	 * @see VO.CreditRecordVO
 	 */
 	public HashMap<String,CreditRecordVO> showCreditRecord(String id){
 		return map.get(id);
 	}
 	/**
-	 * ¸üĞÂĞÅÓÃ¼ÇÂ¼
-	 * @param id StringĞÍ£¬½çÃæ²ã´«À´µÄÓÃ»§ID
-	 * @param vo CreditRecordVOĞÍ£¬½çÃæ²ã´«À´µÄVO¶ÔÏó
+	 * æ›´æ–°ä¿¡ç”¨è®°å½•
+	 * @param id Stringå‹ï¼Œç•Œé¢å±‚ä¼ æ¥çš„ç”¨æˆ·ID
+	 * @param vo CreditRecordVOå‹ï¼Œç•Œé¢å±‚ä¼ æ¥çš„VOå¯¹è±¡
 	 * @throws RemoteException
 	 * @see VO.CreditRecordVO
 	 */
@@ -48,9 +48,9 @@ public class CreditRecord {
 		//dh.update(po);
 	}
 	/**
-	 * Ôö¼ÓĞÅÓÃ¼ÇÂ¼
-	 * @param userID StringĞÍ£¬½çÃæ²ã´«À´µÄ¿Í»§ID
-	 * @param vo CreditRecordVOĞÍ£¬½çÃæ²ã´«À´µÄvo¶ÔÏó
+	 * å¢åŠ ä¿¡ç”¨è®°å½•
+	 * @param userID Stringå‹ï¼Œç•Œé¢å±‚ä¼ æ¥çš„å®¢æˆ·ID
+	 * @param vo CreditRecordVOå‹ï¼Œç•Œé¢å±‚ä¼ æ¥çš„voå¯¹è±¡
 	 * @throws RemoteException
 	 * @see VO.CreditRecordVO
 	 */
@@ -68,10 +68,10 @@ public class CreditRecord {
 		}
 	}
 	/**
-	 * »ñÈ¡Ä³Î»¿Í»§µÄÄ³ÌõĞÅÓÃ¼ÇÂ¼
-	 * @param userID StringĞÍ£¬½çÃæ²ã´«À´µÄ¿Í»§ID
-	 * @param orderID StringĞÍ£¬½çÃæ²ã´«À´µÄ¼ÇÂ¼±àºÅ
-	 * @return ·µ»ØÊôÓÚ´Ë¿Í»§IDºÍ¼ÇÂ¼±àºÅµÄVO¶ÔÏó
+	 * è·å–æŸä½å®¢æˆ·çš„æŸæ¡ä¿¡ç”¨è®°å½•
+	 * @param userID Stringå‹ï¼Œç•Œé¢å±‚ä¼ æ¥çš„å®¢æˆ·ID
+	 * @param orderID Stringå‹ï¼Œç•Œé¢å±‚ä¼ æ¥çš„è®°å½•ç¼–å·
+	 * @return è¿”å›å±äºæ­¤å®¢æˆ·IDå’Œè®°å½•ç¼–å·çš„VOå¯¹è±¡
 	 * @see VO.CreditRecordVO
 	 */
 	public CreditRecordVO getCreditRecord(String userID,String orderID){

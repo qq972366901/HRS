@@ -7,8 +7,8 @@ import javax.swing.JFrame;
 import uiService.userUiService;
 
 /**
- * ¸ºÔğÊµÏÖ¾Æµê¹ÜÀíÏµÍ³µÄ¿Í»§½çÃæµÄ¿ØÖÆÆ÷
- * @author Áõ×ÚÙ©
+ * è´Ÿè´£å®ç°é…’åº—ç®¡ç†ç³»ç»Ÿçš„å®¢æˆ·ç•Œé¢çš„æ§åˆ¶å™¨
+ * @author åˆ˜å®—ä¾ƒ
  * @version 1.0
  * @see uiService.userUiService
  * @see javax.swing.JFrame
@@ -25,7 +25,7 @@ public class userUiController extends JFrame implements userUiService {
 	private static final long serialVersionUID = 1L;
 
 	/**
-     * ¿Í»§µÄ³õÊ¼½çÃæ
+     * å®¢æˆ·çš„åˆå§‹ç•Œé¢
      * 
      * @param 
      * @return 

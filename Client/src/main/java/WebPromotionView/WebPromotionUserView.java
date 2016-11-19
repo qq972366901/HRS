@@ -30,31 +30,31 @@ public class WebPromotionUserView extends JPanel {
 		this.validate();
 	}
 	private void initButton(){
-		proStrategy=new JButton("ÖÆ¶¨ÓªÏú²ßÂÔ");
+		proStrategy=new JButton("åˆ¶å®šè¥é”€ç­–ç•¥");
 		proStrategy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controller.toWebPromotionStrategyView();
 			}
 		});
-		abnormalOrder=new JButton("´¦ÀíÒì³£ÉêËß");
+		abnormalOrder=new JButton("å¤„ç†å¼‚å¸¸ç”³è¯‰");
 		abnormalOrder.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controller.toProcessOrderOrderView();
 			}
 		});
-		creditManage=new JButton("¹ÜÀíĞÅÓÃÖµ");
+		creditManage=new JButton("ç®¡ç†ä¿¡ç”¨å€¼");
 		creditManage.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controller.toCreditManagementView();
 			}
 		});
-		memberLevel=new JButton("ÖÆ¶¨»áÔ±µÈ¼¶");
+		memberLevel=new JButton("åˆ¶å®šä¼šå‘˜ç­‰çº§");
 		memberLevel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controller.toMemberLevelSystemView();
 			}
 		});
-		exit=new JButton("ÍË³ö");
+		exit=new JButton("é€€å‡º");
 		exit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controller.toLogView();

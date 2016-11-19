@@ -31,7 +31,7 @@ public class UserManagementView extends JPanel{
 	private void initButton(){
 		JPanel p1=new JPanel();
 		p1.setLayout(new FlowLayout(FlowLayout.RIGHT));
-		button1=new JButton("·µ»Ø");
+		button1=new JButton("è¿”å›");
 		p1.add(button1);
 		this.add(p1);
 		button1.addActionListener(new ActionListener() {			
@@ -41,28 +41,28 @@ public class UserManagementView extends JPanel{
 		});
 		JPanel p2=new JPanel();
 		p2.setLayout(new FlowLayout(FlowLayout.CENTER));
-		label2 = new JLabel("¿Í»§Ãû³Æ");
+		label2 = new JLabel("å®¢æˆ·åç§°");
 		textField2=new JTextField(10);
 		p2.add(label2);
 		p2.add(textField2);
 		this.add(p2);
 		JPanel p3=new JPanel();
 		p3.setLayout(new FlowLayout(FlowLayout.CENTER));
-		label3 = new JLabel("¿Í»§ÕËºÅ");
+		label3 = new JLabel("å®¢æˆ·è´¦å·");
 		textField3 = new JTextField(10);
 		p3.add(label3);
 		p3.add(textField3);
 		this.add(p3);
 		JPanel p4=new JPanel();
 		p4.setLayout(new FlowLayout(FlowLayout.CENTER));
-		label4 = new JLabel("ÁªÏµ·½Ê½");
+		label4 = new JLabel("è”ç³»æ–¹å¼");
 		textField4 = new JTextField(10);
 		p4.add(label4);
 		p4.add(textField4);
 		this.add(p4);
 		JPanel p5=new JPanel();
 		p5.setLayout(new FlowLayout(FlowLayout.CENTER));
-		button2=new JButton("È·ÈÏ");
+		button2=new JButton("ç¡®è®¤");
 		p5.add(button2);
 		this.add(p5);
 		button2.addActionListener(new ActionListener() {			
@@ -75,12 +75,12 @@ public class UserManagementView extends JPanel{
 				frame.getContentPane().add(panel);
 				JPanel panel1= new JPanel();
 				panel1.setLayout(new FlowLayout(FlowLayout.CENTER));
-				JLabel label = new JLabel("ĞŞ¸Ä³É¹¦£¡");
+				JLabel label = new JLabel("ä¿®æ”¹æˆåŠŸï¼");
 				panel1.add(label);
 				panel.add(panel1);
 				JPanel panel2= new JPanel();
 				panel2.setLayout(new FlowLayout(FlowLayout.CENTER));
-				JButton button = new JButton("È·¶¨");
+				JButton button = new JButton("ç¡®å®š");
 				panel2.add(button);
 				panel.add(panel2);
 				button.addActionListener(new ActionListener() {			

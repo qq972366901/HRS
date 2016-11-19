@@ -41,7 +41,7 @@ public class HotelMainView extends JPanel {
 		panel_1.add(panel, BorderLayout.NORTH);
 		panel.setLayout(new BorderLayout(0, 0));
 		
-		backButton = new JButton("返回");
+		backButton = new JButton("杩斿洖");
 		backButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
 				controller.toLogView();
@@ -63,7 +63,7 @@ public class HotelMainView extends JPanel {
 		JPanel panel_4 = new JPanel();
 		updateInfoPanel.add(panel_4);
 		
-		updateHotelInfoButton = new JButton("维护酒店基本信息");
+		updateHotelInfoButton = new JButton("缁存姢閰掑簵鍩烘湰淇℃伅");
 		panel_4.add(updateHotelInfoButton);
 		updateHotelInfoButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
@@ -84,7 +84,7 @@ public class HotelMainView extends JPanel {
 		JPanel panel_7 = new JPanel();
 		adminRoomPanel.add(panel_7);
 		
-		adminRoomButton = new JButton("管理客房信息");
+		adminRoomButton = new JButton("绠＄悊瀹㈡埧淇℃伅");
 		panel_7.add(adminRoomButton);
 		adminRoomButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
@@ -105,7 +105,7 @@ public class HotelMainView extends JPanel {
 		JPanel panel_10 = new JPanel();
 		scanOrderPanel.add(panel_10);
 		
-		browseOrderButton = new JButton("浏览订单");
+		browseOrderButton = new JButton("娴忚璁㈠崟");
 		panel_10.add(browseOrderButton);
 		browseOrderButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
@@ -126,7 +126,7 @@ public class HotelMainView extends JPanel {
 		JPanel panel_13 = new JPanel();
 		makePromoPanel.add(panel_13);
 		
-		makeHotelPromotionButton = new JButton("制定营销策略");
+		makeHotelPromotionButton = new JButton("鍒跺畾钀ラ攢绛栫暐");
 		panel_13.add(makeHotelPromotionButton);
 		makeHotelPromotionButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {

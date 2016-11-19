@@ -6,78 +6,78 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-/**¸ºÔğÊµÏÖ¾ÆµêÊı¾İ´¢´æËùĞèÒªµÄ·şÎñ½Ó¿Ú
- * @author ÁõÎ°
+/**è´Ÿè´£å®ç°é…’åº—æ•°æ®å‚¨å­˜æ‰€éœ€è¦çš„æœåŠ¡æ¥å£
+ * @author åˆ˜ä¼Ÿ
  * @version 1.0
  * see presentation.Hotel
  */
 public interface HotelDataService  extends DataService, Remote{
 /**
- * °´id½øĞĞ²éÕÒ·µ»ØÏàÓ¦µÄHotelPO½á¹û
- * @param in MessageInputĞÍ£¬½çÃæÊäÈëµÄ¾Æµêid
- * @return ·µ»ØResultMessageÃ¶¾ÙµÄÒ»Ïî
+ * æŒ‰idè¿›è¡ŒæŸ¥æ‰¾è¿”å›ç›¸åº”çš„HotelPOç»“æœ
+ * @param in MessageInputå‹ï¼Œç•Œé¢è¾“å…¥çš„é…’åº—id
+ * @return è¿”å›ResultMessageæšä¸¾çš„ä¸€é¡¹
  * @see data.Hotel
  */
 	public HotelPO find(String id) throws RemoteException;
 /**
- * °´Ãû³Æ½øĞĞ²éÕÒ·µ»ØÏàÓ¦µÄHotelPO½á¹û
- * @param in MessageInputĞÍ£¬½çÃæÊäÈëµÄ¾ÆµêÃû³Æ
- * @return ·µ»ØResultMessageÃ¶¾ÙµÄÒ»Ïî
+ * æŒ‰åç§°è¿›è¡ŒæŸ¥æ‰¾è¿”å›ç›¸åº”çš„HotelPOç»“æœ
+ * @param in MessageInputå‹ï¼Œç•Œé¢è¾“å…¥çš„é…’åº—åç§°
+ * @return è¿”å›ResultMessageæšä¸¾çš„ä¸€é¡¹
  * @see data.Hotel
  */
 		public HotelPO findByName(String name) throws RemoteException;
 /**
- * °´ÉÌÈ¦½øĞĞ²éÕÒ·µ»ØÏàÓ¦µÄHotelPO½á¹û
- * @param in MessageInputĞÍ£¬½çÃæÊäÈëµÄÉÌÈ¦Ãû³Æ
- * @return ·µ»ØResultMessageÃ¶¾ÙµÄÒ»Ïî
+ * æŒ‰å•†åœˆè¿›è¡ŒæŸ¥æ‰¾è¿”å›ç›¸åº”çš„HotelPOç»“æœ
+ * @param in MessageInputå‹ï¼Œç•Œé¢è¾“å…¥çš„å•†åœˆåç§°
+ * @return è¿”å›ResultMessageæšä¸¾çš„ä¸€é¡¹
  * @see data.Hotel
  */
 		public ArrayList<HotelPO> findByDistrict(String district) throws RemoteException;
 /**
- * °´ĞÇ¼¶½øĞĞ²éÕÒ·µ»ØÏàÓ¦µÄHotelPO½á¹û
- * @param in MessageInputĞÍ£¬½çÃæÊäÈëµÄĞÇ¼¶
- * @return ·µ»ØResultMessageÃ¶¾ÙµÄÒ»Ïî
+ * æŒ‰æ˜Ÿçº§è¿›è¡ŒæŸ¥æ‰¾è¿”å›ç›¸åº”çš„HotelPOç»“æœ
+ * @param in MessageInputå‹ï¼Œç•Œé¢è¾“å…¥çš„æ˜Ÿçº§
+ * @return è¿”å›ResultMessageæšä¸¾çš„ä¸€é¡¹
  * @see data.Hotel
  */
 		public ArrayList<HotelPO> findByStar(int star) throws RemoteException;
 /**
- * °´ÆÀ·Ö½øĞĞ²éÕÒ·µ»ØÏàÓ¦µÄHotelPO½á¹û
- * @param in MessageInputĞÍ£¬½çÃæÊäÈëµÄ¾ÆµêÆÀ·Ö
- * @return ·µ»ØResultMessageÃ¶¾ÙµÄÒ»Ïî
+ * æŒ‰è¯„åˆ†è¿›è¡ŒæŸ¥æ‰¾è¿”å›ç›¸åº”çš„HotelPOç»“æœ
+ * @param in MessageInputå‹ï¼Œç•Œé¢è¾“å…¥çš„é…’åº—è¯„åˆ†
+ * @return è¿”å›ResultMessageæšä¸¾çš„ä¸€é¡¹
  * @see data.Hotel
  */
 		public ArrayList<HotelPO> findByScore(double sco) throws RemoteException;
 /**
- * ÔÚÊı¾İ¿âÖĞÔö¼ÓÒ»¸öpo¼ÇÂ¼
- * @param in MessageInputĞÍ£¬½çÃæµÄÑ¡Ôñ
+ * åœ¨æ•°æ®åº“ä¸­å¢åŠ ä¸€ä¸ªpoè®°å½•
+ * @param in MessageInputå‹ï¼Œç•Œé¢çš„é€‰æ‹©
  * @return 
  * @see data.Hotel
  */
 		public void insert(HotelPO po) throws RemoteException;
 /**
- * ÔÚÊı¾İ¿âÖĞÉ¾³ıÒ»¸öpo
- * @param in MessageInputĞÍ£¬½çÃæµÄÑ¡Ôñ
+ * åœ¨æ•°æ®åº“ä¸­åˆ é™¤ä¸€ä¸ªpo
+ * @param in MessageInputå‹ï¼Œç•Œé¢çš„é€‰æ‹©
  * @return 
  * @see data.Hotel
  */
 		public void delete(HotelPO po) throws RemoteException;
 /**
- *ÔÚÊı¾İ¿âÖĞ¸úĞÂÒ»¸öpo
- * @param in MessageInputĞÍ£¬½çÃæµÄÑ¡Ôñ
+ *åœ¨æ•°æ®åº“ä¸­è·Ÿæ–°ä¸€ä¸ªpo
+ * @param in MessageInputå‹ï¼Œç•Œé¢çš„é€‰æ‹©
  * @return 
  * @see data.Hotel
  */
 		public void update(HotelPO po) throws RemoteException;
 /**
- * °´³õÊ¼»¯³Ö¾Ã»¯Êı¾İ¿â
- * @param in MessageInputĞÍ£¬½çÃæµÄÑ¡Ôñ
+ * æŒ‰åˆå§‹åŒ–æŒä¹…åŒ–æ•°æ®åº“
+ * @param in MessageInputå‹ï¼Œç•Œé¢çš„é€‰æ‹©
  * @return 
  * @see data.Hotel
  */
 		public void init() throws RemoteException;
 /**
- * ½áÊø³Ö¾Ã»¯Êı¾İ¿âµÄÊ¹ÓÃ
- * @param in MessageInputĞÍ£¬½çÃæµÄÑ¡Ôñ
+ * ç»“æŸæŒä¹…åŒ–æ•°æ®åº“çš„ä½¿ç”¨
+ * @param in MessageInputå‹ï¼Œç•Œé¢çš„é€‰æ‹©
  * @return 
  * @see data.Hotel
  */

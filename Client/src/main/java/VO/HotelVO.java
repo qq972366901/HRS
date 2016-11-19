@@ -2,8 +2,8 @@ package VO;
 import Object.Hotel;
 
 /**
- * ¾ÆµêµÄÊôĞÔ¼°Êı¾İ´´½¨Óë¸üĞÂ
- * @author Áõ×ÚÙ©
+ * é…’åº—çš„å±æ€§åŠæ•°æ®åˆ›å»ºä¸æ›´æ–°
+ * @author åˆ˜å®—ä¾ƒ
  * @version 1.0
  * @see Object.Hotel
  */
@@ -24,17 +24,17 @@ public class HotelVO extends VO {
 		hotelName=id;
 	}
 	/**
-	 * ¾ÆµêÊı¾İ
-	 * @param hAddress StringĞÍ£¬Âß¼­²ã´«À´µÄ¾ÆµêµØÖ·
-	 * @param hDistrict StringĞÍ£¬Âß¼­²ã´«À´µÄ¾ÆµêËùÔÚÉÌÈ¦
-	 * @param hStar intĞÍ£¬Âß¼­²ã´«À´µÄ¾ÆµêĞÇ¼¶
-	 * @param hProfile StringĞÍ£¬Âß¼­²ã´«À´µÄ¾Æµê¼ò½é
-	 * @param hService StringĞÍ£¬Âß¼­²ã´«À´µÄ¾Æµê·şÎñ
-	 * @param hName StringĞÍ£¬Âß¼­²à´«À´µÄ¾ÆµêÃû³Æ
-	 * @param hPhone StringĞÍ£¬Âß¼­²à´«À´µÄ¾Æµê
-	 * @param hReservation StringĞÍ£¬Âß¼­²à´«À´µÄ¾ÆµêÔ¤¶©×´Ì¬
-	 * @param hAccount StringĞÍ£¬Âß¼­²à´«À´µÄ¾ÆµêÕËºÅ
-	 * @param sco doubleĞÍ£¬Âß¼­²à´«À´µÄ¾ÆµêÆÀ·Ö
+	 * é…’åº—æ•°æ®
+	 * @param hAddress Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„é…’åº—åœ°å€
+	 * @param hDistrict Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„é…’åº—æ‰€åœ¨å•†åœˆ
+	 * @param hStar intå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„é…’åº—æ˜Ÿçº§
+	 * @param hProfile Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„é…’åº—ç®€ä»‹
+	 * @param hService Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„é…’åº—æœåŠ¡
+	 * @param hName Stringå‹ï¼Œé€»è¾‘ä¾§ä¼ æ¥çš„é…’åº—åç§°
+	 * @param hPhone Stringå‹ï¼Œé€»è¾‘ä¾§ä¼ æ¥çš„é…’åº—
+	 * @param hReservation Stringå‹ï¼Œé€»è¾‘ä¾§ä¼ æ¥çš„é…’åº—é¢„è®¢çŠ¶æ€
+	 * @param hAccount Stringå‹ï¼Œé€»è¾‘ä¾§ä¼ æ¥çš„é…’åº—è´¦å·
+	 * @param sco doubleå‹ï¼Œé€»è¾‘ä¾§ä¼ æ¥çš„é…’åº—è¯„åˆ†
 	 * @return
 	 * @throws
 	 * @see
@@ -53,9 +53,9 @@ public class HotelVO extends VO {
 	    score=sco;
 	}
 	/**
-     * ¸üĞÂ¾ÆµêĞÅÏ¢
+     * æ›´æ–°é…’åº—ä¿¡æ¯
      * 
-     * @param hotel HotelĞÍ£¬Ò»¸öÓÃÀ´¸üĞÂÊı¾İµÄ¾Æµê¶ÔÏó
+     * @param hotel Hotelå‹ï¼Œä¸€ä¸ªç”¨æ¥æ›´æ–°æ•°æ®çš„é…’åº—å¯¹è±¡
      * @return 
      * @see Object.Hotel
      */
@@ -64,9 +64,9 @@ public class HotelVO extends VO {
 	}
 	
 	/**
-     * ´´½¨¾Æµê¶ÔÏó
+     * åˆ›å»ºé…’åº—å¯¹è±¡
      * 
-     * @return Ò»¸öĞÂÂ¼ÈëµÄ¾Æµê
+     * @return ä¸€ä¸ªæ–°å½•å…¥çš„é…’åº—
      * @see Object.Hotel
      */
 	public Hotel makeHotel() {

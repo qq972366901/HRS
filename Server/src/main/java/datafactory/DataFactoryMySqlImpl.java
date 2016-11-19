@@ -5,7 +5,7 @@ import java.rmi.RemoteException;
 
 import dataService.DataService;
 /**
- * 职责是提供不同种类的数据接口
+ * 鑱岃矗鏄彁渚涗笉鍚岀绫荤殑鏁版嵁鎺ュ彛
  * @author LZ
  * @version 1.0
  * @see datafactoryService.DataFactoryService
@@ -16,9 +16,9 @@ public class DataFactoryMySqlImpl implements Serializable,dataService.DataFactor
 	 */
 	private static final long serialVersionUID = 1L;
 	/**
-	 * 提供数据接口
+	 * 鎻愪緵鏁版嵁鎺ュ彛
 	 * @param
-	 * @return 返回DataService
+	 * @return 杩斿洖DataService
 	 * @throws RemoteException
 	 * @see dataService.DataService
 	 */

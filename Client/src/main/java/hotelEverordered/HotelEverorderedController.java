@@ -5,10 +5,10 @@ import VO.HotelVO;
 import hotelBLService.HotelBLService_realize;
 public class HotelEverorderedController extends HotelBLService_realize{
 	/**
-     * ²éÕÒÓÃ»§µÄÀúÊ·¶©µ¥µÄ¾Æµê²¢·µ»ØÀúÊ·¾ÆµêÁĞ±í
+     * æŸ¥æ‰¾ç”¨æˆ·çš„å†å²è®¢å•çš„é…’åº—å¹¶è¿”å›å†å²é…’åº—åˆ—è¡¨
      * 
-     * @param id StringĞÍ£¬¿Í»§id
-     * @return ·µ»ØHotelVOµÄÒ»¸öÁĞ±í
+     * @param id Stringå‹ï¼Œå®¢æˆ·id
+     * @return è¿”å›HotelVOçš„ä¸€ä¸ªåˆ—è¡¨
      * @see bussinesslogic.Hotel
      */
 	public  ArrayList<HotelVO> historylook(String  id) {
@@ -16,9 +16,9 @@ public class HotelEverorderedController extends HotelBLService_realize{
 		return array;
 	}
 	/**
-     * ÏÔÊ¾¿Í»§µÄÀúÊ·Ô¤¶©¾Æµê
+     * æ˜¾ç¤ºå®¢æˆ·çš„å†å²é¢„è®¢é…’åº—
      * 
-     * @return Ò»¸öArrayList<HotelVO>£¬¾ÆµêÖµ¶ÔÏóÁĞ±í
+     * @return ä¸€ä¸ªArrayList<HotelVO>ï¼Œé…’åº—å€¼å¯¹è±¡åˆ—è¡¨
      * @see bussinesslogic.Hotel
      */
 	public ArrayList<HotelVO> gethistoryhotel() {

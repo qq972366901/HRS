@@ -2,7 +2,7 @@ package userBLImpl;
 
 import java.util.HashMap;
 /**
- * ¶ÔÓÚPromotionInfo½Ó¿ÚµÄÊµÏÖ
+ * å¯¹äºPromotionInfoæ¥å£çš„å®ç°
  * @author LZ
  * @version 1.0
  */
@@ -12,8 +12,8 @@ public class MemberGrade implements PromotionInfo{
 		map=new HashMap<Integer, Long>();
 	}
 	/**
-	 * »ñÈ¡»áÔ±µÈ¼¶ÏµÍ³ĞÅÏ¢
-	 * @return ·µ»Ø»áÔ±µÈ¼¶ÏµÍ³
+	 * è·å–ä¼šå‘˜ç­‰çº§ç³»ç»Ÿä¿¡æ¯
+	 * @return è¿”å›ä¼šå‘˜ç­‰çº§ç³»ç»Ÿ
 	 */
 	@Override
 	public HashMap<Integer,Long> getLevelSystem() {

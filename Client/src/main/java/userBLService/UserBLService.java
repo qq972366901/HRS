@@ -5,114 +5,114 @@ import java.util.List;
 import VO.*;
 import common.*;
 /**
- * ¸ºÔğÊµÏÖÓÃ»§¹ÜÀí½çÃæËùĞèÒªµÄ·şÎñ½Ó¿Ú
- * @author ÁõÎ°
+ * è´Ÿè´£å®ç°ç”¨æˆ·ç®¡ç†ç•Œé¢æ‰€éœ€è¦çš„æœåŠ¡æ¥å£
+ * @author åˆ˜ä¼Ÿ
  * @version 1.0
  * @see presentation.User
  */
 public interface UserBLService {
 /**
- * ¸ù¾İ¿Í»§ID²éÕÒ¿Í»§ĞÅÏ¢²¢·µ»Ø
- * @param  in MessageInputĞÍ£¬½çÃæÊäÈëµÄ¿Í»§ID
- * @return ·µ»ØResultMessageµÄËùÓĞÃ¶¾ÙÖµ
+ * æ ¹æ®å®¢æˆ·IDæŸ¥æ‰¾å®¢æˆ·ä¿¡æ¯å¹¶è¿”å›
+ * @param  in MessageInputå‹ï¼Œç•Œé¢è¾“å…¥çš„å®¢æˆ·ID
+ * @return è¿”å›ResultMessageçš„æ‰€æœ‰æšä¸¾å€¼
  * @see bussinesslogic.User
  */
 	public ResultMessage findByID(String userID);
 /**
- * ¸üĞÂ¿Í»§ĞÅÏ¢
- * @param in MessageInputĞÍ£¬½çÃæÊäÈëµÄ¸üĞÂĞÅÏ¢
- * @return ·µ»ØResultMessageµÄÒ»¸öÃ¶¾ÙÖµ
+ * æ›´æ–°å®¢æˆ·ä¿¡æ¯
+ * @param in MessageInputå‹ï¼Œç•Œé¢è¾“å…¥çš„æ›´æ–°ä¿¡æ¯
+ * @return è¿”å›ResultMessageçš„ä¸€ä¸ªæšä¸¾å€¼
  * @see bussinesslogic.User
  */
 	public ResultMessage update(UserVO vo);
 /**
- * ĞÂÔö¿Í»§ĞÅÏ¢
- * @param in MessageInputĞÍ£¬½çÃæÊäÈëµÄĞÂÔöĞÅÏ¢
- * @return ·µ»ØResultMessageµÄÒ»¸öÃ¶¾ÙÖµ
+ * æ–°å¢å®¢æˆ·ä¿¡æ¯
+ * @param in MessageInputå‹ï¼Œç•Œé¢è¾“å…¥çš„æ–°å¢ä¿¡æ¯
+ * @return è¿”å›ResultMessageçš„ä¸€ä¸ªæšä¸¾å€¼
  * @see bussinesslogic.User
  */
 	public ResultMessage add(UserVO vo);
 /**
- * É¾³ı¿Í»§ĞÅÏ¢
- * @param in MessageInputĞÍ£¬½çÃæÑ¡ÔñÉ¾³ıµÄĞÅÏ¢
- * @return ·µ»ØResultMessageµÄÒ»¸öÃ¶¾ÙÖµ
+ * åˆ é™¤å®¢æˆ·ä¿¡æ¯
+ * @param in MessageInputå‹ï¼Œç•Œé¢é€‰æ‹©åˆ é™¤çš„ä¿¡æ¯
+ * @return è¿”å›ResultMessageçš„ä¸€ä¸ªæšä¸¾å€¼
  * @see bussinesslogic.User
  */
 	public ResultMessage delete(UserVO vo);
 /**
- * ÏÔÊ¾ĞÅÓÃÖµ
- * @param in MessageInputĞÍ£¬½çÃæÊäÈëÓÃ»§ID
- * @return StringĞÍ£¬·µ»Ø¿Í»§µÄĞÅÓÃÖµ
+ * æ˜¾ç¤ºä¿¡ç”¨å€¼
+ * @param in MessageInputå‹ï¼Œç•Œé¢è¾“å…¥ç”¨æˆ·ID
+ * @return Stringå‹ï¼Œè¿”å›å®¢æˆ·çš„ä¿¡ç”¨å€¼
  * @see bussinesslogic.User
  */
 	public long showCredit(String userID);
 /**
- * Í¨¹ı³äÖµ¸üĞÂĞÅÓÃÖµ
- * @param in MessageInputĞÍ£¬½çÃæÊäÈëµÄ¸üĞÂĞÅÏ¢
- * @return ·µ»ØResultMessageµÄÒ»¸öÃ¶¾ÙÖµ
+ * é€šè¿‡å……å€¼æ›´æ–°ä¿¡ç”¨å€¼
+ * @param in MessageInputå‹ï¼Œç•Œé¢è¾“å…¥çš„æ›´æ–°ä¿¡æ¯
+ * @return è¿”å›ResultMessageçš„ä¸€ä¸ªæšä¸¾å€¼
  * @see bussinesslogic.User
  */
 	public ResultMessage updateCredit(UserVO vo,long credit);
 /**
- * ¸üĞÂ»áÔ±µÈ¼¶
- * @param in MessageInputĞÍ£¬½çÃæÊäÈëµÄ¸üĞÂĞÅÏ¢
- * @return ·µ»ØResultMessageµÄÒ»¸öÃ¶¾ÙÖµ
+ * æ›´æ–°ä¼šå‘˜ç­‰çº§
+ * @param in MessageInputå‹ï¼Œç•Œé¢è¾“å…¥çš„æ›´æ–°ä¿¡æ¯
+ * @return è¿”å›ResultMessageçš„ä¸€ä¸ªæšä¸¾å€¼
  * @see bussinesslogic.User
  */
 	public ResultMessage updateLevel(UserVO vo);
 /**
- * ¸ù¾İĞÅÓÃ¼ÇÂ¼¸üĞÂĞÅÓÃÖµ
- * @param in MessageInputĞÍ£¬½çÃæÊäÈëµÄ¸üĞÂĞÅÏ¢
- * @return ·µ»ØResultMessageµÄÒ»¸öÃ¶¾ÙÖµ
+ * æ ¹æ®ä¿¡ç”¨è®°å½•æ›´æ–°ä¿¡ç”¨å€¼
+ * @param in MessageInputå‹ï¼Œç•Œé¢è¾“å…¥çš„æ›´æ–°ä¿¡æ¯
+ * @return è¿”å›ResultMessageçš„ä¸€ä¸ªæšä¸¾å€¼
  * @see bussinesslogic.User
  */
 	public ResultMessage updateCreditRecord(UserVO vo);
 /**
- * ¿Í»§×¢²á
- * @param in MessageInputĞÍ£¬½çÃæÊäÈëµÄ×¢²áĞÅÏ¢
- * @return ·µ»ØResultMessageµÄËùÓĞÃ¶¾ÙÖµ
+ * å®¢æˆ·æ³¨å†Œ
+ * @param in MessageInputå‹ï¼Œç•Œé¢è¾“å…¥çš„æ³¨å†Œä¿¡æ¯
+ * @return è¿”å›ResultMessageçš„æ‰€æœ‰æšä¸¾å€¼
  * @see bussinesslogic.User
  */
 	public ResultMessage register(UserVO vo);
 /**
- * Î¬»¤¿Í»§ĞÅÏ¢
- * @param in MessageInputĞÍ£¬½çÃæÊäÈëµÄ¸üĞÂĞÅÏ¢
- * @return ·µ»ØResultMessageµÄÒ»¸öÃ¶¾ÙÖµ
+ * ç»´æŠ¤å®¢æˆ·ä¿¡æ¯
+ * @param in MessageInputå‹ï¼Œç•Œé¢è¾“å…¥çš„æ›´æ–°ä¿¡æ¯
+ * @return è¿”å›ResultMessageçš„ä¸€ä¸ªæšä¸¾å€¼
  * @see bussinesslogic.User
  */
 	public ResultMessage maintainPeersonalInfo(UserVO vo);
 /**
- * ĞÅÓÃ¼ÇÂ¼ÏÔÊ¾
- * @param in MessageInputĞÍ£¬½çÃæÑ¡ÔñµÄĞÅÏ¢
- * @return ·µ»ØResultMessageµÄÒ»¸öÃ¶¾ÙÖµ
+ * ä¿¡ç”¨è®°å½•æ˜¾ç¤º
+ * @param in MessageInputå‹ï¼Œç•Œé¢é€‰æ‹©çš„ä¿¡æ¯
+ * @return è¿”å›ResultMessageçš„ä¸€ä¸ªæšä¸¾å€¼
  * @see bussinesslogic.User
  */
 	public CreditRecordVO showCreditRecord(UserVO vo);
 /**
- * ¶©µ¥Ö§¸¶³É¹¦ºóµÄĞÅÓÃ¸üĞÂ
- * @param in MessageInputĞÍ£¬½çÃæÊäÈëµÄÖ§¸¶ĞÅÏ¢
- * @return ·µ»ØResultMessageµÄÒ»¸öÃ¶¾ÙÖµ
+ * è®¢å•æ”¯ä»˜æˆåŠŸåçš„ä¿¡ç”¨æ›´æ–°
+ * @param in MessageInputå‹ï¼Œç•Œé¢è¾“å…¥çš„æ”¯ä»˜ä¿¡æ¯
+ * @return è¿”å›ResultMessageçš„ä¸€ä¸ªæšä¸¾å€¼
  * @see bussinesslogic.User
  */
 	public ResultMessage topUp(long money);
 /**
- * ¶©µ¥Î´Ö§¸¶Íê³É
- * @param in MessageInputĞÍ£¬½çÃæÊäÈëµÄÖ§¸¶ĞÅÏ¢
- * @return ·µ»ØResultMessageµÄËùÓĞÃ¶¾ÙÖµ
+ * è®¢å•æœªæ”¯ä»˜å®Œæˆ
+ * @param in MessageInputå‹ï¼Œç•Œé¢è¾“å…¥çš„æ”¯ä»˜ä¿¡æ¯
+ * @return è¿”å›ResultMessageçš„æ‰€æœ‰æšä¸¾å€¼
  * @see bussinesslogic.User
  */
 	public ResultMessage payment(long money);
 /**
- * ¿Í»§µÇÂ¼
- * @param in MessageInputĞÍ£¬½çÃæÊäÈëµÄ¸üĞÂĞÅÏ¢
- * @return ·µ»ØUserTypeµÄËùÓĞÃ¶¾ÙÖµ
+ * å®¢æˆ·ç™»å½•
+ * @param in MessageInputå‹ï¼Œç•Œé¢è¾“å…¥çš„æ›´æ–°ä¿¡æ¯
+ * @return è¿”å›UserTypeçš„æ‰€æœ‰æšä¸¾å€¼
  * @see bussinesslogic.User
  */
 	public UserType login(String ID, String password)throws RemoteException;
 /**
- * ¿Í»§µÇ³ö
- * @param in MessageInputĞÍ£¬½çÃæÑ¡ÔñµÄĞÅÏ¢
- * @return ·µ»ØResultMessageµÄÒ»¸öÃ¶¾ÙÖµ
+ * å®¢æˆ·ç™»å‡º
+ * @param in MessageInputå‹ï¼Œç•Œé¢é€‰æ‹©çš„ä¿¡æ¯
+ * @return è¿”å›ResultMessageçš„ä¸€ä¸ªæšä¸¾å€¼
  * @see bussinesslogic.User
  */
 	public ResultMessage logout(String ID);

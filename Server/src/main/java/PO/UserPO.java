@@ -2,7 +2,7 @@ package PO;
 
 import java.io.Serializable;
 /**
- * ¿Í»§µÄÊı¾İÊµÌå
+ * å®¢æˆ·çš„æ•°æ®å®ä½“
  * @author LZ
  * @version 1.0
  * @see
@@ -18,15 +18,15 @@ public class UserPO extends PO implements Serializable{
 	private String birthday;
 	private String enterprise;
 	/**
-	 * ¹¹Ôì¿Í»§Êı¾İÊµÌå
-	 * @param un StringĞÍ£¬Âß¼­²ã´«À´µÄ¿Í»§Ãû³Æ
-	 * @param ua StringĞÍ£¬Âß¼­²ã´«À´µÄ¿Í»§ÕËºÅ
-	 * @param co StringĞÍ£¬Âß¼­²ã´«À´µÄ¿Í»§ÁªÏµ·½Ê½
-	 * @param l intĞÍ£¬Âß¼­²ã´«À´µÄ¿Í»§»áÔ±µÈ¼¶
-	 * @param mt StringĞÍ£¬Âß¼­²ã´«À´µÄ¿Í»§»áÔ±ÖÖÀà
-	 * @param t intĞÍ£¬Âß¼­²ã´«À´µÄÓÃ»§ÖÖÀà
-	 * @param b StringĞÍ£¬Âß¼­²ã´«À´µÄ¿Í»§ÉúÈÕ
-	 * @param e StringĞÍ£¬Âß¼­²ã´«À´µÄ¿Í»§ËùÔÚÆóÒµ
+	 * æ„é€ å®¢æˆ·æ•°æ®å®ä½“
+	 * @param un Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„å®¢æˆ·åç§°
+	 * @param ua Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„å®¢æˆ·è´¦å·
+	 * @param co Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„å®¢æˆ·è”ç³»æ–¹å¼
+	 * @param l intå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„å®¢æˆ·ä¼šå‘˜ç­‰çº§
+	 * @param mt Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„å®¢æˆ·ä¼šå‘˜ç§ç±»
+	 * @param t intå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„ç”¨æˆ·ç§ç±»
+	 * @param b Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„å®¢æˆ·ç”Ÿæ—¥
+	 * @param e Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„å®¢æˆ·æ‰€åœ¨ä¼ä¸š
 	 * @return 
 	 * @throws
 	 * @see
@@ -42,9 +42,9 @@ public class UserPO extends PO implements Serializable{
 		enterprise=e;
 	}
 	/**
-	 * »ñÈ¡¿Í»§Ãû³Æ
+	 * è·å–å®¢æˆ·åç§°
 	 * @param
-	 * @return ·µ»Ø¿Í»§Ãû³Æ
+	 * @return è¿”å›å®¢æˆ·åç§°
 	 * @throws
 	 * @see
 	 */
@@ -52,8 +52,8 @@ public class UserPO extends PO implements Serializable{
 		return username;
 	}
 	/**
-	 * ÉèÖÃ¿Í»§Ãû³Æ
-	 * @param un StringĞÍ£¬Âß¼­²ã´«À´µÄ¿Í»§Ãû³Æ
+	 * è®¾ç½®å®¢æˆ·åç§°
+	 * @param un Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„å®¢æˆ·åç§°
 	 * @return
 	 * @throws
 	 * @see
@@ -62,9 +62,9 @@ public class UserPO extends PO implements Serializable{
 		username=un;
 	}
 	/**
-	 * »ñÈ¡¿Í»§ÕËºÅ
+	 * è·å–å®¢æˆ·è´¦å·
 	 * @param
-	 * @retur ·µ»Ø¿Í»§ÕËºÅ
+	 * @retur è¿”å›å®¢æˆ·è´¦å·
 	 * @throws
 	 * @see
 	 */
@@ -72,8 +72,8 @@ public class UserPO extends PO implements Serializable{
 		return useraccount;
 	}
 	/**
-	 * ÉèÖÃ¿Í»§ÕËºÅ
-	 * @param ua StringĞÍ£¬Âß¼­²ã´«À´µÄ¿Í»§ÕËºÅ
+	 * è®¾ç½®å®¢æˆ·è´¦å·
+	 * @param ua Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„å®¢æˆ·è´¦å·
 	 * @return
 	 * @throws
 	 * @see
@@ -82,9 +82,9 @@ public class UserPO extends PO implements Serializable{
 		useraccount=ua;
 	}
 	/**
-	 * »ñÈ¡¿Í»§ÁªÏµ·½Ê½
+	 * è·å–å®¢æˆ·è”ç³»æ–¹å¼
 	 * @param
-	 * @return ·µ»Ø¿Í»§ÁªÏµ·½Ê½
+	 * @return è¿”å›å®¢æˆ·è”ç³»æ–¹å¼
 	 * @throws
 	 * @see
 	 */
@@ -92,8 +92,8 @@ public class UserPO extends PO implements Serializable{
 		return contactway;
 	}
 	/**
-	 * ÉèÖÃ¿Í»§ÁªÏµ·½Ê½
-	 * @param co StringĞÍ£¬Âß¼­²ã´«À´µÄ¿Í»§ÁªÏµ·½Ê½
+	 * è®¾ç½®å®¢æˆ·è”ç³»æ–¹å¼
+	 * @param co Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„å®¢æˆ·è”ç³»æ–¹å¼
 	 * @return 
 	 * @throws
 	 * @see
@@ -102,9 +102,9 @@ public class UserPO extends PO implements Serializable{
 		contactway=co;
 	}
 	/**
-	 * »ñÈ¡¿Í»§»áÔ±µÈ¼¶
+	 * è·å–å®¢æˆ·ä¼šå‘˜ç­‰çº§
 	 * @param
-	 * @return ·µ»Ø¿Í»§»áÔ±µÈ¼¶
+	 * @return è¿”å›å®¢æˆ·ä¼šå‘˜ç­‰çº§
 	 * @throws
 	 * @see
 	 */
@@ -112,8 +112,8 @@ public class UserPO extends PO implements Serializable{
 		return level;
 	}
 	/**
-	 * ÉèÖÃ¿Í»§»áÔ±µÈ¼¶
-	 * @param l intĞÍ£¬Âß¼­²ã´«À´µÄ¿Í»§»áÔ±µÈ¼¶
+	 * è®¾ç½®å®¢æˆ·ä¼šå‘˜ç­‰çº§
+	 * @param l intå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„å®¢æˆ·ä¼šå‘˜ç­‰çº§
 	 * @return 
 	 * @throws
 	 * @see
@@ -122,9 +122,9 @@ public class UserPO extends PO implements Serializable{
 		level=l;
 	}
 	/**
-	 * »ñÈ¡¿Í»§»áÔ±ÖÖÀà
+	 * è·å–å®¢æˆ·ä¼šå‘˜ç§ç±»
 	 * @param
-	 * @return ·µ»Ø¿Í»§»áÔ±ÖÖÀà
+	 * @return è¿”å›å®¢æˆ·ä¼šå‘˜ç§ç±»
 	 * @throws
 	 * @see
 	 */
@@ -132,8 +132,8 @@ public class UserPO extends PO implements Serializable{
 		return membertype;
 	}
 	/**
-	 * ÉèÖÃ¿Í»§»áÔ±ÖÖÀà
-	 * @param t String ĞÍ£¬Âß¼­²ã´«À´µÄ¿Í»§»áÔ±ÖÖÀà
+	 * è®¾ç½®å®¢æˆ·ä¼šå‘˜ç§ç±»
+	 * @param t String å‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„å®¢æˆ·ä¼šå‘˜ç§ç±»
 	 * @return
 	 * @throws
 	 * @see
@@ -142,9 +142,9 @@ public class UserPO extends PO implements Serializable{
 		membertype=t;
 	}
 	/**
-	 * »ñÈ¡ÓÃ»§ÖÖÀà
+	 * è·å–ç”¨æˆ·ç§ç±»
 	 * @param
-	 * @return ·µ»ØÓÃ»§ÖÖÀà
+	 * @return è¿”å›ç”¨æˆ·ç§ç±»
 	 * @throws
 	 * @see
 	 */
@@ -152,8 +152,8 @@ public class UserPO extends PO implements Serializable{
 		return type;
 	}
 	/**
-	 * ÉèÖÃÓÃ»§ÖÖÀà
-	 * @param t String ĞÍ£¬Âß¼­²ã´«À´µÄÓÃ»§ÖÖÀà
+	 * è®¾ç½®ç”¨æˆ·ç§ç±»
+	 * @param t String å‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„ç”¨æˆ·ç§ç±»
 	 * @return
 	 * @throws
 	 * @see
@@ -162,9 +162,9 @@ public class UserPO extends PO implements Serializable{
 		type=t;
 	}
 	/**
-	 * »ñÈ¡¿Í»§ÉúÈÕ
+	 * è·å–å®¢æˆ·ç”Ÿæ—¥
 	 * @param
-	 * @return ·µ»Ø¿Í»§ÉúÈÕ
+	 * @return è¿”å›å®¢æˆ·ç”Ÿæ—¥
 	 * @throws
 	 * @see
 	 */
@@ -172,8 +172,8 @@ public class UserPO extends PO implements Serializable{
 		return birthday;
 	}
 	/**
-	 * ÉèÖÃ¿Í»§ÉúÈÕ
-	 * @param b StringĞÍ£¬Âß¼­²ã´«À´µÄ¿Í»§ÉúÈÕ
+	 * è®¾ç½®å®¢æˆ·ç”Ÿæ—¥
+	 * @param b Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„å®¢æˆ·ç”Ÿæ—¥
 	 * @return 
 	 * @throws
 	 * @see
@@ -182,9 +182,9 @@ public class UserPO extends PO implements Serializable{
 		birthday=b;
 	}
 	/**
-	 * »ñÈ¡¿Í»§ËùÔÚÆóÒµ
+	 * è·å–å®¢æˆ·æ‰€åœ¨ä¼ä¸š
 	 * @param
-	 * @return ·µ»ØÆóÒµÃû³Æ
+	 * @return è¿”å›ä¼ä¸šåç§°
 	 * @throws
 	 * @see
 	 */
@@ -192,8 +192,8 @@ public class UserPO extends PO implements Serializable{
 		return enterprise;
 	}
 	/**
-	 * ÉèÖÃ¿Í»§ËùÔÚÆóÒµÃû³Æ
-	 * @param e StringĞÍ£¬Âß¼­²ã´«À´µÄ¿Í»§ËùÔÚÆóÒµÃû³Æ
+	 * è®¾ç½®å®¢æˆ·æ‰€åœ¨ä¼ä¸šåç§°
+	 * @param e Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„å®¢æˆ·æ‰€åœ¨ä¼ä¸šåç§°
 	 * @return
 	 * @throws
 	 * @see

@@ -22,7 +22,7 @@ public class UpdateHotelInfoUiController implements UpdateHotelInfoUiService {
 	}
 
 	public void updateHotelInfo() {
-		//Êı¾İ¿â¸üĞÂ¾ÆµêĞÅÏ¢
+		//æ•°æ®åº“æ›´æ–°é…’åº—ä¿¡æ¯
 	}
 
 }

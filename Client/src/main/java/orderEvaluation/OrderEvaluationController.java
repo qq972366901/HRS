@@ -9,10 +9,10 @@ public class OrderEvaluationController extends OrderBLService_realize{
 
 
 	/**
-     * ¸üĞÂ¶©µ¥ĞÅÏ¢²¢ÏÔÊ¾ÆÀ¼Û
+     * æ›´æ–°è®¢å•ä¿¡æ¯å¹¶æ˜¾ç¤ºè¯„ä»·
      * 
-     * @param comment StringĞÍ£¬¿Í»§ÆÀ¼Û
-     * @param order OrderVOĞÍ£¬Ò»¸ö¶©µ¥µÄÖµ¶ÔÏó
+     * @param comment Stringå‹ï¼Œå®¢æˆ·è¯„ä»·
+     * @param order OrderVOå‹ï¼Œä¸€ä¸ªè®¢å•çš„å€¼å¯¹è±¡
      * @see bussinesslogic.Order
      */
 	public void comment(String comment,OrderVO order) {
@@ -20,10 +20,10 @@ public class OrderEvaluationController extends OrderBLService_realize{
 	
 	
 	/**
-     * ¸ù¾İÊäÈëµÄID²éÕÒ¶©µ¥²¢ÏÔÊ¾
+     * æ ¹æ®è¾“å…¥çš„IDæŸ¥æ‰¾è®¢å•å¹¶æ˜¾ç¤º
      * 
-     * @param ID StringĞÍ£¬¶©µ¥ºÅ
-     * @return OrderVO£¬Ò»¸ö¶©µ¥µÄÖµ¶ÔÏó
+     * @param ID Stringå‹ï¼Œè®¢å•å·
+     * @return OrderVOï¼Œä¸€ä¸ªè®¢å•çš„å€¼å¯¹è±¡
      * @see bussinesslogic.Order
      */
 	public OrderVO findByID(String ID) {

@@ -26,7 +26,7 @@ public class RegisterTest {
 		}*/
 		Calendar time1=Calendar.getInstance();
 		time1.set(2016,11,11);
-		user1=new UserVO("1","1@nju.edu.cn","3414141","1",false,1,78,"ÆÕÍ¨»áÔ±",1,time1,"");
+		user1=new UserVO("1","1@nju.edu.cn","3414141","1",false,1,78,"æ™®é€šä¼šå‘˜",1,time1,"");
 		register=new Register();
 	}
 	@Test

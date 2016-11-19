@@ -15,8 +15,8 @@ public class MessageUpdateTester {
 	@Test
 	public void testMessageUpdate() {
 
-		MockRoom room1 = new MockRoom("303", "ÒÑÖ´ÐÐ", "´ó´²·¿", 1, 200);
-		MockRoom room2 = new MockRoom("304", "Î´Ö´ÐÐ", "±ê×¼¼ä", 2, 300);
+		MockRoom room1 = new MockRoom("303", "å·²æ‰§è¡Œ", "å¤§åºŠæˆ¿", 1, 200);
+		MockRoom room2 = new MockRoom("304", "æœªæ‰§è¡Œ", "æ ‡å‡†é—´", 2, 300);
 		
 		RoomList roomList = new RoomList();
 		
@@ -29,7 +29,7 @@ public class MessageUpdateTester {
 		Room room = new Room();
 		room.addRoomList(roomList);
 		
-		assertEquals(ResultMessage.Exist , room.messageUpdate(roomLineItem1, "305", "Òì³£", "ÈýÈË¼ä", 3, 400));
+		assertEquals(ResultMessage.Exist , room.messageUpdate(roomLineItem1, "305", "å¼‚å¸¸", "ä¸‰äººé—´", 3, 400));
 	
 	}
 

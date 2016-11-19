@@ -10,7 +10,7 @@ import dataService.DataFactoryService;
 import dataService.UserDataService;
 import rmi.RemoteHelper;
 /**
- * ¸ºÔğ¶ÔÓÃ»§µÄ²Ù×÷
+ * è´Ÿè´£å¯¹ç”¨æˆ·çš„æ“ä½œ
  * @author LZ
  * @version 1.0
  * @see VO.UserVO
@@ -24,9 +24,9 @@ public class User {
 		df=RemoteHelper.getInstance().getDataFactoryService();
 	}
 	/**
-	 * °´ID²éÕÒÓÃ»§
-	 * @param userID StringĞÍ£¬½çÃæ²ã´«À´µÄÓÃ»§ID
-	 * @return ·µ»ØÊôÓÚ´ËIDµÄÓÃ»§ĞÅÏ¢
+	 * æŒ‰IDæŸ¥æ‰¾ç”¨æˆ·
+	 * @param userID Stringå‹ï¼Œç•Œé¢å±‚ä¼ æ¥çš„ç”¨æˆ·ID
+	 * @return è¿”å›å±äºæ­¤IDçš„ç”¨æˆ·ä¿¡æ¯
 	 * @see VO.UserVO
 	 */
 	public UserVO findByID(String userID){
@@ -34,8 +34,8 @@ public class User {
 		return user;
 	}
 	/**
-	 * ¸üĞÂÓÃ»§ĞÅÓÃÖµ
-	 * @param UserVOĞÍ£¬½çÃæ²ã´«À´µÄVO¶ÔÏó
+	 * æ›´æ–°ç”¨æˆ·ä¿¡ç”¨å€¼
+	 * @param UserVOå‹ï¼Œç•Œé¢å±‚ä¼ æ¥çš„VOå¯¹è±¡
 	 * @throws RemoteException
 	 * @see VO.UserVO
 	 */
@@ -68,22 +68,22 @@ public class User {
 		}
 	}
 	/**
-	 * µÇ³ö
-	 * @param id StringĞÍ£¬½çÃæ²ã´«À´µÄÓÃ»§ID
+	 * ç™»å‡º
+	 * @param id Stringå‹ï¼Œç•Œé¢å±‚ä¼ æ¥çš„ç”¨æˆ·ID
 	 */
 	public void logout(String id){
 		if(map.get(id) != null)map.get(id).inorout=false;
 	}
 	/**
-	 * µÇÂ¼
-	 * @param id StringĞÍ£¬½çÃæ²ã´«À´µÄÓÃ»§ID
+	 * ç™»å½•
+	 * @param id Stringå‹ï¼Œç•Œé¢å±‚ä¼ æ¥çš„ç”¨æˆ·ID
 	 */
 	public void login(String id){
 		if(map.get(id) != null)map.get(id).inorout=true;
 	}
 	/**
-	 * ¸üĞÂÓÃ»§ĞÅÏ¢
-	 * @param vo UserVOĞÍ£¬½çÃæ²ã´«À´µÄVO¶ÔÏó
+	 * æ›´æ–°ç”¨æˆ·ä¿¡æ¯
+	 * @param vo UserVOå‹ï¼Œç•Œé¢å±‚ä¼ æ¥çš„VOå¯¹è±¡
 	 * @throws RemoteException
 	 * @see VO.UserVO
 	 */
@@ -96,8 +96,8 @@ public class User {
 		}
 	}
 	/**
-	 * ´´½¨ĞÂÓÃ»§
-	 * @param vo UserVOĞÍ£¬½çÃæ²ã´«À´µÄVO¶ÔÏó
+	 * åˆ›å»ºæ–°ç”¨æˆ·
+	 * @param vo UserVOå‹ï¼Œç•Œé¢å±‚ä¼ æ¥çš„VOå¯¹è±¡
 	 * @throws RemoteException
 	 * @see VO.UserVO
 	 */

@@ -32,7 +32,7 @@ public class AddHotelView extends JPanel {
 	private void initButton() {
 		JPanel panel1= new JPanel();
 		panel1.setLayout(new FlowLayout(FlowLayout.RIGHT));
-		button1=new JButton("·µ»Ø");
+		button1=new JButton("è¿”å›");
 		panel1.add(button1);
 		this.add(panel1);
 		button1.addActionListener(new ActionListener() {			
@@ -42,28 +42,28 @@ public class AddHotelView extends JPanel {
 		});
 		JPanel panel2 = new JPanel();
 		panel2.setLayout(new FlowLayout(FlowLayout.CENTER));
-		label2 = new JLabel("¾ÆµêÃû³Æ");
+		label2 = new JLabel("é…’åº—åç§°");
 		textField2 = new JTextField(10);
 		panel2.add(label2);
 		panel2.add(textField2);
 		this.add(panel2);
 		JPanel panel3 = new JPanel();
 		panel3.setLayout(new FlowLayout(FlowLayout.CENTER));
-		label3 = new JLabel("¾ÆµêµØÖ·");
+		label3 = new JLabel("é…’åº—åœ°å€");
 		textField3 = new JTextField(10);
 		panel3.add(label3);
 		panel3.add(textField3);
 		this.add(panel3);
 		JPanel panel4 = new JPanel();
 		panel4.setLayout(new FlowLayout(FlowLayout.CENTER));
-		label4 = new JLabel("ËùÊôÉÌÈ¦");
+		label4 = new JLabel("æ‰€å±å•†åœˆ");
 		comboBox1=new JComboBox<String>();
 		panel4.add(label4);
 		panel4.add(comboBox1);
 		this.add(panel4);
 		JPanel panel5 = new JPanel();
 		panel5.setLayout(new FlowLayout(FlowLayout.CENTER));
-		label5 = new JLabel("¾ÆµêĞÇ¼¶");
+		label5 = new JLabel("é…’åº—æ˜Ÿçº§");
 		comboBox2=new JComboBox<Integer>();
 		comboBox2.addItem(1);
 		comboBox2.addItem(2);
@@ -75,21 +75,21 @@ public class AddHotelView extends JPanel {
 		this.add(panel5);
 		JPanel panel6 = new JPanel();
 		panel6.setLayout(new FlowLayout(FlowLayout.CENTER));
-		label6 = new JLabel("ÉèÊ©·şÎñ");
+		label6 = new JLabel("è®¾æ–½æœåŠ¡");
 		textField6 = new JTextField(10);
 		panel6.add(label6);
 		panel6.add(textField6);
 		this.add(panel6);
 		JPanel panel7 = new JPanel();
 		panel7.setLayout(new FlowLayout(FlowLayout.CENTER));
-		label7 = new JLabel("¾Æµê¼ò½é");
+		label7 = new JLabel("é…’åº—ç®€ä»‹");
 		textField7 = new JTextField(10);
 		panel7.add(label7);
 		panel7.add(textField7);
 		this.add(panel7);
 		JPanel panel8 = new JPanel();
 		panel8.setLayout(new FlowLayout(FlowLayout.CENTER));
-		button2=new JButton("Ìí¼Ó¾Æµê");
+		button2=new JButton("æ·»åŠ é…’åº—");
 		panel8.add(button2);
 		this.add(panel8);
 		button2.addActionListener(new ActionListener() {			
@@ -102,12 +102,12 @@ public class AddHotelView extends JPanel {
 				frame.getContentPane().add(panel);
 				JPanel panel1= new JPanel();
 				panel1.setLayout(new FlowLayout(FlowLayout.CENTER));
-				JLabel label = new JLabel("Ìí¼Ó³É¹¦£¡");
+				JLabel label = new JLabel("æ·»åŠ æˆåŠŸï¼");
 				panel1.add(label);
 				panel.add(panel1);
 				JPanel panel2= new JPanel();
 				panel2.setLayout(new FlowLayout(FlowLayout.CENTER));
-				JButton button = new JButton("È·¶¨");
+				JButton button = new JButton("ç¡®å®š");
 				panel2.add(button);
 				panel.add(panel2);
 				button.addActionListener(new ActionListener() {			

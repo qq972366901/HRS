@@ -61,58 +61,58 @@ public class reviseInformationView extends JPanel {
 		add(panel_1);
 		panel_1.setLayout(null);
 		
-		name = new JLabel("ĞÕÃû £º");
-		name.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		name = new JLabel("å§“å ï¼š");
+		name.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		name.setBounds(39, 10, 110, 60);
 		panel_1.add(name);
 		
 		birth = new JLabel("\u751F\u65E5 \uFF1A");
-		birth.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		birth.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		birth.setBounds(39, 72, 88, 60);
 		panel_1.add(birth);
 		
 		tel = new JLabel("\u8054\u7CFB\u65B9\u5F0F \uFF1A");
-		tel.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		tel.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		tel.setBounds(39, 140, 138, 60);
 		panel_1.add(tel);
 		
 		enterprise = new JLabel("\u516C\u53F8 \uFF1A");
-		enterprise.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		enterprise.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		enterprise.setBounds(39, 212, 93, 60);
 		panel_1.add(enterprise);
 		
 		email = new JLabel("\u90AE\u7BB1 \uFF1A");
-		email.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		email.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		email.setBounds(39, 282, 88, 60);
 		panel_1.add(email);
 		
 		
 		nameinput = new JTextField();
-		nameinput.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		nameinput.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		nameinput.setBounds(170, 20, 250, 50);
 		panel_1.add(nameinput);
 		nameinput.setColumns(10);
 		
 		birthinput = new JTextField();
-		birthinput.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		birthinput.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		birthinput.setBounds(170, 82, 250, 50);
 		panel_1.add(birthinput);
 		birthinput.setColumns(10);
 		
 		telinput = new JTextField();
-		telinput.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		telinput.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		telinput.setBounds(170, 150, 250, 50);
 		panel_1.add(telinput);
 		telinput.setColumns(10);
 		
 		enterpriseinput = new JTextField();
-		enterpriseinput.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		enterpriseinput.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		enterpriseinput.setBounds(170, 212, 250, 50);
 		panel_1.add(enterpriseinput);
 		enterpriseinput.setColumns(10);
 		
 		emailinput = new JTextField();
-		emailinput.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		emailinput.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		emailinput.setBounds(170, 282, 250, 50);
 		panel_1.add(emailinput);
 		emailinput.setColumns(10);
@@ -130,17 +130,17 @@ public class reviseInformationView extends JPanel {
 				controller.updateinformation(data);
 			}
 		});
-		updateinformation.setFont(new Font("ËÎÌå", Font.PLAIN, 20));
+		updateinformation.setFont(new Font("å®‹ä½“", Font.PLAIN, 20));
 		updateinformation.setBounds(192, 369, 180, 60);
 		panel_1.add(updateinformation);
 		
 		birthtip = new JLabel("\u5F62\u5F0F\u4E3A:xxxx/xx/xx");
-		birthtip.setFont(new Font("ËÎÌå", Font.PLAIN, 20));
+		birthtip.setFont(new Font("å®‹ä½“", Font.PLAIN, 20));
 		birthtip.setBounds(477, 81, 201, 50);
 		panel_1.add(birthtip);
 		
 		emailtip = new JLabel("\u683C\u5F0F\u4E3A:xxxxx@xxxxxxx");
-		emailtip.setFont(new Font("ËÎÌå", Font.PLAIN, 20));
+		emailtip.setFont(new Font("å®‹ä½“", Font.PLAIN, 20));
 		emailtip.setBounds(465, 284, 201, 50);
 		panel_1.add(emailtip);
 	}
@@ -156,7 +156,7 @@ public class reviseInformationView extends JPanel {
 			controller.exit();
 			}
 		});
-		back.setFont(new Font("ËÎÌå", Font.PLAIN, 30));
+		back.setFont(new Font("å®‹ä½“", Font.PLAIN, 30));
 		back.setBounds(10, 5, 150, 60);
 		panel.add(back);
 		

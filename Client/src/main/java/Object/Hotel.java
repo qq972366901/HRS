@@ -7,8 +7,8 @@ import List.RoomList;
 import VO.HotelVO;
 import common.ResultMessage;
 /**
- * ¾Æµê
- * @author Áõ×ÚÙ©
+ * é…’åº—
+ * @author åˆ˜å®—ä¾ƒ
  * @version 1.0
  * @see
  */
@@ -18,116 +18,116 @@ public class Hotel {
     private RoomList roomList;
     private OrderList orderList;
     /**
-   	 * »ñµÃ·¿¼äÁĞ±í
-   	 * @param rl RoomListĞÍ£¬¶ÔÓ¦µÄ·¿¼äÁĞ±í
+   	 * è·å¾—æˆ¿é—´åˆ—è¡¨
+   	 * @param rl RoomListå‹ï¼Œå¯¹åº”çš„æˆ¿é—´åˆ—è¡¨
    	 * @return
    	 */
     public void addRoomList(RoomList rl) {
     	roomList = rl;
     }
     /**
-   	 * »ñµÃ¶©µ¥ÁĞ±í
-   	 * @param ol OrderListĞÍ£¬¶ÔÓ¦µÄ¶©µ¥ÁĞ±í
+   	 * è·å¾—è®¢å•åˆ—è¡¨
+   	 * @param ol OrderListå‹ï¼Œå¯¹åº”çš„è®¢å•åˆ—è¡¨
    	 * @return
    	 */
     public void addOrderList(OrderList ol) {
     	orderList = ol;
     }
     /**
-   	 * »ñµÃ·¿¼äÁĞ±í
-   	 * @param rl RoomListĞÍ£¬¶ÔÓ¦µÄ·¿¼äÁĞ±í
+   	 * è·å¾—æˆ¿é—´åˆ—è¡¨
+   	 * @param rl RoomListå‹ï¼Œå¯¹åº”çš„æˆ¿é—´åˆ—è¡¨
    	 * @return
    	 */
     public void addHotelList(HotelList hl) {
     	hotelList = hl;
     }
     /**
-   	 * Ìí¼Ó¾ÆµêÕÊºÅ
-   	 * @param h HotelĞÍ£¬ÒªÌí¼ÓµÄ¾Æµê
-   	 * @return Ìí¼Ó½á¹û
+   	 * æ·»åŠ é…’åº—å¸å·
+   	 * @param h Hotelå‹ï¼Œè¦æ·»åŠ çš„é…’åº—
+   	 * @return æ·»åŠ ç»“æœ
    	 */
     public ResultMessage acountAdmin(HotelVO hvo) {
     	hotelList.addHotelLineItems(new HotelLineItem(hvo));
     	return ResultMessage.Exist;
     }
     /**
-   	 * µÃµ½¿Í»§µÄÀúÊ·Ô¤¶¨¾Æµê
-   	 * @return ¾Æµê¸öÊı
+   	 * å¾—åˆ°å®¢æˆ·çš„å†å²é¢„å®šé…’åº—
+   	 * @return é…’åº—ä¸ªæ•°
    	 */
     public int getHistoryHotel() {
     	return hotelList.getHotel();
     }
     /**
-   	 * µÃµ½¿Í»§µÄÀúÊ·Ô¤¶¨¶©µ¥
-   	 * @return ¶©µ¥¸öÊı
+   	 * å¾—åˆ°å®¢æˆ·çš„å†å²é¢„å®šè®¢å•
+   	 * @return è®¢å•ä¸ªæ•°
    	 */
     public int getHistoryOrder() {
     	return orderList.getOrder();
     }
     /**
-   	 * µÃµ½¿Í»§µÄ·¿¼äĞÅÏ¢
-   	 * @return ·¿¼ä¸öÊı
+   	 * å¾—åˆ°å®¢æˆ·çš„æˆ¿é—´ä¿¡æ¯
+   	 * @return æˆ¿é—´ä¸ªæ•°
    	 */
     public int getRoomInfo() {
     	return roomList.getRoomInfo();
     }
     /**
-   	 * ²éÕÒ·ûºÏÌõ¼şµÄ¾Æµê
-   	 * @param location StringĞÍ£¬¾ÆµêÉÌÈ¦
-   	 * @return ·ûºÏÌõ¼şµÄ¾Æµê¸öÊı
+   	 * æŸ¥æ‰¾ç¬¦åˆæ¡ä»¶çš„é…’åº—
+   	 * @param location Stringå‹ï¼Œé…’åº—å•†åœˆ
+   	 * @return ç¬¦åˆæ¡ä»¶çš„é…’åº—ä¸ªæ•°
    	 */
     public int messageLook(String location) {
     	return hotelList.messageLook(location);
     }
     /**
-   	 * Î¬»¤¾ÆµêĞÅÏ¢
-   	 * @param h HotelĞÍ£¬¾ÆµêµÄĞÂµÄÊı¾İ
-   	 * @return ¸ü¸ÄºóµÄ½á¹û
+   	 * ç»´æŠ¤é…’åº—ä¿¡æ¯
+   	 * @param h Hotelå‹ï¼Œé…’åº—çš„æ–°çš„æ•°æ®
+   	 * @return æ›´æ”¹åçš„ç»“æœ
    	 */
     public ResultMessage messageMaintain(Hotel h) {
     	return hotelList.messageMaintain(h);
     }
     /**
-	 * ËÑË÷¾Æµê
-	 * @param name StringĞÍ£¬¾ÆµêÃû³Æ
-	 * @return ·µ»Ø¾ÆµêÊıÁ¿
+	 * æœç´¢é…’åº—
+	 * @param name Stringå‹ï¼Œé…’åº—åç§°
+	 * @return è¿”å›é…’åº—æ•°é‡
 	 */
     public int messageSearch(String name) {
     	return hotelList.messageSearch(name);
     }
     /**
-	 * °´¼Û¸ñ¸ø¾ÆµêÅÅĞò
-	 * @return ·µ»ØÅÅĞò½á¹û
+	 * æŒ‰ä»·æ ¼ç»™é…’åº—æ’åº
+	 * @return è¿”å›æ’åºç»“æœ
 	 */
     public ResultMessage priceSort() {
     	return hotelList.priceSort();
     }
     /**
-	 * °´ÆÀ·Ö¸ø¾ÆµêÅÅĞò
-	 * @return ·µ»ØÅÅĞò½á¹û
+	 * æŒ‰è¯„åˆ†ç»™é…’åº—æ’åº
+	 * @return è¿”å›æ’åºç»“æœ
 	 */
     public ResultMessage scoreSort() {
     	return hotelList.scoreSort();
     }
     /**
-	 * °´ĞÇ¼¶¸ø¾ÆµêÅÅĞò
-	 * @return ·µ»ØÅÅĞò½á¹û
+	 * æŒ‰æ˜Ÿçº§ç»™é…’åº—æ’åº
+	 * @return è¿”å›æ’åºç»“æœ
 	 */
     public ResultMessage starSort() {
     	return hotelList.starSort();
     }
     /**
-	 * ¸ø¾ÆµêÆÀ¼Û
-	 * @param comment StringĞÍ£¬ÆÀÂÛÄÚÈİ
-	 * @return ·µ»ØÆÀ¼Û½á¹û
+	 * ç»™é…’åº—è¯„ä»·
+	 * @param comment Stringå‹ï¼Œè¯„è®ºå†…å®¹
+	 * @return è¿”å›è¯„ä»·ç»“æœ
 	 */
     public ResultMessage setComment(String comment) {
     	return hotelList.setComment(comment);
     }
     /**
-	 * ¸ø¾ÆµêÆÀ·Ö
-	 * @param score intĞÍ£¬ÆÀ·Ö
-	 * @return ·µ»ØÆÀ·Ö½á¹û
+	 * ç»™é…’åº—è¯„åˆ†
+	 * @param score intå‹ï¼Œè¯„åˆ†
+	 * @return è¿”å›è¯„åˆ†ç»“æœ
 	 */
     public ResultMessage setScore(int score) {
     	return hotelList.setScore(score);

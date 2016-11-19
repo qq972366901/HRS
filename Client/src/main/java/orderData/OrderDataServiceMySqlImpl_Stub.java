@@ -18,7 +18,7 @@ public class OrderDataServiceMySqlImpl_Stub implements Serializable,dataService.
 	public OrderPO find(String id) throws RemoteException {
 		// TODO Auto-generated method stub
 		System.out.println("Find Succeed!");
-		OrderPO po=new OrderPO("xxx", 1,500,5,true,"总统套房",302, new Time(0),new Time(1),new Time(2),new Time(2),new Time(2),"xxx",5);
+		OrderPO po=new OrderPO("xxx", 1,500,5,true,"鎬荤粺濂楁埧",302, new Time(0),new Time(1),new Time(2),new Time(2),new Time(2),"xxx",5);
 		return po;
 	}
 
@@ -57,7 +57,7 @@ public class OrderDataServiceMySqlImpl_Stub implements Serializable,dataService.
 		// TODO Auto-generated method stub
 		System.out.println("Find Succeed!");
 		ArrayList<OrderPO> x=new ArrayList<OrderPO>();
-		OrderPO po=new OrderPO("xxx", 1,500,5,true,"总统套房",302, new Time(0),new Time(1),new Time(2),new Time(2),new Time(2),"xxx",5);
+		OrderPO po=new OrderPO("xxx", 1,500,5,true,"鎬荤粺濂楁埧",302, new Time(0),new Time(1),new Time(2),new Time(2),new Time(2),"xxx",5);
 		x.add(po);
 		return x;
 	}

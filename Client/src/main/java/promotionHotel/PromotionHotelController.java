@@ -4,10 +4,10 @@ import common.ResultMessage;
 import promotionBLService.PromotionBLService_realize;
 public class PromotionHotelController extends PromotionBLService_realize {
 	  /**
-     * Ìí¼ÓÒ»ÖÖĞÂµÄ¾ÆµêÓªÏú²ßÂÔ£¬²¢¹«²¼
+     * æ·»åŠ ä¸€ç§æ–°çš„é…’åº—è¥é”€ç­–ç•¥ï¼Œå¹¶å…¬å¸ƒ
      * 
-     * @param vo PromotionVOĞÍ£¬½çÃæÊäÈëµÄÓªÏú²ßÂÔ
-     * @return ·µ»ØResultMessageÃ¶¾ÙÖµÖĞµÄÒ»Ïî
+     * @param vo PromotionVOå‹ï¼Œç•Œé¢è¾“å…¥çš„è¥é”€ç­–ç•¥
+     * @return è¿”å›ResultMessageæšä¸¾å€¼ä¸­çš„ä¸€é¡¹
      * @see bussinesslogic.Promotion
      */
 	public ResultMessage madebyhotel (PromotionVO vo) {

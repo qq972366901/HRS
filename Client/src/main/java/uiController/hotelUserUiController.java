@@ -7,8 +7,8 @@ import javax.swing.JFrame;
 import uiService.hotelUserUiService;
 
 /**
- * ¸ºÔğÊµÏÖ¾Æµê¹ÜÀíÏµÍ³µÄ¾Æµê¹¤×÷ÈËÔ±½çÃæµÄ¿ØÖÆÆ÷
- * @author Áõ×ÚÙ©
+ * è´Ÿè´£å®ç°é…’åº—ç®¡ç†ç³»ç»Ÿçš„é…’åº—å·¥ä½œäººå‘˜ç•Œé¢çš„æ§åˆ¶å™¨
+ * @author åˆ˜å®—ä¾ƒ
  * @version 1.0
  * @see uiService.hotelUserUiService
  * @see javax.swing.JFrame
@@ -24,7 +24,7 @@ public class hotelUserUiController extends JFrame implements hotelUserUiService 
 	private static final long serialVersionUID = 1L;
 
 	/**
-     * ¾Æµê¹¤×÷ÈËÔ±µÄ³õÊ¼½çÃæ
+     * é…’åº—å·¥ä½œäººå‘˜çš„åˆå§‹ç•Œé¢
      * 
      * @param 
      * @return 

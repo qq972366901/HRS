@@ -73,13 +73,13 @@ public class customerMainView extends JPanel {
     			controller.information();
     		}
     	});
-        information.setFont(new Font("ËÎÌå", Font.PLAIN, 30));
+        information.setFont(new Font("å®‹ä½“", Font.PLAIN, 30));
         information.setBounds(10, 189, 160, 75);
         panel.add(information);
     }
     public void init_orderbutton(){
     	ordermanagement = new JButton("\u8BA2\u5355\u7BA1\u7406");
-    	ordermanagement.setFont(new Font("ËÎÌå", Font.PLAIN, 30));
+    	ordermanagement.setFont(new Font("å®‹ä½“", Font.PLAIN, 30));
     	ordermanagement.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         	      controller.order();
@@ -90,7 +90,7 @@ public class customerMainView extends JPanel {
     }
     public void init_creditbutton(){
     	creditmanagement = new JButton("\u4FE1\u7528\u67E5\u770B");
-    	creditmanagement.setFont(new Font("ËÎÌå", Font.PLAIN, 30));
+    	creditmanagement.setFont(new Font("å®‹ä½“", Font.PLAIN, 30));
     	creditmanagement.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		   controller.credit();
@@ -106,13 +106,13 @@ public class customerMainView extends JPanel {
     	 		controller.search();
     	 	}
     	 });
-    	 searchhotel.setFont(new Font("ËÎÌå", Font.PLAIN, 30));
+    	 searchhotel.setFont(new Font("å®‹ä½“", Font.PLAIN, 30));
     	 searchhotel.setBounds(562, 189, 160, 75);
          panel.add(searchhotel);
     }
     public void init_histroybutton(){
     	histroyhotel = new JButton("\u5386\u53F2\u9152\u5E97");
-    	histroyhotel.setFont(new Font("ËÎÌå", Font.PLAIN, 30));
+    	histroyhotel.setFont(new Font("å®‹ä½“", Font.PLAIN, 30));
     	histroyhotel.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		controller.histroy();
@@ -128,7 +128,7 @@ public class customerMainView extends JPanel {
         		controller.exit();
         	}
         });
-        exit.setFont(new Font("ËÎÌå", Font.PLAIN, 20));
+        exit.setFont(new Font("å®‹ä½“", Font.PLAIN, 20));
         exit.setBounds(36, 33, 143, 60);
         panel_1.add(exit);
     }

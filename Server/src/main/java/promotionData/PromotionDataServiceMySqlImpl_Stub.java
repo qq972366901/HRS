@@ -21,7 +21,7 @@ public class PromotionDataServiceMySqlImpl_Stub implements Serializable,dataServ
 		time1.set(2016,11,11);
 		Calendar time2=Calendar.getInstance();
 		time2.set(2016,11,12);
-		PromotionPO po=new PromotionPO("D8dC3","˫ʮһ",time1,time2,"��ͨ��Ա","",0,0,6.5);
+		PromotionPO po=new PromotionPO("D8dC3","双十一",time1,time2,"普通会员","",0,0,6.5);
 		return po;
 	}
 

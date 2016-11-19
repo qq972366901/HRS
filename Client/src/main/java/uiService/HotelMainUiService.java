@@ -3,13 +3,13 @@ package uiService;
 import HotelWorkerView.HotelMainView;
 
 /**
- * ¸ºÔğÊµÏÖ¾Æµê¹ÜÀíÏµÍ³µÄ¾Æµê¹¤×÷ÈËÔ±µÄ³õÊ¼½çÃæ
- * @author Áõ×ÚÙ©
+ * è´Ÿè´£å®ç°é…’åº—ç®¡ç†ç³»ç»Ÿçš„é…’åº—å·¥ä½œäººå‘˜çš„åˆå§‹ç•Œé¢
+ * @author åˆ˜å®—ä¾ƒ
  */
 public interface HotelMainUiService {
 
 	public void setView(HotelMainView view);
-	public void toLogView();//·µ»ØµÇÂ¼½çÃæ
+	public void toLogView();//è¿”å›ç™»å½•ç•Œé¢
 	public void toUpdateHotelInfoView();
 	public void toAdminRoomView();
 	public void toBrowseOrderView();

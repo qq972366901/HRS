@@ -55,7 +55,7 @@ public class CreditView extends JPanel {
 			controller.exit();
 			}
 		});
-		back.setFont(new Font("ËÎÌå", Font.PLAIN, 30));
+		back.setFont(new Font("å®‹ä½“", Font.PLAIN, 30));
 		back.setBounds(10, 5, 150, 60);
 		panel.add(back);
 	}
@@ -66,24 +66,24 @@ public class CreditView extends JPanel {
 		panel_1.setLayout(null);
 		
 		label = new JLabel("\u4FE1\u7528\u603B\u989D\u5EA6\uFF1A");
-		label.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 30));
+		label.setFont(new Font("å¾®è½¯é›…é»‘", Font.PLAIN, 30));
 		label.setBounds(22, 37, 180, 64);
 		panel_1.add(label);
 		
 		totalcredit = new JLabel("");
 		totalcredit.setText(""+controller.getcredit());
-		totalcredit.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 30));
+		totalcredit.setFont(new Font("å¾®è½¯é›…é»‘", Font.PLAIN, 30));
 		totalcredit.setBounds(227, 37, 180, 64);
 		panel_1.add(totalcredit);
 		
 		Vector<CreditRecordVO> Data=new Vector<CreditRecordVO>();
 		//Data.addAll(controller.getCreditRecord(UserID));
 		Vector<String> Columns=new Vector<String>();
-		Columns.add("Ê±¼ä");
-		Columns.add("¶©µ¥ºÅ");
-		Columns.add("¶¯×÷");
-		Columns.add("ĞÅÓÃ±ä»¯");
-		Columns.add("ĞÅÓÃ×Ü¶î");
+		Columns.add("æ—¶é—´");
+		Columns.add("è®¢å•å·");
+		Columns.add("åŠ¨ä½œ");
+		Columns.add("ä¿¡ç”¨å˜åŒ–");
+		Columns.add("ä¿¡ç”¨æ€»é¢");
 		table = new JTable(Data,Columns){
 			private static final long serialVersionUID = 1L;
 
@@ -91,7 +91,7 @@ public class CreditView extends JPanel {
 				return false;
 			}
 		};
-		table.setFont(new Font("ËÎÌå", Font.PLAIN, 15));
+		table.setFont(new Font("å®‹ä½“", Font.PLAIN, 15));
 		scrollPane = new JScrollPane();
 		scrollPane.setViewportView(table);
 		scrollPane.setEnabled(false);

@@ -49,7 +49,7 @@ public class MemberLevelSystemView extends JPanel{
 	private void init(){
 		JPanel p1=new JPanel();
 		p1.setLayout(new FlowLayout(FlowLayout.RIGHT));
-		back=new JButton("·µ»Ø");
+		back=new JButton("è¿”å›");
 		back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controller.toWebPromotionUserView();
@@ -59,9 +59,9 @@ public class MemberLevelSystemView extends JPanel{
 		this.add(p1);
 		JPanel p3=new JPanel();
 		p3.setLayout(new FlowLayout(FlowLayout.CENTER));
-		level1=new JLabel("LEVEL 1£ºĞÅÓÃÖµ£º");
+		level1=new JLabel("LEVEL 1ï¼šä¿¡ç”¨å€¼ï¼š");
 		l1=new JTextField(10);
-		JLabel d1=new JLabel("ÕÛ¿Û£º");
+		JLabel d1=new JLabel("æŠ˜æ‰£ï¼š");
 		dis1=new JComboBox<Double>();
 		p3.add(level1);
 		p3.add(l1);
@@ -70,9 +70,9 @@ public class MemberLevelSystemView extends JPanel{
 		this.add(p3);
 		JPanel p4=new JPanel();
 		p4.setLayout(new FlowLayout(FlowLayout.CENTER));
-		level2=new JLabel("LEVEL 2£ºĞÅÓÃÖµ£º");
+		level2=new JLabel("LEVEL 2ï¼šä¿¡ç”¨å€¼ï¼š");
 		l2=new JTextField(10);
-		JLabel d2=new JLabel("ÕÛ¿Û£º");
+		JLabel d2=new JLabel("æŠ˜æ‰£ï¼š");
 		dis2=new JComboBox<Double>();
 		p4.add(level2);
 		p4.add(l2);
@@ -81,9 +81,9 @@ public class MemberLevelSystemView extends JPanel{
 		this.add(p4);
 		JPanel p5=new JPanel();
 		p5.setLayout(new FlowLayout(FlowLayout.CENTER));
-		level3=new JLabel("LEVEL 3£ºĞÅÓÃÖµ£º");
+		level3=new JLabel("LEVEL 3ï¼šä¿¡ç”¨å€¼ï¼š");
 		l3=new JTextField(10);
-		JLabel d3=new JLabel("ÕÛ¿Û£º");
+		JLabel d3=new JLabel("æŠ˜æ‰£ï¼š");
 		dis3=new JComboBox<Double>();
 		p5.add(level3);
 		p5.add(l3);
@@ -92,9 +92,9 @@ public class MemberLevelSystemView extends JPanel{
 		this.add(p5);
 		JPanel p6=new JPanel();
 		p6.setLayout(new FlowLayout(FlowLayout.CENTER));
-		level4=new JLabel("LEVEL 4£ºĞÅÓÃÖµ£º");
+		level4=new JLabel("LEVEL 4ï¼šä¿¡ç”¨å€¼ï¼š");
 		l4=new JTextField(10);
-		JLabel d4=new JLabel("ÕÛ¿Û£º");
+		JLabel d4=new JLabel("æŠ˜æ‰£ï¼š");
 		dis4=new JComboBox<Double>();
 		p6.add(level4);
 		p6.add(l4);
@@ -103,9 +103,9 @@ public class MemberLevelSystemView extends JPanel{
 		this.add(p6);
 		JPanel p7=new JPanel();
 		p7.setLayout(new FlowLayout(FlowLayout.CENTER));
-		level5=new JLabel("LEVEL 5£ºĞÅÓÃÖµ£º");
+		level5=new JLabel("LEVEL 5ï¼šä¿¡ç”¨å€¼ï¼š");
 		l5=new JTextField(10);
-		JLabel d5=new JLabel("ÕÛ¿Û£º");
+		JLabel d5=new JLabel("æŠ˜æ‰£ï¼š");
 		dis5=new JComboBox<Double>();
 		p7.add(level5);
 		p7.add(l5);
@@ -114,10 +114,10 @@ public class MemberLevelSystemView extends JPanel{
 		this.add(p7);
 		JPanel p8=new JPanel();
 		p8.setLayout(new FlowLayout(FlowLayout.CENTER));
-		confir=new JButton("È·¶¨");
+		confir=new JButton("ç¡®å®š");
 		confir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//»ñÈ¡ÄÚÈİ£¬´ı²¹³ä
+				//è·å–å†…å®¹ï¼Œå¾…è¡¥å……
 				PromotionVO vo=new PromotionVO();
 				if(hasMemberLevelSystem){
 					controller.updateMemberLevelSystem(vo);
@@ -127,7 +127,7 @@ public class MemberLevelSystemView extends JPanel{
 				}
 			}
 		});
-		cancel=new JButton("È¡Ïû");
+		cancel=new JButton("å–æ¶ˆ");
 		cancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				l1.setText("");
@@ -146,7 +146,7 @@ public class MemberLevelSystemView extends JPanel{
 		PromotionVO vo=controller.getMemberLevelSystem();
 		if(vo!=null){
 			hasMemberLevelSystem=true;
-			//ÏÔÊ¾³ö»áÔ±µÈ¼¶ÏµÍ³
+			//æ˜¾ç¤ºå‡ºä¼šå‘˜ç­‰çº§ç³»ç»Ÿ
 		}
 	}
 }

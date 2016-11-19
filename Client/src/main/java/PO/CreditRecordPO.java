@@ -2,7 +2,7 @@ package PO;
 
 import java.io.Serializable;
 /**
- * ĞÅÓÃ¼ÇÂ¼µÄÊı¾İÊµÌå
+ * ä¿¡ç”¨è®°å½•çš„æ•°æ®å®ä½“
  * @author LZ
  * @version 1.0
  * @see
@@ -15,12 +15,12 @@ public class CreditRecordPO  extends PO implements Serializable{
 	private long creditchange;
 	private long currentcredit;
 	/**
-	 * ¹¹ÔìĞÅÓÃ¼ÇÂ¼ÊµÌå
+	 * æ„é€ ä¿¡ç”¨è®°å½•å®ä½“
 	 * 
-	 * @param t StringĞÍ£¬Âß¼­²ã´«À´µÄĞÅÓÃ¼ÇÂ¼Ê±¼ä
-	 * @param act intĞÍ£¬Âß¼­²ã´«À´µÄ¶¯×÷
-	 * @param ch longĞÍ£¬Âß¼­²ã´«À´µÄĞÅÓÃ±ä»¯
-	 * @param cu longĞÍ£¬Âß¼­²ã´«À´µÄµ±Ç°ĞÅÓÃÖµ
+	 * @param t Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„ä¿¡ç”¨è®°å½•æ—¶é—´
+	 * @param act intå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„åŠ¨ä½œ
+	 * @param ch longå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„ä¿¡ç”¨å˜åŒ–
+	 * @param cu longå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„å½“å‰ä¿¡ç”¨å€¼
 	 * 
 	 */
 	public CreditRecordPO(String id,String t,int act,long ch,long cu){
@@ -31,23 +31,23 @@ public class CreditRecordPO  extends PO implements Serializable{
 		currentcredit=cu;
 	}
 	/**
-	 * »ñÈ¡ID
-	 * @return ·µ»ØĞÅÓÃ¼ÇÂ¼ID
+	 * è·å–ID
+	 * @return è¿”å›ä¿¡ç”¨è®°å½•ID
 	 */
 	public String getID(){
 		return crid;
 	}
 	/**
-	 * ÉèÖÃĞÅÓÃ¼ÇÂ¼ID
-	 * @param id StringĞÍ£¬Âß¼­²ã´«À´µÄID
+	 * è®¾ç½®ä¿¡ç”¨è®°å½•ID
+	 * @param id Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„ID
 	 */
 	public void setID(String id){
 		crid=id;
 	}
 	/**
-	 * »ñÈ¡Ê±¼ä
+	 * è·å–æ—¶é—´
 	 * @param
-	 * @return ·µ»ØĞÅÓÃ¼ÇÂ¼Ê±¼ä
+	 * @return è¿”å›ä¿¡ç”¨è®°å½•æ—¶é—´
 	 * @throws
 	 * @see
 	 */
@@ -55,8 +55,8 @@ public class CreditRecordPO  extends PO implements Serializable{
 		return time;
 	}
 	/**
-	 * ÉèÖÃĞÅÓÃ¼ÇÂ¼Ê±¼ä
-	 * @param t StringĞÍ£¬Âß¼­²ã´«À´µÄÊ±¼ä
+	 * è®¾ç½®ä¿¡ç”¨è®°å½•æ—¶é—´
+	 * @param t Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„æ—¶é—´
 	 * @return
 	 * @throws
 	 * @see
@@ -65,18 +65,18 @@ public class CreditRecordPO  extends PO implements Serializable{
 		time=t;
 	}
 	/**
-	 * »ñÈ¡ĞĞÎª
+	 * è·å–è¡Œä¸º
 	 * @param
-	 * @return action intĞÍ
-	 * @throws ·µ»ØĞĞÎª
+	 * @return action intå‹
+	 * @throws è¿”å›è¡Œä¸º
 	 * @see
 	 */
 	public int getAction(){
 		return action;
 	}
 	/**
-	 * ÉèÖÃĞÅÓÃ¼ÇÂ¼µÄĞĞÎª
-	 * @param act intĞÍ£¬Âß¼­²ã´«À´µÄĞĞÎª
+	 * è®¾ç½®ä¿¡ç”¨è®°å½•çš„è¡Œä¸º
+	 * @param act intå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„è¡Œä¸º
 	 * @return
 	 * @throws
 	 * @see
@@ -85,9 +85,9 @@ public class CreditRecordPO  extends PO implements Serializable{
 		action=act;
 	}
 	/**
-	 * »ñÈ¡ĞÅÓÃÖµ±ä»¯
+	 * è·å–ä¿¡ç”¨å€¼å˜åŒ–
 	 * @param
-	 * @return ·µ»ØĞÅÓÃ±ä»¯
+	 * @return è¿”å›ä¿¡ç”¨å˜åŒ–
 	 * @throws
 	 * @see
 	 */
@@ -95,8 +95,8 @@ public class CreditRecordPO  extends PO implements Serializable{
 		return creditchange;
 	}
 	/**
-	 * ÉèÖÃĞÅÓÃ¼ÇÂ¼µÄĞÅÓÃÖµ±ä»¯
-	 * @param ch longĞÍ£¬Âß¼­²ã´«À´°¡µÄĞÅÓÃ±ä»¯Öµ
+	 * è®¾ç½®ä¿¡ç”¨è®°å½•çš„ä¿¡ç”¨å€¼å˜åŒ–
+	 * @param ch longå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥å•Šçš„ä¿¡ç”¨å˜åŒ–å€¼
 	 * @return
 	 * @throws
 	 * @see
@@ -105,9 +105,9 @@ public class CreditRecordPO  extends PO implements Serializable{
 		creditchange=ch;
 	}
 	/**
-	 * »ñÈ¡µ±Ç°ĞÅÓÃÖµ
+	 * è·å–å½“å‰ä¿¡ç”¨å€¼
 	 * @param
-	 * @return ·µ»Øµ±Ç°ĞÅÓÃÖµ
+	 * @return è¿”å›å½“å‰ä¿¡ç”¨å€¼
 	 * @throws
 	 * @see
 	 */
@@ -115,8 +115,8 @@ public class CreditRecordPO  extends PO implements Serializable{
 		return currentcredit;
 	}
 	/**
-	 * ÉèÖÃĞÅÓÃ¼ÇÂ¼µÄµ±Ç°ĞÅÓÃÖµ
-	 * @param cu longĞÍ£¬Âß¼­²ã´«À´µÄµ±Ç°ĞÅÓÃÖµ
+	 * è®¾ç½®ä¿¡ç”¨è®°å½•çš„å½“å‰ä¿¡ç”¨å€¼
+	 * @param cu longå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„å½“å‰ä¿¡ç”¨å€¼
 	 * @return
 	 * @throws
 	 * @see

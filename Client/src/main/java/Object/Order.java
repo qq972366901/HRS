@@ -20,7 +20,7 @@ import common.Choice;
 import common.ResultMessage;
 /**
  * Order
- * @author ÁõÓîÏè
+ * @author åˆ˜å®‡ç¿”
  * @version 1.0
  * @see
  */
@@ -30,9 +30,9 @@ public class Order {
 		orderlist=list;
 	}
 	/**
-     * ÏÔÊ¾ËùÓĞ¶©µ¥ĞÅÏ¢
+     * æ˜¾ç¤ºæ‰€æœ‰è®¢å•ä¿¡æ¯
      * 
-     * @return ArrayList<OrderVO>£¬Ò»¸ö¶©µ¥Öµ¶ÔÏóµÄÁĞ±í
+     * @return ArrayList<OrderVO>ï¼Œä¸€ä¸ªè®¢å•å€¼å¯¹è±¡çš„åˆ—è¡¨
      * @see bussinesslogic.Order
      */
 
@@ -42,10 +42,10 @@ public class Order {
 	
 	
 	/**
-     * ÏÔÊ¾¶©µ¥ÖĞ¹ØÓÚ·¿¼äµÄĞÅÏ¢
+     * æ˜¾ç¤ºè®¢å•ä¸­å…³äºæˆ¿é—´çš„ä¿¡æ¯
      * 
-     * @param vo OrderVOĞÍ£¬Ò»¸ö¶©µ¥µÄÖµ¶ÔÏó
-     * @return ·µ»ØResultMessageµÄÒ»¸öÃ¶¾ÙÖµ
+     * @param vo OrderVOå‹ï¼Œä¸€ä¸ªè®¢å•çš„å€¼å¯¹è±¡
+     * @return è¿”å›ResultMessageçš„ä¸€ä¸ªæšä¸¾å€¼
      * @see bussinesslogic.Order
      */
 	public ResultMessage getRoomInfo(Order vo){
@@ -53,10 +53,10 @@ public class Order {
 	}
 	
 	/**
-     * ÏÔÊ¾ÓÃ»§µÄËùÓĞÀúÊ·¶©µ¥
+     * æ˜¾ç¤ºç”¨æˆ·çš„æ‰€æœ‰å†å²è®¢å•
      * 
-     * @param vo UserVOĞÍ£¬Ò»¸ö¿Í»§µÄÖµ¶ÔÏó
-     * @return ArrayList<Hotel> £¬Ò»¸ö¶©µ¥µÄÁĞ±í
+     * @param vo UserVOå‹ï¼Œä¸€ä¸ªå®¢æˆ·çš„å€¼å¯¹è±¡
+     * @return ArrayList<Hotel> ï¼Œä¸€ä¸ªè®¢å•çš„åˆ—è¡¨
      * @see bussinesslogic.Order
      */
 	public List<OrderLineItem> gethistory(UserVO vo){
@@ -65,10 +65,10 @@ public class Order {
 	
 	
 	/**
-     * ÏÔÊ¾Ñ¡ÖĞµÄ¾ÆµêµÄËùÓĞÀúÊ·¶©µ¥
+     * æ˜¾ç¤ºé€‰ä¸­çš„é…’åº—çš„æ‰€æœ‰å†å²è®¢å•
      * 
-     * @param vo HotelVOĞÍ£¬Ò»¸ö¾ÆµêµÄÖµ¶ÔÏó
-     * @return ArrayList<Order> £¬Ò»¸ö¶©µ¥Öµ¶ÔÏóµÄÁĞ±í
+     * @param vo HotelVOå‹ï¼Œä¸€ä¸ªé…’åº—çš„å€¼å¯¹è±¡
+     * @return ArrayList<Order> ï¼Œä¸€ä¸ªè®¢å•å€¼å¯¹è±¡çš„åˆ—è¡¨
      * @see bussinesslogic.Order
      */
 	public List<OrderLineItem> findByHotel(HotelVO vo){
@@ -77,10 +77,10 @@ public class Order {
 	
 	
 	/**
-     * ¸ù¾İÑ¡ÔñµÄÀàĞÍ²éÕÒËùÓĞ¶©µ¥£¬²¢ÏÔÊ¾
+     * æ ¹æ®é€‰æ‹©çš„ç±»å‹æŸ¥æ‰¾æ‰€æœ‰è®¢å•ï¼Œå¹¶æ˜¾ç¤º
      * 
-     * @param type StringĞÍ£¬Ò»ÖÖ¶©µ¥µÄÀàĞÍ
-     * @return ArrayList<OrderVO>£¬Ò»¸ö¶©µ¥Öµ¶ÔÏóµÄÁĞ±í
+     * @param type Stringå‹ï¼Œä¸€ç§è®¢å•çš„ç±»å‹
+     * @return ArrayList<OrderVO>ï¼Œä¸€ä¸ªè®¢å•å€¼å¯¹è±¡çš„åˆ—è¡¨
      * @see bussinesslogic.Order
      */
 	public List<OrderLineItem> findByType(String type){
@@ -89,10 +89,10 @@ public class Order {
 	
 	
 	/**
-     * ¸ù¾İ¶©µ¥ºÅ²éÕÒ¶©µ¥ÏêÇé£¬²¢ÏÔÊ¾
+     * æ ¹æ®è®¢å•å·æŸ¥æ‰¾è®¢å•è¯¦æƒ…ï¼Œå¹¶æ˜¾ç¤º
      * 
-     * @param orderID StringĞÍ£¬¶©µ¥ºÅ
-     * @return OrderVO£¬Ò»¸ö¶©µ¥µÄÖµ¶ÔÏó
+     * @param orderID Stringå‹ï¼Œè®¢å•å·
+     * @return OrderVOï¼Œä¸€ä¸ªè®¢å•çš„å€¼å¯¹è±¡
      * @see bussinesslogic.Order
      */
 	public OrderLineItem showDetail(String orderID){
@@ -101,10 +101,10 @@ public class Order {
 	
 	
 	/**
-     * ½«Ò»¸ö¶©µ¥ÀàĞÍ±äÎªÒÑ³·Ïú£¬²¢±£´æ³·ÏúÊ±¼ä
+     * å°†ä¸€ä¸ªè®¢å•ç±»å‹å˜ä¸ºå·²æ’¤é”€ï¼Œå¹¶ä¿å­˜æ’¤é”€æ—¶é—´
      * 
-     * @param orderID StringĞÍ£¬¶©µ¥ºÅ
-     * @param currentTime TimeĞÍ£¬µ±Ç°Ê±¼ä
+     * @param orderID Stringå‹ï¼Œè®¢å•å·
+     * @param currentTime Timeå‹ï¼Œå½“å‰æ—¶é—´
      * @see bussinesslogic.Order
      */
 	public void cancelOrder(String orderID,Date currentTime){
@@ -113,9 +113,9 @@ public class Order {
 	
 	
 	/**
-     * ½øĞĞ³·Ïú¶©µ¥µÄ²Ù×÷
+     * è¿›è¡Œæ’¤é”€è®¢å•çš„æ“ä½œ
      * 
-     * @param order OrderVOĞÍ£¬Ò»¸ö¶©µ¥µÄÖµ¶ÔÏó
+     * @param order OrderVOå‹ï¼Œä¸€ä¸ªè®¢å•çš„å€¼å¯¹è±¡
      * @see bussinesslogic.Order
      */
 	public void duduct(OrderVO order){
@@ -124,11 +124,11 @@ public class Order {
 	
 	
 	/**
-     * ÅĞ¶Ï¶©µ¥ÊÇ·ñÒÑ±»³·Ïú
+     * åˆ¤æ–­è®¢å•æ˜¯å¦å·²è¢«æ’¤é”€
      * 
-     * @param orderID StringĞÍ£¬¿Í»§±àºÅ
-     * @param currentTime TimeĞÍ£¬³·Ïú¶©µ¥µÄÊ±¼ä
-     * @return ÈôÒÑ³·ÏúÔò·µ»Øtrue£¬·ñÔò·µ»Øfalse
+     * @param orderID Stringå‹ï¼Œå®¢æˆ·ç¼–å·
+     * @param currentTime Timeå‹ï¼Œæ’¤é”€è®¢å•çš„æ—¶é—´
+     * @return è‹¥å·²æ’¤é”€åˆ™è¿”å›trueï¼Œå¦åˆ™è¿”å›false
      * @see bussinesslogic.Order
      */
 	public Boolean whetherDeduct(Date currentTime,String orderID){
@@ -137,15 +137,15 @@ public class Order {
 	
 	
 	/**
-     * Éú³ÉÒ»¸ö¶©µ¥¶ÔÏó
+     * ç”Ÿæˆä¸€ä¸ªè®¢å•å¯¹è±¡
      * 
-     * @param currentTime TimeĞÍ£¬µ±Ç°Ê±¼ä
-     * @param in TimeĞÍ£¬Ô¤¼ÆÈë×¡Ê±¼ä
-     * @param out TimeĞÍ£¬Ô¤¼ÆÀë¿ªÊ±¼ä
-     * @param roomType RoomTypeĞÍ£¬·¿¼äÀàĞÍ
-     * @param num intĞÍ£¬·¿¼äºÅ
-     * @param numOfPerson intĞÍ£¬×¡µêÈËÊı
-     * @param hasChild BooleanĞÍ£¬ÊÇ·ñÓĞĞ¡º¢
+     * @param currentTime Timeå‹ï¼Œå½“å‰æ—¶é—´
+     * @param in Timeå‹ï¼Œé¢„è®¡å…¥ä½æ—¶é—´
+     * @param out Timeå‹ï¼Œé¢„è®¡ç¦»å¼€æ—¶é—´
+     * @param roomType RoomTypeå‹ï¼Œæˆ¿é—´ç±»å‹
+     * @param num intå‹ï¼Œæˆ¿é—´å·
+     * @param numOfPerson intå‹ï¼Œä½åº—äººæ•°
+     * @param hasChild Booleanå‹ï¼Œæ˜¯å¦æœ‰å°å­©
      * @see bussinesslogic.Order
      */
 	public void makeOrder(Date currentTime,
@@ -159,10 +159,10 @@ public class Order {
 	
 	
 	/**
-     * ÅĞ¶Ï¶©µ¥ÊÇ·ñÉú³É
+     * åˆ¤æ–­è®¢å•æ˜¯å¦ç”Ÿæˆ
      * 
-     * @param userID StringĞÍ£¬¿Í»§±àºÅ
-     * @return ÈôÒÑÉú³ÉÔò·µ»Øtrue£¬·ñÔò·µ»Øfalse
+     * @param userID Stringå‹ï¼Œå®¢æˆ·ç¼–å·
+     * @return è‹¥å·²ç”Ÿæˆåˆ™è¿”å›trueï¼Œå¦åˆ™è¿”å›false
      * @see bussinesslogic.Order
      */
 	public boolean whetherMake(String userID){
@@ -172,10 +172,10 @@ public class Order {
 	
 	
 	/**
-     * ¸ü¸Ä¶©µ¥×´Ì¬ÎªÒÑÖ´ĞĞ£¬Îª¿Í»§Ôö¼ÓĞÅÓÃÖµ£¬¸üĞÂ»áÔ±µÈ¼¶ 
+     * æ›´æ”¹è®¢å•çŠ¶æ€ä¸ºå·²æ‰§è¡Œï¼Œä¸ºå®¢æˆ·å¢åŠ ä¿¡ç”¨å€¼ï¼Œæ›´æ–°ä¼šå‘˜ç­‰çº§ 
      * 
-     * @param userID StringĞÍ£¬¿Í»§±àºÅ
-     * @param orderID StringĞÍ£¬¶©µ¥ºÅ
+     * @param userID Stringå‹ï¼Œå®¢æˆ·ç¼–å·
+     * @param orderID Stringå‹ï¼Œè®¢å•å·
      * @see bussinesslogic.Order
      */
 	public void done(String orderID,String userID){
@@ -184,10 +184,10 @@ public class Order {
 	
 	
 	/**
-     * ¸üĞÂ¶©µ¥ÀàĞÍÎªÒì³££¬Îª¿Í»§¼õÈ¥ĞÅÓÃÖµ£¬¸üĞÂ»áÔ±µÈ¼¶ 
+     * æ›´æ–°è®¢å•ç±»å‹ä¸ºå¼‚å¸¸ï¼Œä¸ºå®¢æˆ·å‡å»ä¿¡ç”¨å€¼ï¼Œæ›´æ–°ä¼šå‘˜ç­‰çº§ 
      * 
-     * @param userID StringĞÍ£¬¿Í»§±àºÅ
-     * @param orderID StringĞÍ£¬¶©µ¥ºÅ
+     * @param userID Stringå‹ï¼Œå®¢æˆ·ç¼–å·
+     * @param orderID Stringå‹ï¼Œè®¢å•å·
      * @see bussinesslogic.Order
      */
 	public void abnormalOrder(String orderID,String userID){
@@ -196,10 +196,10 @@ public class Order {
 	
 	
 	/**
-     * ¸üĞÂ¶©µ¥ÀàĞÍÎªÒÑÖ´ĞĞ£¬Îª¿Í»§»Ö¸´ĞÅÓÃÖµ£¬¸üĞÂ»áÔ±µÈ¼¶  
+     * æ›´æ–°è®¢å•ç±»å‹ä¸ºå·²æ‰§è¡Œï¼Œä¸ºå®¢æˆ·æ¢å¤ä¿¡ç”¨å€¼ï¼Œæ›´æ–°ä¼šå‘˜ç­‰çº§  
      * 
-     * @param userID StringĞÍ£¬¿Í»§±àºÅ
-     * @param orderID StringĞÍ£¬¶©µ¥ºÅ
+     * @param userID Stringå‹ï¼Œå®¢æˆ·ç¼–å·
+     * @param orderID Stringå‹ï¼Œè®¢å•å·
      * @see bussinesslogic.Order
      */
 	public void delayIn(String orderID,String userID){
@@ -208,7 +208,7 @@ public class Order {
 	
 	
 	/**
-     * ½áÊø¶©µ¥Ö´ĞĞÈÎÎñ£¬³Ö¾Ã»¯¸üĞÂÉæ¼°µÄÁìÓò¶ÔÏóµÄÊı¾İ ÏµÍ³½áÊø
+     * ç»“æŸè®¢å•æ‰§è¡Œä»»åŠ¡ï¼ŒæŒä¹…åŒ–æ›´æ–°æ¶‰åŠçš„é¢†åŸŸå¯¹è±¡çš„æ•°æ® ç³»ç»Ÿç»“æŸ
      * 
      * @see bussinesslogic.Order
      */
@@ -218,10 +218,10 @@ public class Order {
 	
 	
 	/**
-     * ¸üĞÂ¶©µ¥ĞÅÏ¢²¢ÏÔÊ¾ÆÀ¼Û
+     * æ›´æ–°è®¢å•ä¿¡æ¯å¹¶æ˜¾ç¤ºè¯„ä»·
      * 
-     * @param comment StringĞÍ£¬¿Í»§ÆÀ¼Û
-     * @param order OrderVOĞÍ£¬Ò»¸ö¶©µ¥µÄÖµ¶ÔÏó
+     * @param comment Stringå‹ï¼Œå®¢æˆ·è¯„ä»·
+     * @param order OrderVOå‹ï¼Œä¸€ä¸ªè®¢å•çš„å€¼å¯¹è±¡
      * @see bussinesslogic.Order
      */
 	public void comment(String comment,OrderVO vo){
@@ -230,10 +230,10 @@ public class Order {
 	
 	
 	/**
-     * ¸ù¾İÊäÈëµÄID²éÕÒ¶©µ¥²¢ÏÔÊ¾
+     * æ ¹æ®è¾“å…¥çš„IDæŸ¥æ‰¾è®¢å•å¹¶æ˜¾ç¤º
      * 
-     * @param ID StringĞÍ£¬¶©µ¥ºÅ
-     * @return OrderVO£¬Ò»¸ö¶©µ¥µÄÖµ¶ÔÏó
+     * @param ID Stringå‹ï¼Œè®¢å•å·
+     * @return OrderVOï¼Œä¸€ä¸ªè®¢å•çš„å€¼å¯¹è±¡
      * @see bussinesslogic.Order
      */
 	public OrderLineItem findByID(String ID){
@@ -242,10 +242,10 @@ public class Order {
 	
 	
 	/**
-     * »Ö¸´¿Í»§ĞÅÓÃÖµ£¬¸üĞÂ»áÔ±µÈ¼¶
+     * æ¢å¤å®¢æˆ·ä¿¡ç”¨å€¼ï¼Œæ›´æ–°ä¼šå‘˜ç­‰çº§
      * 
-     * @param vo OrderVOĞÍ£¬¶©µ¥µÄÖµ¶ÔÏó
-     * @param choice ChoiceĞÍ£¬Ò»¸öÃ¶¾ÙÖµ
+     * @param vo OrderVOå‹ï¼Œè®¢å•çš„å€¼å¯¹è±¡
+     * @param choice Choiceå‹ï¼Œä¸€ä¸ªæšä¸¾å€¼
      * @see bussinesslogic.Order
      */
 	public void regain(OrderVO vo,Choice choice){
@@ -254,11 +254,11 @@ public class Order {
 	
 	
 	/**
-     * ¼ÆËã¶©µ¥¼ÛÖµ²¢ÏÔÊ¾
+     * è®¡ç®—è®¢å•ä»·å€¼å¹¶æ˜¾ç¤º
      * 
-     * @param vo OrderVOĞÍ£¬¶©µ¥µÄÖµ¶ÔÏó
-     * @param userID StringĞÍ£¬¿Í»§±àºÅ
-     * @return long£¬¶©µ¥µÄ¼ÛÖµ
+     * @param vo OrderVOå‹ï¼Œè®¢å•çš„å€¼å¯¹è±¡
+     * @param userID Stringå‹ï¼Œå®¢æˆ·ç¼–å·
+     * @return longï¼Œè®¢å•çš„ä»·å€¼
      * @see bussinesslogic.Order
      */
 	public long getPrice(String orderID,String userID){
@@ -267,10 +267,10 @@ public class Order {
 	
 	
 	/**
-     * Î´Ö§¸¶¶©µ¥
+     * æœªæ”¯ä»˜è®¢å•
      * 
-     * @param vo OrderVOĞÍ£¬¶©µ¥µÄÖµ¶ÔÏó
-     * @return ResultMessageµÄÒ»¸öÃ¶¾ÙÖµ
+     * @param vo OrderVOå‹ï¼Œè®¢å•çš„å€¼å¯¹è±¡
+     * @return ResultMessageçš„ä¸€ä¸ªæšä¸¾å€¼
      * @see bussinesslogic.Order
      */
 	public ResultMessage payment(OrderVO vo){

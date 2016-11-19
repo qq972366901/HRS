@@ -17,7 +17,7 @@ public class HotelDataServiceMySqlImpl_Stub implements Serializable,dataService.
 	public HotelPO find(String id) throws RemoteException {
 		// TODO Auto-generated method stub
 		System.out.println("Find Succeed!");
-		HotelPO po=new HotelPO("ÌÀÉ½ÕòÈªÔÏÂ·8ºÅ","½­Äş",5,"xxx","xxx","xxx","025-87131188","xxx","xxx",4.5);
+		HotelPO po=new HotelPO("æ±¤å±±é•‡æ³‰éŸµè·¯8å·","æ±Ÿå®",5,"xxx","xxx","xxx","025-87131188","xxx","xxx",4.5);
 		return po;
 	}
 
@@ -55,7 +55,7 @@ public class HotelDataServiceMySqlImpl_Stub implements Serializable,dataService.
 	public HotelPO findByName(String name) throws RemoteException {
 		// TODO Auto-generated method stub
 		System.out.println("Find Succeed!");
-		HotelPO po=new HotelPO("ÌÀÉ½ÕòÈªÔÏÂ·8ºÅ","½­Äş",5,"xxx","xxx","xxx","025-87131188","xxx","xxx",4.5);
+		HotelPO po=new HotelPO("æ±¤å±±é•‡æ³‰éŸµè·¯8å·","æ±Ÿå®",5,"xxx","xxx","xxx","025-87131188","xxx","xxx",4.5);
 		return po;
 	}
 
@@ -64,7 +64,7 @@ public class HotelDataServiceMySqlImpl_Stub implements Serializable,dataService.
 		// TODO Auto-generated method stub
 		System.out.println("Find Succeed!");
 		ArrayList<HotelPO> a=new ArrayList<HotelPO>();
-		HotelPO po=new HotelPO("ÌÀÉ½ÕòÈªÔÏÂ·8ºÅ","½­Äş",5,"xxx","xxx","xxx","025-87131188","xxx","xxx",4.5);
+		HotelPO po=new HotelPO("æ±¤å±±é•‡æ³‰éŸµè·¯8å·","æ±Ÿå®",5,"xxx","xxx","xxx","025-87131188","xxx","xxx",4.5);
 		a.add(po);
 		return a;
 	}
@@ -74,7 +74,7 @@ public class HotelDataServiceMySqlImpl_Stub implements Serializable,dataService.
 		// TODO Auto-generated method stub
 		System.out.println("Find Succeed!");
 		ArrayList<HotelPO> a=new ArrayList<HotelPO>();
-		HotelPO po=new HotelPO("ÌÀÉ½ÕòÈªÔÏÂ·8ºÅ","½­Äş",5,"xxx","xxx","xxx","025-87131188","xxx","xxx",4.5);
+		HotelPO po=new HotelPO("æ±¤å±±é•‡æ³‰éŸµè·¯8å·","æ±Ÿå®",5,"xxx","xxx","xxx","025-87131188","xxx","xxx",4.5);
 		a.add(po);
 		return a;
 	}
@@ -84,7 +84,7 @@ public class HotelDataServiceMySqlImpl_Stub implements Serializable,dataService.
 		// TODO Auto-generated method stub
 		System.out.println("Find Succeed!");
 		ArrayList<HotelPO> a=new ArrayList<HotelPO>();
-		HotelPO po=new HotelPO("ÌÀÉ½ÕòÈªÔÏÂ·8ºÅ","½­Äş",5,"xxx","xxx","xxx","025-87131188","xxx","xxx",4.5);
+		HotelPO po=new HotelPO("æ±¤å±±é•‡æ³‰éŸµè·¯8å·","æ±Ÿå®",5,"xxx","xxx","xxx","025-87131188","xxx","xxx",4.5);
 		a.add(po);
 		return a;
 	}

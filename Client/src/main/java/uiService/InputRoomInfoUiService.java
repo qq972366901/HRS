@@ -6,6 +6,6 @@ public interface InputRoomInfoUiService {
 
 	public void setView(InputRoomInfoView view);
 	public void toAdminRoomView();
-	public void inputRoomInfo();// ϵͳ���¾Ƶ�ӵ�еķ�����Ϣ
+	public void inputRoomInfo();// 系统更新酒店拥有的房间信息
 	
 }

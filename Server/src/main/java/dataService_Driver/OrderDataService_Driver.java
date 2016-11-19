@@ -13,6 +13,6 @@ public class OrderDataService_Driver {
 		orderDataService.delete(po);
 		orderDataService.init();
 		orderDataService.finish();
-		orderDataService.findByType("ÒÑÖ´ÐÐ");
+		orderDataService.findByType("å·²æ‰§è¡Œ");
 	}
 }

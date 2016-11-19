@@ -5,7 +5,7 @@ import java.rmi.RemoteException;
 
 import PO.UserPO;
 /**
- * Ö°ÔğÊÇ½«Âß¼­²ãÃæ·¢À´µÄÇëÇó×ª·¢¸øºóÌ¨UserData´¦Àí
+ * èŒè´£æ˜¯å°†é€»è¾‘å±‚é¢å‘æ¥çš„è¯·æ±‚è½¬å‘ç»™åå°UserDataå¤„ç†
  * @author LZ
  * @version 1.0
  * @see businesslogic.User
@@ -16,7 +16,7 @@ public class UserDataServiceMySqlImpl implements Serializable,dataService.UserDa
 	 */
 	private static final long serialVersionUID = 1L;
 	/**
-	 * °´ID½øĞĞ²éÕÒ·µ»ØÏàÓ¦µÄUserPO½á¹û
+	 * æŒ‰IDè¿›è¡ŒæŸ¥æ‰¾è¿”å›ç›¸åº”çš„UserPOç»“æœ
 	 * @param
 	 * @return
 	 * @throws RemoteException
@@ -28,8 +28,8 @@ public class UserDataServiceMySqlImpl implements Serializable,dataService.UserDa
 		return null;
 	}
 	/**
-	 * ÔÚÊı¾İ¿âÖĞÔö¼ÓÒ»¸öpoÊµÌå
-	 * @param po UserPOĞÍ£¬Âß¼­²ã´«À´µÄPOÊµÌå
+	 * åœ¨æ•°æ®åº“ä¸­å¢åŠ ä¸€ä¸ªpoå®ä½“
+	 * @param po UserPOå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„POå®ä½“
 	 * @return
 	 * @throws RemoteException
 	 * @see PO.UserPO
@@ -40,8 +40,8 @@ public class UserDataServiceMySqlImpl implements Serializable,dataService.UserDa
 		
 	}
 	/**
-	 * ÔÚÊı¾İ¿âÖĞÉ¾³ıÒ»¸öpo
-	 * @param po UserPOĞÍ£¬Âß¼­²ã´«À´µÄPOÊµÌå
+	 * åœ¨æ•°æ®åº“ä¸­åˆ é™¤ä¸€ä¸ªpo
+	 * @param po UserPOå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„POå®ä½“
 	 * @return
 	 * @throws RemoteException
 	 * @see PO.UserPO
@@ -52,8 +52,8 @@ public class UserDataServiceMySqlImpl implements Serializable,dataService.UserDa
 		
 	}
 	/**
-	 * ÔÚÊı¾İ¿âÖĞ¸üĞÂÒ»¸öpo
-	 * @param po UserPOĞÍ£¬Âß¼­²ã´«À´µÄPOÊµÌå
+	 * åœ¨æ•°æ®åº“ä¸­æ›´æ–°ä¸€ä¸ªpo
+	 * @param po UserPOå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„POå®ä½“
 	 * @return
 	 * @throws RemoteException
 	 * @see PO.UserPO
@@ -64,7 +64,7 @@ public class UserDataServiceMySqlImpl implements Serializable,dataService.UserDa
 		
 	}
 	/**
-	 * °´³õÊ¼»¯³Ö¾Ã»¯Êı¾İ¿â
+	 * æŒ‰åˆå§‹åŒ–æŒä¹…åŒ–æ•°æ®åº“
 	 * @param
 	 * @return
 	 * @throws RemoteException
@@ -76,7 +76,7 @@ public class UserDataServiceMySqlImpl implements Serializable,dataService.UserDa
 		
 	}
 	/**
-	 * ½áÊø³Ö¾Ã»¯Êı¾İ¿âµÄÊ¹ÓÃ
+	 * ç»“æŸæŒä¹…åŒ–æ•°æ®åº“çš„ä½¿ç”¨
 	 * @param
 	 * @return
 	 * @throws RemoteException

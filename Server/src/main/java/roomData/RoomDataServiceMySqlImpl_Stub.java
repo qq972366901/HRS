@@ -16,7 +16,7 @@ public class RoomDataServiceMySqlImpl_Stub implements Serializable,dataService.R
 	public RoomPO find(String id) throws RemoteException {
 		// TODO Auto-generated method stub
 		System.out.println("Find Succeed!");
-		RoomPO po=new RoomPO("321","ÒÑÔ¤¶©","×ÜÍ³Ì×·¿",6,3000);
+		RoomPO po=new RoomPO("321","å·²é¢„è®¢","æ€»ç»Ÿå¥—æˆ¿",6,3000);
 		return po;
 	}
 

@@ -5,7 +5,7 @@ import java.rmi.RemoteException;
 
 import PO.CreditRecordPO;
 /**
- * Ö°ÔğÊÇ½«Âß¼­²ãÃæ·¢À´µÄÇëÇó×ª·¢¸øºóÌ¨CreditRecordData´¦Àí
+ * èŒè´£æ˜¯å°†é€»è¾‘å±‚é¢å‘æ¥çš„è¯·æ±‚è½¬å‘ç»™åå°CreditRecordDataå¤„ç†
  * @author LZ
  * @version 1.0
  * @see businesslogic.CreditRecord
@@ -16,10 +16,10 @@ public class CreditRecordDataServiceMySqlImpl implements Serializable,dataServic
 	 */
 	private static final long serialVersionUID = 1L;
 	/**
-	 * °´ID½øĞĞ²éÕÒ·µ»ØÏàÓ¦µÄCreditRecordPO½á¹û
-	 * @param id StringĞÍ£¬Âß¼­²ã´«À´µÄĞÅÓÃ¼ÇÂ¼±àºÅ
-	 * @return ·µ»ØÕÒµ½µÄPOÊµÌå
-	 * @throws Ô¶³Ìµ÷ÓÃÊ§°Ü
+	 * æŒ‰IDè¿›è¡ŒæŸ¥æ‰¾è¿”å›ç›¸åº”çš„CreditRecordPOç»“æœ
+	 * @param id Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„ä¿¡ç”¨è®°å½•ç¼–å·
+	 * @return è¿”å›æ‰¾åˆ°çš„POå®ä½“
+	 * @throws è¿œç¨‹è°ƒç”¨å¤±è´¥
 	 * @see PO.CreditRecordPO
 	 */
 	@Override
@@ -28,10 +28,10 @@ public class CreditRecordDataServiceMySqlImpl implements Serializable,dataServic
 		return null;
 	}
 	/**
-	 * ÔÚÊı¾İ¿âÖĞÔö¼ÓÒ»¸öpoÊµÌå
-	 * @param po CreditRecordPOĞÍ£¬Âß¼­²ã´«À´µÄĞÅÓÃ¼ÇÂ¼ÊµÌå
+	 * åœ¨æ•°æ®åº“ä¸­å¢åŠ ä¸€ä¸ªpoå®ä½“
+	 * @param po CreditRecordPOå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„ä¿¡ç”¨è®°å½•å®ä½“
 	 * @return
-	 * @throws Ô¶³Ìµ÷ÓÃÊ§°Ü 
+	 * @throws è¿œç¨‹è°ƒç”¨å¤±è´¥ 
 	 * @see PO.CreditRecordPO
 	 */
 	@Override
@@ -40,10 +40,10 @@ public class CreditRecordDataServiceMySqlImpl implements Serializable,dataServic
 		
 	}
 	/**
-	 * ÔÚÊı¾İ¿âÖĞÉ¾³ıÒ»¸öpo
-	 * @param po CreditRecordPOĞÍ£¬Âß¼­²ã´«À´µÄĞÅÓÃ¼ÇÂ¼ÊµÌå
+	 * åœ¨æ•°æ®åº“ä¸­åˆ é™¤ä¸€ä¸ªpo
+	 * @param po CreditRecordPOå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„ä¿¡ç”¨è®°å½•å®ä½“
 	 * @return
-	 * @throws Ô¶³Ìµ÷ÓÃÊ§°Ü
+	 * @throws è¿œç¨‹è°ƒç”¨å¤±è´¥
 	 * @see PO.CreditRecordPO
 	 */
 	@Override
@@ -52,10 +52,10 @@ public class CreditRecordDataServiceMySqlImpl implements Serializable,dataServic
 		
 	}
 	/**
-	 * ÔÚÊı¾İ¿âÖĞ¸üĞÂÒ»¸öpo
-	 * @param po CreditRecordPOĞÍ£¬Âß¼­²ã´«À´µÄĞÅÓÃ¼ÇÂ¼ÊµÌå
+	 * åœ¨æ•°æ®åº“ä¸­æ›´æ–°ä¸€ä¸ªpo
+	 * @param po CreditRecordPOå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„ä¿¡ç”¨è®°å½•å®ä½“
 	 * @return
-	 * @throws Ô¶³Ìµ÷ÓÃÊ§°Ü
+	 * @throws è¿œç¨‹è°ƒç”¨å¤±è´¥
 	 * @see PO.CreditRecordPO
 	 */
 	@Override
@@ -64,10 +64,10 @@ public class CreditRecordDataServiceMySqlImpl implements Serializable,dataServic
 		
 	}
 	/**
-	 * °´³õÊ¼»¯³Ö¾Ã»¯Êı¾İ¿â
+	 * æŒ‰åˆå§‹åŒ–æŒä¹…åŒ–æ•°æ®åº“
 	 * @param
 	 * @return
-	 * @throws Ô¶³Ìµ÷ÓÃÊ§°Ü
+	 * @throws è¿œç¨‹è°ƒç”¨å¤±è´¥
 	 * @see PO.CreditRecordPO
 	 */
 	@Override
@@ -76,10 +76,10 @@ public class CreditRecordDataServiceMySqlImpl implements Serializable,dataServic
 		
 	}
 	/**
-	 * ½áÊø³Ö¾Ã»¯Êı¾İ¿âµÄÊ¹ÓÃ
+	 * ç»“æŸæŒä¹…åŒ–æ•°æ®åº“çš„ä½¿ç”¨
 	 * @param
 	 * @return
-	 * @throws Ô¶³Ìµ÷ÓÃÊ§°Ü
+	 * @throws è¿œç¨‹è°ƒç”¨å¤±è´¥
 	 * @see PO.CreditRecordPO
 	 */
 	@Override

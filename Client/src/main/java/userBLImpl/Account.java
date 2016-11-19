@@ -9,7 +9,7 @@ import dataService.DataFactoryService;
 import dataService.UserDataService;
 import rmi.RemoteHelper;
 /**
- * ¸ºÔğ¶ÔÓÚÕË»§µÄ²Ù×÷
+ * è´Ÿè´£å¯¹äºè´¦æˆ·çš„æ“ä½œ
  * @author LZ
  * @version 1.0
  * @see VO.UserVO
@@ -26,9 +26,9 @@ public class Account{
 		type=i;
 	}
 	/**
-	 * »ñÈ¡³ÖÓĞ´ËÕËºÅµÄ¿Í»§µÄĞÅÏ¢
-	 * @param account StringĞÍ£¬½çÃæ²ã´«À´µÄÕË»§±àºÅ
-	 * @return ·µ»Ø³ÖÓĞ´ËÕËºÅµÄÓÃ»§ĞÅÏ¢
+	 * è·å–æŒæœ‰æ­¤è´¦å·çš„å®¢æˆ·çš„ä¿¡æ¯
+	 * @param account Stringå‹ï¼Œç•Œé¢å±‚ä¼ æ¥çš„è´¦æˆ·ç¼–å·
+	 * @return è¿”å›æŒæœ‰æ­¤è´¦å·çš„ç”¨æˆ·ä¿¡æ¯
 	 * @see VO.UserVO
 	 */
 	public UserVO getUser(String account){
@@ -40,8 +40,8 @@ public class Account{
 		}
 	}
 	/**
-	 * ¸üĞÂÕË»§ĞÅÏ¢
-	 * @param vo UserVOĞÍ£¬½çÃæ²ã´«À´µÄVO¶ÔÏó
+	 * æ›´æ–°è´¦æˆ·ä¿¡æ¯
+	 * @param vo UserVOå‹ï¼Œç•Œé¢å±‚ä¼ æ¥çš„VOå¯¹è±¡
 	 * @throws RemoteException
 	 * @see VO.UserVO
 	 */
@@ -56,8 +56,8 @@ public class Account{
 		}
 	}
 	/**
-	 * É¾³ıÄ³¸öÕË»§
-	 * @param vo UserVOĞÍ£¬½çÃæ²ã´«À´µÄVO¶ÔÏó
+	 * åˆ é™¤æŸä¸ªè´¦æˆ·
+	 * @param vo UserVOå‹ï¼Œç•Œé¢å±‚ä¼ æ¥çš„VOå¯¹è±¡
 	 * @throws RemoteException
 	 * @see VO.UserVO
 	 */
@@ -72,8 +72,8 @@ public class Account{
 		}
 	}
 	/**
-	 * Ôö¼ÓÒ»¸öÕË»§
-	 * @param vo UserVOĞÍ£¬½çÃæ²ã´«À´µÄVO¶ÔÏó
+	 * å¢åŠ ä¸€ä¸ªè´¦æˆ·
+	 * @param vo UserVOå‹ï¼Œç•Œé¢å±‚ä¼ æ¥çš„VOå¯¹è±¡
 	 * @throws RemoteException
 	 * @see VO.UserVO
 	 */

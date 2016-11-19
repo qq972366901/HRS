@@ -4,9 +4,9 @@ import common.ResultMessage;
 import userBLService.UserBLService_realize;
 public class UserRegisterController extends UserBLService_realize{
 	/**
-	 * ¿Í»§×¢²á
-	 * @param in MessageInputĞÍ£¬½çÃæÊäÈëµÄ×¢²áĞÅÏ¢
-	 * @return ·µ»ØResultMessageµÄËùÓĞÃ¶¾ÙÖµ
+	 * å®¢æˆ·æ³¨å†Œ
+	 * @param in MessageInputå‹ï¼Œç•Œé¢è¾“å…¥çš„æ³¨å†Œä¿¡æ¯
+	 * @return è¿”å›ResultMessageçš„æ‰€æœ‰æšä¸¾å€¼
 	 * @see bussinesslogic.User
 	 */
 		public ResultMessage register(UserVO vo) {

@@ -2,8 +2,8 @@ package VO;
 import Object.Room;
 
 /**
- * ·¿¼äµÄÊôĞÔ¼°Êı¾İ´´½¨Óë¸üĞÂ
- * @author Áõ×ÚÙ©
+ * æˆ¿é—´çš„å±æ€§åŠæ•°æ®åˆ›å»ºä¸æ›´æ–°
+ * @author åˆ˜å®—ä¾ƒ
  * @version 1.0
  * @see Object.Room
  */
@@ -17,12 +17,12 @@ public class RoomVO extends VO {
     public int roomPrice;
     public RoomVO(){};
     /**
-	 * ·¿¼äÊı¾İ
-	 * @param roomid StringĞÍ£¬Êı¾İ²ã´«À´µÄ·¿¼äºÅ
-	 * @param roomstatue StringĞÍ£¬Êı¾İ²ã´«À´µÄ·¿¼ä×´Ì¬
-	 * @param roomtype StringĞÍ£¬Êı¾İ²ã´«À´µÄ·¿¼äÀàĞÍ
-	 * @param rooms intĞÍ£¬Êı¾İ²ã´«À´µÄ·¿¼äÊıÁ¿
-	 * @param roomprice intĞÍ£¬Êı¾İ²ã´«À´µÄ·¿¼ä¼Û¸ñ
+	 * æˆ¿é—´æ•°æ®
+	 * @param roomid Stringå‹ï¼Œæ•°æ®å±‚ä¼ æ¥çš„æˆ¿é—´å·
+	 * @param roomstatue Stringå‹ï¼Œæ•°æ®å±‚ä¼ æ¥çš„æˆ¿é—´çŠ¶æ€
+	 * @param roomtype Stringå‹ï¼Œæ•°æ®å±‚ä¼ æ¥çš„æˆ¿é—´ç±»å‹
+	 * @param rooms intå‹ï¼Œæ•°æ®å±‚ä¼ æ¥çš„æˆ¿é—´æ•°é‡
+	 * @param roomprice intå‹ï¼Œæ•°æ®å±‚ä¼ æ¥çš„æˆ¿é—´ä»·æ ¼
 	 * @return
 	 * @throws
 	 * @see
@@ -35,9 +35,9 @@ public class RoomVO extends VO {
 	    roomPrice=roomprice;
     }
     /**
-     * ¸üĞÂ·¿¼äĞÅÏ¢
+     * æ›´æ–°æˆ¿é—´ä¿¡æ¯
      * 
-     * @param room RoomĞÍ£¬Ò»¸öÓÃÀ´¸üĞÂÊı¾İµÄ·¿¼ä¶ÔÏó
+     * @param room Roomå‹ï¼Œä¸€ä¸ªç”¨æ¥æ›´æ–°æ•°æ®çš„æˆ¿é—´å¯¹è±¡
      * @return 
      * @see Object.Room
      */
@@ -46,9 +46,9 @@ public class RoomVO extends VO {
 	}
 	
 	/**
-     * ´´½¨·¿¼ä¶ÔÏó
+     * åˆ›å»ºæˆ¿é—´å¯¹è±¡
      * 
-     * @return Ò»¸öĞÂÂ¼ÈëµÄ·¿¼ä
+     * @return ä¸€ä¸ªæ–°å½•å…¥çš„æˆ¿é—´
      * @see Object.Room
      */
 	public Room makeRoom() {

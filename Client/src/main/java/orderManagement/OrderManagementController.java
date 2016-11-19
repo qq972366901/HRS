@@ -12,10 +12,10 @@ public class OrderManagementController extends OrderBLService_realize{
 	}
 
 	/**
-     * ¸ù¾İÑ¡ÔñµÄÀàĞÍ²éÕÒËùÓĞ¶©µ¥£¬²¢ÏÔÊ¾
+     * æ ¹æ®é€‰æ‹©çš„ç±»å‹æŸ¥æ‰¾æ‰€æœ‰è®¢å•ï¼Œå¹¶æ˜¾ç¤º
      * 
-     * @param type StringĞÍ£¬Ò»ÖÖ¶©µ¥µÄÀàĞÍ
-     * @return ArrayList<OrderVO>£¬Ò»¸ö¶©µ¥Öµ¶ÔÏóµÄÁĞ±í
+     * @param type Stringå‹ï¼Œä¸€ç§è®¢å•çš„ç±»å‹
+     * @return ArrayList<OrderVO>ï¼Œä¸€ä¸ªè®¢å•å€¼å¯¹è±¡çš„åˆ—è¡¨
      * @see bussinesslogic.Order
      */
 	public ArrayList<OrderVO> findByType(String type){
@@ -23,10 +23,10 @@ public class OrderManagementController extends OrderBLService_realize{
 	}
 
 	/**
-     * »Ö¸´¿Í»§ĞÅÓÃÖµ£¬¸üĞÂ»áÔ±µÈ¼¶
+     * æ¢å¤å®¢æˆ·ä¿¡ç”¨å€¼ï¼Œæ›´æ–°ä¼šå‘˜ç­‰çº§
      * 
-     * @param vo OrderVOĞÍ£¬¶©µ¥µÄÖµ¶ÔÏó
-     * @param choice ChoiceĞÍ£¬Ò»¸öÃ¶¾ÙÖµ
+     * @param vo OrderVOå‹ï¼Œè®¢å•çš„å€¼å¯¹è±¡
+     * @param choice Choiceå‹ï¼Œä¸€ä¸ªæšä¸¾å€¼
      * @see bussinesslogic.Order
      */
 	public void regain(OrderVO vo,Choice choice){

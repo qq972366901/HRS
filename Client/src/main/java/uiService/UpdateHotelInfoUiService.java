@@ -6,6 +6,6 @@ public interface UpdateHotelInfoUiService {
 
 	public void setView(UpdateHotelInfoView view);
 	public void toHotelMainView();
-	public void updateHotelInfo();//更新酒店信息
+	public void updateHotelInfo();//鏇存柊閰掑簵淇℃伅
 	
 }

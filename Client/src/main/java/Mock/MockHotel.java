@@ -2,8 +2,8 @@ package Mock;
 
 import VO.HotelVO;
 /**
- * Ä£Äâ¾Æµê¶ÔÏó
- * @author Áõ×ÚÙ©
+ * æ¨¡æ‹Ÿé…’åº—å¯¹è±¡
+ * @author åˆ˜å®—ä¾ƒ
  * @version 1.0
  */
 public class MockHotel extends HotelVO {
@@ -19,17 +19,17 @@ public class MockHotel extends HotelVO {
 	private String hotelAccount;
 	private double score;
 	/**
-	 * ¹¹Ôì¾ÆµêÊı¾İÊµÌå
-	 * @param hAddress StringĞÍ£¬Âß¼­²ã´«À´µÄ¾ÆµêµØÖ·
-	 * @param hDistrict StringĞÍ£¬Âß¼­²ã´«À´µÄ¾ÆµêËùÔÚÉÌÈ¦
-	 * @param hStar intĞÍ£¬Âß¼­²ã´«À´µÄ¾ÆµêĞÇ¼¶
-	 * @param hProfile StringĞÍ£¬Âß¼­²ã´«À´µÄ¾Æµê¼ò½é
-	 * @param hService StringĞÍ£¬Âß¼­²ã´«À´µÄ¾Æµê·şÎñ
-	 * @param hName StringĞÍ£¬Âß¼­²à´«À´µÄ¾ÆµêÃû³Æ
-	 * @param hPhone StringĞÍ£¬Âß¼­²à´«À´µÄ¾Æµê
-	 * @param hReservation StringĞÍ£¬Âß¼­²à´«À´µÄ¾ÆµêÔ¤¶©×´Ì¬
-	 * @param hAccount StringĞÍ£¬Âß¼­²à´«À´µÄ¾ÆµêÕËºÅ
-	 * @param sco doubleĞÍ£¬Âß¼­²à´«À´µÄ¾ÆµêÆÀ·Ö
+	 * æ„é€ é…’åº—æ•°æ®å®ä½“
+	 * @param hAddress Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„é…’åº—åœ°å€
+	 * @param hDistrict Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„é…’åº—æ‰€åœ¨å•†åœˆ
+	 * @param hStar intå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„é…’åº—æ˜Ÿçº§
+	 * @param hProfile Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„é…’åº—ç®€ä»‹
+	 * @param hService Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„é…’åº—æœåŠ¡
+	 * @param hName Stringå‹ï¼Œé€»è¾‘ä¾§ä¼ æ¥çš„é…’åº—åç§°
+	 * @param hPhone Stringå‹ï¼Œé€»è¾‘ä¾§ä¼ æ¥çš„é…’åº—
+	 * @param hReservation Stringå‹ï¼Œé€»è¾‘ä¾§ä¼ æ¥çš„é…’åº—é¢„è®¢çŠ¶æ€
+	 * @param hAccount Stringå‹ï¼Œé€»è¾‘ä¾§ä¼ æ¥çš„é…’åº—è´¦å·
+	 * @param sco doubleå‹ï¼Œé€»è¾‘ä¾§ä¼ æ¥çš„é…’åº—è¯„åˆ†
 	 * @return
 	 * @throws
 	 * @see
@@ -49,9 +49,9 @@ public class MockHotel extends HotelVO {
 	}
 
 	/**
-	 * »ñÈ¡¾ÆµêµØÖ·
+	 * è·å–é…’åº—åœ°å€
 	 * @param
-	 * @return ·µ»Ø¾ÆµêµØÖ·
+	 * @return è¿”å›é…’åº—åœ°å€
 	 * @throws
 	 * @see
 	 */
@@ -59,8 +59,8 @@ public class MockHotel extends HotelVO {
 		return hotelAddress;
 	}
 	/**
-	 * ÉèÖÃ¾ÆµêµØÖ·
-	 * @param hAddress StringĞÍ£¬Âß¼­²ã´«À´µÄ¾ÆµêµØÖ·
+	 * è®¾ç½®é…’åº—åœ°å€
+	 * @param hAddress Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„é…’åº—åœ°å€
 	 * @return
 	 * @throws
 	 * @see
@@ -69,9 +69,9 @@ public class MockHotel extends HotelVO {
         hotelAddress=hAddress;
     }
     /**
-	 * »ñÈ¡¾ÆµêËùÔÚÉÌÈ¦
+	 * è·å–é…’åº—æ‰€åœ¨å•†åœˆ
 	 * @param
-	 * @return ·µ»Ø¾ÆµêËùÔÚÉÌÈ¦
+	 * @return è¿”å›é…’åº—æ‰€åœ¨å•†åœˆ
 	 * @throws
 	 * @see
 	 */
@@ -79,8 +79,8 @@ public class MockHotel extends HotelVO {
 		return hotelDistrict;
 	}
 	/**
-	 * ÉèÖÃ¾ÆµêËùÔÚÉÌÈ¦
-	 * @param hDistrict StringĞÍ£¬Âß¼­²ã´«À´µÄ¾ÆµêËùÔÚÉÌÈ¦
+	 * è®¾ç½®é…’åº—æ‰€åœ¨å•†åœˆ
+	 * @param hDistrict Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„é…’åº—æ‰€åœ¨å•†åœˆ
 	 * @return
 	 * @throws
 	 * @see
@@ -89,9 +89,9 @@ public class MockHotel extends HotelVO {
         hotelDistrict=hDistrict;
     }
     /**
-	 * »ñÈ¡¾ÆµêĞÇ¼¶
+	 * è·å–é…’åº—æ˜Ÿçº§
 	 * @param
-	 * @return ·µ»Ø¾ÆµêĞÇ¼¶
+	 * @return è¿”å›é…’åº—æ˜Ÿçº§
 	 * @throws
 	 * @see
 	 */
@@ -99,8 +99,8 @@ public class MockHotel extends HotelVO {
 		return hotelStar;
 	}
 	/**
-	 * ÉèÖÃ¾ÆµêĞÇ¼¶
-	 * @param hStar intĞÍ£¬Âß¼­²ã´«À´µÄ¾ÆµêĞÇ¼¶
+	 * è®¾ç½®é…’åº—æ˜Ÿçº§
+	 * @param hStar intå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„é…’åº—æ˜Ÿçº§
 	 * @return
 	 * @throws
 	 * @see
@@ -109,9 +109,9 @@ public class MockHotel extends HotelVO {
                 hotelStar=hStar;
     }
     /**
-	 * »ñÈ¡¾Æµê¼ò½é
+	 * è·å–é…’åº—ç®€ä»‹
 	 * @param
-	 * @return ·µ»Ø¾Æµê¼ò½é
+	 * @return è¿”å›é…’åº—ç®€ä»‹
 	 * @throws
 	 * @see
 	 */
@@ -119,8 +119,8 @@ public class MockHotel extends HotelVO {
 		return hotelProfile;
 	}
 	/**
-	 * ÉèÖÃ¾Æµê¼ò½é
-	 * @param hProfile String ĞÍ£¬Âß¼­²ã´«À´µÄ¾Æµê¼ò½é
+	 * è®¾ç½®é…’åº—ç®€ä»‹
+	 * @param hProfile String å‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„é…’åº—ç®€ä»‹
 	 * @return
 	 * @throws
 	 * @see
@@ -129,9 +129,9 @@ public class MockHotel extends HotelVO {
         hotelProfile=hProfile;
     }
     /**
-	 * »ñÈ¡¾Æµê·şÎñĞÅÏ¢
+	 * è·å–é…’åº—æœåŠ¡ä¿¡æ¯
 	 * @param
-	 * @return ·µ»Ø¾Æµê·şÎñĞÅÏ¢
+	 * @return è¿”å›é…’åº—æœåŠ¡ä¿¡æ¯
 	 * @throws
 	 * @see
 	 */
@@ -139,8 +139,8 @@ public class MockHotel extends HotelVO {
 		return hotelService;
 	}
 	/**
-	 * ÉèÖÃ¾Æµê·şÎñĞÅÏ¢
-	 * @param hService StringĞÍ£¬Âß¼­²ã´«À´µÄ¾Æµê·şÎñĞÅÏ¢
+	 * è®¾ç½®é…’åº—æœåŠ¡ä¿¡æ¯
+	 * @param hService Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„é…’åº—æœåŠ¡ä¿¡æ¯
 	 * @return
 	 * @throws
 	 * @see
@@ -149,9 +149,9 @@ public class MockHotel extends HotelVO {
 		hotelService=hService;
 	}
     /**
-	 * »ñÈ¡¾ÆµêÃû³Æ
+	 * è·å–é…’åº—åç§°
 	 * @param
-	 * @return ·µ»Ø¾ÆµêÃû³Æ
+	 * @return è¿”å›é…’åº—åç§°
 	 * @throws
 	 * @see
 	 */
@@ -159,8 +159,8 @@ public class MockHotel extends HotelVO {
 		return hotelName;
 	}
 	/**
-	 * ÉèÖÃ¾ÆµêÃû³Æ
-	 * @param hName String ĞÍ£¬Âß¼­²ã´«À´µÄ¾ÆµêÃû³Æ
+	 * è®¾ç½®é…’åº—åç§°
+	 * @param hName String å‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„é…’åº—åç§°
 	 * @return
 	 * @throws
 	 * @see
@@ -169,9 +169,9 @@ public class MockHotel extends HotelVO {
 		hotelName=hName;
 	}
     /**
-	 * »ñÈ¡¾ÆµêÁªÏµ·½Ê½
+	 * è·å–é…’åº—è”ç³»æ–¹å¼
 	 * @param
-	 * @return ·µ»Ø¾ÆµêÁªÏµ·½Ê½
+	 * @return è¿”å›é…’åº—è”ç³»æ–¹å¼
 	 * @throws
 	 * @see
 	 */
@@ -179,8 +179,8 @@ public class MockHotel extends HotelVO {
 		return hotelPhone;
 	}
 	/**
-	 * ÉèÖÃ¾ÆµêÁªÏµ·½Ê½
-	 * @param hPhone StringĞÍ£¬Âß¼­²ã´«À´µÄ¾ÆµêÁªÏµ·½Ê½
+	 * è®¾ç½®é…’åº—è”ç³»æ–¹å¼
+	 * @param hPhone Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„é…’åº—è”ç³»æ–¹å¼
 	 * @return
 	 * @throws
 	 * @see
@@ -189,9 +189,9 @@ public class MockHotel extends HotelVO {
 		hotelPhone=hPhone;
 	}
     /**
-	 * »ñÈ¡¾ÆµêÔ¤¶©×´Ì¬
+	 * è·å–é…’åº—é¢„è®¢çŠ¶æ€
 	 * @param
-	 * @return ·µ»Ø¾Æµê×´Ì¬
+	 * @return è¿”å›é…’åº—çŠ¶æ€
 	 * @throws
 	 * @see
 	 */
@@ -199,8 +199,8 @@ public class MockHotel extends HotelVO {
 		return hotelReservation;
 	}
 	/**
-	 * ÉèÖÃ¾Æµê×´Ì¬
-	 * @param hReservation StringĞÍ£¬Âß¼­²ã´«À´µÄ¾Æµê×´Ì¬
+	 * è®¾ç½®é…’åº—çŠ¶æ€
+	 * @param hReservation Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„é…’åº—çŠ¶æ€
 	 * @return
 	 * @throws
 	 * @see
@@ -209,9 +209,9 @@ public class MockHotel extends HotelVO {
 		hotelReservation=hReservation;
 	} 
     /**
-	 * »ñÈ¡¾ÆµêÆÀ·Ö
+	 * è·å–é…’åº—è¯„åˆ†
 	 * @param
-	 * @return ·µ»Ø¾ÆµêÆÀ·Ö
+	 * @return è¿”å›é…’åº—è¯„åˆ†
 	 * @throws
 	 * @see
 	 */
@@ -219,8 +219,8 @@ public class MockHotel extends HotelVO {
 		return score;
 	}
     /**
-	 *  ÉèÖÃ¾ÆµêÆÀ·Ö
-	 * @param sco double ĞÍ£¬Âß¼­²ã´«À´µÄ¾ÆµêÆÀ·Ö
+	 *  è®¾ç½®é…’åº—è¯„åˆ†
+	 * @param sco double å‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„é…’åº—è¯„åˆ†
 	 * @return
 	 * @throws
 	 * @see
@@ -229,9 +229,9 @@ public class MockHotel extends HotelVO {
 		score=sco;
 	}
     /**
-	 * »ñÈ¡¾ÆµêÕËºÅ
+	 * è·å–é…’åº—è´¦å·
 	 * @param
-	 * @return ·µ»Ø¾ÆµêÕËºÅ
+	 * @return è¿”å›é…’åº—è´¦å·
 	 * @throws
 	 * @see
 	 */ 
@@ -239,8 +239,8 @@ public class MockHotel extends HotelVO {
 		return hotelAccount;
 	}
     /**
-	 *  ÉèÖÃ¾ÆµêÕËºÅ
-	 * @param hAcc StringĞÍ£¬Âß¼­²ã´«À´µÄ¾ÆµêÕËºÅ
+	 *  è®¾ç½®é…’åº—è´¦å·
+	 * @param hAcc Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„é…’åº—è´¦å·
 	 * @return
 	 * @throws
 	 * @see

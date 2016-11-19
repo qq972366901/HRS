@@ -22,7 +22,7 @@ public class HotelMainUiController implements HotelMainUiService {
 	}
 	
 	public void toLogView() {
-		//Ìø×ªµ½³õÊ¼µÇÂ¼½çÃæ
+		//è·³è½¬åˆ°åˆå§‹ç™»å½•ç•Œé¢
 	}
 	
 	public void toUpdateHotelInfoView() {

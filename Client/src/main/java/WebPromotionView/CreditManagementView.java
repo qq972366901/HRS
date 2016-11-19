@@ -33,7 +33,7 @@ public class CreditManagementView extends JPanel {
 		this.validate();
 	}
 	private void init(){
-		back=new JButton("∑µªÿ");
+		back=new JButton("ËøîÂõû");
 		back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controller.toWebPromotionUserView();
@@ -45,21 +45,21 @@ public class CreditManagementView extends JPanel {
 		this.add(p1);
 		JPanel p2=new JPanel();
 		p2.setLayout(new FlowLayout(FlowLayout.CENTER));
-		account=new JLabel("øÕªß’À∫≈£∫");
+		account=new JLabel("ÂÆ¢Êà∑Ë¥¶Âè∑Ôºö");
 		accountText=new JTextField(10);
 		p2.add(account);
 		p2.add(accountText);
 		this.add(p2);
 		JPanel p3=new JPanel();
 		p3.setLayout(new FlowLayout(FlowLayout.CENTER));
-		val=new JLabel("≥‰÷µ∂Ó∂»£∫");
+		val=new JLabel("ÂÖÖÂÄºÈ¢ùÂ∫¶Ôºö");
 		valText=new JTextField(10);
 		p3.add(val);
 		p3.add(valText);
 		this.add(p3);
 		JPanel p4=new JPanel();
 		p4.setLayout(new FlowLayout(FlowLayout.CENTER));
-		confir=new JButton("»∑∂®");
+		confir=new JButton("Á°ÆÂÆö");
 		confir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String acc=accountText.getText();
@@ -67,7 +67,7 @@ public class CreditManagementView extends JPanel {
 				controller.updateCredit(acc,value);
 			}
 		});
-		cancel=new JButton("»°œ˚");
+		cancel=new JButton("ÂèñÊ∂à");
 		cancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				accountText.setText("");

@@ -1,6 +1,6 @@
 package common;
 /**
- * 枚举出输入信息的种类
+ * 鏋氫妇鍑鸿緭鍏ヤ俊鎭殑绉嶇被
  * @author LZ
  * @version 1.0
  * @see

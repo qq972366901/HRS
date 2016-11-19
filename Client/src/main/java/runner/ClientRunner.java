@@ -84,7 +84,7 @@ public class ClientRunner implements Serializable{
 		HotelDataService dh=(HotelDataService) df.getDataService("Hotel");
 		ArrayList<HotelPO> a=new ArrayList<HotelPO>();
 		HotelPO po=dh.find("423523");
-		a=dh.findByDistrict("ÏÉÁÖ");
+		a=dh.findByDistrict("ä»™æ—");
 		po=dh.findByName("xxx");
 		a=dh.findByScore(4);
 		a=dh.findByStar(2);
@@ -100,25 +100,25 @@ public class ClientRunner implements Serializable{
 		mFrame.getContentPane().add(view);
 		mFrame.setVisible(true);
 		if(view instanceof WebAdminUserView) {
-        mFrame.setTitle("ÍøÕ¾¹ÜÀíÈËÔ±Ö÷½çÃæ");
+        mFrame.setTitle("ç½‘ç«™ç®¡ç†äººå‘˜ä¸»ç•Œé¢");
 		}
 		else if(view instanceof UserManagementView) {
-	    mFrame.setTitle("ÓÃ»§¹ÜÀí");
+	    mFrame.setTitle("ç”¨æˆ·ç®¡ç†");
 		}
 		else if(view instanceof AddHotelView) {
-	    mFrame.setTitle("Ìí¼Ó¾Æµê");
+	    mFrame.setTitle("æ·»åŠ é…’åº—");
 		}
 		else if(view instanceof MemberRegisterView) {
-		mFrame.setTitle("»áÔ±×¢²á");
+		mFrame.setTitle("ä¼šå‘˜æ³¨å†Œ");
 		}
 		else if(view instanceof HotelSearchView) {
-		mFrame.setTitle("¾ÆµêËÑË÷");
+		mFrame.setTitle("é…’åº—æœç´¢");
 		}
 		else if(view instanceof HotelBrowseView) {
-		mFrame.setTitle("¾Æµêä¯ÀÀ");
+		mFrame.setTitle("é…’åº—æµè§ˆ");
 		}
 		else if(view instanceof OrderBuildView) {
-		mFrame.setTitle("Éú³É¶©µ¥");
+		mFrame.setTitle("ç”Ÿæˆè®¢å•");
 		}
 	}
 

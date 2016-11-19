@@ -8,14 +8,14 @@ import VO.OrderVO;
 import VO.UserVO;
 /**
  * OrderLIst
- * @author ÁõÓîÏè
+ * @author åˆ˜å®‡ç¿”
  * @version 1.0
  * @see
  */
 public class OrderList {
 	List<OrderLineItem> orders;	
 	/**
-	 * ¶©µ¥ÁĞ±í
+	 * è®¢å•åˆ—è¡¨
 	 * @param
 	 * @return
 	 */
@@ -24,42 +24,42 @@ public class OrderList {
 	}
 	
 	/**
-	 * Ìí¼Óµ¥¸ö¶©µ¥
-	 * @param oli OrderLineItemĞÍ£¬Ìí¼ÓµÄµ¥¸ö¶©µ¥
+	 * æ·»åŠ å•ä¸ªè®¢å•
+	 * @param oli OrderLineItemå‹ï¼Œæ·»åŠ çš„å•ä¸ªè®¢å•
 	 * @return 
 	 */
 	public void addOrderLineItems(OrderLineItem  oli) {
 		orders.add(oli);
 	}
 	/**
-	 * ÏÔÊ¾¶©µ¥ÁĞ±í
-	 * @param oli OrderLineItemĞÍ£¬ÏÔÊ¾µÄµ¥¸ö¶©µ¥
-	 * @return listÁĞ±í
+	 * æ˜¾ç¤ºè®¢å•åˆ—è¡¨
+	 * @param oli OrderLineItemå‹ï¼Œæ˜¾ç¤ºçš„å•ä¸ªè®¢å•
+	 * @return liståˆ—è¡¨
 	 */
 	public List<OrderLineItem> show(){
 		return orders;
 	}
 	/**
-	 * µÃµ½¶©µ¥
+	 * å¾—åˆ°è®¢å•
 	 * @param
-	 * @return ·µ»Ø¶©µ¥
+	 * @return è¿”å›è®¢å•
 	 */
 	public int getOrderInfo() {
 		return orders.size();
 	}
 	
 	/**
-	 * µÃµ½¶©µ¥
+	 * å¾—åˆ°è®¢å•
 	 * @param
-	 * @return ·µ»Ø¶©µ¥
+	 * @return è¿”å›è®¢å•
 	 */
 	public int getOrder() {
 		return orders.size();
 	}
 	/**
-	 * ÏÔÊ¾ÀúÊ·¶©µ¥
-	 * @param vo HotelVOtĞÍ£¬¾Æµê
-	 * @return ·µ»Ølist
+	 * æ˜¾ç¤ºå†å²è®¢å•
+	 * @param vo HotelVOtå‹ï¼Œé…’åº—
+	 * @return è¿”å›list
 	 */
 	public List<OrderLineItem> gethotel(HotelVO vo) {		
 		String name=vo.hotelName;
@@ -72,15 +72,15 @@ public class OrderList {
 		return list;
 	}
 	/**
-     * Éú³ÉÒ»¸ö¶©µ¥¶ÔÏó
+     * ç”Ÿæˆä¸€ä¸ªè®¢å•å¯¹è±¡
      * 
-     * @param currentTime TimeĞÍ£¬µ±Ç°Ê±¼ä
-     * @param in TimeĞÍ£¬Ô¤¼ÆÈë×¡Ê±¼ä
-     * @param out TimeĞÍ£¬Ô¤¼ÆÀë¿ªÊ±¼ä
-     * @param roomType RoomTypeĞÍ£¬·¿¼äÀàĞÍ
-     * @param num intĞÍ£¬·¿¼äºÅ
-     * @param numOfPerson intĞÍ£¬×¡µêÈËÊı
-     * @param hasChild BooleanĞÍ£¬ÊÇ·ñÓĞĞ¡º¢
+     * @param currentTime Timeå‹ï¼Œå½“å‰æ—¶é—´
+     * @param in Timeå‹ï¼Œé¢„è®¡å…¥ä½æ—¶é—´
+     * @param out Timeå‹ï¼Œé¢„è®¡ç¦»å¼€æ—¶é—´
+     * @param roomType RoomTypeå‹ï¼Œæˆ¿é—´ç±»å‹
+     * @param num intå‹ï¼Œæˆ¿é—´å·
+     * @param numOfPerson intå‹ï¼Œä½åº—äººæ•°
+     * @param hasChild Booleanå‹ï¼Œæ˜¯å¦æœ‰å°å­©
      * @see bussinesslogic.Order
      */
 	public void makeOrder(Date currentTime,
@@ -100,11 +100,11 @@ public class OrderList {
 	 	    orders.add(item);
 	}
 	/**
-     * ÅĞ¶Ï¶©µ¥ÊÇ·ñÒÑ±»³·Ïú
+     * åˆ¤æ–­è®¢å•æ˜¯å¦å·²è¢«æ’¤é”€
      * 
-     * @param orderID StringĞÍ£¬¿Í»§±àºÅ
-     * @param currentTime TimeĞÍ£¬³·Ïú¶©µ¥µÄÊ±¼ä
-     * @return ÈôÒÑ³·ÏúÔò·µ»Øtrue£¬·ñÔò·µ»Øfalse
+     * @param orderID Stringå‹ï¼Œå®¢æˆ·ç¼–å·
+     * @param currentTime Timeå‹ï¼Œæ’¤é”€è®¢å•çš„æ—¶é—´
+     * @return è‹¥å·²æ’¤é”€åˆ™è¿”å›trueï¼Œå¦åˆ™è¿”å›false
      * @see bussinesslogic.Order
      */
 	public Boolean whetherDeduct(Date currentTime,String orderID){
@@ -116,9 +116,9 @@ public class OrderList {
 		}
 	}
 	/**
-	 * ÏÔÊ¾·ûºÏÌõ¼şµÄ¶©µ¥
-	 * @param str StringĞÍ£¬ÀàĞÍ
-	 * @return ·µ»Ølist
+	 * æ˜¾ç¤ºç¬¦åˆæ¡ä»¶çš„è®¢å•
+	 * @param str Stringå‹ï¼Œç±»å‹
+	 * @return è¿”å›list
 	 */
 	public List<OrderLineItem> find(String str) {
 		List<OrderLineItem> list=new ArrayList<OrderLineItem>();
@@ -130,9 +130,9 @@ public class OrderList {
 		return list;
 	}
 	/**
-	 * ÏÔÊ¾·ûºÏÌõ¼şµÄ¶©µ¥
-	 * @param str StringĞÍ£¬¶©µ¥ºÅ
-	 * @return ·µ»Ø¶©µ¥
+	 * æ˜¾ç¤ºç¬¦åˆæ¡ä»¶çš„è®¢å•
+	 * @param str Stringå‹ï¼Œè®¢å•å·
+	 * @return è¿”å›è®¢å•
 	 */
 	public OrderLineItem showdetail(String orderID) {
 		for(int i=0;i<orders.size();i++){
@@ -143,9 +143,9 @@ public class OrderList {
 		return null;
 	}
 	/**
-	 * È¡Ïû¶©µ¥
-	 * @param str StringĞÍ£¬id
-	 * @param time TimeĞÍ£¬³·ÏúÊ±¼ä
+	 * å–æ¶ˆè®¢å•
+	 * @param str Stringå‹ï¼Œid
+	 * @param time Timeå‹ï¼Œæ’¤é”€æ—¶é—´
 	 */
 	public void cancel(String orderID, Date currentTime) {
 		for(int i=0;i<orders.size();i++){
@@ -155,16 +155,16 @@ public class OrderList {
 		}
 	}
 	/**
-	 * È¡Ïû¶©µ¥
+	 * å–æ¶ˆè®¢å•
 	 *
 	 */
 	public void cancel() {
 		orders.get(0).cancel();
 	}
 	/**
-	 * ²éÕÒ¶©µ¥
-	 * @param str StringĞÍ£¬id
-	 * @param str StringĞÍ£¬orderid
+	 * æŸ¥æ‰¾è®¢å•
+	 * @param str Stringå‹ï¼Œid
+	 * @param str Stringå‹ï¼Œorderid
 	 * 
 	 */
 	public OrderLineItem find(String userID, String orderID) {
@@ -177,8 +177,8 @@ public class OrderList {
 		return null;
 	}
 	/**
-	 * ²éÕÒ¶©µ¥
-	 * @param str StringĞÍ£¬id
+	 * æŸ¥æ‰¾è®¢å•
+	 * @param str Stringå‹ï¼Œid
 	 * @return orderItem
 	 * 
 	 */
@@ -191,9 +191,9 @@ public class OrderList {
 		return null;
 	}
 	/**
-	 * ÏÔÊ¾ÀúÊ·¶©µ¥
-	 * @param vo UserVOtĞÍ£¬ÓÃ»§
-	 * @return ·µ»Ølist
+	 * æ˜¾ç¤ºå†å²è®¢å•
+	 * @param vo UserVOtå‹ï¼Œç”¨æˆ·
+	 * @return è¿”å›list
 	 */
 	public List<OrderLineItem> gethistory(UserVO vo) {
 		List<OrderLineItem> list=new ArrayList<OrderLineItem>();
@@ -218,10 +218,10 @@ public class OrderList {
 			return true;
 		}
 	}/**
-     * ¸üĞÂ¶©µ¥ÀàĞÍ£¬Îª¿Í»§ĞŞ¸ÄĞÅÓÃÖµ£¬¸üĞÂ»áÔ±µÈ¼¶ 
+     * æ›´æ–°è®¢å•ç±»å‹ï¼Œä¸ºå®¢æˆ·ä¿®æ”¹ä¿¡ç”¨å€¼ï¼Œæ›´æ–°ä¼šå‘˜ç­‰çº§ 
      * 
-     * @param userID StringĞÍ£¬¿Í»§±àºÅ
-     * @param orderID StringĞÍ£¬¶©µ¥ºÅ
+     * @param userID Stringå‹ï¼Œå®¢æˆ·ç¼–å·
+     * @param orderID Stringå‹ï¼Œè®¢å•å·
      * @see bussinesslogic.Order
      */
 	private void update(String orderID,String userID,int state){
@@ -234,21 +234,21 @@ public class OrderList {
 		update(orderID,userID,1);
 	}
 	/**
-     * ¼ÆËã¶©µ¥¼ÛÖµ²¢ÏÔÊ¾
+     * è®¡ç®—è®¢å•ä»·å€¼å¹¶æ˜¾ç¤º
      * 
-     * @param vo OrderVOĞÍ£¬¶©µ¥µÄÖµ¶ÔÏó
-     * @param userID StringĞÍ£¬¿Í»§±àºÅ
-     * @return long£¬¶©µ¥µÄ¼ÛÖµ
+     * @param vo OrderVOå‹ï¼Œè®¢å•çš„å€¼å¯¹è±¡
+     * @param userID Stringå‹ï¼Œå®¢æˆ·ç¼–å·
+     * @return longï¼Œè®¢å•çš„ä»·å€¼
      * @see bussinesslogic.Order
      */
 	public long getPrice(String orderID,String userID){
 		return find(userID, orderID).getprice();
 	}
 	/**
-     * ¸üĞÂ¶©µ¥ĞÅÏ¢²¢ÏÔÊ¾ÆÀ¼Û
+     * æ›´æ–°è®¢å•ä¿¡æ¯å¹¶æ˜¾ç¤ºè¯„ä»·
      * 
-     * @param comment StringĞÍ£¬¿Í»§ÆÀ¼Û
-     * @param order OrderVOĞÍ£¬Ò»¸ö¶©µ¥µÄÖµ¶ÔÏó
+     * @param comment Stringå‹ï¼Œå®¢æˆ·è¯„ä»·
+     * @param order OrderVOå‹ï¼Œä¸€ä¸ªè®¢å•çš„å€¼å¯¹è±¡
      * @see bussinesslogic.Order
      */
 	public void comment(String comment,OrderVO vo){

@@ -4,8 +4,8 @@ import WebPromotionView.WebPromotionUserView;
 import uiService.webPromotionUserUiService;
 
 /**
- * ¸ºÔğÊµÏÖ¾Æµê¹ÜÀíÏµÍ³µÄÍøÕ¾ÓªÏúÈËÔ±½çÃæµÄ¿ØÖÆÆ÷
- * @author Áõ×ÚÙ©
+ * è´Ÿè´£å®ç°é…’åº—ç®¡ç†ç³»ç»Ÿçš„ç½‘ç«™è¥é”€äººå‘˜ç•Œé¢çš„æ§åˆ¶å™¨
+ * @author åˆ˜å®—ä¾ƒ
  * @version 1.0
  * @see uiService.webPromotionUserUiService
  * @see javax.swing.JFrame

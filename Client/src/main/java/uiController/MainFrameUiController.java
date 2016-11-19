@@ -7,8 +7,8 @@ import javax.swing.JFrame;
 import uiService.MainFrameUiService;
 
 /**
- * ¸ºÔğÊµÏÖ¾Æµê¹ÜÀíÏµÍ³µÄÖ÷µÇÂ¼½çÃæµÄ¿ØÖÆÆ÷
- * @author Áõ×ÚÙ©
+ * è´Ÿè´£å®ç°é…’åº—ç®¡ç†ç³»ç»Ÿçš„ä¸»ç™»å½•ç•Œé¢çš„æ§åˆ¶å™¨
+ * @author åˆ˜å®—ä¾ƒ
  * @version 1.0
  * @see uiService.MainFrameUiService
  * @see javax.swing.JFrame
@@ -25,9 +25,9 @@ public class MainFrameUiController extends JFrame implements MainFrameUiService 
 	private static final long serialVersionUID = 1L;
 
 	/**
-     * ´ò¿ª³ÌĞòµÄÖ÷½çÃæ
+     * æ‰“å¼€ç¨‹åºçš„ä¸»ç•Œé¢
      * 
-     * @param args0  ³ÌĞò´ò¿ªÊ±µÄ²ÎÊı
+     * @param args0  ç¨‹åºæ‰“å¼€æ—¶çš„å‚æ•°
      * @return 
      */
 	public void init(String[] args0) {

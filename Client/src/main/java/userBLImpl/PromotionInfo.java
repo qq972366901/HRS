@@ -2,14 +2,14 @@ package userBLImpl;
 
 import java.util.HashMap;
 /**
- * ¸ºÔğÌá¹©¹ØÓÚ»áÔ±µÈ¼¶ÏµÍ³µÄĞÅÏ¢
+ * è´Ÿè´£æä¾›å…³äºä¼šå‘˜ç­‰çº§ç³»ç»Ÿçš„ä¿¡æ¯
  * @author LZ
  * @version 1.0
  */
 public interface PromotionInfo {
 	/**
-	 * »ñÈ¡»áÔ±µÈ¼¶ÏµÍ³ĞÅÏ¢
-	 * @return ·µ»Ø»áÔ±µÈ¼¶ÏµÍ³
+	 * è·å–ä¼šå‘˜ç­‰çº§ç³»ç»Ÿä¿¡æ¯
+	 * @return è¿”å›ä¼šå‘˜ç­‰çº§ç³»ç»Ÿ
 	 */
 	public HashMap< Integer,Long>  getLevelSystem();
 }

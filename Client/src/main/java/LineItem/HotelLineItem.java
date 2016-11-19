@@ -2,8 +2,8 @@ package LineItem;
 
 import VO.HotelVO;
 /**
- * µ¥¸ö¾Æµê
- * @author Áõ×ÚÙ©
+ * å•ä¸ªé…’åº—
+ * @author åˆ˜å®—ä¾ƒ
  * @version 1.0
  */
 public class HotelLineItem {
@@ -11,25 +11,25 @@ public class HotelLineItem {
 	HotelVO hotelVO;
 	
 	/**
-	 * µ¥¸ö¾Æµê
-	 * @param h HotelĞÍ£¬´«Èë¾Æµê¶ÔÏó
-	 * @return µ¥¸ö¾Æµê
+	 * å•ä¸ªé…’åº—
+	 * @param h Hotelå‹ï¼Œä¼ å…¥é…’åº—å¯¹è±¡
+	 * @return å•ä¸ªé…’åº—
 	 */
 	public HotelLineItem (HotelVO hvo) {
 		hotelVO = hvo;
 	}
 	
 	/**
-	 * µ¥¸ö¾Æµê
-	 * @return ¾ÆµêÉÌÈ¦
+	 * å•ä¸ªé…’åº—
+	 * @return é…’åº—å•†åœˆ
 	 */
 	public String location () {
 		return hotelVO.hotelDistrict;	
 	}
 	
 	/**
-	 * µ¥¸ö¾Æµê
-	 * @return ¾ÆµêÃû³Æ
+	 * å•ä¸ªé…’åº—
+	 * @return é…’åº—åç§°
 	 */
 	public String name () {
 		return hotelVO.hotelName;	

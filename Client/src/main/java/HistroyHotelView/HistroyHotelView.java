@@ -64,7 +64,7 @@ public class HistroyHotelView extends JPanel {
 			controller.exit();
 			}
 		});
-		back.setFont(new Font("ËÎÌå", Font.PLAIN, 30));
+		back.setFont(new Font("ïž©ïž¬ïžª×•", Font.PLAIN, 30));
 		back.setBounds(10, 5, 150, 60);
 		panel.add(back);
 		
@@ -83,7 +83,7 @@ public class HistroyHotelView extends JPanel {
 		panel_1.setLayout(null);
 		
 		label = new JLabel("\u9152\u5E97\u540D\u79F0\uFF1A");
-		label.setFont(new Font("ËÎÌå", Font.PLAIN, 30));
+		label.setFont(new Font("ïž©ïž¬ïžª×•", Font.PLAIN, 30));
 		label.setBounds(23, 73, 155, 73);
 		panel_1.add(label);
 		
@@ -94,7 +94,7 @@ public class HistroyHotelView extends JPanel {
         name=new Vector<String>();
         name.addAll(controller.getHotelName(id));
 		list = new JList<String>(name);
-		list.setFont(new Font("ËÎÌå", Font.PLAIN, 30));
+		list.setFont(new Font("ïž©ïž¬ïžª×•", Font.PLAIN, 30));
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		list.addMouseListener(new MouseListener(){
 			@Override

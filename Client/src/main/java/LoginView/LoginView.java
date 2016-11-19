@@ -53,16 +53,16 @@ public class LoginView extends JPanel {
 		optionpannel.setLayout(null);
 		
 		comboBox = new JComboBox<String>();
-		comboBox.setFont(new Font("ËÎÌå", Font.PLAIN, 30));
+		comboBox.setFont(new Font("å®‹ä½“", Font.PLAIN, 30));
 		comboBox.setBounds(10, 20, 214, 60);
 		optionpannel.add(comboBox);
 		comboBox.setToolTipText("");
 		
 		List<String> list=new ArrayList<String>();
-		list.add("¿Í»§");
-		list.add("¾ÆµêÓªÏúÈËÔ±");
-		list.add("ÍøÕ¾ÓªÏúÈËÔ±");
-		list.add("ÍøÕ¾¹ÜÀíÈËÔ±");
+		list.add("å®¢æˆ·");
+		list.add("é…’åº—è¥é”€äººå‘˜");
+		list.add("ç½‘ç«™è¥é”€äººå‘˜");
+		list.add("ç½‘ç«™ç®¡ç†äººå‘˜");
 		for (String str : list) {
 			comboBox.addItem(str);
 		}
@@ -73,7 +73,7 @@ public class LoginView extends JPanel {
 					
 					String selected=(String)comboBox.getSelectedItem();
 					
-					//¸ü»»Êı¾İÔ´
+					//æ›´æ¢æ•°æ®æº
 					controller.updatemodel(selected);
 				}
 			}
@@ -90,22 +90,22 @@ public class LoginView extends JPanel {
 		admin.setBounds(92, 56, 150, 50);
 		loginpannel.add(admin);
 		admin.setForeground(new Color(0, 0, 0));
-		admin.setFont(new Font("ËÎÌå", Font.PLAIN, 30));
+		admin.setFont(new Font("å®‹ä½“", Font.PLAIN, 30));
 		
 		password = new JLabel(" \u5BC6\u7801 \uFF1A");
 		password.setBounds(92, 135, 150, 50);
 		loginpannel.add(password);
 		password.setForeground(Color.BLACK);
-		password.setFont(new Font("ËÎÌå", Font.PLAIN, 30));
+		password.setFont(new Font("å®‹ä½“", Font.PLAIN, 30));
 		
 		textField = new JTextField();
-		textField.setFont(new Font("ËÎÌå", Font.PLAIN, 30));
+		textField.setFont(new Font("å®‹ä½“", Font.PLAIN, 30));
 		textField.setBounds(269, 56, 238, 50);
 		loginpannel.add(textField);
 		textField.setColumns(10);
 		
 		passwordField = new JPasswordField();
-		passwordField.setFont(new Font("ËÎÌå", Font.PLAIN, 30));
+		passwordField.setFont(new Font("å®‹ä½“", Font.PLAIN, 30));
 		passwordField.setBounds(269, 135, 236, 50);
 		loginpannel.add(passwordField);
 		
@@ -113,13 +113,13 @@ public class LoginView extends JPanel {
 		login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(textField.getText().equals("")){
-					JOptionPane.showMessageDialog(null, "ÕËºÅÃÜÂëÊäÈëÓĞÎó£¡","", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "è´¦å·å¯†ç è¾“å…¥æœ‰è¯¯ï¼","", JOptionPane.ERROR_MESSAGE);
 					return;
 				}
 				controller.login(textField.getText(),String.valueOf(passwordField.getPassword()));
 			}
 		});
-		login.setFont(new Font("ËÎÌå", Font.PLAIN, 30));
+		login.setFont(new Font("å®‹ä½“", Font.PLAIN, 30));
 		login.setBounds(269, 219, 117, 56);
 		loginpannel.add(login);
 		
@@ -131,7 +131,7 @@ public class LoginView extends JPanel {
 				}
 			}
 		});
-		register.setFont(new Font("ËÎÌå", Font.PLAIN, 15));
+		register.setFont(new Font("å®‹ä½“", Font.PLAIN, 15));
 		register.setBounds(555, 113, 103, 44);
 		loginpannel.add(register);
 	}

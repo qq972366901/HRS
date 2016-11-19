@@ -48,19 +48,19 @@ public class WebPromotionStrategyView  extends JPanel{
 		this.validate();
 	}
 	private void initButton(){
-		back=new JButton("·µ»Ø");
+		back=new JButton("è¿”å›");
 		back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controller.toWebPromotionUserView();
 			}
 		});
-		add=new JButton("Ôö¼Ó²ßÂÔ");
+		add=new JButton("å¢åŠ ç­–ç•¥");
 		add.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controller.addButtonClicked();
 			}
 		});
-		del=new JButton("É¾³ı²ßÂÔ");
+		del=new JButton("åˆ é™¤ç­–ç•¥");
 		del.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controller.delButtonClicked();
@@ -79,14 +79,14 @@ public class WebPromotionStrategyView  extends JPanel{
 	private void initStrategyList(){
 		JScrollPane scrollPane = new JScrollPane();
 		Vector<String> vColumns = new Vector<String>();
-		vColumns.add("²ßÂÔ±àºÅ");
-		vColumns.add("²ßÂÔÃû³Æ");
-		vColumns.add("¿ªÊ¼Ê±¼ä");
-		vColumns.add("½áÊøÊ±¼ä");
-		vColumns.add("ÊÊÓÃ³ÇÊĞ");
-		vColumns.add("ÉÌÈ¦·¶Î§");
-		vColumns.add("ÊÊÓÃµÈ¼¶");
-		vColumns.add("ÕÛ¿Û");
+		vColumns.add("ç­–ç•¥ç¼–å·");
+		vColumns.add("ç­–ç•¥åç§°");
+		vColumns.add("å¼€å§‹æ—¶é—´");
+		vColumns.add("ç»“æŸæ—¶é—´");
+		vColumns.add("é€‚ç”¨åŸå¸‚");
+		vColumns.add("å•†åœˆèŒƒå›´");
+		vColumns.add("é€‚ç”¨ç­‰çº§");
+		vColumns.add("æŠ˜æ‰£");
 		Vector<PromotionVO> vData = new Vector<PromotionVO>();
 		vData.addAll(controller.getAllWebPromotion());
 		strategyListModel=new DefaultTableModel(vData, vColumns);
@@ -103,66 +103,66 @@ public class WebPromotionStrategyView  extends JPanel{
 	}
 	public void addButtonClicked() {
 		// TODO Auto-generated method stub
-		addFrame = new JFrame("Ôö¼Ó²ßÂÔ");
+		addFrame = new JFrame("å¢åŠ ç­–ç•¥");
 		addFrame.setSize(1000, 700);
 		addFrame.setLocation(10, 10);	
 		addPanel = new JPanel();
 		addPanel.setLayout(new BoxLayout(addPanel,BoxLayout.Y_AXIS));
 		JPanel p1=new JPanel();
 		p1.setLayout(new FlowLayout(FlowLayout.CENTER));
-		JLabel name=new JLabel("²ßÂÔÃû³Æ£º");
+		JLabel name=new JLabel("ç­–ç•¥åç§°ï¼š");
 		JTextField nametext=new JTextField(10);
 		p1.add(name);
 		p1.add(nametext);
 		addPanel.add(p1);
 		JPanel p2=new JPanel();
 		p2.setLayout(new FlowLayout(FlowLayout.CENTER));
-		JLabel begin=new JLabel("¿ªÊ¼Ê±¼ä£º");
+		JLabel begin=new JLabel("å¼€å§‹æ—¶é—´ï¼š");
 		JTextField begintext=new JTextField(10);
 		p2.add(begin);
 		p2.add(begintext);
 		addPanel.add(p2);
 		JPanel p3=new JPanel();
 		p3.setLayout(new FlowLayout(FlowLayout.CENTER));
-		JLabel end=new JLabel("½áÊøÊ±¼ä£º");
+		JLabel end=new JLabel("ç»“æŸæ—¶é—´ï¼š");
 		JTextField endtext=new JTextField(10);
 		p3.add(end);
 		p3.add(endtext);
 		addPanel.add(p3);
 		JPanel p4=new JPanel();
 		p4.setLayout(new FlowLayout(FlowLayout.CENTER));
-		JLabel city=new JLabel("ÊÊÓÃ³ÇÊĞ£º");
+		JLabel city=new JLabel("é€‚ç”¨åŸå¸‚ï¼š");
 		JComboBox<String> citylist=new JComboBox<String>();
 		p4.add(city);
 		p4.add(citylist);
 		addPanel.add(p4);
 		JPanel p5=new JPanel();
 		p5.setLayout(new FlowLayout(FlowLayout.CENTER));
-		JLabel circle=new JLabel("ÉÌÈ¦·¶Î§£º");
+		JLabel circle=new JLabel("å•†åœˆèŒƒå›´ï¼š");
 		JComboBox<String> circlelist=new JComboBox<String>();
 		p5.add(circle);
 		p5.add(circlelist);
 		addPanel.add(p5);
 		JPanel p6=new JPanel();
 		p6.setLayout(new FlowLayout(FlowLayout.CENTER));
-		JLabel level=new JLabel("ÊÊÓÃµÈ¼¶£º");
+		JLabel level=new JLabel("é€‚ç”¨ç­‰çº§ï¼š");
 		JComboBox<Integer> levellist=new JComboBox<Integer>();
 		p6.add(level);
 		p6.add(levellist);
 		addPanel.add(p6);
 		JPanel p7=new JPanel();
 		p7.setLayout(new FlowLayout(FlowLayout.CENTER));
-		JLabel discount=new JLabel("ÕÛ¿Û£º");
+		JLabel discount=new JLabel("æŠ˜æ‰£ï¼š");
 		JComboBox<Double> discountlist=new JComboBox<Double>();
 		p7.add(discount);
 		p7.add(discountlist);
 		addPanel.add(p7);
 		JPanel p8=new JPanel();
 		p8.setLayout(new FlowLayout(FlowLayout.CENTER));
-		JButton contin=new JButton("¼ÌĞø");
+		JButton contin=new JButton("ç»§ç»­");
 		contin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//»ñÈ¡ÌîÈëµÄĞÅÏ¢£¬´ı²¹³ä
+				//è·å–å¡«å…¥çš„ä¿¡æ¯ï¼Œå¾…è¡¥å……
 				boolean beginIsValid=timeIsValid(begintext.getText());
 				boolean endIsValid=timeIsValid(endtext.getText());
 				if(beginIsValid&&endIsValid){
@@ -178,7 +178,7 @@ public class WebPromotionStrategyView  extends JPanel{
 				discountlist.setSelectedIndex(0);
 			}
 		});
-		JButton confir=new JButton("È·¶¨");
+		JButton confir=new JButton("ç¡®å®š");
 		confir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				for(int i=0;i<promotionArray.size();i++){
@@ -197,7 +197,7 @@ public class WebPromotionStrategyView  extends JPanel{
 		try {
 			Date date = sdf.parse(time);
 		} catch (ParseException e) {
-			JOptionPane.showMessageDialog(null, "Çë°´¸ñÊ½£¨yyyy/MM/dd HH:mm:ss£©ÌîĞ´Ê±¼ä£¡","", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "è¯·æŒ‰æ ¼å¼ï¼ˆyyyy/MM/dd HH:mm:ssï¼‰å¡«å†™æ—¶é—´ï¼","", JOptionPane.ERROR_MESSAGE);
 			return false;
 		}
 		return true;
@@ -206,7 +206,7 @@ public class WebPromotionStrategyView  extends JPanel{
 		// TODO Auto-generated method stub
 		int index = strategyTable.getSelectedRow();
 		if(index == -1){
-			JOptionPane.showMessageDialog(null, "ÇëÑ¡Ôñ²ßÂÔ£¡","", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "è¯·é€‰æ‹©ç­–ç•¥ï¼","", JOptionPane.ERROR_MESSAGE);
 			return;
 		}
 		final int rowIndex = index;

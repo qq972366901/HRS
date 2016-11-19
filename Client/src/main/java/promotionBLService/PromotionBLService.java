@@ -5,58 +5,58 @@ import common.*;
 import Object.*;
 
 /**
- * ¸ºÔğÊµÏÖÓªÏú²ßÂÔ½çÃæËùĞèÒªµÄ·şÎñ½Ó¿Ú  
- * @author ÁõÓîÏè
+ * è´Ÿè´£å®ç°è¥é”€ç­–ç•¥ç•Œé¢æ‰€éœ€è¦çš„æœåŠ¡æ¥å£  
+ * @author åˆ˜å®‡ç¿”
  * @version 1.0
  * @see presentation.Promotion
  */
 
 public interface PromotionBLService {
     /**
-     * Ìí¼ÓÒ»ÖÖĞÂµÄ¾ÆµêÓªÏú²ßÂÔ£¬²¢¹«²¼
+     * æ·»åŠ ä¸€ç§æ–°çš„é…’åº—è¥é”€ç­–ç•¥ï¼Œå¹¶å…¬å¸ƒ
      * 
-     * @param vo PromotionVOĞÍ£¬½çÃæÊäÈëµÄÓªÏú²ßÂÔ
-     * @return ·µ»ØResultMessageÃ¶¾ÙÖµÖĞµÄÒ»Ïî
+     * @param vo PromotionVOå‹ï¼Œç•Œé¢è¾“å…¥çš„è¥é”€ç­–ç•¥
+     * @return è¿”å›ResultMessageæšä¸¾å€¼ä¸­çš„ä¸€é¡¹
      * @see bussinesslogic.Promotion
      */
 	public ResultMessage madebyhotel (PromotionVO vo);
 	
 	
 	/**
-     * Ìí¼ÓÒ»ÖÖĞÂµÄÍøÕ¾ÓªÏú²ßÂÔ£¬²¢¹«²¼
+     * æ·»åŠ ä¸€ç§æ–°çš„ç½‘ç«™è¥é”€ç­–ç•¥ï¼Œå¹¶å…¬å¸ƒ
      * 
-     * @param vo PromotionVOĞÍ£¬½çÃæÊäÈëµÄÓªÏú²ßÂÔ
-     * @return ·µ»ØResultMessageÃ¶¾ÙÖµÖĞµÄÒ»Ïî
+     * @param vo PromotionVOå‹ï¼Œç•Œé¢è¾“å…¥çš„è¥é”€ç­–ç•¥
+     * @return è¿”å›ResultMessageæšä¸¾å€¼ä¸­çš„ä¸€é¡¹
      * @see bussinesslogic.Promotion
      */
 	public ResultMessage madebyweb (PromotionVO vo ); 
 
 	
 	/**
-     * ±ê¼Ç»áÔ±µÈ¼¶±ê×¼
+     * æ ‡è®°ä¼šå‘˜ç­‰çº§æ ‡å‡†
      * 
-     * @param vo PromotionVOĞÍ£¬½çÃæÊäÈëµÄ»áÔ±µÈ¼¶±ê×¢
-     * @return ·µ»ØResultMessageÃ¶¾ÙÖµÖĞµÄÒ»Ïî
+     * @param vo PromotionVOå‹ï¼Œç•Œé¢è¾“å…¥çš„ä¼šå‘˜ç­‰çº§æ ‡æ³¨
+     * @return è¿”å›ResultMessageæšä¸¾å€¼ä¸­çš„ä¸€é¡¹
      * @see bussinesslogic.Promotion
      */
 	public ResultMessage memberlevelmade(PromotionVO vo);
 
 	
 	/**
-     * È¡ÏûÒ»¸ö¶©µ¥
+     * å–æ¶ˆä¸€ä¸ªè®¢å•
      * 
-     * @param promotion PromotionĞÍ£¬ĞèÒªÈ¡ÏûµÄ¶©µ¥
-     * @return È¡Ïû³É¹¦Ôò·µ»Øtrue£¬·ñÔò·µ»Øtrue
+     * @param promotion Promotionå‹ï¼Œéœ€è¦å–æ¶ˆçš„è®¢å•
+     * @return å–æ¶ˆæˆåŠŸåˆ™è¿”å›trueï¼Œå¦åˆ™è¿”å›true
      * @see bussinesslogic.Promotion
      */
 	public boolean cancel(Promotion promotion);
 	
 	
 	/**
-     * ÏÔÊ¾ËùÓĞÄÜÓÃµÄÓªÏú²ßÂÔ
+     * æ˜¾ç¤ºæ‰€æœ‰èƒ½ç”¨çš„è¥é”€ç­–ç•¥
      * 
-     * @param userID StringĞÍ£¬¿Í»§µÄID
-     * @return ArrayList<PromotionVO>£¬Ò»¸öÓªÏú²ßÂÔÖµ¶ÔÏóµÄÁĞ±í
+     * @param userID Stringå‹ï¼Œå®¢æˆ·çš„ID
+     * @return ArrayList<PromotionVO>ï¼Œä¸€ä¸ªè¥é”€ç­–ç•¥å€¼å¯¹è±¡çš„åˆ—è¡¨
      * @see bussinesslogic.Promotion
      */
 	public ArrayList<PromotionVO> getPromotion(String userID);

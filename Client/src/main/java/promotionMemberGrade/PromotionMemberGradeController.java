@@ -6,10 +6,10 @@ import VO.PromotionVO;
 import promotionBLService.PromotionBLService_realize;
 public class PromotionMemberGradeController extends PromotionBLService_realize{	
 	/**
-     * È¡ÏûÒ»¸ö¶©µ¥
+     * å–æ¶ˆä¸€ä¸ªè®¢å•
      * 
-     * @param promotion PromotionĞÍ£¬ĞèÒªÈ¡ÏûµÄ¶©µ¥
-     * @return È¡Ïû³É¹¦Ôò·µ»Øtrue£¬·ñÔò·µ»Øtrue
+     * @param promotion Promotionå‹ï¼Œéœ€è¦å–æ¶ˆçš„è®¢å•
+     * @return å–æ¶ˆæˆåŠŸåˆ™è¿”å›trueï¼Œå¦åˆ™è¿”å›true
      * @see bussinesslogic.Promotion
      */
 	public boolean cancel(Promotion promotion) {
@@ -18,10 +18,10 @@ public class PromotionMemberGradeController extends PromotionBLService_realize{
 	
 	
 	/**
-     * ÏÔÊ¾ËùÓĞÄÜÓÃµÄÓªÏú²ßÂÔ
+     * æ˜¾ç¤ºæ‰€æœ‰èƒ½ç”¨çš„è¥é”€ç­–ç•¥
      * 
-     * @param userID StringĞÍ£¬¿Í»§µÄID
-     * @return ArrayList<PromotionVO>£¬Ò»¸öÓªÏú²ßÂÔÖµ¶ÔÏóµÄÁĞ±í
+     * @param userID Stringå‹ï¼Œå®¢æˆ·çš„ID
+     * @return ArrayList<PromotionVO>ï¼Œä¸€ä¸ªè¥é”€ç­–ç•¥å€¼å¯¹è±¡çš„åˆ—è¡¨
      * @see bussinesslogic.Promotion
      */
 	public ArrayList<PromotionVO> getPromotion(String userID) {

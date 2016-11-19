@@ -52,7 +52,7 @@ public class HotelorderlistView extends JPanel {
 			controller.exit();
 			}
 		});
-		back.setFont(new Font("ËÎÌå", Font.PLAIN, 30));
+		back.setFont(new Font("å®‹ä½“", Font.PLAIN, 30));
 		back.setBounds(10, 5, 150, 60);
 		panel.add(back);
 	}
@@ -63,29 +63,29 @@ public class HotelorderlistView extends JPanel {
 		panel_1.setLayout(null);
 		
 		label = new JLabel("\u9152\u5E97\u540D\u79F0\uFF1A");
-		label.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 30));
+		label.setFont(new Font("å¾®è½¯é›…é»‘", Font.PLAIN, 30));
 		label.setBounds(22, 37, 180, 64);
 		panel_1.add(label);
 		
 		hotelname = new JLabel("");
 		hotelname.setText("");
-		hotelname.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 30));
+		hotelname.setFont(new Font("å¾®è½¯é›…é»‘", Font.PLAIN, 30));
 		hotelname.setBounds(227, 37, 180, 64);
 		panel_1.add(hotelname);
 		
 		Vector<OrderVO> Data=new Vector<OrderVO>();
 		//Data.addAll(controller.getOrderList());
 		Vector<String> Columns=new Vector<String>();
-		Columns.add("¶©µ¥ºÅ");
-		Columns.add("¶©µ¥×´Ì¬");
-		Columns.add("¿Í»§Ãû³Æ");
-		Columns.add("¿Í»§ÁªÏµ·½Ê½");
-		Columns.add("Èë×¡ÈËÊı");
-		Columns.add("¼ÛÖµ");
-		Columns.add("·¿¼äÏêÇé");
-		Columns.add("·¿¼äÊıÁ¿");
-		Columns.add("Èë×¡Ê±¼ä");
-		Columns.add("×îÍíÖ´ĞĞÊ±¼ä");
+		Columns.add("è®¢å•å·");
+		Columns.add("è®¢å•çŠ¶æ€");
+		Columns.add("å®¢æˆ·åç§°");
+		Columns.add("å®¢æˆ·è”ç³»æ–¹å¼");
+		Columns.add("å…¥ä½äººæ•°");
+		Columns.add("ä»·å€¼");
+		Columns.add("æˆ¿é—´è¯¦æƒ…");
+		Columns.add("æˆ¿é—´æ•°é‡");
+		Columns.add("å…¥ä½æ—¶é—´");
+		Columns.add("æœ€æ™šæ‰§è¡Œæ—¶é—´");
 		table = new JTable(Data,Columns){
 			private static final long serialVersionUID = 1L;
 
@@ -93,7 +93,7 @@ public class HotelorderlistView extends JPanel {
 				return false;
 			}
 		};
-		table.setFont(new Font("ËÎÌå", Font.PLAIN, 15));
+		table.setFont(new Font("å®‹ä½“", Font.PLAIN, 15));
 		scrollPane = new JScrollPane();
 		scrollPane.setViewportView(table);
 		scrollPane.setEnabled(false);

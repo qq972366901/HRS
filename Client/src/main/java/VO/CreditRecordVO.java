@@ -1,8 +1,8 @@
 package VO;
 import Object.CreditRecord;
 /**
- * ĞÅÓÃ¼ÇÂ¼µÄÊôĞÔ¼°Êı¾İ´´½¨Óë¸üĞÂ
- * @author Áõ×ÚÙ©
+ * ä¿¡ç”¨è®°å½•çš„å±æ€§åŠæ•°æ®åˆ›å»ºä¸æ›´æ–°
+ * @author åˆ˜å®—ä¾ƒ
  * @version 1.0
  * @see Object.CreditRecord
  */
@@ -25,9 +25,9 @@ public class CreditRecordVO extends VO {
 	}
 
 	/**
-     * ¸üĞÂĞÅÓÃ¼ÇÂ¼ĞÅÏ¢
+     * æ›´æ–°ä¿¡ç”¨è®°å½•ä¿¡æ¯
      * 
-     * @param creRco CreditRecordĞÍ£¬Ò»¸öÓÃÀ´¸üĞÂÊı¾İµÄĞÅÓÃ¼ÇÂ¼¶ÔÏó
+     * @param creRco CreditRecordå‹ï¼Œä¸€ä¸ªç”¨æ¥æ›´æ–°æ•°æ®çš„ä¿¡ç”¨è®°å½•å¯¹è±¡
      * @return 
      * @see Object.CreditRecord
      */
@@ -36,9 +36,9 @@ public class CreditRecordVO extends VO {
 	}
 	
 	/**
-     * ´´½¨ĞÅÓÃ¼ÇÂ¼¶ÔÏó
+     * åˆ›å»ºä¿¡ç”¨è®°å½•å¯¹è±¡
      * 
-     * @return Ò»¸öĞÂÓÃ»§µÄĞÅÓÃ¼ÇÂ¼
+     * @return ä¸€ä¸ªæ–°ç”¨æˆ·çš„ä¿¡ç”¨è®°å½•
      * @see Object.CreditRecord
      */
 	public CreditRecord makeCreditRecord() {

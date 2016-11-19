@@ -1,6 +1,6 @@
 package common;
 /**
- * 枚举出返回信息的种类
+ * 鏋氫妇鍑鸿繑鍥炰俊鎭殑绉嶇被
  * @author LZ
  * @version 1.0
  * @see

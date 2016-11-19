@@ -32,7 +32,7 @@ public class OrderBuildView extends JPanel{
 	private void initButton() {
 		JPanel panel= new JPanel();
 		panel.setLayout(new FlowLayout(FlowLayout.RIGHT));
-		button1=new JButton("·µ»Ø");
+		button1=new JButton("è¿”å›");
 		panel.add(button1);
 		this.add(panel);
 		button1.addActionListener(new ActionListener() {			
@@ -42,22 +42,22 @@ public class OrderBuildView extends JPanel{
 		});
 		JPanel panel1 = new JPanel();
 		panel1.setLayout(new FlowLayout(FlowLayout.CENTER));
-		label1=new JLabel("¿ªÊ¼Ê±¼ä");
+		label1=new JLabel("å¼€å§‹æ—¶é—´");
 		comboBox1= new JComboBox<Integer>();
 		for(int i=2016;i<2018;i++){
 		    comboBox1.addItem(i);
 			}
-		label2=new JLabel("Äê");
+		label2=new JLabel("å¹´");
 		comboBox2= new JComboBox<Integer>();
 		for(int i=1;i<13;i++){
 		    comboBox2.addItem(i);
 			}
-		label3=new JLabel("ÔÂ");
+		label3=new JLabel("æœˆ");
 		comboBox3= new JComboBox<Integer>();
 		for(int i=1;i<32;i++){
 		    comboBox3.addItem(i);
 			}
-		label4=new JLabel("ÈÕ");
+		label4=new JLabel("æ—¥");
 		panel1.add(label1);
 		panel1.add(comboBox1);
 		panel1.add(label2);
@@ -68,22 +68,22 @@ public class OrderBuildView extends JPanel{
 		this.add(panel1);
 		JPanel panel2 = new JPanel();
 		panel2.setLayout(new FlowLayout(FlowLayout.CENTER));
-		label5=new JLabel("ÍË·¿Ê±¼ä");
+		label5=new JLabel("é€€æˆ¿æ—¶é—´");
 		comboBox4= new JComboBox<Integer>();
 		for(int i=2016;i<2018;i++){
 		    comboBox4.addItem(i);
 			}
-		label6=new JLabel("Äê");
+		label6=new JLabel("å¹´");
 		comboBox5= new JComboBox<Integer>();
 		for(int i=1;i<13;i++){
 		    comboBox5.addItem(i);
 			}
-		label7=new JLabel("ÔÂ");
+		label7=new JLabel("æœˆ");
 		comboBox6= new JComboBox<Integer>();		
 		for(int i=1;i<32;i++){
 		    comboBox6.addItem(i);
 			}
-		label8=new JLabel("ÈÕ");
+		label8=new JLabel("æ—¥");
 		panel2.add(label5);
 		panel2.add(comboBox4);
 		panel2.add(label6);
@@ -94,22 +94,22 @@ public class OrderBuildView extends JPanel{
 		this.add(panel2);
 		JPanel panel3 = new JPanel();
 		panel3.setLayout(new FlowLayout(FlowLayout.CENTER));
-		label9=new JLabel("×îÍí¶©µ¥Ö´ĞĞÊ±¼ä");
+		label9=new JLabel("æœ€æ™šè®¢å•æ‰§è¡Œæ—¶é—´");
 		comboBox7= new JComboBox<Integer>();
 		for(int i=2016;i<2018;i++){
 		    comboBox7.addItem(i);
 			}
-		label10=new JLabel("Äê");
+		label10=new JLabel("å¹´");
 		comboBox8= new JComboBox<Integer>();
 		for(int i=1;i<13;i++){
 		    comboBox8.addItem(i);
 			}
-		label11=new JLabel("ÔÂ");
+		label11=new JLabel("æœˆ");
 		comboBox9= new JComboBox<Integer>();		
 		for(int i=1;i<32;i++){
 		    comboBox9.addItem(i);
 			}
-		label12=new JLabel("ÈÕ");
+		label12=new JLabel("æ—¥");
 		panel3.add(label9);
 		panel3.add(comboBox7);
 		panel3.add(label10);
@@ -120,14 +120,14 @@ public class OrderBuildView extends JPanel{
 		this.add(panel3);
 		JPanel panel4 = new JPanel();
 		panel4.setLayout(new FlowLayout(FlowLayout.CENTER));
-		label13=new JLabel("·¿¼äÀàĞÍ");
+		label13=new JLabel("æˆ¿é—´ç±»å‹");
 		comboBox10= new JComboBox<String>();
 		panel4.add(label13);
 		panel4.add(comboBox10);
 		this.add(panel4);
 		JPanel panel5 = new JPanel();
 		panel5.setLayout(new FlowLayout(FlowLayout.CENTER));
-		label14=new JLabel("·¿¼äÊıÁ¿");
+		label14=new JLabel("æˆ¿é—´æ•°é‡");
 		comboBox11= new JComboBox<Integer>();
 		for(int i=1;i<101;i++){
 		    comboBox11.addItem(i);
@@ -137,7 +137,7 @@ public class OrderBuildView extends JPanel{
 		this.add(panel5);
 		JPanel panel6 = new JPanel();
 		panel6.setLayout(new FlowLayout(FlowLayout.CENTER));
-		label15=new JLabel("Ô¤¼ÆÈë×¡ÈËÊı");
+		label15=new JLabel("é¢„è®¡å…¥ä½äººæ•°");
 		comboBox12= new JComboBox<Integer>();
 		for(int i=1;i<101;i++){
 		    comboBox12.addItem(i);
@@ -147,21 +147,21 @@ public class OrderBuildView extends JPanel{
 		this.add(panel6);
 		JPanel panel7 = new JPanel();
 		panel7.setLayout(new FlowLayout(FlowLayout.CENTER));
-		label16=new JLabel("ÓĞÎŞ¶ùÍ¯");
+		label16=new JLabel("æœ‰æ— å„¿ç«¥");
 		comboBox13= new JComboBox<String>();
-		comboBox13.addItem("ÎŞ");
-		comboBox13.addItem("ÓĞ");
+		comboBox13.addItem("æ— ");
+		comboBox13.addItem("æœ‰");
 		panel7.add(label16);
 		panel7.add(comboBox13);
 		this.add(panel7);
 		JPanel panel8 = new JPanel();
 		panel8.setLayout(new FlowLayout(FlowLayout.CENTER));
-		label17=new JLabel("×Ü¼Û          Ôª");
+		label17=new JLabel("æ€»ä»·          å…ƒ");
 		panel8.add(label17);
 		this.add(panel8);
 		JPanel panel9 = new JPanel();
 		panel9.setLayout(new FlowLayout(FlowLayout.CENTER));
-		button2=new JButton("Ìá½»¶©µ¥");
+		button2=new JButton("æäº¤è®¢å•");
 		panel9.add(button2);
 		this.add(panel9);
 		button2.addActionListener(new ActionListener() {			
@@ -174,12 +174,12 @@ public class OrderBuildView extends JPanel{
 				frame.getContentPane().add(panel);
 				JPanel panel1= new JPanel();
 				panel1.setLayout(new FlowLayout(FlowLayout.CENTER));
-				JLabel label = new JLabel("Ìá½»³É¹¦£¡");
+				JLabel label = new JLabel("æäº¤æˆåŠŸï¼");
 				panel1.add(label);
 				panel.add(panel1);
 				JPanel panel2= new JPanel();
 				panel2.setLayout(new FlowLayout(FlowLayout.CENTER));
-				JButton button = new JButton("È·¶¨");
+				JButton button = new JButton("ç¡®å®š");
 				panel2.add(button);
 				panel.add(panel2);
 				button.addActionListener(new ActionListener() {			

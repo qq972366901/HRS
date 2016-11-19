@@ -36,7 +36,7 @@ public class AdminRoomView extends JPanel {
 		this.add(backPanel, BorderLayout.NORTH);
 		backPanel.setLayout(new BorderLayout(0, 0));
 		
-		backButton = new JButton("返回");
+		backButton = new JButton("杩斿洖");
 		backPanel.add(backButton, BorderLayout.EAST);
 		backButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
@@ -65,7 +65,7 @@ public class AdminRoomView extends JPanel {
 		choosePanel_0.add(choosePanel_1);
 		choosePanel_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		inputRoomButton = new JButton("录入客房信息");
+		inputRoomButton = new JButton("褰曞叆瀹㈡埧淇℃伅");
 		choosePanel_1.add(inputRoomButton);
 		inputRoomButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
@@ -76,7 +76,7 @@ public class AdminRoomView extends JPanel {
 		JPanel choosePanel_2 = new JPanel();
 		choosePanel_0.add(choosePanel_2);
 		
-		updateRoomButton = new JButton("更新房间信息");
+		updateRoomButton = new JButton("鏇存柊鎴块棿淇℃伅");
 		choosePanel_2.add(updateRoomButton);
 		updateRoomButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {

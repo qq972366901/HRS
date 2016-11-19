@@ -5,7 +5,7 @@ import java.rmi.RemoteException;
 
 import PO.PromotionPO;
 /**
- * Ö°ÔğÊÇ½«Âß¼­²ãÃæ·¢À´µÄÇëÇó×ª·¢¸øºóÌ¨PromotionData´¦Àí
+ * èŒè´£æ˜¯å°†é€»è¾‘å±‚é¢å‘æ¥çš„è¯·æ±‚è½¬å‘ç»™åå°PromotionDataå¤„ç†
  * @author LZ
  * @version 1.0
  * @see businesslogic.Promotion
@@ -16,9 +16,9 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
 	 */
 	private static final long serialVersionUID = 1L;
 	/**
-	 * °´ID½øĞĞ²éÕÒ·µ»ØÏàÓ¦µÄPromotionPO½á¹û
-	 * @param id String ĞÍ£¬Âß¼­²ã´«À´µÄ²ßÂÔ±àºÅ
-	 * @return ·µ»ØÕÒµ½µÄPOÊµÌå
+	 * æŒ‰IDè¿›è¡ŒæŸ¥æ‰¾è¿”å›ç›¸åº”çš„PromotionPOç»“æœ
+	 * @param id String å‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„ç­–ç•¥ç¼–å·
+	 * @return è¿”å›æ‰¾åˆ°çš„POå®ä½“
 	 * @throws RemoteException
 	 * @see PO.PromotionPO
 	 */
@@ -28,8 +28,8 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
 		return null;
 	}
 	/**
-	 * ÔÚÊı¾İ¿âÖĞÔö¼ÓÒ»¸öpoÊµÌå
-	 * @param po PromotionPOĞÍ£¬Âß¼­²ã´«À´µÄPOÊµÌå
+	 * åœ¨æ•°æ®åº“ä¸­å¢åŠ ä¸€ä¸ªpoå®ä½“
+	 * @param po PromotionPOå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„POå®ä½“
 	 * @return
 	 * @throws RemoteException
 	 * @see PO.PromotionPO
@@ -40,8 +40,8 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
 		
 	}
 	/**
-	 * ÔÚÊı¾İ¿âÖĞÉ¾³ıÒ»¸öpo
-	 * @param po PromotionPOĞÍ£¬Âß¼­²ã´«À´µÄPOÊµÌå
+	 * åœ¨æ•°æ®åº“ä¸­åˆ é™¤ä¸€ä¸ªpo
+	 * @param po PromotionPOå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„POå®ä½“
 	 * @return
 	 * @throws RemoteException
 	 * @see PO.PromotionPO
@@ -52,8 +52,8 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
 		
 	}
 	/**
-	 * ÔÚÊı¾İ¿âÖĞ¸úĞÂÒ»¸öpo
-	 * @param po PromotionPOĞÍ£¬Âß¼­²ã´«À´µÄPOÊµÌå
+	 * åœ¨æ•°æ®åº“ä¸­è·Ÿæ–°ä¸€ä¸ªpo
+	 * @param po PromotionPOå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„POå®ä½“
 	 * @return
 	 * @throws RemoteException
 	 * @see PO.PromotionPO
@@ -64,7 +64,7 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
 		
 	}
 	/**
-	 * °´³õÊ¼»¯³Ö¾Ã»¯Êı¾İ¿â
+	 * æŒ‰åˆå§‹åŒ–æŒä¹…åŒ–æ•°æ®åº“
 	 * @param
 	 * @return
 	 * @throws RemoteException
@@ -76,7 +76,7 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
 		
 	}
 	/**
-	 * ½áÊø³Ö¾Ã»¯Êı¾İ¿âµÄÊ¹ÓÃ
+	 * ç»“æŸæŒä¹…åŒ–æ•°æ®åº“çš„ä½¿ç”¨
 	 * @param
 	 * @return
 	 * @throws RemoteException

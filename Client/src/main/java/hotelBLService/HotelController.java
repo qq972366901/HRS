@@ -11,10 +11,10 @@ import common.ResultMessage;
 
 public class HotelController implements HotelBLService {
 	/**
-     * ¸ù¾İµØÖ·ºÍÉÌÈ¦»ñµÃ·¶Î§ÄÚµÄ¾ÆµêĞÅÏ¢
+     * æ ¹æ®åœ°å€å’Œå•†åœˆè·å¾—èŒƒå›´å†…çš„é…’åº—ä¿¡æ¯
      * 
-     * @param hvo HotelVOĞÍ£¬½çÃæ´«µİÀ´µÄhotelÖµ¶ÔÏó
-     * @return ·µ»ØResultMessageÃ¶¾ÙÖµÖĞµÄÒ»Ïî
+     * @param hvo HotelVOå‹ï¼Œç•Œé¢ä¼ é€’æ¥çš„hotelå€¼å¯¹è±¡
+     * @return è¿”å›ResultMessageæšä¸¾å€¼ä¸­çš„ä¸€é¡¹
      * @see bussinesslogic.Hotel
      */
 	public ResultMessage messagelook(HotelVO hvo){
@@ -23,10 +23,10 @@ public class HotelController implements HotelBLService {
 	
 	
 	/**
-     * ¸ù¾İÊäÈëµÄÌõ¼ş·µ»Ø·ûºÏµÄ¾ÆµêÁĞ±í
+     * æ ¹æ®è¾“å…¥çš„æ¡ä»¶è¿”å›ç¬¦åˆçš„é…’åº—åˆ—è¡¨
      * 
-     * @param in MessageInputĞÍ£¬½çÃæÊäÈëµÄÌõ¼ş
-     * @return ·µ»ØHotelVOµÄÒ»¸öÁĞ±í
+     * @param in MessageInputå‹ï¼Œç•Œé¢è¾“å…¥çš„æ¡ä»¶
+     * @return è¿”å›HotelVOçš„ä¸€ä¸ªåˆ—è¡¨
      * @see bussinesslogic.Hotel 
      */
 	public ArrayList<HotelVO> messagesearch(MessageInput in){
@@ -35,10 +35,10 @@ public class HotelController implements HotelBLService {
 	
 	
 	/**
-     * ²éÕÒÓÃ»§µÄÀúÊ·¶©µ¥µÄ¾Æµê²¢·µ»ØÀúÊ·¾ÆµêÁĞ±í
+     * æŸ¥æ‰¾ç”¨æˆ·çš„å†å²è®¢å•çš„é…’åº—å¹¶è¿”å›å†å²é…’åº—åˆ—è¡¨
      * 
-     * @param id StringĞÍ£¬¿Í»§id
-     * @return ·µ»ØHotelVOµÄÒ»¸öÁĞ±í
+     * @param id Stringå‹ï¼Œå®¢æˆ·id
+     * @return è¿”å›HotelVOçš„ä¸€ä¸ªåˆ—è¡¨
      * @see bussinesslogic.Hotel
      */
 	public  ArrayList<HotelVO> historylook(String  id){
@@ -47,10 +47,10 @@ public class HotelController implements HotelBLService {
 	
 	
 	/**
-     * Î¬»¤¾ÆµêµÄ»ù±¾ĞÅÏ¢£¬¸üĞÂ¾ÆµêÊı¾İ
+     * ç»´æŠ¤é…’åº—çš„åŸºæœ¬ä¿¡æ¯ï¼Œæ›´æ–°é…’åº—æ•°æ®
      * 
-     * @param in MessageInputĞÍ£¬½çÃæÊäÈëµÄĞŞ¸ÄĞÅÏ¢
-     * @return ·µ»ØResultMessageÃ¶¾ÙÖµÖĞµÄÒ»Ïî
+     * @param in MessageInputå‹ï¼Œç•Œé¢è¾“å…¥çš„ä¿®æ”¹ä¿¡æ¯
+     * @return è¿”å›ResultMessageæšä¸¾å€¼ä¸­çš„ä¸€é¡¹
      * @see bussinesslogic.Hotel
      */
 	public ResultMessage messagemaintain(MessageInput  in){
@@ -59,10 +59,10 @@ public class HotelController implements HotelBLService {
 	
 	
 	/**
-     * Ôö¼Ó¾ÆµêÕËºÅÃû³Æ²¢ÇÒ´´½¨Ò»¸ö¸Ã¾Æµê¹¤×÷ÈËÔ±µÄÕËºÅ
+     * å¢åŠ é…’åº—è´¦å·åç§°å¹¶ä¸”åˆ›å»ºä¸€ä¸ªè¯¥é…’åº—å·¥ä½œäººå‘˜çš„è´¦å·
      * 
-     * @param in MessageInputĞÍ£¬½çÃæÊäÈëµÄ¾ÆµêÏà¹ØĞÅÏ¢
-     * @return ·µ»ØResultMessageÃ¶¾ÙÖµÖĞµÄÒ»Ïî
+     * @param in MessageInputå‹ï¼Œç•Œé¢è¾“å…¥çš„é…’åº—ç›¸å…³ä¿¡æ¯
+     * @return è¿”å›ResultMessageæšä¸¾å€¼ä¸­çš„ä¸€é¡¹
      * @see bussinesslogic.Hotel
      */
 	public ResultMessage accuntadmin(MessageInput  in){
@@ -71,10 +71,10 @@ public class HotelController implements HotelBLService {
 	
 	
 	/**
-     * Ôö¼Ó¸Ã¾ÆµêµÄÆÀ·Ö¼ÇÂ¼£¬¸üĞÂÆÀ·ÖµÄ¾ùÖµ
+     * å¢åŠ è¯¥é…’åº—çš„è¯„åˆ†è®°å½•ï¼Œæ›´æ–°è¯„åˆ†çš„å‡å€¼
      * 
-     * @param socre intĞÍ£¬ÓÃ»§¶Ô¾Æµê×÷³öµÄÆÀ·Ö
-     * @return booleanĞÍ£¬¸üĞÂ³É¹¦Ôò·µ»Øtrue£¬·ñÔò·µ»Øfalse
+     * @param socre intå‹ï¼Œç”¨æˆ·å¯¹é…’åº—ä½œå‡ºçš„è¯„åˆ†
+     * @return booleanå‹ï¼Œæ›´æ–°æˆåŠŸåˆ™è¿”å›trueï¼Œå¦åˆ™è¿”å›false
      * @see bussinesslogic.Hotel
      */
 	public boolean setscore(int  score){
@@ -82,10 +82,10 @@ public class HotelController implements HotelBLService {
 	}
 	
 	/**
-     * Ôö¼Ó¸Ã¾ÆµêÏÂµÄÆÀ¼Û¼ÇÂ¼
+     * å¢åŠ è¯¥é…’åº—ä¸‹çš„è¯„ä»·è®°å½•
      * 
-     * @param cooment StringĞÍ£¬ÓÃ»§¶Ô¾Æµê×÷³öµÄÆÀ¼Û
-     * @return booleanĞÍ£¬¸üĞÂ³É¹¦Ôò·µ»Øtrue£¬·ñÔò·µ»Øfalse
+     * @param cooment Stringå‹ï¼Œç”¨æˆ·å¯¹é…’åº—ä½œå‡ºçš„è¯„ä»·
+     * @return booleanå‹ï¼Œæ›´æ–°æˆåŠŸåˆ™è¿”å›trueï¼Œå¦åˆ™è¿”å›false
      * @see bussinesslogic.Hotel
      */
 	public boolean setcomment(String  comment){
@@ -94,10 +94,10 @@ public class HotelController implements HotelBLService {
 	
 	
 	/**
-     * ÏÔÊ¾¾ÆµêµÄÏêÏ¸ĞÅÏ¢
+     * æ˜¾ç¤ºé…’åº—çš„è¯¦ç»†ä¿¡æ¯
      * 
-     * @param vo HotelVOĞÍ£¬Ò»¸ö¾ÆµêµÄÖµ¶ÔÏó
-     * @return booleanĞÍ£¬ÏÔÊ¾³É¹¦Ôò·µ»Øtrue£¬·ñÔò·µ»Øfalse
+     * @param vo HotelVOå‹ï¼Œä¸€ä¸ªé…’åº—çš„å€¼å¯¹è±¡
+     * @return booleanå‹ï¼Œæ˜¾ç¤ºæˆåŠŸåˆ™è¿”å›trueï¼Œå¦åˆ™è¿”å›false
      * @see bussinesslogic.Hotel
      */
 	public boolean getroominfo(HotelVO vo){
@@ -106,10 +106,10 @@ public class HotelController implements HotelBLService {
 	
 	
 	/**
-     * °´¼Û¸ñ´ÓµÍµ½¸ßÏÔÊ¾¾ÆµêÁĞ±í
+     * æŒ‰ä»·æ ¼ä»ä½åˆ°é«˜æ˜¾ç¤ºé…’åº—åˆ—è¡¨
      * 
-     * @param ah ArrayList<Hotel>ĞÍ£¬Ò»¸ö¾ÆµêÖµ¶ÔÏóµÄÁĞ±í
-     * @return Ò»¸öHotelVOÖµ¶ÔÏó
+     * @param ah ArrayList<Hotel>å‹ï¼Œä¸€ä¸ªé…’åº—å€¼å¯¹è±¡çš„åˆ—è¡¨
+     * @return ä¸€ä¸ªHotelVOå€¼å¯¹è±¡
      * @see bussinesslogic.Hotel
      */
 	public HotelVO pricesort(ArrayList<Hotel>  ah){
@@ -118,10 +118,10 @@ public class HotelController implements HotelBLService {
 	
 	
 	/**
-     * °´ĞÇ¼¶´ÓµÍµ½¸ßÏÔÊ¾¾ÆµêÁĞ±í
+     * æŒ‰æ˜Ÿçº§ä»ä½åˆ°é«˜æ˜¾ç¤ºé…’åº—åˆ—è¡¨
      * 
-     * @param ah ArrayList<Hotel>ĞÍ£¬Ò»¸ö¾ÆµêÖµ¶ÔÏóµÄÁĞ±í
-     * @return Ò»¸öHotelVOÖµ¶ÔÏó
+     * @param ah ArrayList<Hotel>å‹ï¼Œä¸€ä¸ªé…’åº—å€¼å¯¹è±¡çš„åˆ—è¡¨
+     * @return ä¸€ä¸ªHotelVOå€¼å¯¹è±¡
      * @see bussinesslogic.Hotel
      */
 	public HotelVO starsort(ArrayList<Hotel>  ah){
@@ -130,10 +130,10 @@ public class HotelController implements HotelBLService {
 	
 	
 	/**
-     * °´ÆÀ·Ö´ÓµÍµ½¸ßÏÔÊ¾¾ÆµêÁĞ±í
+     * æŒ‰è¯„åˆ†ä»ä½åˆ°é«˜æ˜¾ç¤ºé…’åº—åˆ—è¡¨
      * 
-     * @param ah ArrayList<Hotel>ĞÍ£¬Ò»¸ö¾ÆµêÖµ¶ÔÏóµÄÁĞ±í
-     * @return Ò»¸öHotelVOÖµ¶ÔÏó
+     * @param ah ArrayList<Hotel>å‹ï¼Œä¸€ä¸ªé…’åº—å€¼å¯¹è±¡çš„åˆ—è¡¨
+     * @return ä¸€ä¸ªHotelVOå€¼å¯¹è±¡
      * @see bussinesslogic.Hotel
      */
 	public HotelVO scoresort(ArrayList<Hotel>  ah){
@@ -142,10 +142,10 @@ public class HotelController implements HotelBLService {
 	
 	
 	/**
-     * ÏÔÊ¾¿Í»§ÔÚ¾ÆµêµÄÏ¸½ÚÒÔ¼°ÀúÊ·¶©µ¥
+     * æ˜¾ç¤ºå®¢æˆ·åœ¨é…’åº—çš„ç»†èŠ‚ä»¥åŠå†å²è®¢å•
      * 
-     * @param vo HotelVOĞÍ£¬Ò»¸ö¾ÆµêÖµ¶ÔÏó
-     * @return Ò»¸öOrderVOÖµ¶ÔÏó
+     * @param vo HotelVOå‹ï¼Œä¸€ä¸ªé…’åº—å€¼å¯¹è±¡
+     * @return ä¸€ä¸ªOrderVOå€¼å¯¹è±¡
      * @see bussinesslogic.Hotel
      */
 	public OrderVO gethistoryorder(HotelVO  vo){
@@ -154,9 +154,9 @@ public class HotelController implements HotelBLService {
 	
 	
 	/**
-     * ÏÔÊ¾¿Í»§µÄÀúÊ·Ô¤¶©¾Æµê
+     * æ˜¾ç¤ºå®¢æˆ·çš„å†å²é¢„è®¢é…’åº—
      * 
-     * @return Ò»¸öArrayList<HotelVO>£¬¾ÆµêÖµ¶ÔÏóÁĞ±í
+     * @return ä¸€ä¸ªArrayList<HotelVO>ï¼Œé…’åº—å€¼å¯¹è±¡åˆ—è¡¨
      * @see bussinesslogic.Hotel
      */
 	public ArrayList<HotelVO> gethistoryhotel(){

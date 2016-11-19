@@ -5,8 +5,8 @@ import PO.*;
 import Object.Order;
 
 /**
- * ¶©µ¥µÄÊôĞÔ¼°Êı¾İ´´½¨Óë¸üĞÂ
- * @author ÁõÓîÏè
+ * è®¢å•çš„å±æ€§åŠæ•°æ®åˆ›å»ºä¸æ›´æ–°
+ * @author åˆ˜å®‡ç¿”
  * @version 1.1
  * @see Object.Order
  */
@@ -104,9 +104,9 @@ public class OrderVO extends VO {
     }
     public OrderVO(){}
 	/**
-     * ¸üĞÂ¶©µ¥ĞÅÏ¢
+     * æ›´æ–°è®¢å•ä¿¡æ¯
      * 
-     * @param ord OrderĞÍ£¬Ò»¸öÓÃÀ´¸üĞÂÊı¾İµÄ¶©µ¥¶ÔÏó
+     * @param ord Orderå‹ï¼Œä¸€ä¸ªç”¨æ¥æ›´æ–°æ•°æ®çš„è®¢å•å¯¹è±¡
      * @return 
      * @see Object.Order
      */
@@ -130,9 +130,9 @@ public class OrderVO extends VO {
 	}
 	
 	/**
-     * ´´½¨¶©µ¥¶ÔÏó
+     * åˆ›å»ºè®¢å•å¯¹è±¡
      * 
-     * @return Ò»¸öĞÂÏÂµÄ¶©µ¥
+     * @return ä¸€ä¸ªæ–°ä¸‹çš„è®¢å•
      * @see Object.Order
      */
 	public Order makeOrder() {		

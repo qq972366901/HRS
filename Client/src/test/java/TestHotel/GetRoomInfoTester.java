@@ -14,8 +14,8 @@ public class GetRoomInfoTester {
 	@Test
 	public void testGetRoomInfo() {
 		
-		MockRoom room1 = new MockRoom("303", "ÒÑÖ´ÐÐ", "´ó´²·¿", 1, 200);
-		MockRoom room2 = new MockRoom("304", "Î´Ö´ÐÐ", "±ê×¼¼ä", 2, 300);
+		MockRoom room1 = new MockRoom("303", "å·²æ‰§è¡Œ", "å¤§åºŠæˆ¿", 1, 200);
+		MockRoom room2 = new MockRoom("304", "æœªæ‰§è¡Œ", "æ ‡å‡†é—´", 2, 300);
 		
 		RoomList roomList = new RoomList();
 		

@@ -72,13 +72,13 @@ public class ProcessOrderView extends JPanel{
 		this.hotelId = controller.getHotelId();
 		this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
 		
-		//³õÊ¼»¯¶©µ¥ÀàĞÍÑ¡Ôñ¿ò
+		//åˆå§‹åŒ–è®¢å•ç±»å‹é€‰æ‹©æ¡†
 		initOrderTypeCombobox();
 		
-		//³õÊ¼»¯²Ù×÷°´Å¥
+		//åˆå§‹åŒ–æ“ä½œæŒ‰é’®
 		initOrderProcessButtons();
 		
-		//³õÊ¼»¯¶©µ¥ÁĞ±í
+		//åˆå§‹åŒ–è®¢å•åˆ—è¡¨
 		initOrderListTable();
 		
 		this.validate();
@@ -88,19 +88,19 @@ public class ProcessOrderView extends JPanel{
 		
 		orderTypeComboBox = new JComboBox<String>();
 		
-		//¶©µ¥ÀàĞÍÁĞ±í
+		//è®¢å•ç±»å‹åˆ—è¡¨
 		List<String> list=new ArrayList<String>();
-		list.add("ËùÓĞÀàĞÍ");
-		list.add("Î´Ö´ĞĞ¶©µ¥");
-		list.add("ÒÑÖ´ĞĞ¶©µ¥");
-		list.add("Òì³£¶©µ¥");
+		list.add("æ‰€æœ‰ç±»å‹");
+		list.add("æœªæ‰§è¡Œè®¢å•");
+		list.add("å·²æ‰§è¡Œè®¢å•");
+		list.add("å¼‚å¸¸è®¢å•");
 		
-		//³õÊ¼»¯combobox
+		//åˆå§‹åŒ–combobox
 		for (String str : list) {
 			orderTypeComboBox.addItem(str);
 		}
 		
-		//ÉèÖÃÑ¡ÔñÊÂ¼ş
+		//è®¾ç½®é€‰æ‹©äº‹ä»¶
 		orderTypeComboBox.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent evt) {
 			
@@ -108,17 +108,17 @@ public class ProcessOrderView extends JPanel{
 					
 					String selected=(String)orderTypeComboBox.getSelectedItem();
 					
-					//¸ü»»Êı¾İÔ´
+					//æ›´æ¢æ•°æ®æº
 					controller.updateListModel(selected);
 				}
 			}
 
 		});
 		
-		//Ìí¼ÓÏÂÀ­¿ò
+		//æ·»åŠ ä¸‹æ‹‰æ¡†
 		JPanel orderTypeJpanel = new JPanel();
 		orderTypeJpanel.setLayout(new FlowLayout(FlowLayout.LEFT));
-		JLabel orderTypeJLabel=new JLabel("¶©µ¥ÀàĞÍ£º");
+		JLabel orderTypeJLabel=new JLabel("è®¢å•ç±»å‹ï¼š");
 		orderTypeJpanel.add(orderTypeJLabel);
 		orderTypeJpanel.add(orderTypeComboBox);
 		this.add(orderTypeJpanel);
@@ -127,41 +127,41 @@ public class ProcessOrderView extends JPanel{
 	
 	private void initOrderProcessButtons(){
 	
-		delayButton = new JButton("¶©µ¥ÑÓÆÚ");
-		//Ìí¼Ó°´Å¥¼àÌıÊÂ¼ş
+		delayButton = new JButton("è®¢å•å»¶æœŸ");
+		//æ·»åŠ æŒ‰é’®ç›‘å¬äº‹ä»¶
 		delayButton.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent arg0) {
 				
-				//½çÃæÌø×ª
+				//ç•Œé¢è·³è½¬
 				controller.delayOrderButtonClicked();
 			}
 		});
 		
-		entryButton = new JButton("¿Í»§Èë×¡");
-		//Ìí¼Ó°´Å¥¼àÌıÊÂ¼ş
+		entryButton = new JButton("å®¢æˆ·å…¥ä½");
+		//æ·»åŠ æŒ‰é’®ç›‘å¬äº‹ä»¶
 		entryButton.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
 				
-				//´¦ÀíÎ´Ö´ĞĞ¶©µ¥°´Å¥µã»÷ÊÂ¼ş
+				//å¤„ç†æœªæ‰§è¡Œè®¢å•æŒ‰é’®ç‚¹å‡»äº‹ä»¶
 				controller.processOrderButtonClicked();
 				
 			}
 		});
-		cancel=new JButton("³·Ïú");
+		cancel=new JButton("æ’¤é”€");
 		cancel.addActionListener(new ActionListener() {		
 			public void actionPerformed(ActionEvent e) {
                 controller.cancelAbnormalOrder();
 			}
 		});
-		back=new JButton("·µ»Ø");
+		back=new JButton("è¿”å›");
 		back.addActionListener(new ActionListener() {		
 			public void actionPerformed(ActionEvent e) {
                 back();
 			}
 		});
-		//Ìí¼Ó¶©µ¥´¦ÀíÀ¸
+		//æ·»åŠ è®¢å•å¤„ç†æ 
 		JPanel processPanel = new JPanel();
 		processPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 		processPanel.add(delayButton);
@@ -179,22 +179,22 @@ public class ProcessOrderView extends JPanel{
 	private void initOrderListTable() {
 		JScrollPane scrollPane = new JScrollPane();
 		
-		//±íÍ·
+		//è¡¨å¤´
 		Vector<String> vColumns = new Vector<String>();
-		vColumns.add("¶©µ¥±àºÅ");
-		vColumns.add("¶©µ¥ÏêÇé");
-		vColumns.add("ÓÃ»§ĞÅÏ¢");
-		vColumns.add("Èë×¡Ê±¼ä");
-		vColumns.add("¶©µ¥×îÍíÖ´ĞĞÊ±¼ä");
-		vColumns.add("¶©µ¥×´Ì¬");
-		vColumns.add("¶©µ¥¼ÛÖµ");
+		vColumns.add("è®¢å•ç¼–å·");
+		vColumns.add("è®¢å•è¯¦æƒ…");
+		vColumns.add("ç”¨æˆ·ä¿¡æ¯");
+		vColumns.add("å…¥ä½æ—¶é—´");
+		vColumns.add("è®¢å•æœ€æ™šæ‰§è¡Œæ—¶é—´");
+		vColumns.add("è®¢å•çŠ¶æ€");
+		vColumns.add("è®¢å•ä»·å€¼");
 	
-		//Êı¾İ
+		//æ•°æ®
 		Vector<OrderVO> vData = new Vector<OrderVO>();
 		vData.addAll(controller.getAllOrders(hotelId));
-		//Ä£ĞÍ
+		//æ¨¡å‹
 		orderListModel = new DefaultTableModel(vData, vColumns);
-		//±í¸ñ
+		//è¡¨æ ¼
 		orderTable = new JTable(orderListModel){
 			private static final long serialVersionUID = 1L;
 
@@ -210,12 +210,12 @@ public class ProcessOrderView extends JPanel{
 	}
 	
 	/**
-	 * ´¦Àí¶©µ¥°´Å¥µã»÷ÊÂ¼ş
+	 * å¤„ç†è®¢å•æŒ‰é’®ç‚¹å‡»äº‹ä»¶
 	 */
 	public void processOrderButtonClicked() {
 		int index = orderTable.getSelectedRow();
 		if(index == -1){
-			JOptionPane.showMessageDialog(null, "ÇëÑ¡Ôñ¶©µ¥£¡","", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "è¯·é€‰æ‹©è®¢å•ï¼","", JOptionPane.ERROR_MESSAGE);
 			return;
 		}
 		
@@ -223,17 +223,17 @@ public class ProcessOrderView extends JPanel{
 		if(controller.processUnfinishedOrder(orderNo)){
 			orderListModel.removeRow(index);
 		}else{
-			JOptionPane.showMessageDialog(null, "°ìÀíÓÃ»§Èë×¡Ê§°Ü£¡","", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "åŠç†ç”¨æˆ·å…¥ä½å¤±è´¥ï¼","", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 
 	/**
-	 * ÔÚ¶©µ¥ÀàĞÍ¸Ä±äÖ®ºó¸ü¸ÄÁĞ±íÊı¾İÔ´
+	 * åœ¨è®¢å•ç±»å‹æ”¹å˜ä¹‹åæ›´æ”¹åˆ—è¡¨æ•°æ®æº
 	 * @param selected
 	 */
 	public void updateListModel(String selected) {
-		if(selected == "ËùÓĞÀàĞÍ"){
-			//¸üĞÂ¶©µ¥ÁĞ±í
+		if(selected == "æ‰€æœ‰ç±»å‹"){
+			//æ›´æ–°è®¢å•åˆ—è¡¨
 			orderListModel.setRowCount(0);
 			List<OrderVO> list=controller.getAllOrders(hotelId);
 			if(!list.isEmpty()){
@@ -241,13 +241,13 @@ public class ProcessOrderView extends JPanel{
 					orderListModel.addRow(orderVo);
 				}
 			}
-			//ÉèÖÃ¿Ø¼ş¿ÉÓÃÀàĞÍ
+			//è®¾ç½®æ§ä»¶å¯ç”¨ç±»å‹
 			cancel.setEnabled(false);
 			delayButton.setEnabled(false);
 			entryButton.setEnabled(false);
 			
-		}else if(selected == "Î´Ö´ĞĞ¶©µ¥"){
-			//¸üĞÂ¶©µ¥ÁĞ±í
+		}else if(selected == "æœªæ‰§è¡Œè®¢å•"){
+			//æ›´æ–°è®¢å•åˆ—è¡¨
 			orderListModel.setRowCount(0);
 			List<OrderVO> list=controller.getUnfinishedOrders(hotelId);
 			if(!list.isEmpty()){
@@ -256,13 +256,13 @@ public class ProcessOrderView extends JPanel{
 				}
 			}
 			
-			//ÉèÖÃ¿Ø¼ş¿ÉÓÃÀàĞÍ
+			//è®¾ç½®æ§ä»¶å¯ç”¨ç±»å‹
 			cancel.setEnabled(false);
 			delayButton.setEnabled(false);
 			entryButton.setEnabled(true);
 			
-		}else if(selected == "ÒÑÖ´ĞĞ¶©µ¥"){
-			//¸üĞÂ¶©µ¥ÁĞ±í
+		}else if(selected == "å·²æ‰§è¡Œè®¢å•"){
+			//æ›´æ–°è®¢å•åˆ—è¡¨
 			orderListModel.setRowCount(0);
 			List<OrderVO> list=controller.getFinishedOrders(hotelId);
 			if(!list.isEmpty()){
@@ -270,12 +270,12 @@ public class ProcessOrderView extends JPanel{
 					orderListModel.addRow(orderVo);
 				}
 			}
-			//ÉèÖÃ¿Ø¼ş¿ÉÓÃÀàĞÍ
+			//è®¾ç½®æ§ä»¶å¯ç”¨ç±»å‹
 			cancel.setEnabled(false);
 			delayButton.setEnabled(false);
 			entryButton.setEnabled(false);
-		}else if(selected == "Òì³£¶©µ¥"){
-			//¸üĞÂ¶©µ¥ÁĞ±í
+		}else if(selected == "å¼‚å¸¸è®¢å•"){
+			//æ›´æ–°è®¢å•åˆ—è¡¨
 			orderListModel.setRowCount(0);
 			List<OrderVO> list=controller.getAbnormalOrders(hotelId);
 			if(!list.isEmpty()){
@@ -283,7 +283,7 @@ public class ProcessOrderView extends JPanel{
 					orderListModel.addRow(orderVo);
 				}
 			}
-			//ÉèÖÃ¿Ø¼ş¿ÉÓÃÀàĞÍ
+			//è®¾ç½®æ§ä»¶å¯ç”¨ç±»å‹
 			cancel.setEnabled(false);
 			delayButton.setEnabled(true);
 			entryButton.setEnabled(false);
@@ -291,7 +291,7 @@ public class ProcessOrderView extends JPanel{
 	}
 	
 	/**
-	 * ´ò¿ªÒì³£¶©µ¥´¦Àí½çÃæ
+	 * æ‰“å¼€å¼‚å¸¸è®¢å•å¤„ç†ç•Œé¢
 	 * @param index
 	 */
 	public void delayOrderButtonClicked(){
@@ -299,7 +299,7 @@ public class ProcessOrderView extends JPanel{
 		int index = orderTable.getSelectedRow();
 		
 		if(index == -1){
-			JOptionPane.showMessageDialog(null, "ÇëÑ¡Ôñ¶©µ¥£¡","", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "è¯·é€‰æ‹©è®¢å•ï¼","", JOptionPane.ERROR_MESSAGE);
 			return;
 		}
 		
@@ -312,10 +312,10 @@ public class ProcessOrderView extends JPanel{
 		
 		delayPanel = new JPanel();
 		delayPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
-		delayLabel = new JLabel("¶©µ¥ÑÓÆÚÖÁ£º£¨yyyy/MM/dd HH:mm:ss£©");
+		delayLabel = new JLabel("è®¢å•å»¶æœŸè‡³ï¼šï¼ˆyyyy/MM/dd HH:mm:ssï¼‰");
 		delayTextField = new JTextField(10);
-		delayProcessButton = new JButton("ÑÓÆÚ");
-		//´¦Àí¶©µ¥ÑÓÆÚ
+		delayProcessButton = new JButton("å»¶æœŸ");
+		//å¤„ç†è®¢å•å»¶æœŸ
 		delayProcessButton.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent arg0) {
@@ -326,12 +326,12 @@ public class ProcessOrderView extends JPanel{
 				
 			}
 		});
-		cancelButton = new JButton("È¡Ïû");
-		//È¡Ïû¶©µ¥ÑÓÆÚ´¦Àí
+		cancelButton = new JButton("å–æ¶ˆ");
+		//å–æ¶ˆè®¢å•å»¶æœŸå¤„ç†
 		cancelButton.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
-				//¹Ø±Õ´°¿Ú
+				//å…³é—­çª—å£
 				delayFrame.dispose();
 				
 			}
@@ -348,7 +348,7 @@ public class ProcessOrderView extends JPanel{
 		
 	}
 	
-	//¶©µ¥ÑÓÆÚ°´Å¥µã»÷ÊÂ¼ş
+	//è®¢å•å»¶æœŸæŒ‰é’®ç‚¹å‡»äº‹ä»¶
 	private boolean delayOrder(int orderNo) {
 	
 		String delayTime = delayTextField.getText();
@@ -356,7 +356,7 @@ public class ProcessOrderView extends JPanel{
 		try {
 			Date date = sdf.parse(delayTime);
 		} catch (ParseException e) {
-			JOptionPane.showMessageDialog(null, "Çë°´¸ñÊ½£¨yyyy/MM/dd HH:mm:ss£©ÌîĞ´Ê±¼ä£¡","", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "è¯·æŒ‰æ ¼å¼ï¼ˆyyyy/MM/dd HH:mm:ssï¼‰å¡«å†™æ—¶é—´ï¼","", JOptionPane.ERROR_MESSAGE);
 			delayTextField.setText("");
 			return false;
 		}
@@ -366,7 +366,7 @@ public class ProcessOrderView extends JPanel{
 			delayFrame.dispose();
 			return true;
 		}else{
-			JOptionPane.showMessageDialog(null, "ÑÓÆÚÒì³£¶©µ¥Ê§°Ü£¡","", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "å»¶æœŸå¼‚å¸¸è®¢å•å¤±è´¥ï¼","", JOptionPane.ERROR_MESSAGE);
 			return false;
 		}
 		
@@ -376,7 +376,7 @@ public class ProcessOrderView extends JPanel{
 		// TODO Auto-generated method stub
 		int index = orderTable.getSelectedRow();
 		if(index == -1){
-			JOptionPane.showMessageDialog(null, "ÇëÑ¡Ôñ¶©µ¥£¡","", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "è¯·é€‰æ‹©è®¢å•ï¼","", JOptionPane.ERROR_MESSAGE);
 			return;
 		}
 		
@@ -390,10 +390,10 @@ public class ProcessOrderView extends JPanel{
 		cancelPanel.setLayout(new BoxLayout(cancelPanel,BoxLayout.Y_AXIS));
 		JPanel p1=new JPanel();
 		p1.setLayout(new FlowLayout(FlowLayout.CENTER));
-		JLabel jl=new JLabel("»Ö¸´²ßÂÔ£º");
+		JLabel jl=new JLabel("æ¢å¤ç­–ç•¥ï¼š");
 		JComboBox<String> strategy=new JComboBox<String>();
-		strategy.addItem("È«²¿");
-		strategy.addItem("Ò»°ë");
+		strategy.addItem("å…¨éƒ¨");
+		strategy.addItem("ä¸€åŠ");
 		strategy.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent evt) {
 				if(evt.getStateChange() == ItemEvent.SELECTED){
@@ -406,13 +406,13 @@ public class ProcessOrderView extends JPanel{
 		cancelPanel.add(p1);
 		JPanel p2=new JPanel();
 		p2.setLayout(new FlowLayout(FlowLayout.CENTER));
-		JButton Confir=new JButton("È·¶¨");
+		JButton Confir=new JButton("ç¡®å®š");
 		Confir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
 			}
 		});
-		JButton Cancel=new JButton("È¡Ïû");
+		JButton Cancel=new JButton("å–æ¶ˆ");
 		Cancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				cancelFrame.dispose();

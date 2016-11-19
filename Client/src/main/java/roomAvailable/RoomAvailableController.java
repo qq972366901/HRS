@@ -5,9 +5,9 @@ import VO.RoomVO;
 import roomBLService.RoomBLService_realize;
 public class RoomAvailableController extends RoomBLService_realize{
 	/**
-     * ·µ»Ø¿ÉÈë×¡·¿¼ä
+     * è¿”å›å¯å…¥ä½æˆ¿é—´
      * 
-     * @return ArrayList<RoomVO>,Ò»¸ö·¿¼äÖµ¶ÔÏóÁĞ±í
+     * @return ArrayList<RoomVO>,ä¸€ä¸ªæˆ¿é—´å€¼å¯¹è±¡åˆ—è¡¨
      * @see bussinesslogic.Room
      */
 	public ArrayList<RoomVO> getRoom() {
@@ -17,10 +17,10 @@ public class RoomAvailableController extends RoomBLService_realize{
 	
 	
 	/**
-     * ·µ»Ø·¿¼äµÄ¼Û¸ñ
+     * è¿”å›æˆ¿é—´çš„ä»·æ ¼
      * 
-     * @param roomType StringĞÍ£¬Ò»ÖÖ·¿¼äÀàĞÍ
-     * @return ·µ»ØÒ»¸ölongÊıÖµ
+     * @param roomType Stringå‹ï¼Œä¸€ç§æˆ¿é—´ç±»å‹
+     * @return è¿”å›ä¸€ä¸ªlongæ•°å€¼
      * @see bussinesslogic.Room
      */
 	public long getPrice(String roomType) {

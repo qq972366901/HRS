@@ -9,8 +9,8 @@ import WebPromotionView.WebPromotionUserView;
 import uiService.webAdminUserUiService;
 
 /**
- * ¸ºÔğÊµÏÖ¾Æµê¹ÜÀíÏµÍ³µÄÍøÕ¾¹ÜÀíÈËÔ±µÄ½çÃæµÄ¿ØÖÆÆ÷
- * @author Áõ×ÚÙ©
+ * è´Ÿè´£å®ç°é…’åº—ç®¡ç†ç³»ç»Ÿçš„ç½‘ç«™ç®¡ç†äººå‘˜çš„ç•Œé¢çš„æ§åˆ¶å™¨
+ * @author åˆ˜å®—ä¾ƒ
  * @version 1.0
  * @see uiService.webAdminUserUiService
  * @see javax.swing.JFrame

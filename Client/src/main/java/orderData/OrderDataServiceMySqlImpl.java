@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import PO.OrderPO;
 /**
- * Ö°ÔğÊÇ½«Âß¼­²ãÃæ·¢À´µÄÇëÇó×ª·¢¸øºóÌ¨OrderData´¦Àí
+ * èŒè´£æ˜¯å°†é€»è¾‘å±‚é¢å‘æ¥çš„è¯·æ±‚è½¬å‘ç»™åå°OrderDataå¤„ç†
  * @author LZ
  * @version 1.0
  * @see businesslogic.Order
@@ -17,9 +17,9 @@ public class OrderDataServiceMySqlImpl implements Serializable,dataService.Order
 	 */
 	private static final long serialVersionUID = 1L;
 	/**
-	 * °´ID½øĞĞ²éÕÒ·µ»ØÏàÓ¦µÄOrderPO½á¹û
-	 * @param id StringĞÍ£¬Âß¼­²ã´«À´µÄ¶©µ¥±àºÅ
-	 * @return ·µ»ØÕÒµ½µÄPOÊµÌå
+	 * æŒ‰IDè¿›è¡ŒæŸ¥æ‰¾è¿”å›ç›¸åº”çš„OrderPOç»“æœ
+	 * @param id Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„è®¢å•ç¼–å·
+	 * @return è¿”å›æ‰¾åˆ°çš„POå®ä½“
 	 * @throws RemoteException
 	 * @see PO.OrderPO
 	 */
@@ -29,8 +29,8 @@ public class OrderDataServiceMySqlImpl implements Serializable,dataService.Order
 		return null;
 	}
 	/**
-	 * ÔÚÊı¾İ¿âÖĞÔö¼ÓÒ»¸öpoÊµÌå
-	 * @param po OrderPOĞÍ£¬Âß¼­²ã´«À´µÄPOÊµÌå
+	 * åœ¨æ•°æ®åº“ä¸­å¢åŠ ä¸€ä¸ªpoå®ä½“
+	 * @param po OrderPOå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„POå®ä½“
 	 * @return
 	 * @throws RemoteException
 	 * @see PO.OrderPO
@@ -41,8 +41,8 @@ public class OrderDataServiceMySqlImpl implements Serializable,dataService.Order
 		
 	}
 	/**
-	 * ÔÚÊı¾İ¿âÖĞÉ¾³ıÒ»¸öpo
-	 * @param po OrderPOĞÍ£¬Âß¼­²ã´«À´µÄPOÊµÌå
+	 * åœ¨æ•°æ®åº“ä¸­åˆ é™¤ä¸€ä¸ªpo
+	 * @param po OrderPOå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„POå®ä½“
 	 * @return
 	 * @throws RemoteException
 	 * @see PO.OrderPO
@@ -53,8 +53,8 @@ public class OrderDataServiceMySqlImpl implements Serializable,dataService.Order
 		
 	}
 	/**
-	 * ÔÚÊı¾İ¿âÖĞ¸úĞÂÒ»¸öpo
-	 * @param po OrderPOĞÍ£¬Âß¼­²ã´«À´µÄPOÊµÌå
+	 * åœ¨æ•°æ®åº“ä¸­è·Ÿæ–°ä¸€ä¸ªpo
+	 * @param po OrderPOå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„POå®ä½“
 	 * @return 
 	 * @throws RemoteException
 	 * @see PO.OrderPO
@@ -65,7 +65,7 @@ public class OrderDataServiceMySqlImpl implements Serializable,dataService.Order
 		
 	}
 	/**
-	 * °´³õÊ¼»¯³Ö¾Ã»¯Êı¾İ¿â
+	 * æŒ‰åˆå§‹åŒ–æŒä¹…åŒ–æ•°æ®åº“
 	 * @param
 	 * @return
 	 * @throws RemoteException
@@ -77,7 +77,7 @@ public class OrderDataServiceMySqlImpl implements Serializable,dataService.Order
 		
 	}
 	/**
-	 * ½áÊø³Ö¾Ã»¯Êı¾İ¿âµÄÊ¹ÓÃ
+	 * ç»“æŸæŒä¹…åŒ–æ•°æ®åº“çš„ä½¿ç”¨
 	 * @param
 	 * @return
 	 * @throws RemoteException
@@ -89,9 +89,9 @@ public class OrderDataServiceMySqlImpl implements Serializable,dataService.Order
 		
 	}
 	/**
-	 * °´ÀàĞÍ½øĞĞ²éÕÒ·µ»ØÏàÓ¦µÄOrderPO½á¹û
-	 * @param type StringĞÍ£¬Âß¼­²ã´«À´µÄ¶©µ¥ÀàĞÍ
-	 * @return ·µ»ØÕÒµ½µÄPOÊµÌåÁĞ±í
+	 * æŒ‰ç±»å‹è¿›è¡ŒæŸ¥æ‰¾è¿”å›ç›¸åº”çš„OrderPOç»“æœ
+	 * @param type Stringå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„è®¢å•ç±»å‹
+	 * @return è¿”å›æ‰¾åˆ°çš„POå®ä½“åˆ—è¡¨
 	 * @throws RemoteException
 	 * @see PO.OrderPO
 	 */

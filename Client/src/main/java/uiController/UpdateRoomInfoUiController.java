@@ -22,7 +22,7 @@ public class UpdateRoomInfoUiController implements UpdateRoomInfoUiService {
 	}
 
 	public void updateRoomInfo() {
-		//系统更新房间入住信息
+		//绯荤粺鏇存柊鎴块棿鍏ヤ綇淇℃伅
 	}
 
 }

@@ -78,7 +78,7 @@ public class OrderView extends JPanel {
 			controller.exit();
 			}
 		});
-		back.setFont(new Font("ËÎÌå", Font.PLAIN, 30));
+		back.setFont(new Font("å®‹ä½“", Font.PLAIN, 30));
 		back.setBounds(10, 5, 150, 60);
 		panel.add(back);
 		
@@ -98,15 +98,15 @@ public class OrderView extends JPanel {
 		
 		typebox = new JComboBox<String>();
 		Vector<String> type=new Vector<String>();
-		type.add("ËùÓĞÀàĞÍ");
-		type.add("Î´Ö´ĞĞ¶©µ¥");
-		type.add("ÒÑÖ´ĞĞ¶©µ¥");
-		type.add("Òì³£¶©µ¥");
-		type.add("³·Ïú¶©µ¥");
+		type.add("æ‰€æœ‰ç±»å‹");
+		type.add("æœªæ‰§è¡Œè®¢å•");
+		type.add("å·²æ‰§è¡Œè®¢å•");
+		type.add("å¼‚å¸¸è®¢å•");
+		type.add("æ’¤é”€è®¢å•");
 		for(String i:type){
 			typebox.addItem(i);
 		}
-		typebox.setFont(new Font("ËÎÌå", Font.PLAIN, 30));
+		typebox.setFont(new Font("å®‹ä½“", Font.PLAIN, 30));
 		typebox.setBounds(29, 25, 206, 52);
 		typebox.addItemListener(new ItemListener(){
 			@Override
@@ -116,7 +116,7 @@ public class OrderView extends JPanel {
 					
 					String selected=(String)typebox.getSelectedItem();
 					
-					//¸ü»»Êı¾İÔ´
+					//æ›´æ¢æ•°æ®æº
 					controller.updateList(selected);
                 }
 			}			
@@ -130,12 +130,12 @@ public class OrderView extends JPanel {
 		Vector<OrderVO> Data=new Vector<OrderVO>();
 		//Data.addAll(controller.getOrderList());
 		Vector<String> Columns=new Vector<String>();
-		Columns.add("¶©µ¥ºÅ");
-		Columns.add("¶©µ¥×´Ì¬");
-		Columns.add("¿Í»§Ãû³Æ");
-		Columns.add("¼ÛÖµ");
-		Columns.add("·¿¼äÏêÇé");
-		Columns.add("ÆÀ·Ö");
+		Columns.add("è®¢å•å·");
+		Columns.add("è®¢å•çŠ¶æ€");
+		Columns.add("å®¢æˆ·åç§°");
+		Columns.add("ä»·å€¼");
+		Columns.add("æˆ¿é—´è¯¦æƒ…");
+		Columns.add("è¯„åˆ†");
 		model=new DefaultTableModel(Data,Columns);
 		table = new JTable(model){
 			private static final long serialVersionUID = 1L;
@@ -146,7 +146,7 @@ public class OrderView extends JPanel {
 		};
 		
 		table.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		table.setFont(new Font("ËÎÌå", Font.PLAIN, 15));
+		table.setFont(new Font("å®‹ä½“", Font.PLAIN, 15));
 		scrollPane.setViewportView(table);
 		table.setFillsViewportHeight(true);
 		
@@ -155,7 +155,7 @@ public class OrderView extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				int index = table.getSelectedRow();
 				if(index == -1){
-					JOptionPane.showMessageDialog(null, "ÇëÑ¡Ôñ¶©µ¥£¡","", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "è¯·é€‰æ‹©è®¢å•ï¼","", JOptionPane.ERROR_MESSAGE);
 					return;
 				}
 				String id=(String)table.getValueAt(index, 0);
@@ -170,7 +170,7 @@ public class OrderView extends JPanel {
 				if(e.getClickCount()==2){
 					int index = table.getSelectedRow();
 					if(index == -1){
-						JOptionPane.showMessageDialog(null, "ÇëÑ¡Ôñ¶©µ¥£¡","", JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(null, "è¯·é€‰æ‹©è®¢å•ï¼","", JOptionPane.ERROR_MESSAGE);
 						return;
 					}
 					String id=(String) table.getValueAt(index, 0);
@@ -195,13 +195,13 @@ public class OrderView extends JPanel {
 			}
 		});
 		cancelorder.setEnabled(false);
-		cancelorder.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		cancelorder.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		cancelorder.setBounds(355, 27, 147, 52);
 		panel_1.add(cancelorder);
 		
 		commentorder = new JButton("\u8BC4\u4EF7\u8BA2\u5355");
 		commentorder.setEnabled(false);
-		commentorder.setFont(new Font("ËÎÌå", Font.PLAIN, 25));
+		commentorder.setFont(new Font("å®‹ä½“", Font.PLAIN, 25));
 		commentorder.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			      controller.comment();
@@ -211,7 +211,7 @@ public class OrderView extends JPanel {
 		panel_1.add(commentorder);
 	}
 	public void updateList(Vector<OrderVO> list,String type){
-		if(type.equals("Î´Ö´ĞĞ¶©µ¥")){
+		if(type.equals("æœªæ‰§è¡Œè®¢å•")){
 		    model.setRowCount(0);
 		    for(OrderVO vo:list){
 		    	model.addRow(vo);
@@ -219,7 +219,7 @@ public class OrderView extends JPanel {
 			cancelorder.setEnabled(true);
 			commentorder.setEnabled(false);
 		}
-		else if(type.equals("ÒÑÖ´ĞĞ¶©µ¥")){
+		else if(type.equals("å·²æ‰§è¡Œè®¢å•")){
 			model.setRowCount(0);
 		    for(OrderVO vo:list){
 		    	model.addRow(vo);
@@ -239,11 +239,11 @@ public class OrderView extends JPanel {
 	public void comment(){
 		int index = table.getSelectedRow();
 		if(index == -1){
-			JOptionPane.showMessageDialog(null, "ÇëÑ¡Ôñ¶©µ¥£¡","", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "è¯·é€‰æ‹©è®¢å•ï¼","", JOptionPane.ERROR_MESSAGE);
 			return;
 		}
 		if(!table.getValueAt(index, 5).equals("")){
-			JOptionPane.showMessageDialog(null, "Õâ¸ö¶©µ¥ÒÑ¾­±»ÆÀ¼Û¹ıÁË£¡","", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "è¿™ä¸ªè®¢å•å·²ç»è¢«è¯„ä»·è¿‡äº†ï¼","", JOptionPane.ERROR_MESSAGE);
 			return;
 		}
 		String id=(String)table.getValueAt(index, 0);

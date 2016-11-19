@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 import VO.UserVO;
 /**
- * ¶ÔÓÚAccountList½Ó¿ÚµÄÊµÏÖ
+ * å¯¹äºAccountListæ¥å£çš„å®ç°
  * @author LZ
  * @version 1.0
  * @see VO.UserVO
@@ -21,9 +21,9 @@ public class AccountFactory implements AccountList{
 		webmanagehotelworker=new HashMap<String,UserVO>();
 	}
 	/**
-	 * ·µ»ØÌØ¶¨ÀàĞÍµÄÕË»§ÁĞ±í
-	 * @param type intĞÍ£¬Âß¼­²ã´«À´µÄÕË»§ÀàĞÍ
-	 * @return ·µ»ØÊôÓÚ´ËÀàĞÍµÄÕË»§ÁĞ±í
+	 * è¿”å›ç‰¹å®šç±»å‹çš„è´¦æˆ·åˆ—è¡¨
+	 * @param type intå‹ï¼Œé€»è¾‘å±‚ä¼ æ¥çš„è´¦æˆ·ç±»å‹
+	 * @return è¿”å›å±äºæ­¤ç±»å‹çš„è´¦æˆ·åˆ—è¡¨
 	 * @see VO.UserVO
 	 */
 	@Override

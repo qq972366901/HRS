@@ -10,7 +10,7 @@ public class HotelDataService_Driver {
 	public void drive(HotelDataService hotelDataService) throws RemoteException{
 		ArrayList<HotelPO> a=new ArrayList<HotelPO>();
 		HotelPO po=hotelDataService.find("423523");
-		a=hotelDataService.findByDistrict("ÏÉÁÖ");
+		a=hotelDataService.findByDistrict("ä»™æž—");
 		po=hotelDataService.findByName("xxx");
 		a=hotelDataService.findByScore(4);
 		a=hotelDataService.findByStar(2);
