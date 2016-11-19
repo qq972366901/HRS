@@ -4,6 +4,8 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 
+import WebAdminView.WebAdminUserView;
+import WebPromotionView.WebPromotionUserView;
 import uiService.webAdminUserUiService;
 
 /**
@@ -22,25 +24,31 @@ public class webAdminUserUiServiceStub extends JFrame implements webAdminUserUiS
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
-	/**
-     * 网站管理人员的初始界面
-     * 
-     * @param 
-     * @return 
-     */
-	public void init() {
-		this.setLocation(400, 300);
-		this.setSize(300, 300);
-		this.setVisible(true);
-		this.addWindowListener(new WindowAdapter() {
-
-			public void windowClosing(WindowEvent e) {
-				System.exit(0);
-			}
-			
-		});
-	}
 	
+	@Override
+	public void toAddHotelView() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void toUserManagementView() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void toLogView() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setView(WebAdminUserView view) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
 
