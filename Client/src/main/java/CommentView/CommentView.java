@@ -9,14 +9,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import InformationView.InformationViewControllerService;
 import LoginView.main;
 import OrderManagementView.OrderView;
 import OrderManagementView.OrderViewControllerImpl;
 import OrderManagementView.OrderViewControllerService;
-import customerMainView.customerMainView;
-import customerMainView.customerMainViewControllerImpl;
-import customerMainView.customerMainViewControllerService;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 
