@@ -4,7 +4,11 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
+import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -24,6 +28,14 @@ public class UpdateHotelInfoView extends JPanel {
 	
 	private JButton backButton;
 	private JButton submitButton;
+	
+	private JComboBox<String> hotelAreaJComboBox = new JComboBox<String>();
+	private ComboBoxModel<String> aModel1 = new DefaultComboBoxModel<String>(new String[] {
+            "新街口", "仙林大学城", "浦口" });
+    private ComboBoxModel<String> aModel2 = new DefaultComboBoxModel<String>(new String[] {
+            "姑苏区", "工业园区", "昆山" });
+    private ComboBoxModel<String> aModel3 = new DefaultComboBoxModel<String>(new String[] {
+            "黄浦区", "青浦区", "浦东新区" });
 	
 	public UpdateHotelInfoView(UpdateHotelInfoUiService controller) {
 		this.controller = controller;
@@ -109,6 +121,38 @@ public class UpdateHotelInfoView extends JPanel {
 		updatePanel.add(panel_4);
 		panel_4.setLayout(new GridLayout(3, 1, 0, 0));
 		
+		JPanel hotelCityPanel = new JPanel();
+		updatePanel.add(hotelCityPanel);
+		hotelCityPanel.setLayout(new GridLayout(1, 2, 0, 0));
+		
+		JLabel hotelCityLabel = new JLabel("所在城市");
+		hotelCityPanel.add(hotelCityLabel);
+		hotelCityLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		JComboBox<String> hotelCityComboBox = new JComboBox<String>();
+		hotelCityPanel.add(hotelCityComboBox);
+		hotelCityComboBox.addItem("请选择城市");
+		hotelCityComboBox.addItem("南京");
+		hotelCityComboBox.addItem("苏州");
+		hotelCityComboBox.addItem("上海");
+		hotelCityComboBox.addItemListener(new ItemListener() {
+
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED) {
+                    if (((String)hotelCityComboBox.getSelectedItem()).equals("南京")) {
+                    	hotelAreaJComboBox.setModel(aModel1);
+                    } else if (((String)hotelCityComboBox.getSelectedItem()).equals("苏州")) {
+                    	hotelAreaJComboBox.setModel(aModel2);
+                    } else if (((String)hotelCityComboBox.getSelectedItem()).equals("上海")) {
+                    	hotelAreaJComboBox.setModel(aModel3);
+                    }
+                }
+            }
+        });
+		
+		JPanel panel_8 = new JPanel();
+		updatePanel.add(panel_8);
+		
 		JPanel hotelAreaPanel = new JPanel();
 		updatePanel.add(hotelAreaPanel);
 		hotelAreaPanel.setLayout(new GridLayout(1, 2, 0, 0));
@@ -121,8 +165,8 @@ public class UpdateHotelInfoView extends JPanel {
 		panel3.add(hotelAreaLabel);
 		hotelAreaLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		JTextArea hotelAreaTextArea = new JTextArea();
-		panel3.add(hotelAreaTextArea);
+		panel3.add(hotelAreaJComboBox);
+		
 		
 		JPanel panel_5 = new JPanel();
 		updatePanel.add(panel_5);
@@ -166,12 +210,9 @@ public class UpdateHotelInfoView extends JPanel {
 		starComboBox.addItem(4);
 		starComboBox.addItem(5);
 		
-		JPanel panel_7 = new JPanel();
-		updatePanel.add(panel_7);
-		
 		JPanel submitPanel = new JPanel();
 		updatePanel.add(submitPanel);
-		
+
 		submitButton = new JButton("提交");
 		submitPanel.add(submitButton);
 		submitButton.addActionListener(new ActionListener(){
@@ -180,9 +221,7 @@ public class UpdateHotelInfoView extends JPanel {
 			}
 			
 		});
-		
-		JPanel panel_8 = new JPanel();
-		updatePanel.add(panel_8);
+
 	}
 	
 }
