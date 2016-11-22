@@ -2,9 +2,6 @@ package UserView;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-
-import LoginView.main;
 import runner.ClientRunner;
 import uiController.CreditViewControllerImpl;
 import uiController.HistroyHotelViewControllerImpl;
@@ -20,14 +17,8 @@ import uiService.LoginViewControllerService;
 import uiService.OrderViewControllerService;
 import uiService.customerMainViewControllerService;
 
-import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
 import javax.swing.UIManager;
 import java.awt.GridLayout;
 import javax.swing.JLabel;

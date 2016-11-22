@@ -3,12 +3,7 @@ package UserView;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.ListSelectionModel;
-import javax.swing.table.DefaultTableModel;
-
-import LoginView.main;
 import VO.CreditRecordVO;
-import VO.OrderVO;
 import runner.ClientRunner;
 import uiController.customerMainViewControllerImpl;
 import uiService.CreditViewControllerService;
@@ -16,9 +11,7 @@ import uiService.customerMainViewControllerService;
 
 import javax.swing.JButton;
 
-import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.Font;
 import java.util.Vector;
 
 import javax.swing.JLabel;
@@ -27,10 +20,14 @@ import java.awt.event.ActionEvent;
 import javax.swing.BoxLayout;
 
 public class CreditView extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private CreditViewControllerService controller;
     
 	private JPanel panel;
-	private JPanel panel_1;
 	private JButton back;
 	private JTable table;
 	private JLabel label;
@@ -38,7 +35,6 @@ public class CreditView extends JPanel {
 	private JScrollPane scrollPane;
 	private String UserID;
 	private JPanel panel1;
-	private JPanel panel2;
 	/**
 	 * Create the panel.
 	 */

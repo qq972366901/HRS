@@ -1,14 +1,12 @@
 package UserView;
 
 import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import LoginView.main;
 import runner.ClientRunner;
 import uiController.customerMainViewControllerImpl;
 import uiController.reviseInformationViewControllerImpl;
@@ -19,9 +17,6 @@ import uiService.reviseInformationViewControllerService;
 import uiService.revisePasswordViewControllerService;
 
 import javax.swing.JLabel;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
 import javax.swing.BoxLayout;
 
 public class InformationView extends JPanel {

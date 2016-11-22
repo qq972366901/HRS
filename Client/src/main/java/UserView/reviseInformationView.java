@@ -1,7 +1,6 @@
 package UserView;
 
 import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -13,22 +12,14 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import LoginView.main;
 import runner.ClientRunner;
 import uiController.InformationViewControllerImpl;
-import uiController.customerMainViewControllerImpl;
 import uiService.InformationViewControllerService;
-import uiService.customerMainViewControllerService;
 import uiService.reviseInformationViewControllerService;
 
 import javax.swing.JTextField;
 import javax.swing.UIManager;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
 import javax.swing.BoxLayout;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.BorderLayout;
 
 public class reviseInformationView extends JPanel {
     private JPanel panel;

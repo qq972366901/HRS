@@ -77,7 +77,7 @@ public class ClientRunner implements Serializable{
         	LoginViewControllerService controller =  new LoginViewControllerImpl();
     		LogView view = new LogView(controller);
     		controller.setView(view);
-    		mFrame.getContentPane().add(vie);
+    		mFrame.getContentPane().add(view);
         	mFrame.setVisible(true);
 		/*
 		DataFactoryService df=RemoteHelper.getInstance().getDataFactoryService();

@@ -2,7 +2,6 @@ package UserView;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;
@@ -13,12 +12,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-import LoginView.main;
-import VO.CreditRecordVO;
 import VO.OrderVO;
 import runner.ClientRunner;
 import uiController.customerMainViewControllerImpl;
-import uiService.CreditViewControllerService;
 import uiService.HotelorderlistViewControllerService;
 import uiService.customerMainViewControllerService;
 import javax.swing.BoxLayout;

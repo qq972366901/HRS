@@ -2,7 +2,6 @@ package UserView;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;
@@ -11,9 +10,6 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-
-import LoginView.main;
 import runner.ClientRunner;
 import uiController.InformationViewControllerImpl;
 import uiService.InformationViewControllerService;

@@ -2,12 +2,9 @@ package UserView;
 
 import javax.swing.JPanel;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-import java.awt.Font;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -15,7 +12,6 @@ import java.awt.FlowLayout;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import LoginView.main;
 import MemberRegisterView.MemberRegisterView;
 import common.UserType;
 import runner.ClientRunner;
@@ -27,18 +23,12 @@ import uiService.customerMainViewControllerService;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.awt.event.ActionEvent;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
 import javax.swing.UIManager;
 import java.awt.BorderLayout;
 import javax.swing.BoxLayout;
-import java.awt.Component;
 
 public class LogView extends JPanel {
 	private JPasswordField passwordField;

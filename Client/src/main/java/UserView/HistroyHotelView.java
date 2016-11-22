@@ -1,34 +1,25 @@
 package UserView;
 
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.List;
 import java.util.Vector;
 
-import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import LoginView.main;
 import runner.ClientRunner;
 import uiController.HotelorderlistViewControllerImpl;
 import uiController.customerMainViewControllerImpl;
 import uiService.HistroyHotelViewControllerService;
 import uiService.HotelorderlistViewControllerService;
-import uiService.InformationViewControllerService;
 import uiService.customerMainViewControllerService;
 
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import javax.swing.JList;
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 
