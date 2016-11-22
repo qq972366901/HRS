@@ -1,12 +1,12 @@
 package uiController;
 
-import HotelWorkerView.AdminRoomView;
 import HotelWorkerView.BrowseOrderView;
 import HotelWorkerView.HotelMainView;
 import HotelWorkerView.MakeHotelPromotionView;
 import HotelWorkerView.ProcessOrderView;
 import HotelWorkerView.UpdateHotelInfoView;
 import common.UserType;
+import UserView.AdminRoomView;
 import runner.ClientRunner;
 import uiService.AdminRoomUiService;
 import uiService.BrowseOrderUiService;

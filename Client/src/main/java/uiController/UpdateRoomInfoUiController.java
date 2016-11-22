@@ -1,7 +1,7 @@
 package uiController;
 
-import HotelWorkerView.AdminRoomView;
 import HotelWorkerView.UpdateRoomInfoView;
+import UserView.AdminRoomView;
 import runner.ClientRunner;
 import uiService.AdminRoomUiService;
 import uiService.UpdateRoomInfoUiService;

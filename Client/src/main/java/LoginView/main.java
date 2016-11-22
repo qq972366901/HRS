@@ -3,12 +3,15 @@ package LoginView;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import CreditView.CreditView;
-import CreditView.CreditViewControllerImpl;
-import CreditView.CreditViewControllerService;
-import customerMainView.customerMainView;
-import customerMainView.customerMainViewControllerImpl;
-import customerMainView.customerMainViewControllerService;
+import UserView.CreditView;
+import UserView.LogView;
+import UserView.customerMainView;
+import uiController.CreditViewControllerImpl;
+import uiController.LoginViewControllerImpl;
+import uiController.customerMainViewControllerImpl;
+import uiService.CreditViewControllerService;
+import uiService.LoginViewControllerService;
+import uiService.customerMainViewControllerService;
 
 
 public class main {
@@ -26,7 +29,7 @@ public class main {
 		mFrame.getContentPane().add(view);
 		mFrame.setVisible(true);	
 	}
-	public static void change(JPanel view,JPanel view2){
+	public static void change(JPanel view2){
 		mFrame.getContentPane().removeAll();
 		mFrame.getContentPane().add(view2);
 		mFrame.setVisible(true);

@@ -12,8 +12,10 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import HotelWorkerView.HotelMainView;
 import MemberRegisterView.MemberRegisterView;
+import UserView.CreditView;
 import UserView.HotelBrowseView;
 import UserView.HotelSearchView;
+import UserView.LogView;
 import UserView.OrderBuildView;
 import WebAdminView.AddHotelView;
 import WebAdminView.UserManagementView;
@@ -21,6 +23,18 @@ import WebAdminView.WebAdminUserView;
 import rmi.RemoteHelper;
 import uiController.HotelMainUiController;
 import uiService.HotelMainUiService;
+import uiController.CreditViewControllerImpl;
+import uiController.HotelSearchUiController;
+import uiController.LoginViewControllerImpl;
+import uiController.MemberRegisterUiController;
+import uiController.webAdminUserUiController;
+import uiService.CreditViewControllerService;
+import uiService.HotelSearchUiService;
+import uiService.LoginViewControllerService;
+import uiService.MemberRegisterUiService;
+import uiService.webAdminUserUiService;
+import userBLImpl.User;
+
 
 
 public class ClientRunner implements Serializable{
@@ -60,9 +74,9 @@ public class ClientRunner implements Serializable{
         	mFrame = new JFrame("HRS");
        	 	mFrame.setSize(1000, 700);
         	mFrame.setLocation(10, 10);
-    		HotelMainUiService con=new HotelMainUiController();
-    		HotelMainView vie=new HotelMainView(con);
-    		con.setView(vie);
+        	LoginViewControllerService controller =  new LoginViewControllerImpl();
+    		LogView view = new LogView(controller);
+    		controller.setView(view);
     		mFrame.getContentPane().add(vie);
         	mFrame.setVisible(true);
 		/*
