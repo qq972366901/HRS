@@ -14,7 +14,7 @@ import CreditView.CreditView;
 import CreditView.CreditViewControllerImpl;
 import CreditView.CreditViewControllerService;
 import HotelWorkerView.HotelMainView;
-import LoginView.LogView;
+import LoginView.LoginView;
 import LoginView.LoginViewControllerImpl;
 import LoginView.LoginViewControllerService;
 import MemberRegisterView.MemberRegisterView;
