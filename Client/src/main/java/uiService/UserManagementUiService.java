@@ -1,6 +1,6 @@
 package uiService;
 
-import WebAdminView.UserManagementView;
+import UserView.UserManagementView;
 
 public interface UserManagementUiService {
 	public void setView(UserManagementView view);

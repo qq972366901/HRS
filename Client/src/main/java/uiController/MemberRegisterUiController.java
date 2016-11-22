@@ -2,9 +2,15 @@ package uiController;
 
 import javax.swing.JPanel;
 
-import MemberRegisterView.MemberRegisterView;
+import UserView.MemberRegisterView;
+import WebPromotionView.WebPromotionUserView;
+import UserView.AddHotelView;
+import UserView.LogView;
 import runner.ClientRunner;
+import uiService.AddHotelUiService;
+import uiService.LoginViewControllerService;
 import uiService.MemberRegisterUiService;
+import uiService.webPromotionUserUiService;
 
 public class MemberRegisterUiController implements MemberRegisterUiService {
 	private static final long serialVersionUID = 1L;
@@ -14,7 +20,13 @@ public class MemberRegisterUiController implements MemberRegisterUiService {
 		// TODO Auto-generated method stub
 		this.view=view;
 }
-	public void toLogView(){
+	public void tocustomerMainView(){
 		
+	}
+    public void toLogView(){
+    	LoginViewControllerService controller=new LoginViewControllerImpl();
+		LogView view=new LogView(controller);
+		controller.setView(view);
+		ClientRunner.change(view);
 	}
 }

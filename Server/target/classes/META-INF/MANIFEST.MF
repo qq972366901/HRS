@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: Administrator
 Build-Jdk: 1.8.0_111
+=======
+Built-By: sony
+Build-Jdk: 1.8.0_101
+>>>>>>> 20f97631b1964e6ee1a843e61b80b6905f20e7df
 Created-By: Maven Integration for Eclipse
 

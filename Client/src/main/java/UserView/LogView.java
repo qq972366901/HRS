@@ -12,7 +12,7 @@ import java.awt.FlowLayout;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import MemberRegisterView.MemberRegisterView;
+import UserView.MemberRegisterView;
 import common.UserType;
 import runner.ClientRunner;
 import uiController.MemberRegisterUiController;

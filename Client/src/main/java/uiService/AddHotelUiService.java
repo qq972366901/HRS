@@ -1,6 +1,6 @@
 package uiService;
 
-import WebAdminView.AddHotelView;
+import UserView.AddHotelView;
 
 public interface AddHotelUiService {
 	public void setView(AddHotelView view);
