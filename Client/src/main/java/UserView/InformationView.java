@@ -3,6 +3,7 @@ package UserView;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -105,8 +106,8 @@ public class InformationView extends JPanel {
         			}
         		});
         		panel.add(back);
-        
-        		name = new JLabel("姓名 ：");
+        Vector<String> Data=new Vector<String>();//Vector<String> Data=controller.getInformatioin(UserID);
+        		name = new JLabel("姓名 :");
         		panel_1.add(name);
 		birth = new JLabel("\u751F\u65E5 \uFF1A1997/02/02");
 		panel_1.add(birth);

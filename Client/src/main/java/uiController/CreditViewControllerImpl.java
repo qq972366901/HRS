@@ -24,7 +24,7 @@ public class CreditViewControllerImpl implements CreditViewControllerService {
         this.view=view;
 	}
 	@Override
-	public long getcredit() {
+	public long getcredit(String id) {
 		return user.showCredit(id);//c.showCredit(id);		
 	}
 	public void exit() {

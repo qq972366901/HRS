@@ -14,7 +14,11 @@ import javax.swing.JTable;
 
 import VO.OrderVO;
 import runner.ClientRunner;
+import uiController.HistroyHotelViewControllerImpl;
+import uiController.HotelDetailUiController;
 import uiController.customerMainViewControllerImpl;
+import uiService.HistroyHotelViewControllerService;
+import uiService.HotelDetailUiService;
 import uiService.HotelorderlistViewControllerService;
 import uiService.customerMainViewControllerService;
 import javax.swing.BoxLayout;
@@ -30,6 +34,8 @@ public class HotelorderlistView extends JPanel {
 	private JLabel hotelname;
 	private JScrollPane scrollPane;
 	private String UserID;
+	private String HotelID;
+	private JButton back2;
 	/**
 	 * Create the panel.
 	 */
@@ -42,16 +48,25 @@ public class HotelorderlistView extends JPanel {
         add(panel_1);
 		init_exit();
 		UserID=controller.getUserID();
+		HotelID=controller.getHotelID();
 		init_table();
 	}
 	public void init_exit(){
 		
-		back = new JButton("\u8FD4\u56DE");
+		back = new JButton("返回酒店详情");
 		back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			controller.exit();
 			}
 		});
+		
+		back2 = new JButton("返回酒店列表");
+		back2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			     controller.exit2();
+			}
+		});
+		panel.add(back2);
 		panel.add(back);
 	}
 	public void init_table(){
@@ -91,8 +106,14 @@ public class HotelorderlistView extends JPanel {
 		add(scrollPane);
 	}
 	public void exit(){
-		customerMainViewControllerService con =  new customerMainViewControllerImpl(UserID);
-		customerMainView vie = new customerMainView(con);
+		HotelDetailUiService con =  new HotelDetailUiController(HotelID,UserID);
+		HotelDetailView vie = new HotelDetailView(con);
+		con.setView(vie);
+		ClientRunner.change(vie);
+	}
+	public void exit2(){
+		HistroyHotelViewControllerService con =  new HistroyHotelViewControllerImpl(UserID);
+		HistroyHotelView vie = new HistroyHotelView(con);
 		con.setView(vie);
 		ClientRunner.change(vie);
 	}

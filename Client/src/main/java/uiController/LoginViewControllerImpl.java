@@ -4,7 +4,6 @@ import java.rmi.RemoteException;
 
 import Service.Impl.UserBLServiceImpl;
 import UserView.LogView;
-import common.UserType;
 import uiService.LoginViewControllerService;
 import userBLService.UserBLService;
 
@@ -25,14 +24,23 @@ public class LoginViewControllerImpl implements LoginViewControllerService{
 	}
 
 	@Override
-	public boolean login(String id,String password) {		
+	public boolean login(String id,String password,String type) {		
 		try {
-			view.login(user.login(id, password));
+			view.login(user.login(id, password));		                                    
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return true;
+		/*if(user.login(id,password,type)){
+		 *    view.login();
+		 *    return true;
+		 *    }
+		 *else{
+		 *    return false;
+		 * }	
+		 * 
+		 */
 	}
 
 	@Override
