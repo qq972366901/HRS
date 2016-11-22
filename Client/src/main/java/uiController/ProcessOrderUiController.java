@@ -3,6 +3,7 @@ package uiController;
 import java.util.ArrayList;
 import java.util.List;
 
+import HotelWorkerView.HotelMainView;
 import HotelWorkerView.ProcessOrderView;
 import VO.OrderVO;
 import WebPromotionView.WebPromotionUserView;
@@ -10,6 +11,7 @@ import common.UserType;
 import orderBLService.OrderBLService;
 import orderBLService.OrderBLService_realize;
 import runner.ClientRunner;
+import uiService.HotelMainUiService;
 import uiService.ProcessOrderUiService;
 import uiService.webPromotionUserUiService;
 import userBLService.UserBLService;
@@ -106,6 +108,10 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 				break;
 			}
 			case Hotelworker:{
+				HotelMainUiService controller=new HotelMainUiController();
+	    		HotelMainView view=new HotelMainView(controller);
+	    		controller.setView(view);
+				ClientRunner.change(view);
 				break;
 			}
 			case WebPromotionWorker:{

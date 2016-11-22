@@ -12,7 +12,7 @@ public interface HotelMainUiService {
 	public void toLogView();//返回登录界面
 	public void toUpdateHotelInfoView();
 	public void toAdminRoomView();
-	public void toBrowseOrderView();
+	public void toProcessOrderOrderView();
 	public void toMakeHotelPromotionView();
 	
 	

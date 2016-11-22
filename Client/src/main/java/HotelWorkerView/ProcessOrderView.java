@@ -430,4 +430,9 @@ public class ProcessOrderView extends JPanel{
 		cancel.setEnabled(true);
 	}
 
+	public void disableCancel() {
+		// TODO Auto-generated method stub
+		cancel.setEnabled(false);
+	}
+
 }
