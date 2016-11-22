@@ -7,7 +7,7 @@ import common.UserType;
 import userBLService.UserBLService;
 
 public class LoginViewControllerImpl implements LoginViewControllerService{
-    private LoginView view;
+    private LogView view;
     private UserBLService user;
     
 	public LoginViewControllerImpl(){
@@ -18,7 +18,7 @@ public class LoginViewControllerImpl implements LoginViewControllerService{
 	}
 
 	@Override
-	public void setView(LoginView view) {
+	public void setView(LogView view) {
 		this.view=view;
 	}
 

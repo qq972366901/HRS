@@ -85,6 +85,7 @@ public class OrderVO extends VO {
 		comment=po.getComment();
 		score=po.getScore();	
     }
+    
     public OrderVO (CreditRecordPO po1,OrderPO po){
     	credit=po1.getCurrentcredit();
 		orderNumber=po.getOrderNumber();

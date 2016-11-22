@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.awt.event.ActionEvent;
 
-public class LoginView extends JPanel {
+public class LogView extends JPanel {
 	private JPasswordField passwordField;
 	private JTextField textField;
 	private LoginViewControllerService controller;
@@ -40,7 +40,7 @@ public class LoginView extends JPanel {
     /**
 	 * Create the panel.
 	 */
-	public LoginView(LoginViewControllerService controller) {
+	public LogView(LoginViewControllerService controller) {
 		setLayout(null);
 		this.controller=controller;
 		init_optionpannel();

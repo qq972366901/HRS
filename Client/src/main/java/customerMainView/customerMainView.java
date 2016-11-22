@@ -13,7 +13,7 @@ import HistroyHotelView.HistroyHotelViewControllerService;
 import InformationView.InformationView;
 import InformationView.InformationViewControllerImpl;
 import InformationView.InformationViewControllerService;
-import LoginView.LoginView;
+import LoginView.LogView;
 import LoginView.LoginViewControllerImpl;
 import LoginView.LoginViewControllerService;
 import LoginView.main;
@@ -146,7 +146,7 @@ public class customerMainView extends JPanel {
 	}
 	public void exit(){
 		LoginViewControllerService controller =  new LoginViewControllerImpl();
-		LoginView view = new LoginView(controller);
+		LogView view = new LogView(controller);
 		controller.setView(view);
 		main.change(this, view);
 	}
