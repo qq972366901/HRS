@@ -10,4 +10,5 @@ public interface LoginViewControllerService {
          public boolean register();
          public boolean find();
          public void error();
+		public void updateRegisterButton(String selected);
 }

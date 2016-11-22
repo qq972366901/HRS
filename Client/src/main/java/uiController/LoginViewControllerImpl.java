@@ -61,5 +61,10 @@ public class LoginViewControllerImpl implements LoginViewControllerService{
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	public void updateRegisterButton(String selected) {
+		// TODO Auto-generated method stub
+		view.updateRegisterButton(selected);
+	}
 
 }

@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import HotelWorkerView.ProcessOrderView;
+import UserView.LogView;
 import WebPromotionView.CreditManagementView;
 import WebPromotionView.MemberLevelSystemView;
 import WebPromotionView.WebPromotionStrategyView;
@@ -18,6 +19,7 @@ import WebPromotionView.WebPromotionUserView;
 import common.UserType;
 import runner.ClientRunner;
 import uiService.CreditManagementUiService;
+import uiService.LoginViewControllerService;
 import uiService.MemberLevelSystemUiService;
 import uiService.ProcessOrderUiService;
 import uiService.WebPromotionStrategyUiService;
@@ -71,7 +73,10 @@ public class webPromotionUserUiController implements webPromotionUserUiService {
 	@Override
 	public void toLogView() {
 		// TODO Auto-generated method stub
-		
+		LoginViewControllerService controller =  new LoginViewControllerImpl();
+    	LogView view = new LogView(controller);
+		controller.setView(view);
+		ClientRunner.change(view);
 	}
 
 	@Override

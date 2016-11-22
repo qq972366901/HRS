@@ -13,20 +13,32 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import UserView.MemberRegisterView;
+import WebPromotionView.WebPromotionUserView;
 import common.UserType;
 import runner.ClientRunner;
+import uiController.HotelMainUiController;
 import uiController.MemberRegisterUiController;
+import uiController.WebAdminUserUiController;
 import uiController.customerMainViewControllerImpl;
+import uiController.webPromotionUserUiController;
+import uiService.HotelMainUiService;
 import uiService.LoginViewControllerService;
 import uiService.MemberRegisterUiService;
+import uiService.WebAdminUserUiService;
 import uiService.customerMainViewControllerService;
+import uiService.webPromotionUserUiService;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.UIManager;
+
+import HotelWorkerView.HotelMainView;
+
 import java.awt.BorderLayout;
 import javax.swing.BoxLayout;
 
@@ -92,7 +104,7 @@ public class LogView extends JPanel {
 		comboBox_1=new JComboBox<String>();
 		comboBox_1.setPreferredSize(new Dimension(100,20));
 		list.add("客户");
-		list.add("酒店营销人员");
+		list.add("酒店工作人员");
 		list.add("网站营销人员");
 		list.add("网站管理人员");
 		for (String str : list) {
@@ -100,7 +112,19 @@ public class LogView extends JPanel {
 		}
 		comboBox_1.setToolTipText("");
 		comboBox_1.setFont(UIManager.getFont("Button.font"));
-		
+		comboBox_1.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent evt) {
+			
+				if(evt.getStateChange() == ItemEvent.SELECTED){
+					
+					String selected=(String)comboBox_1.getSelectedItem();
+					
+					//更换数据源
+					controller.updateRegisterButton(selected);
+				}
+			}
+
+		});
 		panel5.add(comboBox_1);
 		label3=new JLabel();
 		label3.setPreferredSize(new Dimension(150,10));
@@ -115,7 +139,6 @@ public class LogView extends JPanel {
 		textField.setColumns(15);
 		panel2.add(textField);
 		register = new JButton("\u6CE8\u518C\u8D26\u53F7");
-        
 		register.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controller.register();
@@ -148,17 +171,28 @@ public class LogView extends JPanel {
 	}
 	public void login(UserType type){
 		if(this.type.equals("客户")){
-		   customerMainViewControllerService con =  new customerMainViewControllerImpl(login.getText());
-		   customerMainView vie = new customerMainView(con);
-		   con.setView(vie);
-		   ClientRunner.change(vie);
+		   customerMainViewControllerService controller =  new customerMainViewControllerImpl(login.getText());
+		   customerMainView view = new customerMainView(controller);
+		   controller.setView(view);
+		   ClientRunner.change(view);
 		}
 		else if(this.type.equals("网站营销人员")){
+			webPromotionUserUiService controller=new webPromotionUserUiController();
+			WebPromotionUserView view=new WebPromotionUserView(controller);
+			controller.setView(view);
+			ClientRunner.change(view);
 		}
-		else if(this.type.equals("酒店营销人员")){
+		else if(this.type.equals("酒店工作人员")){
+			HotelMainUiService controller=new HotelMainUiController();
+			HotelMainView view =new HotelMainView(controller);
+			controller.setView(view);
+			ClientRunner.change(view);
 	    }
 		else {
-			
+			WebAdminUserUiService controller=new WebAdminUserUiController();
+			WebAdminUserView view=new WebAdminUserView(controller);
+			controller.setView(view);
+			ClientRunner.change(view);
 	    }
 	}
 	public void register(){
@@ -166,5 +200,14 @@ public class LogView extends JPanel {
 		MemberRegisterView vie=new MemberRegisterView(con);
 		con.setView(vie);
 		ClientRunner.change(vie);
+	}
+	public void updateRegisterButton(String selected) {
+		// TODO Auto-generated method stub
+		if(selected!="客户"){
+			register.setEnabled(false);
+		}
+		else{
+			register.setEnabled(true);
+		}
 	}
 }

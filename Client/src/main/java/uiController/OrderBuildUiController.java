@@ -13,13 +13,17 @@ import uiService.OrderBuildUiService;
 public class OrderBuildUiController implements OrderBuildUiService{
 	private static final long serialVersionUID = 1L;
 	private JPanel view;
+	private String userID;
+	public OrderBuildUiController(String userID){
+		this.userID=userID;
+	}
 	@Override
 	public void setView(OrderBuildView view) {
 		// TODO Auto-generated method stub
 		this.view=view;
 }
 	public void toHotelBrowseView(){
-		HotelBrowseUiService controller=new HotelBrowseUiController();
+		HotelBrowseUiService controller=new HotelBrowseUiController(userID);
 		HotelBrowseView view=new HotelBrowseView(controller);
 		controller.setView(view);
 		ClientRunner.change(view);

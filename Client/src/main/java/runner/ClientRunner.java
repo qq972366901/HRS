@@ -5,16 +5,11 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
-import java.util.ArrayList;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import HotelWorkerView.HotelMainView;
 import UserView.MemberRegisterView;
-import PO.HotelPO;
-import UserView.CreditView;
 import UserView.HotelBrowseView;
 import UserView.HotelSearchView;
 import UserView.LogView;
@@ -22,25 +17,11 @@ import UserView.OrderBuildView;
 import UserView.AddHotelView;
 import UserView.UserManagementView;
 import UserView.WebAdminUserView;
-import WebPromotionView.WebPromotionUserView;
-import dataService.DataFactoryService;
-import dataService.HotelDataService;
 import rmi.RemoteHelper;
-import uiController.HotelMainUiController;
-import uiService.HotelMainUiService;
-import uiController.CreditViewControllerImpl;
 import uiController.HotelSearchUiController;
 import uiController.LoginViewControllerImpl;
-import uiController.MemberRegisterUiController;
-import uiController.WebAdminUserUiController;
-import uiController.webPromotionUserUiController;
-import uiService.CreditViewControllerService;
 import uiService.HotelSearchUiService;
 import uiService.LoginViewControllerService;
-import uiService.MemberRegisterUiService;
-import uiService.WebAdminUserUiService;
-import uiService.webPromotionUserUiService;
-import userBLImpl.User;
 
 
 
@@ -81,8 +62,8 @@ public class ClientRunner implements Serializable{
         	mFrame = new JFrame("HRS");
        	 	mFrame.setSize(1000, 700);
         	mFrame.setLocation(10, 10);
-        	HotelSearchUiService controller =  new HotelSearchUiController();
-        	HotelSearchView view = new HotelSearchView(controller);
+        	LoginViewControllerService controller =  new LoginViewControllerImpl();
+        	LogView view = new LogView(controller);
     		controller.setView(view);
     		mFrame.getContentPane().add(view);
         	mFrame.setVisible(true);

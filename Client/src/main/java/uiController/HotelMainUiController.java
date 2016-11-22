@@ -1,16 +1,16 @@
 package uiController;
 
-import HotelWorkerView.BrowseOrderView;
 import HotelWorkerView.HotelMainView;
 import HotelWorkerView.MakeHotelPromotionView;
 import HotelWorkerView.ProcessOrderView;
 import HotelWorkerView.UpdateHotelInfoView;
 import common.UserType;
 import UserView.AdminRoomView;
+import UserView.LogView;
 import runner.ClientRunner;
 import uiService.AdminRoomUiService;
-import uiService.BrowseOrderUiService;
 import uiService.HotelMainUiService;
+import uiService.LoginViewControllerService;
 import uiService.MakeHotelPromotionUiService;
 import uiService.ProcessOrderUiService;
 import uiService.UpdateHotelInfoUiService;
@@ -26,6 +26,10 @@ public class HotelMainUiController implements HotelMainUiService {
 	
 	public void toLogView() {
 		//跳转到初始登录界面
+		LoginViewControllerService controller =  new LoginViewControllerImpl();
+    	LogView view = new LogView(controller);
+		controller.setView(view);
+		ClientRunner.change(view);
 	}
 	
 	public void toUpdateHotelInfoView() {
