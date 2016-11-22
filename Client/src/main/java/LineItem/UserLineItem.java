@@ -1,13 +1,13 @@
 package LineItem;
 
-import Object.User;
+import VO.UserVO;
 
 public class UserLineItem {
-	 User c;
-	   public UserLineItem(User c){
+	 UserVO c;
+	   public UserLineItem(UserVO c){
 		   this.c=c;
 	   }
-	   public User getUser(){
+	   public UserVO getUser(){
 		   return c;
 	   }
 }

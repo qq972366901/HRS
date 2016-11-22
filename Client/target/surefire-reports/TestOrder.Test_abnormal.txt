@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: TestOrder.Test_abnormal
 -------------------------------------------------------------------------------
-<<<<<<< HEAD
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.112 sec
-=======
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.056 sec
->>>>>>> 7ff7a3c4c34d2d7a1388a337249cdfd8e2375ba8
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.143 sec

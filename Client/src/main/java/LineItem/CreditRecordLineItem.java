@@ -1,13 +1,13 @@
 package LineItem;
 
-import Object.CreditRecord;
+import VO.CreditRecordVO;
 
 public class CreditRecordLineItem {
-   CreditRecord c;
-   public CreditRecordLineItem(CreditRecord c){
+   CreditRecordVO c;
+   public CreditRecordLineItem(CreditRecordVO c){
 	   this.c=c;
    }
-   public CreditRecord getUser(){
+   public CreditRecordVO getUser(){
 	   return c;
    }
 }

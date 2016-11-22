@@ -1,15 +1,5 @@
 package Mock;
-
-import Object.User;
-
-/**
- * TMockUser
- * @author 刘宇翔
- * @version 1.0
- * @see
- */
-import java.io.Serializable;
-public class MockUser extends User {
+public class MockUser{
 	private static final long serialVersionUID = 1L;
 	private String username;
 	private String useraccount;

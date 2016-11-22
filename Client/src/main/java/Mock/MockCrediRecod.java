@@ -1,14 +1,12 @@
 package Mock;
 
-import Object.CreditRecord;
-
 /**
  * MockCreditRecord
  * @author 刘宇翔
  * @version 1.0
  * @see
  */
-public class MockCrediRecod extends CreditRecord{
+public class MockCrediRecod{
 	private static final long serialVersionUID = 1L;
 	private String time;
 	private int action;
