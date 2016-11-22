@@ -2,15 +2,17 @@ package uiController;
 
 import javax.swing.JPanel;
 
-import WebAdminView.AddHotelView;
-import WebAdminView.UserManagementView;
-import WebAdminView.WebAdminUserView;
+import UserView.AddHotelView;
+import UserView.LogView;
+import UserView.UserManagementView;
+import UserView.WebAdminUserView;
 import runner.ClientRunner;
 import uiService.AddHotelUiService;
+import uiService.LoginViewControllerService;
 import uiService.UserManagementUiService;
-import uiService.webAdminUserUiService;
+import uiService.WebAdminUserUiService;
 
-public class webAdminUserUiController implements webAdminUserUiService{
+public class WebAdminUserUiController implements WebAdminUserUiService{
 	private static final long serialVersionUID = 1L;
 	private JPanel view;
 	@Override
@@ -31,6 +33,9 @@ public class webAdminUserUiController implements webAdminUserUiService{
 		ClientRunner.change(view);
 	}
 	public void toLogView(){
-		
+		LoginViewControllerService controller=new LoginViewControllerImpl();
+		LogView view=new LogView(controller);
+		controller.setView(view);
+		ClientRunner.change(view);
 	}
 }

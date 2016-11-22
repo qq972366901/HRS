@@ -4,9 +4,9 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 
-import WebAdminView.WebAdminUserView;
+import UserView.WebAdminUserView;
 import WebPromotionView.WebPromotionUserView;
-import uiService.webAdminUserUiService;
+import uiService.WebAdminUserUiService;
 
 /**
  * 负责实现酒店管理系统的网站管理人员的界面的控制器
@@ -18,7 +18,7 @@ import uiService.webAdminUserUiService;
  * @see java.awt.event.WindowEvent;
  * 
  */
-public class webAdminUserUiServiceStub extends JFrame implements webAdminUserUiService {
+public class webAdminUserUiServiceStub extends JFrame implements WebAdminUserUiService {
 
 	/**
 	 * 
