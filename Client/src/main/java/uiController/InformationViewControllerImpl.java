@@ -1,5 +1,7 @@
 package uiController;
 
+import java.util.Vector;
+
 import Service.Impl.UserBLServiceImpl;
 import UserView.InformationView;
 import VO.UserVO;
@@ -24,46 +26,6 @@ public class InformationViewControllerImpl implements InformationViewControllerS
 		view.exit();
 	}
 	@Override
-	public void getname() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void getbirth() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void gettel() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void getenterprise() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void getemail() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void getlevel() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void gettype() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void getcredit() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
 	public void reviseinformation() {
 		// TODO Auto-generated method stub
 		view.reviseinformation();
@@ -77,5 +39,11 @@ public class InformationViewControllerImpl implements InformationViewControllerS
 	public String getUserID() {
 		// TODO Auto-generated method stub
 		return UserID;
+	}
+	@Override
+	public Vector<String> getInformation(String UserID) {
+		Vector<String> data=new Vector<String>();
+		//data=user.findByID(userID);
+		return null;
 	}
 }

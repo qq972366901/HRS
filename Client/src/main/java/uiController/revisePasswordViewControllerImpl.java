@@ -43,6 +43,7 @@ public class revisePasswordViewControllerImpl implements revisePasswordViewContr
 	@Override
 	public boolean checkoldPassword(String password) {
 		// TODO Auto-generated method stub
+		//user.checkoldPassword(UserID,password);
 		return true;
 	}
 	@Override

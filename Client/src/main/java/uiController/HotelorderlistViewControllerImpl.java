@@ -40,5 +40,12 @@ public class HotelorderlistViewControllerImpl implements HotelorderlistViewContr
 		// TODO Auto-generated method stub
 		return userid;
 	}
-
+	@Override
+	public String getHotelID() {
+		// TODO Auto-generated method stub
+		return hotelid;
+	}
+    public void exit2(){
+    	view.exit2();
+    }
 }

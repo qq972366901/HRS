@@ -138,7 +138,7 @@ public class LogView extends JPanel {
 					JOptionPane.showMessageDialog(k, "账号密码输入有误！","", JOptionPane.ERROR_MESSAGE);
 					return;
 				}
-				controller.login(textField.getText(),String.valueOf(passwordField.getPassword()));
+				controller.login(textField.getText(),String.valueOf(passwordField.getPassword()),type);
 			}
 		});
 		panel3.add(login);

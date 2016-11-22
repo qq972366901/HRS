@@ -10,9 +10,11 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import runner.ClientRunner;
+import uiController.HotelDetailUiController;
 import uiController.HotelorderlistViewControllerImpl;
 import uiController.customerMainViewControllerImpl;
 import uiService.HistroyHotelViewControllerService;
+import uiService.HotelDetailUiService;
 import uiService.HotelorderlistViewControllerService;
 import uiService.customerMainViewControllerService;
 
@@ -112,8 +114,8 @@ public class HistroyHotelView extends JPanel {
 		add(scrollPane);
 	}
 	public void intoOrderList(String HotelID,String UserID){
-		HotelorderlistViewControllerService con =  new HotelorderlistViewControllerImpl(HotelID,UserID);
-		HotelorderlistView vie = new HotelorderlistView(con);
+		HotelDetailUiService con =  new HotelDetailUiController(HotelID,UserID);
+		HotelDetailView vie = new HotelDetailView(con);
 		con.setView(vie);
 		ClientRunner.change(vie);
 	}
