@@ -3,9 +3,11 @@ package uiController;
 import javax.swing.JPanel;
 
 import UserView.HotelBrowseView;
+import UserView.LogView;
 import UserView.OrderBuildView;
 import runner.ClientRunner;
 import uiService.HotelBrowseUiService;
+import uiService.LoginViewControllerService;
 import uiService.OrderBuildUiService;
 
 public class OrderBuildUiController implements OrderBuildUiService{
@@ -22,8 +24,6 @@ public class OrderBuildUiController implements OrderBuildUiService{
 		controller.setView(view);
 		ClientRunner.change(view);
 	}
-	public void toOrderBuildView(){
-		
-	}
+
 	
 }

@@ -2,11 +2,11 @@ package uiController;
 
 import javax.swing.JPanel;
 
-import WebAdminView.UserManagementView;
-import WebAdminView.WebAdminUserView;
+import UserView.UserManagementView;
+import UserView.WebAdminUserView;
 import runner.ClientRunner;
 import uiService.UserManagementUiService;
-import uiService.webAdminUserUiService;
+import uiService.WebAdminUserUiService;
 
 public class UserManagementUiController implements UserManagementUiService {
 	private static final long serialVersionUID = 1L;
@@ -17,7 +17,7 @@ public class UserManagementUiController implements UserManagementUiService {
 		this.view=view;
 }
 	public void toWebAdminUserView(){
-		webAdminUserUiService controller=new webAdminUserUiController();
+		WebAdminUserUiService controller=new WebAdminUserUiController();
 		WebAdminUserView view=new WebAdminUserView(controller);
 		controller.setView(view);
 		ClientRunner.change(view);

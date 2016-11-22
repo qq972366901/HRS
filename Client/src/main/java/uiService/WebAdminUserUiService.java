@@ -1,9 +1,9 @@
 package uiService;
 
-import WebAdminView.WebAdminUserView;
+import UserView.WebAdminUserView;
 
 
-public interface webAdminUserUiService {
+public interface WebAdminUserUiService {
 	public void setView(WebAdminUserView view);
 	public void toAddHotelView();
 	public void toLogView();

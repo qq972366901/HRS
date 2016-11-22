@@ -5,10 +5,13 @@ import javax.swing.JPanel;
 import UserView.HotelBrowseView;
 import UserView.HotelSearchView;
 import UserView.OrderBuildView;
+import UserView.WebAdminUserView;
 import runner.ClientRunner;
 import uiService.HotelBrowseUiService;
 import uiService.HotelSearchUiService;
 import uiService.OrderBuildUiService;
+import uiService.WebAdminUserUiService;
+import uiService.userUiService;
 
 
 public class HotelSearchUiController implements HotelSearchUiService{
@@ -20,7 +23,7 @@ public class HotelSearchUiController implements HotelSearchUiService{
 		this.view=view;
 }
 	public void toUserView(){
-		
+	
 	}
 	public void toHotelBrowseView(){
 		HotelBrowseUiService controller=new HotelBrowseUiController();
