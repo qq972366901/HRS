@@ -3,6 +3,7 @@ package uiController;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -73,10 +74,16 @@ public class webPromotionUserUiController implements webPromotionUserUiService {
 	@Override
 	public void toLogView() {
 		// TODO Auto-generated method stub
-		LoginViewControllerService controller =  new LoginViewControllerImpl();
-    	LogView view = new LogView(controller);
-		controller.setView(view);
-		ClientRunner.change(view);
+		LoginViewControllerService controller;
+		try {
+			controller = new LoginViewControllerImpl();
+			LogView view = new LogView(controller);
+			controller.setView(view);
+			ClientRunner.change(view);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -100,11 +107,17 @@ public class webPromotionUserUiController implements webPromotionUserUiService {
 		hotelButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int acc=Integer.valueOf(hotelField.getText());
-				ProcessOrderUiService controller=new ProcessOrderUiController(acc,UserType.WebPromotionWorker);
-				ProcessOrderView view=new ProcessOrderView(controller);
-				view.enableCancel();
-				controller.setView(view);
-				ClientRunner.change(view);
+				ProcessOrderUiService controller;
+				try {
+					controller = new ProcessOrderUiController(acc,UserType.WebPromotionWorker);
+					ProcessOrderView view=new ProcessOrderView(controller);
+					view.enableCancel();
+					controller.setView(view);
+					ClientRunner.change(view);
+				} catch (RemoteException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				hotelFrame.dispose();
 			}
 		});

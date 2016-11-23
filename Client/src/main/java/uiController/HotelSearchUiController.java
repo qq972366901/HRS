@@ -1,5 +1,7 @@
 package uiController;
 
+import java.rmi.RemoteException;
+
 import javax.swing.JPanel;
 
 import UserView.HotelBrowseView;
@@ -32,10 +34,16 @@ public class HotelSearchUiController implements HotelSearchUiService{
 		this.view=view;
 }
 	public void toUserView(){
-		customerMainViewControllerService controller =  new customerMainViewControllerImpl(userID);
-		customerMainView view = new customerMainView(controller);
-		controller.setView(view);
-		ClientRunner.change(view);
+		customerMainViewControllerService controller;
+		try {
+			controller = new customerMainViewControllerImpl(userID);
+			customerMainView view = new customerMainView(controller);
+			controller.setView(view);
+			ClientRunner.change(view);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	public void toHotelBrowseView(){
 		HotelBrowseUiService controller=new HotelBrowseUiController(userID);

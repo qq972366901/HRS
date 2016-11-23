@@ -16,6 +16,7 @@ import java.util.Vector;
 
 import javax.swing.JLabel;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 import java.awt.event.ActionEvent;
 import javax.swing.BoxLayout;
 
@@ -89,9 +90,15 @@ public class CreditView extends JPanel {
 		add(scrollPane);
 	}
 	public void exit(){
-		customerMainViewControllerService con =  new customerMainViewControllerImpl(UserID);
-		customerMainView vie = new customerMainView(con);
-		con.setView(vie);
-		ClientRunner.change(vie);
+		customerMainViewControllerService con;
+		try {
+			con = new customerMainViewControllerImpl(UserID);
+			customerMainView vie = new customerMainView(con);
+			con.setView(vie);
+			ClientRunner.change(vie);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

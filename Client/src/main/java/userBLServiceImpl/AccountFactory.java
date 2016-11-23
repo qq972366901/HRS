@@ -1,8 +1,9 @@
-package userBLImpl;
+package userBLServiceImpl;
 
 import java.util.HashMap;
 
 import VO.UserVO;
+import common.UserType;
 /**
  * 对于AccountList接口的实现
  * @author LZ
@@ -27,18 +28,18 @@ public class AccountFactory implements AccountList{
 	 * @see VO.UserVO
 	 */
 	@Override
-	public HashMap<String, UserVO> getAccountList(int type) {
+	public HashMap<String, UserVO> getAccountList(UserType type) {
 		// TODO Auto-generated method stub
-		if(type==1){
+		if(type.equals(UserType.Customer)){
 			return customer;
 		}
-		else if(type==2){
+		else if(type.equals(UserType.Hotelworker)){
 			return hotelworker;
 		}
-		else if(type==3){
+		else if(type.equals(UserType.WebPromotionWorker)){
 			return webpromotionworker;
 		}
-		else if(type==4){
+		else if(type.equals(UserType.WebManagementWorker)){
 			return webmanagehotelworker;
 		}
 		else{

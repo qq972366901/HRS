@@ -18,6 +18,7 @@ import uiService.OrderViewControllerService;
 import uiService.customerMainViewControllerService;
 
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 import java.awt.event.ActionEvent;
 import javax.swing.UIManager;
 import java.awt.GridLayout;
@@ -349,22 +350,40 @@ public class customerMainView extends JPanel {
     public void init_exitbutton(){
     }
     public void information(){
-    	InformationViewControllerService controller =  new InformationViewControllerImpl(UserID);
-		InformationView view = new InformationView(controller);
-		controller.setView(view);
-		ClientRunner.change(view);
+    	InformationViewControllerService controller;
+		try {
+			controller = new InformationViewControllerImpl(UserID);
+			InformationView view = new InformationView(controller);
+			controller.setView(view);
+			ClientRunner.change(view);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 	public void credit(){
-		CreditViewControllerService controller =  new CreditViewControllerImpl(UserID);
-		CreditView view = new CreditView(controller);
-		controller.setView(view);
-		ClientRunner.change(view);
+		CreditViewControllerService controller;
+		try {
+			controller = new CreditViewControllerImpl(UserID);
+			CreditView view = new CreditView(controller);
+			controller.setView(view);
+			ClientRunner.change(view);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	public void exit(){
-		LoginViewControllerService controller =  new LoginViewControllerImpl();
-		LogView view = new LogView(controller);
-		controller.setView(view);
-		ClientRunner.change(view);
+		LoginViewControllerService controller;
+		try {
+			controller = new LoginViewControllerImpl();
+			LogView view = new LogView(controller);
+			controller.setView(view);
+			ClientRunner.change(view);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	public void search(){
 		HotelSearchUiService con=new HotelSearchUiController(UserID);

@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.rmi.RemoteException;
 import java.util.Vector;
 
 import javax.swing.JButton;
@@ -66,10 +67,16 @@ public class HistroyHotelView extends JPanel {
 		
 	}
 	public void exit(){
-		customerMainViewControllerService con =  new customerMainViewControllerImpl(id);
-		customerMainView vie = new customerMainView(con);
-		con.setView(vie);
-		ClientRunner.change(vie);
+		customerMainViewControllerService con;
+		try {
+			con = new customerMainViewControllerImpl(id);
+			customerMainView vie = new customerMainView(con);
+			con.setView(vie);
+			ClientRunner.change(vie);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	public void init_hotelname(){
 

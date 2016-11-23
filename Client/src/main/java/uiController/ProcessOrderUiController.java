@@ -1,5 +1,6 @@
 package uiController;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +16,7 @@ import uiService.HotelMainUiService;
 import uiService.ProcessOrderUiService;
 import uiService.webPromotionUserUiService;
 import userBLService.UserBLService;
-import userBLService.UserBLService_realize;
+import userBLService.UserBLServiceController;
 
 public class ProcessOrderUiController implements ProcessOrderUiService{
 	private int hotelId;
@@ -27,11 +28,11 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 	private ProcessOrderView view;
 	
 	private UserType usertype;
-	public ProcessOrderUiController(int hotelId,UserType type){ 
+	public ProcessOrderUiController(int hotelId,UserType type) throws RemoteException{ 
 		this.hotelId = hotelId;
 		this.usertype=type;
 		orderService = new OrderBLService_realize(hotelId);
-		userService = new UserBLService_realize();
+		userService = new UserBLServiceController();
 	}
 	@Override
 	public int getHotelId() {

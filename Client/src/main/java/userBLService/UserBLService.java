@@ -73,7 +73,7 @@ public interface UserBLService {
  * @return 返回ResultMessage的所有枚举值
  * @see bussinesslogic.User
  */
-	public ResultMessage register(UserVO vo);
+	public void register(UserVO vo);
 /**
  * 维护客户信息
  * @param in MessageInput型，界面输入的更新信息
@@ -84,10 +84,10 @@ public interface UserBLService {
 /**
  * 信用记录显示
  * @param in MessageInput型，界面选择的信息
- * @return 返回ResultMessage的一个枚举值
+ * @return 返回信用记录列表
  * @see bussinesslogic.User
  */
-	public CreditRecordVO showCreditRecord(UserVO vo);
+	public List<CreditRecordVO> showCreditRecord(String userID);
 /**
  * 订单支付成功后的信用更新
  * @param in MessageInput型，界面输入的支付信息
@@ -96,30 +96,19 @@ public interface UserBLService {
  */
 	public ResultMessage topUp(long money);
 /**
- * 订单未支付完成
- * @param in MessageInput型，界面输入的支付信息
- * @return 返回ResultMessage的所有枚举值
- * @see bussinesslogic.User
- */
-	public ResultMessage payment(long money);
-/**
  * 客户登录
  * @param in MessageInput型，界面输入的更新信息
- * @return 返回UserType的所有枚举值
  * @see bussinesslogic.User
  */
-	public UserType login(String ID, String password)throws RemoteException;
+	public boolean login(String ID, String password)throws RemoteException;
 /**
  * 客户登出
- * @param in MessageInput型，界面选择的信息
- * @return 返回ResultMessage的一个枚举值
+ * @param ID String型，界面输入的客户ID
  * @see bussinesslogic.User
  */
-	public ResultMessage logout(String ID);
+	public void logout(String ID);
 
 	
     public UserVO findByAccount(String acc);
-
-	public List<CreditRecordVO> showCreditRecord(String userID) ;
 
 }

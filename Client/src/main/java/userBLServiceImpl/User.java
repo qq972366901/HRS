@@ -1,4 +1,4 @@
-package userBLImpl;
+package userBLServiceImpl;
 
 import java.rmi.RemoteException;
 import java.util.HashMap;
@@ -62,24 +62,10 @@ public class User {
 				vo.level=4;
 			}
 			map.put(vo.id, vo);
-			UserPO userpo=new UserPO(map.get(vo.id).username,map.get(vo.id).useraccount,map.get(vo.id).contactway,map.get(vo.id).level,map.get(vo.id).membertype,map.get(vo.id).type,map.get(vo.id).birthday,map.get(vo.id).enterprise);
+			UserPO userpo=new UserPO(map.get(vo.id).username,map.get(vo.id).userpassword,map.get(vo.id).useraccount,map.get(vo.id).contactway,map.get(vo.id).level,map.get(vo.id).membertype,map.get(vo.id).type,map.get(vo.id).birthday,map.get(vo.id).enterprise);
 			//UserDataService dh=(UserDataService) df.getDataService("User");
 			//dh.update(userpo);
 		}
-	}
-	/**
-	 * 登出
-	 * @param id String型，界面层传来的用户ID
-	 */
-	public void logout(String id){
-		if(map.get(id) != null)map.get(id).inorout=false;
-	}
-	/**
-	 * 登录
-	 * @param id String型，界面层传来的用户ID
-	 */
-	public void login(String id){
-		if(map.get(id) != null)map.get(id).inorout=true;
 	}
 	/**
 	 * 更新用户信息
@@ -90,7 +76,7 @@ public class User {
 	public void updateUserInfo(UserVO vo) throws RemoteException{
 		if(map.containsKey(vo.id)){
 			map.put(vo.id, vo);
-			UserPO userpo=new UserPO(vo.username,vo.useraccount,vo.contactway,vo.level,vo.membertype,vo.type,vo.birthday,vo.enterprise);
+			UserPO userpo=new UserPO(vo.username,map.get(vo.id).userpassword,vo.useraccount,vo.contactway,vo.level,vo.membertype,vo.type,vo.birthday,vo.enterprise);
 			//UserDataService dh=(UserDataService) df.getDataService("User");
 			//dh.update(userpo);
 		}
@@ -104,7 +90,7 @@ public class User {
 	public void create(UserVO vo) throws RemoteException{
 		if(!map.containsKey(vo.id)){
 			map.put(vo.id, vo);
-			UserPO userpo=new UserPO(vo.username,vo.useraccount,vo.contactway,vo.level,vo.membertype,vo.type,vo.birthday,vo.enterprise);
+			UserPO userpo=new UserPO(vo.username,map.get(vo.id).userpassword,vo.useraccount,vo.contactway,vo.level,vo.membertype,vo.type,vo.birthday,vo.enterprise);
 			//UserDataService dh=(UserDataService) df.getDataService("User");
 			//dh.insert(userpo);
 		}

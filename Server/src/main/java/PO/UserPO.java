@@ -1,6 +1,9 @@
 package PO;
 
 import java.io.Serializable;
+import java.util.Calendar;
+
+import common.UserType;
 /**
  * 客户的数据实体
  * @author LZ
@@ -10,12 +13,13 @@ import java.io.Serializable;
 public class UserPO extends PO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String username;
+	private String userpassword;
 	private String useraccount;
 	private String contactway;
 	private int level;
 	private String membertype;
-	private int type;
-	private String birthday;
+	private UserType type;
+	private Calendar birthday;
 	private String enterprise;
 	/**
 	 * 构造客户数据实体
@@ -24,15 +28,16 @@ public class UserPO extends PO implements Serializable{
 	 * @param co String型，逻辑层传来的客户联系方式
 	 * @param l int型，逻辑层传来的客户会员等级
 	 * @param mt String型，逻辑层传来的客户会员种类
-	 * @param t int型，逻辑层传来的用户种类
+	 * @param t UserType型，逻辑层传来的用户种类
 	 * @param b String型，逻辑层传来的客户生日
 	 * @param e String型，逻辑层传来的客户所在企业
 	 * @return 
 	 * @throws
 	 * @see
 	 */
-	public UserPO(String un,String ua,String co,int l,String mt,int t,String b,String e){
+	public UserPO(String un,String password,String ua,String co,int l,String mt,UserType t,Calendar b,String e){
 		username=un;
+		userpassword=password;
 		useraccount=ua;
 		contactway=co;
 		level=l;
@@ -60,6 +65,20 @@ public class UserPO extends PO implements Serializable{
 	 */
 	public void setName(String un){
 		username=un;
+	}
+	/**
+	 * 获取客户密码
+	 * @return
+	 */
+	public String getPassword(){
+		return userpassword;
+	}
+	/**
+	 * 设置客户密码
+	 * @param psd
+	 */
+	public void setPassword(String psd){
+		userpassword=psd;
 	}
 	/**
 	 * 获取客户账号
@@ -148,7 +167,7 @@ public class UserPO extends PO implements Serializable{
 	 * @throws
 	 * @see
 	 */
-	public int getType(){
+	public UserType getType(){
 		return type;
 	}
 	/**
@@ -158,7 +177,7 @@ public class UserPO extends PO implements Serializable{
 	 * @throws
 	 * @see
 	 */
-	public void setType(int t){
+	public void setType(UserType t){
 		type=t;
 	}
 	/**
@@ -168,7 +187,7 @@ public class UserPO extends PO implements Serializable{
 	 * @throws
 	 * @see
 	 */
-	public String getBirthday(){
+	public Calendar getBirthday(){
 		return birthday;
 	}
 	/**
@@ -178,7 +197,7 @@ public class UserPO extends PO implements Serializable{
 	 * @throws
 	 * @see
 	 */
-	public void setBirthday(String b){
+	public void setBirthday(Calendar b){
 		birthday=b;
 	}
 	/**

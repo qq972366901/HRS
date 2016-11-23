@@ -9,8 +9,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import VO.UserVO;
+import common.UserType;
 import runner.ClientRunner;
-import userBLImpl.User;
+import userBLServiceImpl.User;
 public class UserTest {
 	private User user;
 	UserVO user1;
@@ -31,9 +32,9 @@ public class UserTest {
 		time2.set(2016,11,11);
 		Calendar time3=Calendar.getInstance();
 		time3.set(2016,11,11);
-		user1=new UserVO("1","1@nju.edu.cn","3414141","1",false,1,78,"普通会员",1,time1,"");
-		user2=new UserVO("2","2@nju.edu.cn","3415641","2",true,5,41780,"企业会员",1,time2,"Goldman Sachs");
-		user3=new UserVO("3","3@nju.edu.cn","9414141","3",false,2,4178,"普通会员",1,time3,"");
+		user1=new UserVO("1","1","1@nju.edu.cn","3414141","1",false,1,78,"普通会员",UserType.Customer,time1,"");
+		user2=new UserVO("2","1","2@nju.edu.cn","3415641","2",true,5,41780,"企业会员",UserType.Customer,time2,"Goldman Sachs");
+		user3=new UserVO("3","1","3@nju.edu.cn","9414141","3",false,2,4178,"普通会员",UserType.Customer,time3,"");
 		user=new User();
 		
 	}
@@ -65,24 +66,6 @@ public class UserTest {
 		user.create(user3);
 		user.updateLevel(user3);
 		assertEquals(user.findByID(user3.id).level,3);// TODO
-	}
-
-	@Test
-	public void testLogout() throws RemoteException {
-		user.create(user1);
-		user.create(user2);
-		user.create(user3);
-		user.logout(user2.id);
-		assertEquals(false,user.findByID(user2.id).inorout);// TODO
-	}
-
-	@Test
-	public void testLogin() throws RemoteException {
-		user.create(user1);
-		user.create(user2);
-		user.create(user3);
-		user.login(user1.id);
-		assertEquals(true,user.findByID(user1.id).inorout);// TODO
 	}
 
 	@Test

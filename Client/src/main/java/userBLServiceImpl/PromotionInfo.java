@@ -1,4 +1,4 @@
-package userBLImpl;
+package userBLServiceImpl;
 
 import java.util.HashMap;
 /**

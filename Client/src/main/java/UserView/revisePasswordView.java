@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 import java.util.Vector;
 
 import javax.swing.JButton;
@@ -147,9 +148,15 @@ public class revisePasswordView extends JPanel {
 		
 	}
 	public void exit(){
-	    InformationViewControllerService con =  new InformationViewControllerImpl(UserID);
-	    InformationView vie = new InformationView(con);
-		con.setView(vie);
-		ClientRunner.change(vie);
+	    InformationViewControllerService con;
+		try {
+			con = new InformationViewControllerImpl(UserID);
+			InformationView vie = new InformationView(con);
+			con.setView(vie);
+			ClientRunner.change(vie);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

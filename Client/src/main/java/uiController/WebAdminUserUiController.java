@@ -1,5 +1,7 @@
 package uiController;
 
+import java.rmi.RemoteException;
+
 import javax.swing.JPanel;
 
 import UserView.AddHotelView;
@@ -33,9 +35,15 @@ public class WebAdminUserUiController implements WebAdminUserUiService{
 		ClientRunner.change(view);
 	}
 	public void toLogView(){
-		LoginViewControllerService controller=new LoginViewControllerImpl();
-		LogView view=new LogView(controller);
-		controller.setView(view);
-		ClientRunner.change(view);
+		LoginViewControllerService controller;
+		try {
+			controller = new LoginViewControllerImpl();
+			LogView view=new LogView(controller);
+			controller.setView(view);
+			ClientRunner.change(view);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

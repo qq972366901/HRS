@@ -1,5 +1,7 @@
 package uiController;
 
+import java.rmi.RemoteException;
+
 import HotelWorkerView.HotelMainView;
 import HotelWorkerView.MakeHotelPromotionView;
 import HotelWorkerView.ProcessOrderView;
@@ -26,10 +28,16 @@ public class HotelMainUiController implements HotelMainUiService {
 	
 	public void toLogView() {
 		//跳转到初始登录界面
-		LoginViewControllerService controller =  new LoginViewControllerImpl();
-    	LogView view = new LogView(controller);
-		controller.setView(view);
-		ClientRunner.change(view);
+		LoginViewControllerService controller;
+		try {
+			controller = new LoginViewControllerImpl();
+			LogView view = new LogView(controller);
+			controller.setView(view);
+			ClientRunner.change(view);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public void toUpdateHotelInfoView() {
@@ -57,11 +65,17 @@ public class HotelMainUiController implements HotelMainUiService {
 	@Override
 	public void toProcessOrderOrderView() {
 		// TODO Auto-generated method stub
-		ProcessOrderUiService controller=new ProcessOrderUiController(1,UserType.Hotelworker);//系统自动获取酒店工作人员账号，这里用1代替
-		ProcessOrderView view=new ProcessOrderView(controller);
-		view.disableCancel();
-		controller.setView(view);
-		ClientRunner.change(view);
+		ProcessOrderUiService controller;
+		try {
+			controller = new ProcessOrderUiController(1,UserType.Hotelworker);//系统自动获取酒店工作人员账号，这里用1代替
+			ProcessOrderView view=new ProcessOrderView(controller);
+			view.disableCancel();
+			controller.setView(view);
+			ClientRunner.change(view);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

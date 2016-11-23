@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.rmi.RemoteException;
 import java.util.Vector;
 
 import javax.swing.JButton;
@@ -215,10 +216,16 @@ public class reviseInformationView extends JPanel {
 		
 	}
 	public void exit(){
-	    InformationViewControllerService con =  new InformationViewControllerImpl(UserID);
-	    InformationView vie = new InformationView(con);
-		con.setView(vie);
-		ClientRunner.change(vie);
+	    InformationViewControllerService con;
+		try {
+			con = new InformationViewControllerImpl(UserID);
+			InformationView vie = new InformationView(con);
+			con.setView(vie);
+			ClientRunner.change(vie);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	private int judge(int year,int month){
 		for(int i:big){

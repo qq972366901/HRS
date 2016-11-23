@@ -1,22 +1,23 @@
 package uiController;
 
+import java.rmi.RemoteException;
 import java.util.List;
 
-import Service.Impl.UserBLServiceImpl;
 import UserView.CreditView;
 import VO.CreditRecordVO;
 import VO.OrderVO;
 import uiService.CreditViewControllerService;
-import userBLImpl.Credit;
 import userBLService.UserBLService;
+import userBLService.UserBLServiceController;
+import userBLServiceImpl.Credit;
 
 public class CreditViewControllerImpl implements CreditViewControllerService {
 	private CreditView view;
 	private String id;
 	private UserBLService user;
-	public CreditViewControllerImpl(String id){
+	public CreditViewControllerImpl(String id) throws RemoteException{
 		this.id=id;
-		user=new UserBLServiceImpl();
+		user=new UserBLServiceController();
 		
 	}
 	public void setView(CreditView view) {
