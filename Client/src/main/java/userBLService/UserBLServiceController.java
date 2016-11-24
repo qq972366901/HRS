@@ -168,5 +168,13 @@ public class UserBLServiceController implements UserBLService {
 	public List<CreditRecordVO> showCreditRecord(String userID) {
 		return userCreditRecordController.showCreditRecord(userID);
 	}
+	/**
+	 * 判断账号是否存在
+	 */
+	@Override
+	public boolean judge(String account) {
+		// TODO Auto-generated method stub
+		return userManagementController.judge(account);
+	}
 
 }

@@ -21,4 +21,13 @@ public class UserManagementController{
 			public ResultMessage delete(UserVO vo) {
 			return ResultMessage.Exist;
 		}
+			/**
+			 * 判断客户账号是否存在
+			 * @param account
+			 * @return
+			 */
+		public boolean judge(String account) {
+			// TODO Auto-generated method stub
+			return false;
+		}
 }

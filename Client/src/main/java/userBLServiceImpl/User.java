@@ -19,9 +19,16 @@ public class User {
 	private HashMap<String,UserVO> map;
 	private DataFactoryService df;
 	private PromotionInfo pi;
-	public User(){
-		map=new HashMap<String,UserVO>();
+	private static User user;
+	private User(){
+		map=new HashMap<String,UserVO>();//暂时这样初始化，事实上需要从数据层取
 		df=RemoteHelper.getInstance().getDataFactoryService();
+	}
+	public static User getUserInstance(){
+		if(user==null){
+			user=new User();
+		}
+		return user;
 	}
 	/**
 	 * 按ID查找用户
@@ -29,7 +36,7 @@ public class User {
 	 * @return 返回属于此ID的用户信息
 	 * @see VO.UserVO
 	 */
-	public UserVO findByID(String userID){
+	public  UserVO findByID(String userID){
 		UserVO user=map.get(userID);
 		return user;
 	}

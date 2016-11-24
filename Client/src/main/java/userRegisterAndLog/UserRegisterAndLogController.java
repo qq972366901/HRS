@@ -8,7 +8,7 @@ public class UserRegisterAndLogController{
 	private Register register;
 	private Log log;
 	public UserRegisterAndLogController() throws RemoteException{
-		this.log=new Log();
+		this.log=Log.getLogInstance();
 		this.register=new Register();
 	}
 	/**

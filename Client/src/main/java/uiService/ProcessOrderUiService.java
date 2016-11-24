@@ -32,4 +32,8 @@ public interface ProcessOrderUiService {
 	public void back();
 
 	public void cancelAbnormalOrder();
+
+	public void searchOrderByID();
+
+	public OrderVO getOrderByID(String orderID);
 }

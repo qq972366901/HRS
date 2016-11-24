@@ -108,7 +108,16 @@ public interface UserBLService {
  */
 	public void logout(String ID);
 
-	
+	/**
+	 * 按账号查找用户并返回
+	 * @param acc
+	 * @return
+	 */
     public UserVO findByAccount(String acc);
-
+    /**
+     * 判断用户账号是否存在
+     * @param ID
+     * @return
+     */
+    public boolean judge(String account);
 }

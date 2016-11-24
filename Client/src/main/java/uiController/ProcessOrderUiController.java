@@ -132,5 +132,18 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 		// TODO Auto-generated method stub
 		view.cancelAbnormalOrder();
 	}
+	@Override
+	public void searchOrderByID() {
+		// TODO Auto-generated method stub
+		view.searchOrderByID();
+	}
+	/**
+	 * 按订单编号获取订单
+	 */
+	@Override
+	public OrderVO getOrderByID(String orderID) {
+		// TODO Auto-generated method stub
+		return new OrderVO();
+	}
 
 }

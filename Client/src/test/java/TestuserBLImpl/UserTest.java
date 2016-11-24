@@ -35,7 +35,7 @@ public class UserTest {
 		user1=new UserVO("1","1","1@nju.edu.cn","3414141","1",false,1,78,"普通会员",UserType.Customer,time1,"");
 		user2=new UserVO("2","1","2@nju.edu.cn","3415641","2",true,5,41780,"企业会员",UserType.Customer,time2,"Goldman Sachs");
 		user3=new UserVO("3","1","3@nju.edu.cn","9414141","3",false,2,4178,"普通会员",UserType.Customer,time3,"");
-		user=new User();
+		user=User.getUserInstance();
 		
 	}
 

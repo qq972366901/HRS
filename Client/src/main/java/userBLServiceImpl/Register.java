@@ -12,7 +12,7 @@ import VO.UserVO;
 public class Register {
 	private User user;
 	public Register(){
-		user=new User();
+		user=User.getUserInstance();
 	}
 	/**
 	 * 增加一位用户
