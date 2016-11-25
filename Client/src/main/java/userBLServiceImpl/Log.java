@@ -52,12 +52,22 @@ public class Log {
 	 * @param password
 	 * @return
 	 */
-	private boolean passwordIsValid(String id,String password){
+	public boolean passwordIsValid(String id,String password){
 		if(list.get(id).userpassword.equals(password)){
 			return true;
 		}
 		else{
 			return false;
 		}
+	}
+	/**
+	 * 修改密码
+	 * @param userID
+	 * @param password
+	 */
+	public void revisepassword(String userID, String password) {
+		// TODO Auto-generated method stub
+		list.get(userID).userpassword=password;
+		//由于修改了密码，需要对数据层进行持久化
 	}
 }

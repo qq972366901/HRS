@@ -25,6 +25,10 @@ import java.awt.GridLayout;
 import javax.swing.JLabel;
 
 public class customerMainView extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private customerMainViewControllerService controller;
 	private JButton information;
 	private JButton exit;

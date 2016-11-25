@@ -39,4 +39,23 @@ public class UserRegisterAndLogController{
 		public void logout(String ID) {
 			log.logout(ID);
 		}
+		/**
+		 * 修改密码
+		 * @param userID
+		 * @param password
+		 */
+		public void revisepassword(String userID, String password) {
+			// TODO Auto-generated method stub
+			log.revisepassword(userID,password);
+		}
+		/**
+		 * 检查密码是否正确
+		 * @param userID
+		 * @param password
+		 * @return 
+		 */
+		public boolean checkoldPassword(String userID, String password) {
+			// TODO Auto-generated method stub
+			return log.passwordIsValid(userID,password);
+		}
 }

@@ -216,7 +216,7 @@ public class LogView extends JPanel {
 			ClientRunner.change(view);
 	    }
 	}
-	public void register(){
+	public void register() throws RemoteException{
 		MemberRegisterUiService con=new MemberRegisterUiController();
 		MemberRegisterView vie=new MemberRegisterView(con);
 		con.setView(vie);

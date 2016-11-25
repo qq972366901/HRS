@@ -3,6 +3,8 @@ package userBLService;
 import java.rmi.RemoteException;
 import java.util.List;
 
+import javax.swing.JLabel;
+
 import VO.CreditRecordVO;
 import VO.UserVO;
 import common.ResultMessage;
@@ -56,10 +58,17 @@ public class UserBLServiceController implements UserBLService {
 	 * 新增客户信息
 	 * @param in MessageInput型，界面输入的新增信息
 	 * @return 返回ResultMessage的一个枚举值
+	 * @throws RemoteException 
 	 * @see bussinesslogic.User
 	 */
-	public ResultMessage add(UserVO vo) {
-		return userManagementController.add(vo);
+	public boolean add(UserVO vo) {
+		try {
+			return userManagementController.add(vo);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
 	}
 	/**
 	 * 删除客户信息
@@ -176,5 +185,18 @@ public class UserBLServiceController implements UserBLService {
 		// TODO Auto-generated method stub
 		return userManagementController.judge(account);
 	}
-
+    /**
+     * 修改密码
+     */
+	public void revisepassword(String userID, String password){
+		userRegisterAndLogController.revisepassword(userID, password);
+	}
+	/**
+	 * 检查密码是否正确
+	 */
+	@Override
+	public boolean checkoldPassword(String userID, String password) {
+		// TODO Auto-generated method stub
+		return userRegisterAndLogController.checkoldPassword(userID,password);
+	}
 }

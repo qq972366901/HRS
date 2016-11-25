@@ -16,7 +16,6 @@ public class UserVO extends VO {
 
 	public String username;
 	public String userpassword;
-	public String useraccount;
 	public String contactway;
 	public String id;
 	public boolean inorout;
@@ -30,10 +29,9 @@ public class UserVO extends VO {
 	public UserVO(UserPO po){
 		
 	}
-	public UserVO(String usern,String password,String usera,String con,String ID,boolean io,int le,long cr,String mt,UserType t,Calendar birth,String enter){
+	public UserVO(String usern,String password,String con,String ID,boolean io,int le,long cr,String mt,UserType t,Calendar birth,String enter){
 		username=usern;
 		userpassword=password;
-		useraccount=usera;
 		contactway=con;
 		id=ID;
 		inorout=io;

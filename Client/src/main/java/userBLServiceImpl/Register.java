@@ -17,11 +17,12 @@ public class Register {
 	/**
 	 * 增加一位用户
 	 * @param vo 界面层传来的VO对象
+	 * @return 
 	 * @throws RemoteException
 	 * @see VO.UserVO
 	 */
-	public void add(UserVO vo) throws RemoteException{
-		user.create(vo);
+	public boolean add(UserVO vo) throws RemoteException{
+		return user.create(vo);
 	}
 	/**
 	 * 获取用户信息

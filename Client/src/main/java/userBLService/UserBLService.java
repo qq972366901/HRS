@@ -2,6 +2,8 @@ package userBLService;
 import java.rmi.RemoteException;
 import java.util.List;
 
+import javax.swing.JLabel;
+
 import VO.*;
 import common.*;
 /**
@@ -31,7 +33,7 @@ public interface UserBLService {
  * @return 返回ResultMessage的一个枚举值
  * @see bussinesslogic.User
  */
-	public ResultMessage add(UserVO vo);
+	public boolean add(UserVO vo);
 /**
  * 删除客户信息
  * @param in MessageInput型，界面选择删除的信息
@@ -120,4 +122,17 @@ public interface UserBLService {
      * @return
      */
     public boolean judge(String account);
+    /**
+     * 修改密码
+     * @param userID
+     * @param newpassword
+     */
+	public void revisepassword(String userID, String password);
+	/**
+	 * 检查密码是否正确
+	 * @param userID
+	 * @param password
+	 * @return 
+	 */
+	public boolean checkoldPassword(String userID, String password);
 }

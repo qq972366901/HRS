@@ -14,7 +14,7 @@ public class UserPO extends PO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String username;
 	private String userpassword;
-	private String useraccount;
+	private String id;
 	private String contactway;
 	private int level;
 	private String membertype;
@@ -38,7 +38,7 @@ public class UserPO extends PO implements Serializable{
 	public UserPO(String un,String password,String ua,String co,int l,String mt,UserType t,Calendar b,String e){
 		username=un;
 		userpassword=password;
-		useraccount=ua;
+		id=ua;
 		contactway=co;
 		level=l;
 		type=t;
@@ -88,7 +88,7 @@ public class UserPO extends PO implements Serializable{
 	 * @see
 	 */
 	public String getAccount(){
-		return useraccount;
+		return id;
 	}
 	/**
 	 * 设置客户账号
@@ -98,7 +98,7 @@ public class UserPO extends PO implements Serializable{
 	 * @see
 	 */
 	public void setAccount(String ua){
-		useraccount=ua;
+		id=ua;
 	}
 	/**
 	 * 获取客户联系方式

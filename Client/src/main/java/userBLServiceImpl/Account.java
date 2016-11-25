@@ -48,9 +48,9 @@ public class Account{
 	 */
 	public void update(UserVO vo) throws RemoteException{
 		if(type==vo.type){
-			if(map.get(vo.useraccount) != null){
-				map.get(vo.useraccount).update(vo);
-				UserPO userpo=new UserPO(vo.username,vo.userpassword,vo.useraccount,vo.contactway,vo.level,vo.membertype,vo.type,vo.birthday,vo.enterprise);
+			if(map.get(vo.id) != null){
+				map.get(vo.id).update(vo);
+				UserPO userpo=new UserPO(vo.username,vo.userpassword,vo.id,vo.contactway,vo.level,vo.membertype,vo.type,vo.birthday,vo.enterprise);
 				//UserDataService dh=(UserDataService) df.getDataService("User");
 				//dh.update(userpo);
 			}
@@ -64,9 +64,9 @@ public class Account{
 	 */
 	public void delete(UserVO vo) throws RemoteException{
 		if(type==vo.type){
-			if(map.get(vo.useraccount) != null){
-				map.remove(vo.useraccount);
-				UserPO userpo=new UserPO(vo.username,vo.userpassword,vo.useraccount,vo.contactway,vo.level,vo.membertype,vo.type,vo.birthday,vo.enterprise);
+			if(map.get(vo.id) != null){
+				map.remove(vo.id);
+				UserPO userpo=new UserPO(vo.username,vo.userpassword,vo.id,vo.contactway,vo.level,vo.membertype,vo.type,vo.birthday,vo.enterprise);
 				//UserDataService dh=(UserDataService) df.getDataService("User");
 				//dh.delete(userpo);
 			}
@@ -80,9 +80,9 @@ public class Account{
 	 */
 	public void add(UserVO vo) throws RemoteException{
 		if(type==vo.type){
-			if(map.get(vo.useraccount)==null){
-				map.put(vo.useraccount, vo);
-				UserPO userpo=new UserPO(vo.username,vo.userpassword,vo.useraccount,vo.contactway,vo.level,vo.membertype,vo.type,vo.birthday,vo.enterprise);
+			if(map.get(vo.id)==null){
+				map.put(vo.id, vo);
+				UserPO userpo=new UserPO(vo.username,vo.userpassword,vo.id,vo.contactway,vo.level,vo.membertype,vo.type,vo.birthday,vo.enterprise);
 				//UserDataService dh=(UserDataService) df.getDataService("User");
 				//dh.insert(userpo);
 			}
