@@ -5,13 +5,17 @@ import java.rmi.RemoteException;
 import javax.swing.JPanel;
 
 import UserView.MemberRegisterView;
+import UserView.customerMainView;
 import WebPromotionView.WebPromotionUserView;
 import UserView.AddHotelView;
+import UserView.AdminRoomView;
 import UserView.LogView;
 import runner.ClientRunner;
 import uiService.AddHotelUiService;
+import uiService.AdminRoomUiService;
 import uiService.LoginViewControllerService;
 import uiService.MemberRegisterUiService;
+import uiService.customerMainViewControllerService;
 import uiService.webPromotionUserUiService;
 
 public class MemberRegisterUiController implements MemberRegisterUiService {
@@ -23,7 +27,16 @@ public class MemberRegisterUiController implements MemberRegisterUiService {
 		this.view=view;
 }
 	public void tocustomerMainView(){
-		
+		customerMainViewControllerService controller = null;
+		try {
+			controller = new customerMainViewControllerImpl("1");
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		customerMainView view = new customerMainView(controller);
+		controller.setView(view);
+		ClientRunner.change(view);
 	}
     public void toLogView(){
     	LoginViewControllerService controller;

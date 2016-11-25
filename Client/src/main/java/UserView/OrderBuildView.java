@@ -20,13 +20,13 @@ import uiService.OrderBuildUiService;
 
 public class OrderBuildView extends JPanel{
 	private static final long serialVersionUID = 1L;
-	private JLabel label1,label2,label3,label4,label5,label6,label7,label8,label9,label10,label11,label12,label13,label14,label15,label16,label17;
+	private JLabel label1,label2,label3,label4,label5,label6,label7,label8,label9,label10,label11,label12,label13,label14,label15,label16,label17,label18;
 	private JButton button1,button2;
 	private JComboBox<Integer> comboBox1,comboBox2,comboBox3,comboBox4,comboBox5,comboBox6,comboBox7,comboBox8,comboBox9,comboBox11,comboBox12;
 	private JComboBox<String> comboBox10,comboBox13;
 	private JPanel pane;
 	private OrderBuildUiService controller;
-	
+	private Date date;
 	public OrderBuildView(OrderBuildUiService c){
 		this.controller=c;
 		this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
@@ -47,54 +47,123 @@ public class OrderBuildView extends JPanel{
 				controller.toHotelBrowseView();
 			}
 		});
+		Calendar ca = Calendar.getInstance();
+		int year = ca.get(Calendar.YEAR);//获取年份
+		int month=ca.get(Calendar.MONTH)+1;//获取月份
+		int day=ca.get(Calendar.DATE);//获取日
+		Calendar cal4=Calendar.getInstance();
+		cal4.set(year,month,day);
+		date=cal4.getTime();
 		Calendar cal=Calendar.getInstance();
 		JPanel panel1 = new JPanel();
 		panel1.setLayout(new FlowLayout(FlowLayout.CENTER));	
 		label1=new JLabel(" 开  始  时  间 ");
 		comboBox1= new JComboBox<Integer>();
-		for(int i=2016;i<2018;i++){
-		    comboBox1.addItem(i);
-			}
+		comboBox1.addItem(null);
+		if((month==12&&day==30)||(month==12&&day==31)){
+		    comboBox1.addItem(year);
+		    comboBox1.addItem(year+1);
+		}
+		else{
+			comboBox1.addItem(year);
+		}
 		comboBox1.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent evt) {
 				if(evt.getStateChange() == ItemEvent.SELECTED){		
-				int	selected1=(int)comboBox1.getSelectedItem();
-				int selected2=(int)comboBox2.getSelectedItem();
-				cal.set(Calendar.YEAR,selected1);
-				cal.set(Calendar.MONTH,selected2-1);
-				int maxDate=cal.getActualMaximum(Calendar.DATE);
-				comboBox3.removeAllItems();
-				for(int k=1;k<maxDate+1;k++){
-					comboBox3.addItem(k);
+				int	selected=(int)comboBox1.getSelectedItem();
+				comboBox2.removeAllItems();
+				if(selected==year){
+				if(((day==30||day==31)&&month!=12)||(day==29&&(month==2||month==4||month==6||month==9||month==11))||(month==2&&(day==28||day==27))){
+					comboBox2.addItem(month);
+					comboBox2.addItem(month+1);
+				}
+				if((day==30||day==31)&&month==12){
+					comboBox2.addItem(month);
+					comboBox2.addItem(1);
+				}
+				else{
+					comboBox2.addItem(month);
+				}
 				}
 				}
 			}
 		});
 		label2=new JLabel("年");
 		comboBox2= new JComboBox<Integer>();
-		for(int i=1;i<13;i++){
-		    comboBox2.addItem(i);
-			}
+	//确定日
+		
 		comboBox2.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent evt) {
-				if(evt.getStateChange() == ItemEvent.SELECTED){		
+				if(evt.getStateChange() == ItemEvent.SELECTED){	
+					comboBox3.removeAllItems();
 					int	selected1=(int)comboBox1.getSelectedItem();
 					int selected2=(int)comboBox2.getSelectedItem();
-					cal.set(Calendar.YEAR,selected1);
-					cal.set(Calendar.MONTH,selected2-1);
-					int maxDate=cal.getActualMaximum(Calendar.DATE);
-					comboBox3.removeAllItems();
-					for(int k=1;k<maxDate+1;k++){
-						comboBox3.addItem(k);
+					if(year==selected1&&month==selected2){
+						if(day==31){
+							comboBox3.addItem(31);
+						}
+						else if(day==30&&(month==1||month==3||month==5||month==7||month==8||month==10||month==12)){
+							comboBox3.addItem(30);
+							comboBox3.addItem(31);
+						}
+						else if(day==30&&(month==4||month==6||month==9||month==11)){
+							comboBox3.addItem(30);
+						}
+						else if(day==29&&(month==4||month==6||month==9||month==11)){
+							comboBox3.addItem(29);
+							comboBox3.addItem(30);
+						}
+						else if(day==29&&month==2){
+							comboBox3.addItem(29);
+						}
+						else if(day==28&&month==2){
+							comboBox3.addItem(28);
+						}
+						else{
+							comboBox3.addItem(day);
+							comboBox3.addItem(day+1);
+							comboBox3.addItem(day+2);
+						}
+					}
+					else if(year==selected1&&month!=selected2){
+						if(day==31){
+							comboBox3.addItem(1);
+							comboBox3.addItem(2);
+						}
+						else if(day==30&&(month==1||month==3||month==5||month==7||month==8||month==10||month==12)){
+							comboBox3.addItem(1);
+						}
+						else if(day==30&&(month==4||month==6||month==9||month==11)){
+							comboBox3.addItem(1);
+							comboBox3.addItem(2);
+						}
+						else if(day==29&&(month==4||month==6||month==9||month==11)){
+							comboBox3.addItem(1);
+						}
+						else if(day==29&&month==2){
+							comboBox3.addItem(1);
+							comboBox3.addItem(2);
+						}
+						else if(day==28&&month==2){
+							comboBox3.addItem(1);
+							comboBox3.addItem(2);
+						}
+					}
+					else if(year!=selected1){
+						if(day==30){
+							comboBox3.addItem(1);
+						}
+						else if(day==31){
+							comboBox3.addItem(1);
+							comboBox3.addItem(2);
+						}
 					}
 					}
 				}
 		});
 		label3=new JLabel("月");
 		comboBox3= new JComboBox<Integer>();
-		for(int k=1;k<32;k++){
-			comboBox3.addItem(k);
-		}
+		
 		label4=new JLabel("日");
 		panel1.add(label1);
 		panel1.add(comboBox1);
@@ -108,7 +177,7 @@ public class OrderBuildView extends JPanel{
 		panel2.setLayout(new FlowLayout(FlowLayout.CENTER));
 		label5=new JLabel(" 退  房  时  间 ");
 		comboBox4= new JComboBox<Integer>();
-		for(int i=2016;i<2018;i++){
+		for(int i=2016;i<2101;i++){
 		    comboBox4.addItem(i);
 			}
 		comboBox4.addItemListener(new ItemListener() {
@@ -162,59 +231,10 @@ public class OrderBuildView extends JPanel{
 		this.add(panel2);
 		JPanel panel3 = new JPanel();
 		panel3.setLayout(new FlowLayout(FlowLayout.CENTER));
-		label9=new JLabel("订单最晚执行时间");
-		comboBox7= new JComboBox<Integer>();
-		for(int i=2016;i<2018;i++){
-		    comboBox7.addItem(i);
-			}
-		comboBox7.addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent evt) {
-				if(evt.getStateChange() == ItemEvent.SELECTED){		
-				int	selected1=(int)comboBox7.getSelectedItem();
-				int selected2=(int)comboBox8.getSelectedItem();
-				cal.set(Calendar.YEAR,selected1);
-				cal.set(Calendar.MONTH,selected2-1);
-				int maxDate=cal.getActualMaximum(Calendar.DATE);
-				comboBox9.removeAllItems();
-				for(int k=1;k<maxDate+1;k++){
-					comboBox9.addItem(k);
-				}
-				}
-			}
-		});
-		label10=new JLabel("年");
-		comboBox8= new JComboBox<Integer>();
-		for(int i=1;i<13;i++){
-		    comboBox8.addItem(i);
-			}
-		comboBox8.addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent evt) {
-				if(evt.getStateChange() == ItemEvent.SELECTED){		
-				int	selected1=(int)comboBox7.getSelectedItem();
-				int selected2=(int)comboBox8.getSelectedItem();
-				cal.set(Calendar.YEAR,selected1);
-				cal.set(Calendar.MONTH,selected2-1);
-				int maxDate=cal.getActualMaximum(Calendar.DATE);
-				comboBox9.removeAllItems();
-				for(int k=1;k<maxDate+1;k++){
-					comboBox9.addItem(k);
-				}
-				}
-			}
-		});
-		label11=new JLabel("月");
-		comboBox9= new JComboBox<Integer>();		
-		for(int i=1;i<32;i++){
-		    comboBox9.addItem(i);
-			}
-		label12=new JLabel("日");
+		label9=new JLabel("订单最晚执行时间为开始时间当天的凌晨12点");
+		label18=new JLabel();
 		panel3.add(label9);
-		panel3.add(comboBox7);
-		panel3.add(label10);
-		panel3.add(comboBox8);
-		panel3.add(label11);
-		panel3.add(comboBox9);
-		panel3.add(label12);
+		panel3.add(label18);
 		this.add(panel3);
 		JPanel panel4 = new JPanel();
 		panel4.setLayout(new FlowLayout(FlowLayout.CENTER));
@@ -264,7 +284,7 @@ public class OrderBuildView extends JPanel{
 		this.add(panel7);
 		JPanel panel8 = new JPanel();
 		panel8.setLayout(new FlowLayout(FlowLayout.CENTER));
-		label17=new JLabel("总计          元");
+		label17=new JLabel("已为你选择了最低的优惠策略，打折后总计    元");
 		panel8.add(label17);
 		this.add(panel8);
 		JPanel panel9 = new JPanel();
@@ -274,13 +294,23 @@ public class OrderBuildView extends JPanel{
 		this.add(panel9);
 		button2.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {
+				Calendar cal3 = Calendar.getInstance();
+				int year = cal3.get(Calendar.YEAR);//获取年份
+				int month=cal3.get(Calendar.MONTH)+1;//获取月份
+				int day=cal3.get(Calendar.DATE);//获取日
 				Calendar cal1=Calendar.getInstance();
 				Calendar cal2=Calendar.getInstance();
+				Calendar cal=Calendar.getInstance();
 				cal1.set((int)comboBox1.getSelectedItem(),(int)comboBox2.getSelectedItem(),(int) comboBox3.getSelectedItem());
 				cal2.set((int)comboBox4.getSelectedItem(),(int)comboBox5.getSelectedItem(),(int) comboBox6.getSelectedItem());
+				cal.set(year,month,day);
+				Date date3=cal3.getTime();				
 				Date date1=cal1.getTime();
 				Date date2=cal2.getTime();
-				if(date1.getTime()-date2.getTime()>0){
+				if(comboBox1.getSelectedIndex()==0){
+					JOptionPane.showMessageDialog(pane, "            请选择开始时间！","", JOptionPane.ERROR_MESSAGE);
+				}
+				else if(date1.getTime()-date2.getTime()>=0){
 					JOptionPane.showMessageDialog(pane, "            时间冲突！","", JOptionPane.ERROR_MESSAGE);
 				}
 				else{
