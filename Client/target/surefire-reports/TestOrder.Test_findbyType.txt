@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: TestOrder.Test_findbyType
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+=======
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+>>>>>>> d1bdf3fe098f042682712eb38e337023321e06e5

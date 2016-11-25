@@ -16,6 +16,7 @@ import java.util.Vector;
 
 import javax.swing.JLabel;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 import java.awt.event.ActionEvent;
 import javax.swing.BoxLayout;
 
@@ -65,7 +66,7 @@ public class CreditView extends JPanel {
 		label = new JLabel("\u4FE1\u7528\u603B\u989D\u5EA6\uFF1A");
 		panel1.add(label);
 		totalcredit = new JLabel("");
-		totalcredit.setText(""+controller.getcredit());
+		totalcredit.setText(""+controller.getcredit(UserID));
 		panel1.add(totalcredit);
 		Vector<CreditRecordVO> Data=new Vector<CreditRecordVO>();
 		//Data.addAll(controller.getCreditRecord(UserID));
@@ -89,9 +90,15 @@ public class CreditView extends JPanel {
 		add(scrollPane);
 	}
 	public void exit(){
-		customerMainViewControllerService con =  new customerMainViewControllerImpl(UserID);
-		customerMainView vie = new customerMainView(con);
-		con.setView(vie);
-		ClientRunner.change(vie);
+		customerMainViewControllerService con;
+		try {
+			con = new customerMainViewControllerImpl(UserID);
+			customerMainView vie = new customerMainView(con);
+			con.setView(vie);
+			ClientRunner.change(vie);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

@@ -4,15 +4,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.rmi.RemoteException;
 import java.util.Vector;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import runner.ClientRunner;
+import uiController.HotelDetailUiController;
 import uiController.HotelorderlistViewControllerImpl;
 import uiController.customerMainViewControllerImpl;
 import uiService.HistroyHotelViewControllerService;
+import uiService.HotelDetailUiService;
 import uiService.HotelorderlistViewControllerService;
 import uiService.customerMainViewControllerService;
 
@@ -64,10 +67,16 @@ public class HistroyHotelView extends JPanel {
 		
 	}
 	public void exit(){
-		customerMainViewControllerService con =  new customerMainViewControllerImpl(id);
-		customerMainView vie = new customerMainView(con);
-		con.setView(vie);
-		ClientRunner.change(vie);
+		customerMainViewControllerService con;
+		try {
+			con = new customerMainViewControllerImpl(id);
+			customerMainView vie = new customerMainView(con);
+			con.setView(vie);
+			ClientRunner.change(vie);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	public void init_hotelname(){
 
@@ -112,8 +121,8 @@ public class HistroyHotelView extends JPanel {
 		add(scrollPane);
 	}
 	public void intoOrderList(String HotelID,String UserID){
-		HotelorderlistViewControllerService con =  new HotelorderlistViewControllerImpl(HotelID,UserID);
-		HotelorderlistView vie = new HotelorderlistView(con);
+		HotelDetailUiService con =  new HotelDetailUiController(HotelID,UserID);
+		HotelDetailView vie = new HotelDetailView(con);
 		con.setView(vie);
 		ClientRunner.change(vie);
 	}

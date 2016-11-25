@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.rmi.RemoteException;
 import java.util.Vector;
 
 import javax.swing.JButton;
@@ -22,7 +23,11 @@ import javax.swing.UIManager;
 import javax.swing.BoxLayout;
 
 public class reviseInformationView extends JPanel {
-    private JPanel panel;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JPanel panel;
     private JButton back;
     private reviseInformationViewControllerService controller;
 	
@@ -38,13 +43,10 @@ public class reviseInformationView extends JPanel {
 	
 	private JButton updateinformation ;
 	private JTextField nameinput;
-	private JTextField birthinput;
 	private JTextField telinput;
 	private JTextField enterpriseinput;
 	private JTextField emailinput;
 	private JLabel label5_1,label5_2,label5_3;
-	private JComboBox<Integer> comboBox1,comboBox2,comboBox3;
-	private JLabel label5;
 	private String UserID;
 	private JPanel panel_1;
 	private  JPanel panel_2;
@@ -119,7 +121,7 @@ public class reviseInformationView extends JPanel {
 		nameinput.setColumns(10);
 		panel_2.add(nameinput);	
 		
-		label5 = new JLabel("生日");
+		new JLabel("生日");
 		label5_1 = new JLabel("年");
 		label5_2 = new JLabel("月");
 		label5_3 = new JLabel("日");
@@ -214,10 +216,16 @@ public class reviseInformationView extends JPanel {
 		
 	}
 	public void exit(){
-	    InformationViewControllerService con =  new InformationViewControllerImpl(UserID);
-	    InformationView vie = new InformationView(con);
-		con.setView(vie);
-		ClientRunner.change(vie);
+	    InformationViewControllerService con;
+		try {
+			con = new InformationViewControllerImpl(UserID);
+			InformationView vie = new InformationView(con);
+			con.setView(vie);
+			ClientRunner.change(vie);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	private int judge(int year,int month){
 		for(int i:big){

@@ -2,6 +2,9 @@ package VO;
 
 import java.util.Calendar;
 
+import PO.UserPO;
+import common.UserType;
+
 /**
  * 用户的属性及数据创建与更新
  * @author 刘宗侃
@@ -12,6 +15,7 @@ import java.util.Calendar;
 public class UserVO extends VO {
 
 	public String username;
+	public String userpassword;
 	public String useraccount;
 	public String contactway;
 	public String id;
@@ -19,14 +23,16 @@ public class UserVO extends VO {
 	public int level;
 	public long credit;
 	public String membertype;
-	public int type;//1：客户 2：酒店工作人员 3：网站营销人员 4：网站管理人员
+	public UserType type;
 	public Calendar birthday;
 	public String enterprise;
 
-	public UserVO(){
+	public UserVO(UserPO po){
+		
 	}
-	public UserVO(String usern,String usera,String con,String ID,boolean io,int le,long cr,String mt,int t,Calendar birth,String enter){
+	public UserVO(String usern,String password,String usera,String con,String ID,boolean io,int le,long cr,String mt,UserType t,Calendar birth,String enter){
 		username=usern;
+		userpassword=password;
 		useraccount=usera;
 		contactway=con;
 		id=ID;
@@ -37,6 +43,9 @@ public class UserVO extends VO {
 		type=t;
 		birthday=birth;
 		enterprise=enter;
+	}
+	public UserVO() {
+		// TODO Auto-generated constructor stub
 	}
 	/**
      * 更新用户信息
@@ -55,16 +64,4 @@ public class UserVO extends VO {
 		inorout=user.inorout;
 		level=user.level;
 	}
-	
-	/**
-     * 创建用户对象
-     * 
-     * @return 一个新注册的用户
-     * @see Object.User
-     */
-	public UserVO makeUser() {
-		
-		return new UserVO();
-	}
-	
 }

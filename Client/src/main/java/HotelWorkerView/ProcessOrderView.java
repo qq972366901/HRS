@@ -59,6 +59,10 @@ public class ProcessOrderView extends JPanel{
 	
 	private JTextField delayTextField;
 	
+	private JTextField searchTextField;
+	
+	private JButton searchButton;
+	
 	private JButton delayProcessButton;
 	
 	private JButton cancelButton;
@@ -75,6 +79,9 @@ public class ProcessOrderView extends JPanel{
 		//初始化订单类型选择框
 		initOrderTypeCombobox();
 		
+		//初始化搜索框
+		initSearchOrder();
+		
 		//初始化操作按钮
 		initOrderProcessButtons();
 		
@@ -82,6 +89,22 @@ public class ProcessOrderView extends JPanel{
 		initOrderListTable();
 		
 		this.validate();
+	}
+
+	private void initSearchOrder() {
+		// TODO Auto-generated method stub
+		searchTextField=new JTextField(10);
+		searchButton=new JButton("搜索订单");
+		searchButton.addActionListener(new ActionListener() {		
+			public void actionPerformed(ActionEvent e) {
+                controller.searchOrderByID();
+			}
+		});
+		JPanel searchPanel=new JPanel();
+		searchPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
+		searchPanel.add(searchTextField);
+		searchPanel.add(searchButton);
+		this.add(searchPanel);
 	}
 
 	private void initOrderTypeCombobox() {
@@ -433,6 +456,18 @@ public class ProcessOrderView extends JPanel{
 	public void disableCancel() {
 		// TODO Auto-generated method stub
 		cancel.setEnabled(false);
+	}
+	/**
+	 * 按ID查找订单
+	 */
+	public void searchOrderByID() {
+		// TODO Auto-generated method stub
+		String orderID=searchTextField.getText();
+		orderListModel.setRowCount(0);
+		OrderVO order=controller.getOrderByID(orderID);
+		if(order!=null){
+			orderListModel.addRow(order);
+		}
 	}
 
 }

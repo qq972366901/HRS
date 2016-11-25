@@ -1,20 +1,20 @@
 package uiController;
 
+import java.rmi.RemoteException;
 import java.util.Vector;
-
-import Service.Impl.UserBLServiceImpl;
 import UserView.reviseInformationView;
 import UserView.revisePasswordView;
 import uiService.revisePasswordViewControllerService;
 import userBLService.UserBLService;
+import userBLService.UserBLServiceController;
 
 public class revisePasswordViewControllerImpl implements revisePasswordViewControllerService {
 	private revisePasswordView view;
 	private UserBLService user;
 	private String UserID;
 	private char[] judge={'a','z','A','Z','0','9'};
-	public revisePasswordViewControllerImpl(String ID){
-		user=new UserBLServiceImpl();
+	public revisePasswordViewControllerImpl(String ID) throws RemoteException{
+		user=new UserBLServiceController();
 		UserID=ID;
 	}
 	@Override
@@ -43,6 +43,7 @@ public class revisePasswordViewControllerImpl implements revisePasswordViewContr
 	@Override
 	public boolean checkoldPassword(String password) {
 		// TODO Auto-generated method stub
+		//user.checkoldPassword(UserID,password);
 		return true;
 	}
 	@Override

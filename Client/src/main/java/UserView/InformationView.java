@@ -3,6 +3,8 @@ package UserView;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
+import java.util.Vector;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -105,8 +107,8 @@ public class InformationView extends JPanel {
         			}
         		});
         		panel.add(back);
-        
-        		name = new JLabel("姓名 ：");
+        Vector<String> Data=new Vector<String>();//Vector<String> Data=controller.getInformatioin(UserID);
+        		name = new JLabel("姓名 :");
         		panel_1.add(name);
 		birth = new JLabel("\u751F\u65E5 \uFF1A1997/02/02");
 		panel_1.add(birth);
@@ -144,21 +146,39 @@ panel_2.add(revisepassword);
 	public void init_exit(){
 	}
 	public void exit(){
-		customerMainViewControllerService con =  new customerMainViewControllerImpl(UserID);
-		customerMainView vie = new customerMainView(con);
-		con.setView(vie);
-		ClientRunner.change(vie);
+		customerMainViewControllerService con;
+		try {
+			con = new customerMainViewControllerImpl(UserID);
+			customerMainView vie = new customerMainView(con);
+			con.setView(vie);
+			ClientRunner.change(vie);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	public void reviseinformation(){
-		reviseInformationViewControllerService con =  new reviseInformationViewControllerImpl(UserID);
-		reviseInformationView vie = new reviseInformationView(con);
-		con.setView(vie);
-		ClientRunner.change(vie);
+		reviseInformationViewControllerService con;
+		try {
+			con = new reviseInformationViewControllerImpl(UserID);
+			reviseInformationView vie = new reviseInformationView(con);
+			con.setView(vie);
+			ClientRunner.change(vie);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	public void revisepassword(){
-		revisePasswordViewControllerService con =  new revisePasswordViewControllerImpl(UserID);
-		revisePasswordView vie = new revisePasswordView(con);
-		con.setView(vie);
-		ClientRunner.change(vie);
+		revisePasswordViewControllerService con;
+		try {
+			con = new revisePasswordViewControllerImpl(UserID);
+			revisePasswordView vie = new revisePasswordView(con);
+			con.setView(vie);
+			ClientRunner.change(vie);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

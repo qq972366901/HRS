@@ -1,9 +1,12 @@
 package dataService;
 import PO.*;
+import common.UserType;
 import dataService.DataService;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.HashMap;
+import java.util.List;
 
 /**负责实现客户数据储存所需要的服务接口
  * @author 刘伟
@@ -53,5 +56,10 @@ public interface UserDataService  extends DataService,Remote{
 	 * @see data.User
 	 */
 		public void finish() throws RemoteException;
+		/**
+		 * 获取所有客户的ID和密码
+		 * @return
+		 */
+		public HashMap<String, String> getAllCustomerIDAndPassword();
 	}
 

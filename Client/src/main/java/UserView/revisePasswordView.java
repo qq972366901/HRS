@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 import java.util.Vector;
 
 import javax.swing.JButton;
@@ -88,8 +89,6 @@ public class revisePasswordView extends JPanel {
 		againrevise = new JLabel("\u518D\u6B21\u8F93\u5165\u65B0\u5BC6\u7801 \uFF1A");
 		panel12.add(againrevise);
 		
-		Vector<String> data=new Vector<String>();
-		
 		passwordField = new JPasswordField(15);
 		panel1.add(passwordField);
 		
@@ -102,13 +101,15 @@ public class revisePasswordView extends JPanel {
 		l.setPreferredSize(new Dimension(50,1));
 		panel12.add(l);
 		
-		data.add(passwordField.getPassword().toString());
-		data.add(passwordField_1.getPassword().toString());
-		data.add(passwordField_2.getPassword().toString());
 		
 		revisepassword = new JButton("\u786E\u5B9A\u4FEE\u6539");
 		revisepassword.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
+				Vector<String> data=new Vector<String>();
+				data.add(String.valueOf(passwordField.getPassword()));
+				data.add(String.valueOf(passwordField_1.getPassword()));
+				data.add(String.valueOf(passwordField_2.getPassword()));
 				oldPassword=controller.checkoldPassword(String.valueOf(passwordField.getPassword()));
 				newPassword=controller.checknewPassword(String.valueOf(passwordField_1.getPassword()));
 				same=controller.checksame(String.valueOf(passwordField_1.getPassword()),String.valueOf(passwordField_2.getPassword()));
@@ -147,9 +148,15 @@ public class revisePasswordView extends JPanel {
 		
 	}
 	public void exit(){
-	    InformationViewControllerService con =  new InformationViewControllerImpl(UserID);
-	    InformationView vie = new InformationView(con);
-		con.setView(vie);
-		ClientRunner.change(vie);
+	    InformationViewControllerService con;
+		try {
+			con = new InformationViewControllerImpl(UserID);
+			InformationView vie = new InformationView(con);
+			con.setView(vie);
+			ClientRunner.change(vie);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

@@ -1,18 +1,21 @@
 package uiController;
 
-import Service.Impl.UserBLServiceImpl;
+import java.rmi.RemoteException;
+import java.util.Vector;
+
 import UserView.InformationView;
 import VO.UserVO;
 import uiService.InformationViewControllerService;
 import userBLService.UserBLService;
+import userBLService.UserBLServiceController;
 
 public class InformationViewControllerImpl implements InformationViewControllerService{
     private InformationView view;
     private UserBLService user;
     private String UserID;
     private UserVO vo;
-    public InformationViewControllerImpl(String id){
-    	user=new UserBLServiceImpl();
+    public InformationViewControllerImpl(String id) throws RemoteException{
+    	user=new UserBLServiceController();
     	UserID=id;
     	vo=new UserVO();
     }
@@ -22,46 +25,6 @@ public class InformationViewControllerImpl implements InformationViewControllerS
 	@Override
 	public void exit() {
 		view.exit();
-	}
-	@Override
-	public void getname() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void getbirth() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void gettel() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void getenterprise() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void getemail() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void getlevel() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void gettype() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void getcredit() {
-		// TODO Auto-generated method stub
-		
 	}
 	@Override
 	public void reviseinformation() {
@@ -77,5 +40,11 @@ public class InformationViewControllerImpl implements InformationViewControllerS
 	public String getUserID() {
 		// TODO Auto-generated method stub
 		return UserID;
+	}
+	@Override
+	public Vector<String> getInformation(String UserID) {
+		Vector<String> data=new Vector<String>();
+		//data=user.findByID(userID);
+		return null;
 	}
 }

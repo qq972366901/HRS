@@ -2,8 +2,13 @@ package userData;
 
 import java.io.Serializable;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.List;
 
 import PO.UserPO;
+import common.UserType;
 
 public class UserDataServiceMySqlImpl_Stub implements Serializable,dataService.UserDataService{
 
@@ -16,7 +21,9 @@ public class UserDataServiceMySqlImpl_Stub implements Serializable,dataService.U
 	public UserPO find(String id) throws RemoteException {
 		// TODO Auto-generated method stub
 		System.out.println("Find Succeed!");
-		UserPO po=new UserPO("lz","xxx","54290544383",2,"企业会员",1,"2016/3/3","xxx");
+		Calendar time1=Calendar.getInstance();
+		time1.set(2016,11,11);
+		UserPO po=new UserPO("lz","1","xxx","54290544383",2,"企业会员",UserType.Customer,time1,"xxx");
 		return po;
 	}
 
@@ -50,4 +57,11 @@ public class UserDataServiceMySqlImpl_Stub implements Serializable,dataService.U
 		System.out.println("finish Succeed!");
 	}
 
+	@Override
+	public HashMap<String, String> getAllCustomerIDAndPassword() {
+		// TODO Auto-generated method stub
+		HashMap<String, String> list=new HashMap<String, String>();
+		System.out.println("getAllCustomerIDAndPassword Succeed!");
+		return list;
+	}
 }

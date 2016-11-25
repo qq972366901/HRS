@@ -3,6 +3,7 @@ package uiController;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -11,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import HotelWorkerView.ProcessOrderView;
+import UserView.LogView;
 import WebPromotionView.CreditManagementView;
 import WebPromotionView.MemberLevelSystemView;
 import WebPromotionView.WebPromotionStrategyView;
@@ -18,6 +20,7 @@ import WebPromotionView.WebPromotionUserView;
 import common.UserType;
 import runner.ClientRunner;
 import uiService.CreditManagementUiService;
+import uiService.LoginViewControllerService;
 import uiService.MemberLevelSystemUiService;
 import uiService.ProcessOrderUiService;
 import uiService.WebPromotionStrategyUiService;
@@ -71,7 +74,16 @@ public class webPromotionUserUiController implements webPromotionUserUiService {
 	@Override
 	public void toLogView() {
 		// TODO Auto-generated method stub
-		
+		LoginViewControllerService controller;
+		try {
+			controller = new LoginViewControllerImpl();
+			LogView view = new LogView(controller);
+			controller.setView(view);
+			ClientRunner.change(view);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -95,11 +107,17 @@ public class webPromotionUserUiController implements webPromotionUserUiService {
 		hotelButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int acc=Integer.valueOf(hotelField.getText());
-				ProcessOrderUiService controller=new ProcessOrderUiController(acc,UserType.WebPromotionWorker);
-				ProcessOrderView view=new ProcessOrderView(controller);
-				view.enableCancel();
-				controller.setView(view);
-				ClientRunner.change(view);
+				ProcessOrderUiService controller;
+				try {
+					controller = new ProcessOrderUiController(acc,UserType.WebPromotionWorker);
+					ProcessOrderView view=new ProcessOrderView(controller);
+					view.enableCancel();
+					controller.setView(view);
+					ClientRunner.change(view);
+				} catch (RemoteException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				hotelFrame.dispose();
 			}
 		});
