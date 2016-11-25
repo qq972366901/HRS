@@ -5,36 +5,43 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import CreditView.CreditView;
-import CreditView.CreditViewControllerImpl;
-import CreditView.CreditViewControllerService;
 import HotelWorkerView.HotelMainView;
-import LoginView.LoginView;
-import LoginView.LoginViewControllerImpl;
-import LoginView.LoginViewControllerService;
 import MemberRegisterView.MemberRegisterView;
+import PO.HotelPO;
+import UserView.CreditView;
 import UserView.HotelBrowseView;
 import UserView.HotelSearchView;
+import UserView.LogView;
 import UserView.OrderBuildView;
-import VO.UserVO;
 import WebAdminView.AddHotelView;
 import WebAdminView.UserManagementView;
 import WebAdminView.WebAdminUserView;
+import WebPromotionView.WebPromotionUserView;
+import dataService.DataFactoryService;
+import dataService.HotelDataService;
 import rmi.RemoteHelper;
 import uiController.HotelMainUiController;
+import uiService.HotelMainUiService;
+import uiController.CreditViewControllerImpl;
 import uiController.HotelSearchUiController;
+import uiController.LoginViewControllerImpl;
 import uiController.MemberRegisterUiController;
 import uiController.webAdminUserUiController;
-import uiService.HotelMainUiService;
+import uiController.webPromotionUserUiController;
+import uiService.CreditViewControllerService;
 import uiService.HotelSearchUiService;
+import uiService.LoginViewControllerService;
 import uiService.MemberRegisterUiService;
 import uiService.webAdminUserUiService;
+import uiService.webPromotionUserUiService;
 import userBLImpl.User;
+
 
 
 public class ClientRunner implements Serializable{
@@ -74,15 +81,12 @@ public class ClientRunner implements Serializable{
         	mFrame = new JFrame("HRS");
        	 	mFrame.setSize(1000, 700);
         	mFrame.setLocation(10, 10);
-        	HotelMainUiService controller =  new HotelMainUiController();
-    		HotelMainView view = new HotelMainView(controller);
+        	webPromotionUserUiService controller =  new webPromotionUserUiController();
+    		WebPromotionUserView view = new WebPromotionUserView(controller);
     		controller.setView(view);
-    		CreditViewControllerService con=new CreditViewControllerImpl("123");
-    		CreditView vie=new CreditView(con);
-    		con.setView(vie);
     		mFrame.getContentPane().add(view);
         	mFrame.setVisible(true);
-		/*
+        	/*
 		DataFactoryService df=RemoteHelper.getInstance().getDataFactoryService();
 		HotelDataService dh=(HotelDataService) df.getDataService("Hotel");
 		ArrayList<HotelPO> a=new ArrayList<HotelPO>();
@@ -95,8 +99,7 @@ public class ClientRunner implements Serializable{
 		dh.update(po);
 		dh.delete(po);
 		dh.init();
-		dh.finish();
-		*/
+		dh.finish();*/
 	}
 	public static void change(JPanel view){
 		mFrame.getContentPane().removeAll();

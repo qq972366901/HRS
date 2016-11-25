@@ -2,8 +2,6 @@ package VO;
 
 import java.util.Calendar;
 
-import Object.User;
-
 /**
  * 用户的属性及数据创建与更新
  * @author 刘宗侃
@@ -64,9 +62,9 @@ public class UserVO extends VO {
      * @return 一个新注册的用户
      * @see Object.User
      */
-	public User makeUser() {
+	public UserVO makeUser() {
 		
-		return new User();
+		return new UserVO();
 	}
 	
 }

@@ -109,7 +109,7 @@ public class HotelMainView extends JPanel {
 		panel_10.add(browseOrderButton);
 		browseOrderButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
-				controller.toBrowseOrderView();
+				controller.toProcessOrderOrderView();
 			}
 		});
 		

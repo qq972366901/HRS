@@ -1,5 +1,4 @@
 package VO;
-import Object.CreditRecord;
 /**
  * 信用记录的属性及数据创建与更新
  * @author 刘宗侃
@@ -24,6 +23,10 @@ public class CreditRecordVO extends VO {
 		currentcredit=cur;
 	}
 
+	public CreditRecordVO() {
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
      * 更新信用记录信息
      * 
@@ -31,7 +34,7 @@ public class CreditRecordVO extends VO {
      * @return 
      * @see Object.CreditRecord
      */
-	public void update(CreditRecord creRco) {
+	public void update(CreditRecordVO creRco) {
 		
 	}
 	
@@ -41,9 +44,9 @@ public class CreditRecordVO extends VO {
      * @return 一个新用户的信用记录
      * @see Object.CreditRecord
      */
-	public CreditRecord makeCreditRecord() {
+	public CreditRecordVO makeCreditRecord() {
 		
-		return new CreditRecord();
+		return new CreditRecordVO();
 	}
 	
 }

@@ -25,9 +25,9 @@ public class OrderVO extends VO {
 	public int roomNumber;
 	public Date expectedCheckIn;
 	public Date expectedCheckOut;
-	public Date latest;
-	public Date cancel;
-	public Date generationTime;
+	public Date latest;//最晚执行时间
+	public Date cancel;//取消时间
+	public Date generationTime;//操作时间（生成...）
 	public String comment;
 	public int score;	
     public OrderVO (String hotelID,int level,long credit,String userid,String oNum, int state, int value, int pnum,boolean ch,String rType, int rNum, Date in, Date out,Date la,Date cal,Date gen, String comm, int sco) {
@@ -50,6 +50,60 @@ public class OrderVO extends VO {
         cancel=cal;
         generationTime=gen;
 	}
+    public void addscore(){
+    	this.add(String.valueOf(score));
+    }
+    public void addcancel(){
+    	this.add(String.valueOf(cancel));
+    }
+    public void addcomment(){
+    	this.add(comment);
+    }
+    public void addlatest(){
+    	this.add(String.valueOf(latest));
+    }
+    public void addgeenerationTim(){
+    	this.add(String.valueOf(generationTime));
+    }
+    public void addexpectedCheckIn(){
+    	this.add(String.valueOf(expectedCheckIn));
+    }
+    public void addexpectedCheckOut(){
+    	this.add(String.valueOf(expectedCheckOut));
+    }
+    public void addroomType(){
+    	this.add(roomType);
+    }
+    public void addroomNumber(){
+    	this.add(String.valueOf(roomNumber));
+    }
+    public void addnumOfPerson(){
+    	this.add(String.valueOf(numOfPerson));
+    }
+    public void addchild(){
+    	this.add(String.valueOf(child));
+    }
+    public void adduserID(){
+    	this.add(userID);
+    }
+    public void adduserLevel(){
+    	this.add(String.valueOf(userLevel));
+    }
+    public void addcredit(){
+    	this.add(String.valueOf(credit));
+    }
+    public void addhotelID(){
+    	this.add(hotelID);
+    }
+    public void addorderNumber(){
+    	this.add(orderNumber);
+    }
+    public void addorderState(){
+    	this.add(String.valueOf(orderState));
+    }
+    public void addorderValue(){
+    	this.add(String.valueOf(orderValue));
+    }
     public OrderVO (HotelPO po1,OrderPO po){
     	hotelID=po1.gethotelName();
 		orderNumber=po.getOrderNumber();
@@ -85,6 +139,7 @@ public class OrderVO extends VO {
 		comment=po.getComment();
 		score=po.getScore();	
     }
+    
     public OrderVO (CreditRecordPO po1,OrderPO po){
     	credit=po1.getCurrentcredit();
 		orderNumber=po.getOrderNumber();
