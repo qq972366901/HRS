@@ -20,13 +20,13 @@ import uiService.OrderBuildUiService;
 
 public class OrderBuildView extends JPanel{
 	private static final long serialVersionUID = 1L;
-	private JLabel label1,label2,label3,label4,label5,label6,label7,label8,label9,label10,label11,label12,label13,label14,label15,label16,label17,label18;
+	private JLabel label1,label2,label3,label4,label5,label6,label7,label8,label9,label13,label14,label15,label16,label17,label1_1,label5_1;
 	private JButton button1,button2;
-	private JComboBox<Integer> comboBox1,comboBox2,comboBox3,comboBox4,comboBox5,comboBox6,comboBox7,comboBox8,comboBox9,comboBox11,comboBox12;
+	private JComboBox<Integer> comboBox1,comboBox2,comboBox3,comboBox4,comboBox5,comboBox6,comboBox11,comboBox12;
 	private JComboBox<String> comboBox10,comboBox13;
 	private JPanel pane,panel1,panel3;
 	private OrderBuildUiService controller;
-	private int year,month,day,j;
+	private int year,month,day;
 
 	public OrderBuildView(OrderBuildUiService c){
 		this.controller=c;
@@ -56,7 +56,8 @@ public class OrderBuildView extends JPanel{
 		Calendar cal=Calendar.getInstance();
 		panel1 = new JPanel();
 		panel1.setLayout(new FlowLayout(FlowLayout.CENTER));	
-		label1=new JLabel(" 开  始  时  间 ");
+		label1=new JLabel("                          开  始  时  间 ");
+		label1_1=new JLabel("（默认为当天中午12点整）");
 		comboBox1= new JComboBox<Integer>();
 		if((month==12&&day==30)||(month==12&&day==31)){
 		    comboBox1.addItem(year);
@@ -266,10 +267,12 @@ public class OrderBuildView extends JPanel{
 		panel1.add(label3);
 		panel1.add(comboBox3);
 		panel1.add(label4);
+		panel1.add(label1_1);
 		this.add(panel1);
 		JPanel panel2 = new JPanel();
 		panel2.setLayout(new FlowLayout(FlowLayout.CENTER));
-		label5=new JLabel(" 退  房  时  间 ");
+		label5=new JLabel("                          退  房  时  间 ");
+		label5_1=new JLabel("（默认为当天中午12点整）");
 		comboBox4= new JComboBox<Integer>();
 		for(int i=2016;i<2101;i++){
 		    comboBox4.addItem(i);
@@ -322,6 +325,7 @@ public class OrderBuildView extends JPanel{
 		panel2.add(label7);
 		panel2.add(comboBox6);
 		panel2.add(label8);
+		panel2.add(label5_1);
 		this.add(panel2);
 		panel3 = new JPanel();
 		panel3.setLayout(new FlowLayout(FlowLayout.CENTER));
