@@ -7,7 +7,7 @@ import VO.OrderVO;
 import common.UserType;
 
 public interface ProcessOrderUiService {
-	public int getHotelId();
+	public String getHotelId();
 	
 	public void setView(ProcessOrderView view);
 	

@@ -7,7 +7,7 @@ import common.ResultMessage;
 import userBLServiceImpl.Customer;
 
 
-public class UserCreditManagementController extends UserBLService_realize {
+public class UserCreditManagementController {
 	/**
 	 * 根据客户ID查找客户信息并返回
 	 * @param  in MessageInput型，界面输入的客户ID

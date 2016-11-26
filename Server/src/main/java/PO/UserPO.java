@@ -1,6 +1,9 @@
 package PO;
 
 import java.io.Serializable;
+import java.util.Calendar;
+
+import common.UserType;
 /**
  * 客户的数据实体
  * @author LZ
@@ -10,12 +13,13 @@ import java.io.Serializable;
 public class UserPO extends PO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String username;
+	String userpassword;
 	private String useraccount;
 	private String contactway;
 	private int level;
 	private String membertype;
-	private int type;
-	private String birthday;
+	private UserType type;
+	private Calendar birthday;
 	private String enterprise;
 	/**
 	 * 构造客户数据实体
@@ -31,8 +35,9 @@ public class UserPO extends PO implements Serializable{
 	 * @throws
 	 * @see
 	 */
-	public UserPO(String un,String ua,String co,int l,String mt,int t,String b,String e){
+	public UserPO(String un,String password,String ua,String co,int l,String mt,UserType t,Calendar b,String e){
 		username=un;
+		userpassword = password;
 		useraccount=ua;
 		contactway=co;
 		level=l;
@@ -60,6 +65,20 @@ public class UserPO extends PO implements Serializable{
 	 */
 	public void setName(String un){
 		username=un;
+	}
+	/**
+	 * 获取密码
+	 * @return
+	 */
+	public String getPassword(){
+		return userpassword;
+	}
+	/**
+	 * 设置密码
+	 * @param password
+	 */
+	public void setPassword(String password){
+		userpassword=password;
 	}
 	/**
 	 * 获取客户账号
@@ -148,7 +167,7 @@ public class UserPO extends PO implements Serializable{
 	 * @throws
 	 * @see
 	 */
-	public int getType(){
+	public UserType getType(){
 		return type;
 	}
 	/**
@@ -158,7 +177,7 @@ public class UserPO extends PO implements Serializable{
 	 * @throws
 	 * @see
 	 */
-	public void setType(int t){
+	public void setType(UserType t){
 		type=t;
 	}
 	/**
@@ -168,7 +187,7 @@ public class UserPO extends PO implements Serializable{
 	 * @throws
 	 * @see
 	 */
-	public String getBirthday(){
+	public Calendar getBirthday(){
 		return birthday;
 	}
 	/**
@@ -178,7 +197,7 @@ public class UserPO extends PO implements Serializable{
 	 * @throws
 	 * @see
 	 */
-	public void setBirthday(String b){
+	public void setBirthday(Calendar b){
 		birthday=b;
 	}
 	/**

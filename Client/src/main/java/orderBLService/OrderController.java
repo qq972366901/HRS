@@ -1,6 +1,7 @@
 package orderBLService;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import Object.Hotel;
@@ -10,6 +11,7 @@ import VO.HotelVO;
 import VO.OrderVO;
 import VO.UserVO;
 import common.Choice;
+import common.Operate;
 import common.ResultMessage;
 
 public class OrderController implements OrderBLService{
@@ -274,29 +276,133 @@ public class OrderController implements OrderBLService{
 
 
 	@Override
-	public List<OrderVO> getUnfinishedOrders(int hotelId) {
+	public List<OrderVO> getUnfinishedOrders(String hotelId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 
 	@Override
-	public List<OrderVO> getFinishedOrders(int hotelId) {
+	public List<OrderVO> getFinishedOrders(String hotelId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 
 	@Override
-	public List<OrderVO> getAbnormalOrders(int hotelId) {
+	public List<OrderVO> getAbnormalOrders(String hotelId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<OrderVO> showAllorder(String userid) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 
 	@Override
-	public ArrayList<OrderVO> show() {
+	public List<OrderVO> showUndoneorder(String userid) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+	@Override
+	public List<OrderVO> showDoneorder(String userid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public List<OrderVO> showAbnormalorder(String userid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public List<OrderVO> showCancelorder(String userid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public boolean cancel(String userid, String orderID) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	@Override
+	public OrderVO showDetail(String userID, String orderID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public void updatecomment(String comment, int score, String UserID, String orderID) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public List<OrderVO> findByHotelID(String userID, String hotelID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public List<OrderVO> getAllOrders(String hotelId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public boolean processUnfinishedOrder(String orderId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	@Override
+	public boolean processAbnormalOrder(String orderId, Calendar delayTime) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	@Override
+	public void cancelAbnormalOrder(String orderID) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void saveOrderInfo(OrderVO vo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void updateCredit(String userID, int value, Operate operate) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public boolean whetherMake(Calendar inTime, Calendar outTime, int numsOfRoom, String RoomType, String hotelID) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

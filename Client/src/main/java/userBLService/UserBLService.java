@@ -80,13 +80,13 @@ public interface UserBLService {
  * @return 返回信用记录列表
  * @see Customer.User
  */
-	public CreditRecordVO showCreditRecord(UserVO vo);
+	public List<CreditRecordVO> showCreditRecord(String id);
 /**
  * 客户登录
  * @param in MessageInput型，界面输入的更新信息
  * @see Customer.User
  */
-	public UserType login(String ID, String password)throws RemoteException;
+	public boolean login(String ID, String password)throws RemoteException;
 /**
  * 客户登出
  * @param ID String型，界面输入的客户ID

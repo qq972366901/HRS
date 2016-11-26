@@ -2,7 +2,7 @@ package Mock;
 
 import java.util.HashMap;
 
-import userBLImpl.MemberGrade;
+import userBLServiceImpl.MemberGrade;
 
 public class MockMemberGrade extends MemberGrade{
 	private HashMap<Integer, Long> map;

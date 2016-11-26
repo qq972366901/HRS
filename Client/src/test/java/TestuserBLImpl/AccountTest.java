@@ -10,11 +10,10 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import VO.UserVO;
+import common.UserType;
 import runner.ClientRunner;
-import userBLImpl.Account;
 @FixMethodOrder(MethodSorters.JVM)
 public class AccountTest {
-	private Account account;
 	UserVO user1;
 	UserVO user2;
 	UserVO user3;

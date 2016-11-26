@@ -8,16 +8,16 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-
-import uiService.webAdminUserUiService;
+import uiController.WebAdminUserUiController;
+import uiService.WebAdminUserUiService;
 
 
 
 public class WebAdminUserView extends JPanel{
 	private static final long serialVersionUID = 1L;
 	private JButton button1,button2,button3;
-	private webAdminUserUiService controller;
-	public WebAdminUserView(webAdminUserUiService c){
+	private WebAdminUserUiService controller;
+	public WebAdminUserView(WebAdminUserUiController c){
 		this.controller=c;
 		this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
 		initButton();

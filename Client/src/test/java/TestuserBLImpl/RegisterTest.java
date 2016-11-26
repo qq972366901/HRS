@@ -9,8 +9,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import VO.UserVO;
+import common.UserType;
 import runner.ClientRunner;
-import userBLImpl.Register;
+import userBLServiceImpl.Register;
 
 public class RegisterTest {
 	private Register register;

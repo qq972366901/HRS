@@ -1,7 +1,6 @@
 package orderAbnormal;
 
 import orderBLImpl.OrderState;
-import userBLImpl.CreditRecord;
 /**
  * 网站人员对于异常订单申诉成功的订单进行撤销操作
  * 
@@ -10,9 +9,7 @@ import userBLImpl.CreditRecord;
  */
 public class OrderAbnormalController{
 	OrderState state;
-	CreditRecord credit;
 	public OrderAbnormalController(){
-		credit=new CreditRecord();
 	}
 	/**
      * 撤销异常订单

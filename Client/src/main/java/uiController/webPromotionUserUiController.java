@@ -3,6 +3,7 @@ package uiController;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -99,13 +100,19 @@ public class webPromotionUserUiController implements webPromotionUserUiService {
 		JButton hotelButton = new JButton("确定");
 		hotelButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				int acc=Integer.valueOf(hotelField.getText());
-				ProcessOrderUiService controller=new ProcessOrderUiController(acc,UserType.WebPromotionWorker);
-				ProcessOrderView view=new ProcessOrderView(controller);
-				view.enableCancel();
-				controller.setView(view);
-				ClientRunner.change(view);
-				hotelFrame.dispose();
+				String acc=String.valueOf(hotelField.getText());
+				ProcessOrderUiService controller;
+				try {
+					controller = new ProcessOrderUiController(acc,UserType.WebPromotionWorker);
+					ProcessOrderView view=new ProcessOrderView(controller);
+					view.enableCancel();
+					controller.setView(view);
+					ClientRunner.change(view);
+					hotelFrame.dispose();
+				} catch (RemoteException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		});
 		JButton cancelButton = new JButton("取消");

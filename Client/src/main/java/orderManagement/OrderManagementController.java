@@ -6,7 +6,6 @@ import VO.OrderVO;
 import orderBLImpl.OrderLineItem;
 import orderBLImpl.OrderList;
 import orderBLImpl.OrderState;
-import userBLImpl.CreditRecord;
 /**
  * 客户的个人订单管理
  * 可以查看不同类型的订单，并对于一些未执行订单进行撤销操作
@@ -17,11 +16,9 @@ public class OrderManagementController{
 	OrderList list;
 	OrderLineItem order;
 	OrderState state;
-	CreditRecord credit;
 	public OrderManagementController(){
 		list=new OrderList();
 		order=new OrderLineItem();
-		credit=new CreditRecord();
 	}
 	/**
      * 获得一个客户的所有订单

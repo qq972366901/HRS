@@ -1,13 +1,13 @@
 package userCreditRecord;
 import java.rmi.RemoteException;
+import java.util.List;
 
 import VO.CreditRecordVO;
 import VO.UserVO;
 import common.ResultMessage;
 import common.UserType;
-import userBLService.UserBLService_realize;
 
-public class UserCreditRecordController extends UserBLService_realize{
+public class UserCreditRecordController{
 	/**
 	 * 根据客户ID查找客户信息并返回
 	 * @param  in MessageInput型，界面输入的客户ID
@@ -53,5 +53,9 @@ public class UserCreditRecordController extends UserBLService_realize{
 				 */
 					public ResultMessage logout(String ID) {
 					return ResultMessage.Exist;
+				}
+				public List<CreditRecordVO> showCreditRecord(String userID) {
+					// TODO Auto-generated method stub
+					return null;
 				}
 }

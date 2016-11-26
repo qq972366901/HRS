@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import VO.CreditRecordVO;
 import VO.UserVO;
 import common.ResultMessage;
+import common.UserType;
 import userCreditManagement.UserCreditManagementController;
 import userCreditRecord.UserCreditRecordController;
 import userInformationMaintenance.UserInformationMaintenanceController;

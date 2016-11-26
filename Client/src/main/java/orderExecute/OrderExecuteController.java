@@ -2,7 +2,6 @@ package orderExecute;
 
 import java.util.Calendar;
 import orderBLImpl.OrderState;
-import userBLImpl.CreditRecord;
 /**
  * 酒店工作人员对订单的操作
  * 对于未执行订单，将其状态更改为已执行，并为客户增加相应价值的信用值
@@ -11,10 +10,8 @@ import userBLImpl.CreditRecord;
  *
  */
 public class OrderExecuteController{
-	CreditRecord credit;
 	OrderState state;
 	public OrderExecuteController() {
-		credit=new CreditRecord();
 	}
 	/**
      * 处理未执行订单

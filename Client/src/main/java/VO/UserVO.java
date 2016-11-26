@@ -2,6 +2,8 @@ package VO;
 
 import java.util.Calendar;
 
+import common.UserType;
+
 /**
  * 用户的属性及数据创建与更新
  * @author 刘宗侃

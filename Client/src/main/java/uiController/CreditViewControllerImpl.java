@@ -6,7 +6,6 @@ import UserView.CreditView;
 import VO.CreditRecordVO;
 import VO.OrderVO;
 import uiService.CreditViewControllerService;
-import userBLImpl.Credit;
 import userBLService.UserBLService;
 
 public class CreditViewControllerImpl implements CreditViewControllerService {
