@@ -31,7 +31,7 @@ public class WebAdminUserView extends JPanel{
 		this.add(p1);
 		button1.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {
-				controller.toLogView();
+				controller.toLogView("id");
 			}
 		});
 		JPanel p2=new JPanel();
@@ -41,7 +41,7 @@ public class WebAdminUserView extends JPanel{
 		this.add(p2);
 		button2.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {
-				controller.toUserManagementView();
+				controller.toUserManagementView("id");
 			}
 		});
 		JPanel p3=new JPanel();
@@ -51,7 +51,7 @@ public class WebAdminUserView extends JPanel{
 		this.add(p3);
 		button3.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {
-				controller.toAddHotelView();
+				controller.toAddHotelView("id");
 			}
 		});
 	}

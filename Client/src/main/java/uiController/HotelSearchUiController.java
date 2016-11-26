@@ -31,19 +31,19 @@ public class HotelSearchUiController implements HotelSearchUiService{
 		// TODO Auto-generated method stub
 		this.view=view;
 }
-	public void toUserView(){
+	public void toUserView(String id){
 		customerMainViewControllerService controller =  new customerMainViewControllerImpl(userID);
 		customerMainView view = new customerMainView(controller);
 		controller.setView(view);
 		ClientRunner.change(view);
 	}
-	public void toHotelBrowseView(){
+	public void toHotelBrowseView(String id){
 		HotelBrowseUiService controller=new HotelBrowseUiController(userID);
 		HotelBrowseView view=new HotelBrowseView(controller);
 		controller.setView(view);
 		ClientRunner.change(view);
 	}
-	public void toOrderBuildView(){
+	public void toOrderBuildView(String id){
 		OrderBuildUiService controller=new OrderBuildUiController(userID);
 		OrderBuildView view=new OrderBuildView(controller);
 		controller.setView(view);

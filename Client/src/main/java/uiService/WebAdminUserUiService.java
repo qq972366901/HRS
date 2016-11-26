@@ -5,8 +5,8 @@ import UserView.WebAdminUserView;
 
 public interface WebAdminUserUiService {
 	public void setView(WebAdminUserView view);
-	public void toAddHotelView();
-	public void toLogView();
-	public void toUserManagementView();
+	public void toAddHotelView(String id);
+	public void toLogView(String id);
+	public void toUserManagementView(String id);
 
 }

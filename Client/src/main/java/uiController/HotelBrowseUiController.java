@@ -23,13 +23,13 @@ public class HotelBrowseUiController implements HotelBrowseUiService{
 		// TODO Auto-generated method stub
 		this.view=view;
 }
-	public void toHotelSearchView(){
+	public void toHotelSearchView(String id){
 		HotelSearchUiService controller=new HotelSearchUiController(userID);
 		HotelSearchView view=new HotelSearchView(controller);
 		controller.setView(view);
 		ClientRunner.change(view);
 	}
-	public void toOrderBuildView(){
+	public void toOrderBuildView(String id){
 		OrderBuildUiService controller=new OrderBuildUiController(userID);
 		OrderBuildView view=new OrderBuildView(controller);
 		controller.setView(view);
