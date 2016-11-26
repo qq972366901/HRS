@@ -29,7 +29,7 @@ import uiService.HotelSearchUiService;
 
 public class HotelSearchView extends JPanel{
 	private static final long serialVersionUID = 1L;
-	private JButton button1,button2,button3,button4;
+	private JButton button1,button2,button3,button4,button5,button6,button7;
 	private JLabel label,label1,label2,label3,label4,label5,label6,label7,label8,label9,label10,label11,label12,label13,label14,label15,label16,label17,label18,label19;
 	private JComboBox<String> comboBox,comboBox1,comboBox2,comboBox8,comboBox16;
 	private JComboBox<Integer> comboBox3,comboBox4,comboBox5,comboBox6,comboBox7,comboBox9,comboBox10,comboBox11,comboBox12,comboBox13,comboBox14,comboBox15;
@@ -37,6 +37,9 @@ public class HotelSearchView extends JPanel{
 	private JPanel pane;
 	private DefaultTableModel model;
 	private HotelSearchUiService controller;
+    private int a=0;
+    private int b=0;
+    private int c=0;
     
 	public HotelSearchView(HotelSearchUiService c){
 		this.controller=c;
@@ -63,27 +66,21 @@ public class HotelSearchView extends JPanel{
 		
 	}
 	private void initCombobox() {
-		        JPanel panel5 = new JPanel();
-		        panel5.setLayout(new FlowLayout(FlowLayout.LEFT));
-		        label18=new JLabel("  Search");
+		        JPanel panel1 = new JPanel();
+				panel1.setLayout(new FlowLayout(FlowLayout.LEFT));
+				label18=new JLabel("  Search");
 		        comboBox16= new JComboBox<String>();
 		        comboBox16.setPreferredSize(new Dimension(171,22));
 		        comboBox16.addItem("所有酒店");
 		        comboBox16.addItem("预定过的酒店");
 		        comboBox16.addItem("未预定过的酒店");
-		        panel5.add(label18);
-		        panel5.add(comboBox16);
-		        this.add(panel5);
-		        JPanel panel1 = new JPanel();
-				panel1.setLayout(new FlowLayout(FlowLayout.LEFT));
-				label=new JLabel("    城市");
+				label=new JLabel("     城市");
 				comboBox= new JComboBox<String>();
+				comboBox.addItem("");
 				comboBox.setPreferredSize(new Dimension(171,22));
-				label1=new JLabel("     地址");
-				comboBox1= new JComboBox<String>();
-				comboBox1.setPreferredSize(new Dimension(171,22));
 				label2=new JLabel("     商圈");
 				comboBox2= new JComboBox<String>();
+				comboBox2.addItem("");
 				comboBox2.setPreferredSize(new Dimension(171,22));
 				label3=new JLabel("     星级");
 				comboBox3= new JComboBox<Integer>();
@@ -91,10 +88,10 @@ public class HotelSearchView extends JPanel{
 				for(int i=1;i<6;i++){
 				   comboBox3.addItem(i);
 					}
+				panel1.add(label18);
+				panel1.add(comboBox16);
 				panel1.add(label);
 				panel1.add(comboBox);
-				panel1.add(label1);
-				panel1.add(comboBox1);
 				panel1.add(label2);
 				panel1.add(comboBox2);
 				panel1.add(label3);
@@ -300,7 +297,10 @@ public class HotelSearchView extends JPanel{
 				cal2.set((int)comboBox13.getSelectedItem(),(int)comboBox14.getSelectedItem(),(int) comboBox15.getSelectedItem());
 				Date date1=cal1.getTime();
 				Date date2=cal2.getTime();
-				if(date1.getTime()-date2.getTime()>0){
+				if(comboBox.getSelectedItem()==""||comboBox2.getSelectedItem()==""){
+					JOptionPane.showMessageDialog(pane, "    必须选择城市和商圈！","", JOptionPane.ERROR_MESSAGE);
+				}
+				else if(date1.getTime()-date2.getTime()>0){
 					JOptionPane.showMessageDialog(pane, "            时间冲突！","", JOptionPane.ERROR_MESSAGE);
 				}
 				else{
@@ -312,7 +312,7 @@ public class HotelSearchView extends JPanel{
 		panel7.add(button4);
 		this.add(panel7);
 		JPanel panel6 = new JPanel();
-		panel6.setLayout(new FlowLayout(FlowLayout.LEFT));
+		panel6.setLayout(new FlowLayout(FlowLayout.RIGHT));
 		button2=new JButton("浏览酒店信息");
 		button3=new JButton("下订单");
 		panel6.add(button2);
@@ -328,17 +328,68 @@ public class HotelSearchView extends JPanel{
 				controller.toOrderBuildView();
 			}
 		});
+		
 	}
 	private void initTable() {
+		JPanel panel8 = new JPanel();
+		panel8.setLayout(new FlowLayout(FlowLayout.CENTER));
+		label1=new JLabel("                    ");
+		button5=new JButton("星级排序");
+		button6=new JButton("评分排序");
+		button7=new JButton("价格排序");
+		
+		button5.addActionListener(new ActionListener() {			
+			public void actionPerformed(ActionEvent e) {
+				if(a%2==0){
+					
+				}
+				else{
+					
+				}
+				a++;			
+			}
+		});
+		button6.addActionListener(new ActionListener() {			
+			public void actionPerformed(ActionEvent e) {
+                if(b%2==0){
+					
+				}
+				else{
+					
+				}
+				b++;
+			}
+		});
+		button7.addActionListener(new ActionListener() {			
+			public void actionPerformed(ActionEvent e) {
+                if(c%2==0){
+					
+				}
+				else{
+					
+				}
+				c++;
+			}
+		});
+		button5.setPreferredSize(new Dimension(120,22));
+		button6.setPreferredSize(new Dimension(120,22));
+		button7.setPreferredSize(new Dimension(120,22));
+		panel8.add(label1);
+		panel8.add(button5);
+		panel8.add(button6);
+		panel8.add(button7);
+		this.add(panel8);
         JScrollPane scrollPane = new JScrollPane();
         
 		Vector<String> vColumns = new Vector<String>();
 		vColumns.add("酒店名称");
 		vColumns.add("酒店地址");
+		vColumns.add("营销策略");
 		vColumns.add("酒店星级");
 		vColumns.add("酒店评分");
-		vColumns.add("营销策略");
 		vColumns.add("酒店价格");
+		vColumns.add("是否预定过");
+		vColumns.add("订单状态");
 		model= new DefaultTableModel(null, vColumns);
 		table = new JTable(model){
 			private static final long serialVersionUID = 1L;

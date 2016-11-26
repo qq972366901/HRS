@@ -9,9 +9,11 @@ import UserView.customerMainView;
 import VO.UserVO;
 import WebPromotionView.WebPromotionUserView;
 import UserView.AddHotelView;
+import UserView.AdminRoomView;
 import UserView.LogView;
 import runner.ClientRunner;
 import uiService.AddHotelUiService;
+import uiService.AdminRoomUiService;
 import uiService.LoginViewControllerService;
 import uiService.MemberRegisterUiService;
 import uiService.customerMainViewControllerService;
@@ -31,6 +33,7 @@ public class MemberRegisterUiController implements MemberRegisterUiService {
 		// TODO Auto-generated method stub
 		this.view=view;
 }
+
 	public void tocustomerMainView(String id){
 		try {
 			customerMainViewControllerService controller=new customerMainViewControllerImpl(id);
@@ -41,7 +44,6 @@ public class MemberRegisterUiController implements MemberRegisterUiService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
     public void toLogView(){
     	LoginViewControllerService controller;
