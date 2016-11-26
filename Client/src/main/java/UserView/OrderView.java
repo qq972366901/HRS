@@ -8,7 +8,6 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.rmi.RemoteException;
 import java.util.Vector;
 
 import javax.swing.JButton;
@@ -51,12 +50,14 @@ public class OrderView extends JPanel {
 	
 	private JPanel panel2;
 	private JPanel panel3;
+	private JPanel k;
 	
 	/**
 	 * Create the panel.
 	 */
 	public OrderView(OrderViewControllerService controller) {
 		this.controller=controller;
+		k=this;
         this.controller=controller;
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         panel=new JPanel(new FlowLayout(FlowLayout.RIGHT));
@@ -82,16 +83,10 @@ public class OrderView extends JPanel {
 		
 	}
 	public void exit(){
-		customerMainViewControllerService con;
-		try {
-			con = new customerMainViewControllerImpl(UserID);
-			customerMainView vie = new customerMainView(con);
-			con.setView(vie);
-			ClientRunner.change(vie);
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		customerMainViewControllerService con =  new customerMainViewControllerImpl(UserID);
+		customerMainView vie = new customerMainView(con);
+		con.setView(vie);
+		ClientRunner.change(vie);
 	}
 	public void init_order(){
 		
@@ -149,11 +144,14 @@ public class OrderView extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				int index = table.getSelectedRow();
 				if(index == -1){
-					JOptionPane.showMessageDialog(null, "请选择订单！","", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(k, "请选择订单！","", JOptionPane.ERROR_MESSAGE);
 					return;
 				}
-				String id=(String)table.getValueAt(index, 0);
-				controller.cancel(id);
+				int i=JOptionPane.showConfirmDialog(k, "撤销订单可能会扣除您的信用值！\n当前时间如果距离该订单最晚执行时间少于6小时将会扣除您的信用值\n确定要撤销该订单么?","", JOptionPane.YES_NO_OPTION);
+				if(i==0){
+				   String id=(String)table.getValueAt(index, 0);
+				   controller.cancel(id);
+				}
 			}
 		});
 		table.addMouseListener(new MouseListener(){

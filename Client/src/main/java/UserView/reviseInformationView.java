@@ -5,7 +5,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.rmi.RemoteException;
 import java.util.Vector;
 
 import javax.swing.JButton;
@@ -39,13 +38,10 @@ public class reviseInformationView extends JPanel {
 	
 	private JLabel enterprise;
 	
-	private JLabel email;
-	
 	private JButton updateinformation ;
 	private JTextField nameinput;
 	private JTextField telinput;
 	private JTextField enterpriseinput;
-	private JTextField emailinput;
 	private JLabel label5_1,label5_2,label5_3;
 	private String UserID;
 	private JPanel panel_1;
@@ -53,7 +49,6 @@ public class reviseInformationView extends JPanel {
 	private  JPanel panel_3;
 	private  JPanel panel_4;
 	private JPanel panel_5;
-	private JPanel panel_6;
 	JComboBox<Integer> y;
 	JComboBox<Integer> m;
 	JComboBox<Integer> d;
@@ -89,10 +84,6 @@ public class reviseInformationView extends JPanel {
         panel_5.setLayout(new FlowLayout(FlowLayout.CENTER));
         add(panel_5);
         
-        panel_6 = new JPanel();
-        panel_6.setLayout(new FlowLayout(FlowLayout.CENTER));
-        add(panel_6);
-        
         
         panel= new JPanel();
         panel.setLayout(new FlowLayout(FlowLayout.CENTER));
@@ -114,8 +105,6 @@ public class reviseInformationView extends JPanel {
 		panel_4.add(tel );
 		enterprise = new JLabel("\u516C\u53F8 \uFF1A");
 		panel_5.add(enterprise);
-		email = new JLabel("\u90AE\u7BB1 \uFF1A");
-		panel_6.add(email );
 		
 		nameinput = new JTextField();
 		nameinput.setColumns(10);
@@ -177,11 +166,7 @@ public class reviseInformationView extends JPanel {
 		
 		enterpriseinput = new JTextField();
 		enterpriseinput.setColumns(10);
-		panel_5.add(enterpriseinput);	
-		
-		emailinput = new JTextField();
-		emailinput.setColumns(18);
-		panel_6.add(emailinput);	
+		panel_5.add(enterpriseinput);
 		
 		updateinformation = new JButton("\u786E\u5B9A\u4FEE\u6539");
 		updateinformation.addActionListener(new ActionListener() {
@@ -190,10 +175,8 @@ public class reviseInformationView extends JPanel {
 				data.add(nameinput.getText());
 				data.add(""+(int)y.getSelectedItem()+"/"+(int)m.getSelectedItem()+"/"+
 				(int)d.getSelectedItem());
-				data.add(telinput.getText());
-				
+				data.add(telinput.getText());				
 				data.add(enterpriseinput.getText());
-				data.add(emailinput.getText());
 				controller.updateinformation(data);
 			}
 		});
@@ -216,16 +199,10 @@ public class reviseInformationView extends JPanel {
 		
 	}
 	public void exit(){
-	    InformationViewControllerService con;
-		try {
-			con = new InformationViewControllerImpl(UserID);
-			InformationView vie = new InformationView(con);
-			con.setView(vie);
-			ClientRunner.change(vie);
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	    InformationViewControllerService con =  new InformationViewControllerImpl(UserID);
+	    InformationView vie = new InformationView(con);
+		con.setView(vie);
+		ClientRunner.change(vie);
 	}
 	private int judge(int year,int month){
 		for(int i:big){

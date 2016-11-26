@@ -1,5 +1,6 @@
 package LineItem;
 
+import java.util.Calendar;
 import java.util.Date;
 import VO.OrderVO;
 /**
@@ -26,7 +27,7 @@ public class OrderLineItem {
  	 * @param Time，时间
  	 *
  	 */
-     public void cancel(Date currentTime){
+     public void cancel(Calendar currentTime){
     	 vo.cancel=currentTime;
     	 vo.orderState=-1;
     	 
@@ -50,7 +51,7 @@ public class OrderLineItem {
  	 * 获得取消时间
  	 * @return 返回时间
  	 */
-	public Date getcancel() {
+	public Calendar getcancel() {
 		return vo.cancel;
 	}
 	/**
@@ -89,7 +90,7 @@ public class OrderLineItem {
      * @param orderID String型，订单号
      * @see bussinesslogic.Order
      */
-	public void update(String orderID,String userID,int state){
+	public void upCalendar(String orderID,String userID,int state){
 		vo.credit=state;
 		vo.userLevel=state;
 		vo.orderState=state;

@@ -1,12 +1,8 @@
 package uiController;
 
-import java.rmi.RemoteException;
-
 import javax.swing.JPanel;
 
 import UserView.MemberRegisterView;
-import UserView.customerMainView;
-import VO.UserVO;
 import WebPromotionView.WebPromotionUserView;
 import UserView.AddHotelView;
 import UserView.AdminRoomView;
@@ -16,18 +12,11 @@ import uiService.AddHotelUiService;
 import uiService.AdminRoomUiService;
 import uiService.LoginViewControllerService;
 import uiService.MemberRegisterUiService;
-import uiService.customerMainViewControllerService;
 import uiService.webPromotionUserUiService;
-import userBLService.UserBLService;
-import userBLService.UserBLServiceController;
 
 public class MemberRegisterUiController implements MemberRegisterUiService {
 	private static final long serialVersionUID = 1L;
 	private JPanel view;
-	private UserBLService user;
-	public MemberRegisterUiController() throws RemoteException{
-		user=new UserBLServiceController();
-	}
 	@Override
 	public void setView(MemberRegisterView view) {
 		// TODO Auto-generated method stub

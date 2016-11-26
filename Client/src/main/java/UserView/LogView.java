@@ -32,7 +32,6 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 import java.awt.event.ActionEvent;
@@ -44,10 +43,6 @@ import java.awt.BorderLayout;
 import javax.swing.BoxLayout;
 
 public class LogView extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private JPasswordField passwordField;
 	private JTextField textField;
 	private LoginViewControllerService controller;
@@ -57,7 +52,7 @@ public class LogView extends JPanel {
     public JButton register;
     public JButton find;
     private JComboBox<String> comboBox_1;
-    private UserType type;
+    private String type;
     private JPanel panel;
     private JPanel panel1;
     private JPanel panel2;
@@ -99,8 +94,7 @@ public class LogView extends JPanel {
 		panel3.setLayout(new FlowLayout(FlowLayout.CENTER));
 		panel.add(panel3);
 		init_optionpannel();
-		init_loginpannel();
-		this.validate();
+		init_loginpannel();	
 	}
 	public void init_optionpannel(){
 	}
@@ -113,8 +107,8 @@ public class LogView extends JPanel {
 		list.add("酒店工作人员");
 		list.add("网站营销人员");
 		list.add("网站管理人员");
-		for (String userType : list) {
-			comboBox_1.addItem(userType);
+		for (String str : list) {
+			comboBox_1.addItem(str);
 		}
 		comboBox_1.setToolTipText("");
 		comboBox_1.setFont(UIManager.getFont("Button.font"));
@@ -123,7 +117,7 @@ public class LogView extends JPanel {
 			
 				if(evt.getStateChange() == ItemEvent.SELECTED){
 					
-					String selected=(String) comboBox_1.getSelectedItem();
+					String selected=(String)comboBox_1.getSelectedItem();
 					
 					//更换数据源
 					controller.updateRegisterButton(selected);
@@ -162,9 +156,9 @@ public class LogView extends JPanel {
 
 		login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				type= judgeUserType((String)comboBox_1.getSelectedItem());
+				type=(String)comboBox_1.getSelectedItem();
 				if(textField.getText().equals("")){					
-					JOptionPane.showMessageDialog(k, "账号或密码输入有误！","", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(k, "账号密码输入有误！","", JOptionPane.ERROR_MESSAGE);
 					return;
 				}
 				controller.login(textField.getText(),String.valueOf(passwordField.getPassword()),type);
@@ -175,35 +169,20 @@ public class LogView extends JPanel {
 		label2.setPreferredSize(new Dimension(10000,250));
 		panel3.add(label2);
 	}
-	
-	private UserType judgeUserType(String str){
-		if(str.equals("客户")){
-			return UserType.Customer;
-		}
-		else if(str.equals("网站营销人员")){
-			return UserType.WebPromotionWorker;
-		}
-		else if(str.equals("酒店工作人员")){
-			return UserType.Hotelworker;
-		}
-		else{
-			return UserType.WebManagementWorker;
-		}
-	}
-	public void login(UserType type) throws RemoteException{
-		if(type.equals(UserType.Customer)){
+	public void login(UserType type){
+		if(this.type.equals("客户")){
 		   customerMainViewControllerService controller =  new customerMainViewControllerImpl(login.getText());
 		   customerMainView view = new customerMainView(controller);
 		   controller.setView(view);
 		   ClientRunner.change(view);
 		}
-		else if(type.equals(UserType.WebPromotionWorker)){
+		else if(this.type.equals("网站营销人员")){
 			webPromotionUserUiService controller=new webPromotionUserUiController();
 			WebPromotionUserView view=new WebPromotionUserView(controller);
 			controller.setView(view);
 			ClientRunner.change(view);
 		}
-		else if(type.equals(UserType.Hotelworker)){
+		else if(this.type.equals("酒店工作人员")){
 			HotelMainUiService controller=new HotelMainUiController();
 			HotelMainView view =new HotelMainView(controller);
 			controller.setView(view);
@@ -216,7 +195,7 @@ public class LogView extends JPanel {
 			ClientRunner.change(view);
 	    }
 	}
-	public void register() throws RemoteException{
+	public void register(){
 		MemberRegisterUiService con=new MemberRegisterUiController();
 		MemberRegisterView vie=new MemberRegisterView(con);
 		con.setView(vie);

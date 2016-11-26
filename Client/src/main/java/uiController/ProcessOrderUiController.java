@@ -1,6 +1,5 @@
 package uiController;
 
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,13 +9,13 @@ import VO.OrderVO;
 import WebPromotionView.WebPromotionUserView;
 import common.UserType;
 import orderBLService.OrderBLService;
-import orderBLService.OrderBLService_realize;
+import orderBLService.OrderBLServiceController;
 import runner.ClientRunner;
 import uiService.HotelMainUiService;
 import uiService.ProcessOrderUiService;
 import uiService.webPromotionUserUiService;
 import userBLService.UserBLService;
-import userBLService.UserBLServiceController;
+import userBLService.UserBLService_realize;
 
 public class ProcessOrderUiController implements ProcessOrderUiService{
 	private int hotelId;
@@ -28,11 +27,11 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 	private ProcessOrderView view;
 	
 	private UserType usertype;
-	public ProcessOrderUiController(int hotelId,UserType type) throws RemoteException{ 
+	public ProcessOrderUiController(int hotelId,UserType type){ 
 		this.hotelId = hotelId;
 		this.usertype=type;
-		orderService = new OrderBLService_realize(hotelId);
-		userService = new UserBLServiceController();
+		orderService = new OrderBLServiceController();
+		userService = new UserBLService_realize();
 	}
 	@Override
 	public int getHotelId() {
@@ -47,7 +46,7 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 	}
 
 	@Override
-	public List<OrderVO> getAllOrders(int hotelId) {
+	public List<OrderVO> getAllOrders(String hotelId) {
 		// TODO Auto-generated method stub
 		//return orderService.show(hotelId);
 		List<OrderVO> list=new ArrayList<OrderVO>();
@@ -55,19 +54,19 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 	}
 
 	@Override
-	public List<OrderVO> getUnfinishedOrders(int hotelId) {
+	public List<OrderVO> getUnfinishedOrders(String hotelId) {
 		// TODO Auto-generated method stub
 		return orderService.getUnfinishedOrders(hotelId);
 	}
 
 	@Override
-	public List<OrderVO> getFinishedOrders(int hotelId) {
+	public List<OrderVO> getFinishedOrders(String hotelId) {
 		// TODO Auto-generated method stub
 		return orderService.getFinishedOrders(hotelId);
 	}
 
 	@Override
-	public List<OrderVO> getAbnormalOrders(int hotelId) {
+	public List<OrderVO> getAbnormalOrders(String hotelId) {
 		// TODO Auto-generated method stub
 		return orderService.getAbnormalOrders(hotelId);
 	}
@@ -131,19 +130,6 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 	public void cancelAbnormalOrder() {
 		// TODO Auto-generated method stub
 		view.cancelAbnormalOrder();
-	}
-	@Override
-	public void searchOrderByID() {
-		// TODO Auto-generated method stub
-		view.searchOrderByID();
-	}
-	/**
-	 * 按订单编号获取订单
-	 */
-	@Override
-	public OrderVO getOrderByID(String orderID) {
-		// TODO Auto-generated method stub
-		return new OrderVO();
 	}
 
 }

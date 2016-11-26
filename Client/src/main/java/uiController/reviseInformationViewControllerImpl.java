@@ -1,20 +1,18 @@
 package uiController;
 
-import java.rmi.RemoteException;
 import java.util.Vector;
 
 import UserView.reviseInformationView;
 import VO.UserVO;
 import uiService.reviseInformationViewControllerService;
 import userBLService.UserBLService;
-import userBLService.UserBLServiceController;
 
 public class reviseInformationViewControllerImpl implements reviseInformationViewControllerService {
 	private reviseInformationView view;
 	private UserBLService user;
 	private String UserID;
-	public reviseInformationViewControllerImpl(String id) throws RemoteException{
-		user=new UserBLServiceController();
+	public reviseInformationViewControllerImpl(String id){
+		//user=new UserBLServiceImpl();
 		UserID=id;
 	}
 	@Override

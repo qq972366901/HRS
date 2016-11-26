@@ -1,6 +1,5 @@
 package uiController;
 
-import Service.Impl.OrderBLServiceImpl;
 import UserView.CommentView;
 import UserView.orderDetailView;
 import orderBLService.OrderBLService;
@@ -14,7 +13,7 @@ public class orderDetailViewControllerServiceImpl implements orderDetailViewCont
 	    public orderDetailViewControllerServiceImpl(String UserID,String OrderID){
 	    	this.UserID=UserID;
 	    	this.OrderID=OrderID;
-	    	order=new OrderBLServiceImpl(OrderID);
+	    	//order=new OrderBLServiceImpl(OrderID);
 	    }
 		@Override
 		public void setView(orderDetailView view) {

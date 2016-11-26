@@ -1,86 +1,62 @@
 package orderExecute;
 
-import java.sql.Time;
-import VO.OrderVO;
-import orderBLService.OrderBLService_realize;
-public class OrderExecuteController extends OrderBLService_realize{
-	
-	public OrderExecuteController(int hotelId) {
-		super(hotelId);
-		// TODO Auto-generated constructor stub
+import java.util.Calendar;
+import orderBLImpl.OrderState;
+import userBLImpl.CreditRecord;
+/**
+ * 酒店工作人员对订单的操作
+ * 对于未执行订单，将其状态更改为已执行，并为客户增加相应价值的信用值
+ * 对于延迟入住，更改最晚执行时间，恢复客户信用值
+ * @author lyx
+ *
+ */
+public class OrderExecuteController{
+	CreditRecord credit;
+	OrderState state;
+	public OrderExecuteController() {
+		credit=new CreditRecord();
+	}
+	/**
+     * 处理未执行订单
+     * 
+     * @param String orderID，订单的id
+     * @return boolean值,处理成功返回true，否则返回false
+	 * @ 
+     * @see bussinesslogic.Order
+     */
+	public boolean processUnfinishedOrder(String orderId)  {
+		state=new OrderState(orderId);
+		return state.processUnfinishedOrder();
+	}
+	/**
+	 * 当酒店将客户订单从未执行变为已执行时，为客户增加信用值
+	 * @param userID String,客户id
+	 * @param value int,订单的价值
+	 */
+	public void updateCredit(String userID,int value){		
+		//credit.add(userID,value);
 	}
 
-
-	/**
-     * 将一个订单类型变为已撤销，并保存撤销时间
-     * 
-     * @param orderID String型，订单号
-     * @param currentTime Time型，当前时间
-     * @see bussinesslogic.Order
-     */
-	public void cancelOrder(String orderID,Time currentTime) {
-	}
-	
 	
 	/**
-     * 进行撤销订单的操作
+     * 处理异常订单/订单延期
      * 
-     * @param order OrderVO型，一个订单的值对象
+     * @param String orderID,订单的id
+     * @param Calendar delayTime,延时入住的时间
+     * @return boolean值,处理成功返回true，否则返回false
+	 * @ 
      * @see bussinesslogic.Order
      */
-	public void duduct(OrderVO order) {
-	}
-	
-	
-	/**
-     * 判断订单是否已被撤销
-     * 
-     * @param orderID String型，客户编号
-     * @param currentTime Time型，撤销订单的时间
-     * @return 若已撤销则返回true，否则返回false
-     * @see bussinesslogic.Order
-     */
-	public Boolean whetherDeduct(Time currentTime,String orderID) {
-		return false;
+	public boolean processAbnormalOrder(String orderId,Calendar delayTime)  {
+		state=new OrderState(orderId);
+		return state.processAbnormalOrder(delayTime);
 	}
 	/**
-     * 更改订单状态为已执行，为客户增加信用值，更新会员等级 
-     * 
-     * @param userID String型，客户编号
-     * @param orderID String型，订单号
-     * @see bussinesslogic.Order
-     */
-	public void done(String orderID,String userID) {
+	 * 当客户申请延期入住的时候，为客户恢复信用值
+	 * @param userID String,客户id
+	 * @param value int,订单的价值
+	 */
+	public void recoveryCredit(String userID,int value){
+		//credit.add(userID,value);
 	}
-	
-	
-	/**
-     * 更新订单类型为异常，为客户减去信用值，更新会员等级 
-     * 
-     * @param userID String型，客户编号
-     * @param orderID String型，订单号
-     * @see bussinesslogic.Order
-     */
-	public void abnormalOrder(String orderID,String userID) {
-	}
-	
-	
-	/**
-     * 更新订单类型为已执行，为客户恢复信用值，更新会员等级  
-     * 
-     * @param userID String型，客户编号
-     * @param orderID String型，订单号
-     * @see bussinesslogic.Order
-     */
-	public void delayIn(String orderID,String userID) {
-	}
-
-	/**
-     * 结束订单执行任务，持久化更新涉及的领域对象的数据 系统结束
-     * 
-     * @see bussinesslogic.Order
-     */
-	public void endExecute() {
-	}
-	
 }

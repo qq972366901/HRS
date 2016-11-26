@@ -1,7 +1,7 @@
 package Mock;
 
 import java.sql.Time;
-import java.util.Date;
+import java.util.Calendar;
 
 import Object.Order;
 import VO.OrderVO;
@@ -24,18 +24,18 @@ public class MockOrder extends OrderVO{
 		 * @param ch boolean型，逻辑层传来的有无儿童
 		 * @param rType String型，逻辑层传来的房间类型
 		 * @param rNum int型，逻辑层传来的订购数量
-		 * @param in Date型，逻辑层传来的预订入住时间
-		 * @param out Date型，逻辑层传来的预订离开时间
-		 * @param la Date型，逻辑层传来的最晚执行时间
-		 * @param can Date型，逻辑层传来的取消时间
-		 * @param gen Date型，逻辑层传来的操作时间
+		 * @param in Calendar型，逻辑层传来的预订入住时间
+		 * @param out Calendar型，逻辑层传来的预订离开时间
+		 * @param la Calendar型，逻辑层传来的最晚执行时间
+		 * @param can Calendar型，逻辑层传来的取消时间
+		 * @param gen Calendar型，逻辑层传来的操作时间
 		 * @param comm String型，逻辑层传来的订单评价
 		 * @param sco int型，逻辑层传来的订单评分
 		 * @return
 		 * @throws
 		 * @see
 		 */
-		public MockOrder (String hotelID,String userid,String oNum, int state, int value, int pnum,boolean ch,String rType, int rNum, Date in, Date out,Date la ,Date can,Date gen,String comm, int sco) {
+		public MockOrder (String hotelID,String userid,String oNum, int state, int value, int pnum,boolean ch,String rType, int rNum, Calendar in, Calendar out,Calendar la ,Calendar can,Calendar gen,String comm, int sco) {
 			userID=userid;
 			this.hotelID=hotelID;
 			orderNumber = oNum;
@@ -67,18 +67,18 @@ public class MockOrder extends OrderVO{
 		 * @param ch boolean型，逻辑层传来的有无儿童
 		 * @param rType String型，逻辑层传来的房间类型
 		 * @param rNum int型，逻辑层传来的订购数量
-		 * @param in Date型，逻辑层传来的预订入住时间
-		 * @param out Date型，逻辑层传来的预订离开时间
-		 * @param la Date型，逻辑层传来的最晚执行时间
-		 * @param can Date型，逻辑层传来的取消时间
-		 * @param gen Date型，逻辑层传来的操作时间
+		 * @param in Calendar型，逻辑层传来的预订入住时间
+		 * @param out Calendar型，逻辑层传来的预订离开时间
+		 * @param la Calendar型，逻辑层传来的最晚执行时间
+		 * @param can Calendar型，逻辑层传来的取消时间
+		 * @param gen Calendar型，逻辑层传来的操作时间
 		 * @param comm String型，逻辑层传来的订单评价
 		 * @param sco int型，逻辑层传来的订单评分
 		 * @return
 		 * @throws
 		 * @see
 		 */
-		public MockOrder (String hotelID,int level,long credit,String userid,String oNum, int state, int value, int pnum,boolean ch,String rType, int rNum, Date in, Date out,Date la ,Date can,Date gen,String comm, int sco) {
+		public MockOrder (String hotelID,int level,long credit,String userid,String oNum, int state, int value, int pnum,boolean ch,String rType, int rNum, Calendar in, Calendar out,Calendar la ,Calendar can,Calendar gen,String comm, int sco) {
 			userID=userid;
 			this.userLevel=level;
 			this.credit=credit;
@@ -176,7 +176,7 @@ public class MockOrder extends OrderVO{
 		 * @throws
 		 * @see
 		 */
-		public Date getExpectedCheckIn() {
+		public Calendar getExpectedCheckIn() {
 			return expectedCheckIn;
 		}
 		/**
@@ -186,7 +186,7 @@ public class MockOrder extends OrderVO{
 		 * @throws
 		 * @see
 		 */
-		public Date getExpectedCheckOut() {
+		public Calendar getExpectedCheckOut() {
 			return expectedCheckOut;
 		}
 		/**
@@ -196,7 +196,7 @@ public class MockOrder extends OrderVO{
 		 * @throws
 		 * @see
 		 */
-		public Date getLatest(){
+		public Calendar getLatest(){
 			return latest;
 		}
 		/**
@@ -298,7 +298,7 @@ public class MockOrder extends OrderVO{
 		 * @throws
 		 * @see
 		 */
-		public void setExpectedCheckIn(Time in) {
+		public void setExpectedCheckIn(Calendar in) {
 			expectedCheckIn = in;
 		}
 		/**
@@ -308,7 +308,7 @@ public class MockOrder extends OrderVO{
 		 * @throws
 		 * @see
 		 */
-		public void setLatest(Time la){
+		public void setLatest(Calendar la){
 			latest=la;
 		}
 		/**
@@ -318,7 +318,7 @@ public class MockOrder extends OrderVO{
 		 * @throws
 		 * @see
 		 */
-		public void setExpectedCheckOut(Time out) {
+		public void setExpectedCheckOut(Calendar out) {
 			expectedCheckOut = out;
 		}
 		/**
@@ -348,7 +348,7 @@ public class MockOrder extends OrderVO{
 		 * @throws
 		 * @see
 		 */
-		public Date getCancel() {
+		public Calendar getCancel() {
 			return cancel;
 		}
 		/**
@@ -358,27 +358,27 @@ public class MockOrder extends OrderVO{
 		 * @throws
 		 * @see
 		 */
-		public Date getgenerationTime() {
+		public Calendar getgenerationTime() {
 			return generationTime;
 		}
 		/**
 		 * 设置取消时间
-		 * @param can Date型，逻辑层传来的取消时间
+		 * @param can Calendar型，逻辑层传来的取消时间
 		 * @return
 		 * @throws
 		 * @see
 		 */
-		public void setcancel(Date can) {
+		public void setcancel(Calendar can) {
 			cancel = can;
 		}
 		/**
 		 * 设置操作时间
-		 * @param gen Date型，逻辑层传来的操作时间
+		 * @param gen Calendar型，逻辑层传来的操作时间
 		 * @return
 		 * @throws
 		 * @see
 		 */
-		public void setgenerationTime(Date gen) {
+		public void setgenerationTime(Calendar gen) {
 			generationTime = gen;
 		}
 		/**

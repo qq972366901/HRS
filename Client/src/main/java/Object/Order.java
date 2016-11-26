@@ -12,6 +12,7 @@ import List.OrderList;
 import List.RoomList;
 import List.UserList;
 
+import java.util.Calendar;
 import java.util.Date;
 import VO.HotelVO;
 import VO.OrderVO;
@@ -107,7 +108,7 @@ public class Order {
      * @param currentTime Time型，当前时间
      * @see bussinesslogic.Order
      */
-	public void cancelOrder(String orderID,Date currentTime){
+	public void cancelOrder(String orderID,Calendar currentTime){
 		orderlist.cancel(orderID,currentTime);
 	}
 	
@@ -131,7 +132,7 @@ public class Order {
      * @return 若已撤销则返回true，否则返回false
      * @see bussinesslogic.Order
      */
-	public Boolean whetherDeduct(Date currentTime,String orderID){
+	public Boolean whetherDeduct(Calendar currentTime,String orderID){
 		return orderlist.whetherDeduct(currentTime, orderID);
 	}
 	
@@ -148,8 +149,8 @@ public class Order {
      * @param hasChild Boolean型，是否有小孩
      * @see bussinesslogic.Order
      */
-	public void makeOrder(Date currentTime,
-			Date in,Date out,
+	public void makeOrder(Calendar currentTime,
+			Calendar in,Calendar out,
 			String roomType,int num,
 			int numOfPerson,
 			boolean haveChild ) {

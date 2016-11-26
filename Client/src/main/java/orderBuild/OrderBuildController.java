@@ -1,70 +1,44 @@
 package orderBuild;
-import Object.RoomType;
-import Object.Time;
+
+import java.util.Calendar;
 import VO.OrderVO;
-import common.ResultMessage;
-import orderBLService.OrderBLService_realize;
-public class OrderBuildController extends OrderBLService_realize{
-	public OrderBuildController(int hotelId) {
-		super(hotelId);
-		// TODO Auto-generated constructor stub
-	}
-
-
-
-	/**
-     * 生成一个订单对象
-     * 
-     * @param currentTime Time型，当前时间
-     * @param in Time型，入住时间
-     * @param out Time型，离开时间
-     * @param ddl Time型，预计离开时间
-     * @param roomType RoomType型，房间类型
-     * @param num int型，房间号
-     * @param numOfPerson int型，住店人数
-     * @param hasChild Boolean型，是否有小孩
-     * @see bussinesslogic.Order
-     */
-	public void makeOrder(Time currentTime,
-			Time in,Time out,Time ddl,
-			RoomType roomType,int num,
-			int numOfPerson,
-			boolean haveChild ) {
-	}
-	
-	
-	
-	/**
-     * 判断订单是否生成
-     * 
-     * @param userID String型，客户编号
-     * @return 若已生成则返回true，否则返回false
-     * @see bussinesslogic.Order
-     */
-	public boolean whetherMake(String uerID) {
-		return false;
+import orderBLImpl.OrderLineItem;
+/**
+ * 生成订单
+ * 判断订单是否能够执行，倘若能够执行，那么记录订单信息并保存到数据库中
+ * @author lyx
+ *
+ */
+public class OrderBuildController{
+	OrderLineItem order;
+	//Hotel hotel;
+	public OrderBuildController() {
+		order=new OrderLineItem();
+		//hotel=new Hotel();
 	}
 	/**
-     * 计算订单价值并显示
+     * 保存订单信息
      * 
-     * @param vo OrderVO型，订单的值对象
-     * @param userID String型，客户编号
-     * @return long，订单的价值
+     * @param String orderID,订单的id
+	 * @ 
      * @see bussinesslogic.Order
      */
-	public long getPrice(OrderVO vo,String userID) {
-		return 200;
+	public  void saveOrderInfo(OrderVO vo) {
+		order.saveOrderInfo(vo);
 	}
-	
 	
 	/**
-     * 计算订单价值并显示
-     * 
-     * @param vo OrderVO型，订单的值对象
-     * @return ResultMessage的一个枚举值
-     * @see bussinesslogic.Order
-     */
-	public ResultMessage payment(OrderVO vo) {
-		return ResultMessage.Exist;
+	 * 
+	 * @param inTime Calendar，预订的入住时间
+	 * @param outTime Calendar，预计离开时间
+	 * @param numsOfRoom int，需要的房间数量
+	 * @param RoomType String，房间的类型
+	 * @param hotelID String，酒店的id
+	 * @return boolean，能生成则返回true，若没有房间则返回false
+	 */
+	public boolean whetherMake(Calendar inTime,Calendar duration,int numsOfRoom,String RoomType,String hotelID){
+		//hotel.whetherMake(String inTime,String duration,int numsOfRoom,String RoomType,String hotelID);
+		return true;
 	}
+	
 }

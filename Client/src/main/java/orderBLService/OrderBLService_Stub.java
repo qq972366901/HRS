@@ -1,16 +1,16 @@
 package orderBLService;
 
-import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
-import Object.Hotel;
-import Object.RoomType;
-import Object.Time;
-import VO.HotelVO;
 import VO.OrderVO;
-import VO.UserVO;
-import common.Choice;
-import common.ResultMessage;
+import common.Operate;
+import orderAbnormal.OrderAbnormalController;
+import orderBuild.OrderBuildController;
+import orderEvaluation.OrderEvaluationController;
+import orderExecute.OrderExecuteController;
+import orderManagement.OrderManagementController;
+import orderOverview.OrderOverviewController;
 
 /**
  * 负责实现订单界面所需要的桩程序
@@ -19,317 +19,269 @@ import common.ResultMessage;
  * @see presentation.Order
  */
 public class OrderBLService_Stub implements OrderBLService{
-		String orderNumber;
-		int orderState;
-		String userName;
-		String userNumber;
-		String userPhone;
-		int orderValue;
-		String hotelName;
-		String hotelLocation;
-		String hotelPhone;
-		String roomType;
-		int roomNumber;
-		Time expectedCheckIn;
-		Time expectedCheckOut;
-		String comment;
-		int score;	
+	private OrderBuildController build;
+	private OrderEvaluationController evaluation;
+	private OrderExecuteController execute;
+	private OrderManagementController management;
+	private OrderOverviewController overview;
+	private OrderAbnormalController abnormal;
+	public OrderBLService_Stub() {
+		build = new OrderBuildController();
+		evaluation= new OrderEvaluationController();
+		execute= new OrderExecuteController();
+		management= new OrderManagementController();
+		overview= new OrderOverviewController();
+		abnormal=new OrderAbnormalController();	 
+	}	
+	
+	/**
+     * 获得一个客户的所有订单
+     * 
+     * @param String UserID，客户的id
+     * @return List<OrderVO> ，订单的一个列表
+     * @see bussinesslogic.Order
+     */
+	public List<OrderVO>  showAllorder(String userid){
+		return management.showAllorder(userid);
+	}
+	
+	
+	/**
+     * 获得一个客户的所有未执行订单
+     * 
+     * @param String UserID，客户的id
+     * @return List<OrderVO> ，订单的一个列表
+     * @see bussinesslogic.Order
+     */
+	public List<OrderVO>  showUndoneorder(String userid){
+		return management.showUndoneorder(userid);
+	}
+	
+	
+	/**
+     * 获得一个客户的所有已执行订单
+     * 
+     * @param String UserID，客户的id
+     * @return List<OrderVO> ，订单的一个列表
+     * @see bussinesslogic.Order
+     */
+	public List<OrderVO>  showDoneorder(String userid){
+		return management.showDoneorder(userid);
+	}
+	
+	
+	/**
+     * 获得一个客户的所有异常订单
+     * 
+     * @param String UserID，客户的id
+     * @return List<OrderVO> ，订单的一个列表
+     * @see bussinesslogic.Order
+     */
+	public List<OrderVO>  showAbnormalorder(String userid){
+		return management.showAbnormalorder(userid);
+	}
+	
+	
+	/**
+     * 获得一个客户的所有撤销订单
+     * 
+     * @param String UserID，客户的id
+     * @return List<OrderVO> ，订单的一个列表
+     * @see bussinesslogic.Order
+     */
+	public List<OrderVO>  showCancelorder(String userid){
+		return management.showCancelorder(userid);
+	}
+	
+	
+	/**
+     * 客户撤销订单(将订单状态改为已执行，增加信用值请使用updateCredit方法)
+     * 
+     * @param String UserID，客户的id
+     * @param String OrderID，订单的id
+     * @return boolean 如果需要扣除信用值，返回true，否则返回false
+     * @see bussinesslogic.Order
+     */
+	public boolean cancel(String userid,String orderID){
+		return management.cancel(userid, orderID);
+	}
+	
+	
+	/**
+     * 显示订单的详细信息
+     * 
+     * @param String UserID，客户的id
+     * @param String OrderID，订单的id
+     * @return OrderVO ,一个订单
+     * @see bussinesslogic.Order
+     */
+	public OrderVO showDetail(String userID,String orderID){
+		return management.showDetail(userID, orderID);	
+	}
+	
+	
+	/**
+     * 更新客户评论
+     * 
+     * @param String comment,客户的评论
+     * @param int score,客户的评分
+     * @param String UserID，客户的id
+     * @param String OrderID，订单的id
+     * @see bussinesslogic.Order
+     */
+	public void updatecomment(String comment,int score,String UserID,String orderID){
+		evaluation.updatecomment(comment, score, UserID, orderID);
+	}
+	
+	
+	/**
+     * 根据用户id和酒店id查找该用户在该酒店的所有订单
+     * 
+     * @param String UserID，客户的id
+     * @param String HotelID，酒店的id
+     * @return List<OrderVO> ，客户的订单列表
+     * @see bussinesslogic.Order
+     */
+	public List<OrderVO> findByHotelID (String userID,String hotelID){
+		return null;	
+	}
+	
+	/**
+     * 获得一个酒店的所有订单
+     * 
+     * @param String HotelID，酒店的id
+     * @return List<OrderVO> ，订单的一个列表
+     * @see bussinesslogic.Order
+     */
+	public List<OrderVO> getAllOrders(String hotelId){
+		return overview.getAllOrders(hotelId);
+	}
+	/**
+     * 获得一个酒店的所有未执行订单
+     * 
+     * @param String HotelID，酒店的id
+     * @return List<OrderVO> ，订单的一个列表
+     * @see bussinesslogic.Order
+     */
+	public List<OrderVO> getUnfinishedOrders(String hotelId) {
+		return overview.getUnfinishedOrders(hotelId);
+	}
+	
+	
+	
+	/**
+     * 获得一个酒店的所有已执行订单
+     * 
+     * @param String HotelID，酒店的id
+     * @return List<OrderVO> ，订单的一个列表
+     * @see bussinesslogic.Order
+     */
+	public List<OrderVO> getFinishedOrders(String hotelId) {
+		return overview.getFinishedOrders(hotelId);
+	}
+	
+	
+	/**
+     * 获得一个酒店的所有异常订单
+     * 
+     * @param String HotelID，酒店的id
+     * @return List<OrderVO> ，订单的一个列表
+     * @see bussinesslogic.Order
+     */
+	public List<OrderVO> getAbnormalOrders(String hotelId) {
+		return overview.getAbnormalOrders(hotelId);
+	}
+	
+	
+	/**
+     * 处理未执行订单(将订单状态改为已执行，增加信用值请使用updateCredit方法)
+     * 
+     * @param String orderID，订单的id
+     * @return boolean值,处理成功返回true，否则返回false
+     * @see bussinesslogic.Order
+     */
+	public boolean processUnfinishedOrder(String orderId) {
+		return execute.processUnfinishedOrder(orderId);
+	}
+	
+	/**
+     * 酒店人员处理异常订单，延迟入住(将订单状态改为已执行，增加信用值请使用updateCredit方法)
+     * 
+     * @param String orderID,订单的id
+     * @param Calendar delayTime,延时入住的时间
+     * @return boolean值,处理成功返回true，否则返回false
+     * @see bussinesslogic.Order
+     */
+	public boolean processAbnormalOrder(String orderId,Calendar delayTime) {
+		return execute.processAbnormalOrder(orderId, delayTime);
+	}
+	
+	/**
+     * 网站营销人员撤销异常订单(将订单状态改为已执行，增加信用值请使用updateCredit方法)
+     * 
+     * @param String orderID,订单的id
+     * @see bussinesslogic.Order
+     */
+	public void cancelAbnormalOrder(String orderID) {
+	    abnormal.cancelAbnormalOrder(orderID);
+	}
+	
+	/**
+     * 保存订单信息
+     * 
+     * @param OrderVO vo,一个Order的值对象
+     * @see bussinesslogic.Order
+     */
+	public  void saveOrderInfo(OrderVO vo){	
+	      build.saveOrderInfo(vo);
+	}
+	
+	
+	/**
+	 * 获取酒店的所有客户评论和评分
+	 * 
+	 * @param String HotelID ,酒店的ID
+	 * @return List<CommentVO> 一个评价的列表;
+	 * @throws RemoteException 
+	
+	public List<CommentVO> getHotelComment(String HotelID) throws RemoteException{
+		List<CommentVO> commentlist=new ArrayList<CommentVO>();
+		return commentlist;
+	}
+	 */
 
-		public OrderBLService_Stub (String oNum, int state, String uName, String uNum, String uPhone, int value, String hName, String hLoca, String hPhone, String rType, int rNum, Time in, Time out, String comm, int sco) {
-			
-			orderNumber = oNum;
-			orderState = state;
-			userName = uName;
-			userNumber = uNum;
-			userPhone = uPhone;
-			orderValue = value;
-			hotelName = hName;
-			hotelLocation = hLoca;
-			hotelPhone = hPhone;
-			roomType = rType;
-			roomNumber = rNum;
-			expectedCheckIn = in;
-			expectedCheckOut = out;
-			comment = comm;
-			score = sco;
 
+	/**
+	 * 
+	 * @param inTime Calendar，预订的入住时间
+	 * @param outTime Calendar，预计离开时间
+	 * @param numsOfRoom int，需要的房间数量
+	 * @param RoomType String，房间的类型
+	 * @param hotelID String，酒店的id
+	 * @return boolean，能生成则返回true，若没有房间则返回false
+	 */
+	public boolean whetherMake(Calendar inTime,Calendar outTime,int numsOfRoom,String RoomType,String hotelID){
+		return build.whetherMake(inTime, outTime, numsOfRoom, RoomType, hotelID);
+	}
+	
+	/**
+	 * 根据不同操作更新客户的信用值(操作详情请看common包)
+	 * @param userID String,客户id
+	 * @param value int,订单的价值
+	 * @param operate Operate枚举类，操作的名字
+	 */
+	public void updateCredit(String userID,int value,Operate operate){
+		if(operate.equals(Operate.Done)){
+			execute.updateCredit(userID, value);
 		}
-	/**
-     * 显示所有订单信息
-     * 
-     * @return ArrayList<OrderVO>，一个订单值对象的列表
-     * @see bussinesslogic.Order
-     */
-	public ArrayList<OrderVO> show(int hotelid){
-		return new ArrayList<OrderVO>();
-	}
-	
-	
-	/**
-     * 显示订单中关于房间的信息
-     * 
-     * @param vo OrderVO型，一个订单的值对象
-     * @return 返回ResultMessage的一个枚举值
-     * @see bussinesslogic.Order
-     */
-	public ResultMessage getRoomInfo (OrderVO vo){
-		return ResultMessage.Exist;
-	}
-	
-	
-	/**
-     * 关闭订单界面
-     * 
-     * @see bussinesslogic.Order
-     */
-	public void cancel(){
-		System.out.println("cancel success");
-	}
-	
-	
-	/**
-     * 显示订单中关于房间的信息
-     * 
-     * @param vo UserVO型，一个客户的值对象
-     * @return ArrayList<Hotel> ，一个酒店的列表
-     * @see bussinesslogic.Order
-     */
-	public ArrayList<Hotel> gethistory(UserVO vo){
-		return new ArrayList<Hotel>();
-	}
-	
-	
-	/**
-     * 显示选中的酒店的所有历史订单
-     * 
-     * @param vo HotelVO型，一个酒店的值对象
-     * @return ArrayList<Order> ，一个订单值对象的列表
-     * @see bussinesslogic.Order
-     */
-	public ArrayList<OrderVO> findByType(HotelVO vo){
-		return new ArrayList<OrderVO>();
-	}
-	
-	
-	/**
-     * 根据选择的类型查找所有订单，并显示
-     * 
-     * @param type String型，一种订单的类型
-     * @return ArrayList<OrderVO>，一个订单值对象的列表
-     * @see bussinesslogic.Order
-     */
-	public ArrayList<OrderVO> findByType(String type){
-		return new ArrayList<OrderVO>();
-	}
-	
-	
-	/**
-     * 根据订单号查找订单详情，并显示
-     * 
-     * @param orderID String型，订单号
-     * @return OrderVO，一个订单的值对象
-     * @see bussinesslogic.Order
-     */
-	public OrderVO showDetail(String orderID){
-		return new OrderVO();
-	}
-	
-	
-	/**
-     * 将一个订单类型变为已撤销，并保存撤销时间
-     * 
-     * @param orderID String型，订单号
-     * @param currentTime Time型，当前时间
-     * @see bussinesslogic.Order
-     */
-	public void cancelOrder(String orderID,Time currentTime){
-		System.out.println("cancel success");
-	}
-	
-	
-	/**
-     * 进行撤销订单的操作
-     * 
-     * @param order OrderVO型，一个订单的值对象
-     * @see bussinesslogic.Order
-     */
-	public void duduct(OrderVO order){
-		System.out.println("duduct success");
-	}
-	
-	
-	/**
-     * 判断订单是否已被撤销
-     * 
-     * @param orderID String型，客户编号
-     * @param currentTime Time型，撤销订单的时间
-     * @return 若已撤销则返回true，否则返回false
-     * @see bussinesslogic.Order
-     */
-	public Boolean whetherDeduct(Time currentTime,String orderID){
-		return true;
-	}
-	
-	
-	/**
-     * 生成一个订单对象
-     * 
-     * @param currentTime Time型，当前时间
-     * @param in Time型，入住时间
-     * @param out Time型，离开时间
-     * @param ddl Time型，预计离开时间
-     * @param roomType RoomType型，房间类型
-     * @param num int型，房间号
-     * @param numOfPerson int型，住店人数
-     * @param hasChild Boolean型，是否有小孩
-     * @see bussinesslogic.Order
-     */
-	public void makeOrder(Time currentTime,
-			Time in,Time out,Time ddl,
-			RoomType roomType,int num,
-			int numOfPerson,
-			boolean haveChild ) {
-		System.out.println("make success");
-	}
-	
-	
-	
-	/**
-     * 判断订单是否生成
-     * 
-     * @param userID String型，客户编号
-     * @return 若已生成则返回true，否则返回false
-     * @see bussinesslogic.Order
-     */
-	public boolean whetherMake(String uerID){
-		return true;
-	}
-	
-	
-	
-	/**
-     * 更改订单状态为已执行，为客户增加信用值，更新会员等级 
-     * 
-     * @param userID String型，客户编号
-     * @param orderID String型，订单号
-     * @see bussinesslogic.Order
-     */
-	public void done(String orderID,String userID){
-		System.out.println("update success");
-	}
-	
-	
-	/**
-     * 更新订单类型为异常，为客户减去信用值，更新会员等级 
-     * 
-     * @param userID String型，客户编号
-     * @param orderID String型，订单号
-     * @see bussinesslogic.Order
-     */
-	public void abnormalOrder(String orderID,String userID){
-		System.out.println("update success");
-	}
-	
-	
-	/**
-     * 更新订单类型为已执行，为客户恢复信用值，更新会员等级  
-     * 
-     * @param userID String型，客户编号
-     * @param orderID String型，订单号
-     * @see bussinesslogic.Order
-     */
-	public void delayIn(String orderID,String userID){
-		System.out.println("update success");
-	}
-	
-	
-	/**
-     * 结束订单执行任务，持久化更新涉及的领域对象的数据 系统结束
-     * 
-     * @see bussinesslogic.Order
-     */
-	public void endExecute() {
-		System.out.println("update success");
-	}
-	
-	
-	/**
-     * 更新订单信息并显示评价
-     * 
-     * @param comment String型，客户评价
-     * @param order OrderVO型，一个订单的值对象
-     * @see bussinesslogic.Order
-     */
-	public void comment(String comment,OrderVO order){
-		System.out.println("update success");
-	}
-	
-	
-	/**
-     * 根据输入的ID查找订单并显示
-     * 
-     * @param ID String型，订单号
-     * @return OrderVO，一个订单的值对象
-     * @see bussinesslogic.Order
-     */
-	public OrderVO findByID(String ID){
-		return new OrderVO();
-	}
-	
-	
-	/**
-     * 恢复客户信用值，更新会员等级
-     * 
-     * @param vo OrderVO型，订单的值对象
-     * @param choice Choice型，一个枚举值
-     * @see bussinesslogic.Order
-     */
-	public void regain(OrderVO vo,Choice choice){
-		System.out.println("update success");
-	}
-	
-	
-	/**
-     * 计算订单价值并显示
-     * 
-     * @param vo OrderVO型，订单的值对象
-     * @param userID String型，客户编号
-     * @return long，订单的价值
-     * @see bussinesslogic.Order
-     */
-	public long getPrice(OrderVO vo,String userID){
-		return 10000;
-	}
-	
-	
-	/**
-     * 计算订单价值并显示
-     * 
-     * @param vo OrderVO型，订单的值对象
-     * @return ResultMessage的一个枚举值
-     * @see bussinesslogic.Order
-     */
-	public ResultMessage payment(OrderVO vo){
-		return ResultMessage.Exist;
-	}
-	@Override
-	public List<OrderVO> getUnfinishedOrders(int hotelId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public List<OrderVO> getFinishedOrders(int hotelId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public List<OrderVO> getAbnormalOrders(int hotelId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public ArrayList<OrderVO> show() {
-		// TODO Auto-generated method stub
-		return null;
+		else if(operate.equals(Operate.Cancel)){
+			management.updateCredit(userID, value);
+		}
+		else if(operate.equals(Operate.Delayed)){
+			execute.recoveryCredit(userID, value);
+		}
+		else if(operate.equals(Operate.Appeal)){
+			abnormal.updateCredit(userID, value);
+		}
 	}
 }

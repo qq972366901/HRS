@@ -1,46 +1,36 @@
 package orderBLService;
 import VO.*;
-import common.*;
-
 import java.util.ArrayList;
 import java.util.Calendar;
-
-import Object.Hotel;
+import java.util.List;
 public class OrderBLService_Driver {
 	public void drive(OrderBLService orderBLService){
-		ArrayList<OrderVO> result1=orderBLService.show(1);
-    	if(result1==new ArrayList<OrderVO>()) System.out.println("show success");
-		ResultMessage result2=orderBLService.getRoomInfo(new OrderVO());
-    	if(result2 ==ResultMessage.Exist) System.out.println("getRoomInfo success");
-    	System.out.println("cancel success");
-    	Calendar time1=Calendar.getInstance();
-		time1.set(2016,11,11);
-		ArrayList<Hotel> result3=orderBLService.gethistory(new UserVO("1","1","1234567",1,78,"普通会员",UserType.Customer,time1,""));
-    	if(result3 ==new ArrayList<Hotel>()) System.out.println("gethistory success");
-		ArrayList<OrderVO> result4=orderBLService.findByType(new HotelVO());
-    	if(result4 ==new ArrayList<OrderVO>()) System.out.println("findByType1 success");
-		ArrayList<OrderVO> result5=orderBLService.findByType("121");
-    	if(result5 ==new ArrayList<OrderVO>()) System.out.println("findByType2 success");
-    	OrderVO result6=orderBLService.showDetail("121");
-    	if(result6 ==new OrderVO()) System.out.println("showDetail success");
-    	System.out.println("cancel success");
-    	System.out.println("duduct success");
-    	boolean result7=orderBLService.whetherDeduct(null,"13");
-    	if(result7) System.out.println("whetherDeduct success");
-    	System.out.println("make success");
-    	boolean result8=orderBLService.whetherMake("13");
-    	if(result8) System.out.println("whetherMake success");
-    	System.out.println("update success");
-    	System.out.println("update success");
-    	System.out.println("update success");
-    	System.out.println("update success");
-    	System.out.println("update success");
-    	OrderVO result9=orderBLService.findByID("121");
-    	if(result9 ==new OrderVO()) System.out.println("findByID success");
-    	System.out.println("update success");
-    	long result10=orderBLService.getPrice(new OrderVO(),"121");
-    	if(result10==10000) System.out.println("getPrice success");
-    	ResultMessage result11=orderBLService.payment(new OrderVO());
-    	if(result11==ResultMessage.Exist) System.out.println("payment success");
+		 boolean flag=orderBLService.whetherMake(Calendar.getInstance(), Calendar.getInstance(), 5, "1", "110");
+		 if(flag==true)System.out.println("make success");
+		 System.out.println("update success");
+		 System.out.println("duduct success");
+		 System.out.println("delay success");
+		 String a="1";
+		    List<OrderVO> result1=orderBLService.showAllorder("1");
+		    List<OrderVO> result2=orderBLService.showAbnormalorder(a);		    
+		    List<OrderVO> result3=orderBLService.showCancelorder(a);
+		    List<OrderVO> result4=orderBLService.showDoneorder(a);
+		    List<OrderVO> result5=orderBLService.showUndoneorder(a);
+	    	if(result1==new ArrayList<OrderVO>()) System.out.println("show1 success");
+	    	if(result3 ==new ArrayList<OrderVO>()) System.out.println("show2 success");
+	    	if(result4 ==new ArrayList<OrderVO>()) System.out.println("show3 success");
+	    	if(result2 ==new ArrayList<OrderVO>()) System.out.println("show4 success");
+	    	if(result5 ==new ArrayList<OrderVO>()) System.out.println("show5 success");
+	    	OrderVO result6=orderBLService.showDetail(a, a);
+	    	if(result6==new OrderVO()) System.out.println("show6 success");
+	    	List<OrderVO> result11=orderBLService.getAllOrders("1"); 
+			   List<OrderVO> result12=orderBLService.getAbnormalOrders("1");
+			    
+			    List<OrderVO> result13=orderBLService.getUnfinishedOrders("1");
+			    List<OrderVO> result14=orderBLService.getFinishedOrders("1");
+		    	if(result11==new ArrayList<OrderVO>()) System.out.println("show success");
+		    	if(result13 ==new ArrayList<OrderVO>()) System.out.println("gethistory success");
+		    	if(result14 ==new ArrayList<OrderVO>()) System.out.println("findByType1 success");
+		    	if(result12 ==new ArrayList<OrderVO>()) System.out.println("findByType2 success");
     }
 }

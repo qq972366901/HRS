@@ -18,7 +18,6 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import VO.UserVO;
 import uiService.MemberRegisterUiService;
 
 public class MemberRegisterView extends JPanel{
