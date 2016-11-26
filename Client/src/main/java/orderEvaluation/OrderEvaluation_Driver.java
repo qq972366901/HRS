@@ -1,14 +1,10 @@
 package orderEvaluation;
-import java.util.ArrayList;
-
-import Object.Order;
-import VO.*;
-import common.*;
 import orderBLService.OrderBLService;
+import orderBLService.OrderBLServiceController;
 public class OrderEvaluation_Driver {
 	 public void drive(OrderBLService orderBLService){
-		 System.out.println("update success");
-		 OrderVO result=orderBLService.findByID("121");
-	    	if(result ==new OrderVO()) System.out.println("findByID success");
+		 orderBLService=new OrderBLServiceController();
+		 orderBLService.updatecomment("very good", 100, "xxx", "001");
+		 System.out.println(orderBLService.showDetail("001", "001").comment);
 	 }
 }

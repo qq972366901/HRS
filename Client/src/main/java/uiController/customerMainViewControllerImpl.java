@@ -1,18 +1,16 @@
 package uiController;
 
-import java.rmi.RemoteException;
 
 import UserView.customerMainView;
 import uiService.customerMainViewControllerService;
 import userBLService.UserBLService;
-import userBLService.UserBLServiceController;
 
 public class customerMainViewControllerImpl implements customerMainViewControllerService{
 	private customerMainView view;
 	private UserBLService user;
 	private String UserID;
-	public customerMainViewControllerImpl(String id) throws RemoteException{
-    	user=new UserBLServiceController();
+	public customerMainViewControllerImpl(String id){
+    	//user=new UserBLServiceImpl();
     	UserID=id;
     }
 	@Override

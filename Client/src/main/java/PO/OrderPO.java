@@ -1,8 +1,7 @@
 package PO;
 
 import java.io.Serializable;
-import java.sql.Time;
-import java.util.Date;
+import java.util.Calendar;
 /**
  * 订单的数据实体
  * @author LZ
@@ -11,42 +10,50 @@ import java.util.Date;
  */
 public class OrderPO extends PO implements Serializable{
 	private static final long serialVersionUID = 1L;
+	private String UserID;
+	private String HotelID;
 	private String orderNumber;
 	private int orderState;
 	private int orderValue;
 	private int numOfPerson;
 	private boolean child;
 	private String roomType;
-	private int roomNumber;
-	private Date expectedCheckIn;
-	private Date expectedCheckOut;
-	private Date latest;
-	private Date cancel;
-	private Date generationTime;
+	private int roomNumber;//房间号
+	private int numberOfroom;//房间数量
+	private Calendar expectedCheckIn;
+	private Calendar expectedCheckOut;
+	private Calendar latest;
+	private Calendar cancel;
+	private Calendar generationTime;
 	private String comment;
 	private int score;	
 	/**
 	 * 构造订单数据实体
+	 * @param number int型，逻辑层传来的房间数量
+	 * @param Usid String型，逻辑层传来的客户编号
+	 * @param Hid String型，逻辑层传来的酒店编号
 	 * @param oNum String型，逻辑层传来的订单编号
 	 * @param state int型，逻辑层传来的订单状态
 	 * @param value int型，逻辑层传来的订单价值
 	 * @param pnum int型，逻辑层传来的人数
 	 * @param ch boolean型，逻辑层传来的有无儿童
 	 * @param rType String型，逻辑层传来的房间类型
-	 * @param rNum int型，逻辑层传来的订购数量
-	 * @param in Date型，逻辑层传来的预订入住时间
-	 * @param out Date型，逻辑层传来的预订离开时间
-	 * @param la Date型，逻辑层传来的最晚执行时间
-	 * @param can Date型，逻辑层传来的取消时间
-	 * @param gen Date型，逻辑层传来的订单操作时间
+	 * @param rNum int型，逻辑层传来的房间编号
+	 * @param in Calendar型，逻辑层传来的预订入住时间
+	 * @param out Calendar型，逻辑层传来的预订离开时间
+	 * @param la Calendar型，逻辑层传来的最晚执行时间
+	 * @param can Calendar型，逻辑层传来的取消时间
+	 * @param gen Calendar型，逻辑层传来的订单操作时间
 	 * @param comm String型，逻辑层传来的订单评价
 	 * @param sco int型，逻辑层传来的订单评分
 	 * @return
 	 * @throws
 	 * @see
 	 */
-	public OrderPO (String oNum, int state, int value, int pnum,boolean ch,String rType, int rNum, Date in, Date out,Date la ,Date can,Date gen,String comm, int sco) {
-		
+	public OrderPO (int number,String Usid,String Hid,String oNum, int state, int value, int pnum,boolean ch,String rType, int rNum, Calendar in, Calendar out,Calendar la ,Calendar can,Calendar gen,String comm, int sco) {
+		numberOfroom=number;
+		UserID=Usid;
+		HotelID=Hid;
 		orderNumber = oNum;
 		orderState = state;
 		orderValue = value;
@@ -76,7 +83,7 @@ public class OrderPO extends PO implements Serializable{
 	/**
 	 * 获取订单状态
 	 * @param
-	 * @return 返回订单状态
+	 * @return 返回订单状态(-1为异常，0为未执行，1为已执行，-2为撤销)
 	 * @throws
 	 * @see
 	 */
@@ -140,7 +147,7 @@ public class OrderPO extends PO implements Serializable{
 	 * @throws
 	 * @see
 	 */
-	public Date getExpectedCheckIn() {
+	public Calendar getExpectedCheckIn() {
 		return expectedCheckIn;
 	}
 	/**
@@ -150,7 +157,7 @@ public class OrderPO extends PO implements Serializable{
 	 * @throws
 	 * @see
 	 */
-	public Date getExpectedCheckOut() {
+	public Calendar getExpectedCheckOut() {
 		return expectedCheckOut;
 	}
 	/**
@@ -160,7 +167,7 @@ public class OrderPO extends PO implements Serializable{
 	 * @throws
 	 * @see
 	 */
-	public Date getLatest(){
+	public Calendar getLatest(){
 		return latest;
 	}
 	/**
@@ -196,7 +203,7 @@ public class OrderPO extends PO implements Serializable{
 	}
 	/**
 	 * 设置订单状态
-	 * @param state int型，逻辑层传来的订单状态
+	 * @param state int型，逻辑层传来的订单状态(-1为异常，0为未执行，1为已执行，-2为撤销)
 	 * @return
 	 * @throws
 	 * @see
@@ -257,32 +264,32 @@ public class OrderPO extends PO implements Serializable{
 	}
 	/**
 	 * 设置预订入住时间
-	 * @param in Time型，逻辑层传来的预订入住时间
+	 * @param in Calendar型，逻辑层传来的预订入住时间
 	 * @return
 	 * @throws
 	 * @see
 	 */
-	public void setExpectedCheckIn(Time in) {
+	public void setExpectedCheckIn(Calendar in) {
 		expectedCheckIn = in;
 	}
 	/**
 	 * 设置最晚执行时间
-	 * @param la Time型，逻辑层传来的最晚执行时间
+	 * @param la Calendar型，逻辑层传来的最晚执行时间
 	 * @return
 	 * @throws
 	 * @see
 	 */
-	public void setLatest(Time la){
+	public void setLatest(Calendar la){
 		latest=la;
 	}
 	/**
-	 * 设置预订入住时间
-	 * @param out Time型，逻辑层传来的预订离开时间
+	 * 设置预订离开时间
+	 * @param out Calendar型，逻辑层传来的预订离开时间
 	 * @return
 	 * @throws
 	 * @see
 	 */
-	public void setExpectedCheckOut(Time out) {
+	public void setExpectedCheckOut(Calendar out) {
 		expectedCheckOut = out;
 	}
 	/**
@@ -312,7 +319,7 @@ public class OrderPO extends PO implements Serializable{
 	 * @throws
 	 * @see
 	 */
-	public Date getCancel() {
+	public Calendar getCancel() {
 		return cancel;
 	}
 	/**
@@ -322,28 +329,46 @@ public class OrderPO extends PO implements Serializable{
 	 * @throws
 	 * @see
 	 */
-	public Date getgenerationTime() {
+	public Calendar getgenerationTime() {
 		return generationTime;
 	}
 	/**
 	 * 设置取消时间
-	 * @param can Date型，逻辑层传来的取消时间
+	 * @param can Calendar型，逻辑层传来的取消时间
 	 * @return
 	 * @throws
 	 * @see
 	 */
-	public void setcancel(Date can) {
+	public void setcancel(Calendar can) {
 		cancel = can;
 	}
 	/**
 	 * 设置操作时间
-	 * @param gen Date型，逻辑层传来的操作时间
+	 * @param gen Calendar型，逻辑层传来的操作时间
 	 * @return
 	 * @throws
 	 * @see
 	 */
-	public void setgenerationTime(Date gen) {
+	public void setgenerationTime(Calendar gen) {
 		generationTime = gen;
+	}
+	public String getHotelID() {
+		return HotelID;
+	}
+	public void setHotelID(String hotelID) {
+		HotelID = hotelID;
+	}
+	public String getUserID() {
+		return UserID;
+	}
+	public void setUserID(String userID) {
+		UserID = userID;
+	}
+	public int getNumberOfroom() {
+		return numberOfroom;
+	}
+	public void setNumberOfroom(int numberOfroom) {
+		this.numberOfroom = numberOfroom;
 	}
 
 }

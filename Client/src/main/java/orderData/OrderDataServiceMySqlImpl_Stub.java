@@ -2,8 +2,9 @@ package orderData;
 
 import java.io.Serializable;
 import java.rmi.RemoteException;
-import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.HashMap;
 
 import PO.OrderPO;
 
@@ -13,19 +14,39 @@ public class OrderDataServiceMySqlImpl_Stub implements Serializable,dataService.
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+    HashMap<String,OrderPO> map;
+    static OrderDataServiceMySqlImpl_Stub orderdataimpl;
+    private OrderDataServiceMySqlImpl_Stub(){
+    	map=new HashMap<String,OrderPO>();
+    	OrderPO po1=new OrderPO(3,"000", "110", "001", 2,300,3,true,"总统套房",301, Calendar.getInstance(),Calendar.getInstance(),Calendar.getInstance(),Calendar.getInstance(),Calendar.getInstance(),"很好",80);
+    	OrderPO po2=new OrderPO(1,"001", "110", "002", 2,400,4,true,"套房",302, Calendar.getInstance(),Calendar.getInstance(),Calendar.getInstance(),Calendar.getInstance(),Calendar.getInstance(),"一般",4);
+    	OrderPO po3=new OrderPO(1,"001", "110", "003", 3,500,4,true,"套房",303, Calendar.getInstance(),Calendar.getInstance(),Calendar.getInstance(),Calendar.getInstance(),Calendar.getInstance(),"一般",4);
+        map.put("001", po1);
+        map.put("002", po2);
+        map.put("003", po3);
+        System.out.println("111111111111111111111111111111111111");
+    }
+    public static OrderDataServiceMySqlImpl_Stub getInstance(){
+    	if(orderdataimpl==null){
+    		orderdataimpl=new OrderDataServiceMySqlImpl_Stub();
+    		return orderdataimpl;
+    	}
+    	else{
+    		return orderdataimpl;
+    	}
+    }
 	@Override
 	public OrderPO find(String id) throws RemoteException {
 		// TODO Auto-generated method stub
-		System.out.println("Find Succeed!");
-		OrderPO po=new OrderPO("xxx", 1,500,5,true,"总统套房",302, new Time(0),new Time(1),new Time(2),new Time(2),new Time(2),"xxx",5);
-		return po;
+		System.out.println("find OrderID :"+id+" is userID:" +map.get(id).getUserID());
+		System.out.println("find OrderID :"+id+" is userID:" +map.get(id).getUserID());
+		return map.get(id);
 	}
 
 	@Override
 	public void insert(OrderPO po) throws RemoteException {
 		// TODO Auto-generated method stub
-		System.out.println("Insert Succeed!");
+		map.put(po.getOrderNumber(), po);
 	}
 
 	@Override
@@ -37,7 +58,7 @@ public class OrderDataServiceMySqlImpl_Stub implements Serializable,dataService.
 	@Override
 	public void update(OrderPO po) throws RemoteException {
 		// TODO Auto-generated method stub
-		System.out.println("Update Succeed!");
+		map.put(po.getOrderNumber(), po);
 	}
 
 	@Override
@@ -57,7 +78,7 @@ public class OrderDataServiceMySqlImpl_Stub implements Serializable,dataService.
 		// TODO Auto-generated method stub
 		System.out.println("Find Succeed!");
 		ArrayList<OrderPO> x=new ArrayList<OrderPO>();
-		OrderPO po=new OrderPO("xxx", 1,500,5,true,"总统套房",302, new Time(0),new Time(1),new Time(2),new Time(2),new Time(2),"xxx",5);
+		OrderPO po=new OrderPO(3,"xxx", "110", "111", 1,500,5,true,"总统套房",302, Calendar.getInstance(),Calendar.getInstance(),Calendar.getInstance(),Calendar.getInstance(),Calendar.getInstance(),"xxx",5);
 		x.add(po);
 		return x;
 	}

@@ -9,9 +9,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import VO.UserVO;
-import common.UserType;
 import runner.ClientRunner;
-import userBLServiceImpl.Register;
+import userBLImpl.Register;
 
 public class RegisterTest {
 	private Register register;
@@ -27,7 +26,7 @@ public class RegisterTest {
 		}*/
 		Calendar time1=Calendar.getInstance();
 		time1.set(2016,11,11);
-		user1=new UserVO("1","1","3414141","1",false,1,78,"普通会员",UserType.Customer,time1,"");
+		user1=new UserVO("1","1@nju.edu.cn","3414141","1",false,1,78,"普通会员",1,time1,"");
 		register=new Register();
 	}
 	@Test

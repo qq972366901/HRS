@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Object.Hotel;
-import Service.Impl.OrderBLServiceImpl;
 import UserView.HistroyHotelView;
 import VO.HotelVO;
 import VO.OrderVO;
@@ -20,7 +19,7 @@ public class HistroyHotelViewControllerImpl implements HistroyHotelViewControlle
 	private UserVO vo1;
 	public HistroyHotelViewControllerImpl(String id){
 		this.id=id;
-		order=new OrderBLServiceImpl(id);
+		//order=new OrderBLServiceImpl(id);
 	}
 	public void setView(HistroyHotelView view){
 		this.view=view;
@@ -33,7 +32,7 @@ public class HistroyHotelViewControllerImpl implements HistroyHotelViewControlle
 	public List<String> getHotelName(String id) {		
 		vo1=new UserVO();
 		vo1.id=id;
-		List<Hotel> list=order.gethistory(vo1);
+		//List<Hotel> list=order.gethistory(vo1);
 		List<String> listi=new ArrayList<String>();
         for(int i=0;i<5;i++){
         	listi.add("hhh"+i);

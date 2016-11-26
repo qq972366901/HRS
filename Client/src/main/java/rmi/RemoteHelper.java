@@ -12,11 +12,8 @@ public class RemoteHelper implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	private Remote remote;
-	private static RemoteHelper remoteHelper = null;
+	private static RemoteHelper remoteHelper = new RemoteHelper();
 	public static RemoteHelper getInstance(){
-		if(remoteHelper == null){
-			remoteHelper=new RemoteHelper();
-		}
 		return remoteHelper;
 	}
 	public void setRemote(Remote remote){

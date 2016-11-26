@@ -17,7 +17,6 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import VO.UserVO;
 import uiService.MemberRegisterUiService;
 
 public class MemberRegisterView extends JPanel{
@@ -164,19 +163,14 @@ public class MemberRegisterView extends JPanel{
 				else{
 					 int option = JOptionPane.showConfirmDialog(panel,"            确认注册？","", JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE, null);
 				     switch (option) {
-					     case JOptionPane.YES_OPTION:
-					    	 UserVO vo=new UserVO();//暂时这么初始化
-					    	 if(controller.createUser(vo)){
-						    	 vo.id="2";//暂时定为2，需要有方法产生ID，并告诉用户
-						    	 controller.tocustomerMainView(vo.id);
-					    	 }
-					    	 break;
-					     case JOptionPane.NO_OPTION:
-					    	 break;
+				     case JOptionPane.YES_OPTION: 
+				    	 controller.tocustomerMainView();
+				     case JOptionPane.NO_OPTION:
 				     }		    						
 				}
-			}
-		});
-	}
+					}
+				});
+				}
+
 }
 		

@@ -83,8 +83,8 @@ public class OrderList {
      * @param hasChild Boolean型，是否有小孩
      * @see bussinesslogic.Order
      */
-	public void makeOrder(Date currentTime,
-			Date in,Date out,
+	public void makeOrder(Calendar currentTime,
+			Calendar in,Calendar out,
 			String roomType,int num,
 			int numOfPerson,
 			boolean haveChild ) {
@@ -107,7 +107,7 @@ public class OrderList {
      * @return 若已撤销则返回true，否则返回false
      * @see bussinesslogic.Order
      */
-	public Boolean whetherDeduct(Date currentTime,String orderID){
+	public Boolean whetherDeduct(Calendar currentTime,String orderID){
 		if(showdetail(orderID).getcancel()==currentTime){
 			return true;
 		}
@@ -147,7 +147,7 @@ public class OrderList {
 	 * @param str String型，id
 	 * @param time Time型，撤销时间
 	 */
-	public void cancel(String orderID, Date currentTime) {
+	public void cancel(String orderID, Calendar currentTime) {
 		for(int i=0;i<orders.size();i++){
 			if(orders.get(i).getorderID().equals(orderID)){
 				orders.get(i).cancel(currentTime);
@@ -225,7 +225,7 @@ public class OrderList {
      * @see bussinesslogic.Order
      */
 	private void update(String orderID,String userID,int state){
-		find(userID,orderID).update(orderID,userID,state);
+		find(userID,orderID).upCalendar(orderID,userID,state);
 	}
 	public void updatedone(String orderID,String userID){
 		update(orderID,userID,3);

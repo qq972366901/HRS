@@ -3,7 +3,6 @@ package UserView;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.rmi.RemoteException;
 import java.util.Vector;
 
 import javax.swing.JButton;
@@ -34,8 +33,6 @@ public class InformationView extends JPanel {
 	private JLabel tel ;
 	
 	private JLabel enterprise;
-	
-	private JLabel email;
 	
 	private JLabel type ;
 	
@@ -74,12 +71,19 @@ public class InformationView extends JPanel {
         panel_22=new JPanel();
         panel_22.setLayout(new FlowLayout(FlowLayout.CENTER));
         this.add(panel_22);
+        birth = new JLabel("\u751F\u65E5 \uFF1A1997/02/02");
+        panel_22.add(birth);
         panel_23=new JPanel();
         panel_23.setLayout(new FlowLayout(FlowLayout.CENTER));
         this.add(panel_23);
+        
+        tel = new JLabel("\u8054\u7CFB\u65B9\u5F0F \uFF1A15214338969");
+        panel_23.add(tel);
         panel_24=new JPanel();
         panel_24.setLayout(new FlowLayout(FlowLayout.CENTER));
         this.add(panel_24);
+        enterprise = new JLabel("\u516C\u53F8 \uFF1A\u5357\u4EAC\u5927\u5B66     ");
+        panel_24.add(enterprise);
         panel_25=new JPanel();
         panel_25.setLayout(new FlowLayout(FlowLayout.CENTER));
         this.add(panel_25);
@@ -110,15 +114,6 @@ public class InformationView extends JPanel {
         Vector<String> Data=new Vector<String>();//Vector<String> Data=controller.getInformatioin(UserID);
         		name = new JLabel("姓名 :");
         		panel_1.add(name);
-		birth = new JLabel("\u751F\u65E5 \uFF1A1997/02/02");
-		panel_1.add(birth);
-		
-		tel = new JLabel("\u8054\u7CFB\u65B9\u5F0F \uFF1A15214338969");
-	    panel_22.add(tel);
-		enterprise = new JLabel("\u516C\u53F8 \uFF1A\u5357\u4EAC\u5927\u5B66     ");
-		panel_23.add(enterprise);
-		email = new JLabel("\u90AE\u7BB1 \uFF1Alam0054321@qq.com");
-		panel_24.add(email);
 		type = new JLabel("\u4F1A\u5458\u79CD\u7C7B \uFF1A\u666E\u901A\u4F1A\u5458");
 		panel_25.add(type);
 		level = new JLabel("\u4F1A\u5458\u7B49\u7EA7 \uFF1A3");
@@ -146,39 +141,21 @@ panel_2.add(revisepassword);
 	public void init_exit(){
 	}
 	public void exit(){
-		customerMainViewControllerService con;
-		try {
-			con = new customerMainViewControllerImpl(UserID);
-			customerMainView vie = new customerMainView(con);
-			con.setView(vie);
-			ClientRunner.change(vie);
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		customerMainViewControllerService con =  new customerMainViewControllerImpl(UserID);
+		customerMainView vie = new customerMainView(con);
+		con.setView(vie);
+		ClientRunner.change(vie);
 	}
 	public void reviseinformation(){
-		reviseInformationViewControllerService con;
-		try {
-			con = new reviseInformationViewControllerImpl(UserID);
-			reviseInformationView vie = new reviseInformationView(con);
-			con.setView(vie);
-			ClientRunner.change(vie);
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		reviseInformationViewControllerService con =  new reviseInformationViewControllerImpl(UserID);
+		reviseInformationView vie = new reviseInformationView(con);
+		con.setView(vie);
+		ClientRunner.change(vie);
 	}
 	public void revisepassword(){
-		revisePasswordViewControllerService con;
-		try {
-			con = new revisePasswordViewControllerImpl(UserID);
-			revisePasswordView vie = new revisePasswordView(con);
-			con.setView(vie);
-			ClientRunner.change(vie);
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		revisePasswordViewControllerService con =  new revisePasswordViewControllerImpl(UserID);
+		revisePasswordView vie = new revisePasswordView(con);
+		con.setView(vie);
+		ClientRunner.change(vie);
 	}
 }

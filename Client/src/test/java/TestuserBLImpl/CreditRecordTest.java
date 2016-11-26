@@ -10,7 +10,7 @@ import org.junit.Test;
 
 import VO.CreditRecordVO;
 import runner.ClientRunner;
-import userBLServiceImpl.CreditRecord;
+import userBLImpl.CreditRecord;
 
 public class CreditRecordTest {
 	private CreditRecord cr;

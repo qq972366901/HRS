@@ -10,9 +10,8 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import VO.UserVO;
-import common.UserType;
 import runner.ClientRunner;
-import userBLServiceImpl.Account;
+import userBLImpl.Account;
 @FixMethodOrder(MethodSorters.JVM)
 public class AccountTest {
 	private Account account;
@@ -34,9 +33,9 @@ public class AccountTest {
 		time2.set(2016,11,11);
 		Calendar time3=Calendar.getInstance();
 		time3.set(2016,11,11);
-		user1=new UserVO("1","1","3414141","1",false,1,78,"普通会员",UserType.Customer,time1,"");
-		user2=new UserVO("2","1","3415641","1",false,5,41780,"企业会员",UserType.Customer,time2,"Goldman Sachs");
-		user3=new UserVO("3","1","9414141","1",false,3,4178,"普通会员",UserType.Customer,time3,"");
+		user1=new UserVO("1","1@nju.edu.cn","3414141","1",false,1,78,"普通会员",1,time1,"");
+		user2=new UserVO("2","2@nju.edu.cn","3415641","1",false,5,41780,"企业会员",1,time2,"Goldman Sachs");
+		user3=new UserVO("3","3@nju.edu.cn","9414141","1",false,3,4178,"普通会员",1,time3,"");
 		account=new Account(user1.type);
 	}
 	@Test
@@ -53,13 +52,13 @@ public class AccountTest {
 		account.add(user1);
 		user1.username="user1";// TODO
 		account.update(user1);
-		assertEquals(user1,account.getUser(user1.id));
+		assertEquals(user1,account.getUser(user1.useraccount));
 	}
 
 	@Test
 	public void testDelete() throws RemoteException {
 		 account.delete(user2);// TODO
-		 assertNull(account.getUser(user2.id));
+		 assertNull(account.getUser(user2.useraccount));
 	}
 
 }
