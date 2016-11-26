@@ -1,4 +1,7 @@
 package VO;
+
+import PO.CreditRecordPO;
+
 /**
  * 信用记录的属性及数据创建与更新
  * @author 刘宗侃
@@ -8,7 +11,11 @@ package VO;
 
 public class CreditRecordVO extends VO {
 
-	public String account;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public String account;//即客户ID
 	public String time;
 	public String orderID;
 	public int action;
@@ -44,9 +51,8 @@ public class CreditRecordVO extends VO {
      * @return 一个新用户的信用记录
      * @see Object.CreditRecord
      */
-	public CreditRecordVO makeCreditRecord() {
-		
-		return new CreditRecordVO();
+	public CreditRecordVO(CreditRecordPO po) {
+
 	}
 	
 }

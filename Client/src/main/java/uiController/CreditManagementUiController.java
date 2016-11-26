@@ -36,8 +36,7 @@ public class CreditManagementUiController implements CreditManagementUiService{
 	@Override
 	public void updateCredit(String acc, int value) {
 		// TODO Auto-generated method stub
-		UserVO vo=userService.findByAccount(acc);
-		userService.updateCredit(vo,value);
+		userService.updateCredit(acc,value);
 	}
 
 }

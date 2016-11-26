@@ -9,16 +9,14 @@ import common.UserType;
  * 用户的属性及数据创建与更新
  * @author 刘宗侃
  * @version 1.0
- * @see Object.User
+ * @see Object.Customer
  */
 
 public class UserVO extends VO {
 
 	public String username;
-	public String userpassword;
-	public String contactway;
 	public String id;
-	public boolean inorout;
+	public String contactway;
 	public int level;
 	public long credit;
 	public String membertype;
@@ -29,12 +27,10 @@ public class UserVO extends VO {
 	public UserVO(UserPO po){
 		
 	}
-	public UserVO(String usern,String password,String con,String ID,boolean io,int le,long cr,String mt,UserType t,Calendar birth,String enter){
+	public UserVO(String usern,String ID,String contact,int le,long cr,String mt,UserType t,Calendar birth,String enter){
 		username=usern;
-		userpassword=password;
-		contactway=con;
 		id=ID;
-		inorout=io;
+		contactway=contact;
 		level=le;
 		credit=cr;
 		membertype=mt;
@@ -53,13 +49,12 @@ public class UserVO extends VO {
      * @see VO.UserVO
      */
 	public void update(UserVO user) {
+		contactway=user.contactway;
 		username=user.username;
 		enterprise=user.enterprise;
 		birthday=user.birthday;
 		membertype=user.membertype;
-		contactway=user.contactway;
 		credit=user.credit;
-		inorout=user.inorout;
 		level=user.level;
 	}
 }

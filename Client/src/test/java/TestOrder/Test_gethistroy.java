@@ -43,7 +43,7 @@ public class Test_gethistroy {
 		order.addorderlist(list);
 		Calendar time1=Calendar.getInstance();
 		time1.set(2016,11,11);
-		assertEquals(list.gethistory(new UserVO("1","1","3414141","1",false,1,78,"普通会员",UserType.Customer,time1,"")).get(0).getvo().child,false);
+		assertEquals(list.gethistory(new UserVO("1","1","1234567",1,78,"普通会员",UserType.Customer,time1,"")).get(0).getvo().child,false);
 	}
 
 }

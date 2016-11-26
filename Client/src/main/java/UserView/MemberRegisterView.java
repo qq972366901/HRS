@@ -166,8 +166,8 @@ public class MemberRegisterView extends JPanel{
 				     switch (option) {
 					     case JOptionPane.YES_OPTION:
 					    	 UserVO vo=new UserVO();//暂时这么初始化
-					    	 if(controller.createUser(vo)){
-						    	 vo.id="2";//暂时定为2，需要有方法产生ID，并告诉用户
+					    	 if(controller.createUser(vo,password4)){
+						    	 vo.id="3";//暂时定为3，需要有方法产生ID，并告诉用户
 						    	 controller.tocustomerMainView(vo.id);
 					    	 }
 					    	 break;

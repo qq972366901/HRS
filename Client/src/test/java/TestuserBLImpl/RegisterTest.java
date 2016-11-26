@@ -27,12 +27,12 @@ public class RegisterTest {
 		}*/
 		Calendar time1=Calendar.getInstance();
 		time1.set(2016,11,11);
-		user1=new UserVO("1","1","3414141","1",false,1,78,"普通会员",UserType.Customer,time1,"");
+		user1=new UserVO("1","1","1234567",1,78,"普通会员",UserType.Customer,time1,"");
 		register=new Register();
 	}
 	@Test
 	public void testAdd() throws RemoteException {
-		register.add(user1);
+		register.add(user1,"1234567");
 		assertEquals(user1,register.getUser(user1.id));// TODO
 	}
 

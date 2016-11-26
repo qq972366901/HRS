@@ -10,112 +10,91 @@ import common.*;
  * 负责实现用户管理界面所需要的服务接口
  * @author 刘伟
  * @version 1.0
- * @see presentation.User
+ * @see Customer.User
  */
 public interface UserBLService {
 /**
  * 根据客户ID查找客户信息并返回
  * @param  in MessageInput型，界面输入的客户ID
  * @return 返回ResultMessage的所有枚举值
- * @see bussinesslogic.User
+ * @see Customer.User
  */
-	public ResultMessage findByID(String userID);
+	public UserVO findByID(String userID);
 /**
  * 更新客户信息
  * @param in MessageInput型，界面输入的更新信息
  * @return 返回ResultMessage的一个枚举值
- * @see bussinesslogic.User
+ * @see Customer.User
  */
-	public ResultMessage update(UserVO vo);
+	public void update(UserVO vo,String password);
 /**
  * 新增客户信息
  * @param in MessageInput型，界面输入的新增信息
  * @return 返回ResultMessage的一个枚举值
- * @see bussinesslogic.User
+ * @see Customer.User
  */
-	public boolean add(UserVO vo);
+	public boolean add(UserVO vo,String password);
 /**
  * 删除客户信息
  * @param in MessageInput型，界面选择删除的信息
  * @return 返回ResultMessage的一个枚举值
- * @see bussinesslogic.User
+ * @see Customer.User
  */
-	public ResultMessage delete(UserVO vo);
+	public void delete(String id);
 /**
  * 显示信用值
  * @param in MessageInput型，界面输入用户ID
  * @return String型，返回客户的信用值
- * @see bussinesslogic.User
+ * @see Customer.User
  */
 	public long showCredit(String userID);
 /**
  * 通过充值更新信用值
  * @param in MessageInput型，界面输入的更新信息
  * @return 返回ResultMessage的一个枚举值
- * @see bussinesslogic.User
+ * @see Customer.User
  */
-	public ResultMessage updateCredit(UserVO vo,long credit);
+	public void updateCredit(String id,long val);
 /**
  * 更新会员等级
  * @param in MessageInput型，界面输入的更新信息
  * @return 返回ResultMessage的一个枚举值
- * @see bussinesslogic.User
+ * @see Customer.User
  */
-	public ResultMessage updateLevel(UserVO vo);
+	public void updateLevel(String id,long credit);
 /**
  * 根据信用记录更新信用值
  * @param in MessageInput型，界面输入的更新信息
  * @return 返回ResultMessage的一个枚举值
- * @see bussinesslogic.User
+ * @see Customer.User
  */
 	public ResultMessage updateCreditRecord(UserVO vo);
 /**
  * 客户注册
  * @param in MessageInput型，界面输入的注册信息
  * @return 返回ResultMessage的所有枚举值
- * @see bussinesslogic.User
+ * @see Customer.User
  */
-	public void register(UserVO vo);
-/**
- * 维护客户信息
- * @param in MessageInput型，界面输入的更新信息
- * @return 返回ResultMessage的一个枚举值
- * @see bussinesslogic.User
- */
-	public ResultMessage maintainPeersonalInfo(UserVO vo);
+	public void register(UserVO vo,String password);
 /**
  * 信用记录显示
  * @param in MessageInput型，界面选择的信息
  * @return 返回信用记录列表
- * @see bussinesslogic.User
+ * @see Customer.User
  */
 	public List<CreditRecordVO> showCreditRecord(String userID);
 /**
- * 订单支付成功后的信用更新
- * @param in MessageInput型，界面输入的支付信息
- * @return 返回ResultMessage的一个枚举值
- * @see bussinesslogic.User
- */
-	public ResultMessage topUp(long money);
-/**
  * 客户登录
  * @param in MessageInput型，界面输入的更新信息
- * @see bussinesslogic.User
+ * @see Customer.User
  */
 	public boolean login(String ID, String password)throws RemoteException;
 /**
  * 客户登出
  * @param ID String型，界面输入的客户ID
- * @see bussinesslogic.User
+ * @see Customer.User
  */
 	public void logout(String ID);
-
-	/**
-	 * 按账号查找用户并返回
-	 * @param acc
-	 * @return
-	 */
-    public UserVO findByAccount(String acc);
     /**
      * 判断用户账号是否存在
      * @param ID

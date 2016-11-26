@@ -1,42 +1,31 @@
 package userInformationMaintenance;
 
+import java.rmi.RemoteException;
+
 import VO.UserVO;
 import common.ResultMessage;
+import userBLServiceImpl.Customer;
+import userBLServiceImpl.Log;
 
 public class UserInformationMaintenanceController{
 	/**
 	 * 根据客户ID查找客户信息并返回
 	 * @param  in MessageInput型，界面输入的客户ID
 	 * @return 返回ResultMessage的所有枚举值
-	 * @see bussinesslogic.User
+	 * @see bussinesslogic.Customer
 	 */
-	public ResultMessage findByID(String userID){
-			return ResultMessage.Exist;
+	public UserVO findByID(String userID){
+			return Customer.getUserInstance().findByID(userID);
 	}
 	/**
 	 * 更新客户信息
 	 * @param in MessageInput型，界面输入的更新信息
 	 * @return 返回ResultMessage的一个枚举值
-	 * @see bussinesslogic.User
+	 * @throws RemoteException 
+	 * @see bussinesslogic.Customer
 	 */
-	public ResultMessage update(UserVO vo){
-			return ResultMessage.Exist;
+	public void update(UserVO vo,String password) throws RemoteException{
+			Customer.getUserInstance().updateUserInfo(vo, password);
+			Log.getLogInstance().revisepassword(vo.id, password);
 	}
-	/**
-	 * 维护客户信息
-	 * @param in MessageInput型，界面输入的更新信息
-	 * @return 返回ResultMessage的一个枚举值
-	 * @see bussinesslogic.User
-	 */
-		public ResultMessage maintainPeersonalInfo(UserVO vo){
-			return ResultMessage.Exist;
-		}
-		/**
-		 * 按账号查找客户
-		 */
-		public UserVO findByAccount(String acc) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-		
 }

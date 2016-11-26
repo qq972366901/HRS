@@ -11,9 +11,9 @@ import org.junit.Test;
 import VO.UserVO;
 import common.UserType;
 import runner.ClientRunner;
-import userBLServiceImpl.User;
+import userBLServiceImpl.Customer;
 public class UserTest {
-	private User user;
+	private Customer user;
 	UserVO user1;
 	UserVO user2;
 	UserVO user3;
@@ -32,28 +32,28 @@ public class UserTest {
 		time2.set(2016,11,11);
 		Calendar time3=Calendar.getInstance();
 		time3.set(2016,11,11);
-		user1=new UserVO("1","1","3414141","1",false,1,78,"普通会员",UserType.Customer,time1,"");
-		user2=new UserVO("2","1","3415641","2",true,5,41780,"企业会员",UserType.Customer,time2,"Goldman Sachs");
-		user3=new UserVO("3","1","9414141","3",false,2,4178,"普通会员",UserType.Customer,time3,"");
-		user=User.getUserInstance();
+		user1=new UserVO("1","1","1234567",1,78,"普通会员",UserType.Customer,time1,"");
+		user2=new UserVO("2","1","1234567",5,41780,"企业会员",UserType.Customer,time2,"Goldman Sachs");
+		user3=new UserVO("3","1","1234567",2,4178,"普通会员",UserType.Customer,time3,"");
+		user=Customer.getUserInstance();
 		
 	}
 
 	@Test
 	public void testCreate() throws RemoteException {
-		user.create(user1);
+		user.create(user1,"1234567");
 		assertEquals(user1,user.findByID(user1.id));
-		user.create(user2);
+		user.create(user2,"1234567");
 		assertEquals(user2,user.findByID(user2.id));
-		user.create(user3);
+		user.create(user3,"1234567");
 		assertEquals(user3,user.findByID(user3.id));// TODO
 	}
 	
 	@Test
 	public void testFindByID() throws RemoteException {
-		user.create(user1);
-		user.create(user2);
-		user.create(user3);
+		user.create(user1,"1234567");
+		user.create(user2,"1234567");
+		user.create(user3,"1234567");
 		String id=user1.id;
 		UserVO vo=user.findByID(id);
 		assertEquals(user1,vo);// TODO
@@ -61,22 +61,22 @@ public class UserTest {
 
 	@Test
 	public void testUpdateLevel() throws RemoteException {
-		user.create(user1);
-		user.create(user2);
-		user.create(user3);
-		user.updateLevel(user3);
+		user.create(user1,"1234567");
+		user.create(user2,"1234567");
+		user.create(user3,"1234567");
+		user.updateLevel(user3.id,user3.credit);
 		assertEquals(user.findByID(user3.id).level,3);// TODO
 	}
 
 	@Test
 	public void testUpdateUserInfo() throws RemoteException {
-		user.create(user1);
-		user.create(user2);
-		user.create(user3);
+		user.create(user1,"1234567");
+		user.create(user2,"1234567");
+		user.create(user3,"1234567");
 		Calendar time=Calendar.getInstance();
 		time.set(1988,4,5);
 		user2.birthday=time;
-		user.updateUserInfo(user2);
+		user.updateUserInfo(user2,"1234567");
 		assertEquals(user2,user.findByID(user2.id));// TODO
 	}
 }

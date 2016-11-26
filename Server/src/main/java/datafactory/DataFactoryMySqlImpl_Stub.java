@@ -16,37 +16,49 @@ public class DataFactoryMySqlImpl_Stub implements dataService.DataFactoryService
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+	private DataService dataService;
 	@Override
 	public DataService getDataService(String type) {
 		// TODO Auto-generated method stub
-		DataService dataService;
 		if(type.equals("User")){
-			dataService=new UserDataServiceMySqlImpl_Stub();
+			if(dataService==null){
+				dataService=new UserDataServiceMySqlImpl_Stub();
+			}
 			System.out.println("UserData!");
 		}
 		else if(type.equals("CreditRecord")){
-			dataService=new CreditRecordDataServiceMySqlImpl_Stub();
+			if(dataService==null){
+				dataService=new CreditRecordDataServiceMySqlImpl_Stub();
+			}
 			System.out.println("CreditRecordData!");
 		}
 		else if(type.equals("Hotel")){
-			dataService=new HotelDataServiceMySqlImpl_Stub();
+			if(dataService==null){
+				dataService=new HotelDataServiceMySqlImpl_Stub();
+			}
 			System.out.println("HotelData!");
 		}
 		else if(type.equals("Promotion")){
-			dataService=new PromotionDataServiceMySqlImpl_Stub();
+			if(dataService==null){
+				dataService=new PromotionDataServiceMySqlImpl_Stub();
+			}
 			System.out.println("PromotionData!");
 		}
 		else if(type.equals("Room")){
-			dataService=new RoomDataServiceMySqlImpl_Stub();
+			if(dataService==null){
+				dataService=new RoomDataServiceMySqlImpl_Stub();
+			}
 			System.out.println("RoomData!");
 		}
 		else if(type.equals("Order")){
-			dataService=new OrderDataServiceMySqlImpl_Stub();
+			if(dataService==null){
+				dataService=new OrderDataServiceMySqlImpl_Stub();
+			}
 			System.out.println("OrderData!");
 		}
 		else{
 			dataService=null;
+			System.out.println("Failure!");
 		}
 		return dataService;
 	}

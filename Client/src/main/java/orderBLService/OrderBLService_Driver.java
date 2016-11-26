@@ -15,7 +15,7 @@ public class OrderBLService_Driver {
     	System.out.println("cancel success");
     	Calendar time1=Calendar.getInstance();
 		time1.set(2016,11,11);
-		ArrayList<Hotel> result3=orderBLService.gethistory(new UserVO("1","1","3414141","1",false,1,78,"普通会员",UserType.Customer,time1,""));
+		ArrayList<Hotel> result3=orderBLService.gethistory(new UserVO("1","1","1234567",1,78,"普通会员",UserType.Customer,time1,""));
     	if(result3 ==new ArrayList<Hotel>()) System.out.println("gethistory success");
 		ArrayList<OrderVO> result4=orderBLService.findByType(new HotelVO());
     	if(result4 ==new ArrayList<OrderVO>()) System.out.println("findByType1 success");

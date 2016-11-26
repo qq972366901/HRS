@@ -66,8 +66,38 @@ public class Log {
 	 * @param password
 	 */
 	public void revisepassword(String userID, String password) {
-		// TODO Auto-generated method stub
-		list.get(userID).userpassword=password;
-		//由于修改了密码，需要对数据层进行持久化
+		if(!list.containsKey(userID))list.get(userID).userpassword=password;
+		//不需要对数据层进行持久化，在Customer类中已完成
+	}
+	/**
+	 * 提供密码
+	 * @param userID
+	 * @return
+	 */
+	public String getPassword(String userID){
+		if(list.containsKey(userID)){
+			return list.get(userID).userpassword;
+		}
+		else{
+			return "No Such User";
+		}
+	}
+	/**
+	 * 删除一个用户
+	 * @param id
+	 */
+	public void delete(String id){
+		if(list.containsKey(id)){
+			list.remove(id);
+		}
+	}
+	/**
+	 * 增加一个用户
+	 * @param id
+	 */
+	public void add(String id,LogVO vo){
+		if(!list.containsKey(id)){
+			list.put(id, vo);
+		}
 	}
 }

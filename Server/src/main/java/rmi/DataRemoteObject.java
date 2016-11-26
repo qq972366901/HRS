@@ -12,8 +12,9 @@ public class DataRemoteObject extends UnicastRemoteObject implements Serializabl
 	private DataFactoryService dataFactoryService;
 	
 	protected DataRemoteObject() throws RemoteException {
-		
-		dataFactoryService = new datafactory.DataFactoryMySqlImpl_Stub();
+		if(dataFactoryService==null){
+			dataFactoryService = new datafactory.DataFactoryMySqlImpl_Stub();
+		}
 		
 	}
 

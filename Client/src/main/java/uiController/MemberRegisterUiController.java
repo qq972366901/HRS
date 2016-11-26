@@ -60,8 +60,8 @@ public class MemberRegisterUiController implements MemberRegisterUiService {
      * @return 
      */
 	@Override
-	public boolean createUser(UserVO vo) {
+	public boolean createUser(UserVO vo,String password) {
 		// TODO Auto-generated method stub
-		return user.add(vo);
+		return user.add(vo,password);
 	}
 }

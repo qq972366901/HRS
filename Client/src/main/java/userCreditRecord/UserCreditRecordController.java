@@ -9,7 +9,7 @@ public class UserCreditRecordController{
 		 * 显示信用值
 		 * @param in MessageInput型，界面输入用户ID
 		 * @return String型，返回客户的信用值
-		 * @see bussinesslogic.User
+		 * @see bussinesslogic.Customer
 		 */
 		public long showCredit(String userID) {
 			return 200;
@@ -18,7 +18,7 @@ public class UserCreditRecordController{
 			 * 信用记录显示
 			 * @param in MessageInput型，界面选择的信息
 			 * @return 返回ResultMessage的一个枚举值
-			 * @see bussinesslogic.User
+			 * @see bussinesslogic.Customer
 			 */
 			public List<CreditRecordVO> showCreditRecord(String userID) {
 				List<CreditRecordVO> cr=new ArrayList<CreditRecordVO>();

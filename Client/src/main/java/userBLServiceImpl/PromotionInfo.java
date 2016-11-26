@@ -11,5 +11,5 @@ public interface PromotionInfo {
 	 * 获取会员等级系统信息
 	 * @return 返回会员等级系统
 	 */
-	public HashMap< Integer,Long>  getLevelSystem();
+	public HashMap<Integer,Long>  getLevelSystem();
 }

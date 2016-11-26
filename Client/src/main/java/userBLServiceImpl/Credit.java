@@ -12,9 +12,8 @@ import VO.CreditRecordVO;
  */
 public class Credit {
 	private HashMap<String,Long> map;
-	CreditRecord cr=new CreditRecord();
 	public Credit(){
-		map=new HashMap<String,Long>();
+		map=CreditRecord.getInstance().getCurrentCredit();
 	}
 	/**
 	 * 显示信用值
@@ -33,6 +32,6 @@ public class Credit {
 	 */
 	public void updateCredit(String userID,CreditRecordVO vo) throws RemoteException{
 		map.put(userID, vo.currentcredit);
-		//cr.add(userID, vo);
+		CreditRecord.getInstance().add(userID, vo);
 	}
 }

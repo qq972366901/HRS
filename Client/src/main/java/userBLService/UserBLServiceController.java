@@ -40,30 +40,36 @@ public class UserBLServiceController implements UserBLService {
 	 * 根据客户ID查找客户信息并返回
 	 * @param  in MessageInput型，界面输入的客户ID
 	 * @return 返回ResultMessage的所有枚举值
-	 * @see bussinesslogic.User
+	 * @see bussinesslogic.Customer
 	 */
-	public ResultMessage findByID(String userID) {
+	public UserVO findByID(String userID) {
 		return userInfomationMaintenanceController.findByID(userID);
 	}
 	/**
 	 * 更新客户信息
 	 * @param in MessageInput型，界面输入的更新信息
 	 * @return 返回ResultMessage的一个枚举值
-	 * @see bussinesslogic.User
+	 * @throws RemoteException 
+	 * @see bussinesslogic.Customer
 	 */
-	public ResultMessage update(UserVO vo) {
-		return userInfomationMaintenanceController.update(vo);
+	public void update(UserVO vo,String password) {
+		try {
+			userInfomationMaintenanceController.update(vo,password);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	/**
 	 * 新增客户信息
 	 * @param in MessageInput型，界面输入的新增信息
 	 * @return 返回ResultMessage的一个枚举值
 	 * @throws RemoteException 
-	 * @see bussinesslogic.User
+	 * @see bussinesslogic.Customer
 	 */
-	public boolean add(UserVO vo) {
+	public boolean add(UserVO vo,String password) {
 		try {
-			return userManagementController.add(vo);
+			return userManagementController.add(vo,password);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -74,16 +80,22 @@ public class UserBLServiceController implements UserBLService {
 	 * 删除客户信息
 	 * @param in MessageInput型，界面选择删除的信息
 	 * @return 返回ResultMessage的一个枚举值
-	 * @see bussinesslogic.User
+	 * @throws RemoteException 
+	 * @see bussinesslogic.Customer
 	 */
-	public ResultMessage delete(UserVO vo) {
-		return userManagementController.delete(vo);
+	public void delete(String id) {
+		try {
+			userManagementController.delete(id);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	/**
 	 * 显示信用值
 	 * @param in MessageInput型，界面输入用户ID
 	 * @return String型，返回客户的信用值
-	 * @see bussinesslogic.User
+	 * @see bussinesslogic.Customer
 	 */
 	public long showCredit(String userID) {
 		return userCreditRecordController.showCredit(userID);
@@ -92,25 +104,31 @@ public class UserBLServiceController implements UserBLService {
 	 * 通过充值更新信用值
 	 * @param in MessageInput型，界面输入的更新信息
 	 * @return 返回ResultMessage的一个枚举值
-	 * @see bussinesslogic.User
+	 * @see bussinesslogic.Customer
 	 */
-	public ResultMessage updateCredit(UserVO vo,long credit) {
-		return userCreditManagementController.updateCredit(vo, credit);
+	public void updateCredit(String id,long val) {
+		userCreditManagementController.updateCredit(id,val);
 	}
 	/**
 	 * 更新会员等级
 	 * @param in MessageInput型，界面输入的更新信息
 	 * @return 返回ResultMessage的一个枚举值
-	 * @see bussinesslogic.User
+	 * @throws RemoteException 
+	 * @see bussinesslogic.Customer
 	 */
-	public ResultMessage updateLevel(UserVO vo) {
-		return userCreditManagementController.updateLevel(vo);
+	public void updateLevel(String id,long credit) {
+		try {
+			userCreditManagementController.updateLevel(id,credit);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	/**
 	 * 根据信用记录更新信用值
 	 * @param in MessageInput型，界面输入的更新信息
 	 * @return 返回ResultMessage的一个枚举值
-	 * @see bussinesslogic.User
+	 * @see bussinesslogic.Customer
 	 */
 	public ResultMessage updateCreditRecord(UserVO vo) {
 		return userCreditManagementController.updateCreditRecord(vo);
@@ -118,39 +136,21 @@ public class UserBLServiceController implements UserBLService {
 	/**
 	 * 客户注册
 	 * @param in MessageInput型，界面输入的注册信息
-	 * @see bussinesslogic.User
+	 * @see bussinesslogic.Customer
 	 */
-	public void register(UserVO vo) {
+	public void register(UserVO vo,String password) {
 		try {
-			userRegisterAndLogController.register(vo);
+			userRegisterAndLogController.register(vo,password);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	/**
-	 * 维护客户信息
-	 * @param in MessageInput型，界面输入的更新信息
-	 * @return 返回ResultMessage的一个枚举值
-	 * @see bussinesslogic.User
-	 */
-	public ResultMessage maintainPeersonalInfo(UserVO vo) {
-		return userInfomationMaintenanceController.maintainPeersonalInfo(vo);
-	}
-	/**
-	 * 订单支付成功后的信用更新
-	 * @param in MessageInput型，界面输入的支付信息
-	 * @return 返回ResultMessage的一个枚举值
-	 * @see bussinesslogic.User
-	 */
-	public ResultMessage topUp(long money) {
-		return userCreditManagementController.topUp(money);
-	}
-	/**
 	 * 客户登录
 	 * @param ID String型，password String型，界面输入的登录信息
 	 * @return 返回布尔值，表示登陆是否成功
-	 * @see bussinesslogic.User
+	 * @see bussinesslogic.Customer
 	 */
 	public boolean login(String ID, String password)throws RemoteException {
 		return userRegisterAndLogController.login(ID, password);
@@ -158,18 +158,10 @@ public class UserBLServiceController implements UserBLService {
 	/**
 	 * 客户登出
 	 * @param ID String型，界面选择的信息
-	 * @see bussinesslogic.User
+	 * @see bussinesslogic.Customer
 	 */
 	public void logout(String ID) {
 		userRegisterAndLogController.logout(ID);
-	}
-	/**
-	 * 按账号查找客户
-	 */
-	@Override
-	public UserVO findByAccount(String acc) {
-		// TODO Auto-generated method stub
-		return userInfomationMaintenanceController.findByAccount(acc);
 	}
 	/**
 	 * 信用记录显示

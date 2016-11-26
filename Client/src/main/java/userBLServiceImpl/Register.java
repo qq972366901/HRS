@@ -4,15 +4,15 @@ import java.rmi.RemoteException;
 
 import VO.UserVO;
 /**
- * 负责与注册相关的任务
+ * 负责与客户注册相关的任务
  * @author LZ
  * @version 1.0
  * @see VO.UserVO
  */
 public class Register {
-	private User user;
+	private Customer user;
 	public Register(){
-		user=User.getUserInstance();
+		user=Customer.getUserInstance();
 	}
 	/**
 	 * 增加一位用户
@@ -21,8 +21,8 @@ public class Register {
 	 * @throws RemoteException
 	 * @see VO.UserVO
 	 */
-	public boolean add(UserVO vo) throws RemoteException{
-		return user.create(vo);
+	public boolean add(UserVO vo,String password) throws RemoteException{
+		return user.create(vo,password);
 	}
 	/**
 	 * 获取用户信息

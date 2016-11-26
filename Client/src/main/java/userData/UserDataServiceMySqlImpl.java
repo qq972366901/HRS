@@ -11,7 +11,7 @@ import common.UserType;
  * 职责是将逻辑层面发来的请求转发给后台UserData处理
  * @author LZ
  * @version 1.0
- * @see businesslogic.User
+ * @see Customer.User
  */
 public class UserDataServiceMySqlImpl implements Serializable,dataService.UserDataService{
 	/**
