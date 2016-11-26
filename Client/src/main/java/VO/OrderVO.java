@@ -1,6 +1,5 @@
 package VO;
-import java.sql.Time;
-import java.util.Date;
+import java.util.Calendar;
 import PO.*;
 import Object.Order;
 
@@ -23,15 +22,42 @@ public class OrderVO extends VO {
 	public boolean child;
 	public String roomType;
 	public int roomNumber;
-	public Date expectedCheckIn;
-	public Date expectedCheckOut;
-	public Date latest;//最晚执行时间
-	public Date cancel;//取消时间
-	public Date generationTime;//操作时间（生成...）
+	public int numberOfroom;
+	public Calendar expectedCheckIn;
+	public Calendar expectedCheckOut;
+	public Calendar latest;//最晚执行时间
+	public Calendar cancel;//取消时间
+	public Calendar generationTime;//操作时间（生成...）
 	public String comment;
 	public int score;	
-    public OrderVO (String hotelID,int level,long credit,String userid,String oNum, int state, int value, int pnum,boolean ch,String rType, int rNum, Date in, Date out,Date la,Date cal,Date gen, String comm, int sco) {
-		this.hotelID=hotelID;
+	/**
+	 * 构造订单数据实体
+	 * @param number int型，房间数量
+	 * @param hotelID String型，酒店账号
+	 * @param level int型，客户会员等级
+	 * @param credit long型，客户信用值
+	 * @param Usid String型，客户编号
+	 * @param oNum String型，逻辑层传来的订单编号
+	 * @param state int型，逻辑层传来的订单状态
+	 * @param value int型，逻辑层传来的订单价值
+	 * @param pnum int型，逻辑层传来的人数
+	 * @param ch boolean型，逻辑层传来的有无儿童
+	 * @param rType String型，逻辑层传来的房间类型
+	 * @param rNum int型，逻辑层传来的房间号
+	 * @param in Calendar型，逻辑层传来的预订入住时间
+	 * @param out Calendar型，逻辑层传来的预订离开时间
+	 * @param la Calendar型，逻辑层传来的最晚执行时间
+	 * @param can Calendar型，逻辑层传来的取消时间
+	 * @param gen Calendar型，逻辑层传来的订单操作时间
+	 * @param comm String型，逻辑层传来的订单评价
+	 * @param sco int型，逻辑层传来的订单评分
+	 * @return
+	 * @throws
+	 * @see
+	 */
+    public OrderVO (int number,String hotelID,int level,long credit,String userid,String oNum, int state, int value, int pnum,boolean ch,String rType, int rNum, Calendar in, Calendar out,Calendar la,Calendar cal,Calendar gen, String comm, int sco) {
+		numberOfroom=number;
+    	this.hotelID=hotelID;
 		userLevel=level;
 		this.credit=credit;
     	userID=userid;

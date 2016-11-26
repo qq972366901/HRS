@@ -1,17 +1,18 @@
 package uiController;
 
 import java.rmi.RemoteException;
+
 import UserView.LogView;
 import common.UserType;
 import uiService.LoginViewControllerService;
 import userBLService.UserBLService;
-import userBLService.UserBLServiceController;
 
 public class LoginViewControllerImpl implements LoginViewControllerService{
     private LogView view;
     private UserBLService user;
-	public LoginViewControllerImpl() throws RemoteException{
-    	user=new UserBLServiceController();
+    
+	public LoginViewControllerImpl(){
+    	//user=new UserBLServiceImpl();
     }
 	@Override
 	public void updatemodel(String str) {		
@@ -22,28 +23,26 @@ public class LoginViewControllerImpl implements LoginViewControllerService{
 		this.view=view;
 	}
 
-	public void login(String id,String password,UserType type) {		
-		try {
-			if(user.login(id, password)){
-				view.login(type);
-			}
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	@Override
+	public boolean login(String id,String password,String type) {		
+		view.login(UserType.Customer);		                                    
+		return true;
+		/*if(user.login(id,password,type)){
+		 *    view.login();
+		 *    return true;
+		 *    }
+		 *else{
+		 *    return false;
+		 * }	
+		 * 
+		 */
 	}
 
 	@Override
 	public boolean register() {
 		// TODO Auto-generated method stub
-		try {
-			view.register();
-			return true;
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return false;
+		view.register();
+		return true;
 	}
 
 	@Override

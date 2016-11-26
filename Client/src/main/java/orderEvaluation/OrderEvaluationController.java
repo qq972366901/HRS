@@ -1,33 +1,30 @@
 package orderEvaluation;
-import VO.OrderVO;
-import orderBLService.OrderBLService_realize;
-public class OrderEvaluationController extends OrderBLService_realize{
-	public OrderEvaluationController(int hotelId) {
-		super(hotelId);
-		// TODO Auto-generated constructor stub
+
+import orderBLImpl.Comment;
+
+/**
+ * 评价订单
+ * 记录客户对于订单的评价和评论，更新到该订单信息中
+ * @author Lyx
+ * 
+ *
+ */
+public class OrderEvaluationController{
+	Comment ct;
+	public OrderEvaluationController() {
+		ct=new Comment();
 	}
-
-
 	/**
-     * 更新订单信息并显示评价
+     * 更新客户评论
      * 
-     * @param comment String型，客户评价
-     * @param order OrderVO型，一个订单的值对象
+     * @param String comment,客户的评论
+     * @param int score,客户的评分
+     * @param String UserID，客户的id
+     * @param String OrderID，订单的id
+	 * @ 
      * @see bussinesslogic.Order
      */
-	public void comment(String comment,OrderVO order) {
-	}
-	
-	
-	/**
-     * 根据输入的ID查找订单并显示
-     * 
-     * @param ID String型，订单号
-     * @return OrderVO，一个订单的值对象
-     * @see bussinesslogic.Order
-     */
-	public OrderVO findByID(String ID) {
-		OrderVO ov=new OrderVO();
-		return ov;
+	public void updatecomment(String comment,int score,String UserID,String orderID) {
+		ct.updatecomment(comment, score, UserID, orderID);
 	}
 }

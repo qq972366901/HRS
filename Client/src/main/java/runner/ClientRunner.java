@@ -5,10 +5,14 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+
+import PO.HotelPO;
 import UserView.MemberRegisterView;
 import UserView.HotelBrowseView;
 import UserView.HotelSearchView;
@@ -17,6 +21,12 @@ import UserView.OrderBuildView;
 import UserView.AddHotelView;
 import UserView.UserManagementView;
 import UserView.WebAdminUserView;
+import dataService.DataFactoryService;
+import dataService.HotelDataService;
+import dataService.OrderDataService;
+import orderBLImpl.Comment;
+import orderBLService.OrderBLService;
+import orderBLService.OrderBLServiceController;
 import rmi.RemoteHelper;
 import uiController.HotelSearchUiController;
 import uiController.LoginViewControllerImpl;
@@ -41,7 +51,7 @@ public class ClientRunner implements Serializable{
 		try {
 			remoteHelper = RemoteHelper.getInstance();
 			remoteHelper.setRemote(Naming.lookup("rmi://localhost:7777/DataRemoteObject"));
-			System.out.println("linked");
+			System.out.println("linked");			
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (RemoteException e) {
@@ -67,8 +77,8 @@ public class ClientRunner implements Serializable{
     		controller.setView(view);
     		mFrame.getContentPane().add(view);
         	mFrame.setVisible(true);
-        	/*
-		DataFactoryService df=RemoteHelper.getInstance().getDataFactoryService();
+       
+		/*DataFactoryService df=RemoteHelper.getInstance().getDataFactoryService();
 		HotelDataService dh=(HotelDataService) df.getDataService("Hotel");
 		ArrayList<HotelPO> a=new ArrayList<HotelPO>();
 		HotelPO po=dh.find("423523");
@@ -80,7 +90,9 @@ public class ClientRunner implements Serializable{
 		dh.update(po);
 		dh.delete(po);
 		dh.init();
-		dh.finish();*/
+		dh.finish();
+        Comment cm=new Comment();
+   		 cm.updatecomment("very good", 100, "001", "001");*/
 	}
 	public static void change(JPanel view){
 		mFrame.getContentPane().removeAll();

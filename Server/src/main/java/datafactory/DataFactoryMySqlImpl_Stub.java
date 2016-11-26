@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import creditrecordData.CreditRecordDataServiceMySqlImpl_Stub;
 import dataService.DataService;
+import dataService.OrderDataService;
 import hotelData.HotelDataServiceMySqlImpl_Stub;
 import orderData.OrderDataServiceMySqlImpl_Stub;
 import promotionData.PromotionDataServiceMySqlImpl_Stub;
@@ -20,6 +21,11 @@ public class DataFactoryMySqlImpl_Stub implements dataService.DataFactoryService
 	@Override
 	public DataService getDataService(String type) {
 		// TODO Auto-generated method stub
+<<<<<<< HEAD
+=======
+		DataService dataService;
+		OrderDataService order;
+>>>>>>> 64ce4aa6f6a13a8dc5dce09c5d801c08a1f94fd1
 		if(type.equals("User")){
 			if(dataService==null){
 				dataService=new UserDataServiceMySqlImpl_Stub();
@@ -51,10 +57,15 @@ public class DataFactoryMySqlImpl_Stub implements dataService.DataFactoryService
 			System.out.println("RoomData!");
 		}
 		else if(type.equals("Order")){
+<<<<<<< HEAD
 			if(dataService==null){
 				dataService=new OrderDataServiceMySqlImpl_Stub();
 			}
 			System.out.println("OrderData!");
+=======
+			dataService=new OrderDataServiceMySqlImpl_Stub();
+			System.out.println("OrderData1111111111!");
+>>>>>>> 64ce4aa6f6a13a8dc5dce09c5d801c08a1f94fd1
 		}
 		else{
 			dataService=null;

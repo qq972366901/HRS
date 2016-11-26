@@ -2,7 +2,6 @@ package uiController;
 
 import java.util.List;
 
-import Service.Impl.OrderBLServiceImpl;
 import UserView.HotelorderlistView;
 import VO.OrderVO;
 import orderBLService.OrderBLService;
@@ -16,7 +15,7 @@ public class HotelorderlistViewControllerImpl implements HotelorderlistViewContr
 	public HotelorderlistViewControllerImpl(String HotelID,String UserID){
 		hotelid=HotelID;
 		userid=UserID;
-		order=new OrderBLServiceImpl(UserID);
+		//order=new OrderBLServiceImpl(UserID);
 	}
 	@Override
 	public void setView(HotelorderlistView view) {

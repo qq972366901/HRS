@@ -1,5 +1,15 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: LZ
 Build-Jdk: 1.8.0_74
+=======
+<<<<<<< HEAD
+Built-By: sony
+Build-Jdk: 1.8.0_101
+=======
+Built-By: Administrator
+Build-Jdk: 1.8.0_111
+>>>>>>> 64ce4aa6f6a13a8dc5dce09c5d801c08a1f94fd1
+>>>>>>> lyxzzz-master
 Created-By: Maven Integration for Eclipse
 

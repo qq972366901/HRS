@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**负责实现订单数据储存所需要的服务接口
  * @author 刘伟
- * @version 1.0
+ * @version 1.01
  * see presentation.Order
  */
 public interface OrderDataService  extends DataService, Remote{

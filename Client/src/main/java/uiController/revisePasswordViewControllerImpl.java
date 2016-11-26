@@ -1,23 +1,19 @@
 package uiController;
 
-import java.rmi.RemoteException;
 import java.util.Vector;
-
-import javax.swing.JLabel;
 
 import UserView.reviseInformationView;
 import UserView.revisePasswordView;
 import uiService.revisePasswordViewControllerService;
 import userBLService.UserBLService;
-import userBLService.UserBLServiceController;
 
 public class revisePasswordViewControllerImpl implements revisePasswordViewControllerService {
 	private revisePasswordView view;
 	private UserBLService user;
 	private String UserID;
 	private char[] judge={'a','z','A','Z','0','9'};
-	public revisePasswordViewControllerImpl(String ID) throws RemoteException{
-		user=new UserBLServiceController();
+	public revisePasswordViewControllerImpl(String ID){
+		//user=new UserBLServiceImpl();
 		UserID=ID;
 	}
 	@Override
@@ -33,6 +29,12 @@ public class revisePasswordViewControllerImpl implements revisePasswordViewContr
 	}
 
 	@Override
+	public void revisepassword(Vector<String> vector) {
+		// TODO Auto-generated method stub
+		//user.update((UserVO) vector);
+		view.exit();
+	}
+	@Override
 	public String getUserID() {
 		// TODO Auto-generated method stub
 		return UserID;
@@ -40,7 +42,8 @@ public class revisePasswordViewControllerImpl implements revisePasswordViewContr
 	@Override
 	public boolean checkoldPassword(String password) {
 		// TODO Auto-generated method stub
-		return user.checkoldPassword(UserID,password);
+		//user.checkoldPassword(UserID,password);
+		return true;
 	}
 	@Override
 	public boolean checknewPassword(String password) {
@@ -76,10 +79,4 @@ public class revisePasswordViewControllerImpl implements revisePasswordViewContr
 		}
 		return false;
 	}
-	@Override
-	public void revisepassword(String userID, String password) {
-		// TODO Auto-generated method stub
-		user.revisepassword(userID, password);
-	}
-	
 }

@@ -4,7 +4,6 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.rmi.RemoteException;
 import java.util.Vector;
 
 import javax.swing.JButton;
@@ -20,10 +19,6 @@ import javax.swing.JPasswordField;
 import javax.swing.BoxLayout;
 
 public class revisePasswordView extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private JPanel panel;
     private JButton back;
     private revisePasswordViewControllerService controller;
@@ -32,7 +27,9 @@ public class revisePasswordView extends JPanel {
     private JPanel panel12 ;
     private JPanel panel13 ;
     private JPanel panel2 ;
-    private JLabel oldpassword ;
+    private JPanel panel3 ;
+	
+	private JLabel oldpassword ;
 	
 	private JLabel newpassword ;
 	
@@ -70,7 +67,9 @@ public class revisePasswordView extends JPanel {
         panel12.setLayout(new FlowLayout(FlowLayout.CENTER));
         add(panel12);
         panel13=new JPanel();
-        panel13.setLayout(new FlowLayout(FlowLayout.CENTER));       
+        panel13.setLayout(new FlowLayout(FlowLayout.CENTER));
+        
+        
         panel2=new JPanel();
         panel2.setLayout(new FlowLayout(FlowLayout.CENTER));                      
         add(panel2);
@@ -105,6 +104,11 @@ public class revisePasswordView extends JPanel {
 		revisepassword = new JButton("\u786E\u5B9A\u4FEE\u6539");
 		revisepassword.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
+				Vector<String> data=new Vector<String>();
+				data.add(String.valueOf(passwordField.getPassword()));
+				data.add(String.valueOf(passwordField_1.getPassword()));
+				data.add(String.valueOf(passwordField_2.getPassword()));
 				oldPassword=controller.checkoldPassword(String.valueOf(passwordField.getPassword()));
 				newPassword=controller.checknewPassword(String.valueOf(passwordField_1.getPassword()));
 				same=controller.checksame(String.valueOf(passwordField_1.getPassword()),String.valueOf(passwordField_2.getPassword()));
@@ -125,30 +129,27 @@ public class revisePasswordView extends JPanel {
 					JOptionPane.showMessageDialog(null, "新旧密码一致！","", JOptionPane.ERROR_MESSAGE);
 					return;
 				}
-				controller.revisepassword(UserID,String.valueOf(passwordField_1.getPassword()));
+				controller.revisepassword(data);
 			}
 		});
 		panel2.add(revisepassword);
 	}
-	public void init_exit(){	
+	public void init_exit(){
+		
+		
 		back = new JButton("\u8FD4\u56DE");
 		back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller.exit();
+			controller.exit();
 			}
 		});
-		panel.add(back);		
+		panel.add(back);
+		
 	}
 	public void exit(){
-	    InformationViewControllerService con;
-		try {
-			con = new InformationViewControllerImpl(UserID);
-			InformationView vie = new InformationView(con);
-			con.setView(vie);
-			ClientRunner.change(vie);
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	    InformationViewControllerService con =  new InformationViewControllerImpl(UserID);
+	    InformationView vie = new InformationView(con);
+		con.setView(vie);
+		ClientRunner.change(vie);
 	}
 }

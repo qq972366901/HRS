@@ -3,7 +3,6 @@ package uiController;
 import java.util.Calendar;
 import java.util.Vector;
 
-import Service.Impl.OrderBLServiceImpl;
 import UserView.OrderView;
 import VO.OrderVO;
 import orderBLService.OrderBLService;
@@ -16,7 +15,7 @@ public class OrderViewControllerImpl implements OrderViewControllerService {
 	private String id;
 	public OrderViewControllerImpl(String UserID){
 		id=UserID;
-		order=new OrderBLServiceImpl(id);
+		//order=new OrderBLServiceImpl(id);
 	}
 	public void setView(OrderView view){
 		this.view=view;

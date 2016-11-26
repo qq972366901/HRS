@@ -7,7 +7,8 @@ import common.ResultMessage;
 import userBLServiceImpl.Customer;
 import userBLServiceImpl.Log;
 
-public class UserInformationMaintenanceController{
+
+public class UserInformationMaintenanceController extends UserBLService_realize{
 	/**
 	 * 根据客户ID查找客户信息并返回
 	 * @param  in MessageInput型，界面输入的客户ID

@@ -25,11 +25,12 @@ import common.*;
  * @see
  */
 public class Test_delay {
-	Date time1=new Date(2016,10,2,11,15,30);
-	Date time2=new Date(2017,11,3,20,13,20);
-	Date time4=new Date(2016,9,3,4,13,29);
-	Date time5=new Date(2017,12,3,23,16,0);
-	Date time3=null;
+	Calendar time1=Calendar.getInstance();
+	Calendar time2=Calendar.getInstance();
+	Calendar time3=Calendar.getInstance();
+	Calendar time4=Calendar.getInstance();
+	Calendar time5=Calendar.getInstance();
+	Calendar time6=Calendar.getInstance();
     MockOrder a=new MockOrder("000001",5,5,"012","000", 2, 100, 3, false, "double", 303, time1, time2, time3,time3,time4, "good", 100);
     MockOrder b=new MockOrder("000001",5,5,"00101","023", 1, 155, 4, true, "one", 305, time4, time5, time1,time3,time4, "very good", 98);
     MockOrder c=new MockOrder("000001",5,5,"00101","025", 1, 155, 3, true, "three", 307, time4, time5, time1,time3,time4, "just so so", 70);

@@ -9,9 +9,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import VO.UserVO;
-import common.UserType;
 import runner.ClientRunner;
 import userBLServiceImpl.Customer;
+
 public class UserTest {
 	private Customer user;
 	UserVO user1;
@@ -32,11 +32,11 @@ public class UserTest {
 		time2.set(2016,11,11);
 		Calendar time3=Calendar.getInstance();
 		time3.set(2016,11,11);
+
 		user1=new UserVO("1","1","1234567",1,78,"普通会员",UserType.Customer,time1,"");
 		user2=new UserVO("2","1","1234567",5,41780,"企业会员",UserType.Customer,time2,"Goldman Sachs");
 		user3=new UserVO("3","1","1234567",2,4178,"普通会员",UserType.Customer,time3,"");
-		user=Customer.getUserInstance();
-		
+		user=Customer.getUserInstance();	
 	}
 
 	@Test
@@ -66,6 +66,24 @@ public class UserTest {
 		user.create(user3,"1234567");
 		user.updateLevel(user3.id,user3.credit);
 		assertEquals(user.findByID(user3.id).level,3);// TODO
+	}
+
+	@Test
+	public void testLogout() throws RemoteException {
+		user.create(user1);
+		user.create(user2);
+		user.create(user3);
+		user.logout(user2.id);
+		assertEquals(false,user.findByID(user2.id).inorout);// TODO
+	}
+
+	@Test
+	public void testLogin() throws RemoteException {
+		user.create(user1);
+		user.create(user2);
+		user.create(user3);
+		user.login(user1.id);
+		assertEquals(true,user.findByID(user1.id).inorout);// TODO
 	}
 
 	@Test

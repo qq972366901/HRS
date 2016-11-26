@@ -2,11 +2,8 @@ package userData;
 
 import java.io.Serializable;
 import java.rmi.RemoteException;
-import java.util.HashMap;
-import java.util.List;
 
 import PO.UserPO;
-import common.UserType;
 /**
  * 职责是将逻辑层面发来的请求转发给后台UserData处理
  * @author LZ
@@ -90,12 +87,5 @@ public class UserDataServiceMySqlImpl implements Serializable,dataService.UserDa
 		// TODO Auto-generated method stub
 		
 	}
-	/**
-	 * 获取所有客户的ID和密码
-	 */
-	@Override
-	public HashMap<String, String> getAllCustomerIDAndPassword() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 }

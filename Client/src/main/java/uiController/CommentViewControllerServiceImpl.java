@@ -1,6 +1,5 @@
 package uiController;
 
-import Service.Impl.OrderBLServiceImpl;
 import UserView.CommentView;
 import orderBLService.OrderBLService;
 import uiService.CommentViewService;
@@ -13,7 +12,7 @@ public class CommentViewControllerServiceImpl implements CommentViewService{
     public CommentViewControllerServiceImpl(String UserID,String OrderID){
     	this.UserID=UserID;
     	this.OrderID=OrderID;
-    	order=new OrderBLServiceImpl(OrderID);
+    	//order=new OrderBLServiceImpl(OrderID);
     }
 	@Override
 	public void setView(CommentView view) {
