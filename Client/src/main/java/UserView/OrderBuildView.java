@@ -24,9 +24,9 @@ public class OrderBuildView extends JPanel{
 	private JButton button1,button2;
 	private JComboBox<Integer> comboBox1,comboBox2,comboBox3,comboBox4,comboBox5,comboBox6,comboBox7,comboBox8,comboBox9,comboBox11,comboBox12;
 	private JComboBox<String> comboBox10,comboBox13;
-	private JPanel pane;
+	private JPanel pane,panel1,panel3;
 	private OrderBuildUiService controller;
-	private int year,month,day;
+	private int year,month,day,j;
 
 	public OrderBuildView(OrderBuildUiService c){
 		this.controller=c;
@@ -54,7 +54,7 @@ public class OrderBuildView extends JPanel{
 		day=ca.get(Calendar.DATE);//获取日
 		
 		Calendar cal=Calendar.getInstance();
-		JPanel panel1 = new JPanel();
+		panel1 = new JPanel();
 		panel1.setLayout(new FlowLayout(FlowLayout.CENTER));	
 		label1=new JLabel(" 开  始  时  间 ");
 		comboBox1= new JComboBox<Integer>();
@@ -88,6 +88,7 @@ public class OrderBuildView extends JPanel{
 				else if(selected==year+1){
 					comboBox2.addItem(1);
 				}
+				label9.setText("订单最晚执行时间:"+comboBox1.getSelectedItem()+"年"+comboBox2.getSelectedItem()+"月"+comboBox3.getSelectedItem()+"日（开始时间当晚的凌晨12点整）");
 				}
 			}
 		});
@@ -179,11 +180,14 @@ public class OrderBuildView extends JPanel{
 							comboBox3.addItem(2);
 						}
 					}
+					label9.setText("订单最晚执行时间:"+comboBox1.getSelectedItem()+"年"+comboBox2.getSelectedItem()+"月"+comboBox3.getSelectedItem()+"日（开始时间当晚的凌晨12点整）");
 					}
 				}
 		});
 		label3=new JLabel("月");
 		comboBox3= new JComboBox<Integer>();
+	
+		
 		int	selected1=(int)comboBox1.getSelectedItem();
 		int selected2=(int)comboBox2.getSelectedItem();
 		if(year==selected1&&month==selected2){
@@ -246,7 +250,14 @@ public class OrderBuildView extends JPanel{
 				comboBox3.addItem(2);
 			}
 		}
-		
+
+		comboBox3.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent evt) {
+				if(evt.getStateChange() == ItemEvent.SELECTED){	
+		label9.setText("订单最晚执行时间:"+comboBox1.getSelectedItem()+"年"+comboBox2.getSelectedItem()+"月"+comboBox3.getSelectedItem()+"日（开始时间当晚的凌晨12点整）");
+				}
+			}
+		});
 		label4=new JLabel("日");
 		panel1.add(label1);
 		panel1.add(comboBox1);
@@ -312,12 +323,10 @@ public class OrderBuildView extends JPanel{
 		panel2.add(comboBox6);
 		panel2.add(label8);
 		this.add(panel2);
-		JPanel panel3 = new JPanel();
+		panel3 = new JPanel();
 		panel3.setLayout(new FlowLayout(FlowLayout.CENTER));
-		label9=new JLabel("订单最晚执行时间为开始时间当天的凌晨12点");
-		label18=new JLabel();
+		label9=new JLabel("订单最晚执行时间:"+year+"年"+month+"月"+day+"日（开始时间当晚的凌晨12点整）");
 		panel3.add(label9);
-		panel3.add(label18);
 		this.add(panel3);
 		JPanel panel4 = new JPanel();
 		panel4.setLayout(new FlowLayout(FlowLayout.CENTER));
@@ -397,10 +406,194 @@ public class OrderBuildView extends JPanel{
 				     comboBox1.removeAllItems();
 				     comboBox2.removeAllItems();
 				     comboBox3.removeAllItems();
-				     comboBox1.addItem(nowyear);
-				     comboBox2.addItem(nowmonth);
-				     comboBox3.addItem(nowday);
-				  
+				     label9.setText("订单最晚执行时间:"+nowyear+"年"+nowmonth+"月"+nowday+"日（开始时间当晚的凌晨12点整）");
+					if((nowmonth==12&&nowday==30)||(nowmonth==12&&nowday==31)){
+					    comboBox1.addItem(nowyear);
+					    comboBox1.addItem(nowyear+1);
+					}
+					else{
+						comboBox1.addItem(nowyear);
+					}
+
+					
+					comboBox1.addItemListener(new ItemListener() {
+						public void itemStateChanged(ItemEvent evt) {
+							if(evt.getStateChange() == ItemEvent.SELECTED){		
+							int	selected=(int)comboBox1.getSelectedItem();
+							comboBox2.removeAllItems();
+							if(selected==nowyear){
+							if(((nowday==30||nowday==31)&&nowmonth!=12)||(nowday==29&&(nowmonth==2||nowmonth==4||nowmonth==6||nowmonth==9||nowmonth==11))||(nowmonth==2&&(nowday==28||nowday==27))){
+								comboBox2.addItem(nowmonth);
+								comboBox2.addItem(nowmonth+1);
+							}
+							if((nowday==30||nowday==31)&&nowmonth==12){
+								comboBox2.addItem(nowmonth);
+								comboBox2.addItem(1);
+							}
+							else{
+								comboBox2.addItem(nowmonth);
+							}
+							}
+							else if(selected==nowyear+1){
+								comboBox2.addItem(1);
+							}
+							label9.setText("订单最晚执行时间:"+comboBox1.getSelectedItem()+"年"+comboBox2.getSelectedItem()+"月"+comboBox3.getSelectedItem()+"日（开始时间当晚的凌晨12点整）");
+							}
+						}
+					});
+					int	selected=(int)comboBox1.getSelectedItem();
+					if(selected==nowyear){
+					if(((nowday==30||nowday==31)&&nowmonth!=12)||(nowday==29&&(nowmonth==2||nowmonth==4||nowmonth==6||nowmonth==9||nowmonth==11))||(nowmonth==2&&(nowday==28||nowday==27))){
+						comboBox2.addItem(nowmonth);
+						comboBox2.addItem(nowmonth+1);
+					}
+					if((nowday==30||nowday==31)&&nowmonth==12){
+						comboBox2.addItem(nowmonth);
+						comboBox2.addItem(1);
+					}
+					else{
+						comboBox2.addItem(nowmonth);
+					}
+					}
+					else if(selected==nowyear+1){
+						comboBox2.addItem(1);
+					}
+					
+					comboBox2.addItemListener(new ItemListener() {
+						public void itemStateChanged(ItemEvent evt) {
+							if(evt.getStateChange() == ItemEvent.SELECTED){	
+								comboBox3.removeAllItems();
+								int	selected1=(int)comboBox1.getSelectedItem();
+								int selected2=(int)comboBox2.getSelectedItem();
+								if(nowyear==selected1&&nowmonth==selected2){
+									if(nowday==31){
+										comboBox3.addItem(31);
+									}
+									else if(nowday==30&&(nowmonth==1||nowmonth==3||nowmonth==5||nowmonth==7||nowmonth==8||nowmonth==10||nowmonth==12)){
+										comboBox3.addItem(30);
+										comboBox3.addItem(31);
+									}
+									else if(nowday==30&&(nowmonth==4||nowmonth==6||nowmonth==9||nowmonth==11)){
+										comboBox3.addItem(30);
+									}
+									else if(nowday==29&&(nowmonth==4||nowmonth==6||nowmonth==9||nowmonth==11)){
+										comboBox3.addItem(29);
+										comboBox3.addItem(30);
+									}
+									else if(nowday==29&&nowmonth==2){
+										comboBox3.addItem(29);
+									}
+									else if(nowday==28&&nowmonth==2){
+										comboBox3.addItem(28);
+									}
+									else{
+										comboBox3.addItem(nowday);
+										comboBox3.addItem(nowday+1);
+										comboBox3.addItem(nowday+2);
+									}
+								}
+								else if(nowyear==selected1&&nowmonth!=selected2){
+									if(nowday==31){
+										comboBox3.addItem(1);
+										comboBox3.addItem(2);
+									}
+									else if(nowday==30&&(nowmonth==1||nowmonth==3||nowmonth==5||nowmonth==7||nowmonth==8||nowmonth==10||nowmonth==12)){
+										comboBox3.addItem(1);
+									}
+									else if(nowday==30&&(nowmonth==4||nowmonth==6||nowmonth==9||nowmonth==11)){
+										comboBox3.addItem(1);
+										comboBox3.addItem(2);
+									}
+									else if(nowday==29&&(nowmonth==4||nowmonth==6||nowmonth==9||nowmonth==11)){
+										comboBox3.addItem(1);
+									}
+									else if(nowday==29&&nowmonth==2){
+										comboBox3.addItem(1);
+										comboBox3.addItem(2);
+									}
+									else if(nowday==28&&nowmonth==2){
+										comboBox3.addItem(1);
+										comboBox3.addItem(2);
+									}
+								}
+								else if(nowyear!=selected1){
+									if(nowday==30){
+										comboBox3.addItem(1);
+									}
+									else if(nowday==31){
+										comboBox3.addItem(1);
+										comboBox3.addItem(2);
+									}
+								}
+								label9.setText("订单最晚执行时间:"+comboBox1.getSelectedItem()+"年"+comboBox2.getSelectedItem()+"月"+comboBox3.getSelectedItem()+"日（开始时间当晚的凌晨12点整）");
+								}
+							}
+					});
+								
+					int	selected1=(int)comboBox1.getSelectedItem();
+					int selected2=(int)comboBox2.getSelectedItem();
+					if(nowyear==selected1&&nowmonth==selected2){
+						if(nowday==31){
+							comboBox3.addItem(31);
+						}
+						else if(nowday==30&&(nowmonth==1||nowmonth==3||nowmonth==5||nowmonth==7||nowmonth==8||nowmonth==10||nowmonth==12)){
+							comboBox3.addItem(30);
+							comboBox3.addItem(31);
+						}
+						else if(nowday==30&&(nowmonth==4||nowmonth==6||nowmonth==9||nowmonth==11)){
+							comboBox3.addItem(30);
+						}
+						else if(nowday==29&&(nowmonth==4||nowmonth==6||nowmonth==9||nowmonth==11)){
+							comboBox3.addItem(29);
+							comboBox3.addItem(30);
+						}
+						else if(nowday==29&&nowmonth==2){
+							comboBox3.addItem(29);
+						}
+						else if(nowday==28&&nowmonth==2){
+							comboBox3.addItem(28);
+						}
+						else{
+							comboBox3.addItem(nowday);
+							comboBox3.addItem(nowday+1);
+							comboBox3.addItem(nowday+2);
+						}
+					}
+					else if(nowyear==selected1&&nowmonth!=selected2){
+						if(nowday==31){
+							comboBox3.addItem(1);
+							comboBox3.addItem(2);
+						}
+						else if(nowday==30&&(nowmonth==1||nowmonth==3||nowmonth==5||nowmonth==7||nowmonth==8||nowmonth==10||nowmonth==12)){
+							comboBox3.addItem(1);
+						}
+						else if(nowday==30&&(nowmonth==4||nowmonth==6||nowmonth==9||nowmonth==11)){
+							comboBox3.addItem(1);
+							comboBox3.addItem(2);
+						}
+						else if(nowday==29&&(nowmonth==4||nowmonth==6||nowmonth==9||nowmonth==11)){
+							comboBox3.addItem(1);
+						}
+						else if(nowday==29&&nowmonth==2){
+							comboBox3.addItem(1);
+							comboBox3.addItem(2);
+						}
+						else if(nowday==28&&nowmonth==2){
+							comboBox3.addItem(1);
+							comboBox3.addItem(2);
+						}
+					}
+					else if(nowyear!=selected1){
+						if(nowday==30){
+							comboBox3.addItem(1);
+						}
+						else if(nowday==31){
+							comboBox3.addItem(1);
+							comboBox3.addItem(2);
+						}
+					}
+				   
+				     
 				     case JOptionPane.NO_OPTION:
 				     }
 			    }			    
