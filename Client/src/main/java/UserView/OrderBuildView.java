@@ -88,7 +88,7 @@ public class OrderBuildView extends JPanel{
 				else if(selected==year+1){
 					comboBox2.addItem(1);
 				}
-				label9.setText("订单最晚执行时间:"+comboBox1.getSelectedItem()+"年"+comboBox2.getSelectedItem()+"月"+comboBox3.getSelectedItem()+"日（开始时间当晚的凌晨12点整）");
+				label9.setText("订单最晚执行时间:"+comboBox1.getSelectedItem()+"年"+comboBox2.getSelectedItem()+"月"+comboBox3.getSelectedItem()+"日当晚凌晨12点整");
 				}
 			}
 		});
@@ -180,7 +180,7 @@ public class OrderBuildView extends JPanel{
 							comboBox3.addItem(2);
 						}
 					}
-					label9.setText("订单最晚执行时间:"+comboBox1.getSelectedItem()+"年"+comboBox2.getSelectedItem()+"月"+comboBox3.getSelectedItem()+"日（开始时间当晚的凌晨12点整）");
+					label9.setText("订单最晚执行时间:"+comboBox1.getSelectedItem()+"年"+comboBox2.getSelectedItem()+"月"+comboBox3.getSelectedItem()+"日当晚凌晨12点整");
 					}
 				}
 		});
@@ -254,7 +254,7 @@ public class OrderBuildView extends JPanel{
 		comboBox3.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent evt) {
 				if(evt.getStateChange() == ItemEvent.SELECTED){	
-		label9.setText("订单最晚执行时间:"+comboBox1.getSelectedItem()+"年"+comboBox2.getSelectedItem()+"月"+comboBox3.getSelectedItem()+"日（开始时间当晚的凌晨12点整）");
+		label9.setText("订单最晚执行时间:"+comboBox1.getSelectedItem()+"年"+comboBox2.getSelectedItem()+"月"+comboBox3.getSelectedItem()+"日当晚凌晨12点整");
 				}
 			}
 		});
@@ -325,7 +325,7 @@ public class OrderBuildView extends JPanel{
 		this.add(panel2);
 		panel3 = new JPanel();
 		panel3.setLayout(new FlowLayout(FlowLayout.CENTER));
-		label9=new JLabel("订单最晚执行时间:"+year+"年"+month+"月"+day+"日（开始时间当晚的凌晨12点整）");
+		label9=new JLabel("订单最晚执行时间:"+year+"年"+month+"月"+day+"日当晚凌晨12点整");
 		panel3.add(label9);
 		this.add(panel3);
 		JPanel panel4 = new JPanel();
@@ -406,7 +406,7 @@ public class OrderBuildView extends JPanel{
 				     comboBox1.removeAllItems();
 				     comboBox2.removeAllItems();
 				     comboBox3.removeAllItems();
-				     label9.setText("订单最晚执行时间:"+nowyear+"年"+nowmonth+"月"+nowday+"日（开始时间当晚的凌晨12点整）");
+				     label9.setText("订单最晚执行时间:"+nowyear+"年"+nowmonth+"月"+nowday+"日当晚凌晨12点整");
 					if((nowmonth==12&&nowday==30)||(nowmonth==12&&nowday==31)){
 					    comboBox1.addItem(nowyear);
 					    comboBox1.addItem(nowyear+1);
@@ -437,7 +437,7 @@ public class OrderBuildView extends JPanel{
 							else if(selected==nowyear+1){
 								comboBox2.addItem(1);
 							}
-							label9.setText("订单最晚执行时间:"+comboBox1.getSelectedItem()+"年"+comboBox2.getSelectedItem()+"月"+comboBox3.getSelectedItem()+"日（开始时间当晚的凌晨12点整）");
+							label9.setText("订单最晚执行时间:"+comboBox1.getSelectedItem()+"年"+comboBox2.getSelectedItem()+"月"+comboBox3.getSelectedItem()+"日当晚凌晨12点整");
 							}
 						}
 					});
@@ -525,7 +525,7 @@ public class OrderBuildView extends JPanel{
 										comboBox3.addItem(2);
 									}
 								}
-								label9.setText("订单最晚执行时间:"+comboBox1.getSelectedItem()+"年"+comboBox2.getSelectedItem()+"月"+comboBox3.getSelectedItem()+"日（开始时间当晚的凌晨12点整）");
+								label9.setText("订单最晚执行时间:"+comboBox1.getSelectedItem()+"年"+comboBox2.getSelectedItem()+"月"+comboBox3.getSelectedItem()+"日当晚凌晨12点整");
 								}
 							}
 					});
@@ -592,7 +592,13 @@ public class OrderBuildView extends JPanel{
 							comboBox3.addItem(2);
 						}
 					}
-				   
+					comboBox3.addItemListener(new ItemListener() {
+						public void itemStateChanged(ItemEvent evt) {
+							if(evt.getStateChange() == ItemEvent.SELECTED){	
+					label9.setText("订单最晚执行时间:"+comboBox1.getSelectedItem()+"年"+comboBox2.getSelectedItem()+"月"+comboBox3.getSelectedItem()+"日当晚凌晨12点整");
+							}
+						}
+					});
 				     
 				     case JOptionPane.NO_OPTION:
 				     }
