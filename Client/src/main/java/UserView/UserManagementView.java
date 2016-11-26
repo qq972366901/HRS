@@ -22,7 +22,7 @@ import uiService.UserManagementUiService;
 
 public class UserManagementView extends JPanel{
 	private static final long serialVersionUID = 1L;
-	private JButton button1,button2,button3,button4,button5,button6;
+	private JButton button1,button2,button3,button4,button5,button6,button7;
 	private JLabel label3,label4,label6,label7,label7_1,label7_2,label7_3,label8,label9,label10,label11,label12;
 	private JTextField textField2,textField3,textField4,textField5,textField6,textField7;
 	private JPanel panel,p3,p4,p5,p7,p8,p9,p10,p11,p12;
@@ -62,7 +62,107 @@ public class UserManagementView extends JPanel{
 		button4.setEnabled(false);
 		button4.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {
+				button6.setEnabled(false);
+				label3.setVisible(false);
+				textField3.setVisible(false);
+				label12.setVisible(false);
+				textField7.setVisible(false);
+				label8.setVisible(false);
+				comboBox4.setVisible(false);
+				label9.setVisible(false);
+				comboBox5.setVisible(false);
+				label7.setVisible(false);
+				comboBox1.setVisible(false);
+				label7_1.setVisible(false);
+				comboBox2.setVisible(false);
+				label7_2.setVisible(false);
+				comboBox3.setVisible(false);
+				label7_3.setVisible(false);
+				label4.setVisible(false);
+				textField4.setVisible(false);
+				label10.setVisible(false);
+				textField5.setVisible(false);
+				label11.setVisible(false);
+				textField6.setVisible(false);
+				button7.setVisible(false);
+				button5.setVisible(false);
+				button2.setVisible(false);
 				
+				textField3.setEnabled(false);
+				textField7.setEnabled(false);				
+				comboBox4.setEnabled(false);			
+				comboBox5.setEnabled(false);				
+				comboBox1.setEnabled(false);				
+				comboBox2.setEnabled(false);
+				comboBox3.setEnabled(false);			
+				textField4.setEnabled(false);				
+				textField5.setEnabled(false);				
+				textField6.setEnabled(false);
+				button7.setEnabled(false);
+				button5.setEnabled(false);
+				button2.setEnabled(false);
+				
+				textField4.setText("");
+				textField3.setText("");
+				textField7.setText("");
+				label3.setVisible(true);
+				textField3.setVisible(true);
+				label12.setVisible(true);
+				textField7.setVisible(true);
+				label4.setVisible(true);
+				textField4.setVisible(true);
+				textField3.setEnabled(true);
+				textField7.setEnabled(true);
+				textField4.setEnabled(true);
+				button7.setVisible(true);
+				button5.setVisible(true);
+				button7.setEnabled(true);
+				button5.setEnabled(true);
+				
+				button5.addActionListener(new ActionListener() {
+			        public void actionPerformed(ActionEvent e) {
+			        	label3.setVisible(false);
+						textField3.setVisible(false);
+						label12.setVisible(false);
+						textField7.setVisible(false);
+						label8.setVisible(false);
+						comboBox4.setVisible(false);
+						label9.setVisible(false);
+						comboBox5.setVisible(false);
+						label7.setVisible(false);
+						comboBox1.setVisible(false);
+						label7_1.setVisible(false);
+						comboBox2.setVisible(false);
+						label7_2.setVisible(false);
+						comboBox3.setVisible(false);
+						label7_3.setVisible(false);
+						label4.setVisible(false);
+						textField4.setVisible(false);
+						label10.setVisible(false);
+						textField5.setVisible(false);
+						label11.setVisible(false);
+						textField6.setVisible(false);
+						button7.setVisible(false);
+						button5.setVisible(false);
+						
+						textField3.setEnabled(false);
+						textField7.setEnabled(false);				
+						comboBox4.setEnabled(false);			
+						comboBox5.setEnabled(false);				
+						comboBox1.setEnabled(false);				
+						comboBox2.setEnabled(false);
+						comboBox3.setEnabled(false);			
+						textField4.setEnabled(false);				
+						textField5.setEnabled(false);				
+						textField6.setEnabled(false);
+						button7.setEnabled(false);
+						button5.setEnabled(false);
+						
+						textField4.setText("");
+						textField3.setText("");
+						textField7.setText("");
+			        }
+				});
 			}
 		});
 		p6.add(label6);
@@ -104,6 +204,19 @@ public class UserManagementView extends JPanel{
 					textField6.setVisible(false);
 					button2.setVisible(false);
 					button5.setVisible(false);
+					
+					textField3.setEnabled(false);
+					textField7.setEnabled(false);				
+					comboBox4.setEnabled(false);			
+					comboBox5.setEnabled(false);				
+					comboBox1.setEnabled(false);				
+					comboBox2.setEnabled(false);
+					comboBox3.setEnabled(false);			
+					textField4.setEnabled(false);				
+					textField5.setEnabled(false);				
+					textField6.setEnabled(false);
+					button2.setEnabled(false);
+					button5.setEnabled(false);
 	
 					label3.setVisible(true);
 					textField3.setVisible(true);
@@ -155,44 +268,7 @@ public class UserManagementView extends JPanel{
 						button5.setVisible(true);
 						button2.setEnabled(true);
 						button5.setEnabled(true);
-						button2.addActionListener(new ActionListener() {
-					        public void actionPerformed(ActionEvent e) {
-					        	if(a==0){
-					        	textField3.setEnabled(false);
-								textField7.setEnabled(false);
-								comboBox4.setEnabled(false);
-								comboBox5.setEnabled(false);
-								comboBox1.setEnabled(false);
-								comboBox2.setEnabled(false);
-								comboBox3.setEnabled(false);
-								textField4.setEnabled(false);
-								textField5.setEnabled(false);
-								textField6.setEnabled(false);
-					        	button2.setVisible(false);
-								button5.setVisible(false);
-								button2.setEnabled(false);
-								button5.setEnabled(false);
-					        	}
-					        }
-						});
-						button5.addActionListener(new ActionListener() {
-					        public void actionPerformed(ActionEvent e) {
-					        	textField3.setEnabled(false);
-								textField7.setEnabled(false);
-								comboBox4.setEnabled(false);
-								comboBox5.setEnabled(false);
-								comboBox1.setEnabled(false);
-								comboBox2.setEnabled(false);
-								comboBox3.setEnabled(false);
-								textField4.setEnabled(false);
-								textField5.setEnabled(false);
-								textField6.setEnabled(false);
-					        	button2.setVisible(false);
-								button5.setVisible(false);
-								button2.setEnabled(false);
-								button5.setEnabled(false);
-					        }
-						});
+						
 						//会员类型，会员等级，生日的设计都要用到VO，所以暂时没写
 			}
 			});
@@ -221,6 +297,19 @@ public class UserManagementView extends JPanel{
 					textField6.setVisible(false);
 					button2.setVisible(false);
 					button5.setVisible(false);
+					
+					textField3.setEnabled(false);
+					textField7.setEnabled(false);				
+					comboBox4.setEnabled(false);			
+					comboBox5.setEnabled(false);				
+					comboBox1.setEnabled(false);				
+					comboBox2.setEnabled(false);
+					comboBox3.setEnabled(false);			
+					textField4.setEnabled(false);				
+					textField5.setEnabled(false);				
+					textField6.setEnabled(false);
+					button2.setEnabled(false);
+					button5.setEnabled(false);
 				
 			label3.setVisible(true);
 			textField3.setVisible(true);
@@ -243,30 +332,7 @@ public class UserManagementView extends JPanel{
 			button5.setVisible(true);
 			button2.setEnabled(true);
 			button5.setEnabled(true);
-			button2.addActionListener(new ActionListener() {
-		        public void actionPerformed(ActionEvent e) {
-		        	if(a==0){
-		        	textField3.setEnabled(false);
-					textField7.setEnabled(false);
-					textField4.setEnabled(false);
-		        	button2.setVisible(false);
-					button5.setVisible(false);
-					button2.setEnabled(false);
-					button5.setEnabled(false);
-		        	}
-		        }
-			});
-			button5.addActionListener(new ActionListener() {
-		        public void actionPerformed(ActionEvent e) {
-		        	textField3.setEnabled(false);
-					textField7.setEnabled(false);
-					textField4.setEnabled(false);
-		        	button2.setVisible(false);
-					button5.setVisible(false);
-					button2.setEnabled(false);
-					button5.setEnabled(false);
-		        }
-			});
+			
 		        }
 			});
 				}
@@ -294,6 +360,19 @@ public class UserManagementView extends JPanel{
 					textField6.setVisible(false);
 					button2.setVisible(false);
 					button5.setVisible(false);
+					
+					textField3.setEnabled(false);
+					textField7.setEnabled(false);				
+					comboBox4.setEnabled(false);			
+					comboBox5.setEnabled(false);				
+					comboBox1.setEnabled(false);				
+					comboBox2.setEnabled(false);
+					comboBox3.setEnabled(false);			
+					textField4.setEnabled(false);				
+					textField5.setEnabled(false);				
+					textField6.setEnabled(false);
+					button2.setEnabled(false);
+					button5.setEnabled(false);
 				
 			label3.setVisible(true);
 			textField3.setVisible(true);
@@ -316,30 +395,7 @@ public class UserManagementView extends JPanel{
 			button5.setVisible(true);
 			button2.setEnabled(true);
 			button5.setEnabled(true);
-			button2.addActionListener(new ActionListener() {
-		        public void actionPerformed(ActionEvent e) {
-		        	if(a==0){
-		        	textField3.setEnabled(false);
-					textField7.setEnabled(false);
-					textField4.setEnabled(false);
-		        	button2.setVisible(false);
-					button5.setVisible(false);
-					button2.setEnabled(false);
-					button5.setEnabled(false);
-		        	}
-		        }
-			});
-			button5.addActionListener(new ActionListener() {
-		        public void actionPerformed(ActionEvent e) {
-		        	textField3.setEnabled(false);
-					textField7.setEnabled(false);
-					textField4.setEnabled(false);
-		        	button2.setVisible(false);
-					button5.setVisible(false);
-					button2.setEnabled(false);
-					button5.setEnabled(false);
-		        }
-			});
+		
 		        }
 			});
 				}
@@ -466,33 +522,13 @@ public class UserManagementView extends JPanel{
 		
 		
 		button2=new JButton("确认");
-		button2.addActionListener(new ActionListener() {
-	        public void actionPerformed(ActionEvent e) {
-	        	String password= textField7.getText();
-	        	char[] pass=password.toCharArray();
-	        	int p=0;
-				for(int i=0;i<pass.length;i++){
-				  if((!Character.isDigit(pass[i]))&&(!Character.isLetter(pass[i]))){
-					  p=1;
-				  }
-				}
-	        	if(textField3.getText().equals("")||textField7.getText().equals("")||textField4.getText().equals("")||textField5.getText().equals("")||textField6.getText().equals("")){
-					JOptionPane.showMessageDialog(panel, "          请补全信息！","", JOptionPane.ERROR_MESSAGE);
-					a=1;
-						}
-            
-	        	else if(p==1){
-	        		JOptionPane.showMessageDialog(panel, "密码只能由数字和字母组成！","", JOptionPane.ERROR_MESSAGE);
-	        		a=1;
-						}
-	        	else{
-	        		a=0;
-	        	}
-	        }
-		});
+
 		button5=new JButton("取消");
+		
+		button7=new JButton("添加");
         button2.setEnabled(false);
         button5.setEnabled(false);
+        p5.add(button7);
 		p5.add(button2);
 		p5.add(button5);
 		
@@ -519,6 +555,123 @@ public class UserManagementView extends JPanel{
 		textField6.setVisible(false);
 		button2.setVisible(false);
 		button5.setVisible(false);
+		button7.setVisible(false);
+		button2.addActionListener(new ActionListener() {
+	        public void actionPerformed(ActionEvent e) {
+	        	String password= textField7.getText();
+	        	char[] pass=password.toCharArray();
+	        	int p=0;
+				for(int i=0;i<pass.length;i++){
+				  if((!Character.isDigit(pass[i]))&&(!Character.isLetter(pass[i]))){
+					  p=1;
+				  }
+				}
+	        	if(textField3.getText().equals("")||textField7.getText().equals("")||textField4.getText().equals("")||textField5.getText().equals("")||textField6.getText().equals("")){
+					JOptionPane.showMessageDialog(panel, "          请补全信息！","", JOptionPane.ERROR_MESSAGE);
+						}
+            
+	        	else if(p==1){
+	        		JOptionPane.showMessageDialog(panel, "密码只能由数字和字母组成！","", JOptionPane.ERROR_MESSAGE);
+						}
+	        	else{
+	        		textField3.setEnabled(false);
+					textField7.setEnabled(false);
+					comboBox4.setEnabled(false);
+					comboBox5.setEnabled(false);
+					comboBox1.setEnabled(false);
+					comboBox2.setEnabled(false);
+					comboBox3.setEnabled(false);
+					textField4.setEnabled(false);
+					textField5.setEnabled(false);
+					textField6.setEnabled(false);
+		        	button2.setVisible(false);
+					button5.setVisible(false);
+					button2.setEnabled(false);
+					button5.setEnabled(false);
+	        	}
+	        }
+		});
+	
+		button5.addActionListener(new ActionListener() {
+	        public void actionPerformed(ActionEvent e) {
+	        	textField3.setEnabled(false);
+				textField7.setEnabled(false);
+				comboBox4.setEnabled(false);
+				comboBox5.setEnabled(false);
+				comboBox1.setEnabled(false);
+				comboBox2.setEnabled(false);
+				comboBox3.setEnabled(false);
+				textField4.setEnabled(false);
+				textField5.setEnabled(false);
+				textField6.setEnabled(false);
+	        	button2.setVisible(false);
+				button5.setVisible(false);
+				button2.setEnabled(false);
+				button5.setEnabled(false);
+	        }
+		});
+		button7.addActionListener(new ActionListener() {
+	        public void actionPerformed(ActionEvent e) {
+	        	String password= textField7.getText();
+	        	char[] pass=password.toCharArray();
+	        	int p=0;
+				for(int i=0;i<pass.length;i++){
+				  if((!Character.isDigit(pass[i]))&&(!Character.isLetter(pass[i]))){
+					  p=1;
+				  }
+				}
+	        	if(textField3.getText().equals("")||textField7.getText().equals("")||textField4.getText().equals("")||textField5.getText().equals("")||textField6.getText().equals("")){
+					JOptionPane.showMessageDialog(panel, "          请补全信息！","", JOptionPane.ERROR_MESSAGE);
+						}
+            
+	        	else if(p==1){
+	        		JOptionPane.showMessageDialog(panel, "密码只能由数字和字母组成！","", JOptionPane.ERROR_MESSAGE);
+						}
+	        	else{
+	        		JOptionPane.showMessageDialog(panel, "请记住账号：！","", JOptionPane.ERROR_MESSAGE);
+	        		label3.setVisible(false);
+					textField3.setVisible(false);
+					label12.setVisible(false);
+					textField7.setVisible(false);
+					label8.setVisible(false);
+					comboBox4.setVisible(false);
+					label9.setVisible(false);
+					comboBox5.setVisible(false);
+					label7.setVisible(false);
+					comboBox1.setVisible(false);
+					label7_1.setVisible(false);
+					comboBox2.setVisible(false);
+					label7_2.setVisible(false);
+					comboBox3.setVisible(false);
+					label7_3.setVisible(false);
+					label4.setVisible(false);
+					textField4.setVisible(false);
+					label10.setVisible(false);
+					textField5.setVisible(false);
+					label11.setVisible(false);
+					textField6.setVisible(false);
+					button7.setVisible(false);
+					button5.setVisible(false);
+					
+					textField3.setEnabled(false);
+					textField7.setEnabled(false);				
+					comboBox4.setEnabled(false);			
+					comboBox5.setEnabled(false);				
+					comboBox1.setEnabled(false);				
+					comboBox2.setEnabled(false);
+					comboBox3.setEnabled(false);			
+					textField4.setEnabled(false);				
+					textField5.setEnabled(false);				
+					textField6.setEnabled(false);
+					button7.setEnabled(false);
+					button5.setEnabled(false);
+					
+					textField4.setText("");
+					textField3.setText("");
+					textField7.setText("");
+	        	}
+	        }
+		});
 	}
 }
 
