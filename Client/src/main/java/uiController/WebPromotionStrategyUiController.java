@@ -1,13 +1,12 @@
 package uiController;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import VO.PromotionVO;
 import WebPromotionView.WebPromotionStrategyView;
 import WebPromotionView.WebPromotionUserView;
 import promotionBLService.PromotionBLService;
-import promotionBLService.PromotionBLService_realize;
+import promotionBLService.PromotionController;
 import runner.ClientRunner;
 import uiService.WebPromotionStrategyUiService;
 import uiService.webPromotionUserUiService;
@@ -16,7 +15,7 @@ public class WebPromotionStrategyUiController implements WebPromotionStrategyUiS
 	private WebPromotionStrategyView view;
 	private PromotionBLService proService;
 	public WebPromotionStrategyUiController(){
-		proService=new PromotionBLService_realize();
+		proService=new PromotionController();
 	}
 
 	@Override

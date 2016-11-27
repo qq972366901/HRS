@@ -3,8 +3,7 @@ import java.util.ArrayList;
 
 import Object.Promotion;
 import VO.PromotionVO;
-import promotionBLService.PromotionBLService_realize;
-public class PromotionMemberGradeController extends PromotionBLService_realize{	
+public class PromotionMemberGradeController{	
 	/**
      * 取消一个订单
      * 

@@ -5,7 +5,7 @@ import VO.PromotionVO;
 import WebPromotionView.MemberLevelSystemView;
 import WebPromotionView.WebPromotionUserView;
 import promotionBLService.PromotionBLService;
-import promotionBLService.PromotionBLService_realize;
+import promotionBLService.PromotionController;
 import runner.ClientRunner;
 import uiService.MemberLevelSystemUiService;
 import uiService.webPromotionUserUiService;
@@ -17,7 +17,7 @@ public class MemberLevelSystemUiController implements MemberLevelSystemUiService
 	public void setView(MemberLevelSystemView view) {
 		// TODO Auto-generated method stub
 		this.view=view;
-		this.proService=new PromotionBLService_realize();
+		this.proService=new PromotionController();
 	}
 	@Override
 	public void toWebPromotionUserView() {

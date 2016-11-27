@@ -3,7 +3,7 @@ package uiController;
 import UserView.HotelDetailView;
 import VO.HotelVO;
 import hotelBLService.HotelBLService;
-import hotelBLService.HotelBLService_realize;
+import hotelBLService.HotelBLServiceController;
 import uiService.HotelDetailUiService;
 
 public class HotelDetailUiController implements HotelDetailUiService {
@@ -12,7 +12,7 @@ public class HotelDetailUiController implements HotelDetailUiService {
      private String UserID;
      private String HotelID;
      public HotelDetailUiController(String hotelid,String userid){
-    	 hotel=new HotelBLService_realize();
+    	 hotel=new HotelBLServiceController();
     	 UserID=userid;
     	 HotelID=hotelid;
      }

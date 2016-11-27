@@ -1,8 +1,7 @@
 package promotionWeb;
 import VO.PromotionVO;
 import common.ResultMessage;
-import promotionBLService.PromotionBLService_realize;
-public class PromotionWebController extends PromotionBLService_realize{
+public class PromotionWebController{
 	/**
      * 添加一种新的网站营销策略，并公布
      * 

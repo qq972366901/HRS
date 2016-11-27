@@ -6,8 +6,7 @@ import VO.OrderVO;
 import VO.RoomVO;
 import common.MessageInput;
 import common.ResultMessage;
-import roomBLService.RoomBLService_realize;
-public class RoomUpdateController extends RoomBLService_realize{
+public class RoomUpdateController{
 	/**
      * 修改房间信息
      * 

@@ -2,8 +2,7 @@ package roomAvailable;
 import java.util.ArrayList;
 
 import VO.RoomVO;
-import roomBLService.RoomBLService_realize;
-public class RoomAvailableController extends RoomBLService_realize{
+public class RoomAvailableController{
 	/**
      * 返回可入住房间
      * 

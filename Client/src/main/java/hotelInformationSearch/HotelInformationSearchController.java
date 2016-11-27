@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import VO.HotelVO;
 import common.MessageInput;
 import common.ResultMessage;
-import hotelBLService.HotelBLService_realize;
-public class HotelInformationSearchController extends HotelBLService_realize{
+public class HotelInformationSearchController{
 	/**
      * 根据地址和商圈获得范围内的酒店信息
      * 

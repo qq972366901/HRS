@@ -1,8 +1,7 @@
 package promotionHotel;
 import VO.PromotionVO;
 import common.ResultMessage;
-import promotionBLService.PromotionBLService_realize;
-public class PromotionHotelController extends PromotionBLService_realize {
+public class PromotionHotelController {
 	  /**
      * 添加一种新的酒店营销策略，并公布
      * 
