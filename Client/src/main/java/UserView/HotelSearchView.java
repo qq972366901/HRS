@@ -125,7 +125,7 @@ public class HotelSearchView extends JPanel{
 				label6=new JLabel(" 评分区间");
 				comboBox6= new JComboBox<Integer>();
 				comboBox6.setPreferredSize(new Dimension(78,22));
-				for(int i=0;i<6;i++){
+				for(int i=1;i<6;i++){
 				    comboBox6.addItem(i);
 					}
 				comboBox6.addItemListener(new ItemListener() {
@@ -142,7 +142,7 @@ public class HotelSearchView extends JPanel{
 				label7=new JLabel("-");
 				comboBox7= new JComboBox<Integer>();
 				comboBox7.setPreferredSize(new Dimension(78,22));
-				for(int i=0;i<6;i++){
+				for(int i=1;i<6;i++){
 				    comboBox7.addItem(i);
 					}
 				label8=new JLabel(" 房间类型");
