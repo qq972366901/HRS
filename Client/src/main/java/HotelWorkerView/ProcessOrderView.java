@@ -33,7 +33,7 @@ public class ProcessOrderView extends JPanel{
 	
 	private static final long serialVersionUID = 1L;
 	
-	private int hotelId;
+	private String hotelId;
 	
 	private ProcessOrderUiService controller;
 	

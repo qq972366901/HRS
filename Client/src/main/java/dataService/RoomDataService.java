@@ -4,6 +4,7 @@ import dataService.DataService;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.List;
 
 /**负责实现房间数据储存所需要的服务接口
  * @author 刘伟
@@ -11,6 +12,16 @@ import java.rmi.RemoteException;
  * see presentation.Room
  */
 public interface RoomDataService  extends DataService,Remote{
+	
+	/**
+	 * @param hotelid String型，房间所属酒店帐号
+	 * @return 返回此酒店的全部房间列表
+	 */
+	public List<RoomPO> getAllRooms(String hotelid);
+	
+	
+	
+	
 	/**
 	 * 按ID进行查找返回相应的RoomPO结果
 	 * @param in MessageInput型，界面输入的客户ID

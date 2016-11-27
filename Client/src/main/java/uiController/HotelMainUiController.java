@@ -21,6 +21,11 @@ public class HotelMainUiController implements HotelMainUiService {
 
 	private HotelMainView view;
 	
+	private String hotelID;
+	
+	public HotelMainUiController(String id) {
+		hotelID = id;
+	}
 	
 	public void setView(HotelMainView view){
 		this.view = view;
@@ -41,14 +46,14 @@ public class HotelMainUiController implements HotelMainUiService {
 	}
 	
 	public void toUpdateHotelInfoView() {
-		UpdateHotelInfoUiService controller = new UpdateHotelInfoUiController();
-		UpdateHotelInfoView view = new UpdateHotelInfoView(controller);
+		UpdateHotelInfoUiService controller = new UpdateHotelInfoUiController(hotelID);
+		UpdateHotelInfoView view = new UpdateHotelInfoView(controller,hotelID);
 		controller.setView(view);
 		ClientRunner.change(view);
 	}
 
 	public void toAdminRoomView() {
-		AdminRoomUiService controller = new AdminRoomUiController();
+		AdminRoomUiService controller = new AdminRoomUiController(hotelID);
 		AdminRoomView view = new AdminRoomView(controller);
 		controller.setView(view);
 		ClientRunner.change(view);
@@ -56,8 +61,8 @@ public class HotelMainUiController implements HotelMainUiService {
 	}
 
 	public void toMakeHotelPromotionView() {
-		MakeHotelPromotionUiService controller = new MakeHotelPromotionController();
-		MakeHotelPromotionView view = new MakeHotelPromotionView(controller);
+		MakeHotelPromotionUiService controller = new MakeHotelPromotionController(hotelID);
+		MakeHotelPromotionView view = new MakeHotelPromotionView(controller,hotelID);
 		controller.setView(view);
 		ClientRunner.change(view);
 	}
@@ -67,7 +72,7 @@ public class HotelMainUiController implements HotelMainUiService {
 		// TODO Auto-generated method stub
 		ProcessOrderUiService controller;
 		try {
-			controller = new ProcessOrderUiController(1,UserType.Hotelworker);//系统自动获取酒店工作人员账号，这里用1代替
+			controller = new ProcessOrderUiController(hotelID,UserType.Hotelworker);//系统自动获取酒店工作人员账号，这里用1代替
 			ProcessOrderView view=new ProcessOrderView(controller);
 			view.disableCancel();
 			controller.setView(view);

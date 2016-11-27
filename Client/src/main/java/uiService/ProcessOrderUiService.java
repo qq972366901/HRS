@@ -7,17 +7,17 @@ import VO.OrderVO;
 import common.UserType;
 
 public interface ProcessOrderUiService {
-	public int getHotelId();
+	public String getHotelId();
 	
 	public void setView(ProcessOrderView view);
 	
-	public List<OrderVO> getAllOrders(int hotelId);
+	public List<OrderVO> getAllOrders(String hotelId);
 	
-	public List<OrderVO> getUnfinishedOrders(int hotelId);
+	public List<OrderVO> getUnfinishedOrders(String hotelId);
 	
-	public List<OrderVO> getFinishedOrders(int hotelId);
+	public List<OrderVO> getFinishedOrders(String hotelId);
 	
-	public List<OrderVO> getAbnormalOrders(int hotelId);
+	public List<OrderVO> getAbnormalOrders(String hotelId);
 	
 	public boolean processUnfinishedOrder(int orderId);
 	

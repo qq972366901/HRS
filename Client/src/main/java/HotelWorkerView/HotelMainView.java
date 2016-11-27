@@ -11,6 +11,10 @@ import javax.swing.border.EmptyBorder;
 
 import uiService.HotelMainUiService;
 
+/**
+ * 酒店工作人员的主界面
+ * @author 刘宗侃
+ */
 public class HotelMainView extends JPanel {
 	
 	private static final long serialVersionUID = 1L;

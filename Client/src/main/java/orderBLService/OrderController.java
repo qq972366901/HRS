@@ -19,7 +19,7 @@ public class OrderController implements OrderBLService{
      * @return ArrayList<OrderVO>，一个订单值对象的列表
      * @see bussinesslogic.Order
      */
-	public ArrayList<OrderVO> show(int hotelid){
+	public ArrayList<OrderVO> show(String hotelid){
 		return new ArrayList<OrderVO>();
 	}
 	
@@ -274,21 +274,21 @@ public class OrderController implements OrderBLService{
 
 
 	@Override
-	public List<OrderVO> getUnfinishedOrders(int hotelId) {
+	public List<OrderVO> getUnfinishedOrders(String hotelId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 
 	@Override
-	public List<OrderVO> getFinishedOrders(int hotelId) {
+	public List<OrderVO> getFinishedOrders(String hotelId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 
 	@Override
-	public List<OrderVO> getAbnormalOrders(int hotelId) {
+	public List<OrderVO> getAbnormalOrders(String hotelId) {
 		// TODO Auto-generated method stub
 		return null;
 	}

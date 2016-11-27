@@ -13,7 +13,7 @@ import common.Choice;
 import common.ResultMessage;
 
 public class OrderBLService_realize implements OrderBLService{
-    public OrderBLService_realize(int hotelId) {
+    public OrderBLService_realize(String hotelId) {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -24,7 +24,7 @@ public class OrderBLService_realize implements OrderBLService{
      * @return ArrayList<OrderVO>，一个订单值对象的列表
      * @see bussinesslogic.Order
      */
-	public ArrayList<OrderVO> show(int hotelid){
+	public ArrayList<OrderVO> show(String hotelid){
 		return null;
 	}
 	
@@ -269,7 +269,7 @@ public class OrderBLService_realize implements OrderBLService{
 
 
 	@Override
-	public List<OrderVO> getUnfinishedOrders(int hotelId) {
+	public List<OrderVO> getUnfinishedOrders(String hotelId) {
 		// TODO Auto-generated method stub
 		List<OrderVO> list=new ArrayList<OrderVO>();
 		return list;
@@ -277,7 +277,7 @@ public class OrderBLService_realize implements OrderBLService{
 
 
 	@Override
-	public List<OrderVO> getFinishedOrders(int hotelId) {
+	public List<OrderVO> getFinishedOrders(String hotelId) {
 		// TODO Auto-generated method stub
 		List<OrderVO> list=new ArrayList<OrderVO>();
 		return list;
@@ -285,7 +285,7 @@ public class OrderBLService_realize implements OrderBLService{
 
 
 	@Override
-	public List<OrderVO> getAbnormalOrders(int hotelId) {
+	public List<OrderVO> getAbnormalOrders(String hotelId) {
 		// TODO Auto-generated method stub
 		List<OrderVO> list=new ArrayList<OrderVO>();
 		return list;

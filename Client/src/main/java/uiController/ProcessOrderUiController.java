@@ -19,7 +19,7 @@ import userBLService.UserBLService;
 import userBLService.UserBLServiceController;
 
 public class ProcessOrderUiController implements ProcessOrderUiService{
-	private int hotelId;
+	private String hotelId;
 	
 	private OrderBLService orderService;
 	
@@ -28,15 +28,14 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 	private ProcessOrderView view;
 	
 	private UserType usertype;
-	public ProcessOrderUiController(int hotelId,UserType type) throws RemoteException{ 
+	public ProcessOrderUiController(String hotelId,UserType type) throws RemoteException{ 
 		this.hotelId = hotelId;
 		this.usertype=type;
 		orderService = new OrderBLService_realize(hotelId);
 		userService = new UserBLServiceController();
 	}
-	@Override
-	public int getHotelId() {
-		// TODO Auto-generated method stub
+	
+	public String getHotelId() {
 		return hotelId;
 	}
 
@@ -47,7 +46,7 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 	}
 
 	@Override
-	public List<OrderVO> getAllOrders(int hotelId) {
+	public List<OrderVO> getAllOrders(String hotelId) {
 		// TODO Auto-generated method stub
 		//return orderService.show(hotelId);
 		List<OrderVO> list=new ArrayList<OrderVO>();
@@ -55,19 +54,19 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 	}
 
 	@Override
-	public List<OrderVO> getUnfinishedOrders(int hotelId) {
+	public List<OrderVO> getUnfinishedOrders(String hotelId) {
 		// TODO Auto-generated method stub
 		return orderService.getUnfinishedOrders(hotelId);
 	}
 
 	@Override
-	public List<OrderVO> getFinishedOrders(int hotelId) {
+	public List<OrderVO> getFinishedOrders(String hotelId) {
 		// TODO Auto-generated method stub
 		return orderService.getFinishedOrders(hotelId);
 	}
 
 	@Override
-	public List<OrderVO> getAbnormalOrders(int hotelId) {
+	public List<OrderVO> getAbnormalOrders(String hotelId) {
 		// TODO Auto-generated method stub
 		return orderService.getAbnormalOrders(hotelId);
 	}
@@ -109,7 +108,7 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 				break;
 			}
 			case Hotelworker:{
-				HotelMainUiService controller=new HotelMainUiController();
+				HotelMainUiService controller=new HotelMainUiController(hotelId);
 	    		HotelMainView view=new HotelMainView(controller);
 	    		controller.setView(view);
 				ClientRunner.change(view);

@@ -12,19 +12,34 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import uiController.UpdateHotelInfoUiController;
 import uiService.UpdateHotelInfoUiService;
 
-
+/**
+ * 维护酒店基本信息的界面
+ * @author 刘宗侃
+ */
 public class UpdateHotelInfoView extends JPanel {
 
 	private static final long serialVersionUID = 1L;
+	private String hotelID;
 	
-	private UpdateHotelInfoUiService controller;
+	private UpdateHotelInfoUiService controller = new UpdateHotelInfoUiController(hotelID);
+	
+	private JTextArea hotelNameTextArea;
+	private JTextArea hotelLocationTextArea;
+	private JTextArea hotelServiceTextArea;
+	private JTextArea hotelIntroduceTextArea;
+	private String hotelCity;
+	private String hotelArea;
+	private int hotelStar = -1;
+	private JTextArea hotelPhoneTextArea;
 	
 	private JButton backButton;
 	private JButton submitButton;
@@ -37,7 +52,8 @@ public class UpdateHotelInfoView extends JPanel {
     private ComboBoxModel<String> aModel3 = new DefaultComboBoxModel<String>(new String[] {
             "黄浦区", "青浦区", "浦东新区" });
 	
-	public UpdateHotelInfoView(UpdateHotelInfoUiService controller) {
+	public UpdateHotelInfoView(UpdateHotelInfoUiService controller,String id) {
+		this.hotelID = id;
 		this.controller = controller;
 		initPanel();
 		this.validate();
@@ -61,7 +77,7 @@ public class UpdateHotelInfoView extends JPanel {
 		
 		JPanel updatePanel = new JPanel();
 		this.add(updatePanel, BorderLayout.CENTER);
-		updatePanel.setLayout(new GridLayout(15, 1, 0, 0));
+		updatePanel.setLayout(new GridLayout(17, 1, 0, 0));
 		
 		JPanel panel_1 = new JPanel();
 		updatePanel.add(panel_1);
@@ -78,7 +94,7 @@ public class UpdateHotelInfoView extends JPanel {
 		panel1.add(hotelNameLabel);
 		hotelNameLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		JTextArea hotelNameTextArea = new JTextArea();
+		hotelNameTextArea = new JTextArea();
 		panel1.add(hotelNameTextArea);
 		
 		JPanel panel_2 = new JPanel();
@@ -96,7 +112,7 @@ public class UpdateHotelInfoView extends JPanel {
 		panel2.add(hotelLocationLabel);
 		hotelLocationLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		JTextArea hotelLocationTextArea = new JTextArea();
+		hotelLocationTextArea = new JTextArea();
 		panel2.add(hotelLocationTextArea);
 		
 		JPanel panel_3 = new JPanel();
@@ -114,7 +130,7 @@ public class UpdateHotelInfoView extends JPanel {
 		panel5.add(hotelServiceLabel);
 		hotelServiceLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		JTextArea hotelServiceTextArea = new JTextArea();
+		hotelServiceTextArea = new JTextArea();
 		panel5.add(hotelServiceTextArea);
 		
 		JPanel panel_4 = new JPanel();
@@ -136,14 +152,14 @@ public class UpdateHotelInfoView extends JPanel {
 		hotelCityComboBox.addItem("苏州");
 		hotelCityComboBox.addItem("上海");
 		hotelCityComboBox.addItemListener(new ItemListener() {
-
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
-                    if (((String)hotelCityComboBox.getSelectedItem()).equals("南京")) {
+                	hotelCity = hotelCityComboBox.getSelectedItem().toString();
+                    if (hotelCity.equals("南京")) {
                     	hotelAreaJComboBox.setModel(aModel1);
-                    } else if (((String)hotelCityComboBox.getSelectedItem()).equals("苏州")) {
+                    } else if (hotelCity.equals("苏州")) {
                     	hotelAreaJComboBox.setModel(aModel2);
-                    } else if (((String)hotelCityComboBox.getSelectedItem()).equals("上海")) {
+                    } else if (hotelCity.equals("上海")) {
                     	hotelAreaJComboBox.setModel(aModel3);
                     }
                 }
@@ -166,7 +182,13 @@ public class UpdateHotelInfoView extends JPanel {
 		hotelAreaLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		panel3.add(hotelAreaJComboBox);
-		
+		hotelAreaJComboBox.addItemListener(new ItemListener() {
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED) {
+                	hotelArea = hotelAreaJComboBox.getSelectedItem().toString();
+                }
+            }
+        });
 		
 		JPanel panel_5 = new JPanel();
 		updatePanel.add(panel_5);
@@ -184,7 +206,7 @@ public class UpdateHotelInfoView extends JPanel {
 		panel4.add(hotelIntroduceLabel);
 		hotelIntroduceLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		JTextArea hotelIntroduceTextArea = new JTextArea();
+		hotelIntroduceTextArea = new JTextArea();
 		panel4.add(hotelIntroduceTextArea);
 		
 		JPanel panel_6 = new JPanel();
@@ -209,6 +231,32 @@ public class UpdateHotelInfoView extends JPanel {
 		starComboBox.addItem(3);
 		starComboBox.addItem(4);
 		starComboBox.addItem(5);
+		starComboBox.addItemListener(new ItemListener() {
+
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED) {
+                	hotelStar = Integer.parseInt(starComboBox.getSelectedItem().toString());
+                }
+            }
+        });
+		
+		JPanel panel_17 = new JPanel();
+		updatePanel.add(panel_17);
+		
+		JPanel hotelPhonePanel = new JPanel();
+		updatePanel.add(hotelPhonePanel);
+		hotelPhonePanel.setLayout(new GridLayout(1, 2, 0, 0));
+		
+		JPanel panel17 = new JPanel();
+		hotelPhonePanel.add(panel17);
+		panel17.setLayout(new GridLayout(1, 2, 0, 0));
+		
+		JLabel hotelPhoneLabel = new JLabel("酒店联系电话");
+		panel17.add(hotelPhoneLabel);
+		hotelPhoneLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		hotelPhoneTextArea = new JTextArea();
+		panel17.add(hotelPhoneTextArea);
 		
 		JPanel submitPanel = new JPanel();
 		updatePanel.add(submitPanel);
@@ -218,6 +266,19 @@ public class UpdateHotelInfoView extends JPanel {
 		submitButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
 				//系统更新酒店信息
+				String hotelName = hotelNameTextArea.getText();
+				String hotelLocation = hotelLocationTextArea.getText();
+				String hotelService = hotelServiceTextArea.getText();
+				String hotelIntroduce = hotelIntroduceTextArea.getText();
+				String hotelPhone = hotelPhoneTextArea.getText();
+				if(hotelName.length() < 1 || hotelLocation.length() < 1 || hotelService.length() < 1
+				  || hotelCity.length() < 1 || hotelArea.length() < 1 || hotelIntroduce.length() < 1 || hotelStar == -1
+				  || hotelPhone.length() < 1 ) {
+					JOptionPane.showMessageDialog(null, "请填写完整信息！","", JOptionPane.ERROR_MESSAGE);
+					return;
+				}
+				
+				controller.updateHotelInfo(hotelName, hotelLocation, hotelService, hotelCity, hotelArea, hotelIntroduce, hotelStar, hotelPhone);
 			}
 			
 		});

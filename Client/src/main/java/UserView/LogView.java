@@ -204,7 +204,7 @@ public class LogView extends JPanel {
 			ClientRunner.change(view);
 		}
 		else if(type.equals(UserType.Hotelworker)){
-			HotelMainUiService controller=new HotelMainUiController();
+			HotelMainUiService controller=new HotelMainUiController(login.getText());
 			HotelMainView view =new HotelMainView(controller);
 			controller.setView(view);
 			ClientRunner.change(view);

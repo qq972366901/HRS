@@ -8,7 +8,7 @@ import java.util.Calendar;
 import Object.Hotel;
 public class OrderBLService_Driver {
 	public void drive(OrderBLService orderBLService){
-		ArrayList<OrderVO> result1=orderBLService.show(1);
+		ArrayList<OrderVO> result1=orderBLService.show("");
     	if(result1==new ArrayList<OrderVO>()) System.out.println("show success");
 		ResultMessage result2=orderBLService.getRoomInfo(new OrderVO());
     	if(result2 ==ResultMessage.Exist) System.out.println("getRoomInfo success");
