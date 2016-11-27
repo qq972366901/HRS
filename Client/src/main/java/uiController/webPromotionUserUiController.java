@@ -100,7 +100,7 @@ public class webPromotionUserUiController implements webPromotionUserUiService {
 		JButton hotelButton = new JButton("确定");
 		hotelButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String acc=String.valueOf(hotelField.getText());
+				String acc = hotelField.getText();
 				ProcessOrderUiService controller;
 				try {
 					controller = new ProcessOrderUiController(acc,UserType.WebPromotionWorker);

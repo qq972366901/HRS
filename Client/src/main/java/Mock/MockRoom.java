@@ -1,7 +1,11 @@
 package Mock;
 
 import VO.RoomVO;
-
+/**
+ * 模拟房间对象
+ * @author 刘宗侃
+ * @version 1.0
+ */
 public class MockRoom extends RoomVO {
 
 	private String roomId;
@@ -14,14 +18,13 @@ public class MockRoom extends RoomVO {
 	 * @param roomid String型，数据层传来的房间号
 	 * @param roomstatue String型，数据层传来的房间状态
 	 * @param roomtype String型，数据层传来的房间类型
-	 * @param rooms int型，数据层传来的房间数量
 	 * @param roomprice int型，数据层传来的房间价格
 	 * @return
 	 * @throws
 	 * @see
 	 */
-	public MockRoom(String roomid, String roomstatue, String roomtype, int rooms, int roomprice) {
-		super(roomid, roomstatue, roomtype, rooms, roomprice);
+	public MockRoom(String hotelid, String roomid, String roomstatue, String roomtype,int roomprice) {
+		super(hotelid,roomid, roomstatue, roomtype,roomprice);
 	}
 	
 	/**

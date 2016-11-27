@@ -11,6 +11,14 @@ import common.*;
  */
 
 public interface OrderBLService {
+    /**
+     * 显示所有订单信息
+     * 
+     * @return ArrayList<OrderVO>，一个订单值对象的列表
+     * @see bussinesslogic.Order
+     */
+	public ArrayList<OrderVO> show(String hotelId);
+
 	/**
      * 获得一个客户的所有订单
      * 
@@ -189,13 +197,23 @@ public interface OrderBLService {
 	public void updateCredit(String userID,int value,Operate operate);
 	
 	/**
-	 * 
-	 * @param inTime Calendar，预订的入住时间
-	 * @param outTime Calendar，预计离开时间
-	 * @param numsOfRoom int，需要的房间数量
-	 * @param RoomType String，房间的类型
-	 * @param hotelID String，酒店的id
-	 * @return boolean，能生成则返回true，若没有房间则返回false
-	 */
-	public boolean whetherMake(Calendar inTime,Calendar outTime,int numsOfRoom,String RoomType,String hotelID);
+     * 计算订单价值并显示
+     * 
+     * @param vo OrderVO型，订单的值对象
+     * @return ResultMessage的一个枚举值
+     * @see bussinesslogic.Order
+     */
+	public ResultMessage payment(OrderVO vo);
+
+
+	public List<OrderVO> getUnfinishedOrders(String hotelId);
+
+
+	public List<OrderVO> getFinishedOrders(String hotelId);
+
+
+	public List<OrderVO> getAbnormalOrders(String hotelId);
+
+
+	ArrayList<OrderVO> show();
 }

@@ -19,6 +19,7 @@ TestOrder\Test_make.class
 TestHotel\ScoreSortTester.class
 TestOrder\Test_done.class
 TestHotel\AcountAdminTester.class
+UserView\LogView$1.class
 TestHotel\SetCommentTester.class
 TestHotel\PriceSortTester.class
 TestOrder\Test_comment.class
@@ -41,6 +42,7 @@ uiController\ProcessOrderUiController$1.class
 TestOrder\Test_cancelorder.class
 TestOrder\Test_abnormal.class
 TestHotel\GetRoomInfoTester.class
+UserView\LogView$2.class
 TestuserBLImpl\RegisterTest.class
 TestRoom\GetOrderInfoTester.class
 TestHotel\SetScoreTester.class

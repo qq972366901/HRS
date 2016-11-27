@@ -1,5 +1,6 @@
 package VO;
 import Object.Room;
+import PO.RoomPO;
 
 /**
  * 房间的属性及数据创建与更新
@@ -10,29 +11,36 @@ import Object.Room;
 
 public class RoomVO extends VO {
 
+	public String hotelID;
 	public String roomId;
     public String roomStatue;
     public String roomType;
-    public int roomS;
     public int roomPrice;
     public RoomVO(){};
     /**
 	 * 房间数据
-	 * @param roomid String型，数据层传来的房间号
-	 * @param roomstatue String型，数据层传来的房间状态
-	 * @param roomtype String型，数据层传来的房间类型
-	 * @param rooms int型，数据层传来的房间数量
-	 * @param roomprice int型，数据层传来的房间价格
+	 * @param hotelid String型，房间所属的酒店帐号
+	 * @param roomid String型，房间号
+	 * @param roomstatue String型，房间状态
+	 * @param roomtype String型，房间类型
+	 * @param roomprice int型，房间价格
 	 * @return
 	 * @throws
 	 * @see
 	 */
-    public RoomVO (String roomid,String roomstatue,String roomtype,int rooms,int roomprice){
+    public RoomVO (String hotelid,String roomid,String roomstatue,String roomtype,int roomprice){
+    	hotelID = hotelid;
 	    roomId=roomid;
 	    roomStatue=roomstatue;
 	    roomType=roomtype;
-	    roomS=rooms;
 	    roomPrice=roomprice;
+    }
+    public RoomVO (RoomPO po) {
+    	hotelID = po.getHotelId();
+    	roomId = po.getroomId();
+    	roomStatue = po.getroomStatue();
+    	roomType = po.getroomType();
+    	roomPrice = po.getroomPrice();
     }
     /**
      * 更新房间信息

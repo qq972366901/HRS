@@ -13,10 +13,14 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import uiService.MakeHotelPromotionUiService;
-
+/**
+ * 制定酒店营销策略的界面
+ * @author 刘宗侃
+ */
 public class MakeHotelPromotionView extends JPanel {
 
 	private static final long serialVersionUID = 1L;
+	String hotelID;
 	
 	private MakeHotelPromotionUiService controller;
 	
@@ -31,7 +35,8 @@ public class MakeHotelPromotionView extends JPanel {
 	JButton backButton;
 	JButton submitButton;
 	
-	public MakeHotelPromotionView(MakeHotelPromotionUiService controller) {
+	public MakeHotelPromotionView(MakeHotelPromotionUiService controller,String id) {
+		this.hotelID = id;
 		this.controller = controller;
 		initPanel();
 		this.validate();

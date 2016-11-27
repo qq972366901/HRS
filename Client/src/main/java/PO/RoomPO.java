@@ -9,28 +9,47 @@ import java.io.Serializable;
  */
 public class RoomPO extends PO implements Serializable{
 	private static final long serialVersionUID = 1L;
+	private String hotelID;
 	private String roomId;
     private String roomStatue;
     private String roomType;
-    private int roomS;
     private int roomPrice;
     /**
 	 * 构造房间的数据实体
 	 * @param roomid String型，数据层传来的房间号
 	 * @param roomstatue String型，数据层传来的房间状态
 	 * @param roomtype String型，数据层传来的房间类型
-	 * @param rooms int型，数据层传来的房间数量
 	 * @param roomprice int型，数据层传来的房间价格
 	 * @return
 	 * @throws
 	 * @see
 	 */
-    public RoomPO (String roomid,String roomstatue,String roomtype,int rooms,int roomprice){
+    public RoomPO (String hotelid,String roomid,String roomstatue,String roomtype,int roomprice){
+    	hotelID = hotelid;
 	    roomId=roomid;
 	    roomStatue=roomstatue;
 	    roomType=roomtype;
-	    roomS=rooms;
 	    roomPrice=roomprice;
+    }
+    /**
+	 * 获取所属酒店帐号
+	 * @param
+	 * @return 返回所属酒店帐号
+	 * @throws
+	 * @see
+	 */
+    public String getHotelId() {
+    	return hotelID;
+    } 
+    /**
+	 * 设置所属酒店帐号
+	 * @param id String型，逻辑层传来的所属酒店帐号
+	 * @return
+	 * @throws
+	 * @see
+	 */
+    public void setHotelId (String id){
+    	hotelID=id;
     }
     /**
 	 * 获取房间号
@@ -91,26 +110,6 @@ public class RoomPO extends PO implements Serializable{
 	 */
     public void setroomType (String type){
 		roomType=type;
-	}
-    /**
-	 * 获取房间数量
-	 * @param
-	 * @return 返回房间数量
-	 * @throws
-	 * @see
-	 */
-    public int getroomS() {
-		return roomS;
-	}
-    /**
-	 * 设置房间数量
-	 * @param room int型，逻辑层传来的房间数量
-	 * @return
-	 * @throws
-	 * @see
-	 */
-    public void setroomS (int room){
-		roomS=room;
 	}
     /**
 	 * 获取房间价格

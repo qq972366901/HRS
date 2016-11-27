@@ -34,21 +34,19 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 		orderService = new OrderBLServiceController();
 		userService = new UserBLServiceController();
 	}
+
 	@Override
 	public String getHotelId() {
-		// TODO Auto-generated method stub
 		return hotelId;
 	}
 
 	@Override
 	public void setView(ProcessOrderView view) {
-		// TODO Auto-generated method stub
 		this.view = view;
 	}
 
 	@Override
 	public List<OrderVO> getAllOrders(String hotelId) {
-		// TODO Auto-generated method stub
 		//return orderService.show(hotelId);
 		List<OrderVO> list=new ArrayList<OrderVO>();
 		return list;
@@ -56,60 +54,51 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 
 	@Override
 	public List<OrderVO> getUnfinishedOrders(String hotelId) {
-		// TODO Auto-generated method stub
 		return orderService.getUnfinishedOrders(hotelId);
 	}
 
 	@Override
 	public List<OrderVO> getFinishedOrders(String hotelId) {
-		// TODO Auto-generated method stub
 		return orderService.getFinishedOrders(hotelId);
 	}
 
 	@Override
 	public List<OrderVO> getAbnormalOrders(String hotelId) {
-		// TODO Auto-generated method stub
 		return orderService.getAbnormalOrders(hotelId);
 	}
 
 	@Override
 	public boolean processUnfinishedOrder(int orderId) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean processAbnormalOrder(int orderId, String delayTime) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public void updateListModel(String comboboxValue) {
-		// TODO Auto-generated method stub
 		view.updateListModel(comboboxValue);
 	}
 
 	@Override
 	public void processOrderButtonClicked() {
-		// TODO Auto-generated method stub
 		view.processOrderButtonClicked();
 	}
 
 	@Override
 	public void delayOrderButtonClicked() {
-		// TODO Auto-generated method stub
 		view.delayOrderButtonClicked();
 	}
 	@Override
 	public void back() {
-		// TODO Auto-generated method stub
 		switch(usertype){
 			case Customer:{
 				break;
 			}
 			case Hotelworker:{
-				HotelMainUiService controller=new HotelMainUiController();
+				HotelMainUiService controller=new HotelMainUiController(hotelId);
 	    		HotelMainView view=new HotelMainView(controller);
 	    		controller.setView(view);
 				ClientRunner.change(view);
@@ -129,7 +118,6 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 	}
 	@Override
 	public void cancelAbnormalOrder() {
-		// TODO Auto-generated method stub
 		view.cancelAbnormalOrder();
 	}
 

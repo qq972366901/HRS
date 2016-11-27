@@ -21,7 +21,7 @@ public class OrderController implements OrderBLService{
      * @return ArrayList<OrderVO>，一个订单值对象的列表
      * @see bussinesslogic.Order
      */
-	public ArrayList<OrderVO> show(int hotelid){
+	public ArrayList<OrderVO> show(String hotelid){
 		return new ArrayList<OrderVO>();
 	}
 	
