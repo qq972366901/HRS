@@ -1,10 +1,12 @@
 package orderBLService;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 import VO.OrderVO;
 import common.Operate;
+import common.ResultMessage;
 import orderAbnormal.OrderAbnormalController;
 import orderBuild.OrderBuildController;
 import orderEvaluation.OrderEvaluationController;
@@ -277,5 +279,23 @@ public class OrderBLServiceController implements OrderBLService{
 		else if(operate.equals(Operate.Appeal)){
 			abnormal.updateCredit(userID, value);
 		}
+	}
+
+	@Override
+	public ArrayList<OrderVO> show(String hotelId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultMessage payment(OrderVO vo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<OrderVO> show() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

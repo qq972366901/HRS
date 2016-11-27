@@ -20,6 +20,7 @@ public class HotelVO extends VO {
 	public String hotelAccount;
 	public double score;
 	public String hotelPhone;
+	public String hotelCity;
 	
 	public HotelVO(HotelPO hpo) {
 		hotelAccount = hpo.gethotelAccount();

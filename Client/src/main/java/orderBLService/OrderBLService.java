@@ -206,14 +206,7 @@ public interface OrderBLService {
 	public ResultMessage payment(OrderVO vo);
 
 
-	public List<OrderVO> getUnfinishedOrders(String hotelId);
-
-
-	public List<OrderVO> getFinishedOrders(String hotelId);
-
-
-	public List<OrderVO> getAbnormalOrders(String hotelId);
-
-
 	ArrayList<OrderVO> show();
+
+	public boolean whetherMake(Calendar instance, Calendar instance2, int i, String string, String string2);
 }
