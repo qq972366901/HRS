@@ -16,7 +16,7 @@ public class UserManagementUiController implements UserManagementUiService {
 		// TODO Auto-generated method stub
 		this.view=view;
 }
-	public void toWebAdminUserView(){
+	public void toWebAdminUserView(String id){
 		WebAdminUserUiService controller=new WebAdminUserUiController();
 		WebAdminUserView view=new WebAdminUserView(controller);
 		controller.setView(view);

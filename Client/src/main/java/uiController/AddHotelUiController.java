@@ -20,13 +20,13 @@ public class AddHotelUiController implements  AddHotelUiService {
 		// TODO Auto-generated method stub
 		this.view=view;
 }
-	public void toWebAdminUserView(){
+	public void toWebAdminUserView(String id){
 		WebAdminUserUiService controller=new WebAdminUserUiController();
 		WebAdminUserView view=new WebAdminUserView(controller);
 		controller.setView(view);
 		ClientRunner.change(view);
 	}
-	public void toUserManagementView(){
+	public void toUserManagementView(String id){
 		UserManagementUiService controller=new UserManagementUiController();
 		UserManagementView view=new UserManagementView(controller);
 		controller.setView(view);

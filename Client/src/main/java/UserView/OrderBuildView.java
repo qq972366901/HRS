@@ -45,7 +45,7 @@ public class OrderBuildView extends JPanel{
 		this.add(panel);
 		button1.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {
-				controller.toHotelBrowseView();
+				controller.toHotelBrowseView("id");
 			}
 		});
 		Calendar ca = Calendar.getInstance();
@@ -614,7 +614,7 @@ public class OrderBuildView extends JPanel{
 					int option = JOptionPane.showConfirmDialog(pane,"            确认提交？","", JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE, null);
 					     switch (option) {
 					     case JOptionPane.YES_OPTION: 
-					     controller.toHotelBrowseView();
+					     controller.toHotelBrowseView("id");
 					     case JOptionPane.NO_OPTION:
 					     }
 			}

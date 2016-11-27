@@ -18,7 +18,6 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import VO.UserVO;
 import uiService.MemberRegisterUiService;
 
 public class MemberRegisterView extends JPanel{
@@ -203,20 +202,13 @@ public class MemberRegisterView extends JPanel{
 							    	 {
 							    		 int option2 = JOptionPane.showConfirmDialog(panel,"请记住你的账号：     \n是否跳转到客户主界面？","", JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE, null);
 							    		 switch (option2) {
-											case JOptionPane.YES_OPTION:
-												UserVO vo=new UserVO();//暂时这么初始化
-												if(controller.createUser(vo,password4)){
-													vo.id="3";//暂时定为3，需要有方法产生ID，并告诉用户
-													controller.tocustomerMainView(vo.id);
-												}
-												break;
-											case JOptionPane.NO_OPTION:
-												break;
-										}
-										break;
+									     case JOptionPane.YES_OPTION:  
+									    	 controller.tocustomerMainView("id");
+									     case JOptionPane.NO_OPTION:
+									    	 
+							    	 }	
 							    	 }
 							     case JOptionPane.NO_OPTION:
-									break;
 							     }		    						
 							}
 						}
@@ -247,20 +239,13 @@ public class MemberRegisterView extends JPanel{
 							    	 {
 							    		 int option2 = JOptionPane.showConfirmDialog(panel,"请记住你的账号：     \n是否跳转到客户主界面？","", JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE, null);
 							    		 switch (option2) {
-											case JOptionPane.YES_OPTION:
-												UserVO vo=new UserVO();//暂时这么初始化
-												if(controller.createUser(vo,password4)){
-													vo.id="3";//暂时定为3，需要有方法产生ID，并告诉用户
-													controller.tocustomerMainView(vo.id);
-												}
-											break;
-											case JOptionPane.NO_OPTION:
-												break;	
-										}
-										break;
+									     case JOptionPane.YES_OPTION:  
+									    	 controller.tocustomerMainView("id");
+									     case JOptionPane.NO_OPTION:
+									    	
+							    	 }	
 							    	 }
 							     case JOptionPane.NO_OPTION:
-									break;
 							     }		    						
 							}			
 						}
@@ -269,5 +254,6 @@ public class MemberRegisterView extends JPanel{
 					}
 				});
 				}
+
 }
 		
