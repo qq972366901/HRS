@@ -22,7 +22,7 @@ public class OrderBuildUiController implements OrderBuildUiService{
 		// TODO Auto-generated method stub
 		this.view=view;
 }
-	public void toHotelBrowseView(){
+	public void toHotelBrowseView(String id){
 		HotelBrowseUiService controller=new HotelBrowseUiController(userID);
 		HotelBrowseView view=new HotelBrowseView(controller);
 		controller.setView(view);

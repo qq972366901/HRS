@@ -26,20 +26,20 @@ public class webAdminUserUiServiceStub extends JFrame implements WebAdminUserUiS
 	private static final long serialVersionUID = 1L;
 	
 	@Override
-	public void toAddHotelView() {
+	public void toAddHotelView(String id) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void toUserManagementView() {
+	public void toUserManagementView(String id) {
 		// TODO Auto-generated method stub
 		
 	}
 
 
 	@Override
-	public void toLogView() {
+	public void toLogView(String id) {
 		// TODO Auto-generated method stub
 		
 	}

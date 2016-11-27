@@ -29,7 +29,6 @@ public class UserManagementView extends JPanel{
 	private JComboBox<String> comboBox,comboBox4;
 	private JComboBox<Integer> comboBox1,comboBox2,comboBox3,comboBox5;
 	private UserManagementUiService controller;
-	private int a=0;
 	public UserManagementView(UserManagementUiService c){
 		this.controller=c;
 		this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
@@ -46,7 +45,7 @@ public class UserManagementView extends JPanel{
 		this.add(p1);
 		button1.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {
-				controller.toWebAdminUserView();
+				controller.toWebAdminUserView("id");
 			}
 		});
 		JPanel p6=new JPanel();
@@ -144,6 +143,7 @@ public class UserManagementView extends JPanel{
 						textField6.setVisible(false);
 						button7.setVisible(false);
 						button5.setVisible(false);
+						button2.setVisible(false);
 						
 						textField3.setEnabled(false);
 						textField7.setEnabled(false);				
@@ -157,6 +157,7 @@ public class UserManagementView extends JPanel{
 						textField6.setEnabled(false);
 						button7.setEnabled(false);
 						button5.setEnabled(false);
+						button2.setEnabled(false);
 						
 						textField4.setText("");
 						textField3.setText("");
@@ -180,7 +181,7 @@ public class UserManagementView extends JPanel{
 				if(textField2.getText().equals("")){
 					JOptionPane.showMessageDialog(panel, "请输入用户账号进行搜索！","", JOptionPane.ERROR_MESSAGE);
 				}
-				else if(selected=="客户"){
+				else if(selected.equals("客户")){
 					label3.setVisible(false);
 					textField3.setVisible(false);
 					label12.setVisible(false);
@@ -204,6 +205,7 @@ public class UserManagementView extends JPanel{
 					textField6.setVisible(false);
 					button2.setVisible(false);
 					button5.setVisible(false);
+					button7.setVisible(false);
 					
 					textField3.setEnabled(false);
 					textField7.setEnabled(false);				
@@ -215,8 +217,9 @@ public class UserManagementView extends JPanel{
 					textField4.setEnabled(false);				
 					textField5.setEnabled(false);				
 					textField6.setEnabled(false);
-					button2.setEnabled(false);
 					button5.setEnabled(false);
+					button2.setEnabled(false);
+					button7.setEnabled(false);
 	
 					label3.setVisible(true);
 					textField3.setVisible(true);
@@ -252,28 +255,8 @@ public class UserManagementView extends JPanel{
 					textField6.setText("1");
 					
 					button6.setEnabled(true);
-					button6.addActionListener(new ActionListener() {
-			        public void actionPerformed(ActionEvent e) {
-			        	textField3.setEnabled(true);
-						textField7.setEnabled(true);
-						comboBox4.setEnabled(true);
-						comboBox5.setEnabled(true);
-						comboBox1.setEnabled(true);
-						comboBox2.setEnabled(true);
-						comboBox3.setEnabled(true);
-						textField4.setEnabled(true);
-						textField5.setEnabled(true);
-						textField6.setEnabled(true);
-						button2.setVisible(true);
-						button5.setVisible(true);
-						button2.setEnabled(true);
-						button5.setEnabled(true);
-						
-						//会员类型，会员等级，生日的设计都要用到VO，所以暂时没写
-			}
-			});
 				}
-				else if(selected=="酒店工作人员"){
+				else if(selected.equals("酒店工作人员")){
 					label3.setVisible(false);
 					textField3.setVisible(false);
 					label12.setVisible(false);
@@ -297,6 +280,7 @@ public class UserManagementView extends JPanel{
 					textField6.setVisible(false);
 					button2.setVisible(false);
 					button5.setVisible(false);
+					button7.setVisible(false);
 					
 					textField3.setEnabled(false);
 					textField7.setEnabled(false);				
@@ -310,7 +294,9 @@ public class UserManagementView extends JPanel{
 					textField6.setEnabled(false);
 					button2.setEnabled(false);
 					button5.setEnabled(false);
-				
+					button7.setEnabled(false);
+					textField5.setText("1");
+					textField6.setText("1");
 			label3.setVisible(true);
 			textField3.setVisible(true);
 			label12.setVisible(true);
@@ -321,22 +307,10 @@ public class UserManagementView extends JPanel{
 			textField3.setText("1");
 			textField7.setText("1");
 			textField4.setText("1");
-			
 			button6.setEnabled(true);
-			button6.addActionListener(new ActionListener() {
-		        public void actionPerformed(ActionEvent e) {
-			textField3.setEnabled(true);
-			textField7.setEnabled(true);
-			textField4.setEnabled(true);
-			button2.setVisible(true);
-			button5.setVisible(true);
-			button2.setEnabled(true);
-			button5.setEnabled(true);
 			
-		        }
-			});
 				}
-				else if(selected=="网站营销人员"){
+				else if(selected.equals("网站营销人员")){
 					label3.setVisible(false);
 					textField3.setVisible(false);
 					label12.setVisible(false);
@@ -360,6 +334,7 @@ public class UserManagementView extends JPanel{
 					textField6.setVisible(false);
 					button2.setVisible(false);
 					button5.setVisible(false);
+					button7.setVisible(false);
 					
 					textField3.setEnabled(false);
 					textField7.setEnabled(false);				
@@ -373,7 +348,9 @@ public class UserManagementView extends JPanel{
 					textField6.setEnabled(false);
 					button2.setEnabled(false);
 					button5.setEnabled(false);
-				
+					button7.setEnabled(false);
+					textField5.setText("1");
+					textField6.setText("1");
 			label3.setVisible(true);
 			textField3.setVisible(true);
 			label12.setVisible(true);
@@ -395,6 +372,9 @@ public class UserManagementView extends JPanel{
 			button5.setVisible(true);
 			button2.setEnabled(true);
 			button5.setEnabled(true);
+			button7.setVisible(false);
+			button7.setEnabled(false);
+
 		
 		        }
 			});
@@ -403,13 +383,13 @@ public class UserManagementView extends JPanel{
 			}
 			});
 		button6=new JButton("更改");
-			button6.setEnabled(false);
+		button6.setEnabled(false);
 		
 		comboBox.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent evt) {
 				if(evt.getStateChange() == ItemEvent.SELECTED){		
 				String	selected=(String)comboBox.getSelectedItem();
-				if(selected=="客户"||selected=="酒店工作人员"){
+				if(selected.equals("客户")||selected.equals("酒店工作人员")){
 				button4.setEnabled(false);
 				}
 				else{
@@ -521,13 +501,15 @@ public class UserManagementView extends JPanel{
 		p11.add(textField6);
 		
 		
-		button2=new JButton("确认");
+		button2=new JButton("确定");
 
 		button5=new JButton("取消");
 		
 		button7=new JButton("添加");
+		
         button2.setEnabled(false);
         button5.setEnabled(false);
+        button7.setEnabled(false);
         p5.add(button7);
 		p5.add(button2);
 		p5.add(button5);
@@ -584,11 +566,28 @@ public class UserManagementView extends JPanel{
 					textField4.setEnabled(false);
 					textField5.setEnabled(false);
 					textField6.setEnabled(false);
-		        	button2.setVisible(false);
 					button5.setVisible(false);
-					button2.setEnabled(false);
 					button5.setEnabled(false);
+					button2.setVisible(false);
+					button7.setVisible(false);
+					button2.setEnabled(false);
+					button7.setEnabled(false);
 	        	}
+	        }
+		});
+		button6.addActionListener(new ActionListener() {
+	        public void actionPerformed(ActionEvent e) {
+		textField3.setEnabled(true);
+		textField7.setEnabled(true);
+		textField4.setEnabled(true);
+		button2.setVisible(true);
+		button5.setVisible(true);
+		button2.setEnabled(true);
+		button5.setEnabled(true);
+		button7.setVisible(false);	
+		button7.setEnabled(false);
+
+		
 	        }
 		});
 	
@@ -608,6 +607,9 @@ public class UserManagementView extends JPanel{
 				button5.setVisible(false);
 				button2.setEnabled(false);
 				button5.setEnabled(false);
+				button7.setVisible(false);
+				button7.setEnabled(false);
+
 	        }
 		});
 		button7.addActionListener(new ActionListener() {
@@ -620,7 +622,7 @@ public class UserManagementView extends JPanel{
 					  p=1;
 				  }
 				}
-	        	if(textField3.getText().equals("")||textField7.getText().equals("")||textField4.getText().equals("")||textField5.getText().equals("")||textField6.getText().equals("")){
+	        	if(textField3.getText().equals("")||textField7.getText().equals("")||textField4.getText().equals("")){
 					JOptionPane.showMessageDialog(panel, "          请补全信息！","", JOptionPane.ERROR_MESSAGE);
 						}
             
@@ -628,7 +630,7 @@ public class UserManagementView extends JPanel{
 	        		JOptionPane.showMessageDialog(panel, "密码只能由数字和字母组成！","", JOptionPane.ERROR_MESSAGE);
 						}
 	        	else{
-	        		JOptionPane.showMessageDialog(panel, "请记住账号：！","", JOptionPane.ERROR_MESSAGE);
+	        		JOptionPane.showMessageDialog(panel, "  成功添加网站营销人员！\n请记住账号：","", JOptionPane.ERROR_MESSAGE);
 	        		label3.setVisible(false);
 					textField3.setVisible(false);
 					label12.setVisible(false);
@@ -652,6 +654,7 @@ public class UserManagementView extends JPanel{
 					textField6.setVisible(false);
 					button7.setVisible(false);
 					button5.setVisible(false);
+					button2.setVisible(false);
 					
 					textField3.setEnabled(false);
 					textField7.setEnabled(false);				
@@ -665,6 +668,7 @@ public class UserManagementView extends JPanel{
 					textField6.setEnabled(false);
 					button7.setEnabled(false);
 					button5.setEnabled(false);
+					button2.setEnabled(false);
 					
 					textField4.setText("");
 					textField3.setText("");

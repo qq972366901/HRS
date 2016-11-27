@@ -43,7 +43,7 @@ public class AddHotelView extends JPanel {
 		this.add(panel1);
 		button1.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {
-				controller.toWebAdminUserView();
+				controller.toWebAdminUserView("id");
 			}
 		});	
 		JPanel panel2 = new JPanel();
@@ -189,7 +189,7 @@ public class AddHotelView extends JPanel {
 									 int option = JOptionPane.showConfirmDialog(panel,"请记住你的账号：     \n是否返回网站管理人员主界面？","", JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE, null);
 						    		 switch (option) {
 								     case JOptionPane.YES_OPTION:  
-								    	 controller.toWebAdminUserView();
+								    	 controller.toWebAdminUserView("id");
 								     case JOptionPane.NO_OPTION:
 								    	 frame.dispose();
 						    		 }

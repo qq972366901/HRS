@@ -60,7 +60,7 @@ public class HotelSearchView extends JPanel{
 		this.add(panel);
 		button1.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {
-				controller.toUserView();
+				controller.toUserView("id");
 			}
 		});
 		
@@ -320,12 +320,12 @@ public class HotelSearchView extends JPanel{
 		this.add(panel6);
 		button2.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {
-				controller.toHotelBrowseView();
+				controller.toHotelBrowseView("id");
 			}
 		});
 		button3.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {
-				controller.toOrderBuildView();
+				controller.toOrderBuildView("id");
 			}
 		});
 		

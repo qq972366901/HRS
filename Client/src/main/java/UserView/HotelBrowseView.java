@@ -43,7 +43,7 @@ public class HotelBrowseView extends JPanel{
 		this.add(panel);
 		button1.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {
-				controller.toHotelSearchView();
+				controller.toHotelSearchView("id");
 			}
 		});
 		JPanel panel1= new JPanel();
@@ -160,7 +160,7 @@ public class HotelBrowseView extends JPanel{
 		this.add(panel10);
 		button2.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {
-				controller.toOrderBuildView();
+				controller.toOrderBuildView("id");
 			}
 		});
 	}
