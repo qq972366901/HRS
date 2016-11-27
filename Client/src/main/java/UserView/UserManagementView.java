@@ -577,17 +577,25 @@ public class UserManagementView extends JPanel{
 		});
 		button6.addActionListener(new ActionListener() {
 	        public void actionPerformed(ActionEvent e) {
-		textField3.setEnabled(true);
-		textField7.setEnabled(true);
-		textField4.setEnabled(true);
-		button2.setVisible(true);
-		button5.setVisible(true);
-		button2.setEnabled(true);
-		button5.setEnabled(true);
-		button7.setVisible(false);	
-		button7.setEnabled(false);
-
-		
+				textField3.setEnabled(true);
+				textField7.setEnabled(true);				
+				comboBox4.setEnabled(true);			
+				comboBox5.setEnabled(true);				
+				comboBox1.setEnabled(true);				
+				comboBox2.setEnabled(true);
+				comboBox3.setEnabled(true);			
+				textField4.setEnabled(true);				
+				textField5.setEnabled(true);				
+				textField6.setEnabled(true);
+				button2.setEnabled(true);
+				button5.setEnabled(true);
+				button7.setEnabled(true);
+				button2.setVisible(true);
+				button5.setVisible(true);
+				button2.setEnabled(true);
+				button5.setEnabled(true);
+				button7.setVisible(false);	
+				button7.setEnabled(false);
 	        }
 		});
 	
