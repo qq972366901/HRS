@@ -13,10 +13,15 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import uiService.UpdateRoomInfoUiService;
-
+/**
+ * 更新房间信息的界面
+ * @author 刘宗侃
+ */
 public class UpdateRoomInfoView extends JPanel {
 
 	private static final long serialVersionUID = 1L;
+	
+	private String hotelID;
 	
 	private UpdateRoomInfoUiService controller;
 	
@@ -29,8 +34,9 @@ public class UpdateRoomInfoView extends JPanel {
 	private JButton backButton;
 	private JButton submitButton;
 	
-	public UpdateRoomInfoView(UpdateRoomInfoUiService controller) {
+	public UpdateRoomInfoView(UpdateRoomInfoUiService controller,String id) {
 		this.controller = controller;
+		this.hotelID = id;
 		initPanel();
 		this.validate();
 	}

@@ -1,6 +1,7 @@
 package hotelBLService;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.xml.crypto.Data;
 
@@ -223,6 +224,27 @@ public class HotelBLService_Stub implements HotelBLService{
      */
 	public ArrayList<HotelVO> gethistoryhotel(){
 		return new ArrayList<HotelVO>();
+	}
+	@Override
+	public void updateHotelRooms(String id,String roomType, int roomNumber, int roomPrice) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void updateHotelInfo(String id,String hotelName, String hotelLocation, String hotelService, String hotelCity,
+			String hotelArea, String hotelIntroduce, int hotelStar, String hotelPhone) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public HotelVO findByHotelID(String hotelID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public List<HotelVO> getHistoryHotel(String userID) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -3,6 +3,7 @@ package hotelData;
 import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.List;
 
 import PO.HotelPO;
 /**
@@ -23,6 +24,15 @@ public class HotelDataServiceMySqlImpl implements Serializable,dataService.Hotel
 	 * @throws RemoteException
 	 * @see PO.HotelPO
 	 */
+	/**
+	 *在数据库中查找一个用户的历史酒店
+	 * @param userid String型，用户ID
+	 * @return 此用户的历史酒店列表
+	 */
+	public List<HotelPO> getHistoryHotelByUser(String userid){
+		return null;
+	}
+	
 	@Override
 	public HotelPO find(String id) throws RemoteException {
 		// TODO Auto-generated method stub

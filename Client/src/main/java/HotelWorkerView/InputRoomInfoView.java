@@ -7,18 +7,24 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import uiController.InputRoomInfoUiController;
 import uiService.InputRoomInfoUiService;
-
+/**
+ * 录入客房信息的界面
+ * @author 刘宗侃
+ */
 public class InputRoomInfoView extends JPanel {
 
 	private static final long serialVersionUID = 1L;
+	private String hotelID;
 	
-	private InputRoomInfoUiService controller;
+	private InputRoomInfoUiService controller = new InputRoomInfoUiController(hotelID);
 	
 	private JTextField roomTypeTextField;
 	private JTextField roomNumberTextField;
@@ -27,8 +33,9 @@ public class InputRoomInfoView extends JPanel {
 	private JButton backButton;
 	private JButton submitButton;
 	
-	public InputRoomInfoView(InputRoomInfoUiService controller) {
+	public InputRoomInfoView(InputRoomInfoUiService controller,String id) {
 		this.controller = controller;
+		this.hotelID = id;
 		initPanel();
 		this.validate();
 	}
@@ -125,11 +132,38 @@ public class InputRoomInfoView extends JPanel {
 		submitButton = new JButton("提交");
 		panel_8.add(submitButton);
 		submitButton.addActionListener(new ActionListener(){
-
 			public void actionPerformed(ActionEvent arg0) {
 				//系统更新酒店拥有的房间信息
+				String roomType = roomTypeTextField.getText();
+				String roomNumString = roomNumberTextField.getText();
+				boolean validNum = true;
+				for(int i=0;i<roomNumString.length();i++) {
+					if(roomNumString.charAt(i) < '0' || roomNumString.charAt(i) > '9') {
+						validNum = false;
+						break;
+					}
+				}
+				if(!validNum) {
+					JOptionPane.showMessageDialog(null, "房间数量为正整数！","", JOptionPane.ERROR_MESSAGE);
+					return;
+				}
+				int roomNumber = Integer.parseInt(roomNumString);
+				String roomPriceString = roomPriceTextField.getText();
+				boolean validPrice = true;
+				for(int i=0;i<roomPriceString.length();i++) {
+					if(roomPriceString.charAt(i) < '0' || roomPriceString.charAt(i) > '9') {
+						validPrice = false;
+						break;
+					}
+				}
+				if(!validPrice) {
+					JOptionPane.showMessageDialog(null, "房间价格只能是正整数!","", JOptionPane.ERROR_MESSAGE);
+					return;
+				}
+				int roomPrice = Integer.parseInt(roomPriceString);
+				
+				controller.inputRoomInfo(roomType,roomNumber,roomPrice);
 			}
-			
 		});
 		
 		JPanel panel_9 = new JPanel();

@@ -55,14 +55,13 @@ public class Room {
 	 * @param roomid String型，房间号
 	 * @param roomstatue String型，房间状态
 	 * @param roomtype String型，房间类型
-	 * @param rooms int型，房间数量
 	 * @param roomprice int型，房间价格
 	 * @return
 	 * @throws
 	 * @see
 	 */
-    public int messageAdd(String roomid, String roomstatue, String roomtype, int rooms, int roomprice) {
-    	roomList.addRoomLineItems(new RoomLineItem(new RoomVO(roomid, roomstatue, roomtype, rooms, roomprice)));
+    public int messageAdd(String hotelid, String roomid, String roomstatue, String roomtype, int roomprice) {
+    	roomList.addRoomLineItems(new RoomLineItem(new RoomVO(hotelid,roomid, roomstatue, roomtype,roomprice)));
     	return roomList.getRoom();
     }
     /**
@@ -70,14 +69,13 @@ public class Room {
 	 * @param roomid String型，房间号
 	 * @param roomstatue String型，房间状态
 	 * @param roomtype String型，房间类型
-	 * @param rooms int型，房间数量
 	 * @param roomprice int型，房间价格
 	 * @return
 	 * @throws
 	 * @see
 	 */
-    public ResultMessage messageUpdate(RoomLineItem rli,String roomid, String roomstatue, String roomtype, int rooms, int roomprice) {
-    	roomList.messageUpdate(roomid, roomstatue, roomtype, rooms, roomprice);
+    public ResultMessage messageUpdate(RoomLineItem rli,String hotelid,String roomid, String roomstatue, String roomtype, int roomprice) {
+    	roomList.messageUpdate(hotelid,roomid, roomstatue, roomtype,  roomprice);
     	return ResultMessage.Exist;
     }
     /**

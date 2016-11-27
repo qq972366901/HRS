@@ -7,7 +7,16 @@ import VO.RoomVO;
 import common.MessageInput;
 import common.ResultMessage;
 
-public class RoomController implements RoomBLService {
+public class RoomBLServiceController implements RoomBLService {
+	
+	
+	
+	
+	
+	
+	
+	
+	//-----------------------------------------------------
 	/**
      * 修改房间信息
      * 

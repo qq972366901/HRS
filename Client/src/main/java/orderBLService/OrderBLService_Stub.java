@@ -19,20 +19,50 @@ import orderOverview.OrderOverviewController;
  * @see presentation.Order
  */
 public class OrderBLService_Stub implements OrderBLService{
-	private OrderBuildController build;
-	private OrderEvaluationController evaluation;
-	private OrderExecuteController execute;
-	private OrderManagementController management;
-	private OrderOverviewController overview;
-	private OrderAbnormalController abnormal;
-	public OrderBLService_Stub() {
-		build = new OrderBuildController();
-		evaluation= new OrderEvaluationController();
-		execute= new OrderExecuteController();
-		management= new OrderManagementController();
-		overview= new OrderOverviewController();
-		abnormal=new OrderAbnormalController();	 
-	}	
+		String orderNumber;
+		int orderState;
+		String userName;
+		String userNumber;
+		String userPhone;
+		int orderValue;
+		String hotelName;
+		String hotelLocation;
+		String hotelPhone;
+		String roomType;
+		int roomNumber;
+		Time expectedCheckIn;
+		Time expectedCheckOut;
+		String comment;
+		int score;	
+
+		public OrderBLService_Stub (String oNum, int state, String uName, String uNum, String uPhone, int value, String hName, String hLoca, String hPhone, String rType, int rNum, Time in, Time out, String comm, int sco) {
+			
+			orderNumber = oNum;
+			orderState = state;
+			userName = uName;
+			userNumber = uNum;
+			userPhone = uPhone;
+			orderValue = value;
+			hotelName = hName;
+			hotelLocation = hLoca;
+			hotelPhone = hPhone;
+			roomType = rType;
+			roomNumber = rNum;
+			expectedCheckIn = in;
+			expectedCheckOut = out;
+			comment = comm;
+			score = sco;
+
+		}
+	/**
+     * 显示所有订单信息
+     * 
+     * @return ArrayList<OrderVO>，一个订单值对象的列表
+     * @see bussinesslogic.Order
+     */
+	public ArrayList<OrderVO> show(String hotelid){
+		return new ArrayList<OrderVO>();
+	}
 	
 	/**
      * 获得一个客户的所有订单
@@ -265,23 +295,33 @@ public class OrderBLService_Stub implements OrderBLService{
 	}
 	
 	/**
-	 * 根据不同操作更新客户的信用值(操作详情请看common包)
-	 * @param userID String,客户id
-	 * @param value int,订单的价值
-	 * @param operate Operate枚举类，操作的名字
-	 */
-	public void updateCredit(String userID,int value,Operate operate){
-		if(operate.equals(Operate.Done)){
-			execute.updateCredit(userID, value);
-		}
-		else if(operate.equals(Operate.Cancel)){
-			management.updateCredit(userID, value);
-		}
-		else if(operate.equals(Operate.Delayed)){
-			execute.recoveryCredit(userID, value);
-		}
-		else if(operate.equals(Operate.Appeal)){
-			abnormal.updateCredit(userID, value);
-		}
+     * 计算订单价值并显示
+     * 
+     * @param vo OrderVO型，订单的值对象
+     * @return ResultMessage的一个枚举值
+     * @see bussinesslogic.Order
+     */
+	public ResultMessage payment(OrderVO vo){
+		return ResultMessage.Exist;
+	}
+	@Override
+	public List<OrderVO> getUnfinishedOrders(String hotelId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public List<OrderVO> getFinishedOrders(String hotelId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public List<OrderVO> getAbnormalOrders(String hotelId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public ArrayList<OrderVO> show() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

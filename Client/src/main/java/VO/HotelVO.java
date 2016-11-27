@@ -1,6 +1,8 @@
 package VO;
 import Object.Hotel;
 
+import PO.HotelPO;
+
 /**
  * 酒店的属性及数据创建与更新
  * @author 刘宗侃
@@ -15,10 +17,23 @@ public class HotelVO extends VO {
 	public String hotelProfile;
 	public String hotelService;
 	public String hotelName;
-	public String hotelPhone;
-	public String hotelReservation;
 	public String hotelAccount;
 	public double score;
+	public String hotelPhone;
+	
+	public HotelVO(HotelPO hpo) {
+		hotelAccount = hpo.gethotelAccount();
+		hotelName = hpo.gethotelName();
+		hotelAddress = hpo.gethotelAddress();
+		hotelService = hpo.gethotelService();
+		hotelCity = hpo.gethotelCity();
+		hotelDistrict = hpo.gethotelDistrict();
+		hotelProfile = hpo.gethotelProfile();
+		hotelStar = hpo.gethotelStar();
+		hotelPhone = hpo.gethotelPhone();
+		score = hpo.getScore();
+	}
+	
 	public HotelVO(){};
 	public HotelVO(String id){
 		hotelName=id;
@@ -31,26 +46,24 @@ public class HotelVO extends VO {
 	 * @param hProfile String型，逻辑层传来的酒店简介
 	 * @param hService String型，逻辑层传来的酒店服务
 	 * @param hName String型，逻辑侧传来的酒店名称
-	 * @param hPhone String型，逻辑侧传来的酒店
-	 * @param hReservation String型，逻辑侧传来的酒店预订状态
 	 * @param hAccount String型，逻辑侧传来的酒店账号
 	 * @param sco double型，逻辑侧传来的酒店评分
 	 * @return
 	 * @throws
 	 * @see
 	 */
-	public HotelVO (String hAddress,String hDistrict,int hStar,String hProfile,String hService,String hName,String hPhone,String hReservation,String hAccount,double sco) {
-		
+
+	public HotelVO (String hCity,String hAddress,String hDistrict,int hStar,String hProfile,String hService,String hName,String hAccount,double sco,String hPhone) {
+		hotelCity=hCity;
 		hotelAddress=hAddress;
 		hotelDistrict=hDistrict;
 		hotelStar=hStar;
 		hotelProfile=hProfile;
 		hotelService=hService;
 		hotelName=hName;
-		hotelPhone=hPhone;
-		hotelReservation=hReservation;
 		hotelAccount=hAccount;
 	    score=sco;
+	    hotelPhone = hPhone;
 	}
 	/**
      * 更新酒店信息

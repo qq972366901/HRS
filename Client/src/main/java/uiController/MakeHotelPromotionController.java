@@ -9,13 +9,19 @@ import uiService.MakeHotelPromotionUiService;
 public class MakeHotelPromotionController implements MakeHotelPromotionUiService {
 	
 	private MakeHotelPromotionView view;
+	
+	private String hotelID;
+	
+	public MakeHotelPromotionController (String id) {
+		hotelID = id;
+	}
 
 	public void setView(MakeHotelPromotionView view) {
 		this.view = view;
 	}
 
 	public void toHotelMainView() {
-		HotelMainUiService controller = new HotelMainUiController();
+		HotelMainUiService controller = new HotelMainUiController(hotelID);
 		HotelMainView view = new HotelMainView(controller);
 		controller.setView(view);
 		ClientRunner.change(view);

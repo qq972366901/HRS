@@ -1,11 +1,27 @@
 package hotelInformationOverview;
 import java.util.ArrayList;
 
+import HotelBLServiceImpl.HotelInfo;
 import Object.Hotel;
 import VO.HotelVO;
 import VO.OrderVO;
-import hotelBLService.HotelBLService_realize;
-public class HotelInformationOverviewController extends HotelBLService_realize{
+import hotelBLService.HotelBLServiceController;
+public class HotelInformationOverviewController extends HotelBLServiceController{
+	
+	/**
+     * 根据酒店帐号返回酒店详细信息
+     * 
+     * @param hotelID String型，酒店帐号
+     * @return 返回此酒店的详细信息
+     */
+	public HotelVO findByHotelID(String hotelID) {
+		HotelInfo hotelInfo = HotelInfo.getHotelInfoInstance(hotelID);
+		return hotelInfo.getHotelVO();
+	}
+	
+	
+	
+	
 	/**
      * 显示酒店的详细信息
      * 
