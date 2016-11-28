@@ -1,6 +1,7 @@
 package userBLServiceImpl;
 
 import java.rmi.RemoteException;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -9,6 +10,7 @@ import java.util.Map.Entry;
 
 import PO.CreditRecordPO;
 import VO.CreditRecordVO;
+import common.Operate;
 import dataService.CreditRecordDataService;
 import dataService.DataFactoryService;
 import rmi.RemoteHelper;
@@ -25,7 +27,8 @@ public class CreditRecord {
 	private CreditRecord(){
 		map=new HashMap<String,HashMap<String,CreditRecordVO>>();
 		HashMap<String,CreditRecordVO> hm=new HashMap<String,CreditRecordVO>();
-		CreditRecordVO crvo=new CreditRecordVO("1","2012/1/1","1",1,-50,600);
+		Calendar cal=Calendar.getInstance();
+		CreditRecordVO crvo=new CreditRecordVO("1",cal,"1",Operate.Done,-50,600);
 		hm.put(crvo.orderID, crvo);
 		map.put("1",hm);//暂时这样初始化，需要从数据层取数据
 		//df=RemoteHelper.getInstance().getDataFactoryService();
@@ -38,10 +41,7 @@ public class CreditRecord {
 		}
 		return creditRecord;
 	}
-	/**
-	 * 提供客户的当前信用值给Cerdit使用
-	 * @return
-	 */
+	/*
 	public HashMap<String,Long> getCurrentCredit(){
 		HashMap<String, Long> list=new HashMap<String,Long>();
 		for (Entry<String, HashMap<String,CreditRecordVO>> entry : map.entrySet()) {
@@ -55,7 +55,7 @@ public class CreditRecord {
 		    list.put(id, vo.currentcredit);
 		}
 		return list;
-	}
+	}*/
 	/**
 	 * 显示信用记录
 	 * @param id String型，界面层传来的客户ID

@@ -1,6 +1,7 @@
 package uiController;
 
 import java.util.List;
+import java.util.Vector;
 
 import VO.PromotionVO;
 import WebPromotionView.WebPromotionStrategyView;
@@ -15,18 +16,15 @@ public class WebPromotionStrategyUiController implements WebPromotionStrategyUiS
 	private WebPromotionStrategyView view;
 	private PromotionBLService proService;
 	public WebPromotionStrategyUiController(){
-		proService=new PromotionController();
+		this.proService=new PromotionController();
 	}
-
 	@Override
 	public void setView(WebPromotionStrategyView view) {
-		// TODO Auto-generated method stub
 		this.view=view;
 	}
 
 	@Override
 	public void toWebPromotionUserView() {
-		// TODO Auto-generated method stub
 		webPromotionUserUiService controller=new webPromotionUserUiController();
 		WebPromotionUserView view=new WebPromotionUserView(controller);
 		controller.setView(view);
@@ -34,33 +32,40 @@ public class WebPromotionStrategyUiController implements WebPromotionStrategyUiS
 	}
 
 	@Override
-	public List<PromotionVO> getAllWebPromotion() {
-		// TODO Auto-generated method stub
+	public Vector<Vector<String> > getAllWebPromotion() {
 		return proService.getAllWebPromotion();
 
 	}
 
 	@Override
 	public void addButtonClicked() {
-		// TODO Auto-generated method stub
 		view.addButtonClicked();
 	}
 
 	@Override
 	public void delButtonClicked() {
-		// TODO Auto-generated method stub
 		view.delButtonClicked();
 	}
 
 	@Override
-	public boolean deleteStrategy(int strategyNo) {
-		// TODO Auto-generated method stub
+	public boolean deleteStrategy(String strategyNo) {
 		return proService.deleteStrategy(strategyNo);
 	}
 	@Override
 	public void addWebPromotion(PromotionVO vo) {
-		// TODO Auto-generated method stub
-		
+		proService.madebyweb(vo);
 	}
 
+	@Override
+	public void addCircle(String city) {
+		Vector<String> circles=proService.getCircle(city);
+		view.addCircle(circles);
+	}
+    public List<String> addCity(){
+    	return proService.getCity();
+    }
+	@Override
+	public void updateListModel() {
+		view.updateListModel();	
+	}
 }

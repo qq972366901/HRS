@@ -4,10 +4,12 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
+import PO.CreditPO;
 import PO.HotelPO;
 import PO.OrderPO;
 import PO.UserPO;
 import VO.OrderVO;
+import dataService.CreditDataService;
 import dataService.DataFactoryService;
 import dataService.HotelDataService;
 import dataService.OrderDataService;
@@ -21,6 +23,7 @@ import rmi.RemoteHelper;
 public class OrderList {
        private DataFactoryService DataFactory;
        private RemoteHelper remote;
+       private CreditDataService creditData;
        private OrderDataService orderData;
        private HotelDataService hotelData;
        private UserDataService userData;
@@ -28,13 +31,14 @@ public class OrderList {
        public OrderList() {
     	   remote=remote.getInstance();
     	   DataFactory=remote.getDataFactoryService();
-    	   try {
-			orderData= (OrderDataService) DataFactory.getDataService("Order");
-			userData= (UserDataService) DataFactory.getDataService("User");
-		} catch (RemoteException e) {
+    	   //try {
+			//orderData= (OrderDataService) DataFactory.getDataService("Order");
+			//userData= (UserDataService) DataFactory.getDataService("User");
+			//creditData=(CreditDataService) DataFactory.getDataService("Credit");
+		//} catch (RemoteException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			//e.printStackTrace();
+		//}
     	   
        }
        
@@ -64,10 +68,10 @@ public class OrderList {
    		}*/
    		
 		
-   		 UserPO user = userData.find(userid);
-		
+   		UserPO user = userData.find(userid);
+		CreditPO credit=creditData.find(userid);
    		for(OrderPO order:polist){
-   			volist.add(new OrderVO(user,order));
+   			volist.add(new OrderVO(credit,user,order));
    		}
 		return volist;
 		} catch (RemoteException e) {
@@ -238,10 +242,11 @@ public class OrderList {
 		try {
 			//List<OrderPO> order=orderData.findByHotelID(userID,hotelID);
 		List<OrderPO> order=new ArrayList<OrderPO>();		
-		UserPO	user = userData.find(userID);	
+		UserPO	user = userData.find(userID);
+		CreditPO credit=creditData.find(userID);
 		List<OrderVO> orderlist=new ArrayList<OrderVO>();
 		for(OrderPO a:order){
-			orderlist.add(new OrderVO(user,a));
+			orderlist.add(new OrderVO(credit,user,a));
 		}
 		return orderlist;
 		} catch (RemoteException e) {

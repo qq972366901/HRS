@@ -1,9 +1,11 @@
 package uiService;
 
+import java.util.Calendar;
 import java.util.List;
 
 import HotelWorkerView.ProcessOrderView;
 import VO.OrderVO;
+import common.Operate;
 import common.UserType;
 
 public interface ProcessOrderUiService {
@@ -32,4 +34,6 @@ public interface ProcessOrderUiService {
 	public void back();
 
 	public void cancelAbnormalOrder();
+
+	public void recover(Calendar calendar, String orderNo, Operate appeal, String strategy, int value, String userID);
 }

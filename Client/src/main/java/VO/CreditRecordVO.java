@@ -1,6 +1,10 @@
 package VO;
 
+import java.util.Calendar;
+import java.util.Vector;
+
 import PO.CreditRecordPO;
+import common.Operate;
 
 /**
  * 信用记录的属性及数据创建与更新
@@ -9,19 +13,19 @@ import PO.CreditRecordPO;
  * @see Object.CreditRecord
  */
 
-public class CreditRecordVO extends VO {
+public class CreditRecordVO{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	public String account;//即客户ID
-	public String time;
+	public Calendar time;
 	public String orderID;
-	public int action;
+	public Operate action;
 	public long creditchange;
 	public long currentcredit;
-	public CreditRecordVO(String a,String t,String id,int act,long cre,long cur){
+	public CreditRecordVO(String a,Calendar t,String id,Operate act,long cre,long cur){
 		account=a;
 		time=t;
 		orderID=id;

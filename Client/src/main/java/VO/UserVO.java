@@ -1,6 +1,7 @@
 package VO;
 
 import java.util.Calendar;
+import java.util.Vector;
 
 import common.UserType;
 
@@ -11,13 +12,15 @@ import common.UserType;
  * @see Object.Customer
  */
 
-public class UserVO extends VO {
+public class UserVO{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public String username;
 	public String id;
 	public String contactway;
-	public int level;
-	public long credit;
 	public String membertype;
 	public UserType type;
 	public Calendar birthday;
@@ -25,12 +28,10 @@ public class UserVO extends VO {
 
 	public UserVO(){
 	}
-	public UserVO(String usern,String ID,String contact,int le,long cr,String mt,UserType t,Calendar birth,String enter){
+	public UserVO(String usern,String ID,String contact,String mt,UserType t,Calendar birth,String enter){
 		username=usern;
 		id=ID;
 		contactway=contact;
-		level=le;
-		credit=cr;
 		membertype=mt;
 		type=t;
 		birthday=birth;
@@ -49,8 +50,6 @@ public class UserVO extends VO {
 		enterprise=user.enterprise;
 		birthday=user.birthday;
 		membertype=user.membertype;
-		credit=user.credit;
-		level=user.level;
 	}
 	
 	/**

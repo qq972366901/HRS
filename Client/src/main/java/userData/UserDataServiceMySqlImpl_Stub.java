@@ -20,7 +20,7 @@ public class UserDataServiceMySqlImpl_Stub implements Serializable,dataService.U
 		System.out.println("Find Succeed!");
 		Calendar time1=Calendar.getInstance();
 		time1.set(2016,11,11);
-		UserPO po=new UserPO("lz","1","xxx","54290544383",2,"企业会员",UserType.Customer,time1,"xxx");
+		UserPO po=new UserPO("lz","1","xxx","54290544383","企业会员",UserType.Customer,time1,"xxx");
 		return po;
 	}
 

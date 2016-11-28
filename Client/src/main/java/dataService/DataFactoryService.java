@@ -3,6 +3,7 @@ package dataService;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
+import dataService.DataService;
 /**
  * 职责是定义提供数据接口的接口
  * @author LZ

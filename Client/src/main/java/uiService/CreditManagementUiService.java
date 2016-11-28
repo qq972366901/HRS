@@ -1,5 +1,6 @@
 package uiService;
 
+import VO.CreditRecordVO;
 import WebPromotionView.CreditManagementView;
 
 public interface CreditManagementUiService {
@@ -8,6 +9,7 @@ public interface CreditManagementUiService {
 
 	public void toWebPromotionUserView();
 
-	public void updateCredit(String acc, int value);
+	public void updateCredit(CreditRecordVO vo);
 
+	public long getCurrencredit(String acc);
 }

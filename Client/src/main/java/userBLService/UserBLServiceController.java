@@ -1,6 +1,7 @@
 package userBLService;
 
 import java.rmi.RemoteException;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.swing.JLabel;
@@ -39,19 +40,18 @@ public class UserBLServiceController implements UserBLService {
 	
 	/**
 	 * 根据客户ID查找客户信息并返回
-	 * @param  in MessageInput型，界面输入的客户ID
-	 * @return 返回ResultMessage的所有枚举值
-	 * @see bussinesslogic.Customer
+	 * @param  userID String型，界面输入的客户ID
+	 * @return 返回UserVO
+	 * @see Customer.User
 	 */
 	public UserVO findByID(String userID) {
 		return userInfomationMaintenanceController.findByID(userID);
 	}
 	/**
 	 * 更新客户信息
-	 * @param in MessageInput型，界面输入的更新信息
-	 * @return 返回ResultMessage的一个枚举值
-	 * @throws RemoteException 
-	 * @see bussinesslogic.Customer
+	 * @param vo UserVO型，界面输入的更新信息
+	 * @param passwordo String型，用户的密码
+	 * @see Customer.User
 	 */
 	public void update(UserVO vo,String password) {
 		try {
@@ -63,10 +63,10 @@ public class UserBLServiceController implements UserBLService {
 	}
 	/**
 	 * 新增客户信息
-	 * @param in MessageInput型，界面输入的新增信息
-	 * @return 返回ResultMessage的一个枚举值
-	 * @throws RemoteException 
-	 * @see bussinesslogic.Customer
+	 * @param vo UserVO型，界面输入的新增信息
+	 * @param passwordo String型，用户的密码
+	 * @return 返回布尔值表示成功与否
+	 * @see Customer.User
 	 */
 	public boolean add(UserVO vo,String password) {
 		try {
@@ -79,10 +79,8 @@ public class UserBLServiceController implements UserBLService {
 	}
 	/**
 	 * 删除客户信息
-	 * @param in MessageInput型，界面选择删除的信息
-	 * @return 返回ResultMessage的一个枚举值
-	 * @throws RemoteException 
-	 * @see bussinesslogic.Customer
+	 * @param id String型，界面选择的用户
+	 * @see Customer.User
 	 */
 	public void delete(String id) {
 		try {
@@ -94,28 +92,18 @@ public class UserBLServiceController implements UserBLService {
 	}
 	/**
 	 * 显示信用值
-	 * @param in MessageInput型，界面输入用户ID
-	 * @return String型，返回客户的信用值
-	 * @see bussinesslogic.Customer
+	 * @param userID String型，界面输入用户ID
+	 * @return long型，返回客户的信用值
+	 * @see Customer.User
 	 */
 	public long showCredit(String userID) {
 		return userCreditRecordController.showCredit(userID);
 	}
 	/**
-	 * 通过充值更新信用值
-	 * @param in MessageInput型，界面输入的更新信息
-	 * @return 返回ResultMessage的一个枚举值
-	 * @see bussinesslogic.Customer
-	 */
-	public void updateCredit(String id,long val) {
-		userCreditManagementController.updateCredit(id,val);
-	}
-	/**
 	 * 更新会员等级
-	 * @param in MessageInput型，界面输入的更新信息
-	 * @return 返回ResultMessage的一个枚举值
-	 * @throws RemoteException 
-	 * @see bussinesslogic.Customer
+	 * @param id String型，界面输入的用户账号
+	 * @param credit long型，界面传入的信用值
+	 * @see Customer.User
 	 */
 	public void updateLevel(String id,long credit) {
 		try {
@@ -127,17 +115,24 @@ public class UserBLServiceController implements UserBLService {
 	}
 	/**
 	 * 根据信用记录更新信用值
-	 * @param in MessageInput型，界面输入的更新信息
-	 * @return 返回ResultMessage的一个枚举值
-	 * @see bussinesslogic.Customer
+	 * @param vo CreditRecordVO型，界面传入的CreditRecordVO
+	 * @throws RemoteException 
+	 * @see Customer.User
 	 */
-	public ResultMessage updateCreditRecord(UserVO vo) {
-		return userCreditManagementController.updateCreditRecord(vo);
+	public void updateCreditRecord(CreditRecordVO vo) {
+		try {
+			userCreditManagementController.updateCreditRecord(vo);
+			updateLevel(vo.account,vo.currentcredit);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	/**
 	 * 客户注册
-	 * @param in MessageInput型，界面输入的注册信息
-	 * @see bussinesslogic.Customer
+	 * @param vo UserVO型，界面传入的VO对象
+	 * @param password String型，界面传入的客户密码
+	 * @see Customer.User
 	 */
 	public void register(UserVO vo,String password) {
 		try {
@@ -149,9 +144,9 @@ public class UserBLServiceController implements UserBLService {
 	}
 	/**
 	 * 客户登录
-	 * @param ID String型，password String型，界面输入的登录信息
-	 * @return 返回布尔值，表示登陆是否成功
-	 * @see bussinesslogic.Customer
+	 * @param ID String型，界面输入的用户账号
+	 * @param password型，界面输入的用户账号
+	 * @see Customer.User
 	 */
 	public boolean login(String ID, String password)throws RemoteException {
 		return userRegisterAndLogController.login(ID, password);
@@ -166,8 +161,11 @@ public class UserBLServiceController implements UserBLService {
 	}
 	/**
 	 * 信用记录显示
+	 * @param id String型，界面传入的客户账号
+	 * @return 返回信用记录列表
+	 * @see Customer.User
 	 */
-	public List<CreditRecordVO> showCreditRecord(String userID) {
+	public HashMap<String,CreditRecordVO> showCreditRecord(String userID) {
 		return userCreditRecordController.showCreditRecord(userID);
 	}
 	/**

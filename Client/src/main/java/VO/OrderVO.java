@@ -1,5 +1,7 @@
 package VO;
 import java.util.Calendar;
+import java.util.Vector;
+
 import PO.*;
 import Object.Order;
 
@@ -10,8 +12,12 @@ import Object.Order;
  * @see Object.Order
  */
 
-public class OrderVO extends VO {
-    public String userID;
+public class OrderVO extends  Vector<String>{
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public String userID;
     public int userLevel;
     public long credit;
     public String hotelID;
@@ -147,8 +153,8 @@ public class OrderVO extends VO {
 		comment=po.getComment();
 		score=po.getScore();	
     }
-    public OrderVO (UserPO po1,OrderPO po){
-    	userLevel=po1.getLevel();
+    public OrderVO (CreditPO credit,UserPO po1,OrderPO po){
+    	userLevel=credit.getLevel();
     	userID=po1.getAccount();
 		orderNumber=po.getOrderNumber();
 		orderState=po.getOrderState();

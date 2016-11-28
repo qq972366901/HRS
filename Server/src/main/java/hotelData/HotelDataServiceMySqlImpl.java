@@ -3,6 +3,7 @@ package hotelData;
 import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.List;
 
 import PO.HotelPO;
 /**
@@ -132,6 +133,11 @@ public class HotelDataServiceMySqlImpl implements Serializable,dataService.Hotel
 	 */
 	@Override
 	public ArrayList<HotelPO> findByScore(double sco) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public List<HotelPO> getHistoryHotelByUser(String userID) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -1,13 +1,11 @@
 package orderBLImpl;
 
 import java.rmi.RemoteException;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-
+import PO.CreditPO;
 import PO.OrderPO;
 import PO.UserPO;
 import VO.OrderVO;
+import dataService.CreditDataService;
 import dataService.DataFactoryService;
 import dataService.HotelDataService;
 import dataService.OrderDataService;
@@ -23,15 +21,17 @@ public class OrderLineItem {
     private OrderDataService orderData;
     private HotelDataService hotelData;
     private UserDataService userData;
+    private CreditDataService creditData;
     public OrderLineItem() {
  	   DataFactory=RemoteHelper.getInstance().getDataFactoryService();
-	   try {
-		orderData= (OrderDataService) DataFactory.getDataService("Order");
-		userData= (UserDataService) DataFactory.getDataService("User");
-	} catch (RemoteException e) {
+	   //try {
+		//orderData= (OrderDataService) DataFactory.getDataService("Order");
+		//userData= (UserDataService) DataFactory.getDataService("User");
+		//creditData=(CreditDataService) DataFactory.getDataService("Credit");
+	//} catch (RemoteException e) {
 		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
+		//e.printStackTrace();
+	//}
 	   
  	   
     }
@@ -49,7 +49,8 @@ public class OrderLineItem {
 		try {
 			OrderPO order=orderData.find(OrderID);
 			UserPO user = userData.find(userID);
-			return new OrderVO(user,order);		
+			CreditPO credit=creditData.find(userID);
+			return new OrderVO(credit,user,order);		
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -2,12 +2,15 @@ package uiController;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import HotelWorkerView.HotelMainView;
 import HotelWorkerView.ProcessOrderView;
+import VO.CreditRecordVO;
 import VO.OrderVO;
 import WebPromotionView.WebPromotionUserView;
+import common.Operate;
 import common.UserType;
 import orderBLService.OrderBLService;
 import orderBLService.OrderBLServiceController;
@@ -17,6 +20,7 @@ import uiService.ProcessOrderUiService;
 import uiService.webPromotionUserUiService;
 import userBLService.UserBLService;
 import userBLService.UserBLServiceController;
+import userBLServiceImpl.Credit;
 
 public class ProcessOrderUiController implements ProcessOrderUiService{
 	private String hotelId;
@@ -119,6 +123,26 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 	@Override
 	public void cancelAbnormalOrder() {
 		view.cancelAbnormalOrder();
+	}
+	/**
+	 * 恢复客户信用值
+	 * @throws RemoteException 
+	 */
+	@Override
+	public void recover(Calendar calendar, String orderNo, Operate appeal, String strategy, int value, String userID) {
+		long currentcredit=Credit.getInstance().showCredit(userID);
+		if(strategy.equals("全部")){
+			currentcredit+=value;
+		}
+		else{
+			currentcredit+=(value/2);
+		}
+		CreditRecordVO vo=new CreditRecordVO(userID,calendar,orderNo,appeal,value,currentcredit);
+		try {
+			Credit.getInstance().updateCredit(vo);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

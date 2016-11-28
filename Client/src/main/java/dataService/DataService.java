@@ -10,5 +10,5 @@ import java.rmi.Remote;
  * @see
  */
 public interface DataService extends Remote,Serializable{
-
+	
 }

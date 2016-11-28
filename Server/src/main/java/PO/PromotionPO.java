@@ -3,11 +3,12 @@ package PO;
 import java.io.Serializable;
 import java.util.Calendar;
 /**
- * 促销策略的数据实体
+ * 淇冮攢绛栫暐鐨勬暟鎹疄浣�
  * @author LZ
  * @version 1.0
  * @see
  */
+
 public class PromotionPO extends PO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String promotionNumber;
@@ -23,16 +24,16 @@ public class PromotionPO extends PO implements Serializable{
 	private int[] creditOfLevel=new int[5];
 	private double[] discountOfLevel=new double[5];
 	/**
-	 * 构造普通促销策略
-	 * @param promotionnumber String型，逻辑层传来的策略编号
-	 * @param promotionname String型，逻辑层传来的策略名称
-	 * @param promotionbegintime Time型，逻辑层传来的策略开始时间
-	 * @param promotionendtime Time型，逻辑层传来的策略结束时间
-	 * @param usertype Time型，逻辑层传来的客户类型
-	 * @param hotelbusinesscircle String型，逻辑层传来的适用商圈
-	 * @param usershipgrade int型，逻辑层传来的客户适用等级
-	 * @param num int型，逻辑层传来的最低订购数量
-	 * @param promotiondiscount double型，逻辑层传来的折扣
+	 * 鏋勯�犳櫘閫氫績閿�绛栫暐
+	 * @param promotionnumber String鍨嬶紝閫昏緫灞備紶鏉ョ殑绛栫暐缂栧彿
+	 * @param promotionname String鍨嬶紝閫昏緫灞備紶鏉ョ殑绛栫暐鍚嶇О
+	 * @param promotionbegintime Time鍨嬶紝閫昏緫灞備紶鏉ョ殑绛栫暐寮�濮嬫椂闂�
+	 * @param promotionendtime Time鍨嬶紝閫昏緫灞備紶鏉ョ殑绛栫暐缁撴潫鏃堕棿
+	 * @param usertype Time鍨嬶紝閫昏緫灞備紶鏉ョ殑瀹㈡埛绫诲瀷
+	 * @param hotelbusinesscircle String鍨嬶紝閫昏緫灞備紶鏉ョ殑閫傜敤鍟嗗湀
+	 * @param usershipgrade int鍨嬶紝閫昏緫灞備紶鏉ョ殑瀹㈡埛閫傜敤绛夌骇
+	 * @param num int鍨嬶紝閫昏緫灞備紶鏉ョ殑鏈�浣庤璐暟閲�
+	 * @param promotiondiscount double鍨嬶紝閫昏緫灞備紶鏉ョ殑鎶樻墸
 	 * @return
 	 * @throws
 	 * @see
@@ -49,9 +50,9 @@ public class PromotionPO extends PO implements Serializable{
 	     promotionDiscount=promotiondiscount;
 	 }
 	/**
-	 * 构造会员等级制度
-	 * @param a int[]型，逻辑层传来的每个等级的信用值
-	 * @param b int[]型。逻辑层传来的每个等级的折扣
+	 * 鏋勯�犱細鍛樼瓑绾у埗搴�
+	 * @param a int[]鍨嬶紝閫昏緫灞備紶鏉ョ殑姣忎釜绛夌骇鐨勪俊鐢ㄥ��
+	 * @param b int[]鍨嬨�傞�昏緫灞備紶鏉ョ殑姣忎釜绛夌骇鐨勬姌鎵�
 	 * @return
 	 * @throws
 	 * @see
@@ -65,9 +66,9 @@ public class PromotionPO extends PO implements Serializable{
 		}
 	}
 	/**
-	 * 获取每个等级的信用值
+	 * 鑾峰彇姣忎釜绛夌骇鐨勪俊鐢ㄥ��
 	 * @param
-	 * @return 返回每个等级的信用值
+	 * @return 杩斿洖姣忎釜绛夌骇鐨勪俊鐢ㄥ��
 	 * @throws
 	 * @see
 	 */
@@ -75,8 +76,8 @@ public class PromotionPO extends PO implements Serializable{
 		 return creditOfLevel;
 	 }
 	 /**
-		 * 设置策略每个等级信用值
-		 * @param a int[]型，逻辑层传来的每个等级的信用值
+		 * 璁剧疆绛栫暐姣忎釜绛夌骇淇＄敤鍊�
+		 * @param a int[]鍨嬶紝閫昏緫灞備紶鏉ョ殑姣忎釜绛夌骇鐨勪俊鐢ㄥ��
 		 * @return 
 		 * @throws
 		 * @see
@@ -87,9 +88,9 @@ public class PromotionPO extends PO implements Serializable{
 		}
 	 }
 	 /**
-		 * 获取每个等级的折扣
+		 * 鑾峰彇姣忎釜绛夌骇鐨勬姌鎵�
 		 * @param
-		 * @return 返回每个等级的折扣
+		 * @return 杩斿洖姣忎釜绛夌骇鐨勬姌鎵�
 		 * @throws
 		 * @see
 		 */
@@ -97,8 +98,8 @@ public class PromotionPO extends PO implements Serializable{
 		 return discountOfLevel;
 	 }
 	 /**
-		 * 设置策略每个等级折扣
-		 * @param b int[]型。逻辑层传来的每个等级的折扣
+		 * 璁剧疆绛栫暐姣忎釜绛夌骇鎶樻墸
+		 * @param b int[]鍨嬨�傞�昏緫灞備紶鏉ョ殑姣忎釜绛夌骇鐨勬姌鎵�
 		 * @return
 		 * @throws
 		 * @see
@@ -109,9 +110,9 @@ public class PromotionPO extends PO implements Serializable{
 			}
 	 }
 	 /**
-		 * 获取策略编号
+		 * 鑾峰彇绛栫暐缂栧彿
 		 * @param
-		 * @return 返回策略编号
+		 * @return 杩斿洖绛栫暐缂栧彿
 		 * @throws
 		 * @see
 		 */
@@ -119,8 +120,8 @@ public class PromotionPO extends PO implements Serializable{
 	     return promotionNumber;
 	 }
 	 /**
-		 * 设置策略编号
-		 * @param number String型，逻辑层传来的策略编号
+		 * 璁剧疆绛栫暐缂栧彿
+		 * @param number String鍨嬶紝閫昏緫灞備紶鏉ョ殑绛栫暐缂栧彿
 		 * @return
 		 * @throws
 		 * @see
@@ -129,9 +130,9 @@ public class PromotionPO extends PO implements Serializable{
 	     promotionNumber=number;
 	 }
 	 /**
-		 * 获取策略名称
+		 * 鑾峰彇绛栫暐鍚嶇О
 		 * @param
-		 * @return 返回策略名称
+		 * @return 杩斿洖绛栫暐鍚嶇О
 		 * @throws
 		 * @see
 		 */
@@ -139,8 +140,8 @@ public class PromotionPO extends PO implements Serializable{
 	     return promotionName;
 	 }
 	 /**
-		 * 设置策略名称
-		 * @param name String型，逻辑层传来的策略名称
+		 * 璁剧疆绛栫暐鍚嶇О
+		 * @param name String鍨嬶紝閫昏緫灞備紶鏉ョ殑绛栫暐鍚嶇О
 		 * @return
 		 * @throws
 		 * @see
@@ -149,9 +150,9 @@ public class PromotionPO extends PO implements Serializable{
 	     promotionName=name;
 	 }
 	 /**
-		 * 获取策略状态
+		 * 鑾峰彇绛栫暐鐘舵��
 		 * @param
-		 * @return 返回策略状态
+		 * @return 杩斿洖绛栫暐鐘舵��
 		 * @throws
 		 * @see
 		 */
@@ -159,8 +160,8 @@ public class PromotionPO extends PO implements Serializable{
 	     return promotionState;
 	 }
 	 /**
-		 * 设置策略状态
-		 * @param state int型，逻辑层传来的策略状态
+		 * 璁剧疆绛栫暐鐘舵��
+		 * @param state int鍨嬶紝閫昏緫灞備紶鏉ョ殑绛栫暐鐘舵��
 		 * @return
 		 * @throws
 		 * @see
@@ -169,9 +170,9 @@ public class PromotionPO extends PO implements Serializable{
 	     promotionState=state;
 	 }
 	 /**
-		 * 获取策略开始时间
+		 * 鑾峰彇绛栫暐寮�濮嬫椂闂�
 		 * @param
-		 * @return 返回策略开始时间
+		 * @return 杩斿洖绛栫暐寮�濮嬫椂闂�
 		 * @throws
 		 * @see
 		 */
@@ -179,8 +180,8 @@ public class PromotionPO extends PO implements Serializable{
 	     return promotionBegintime;
 	 }
 	 /**
-		 * 设置策略开始时间
-		 * @param begintime Time型，逻辑层传来的开始时间
+		 * 璁剧疆绛栫暐寮�濮嬫椂闂�
+		 * @param begintime Time鍨嬶紝閫昏緫灞備紶鏉ョ殑寮�濮嬫椂闂�
 		 * @return
 		 * @throws
 		 * @see
@@ -189,9 +190,9 @@ public class PromotionPO extends PO implements Serializable{
 	     promotionBegintime=begintime;
 	 }
 	 /**
-		 * 获取策略结束时间
+		 * 鑾峰彇绛栫暐缁撴潫鏃堕棿
 		 * @param
-		 * @return 返回策略结束时间
+		 * @return 杩斿洖绛栫暐缁撴潫鏃堕棿
 		 * @throws
 		 * @see
 		 */
@@ -199,8 +200,8 @@ public class PromotionPO extends PO implements Serializable{
 	     return promotionEndtime;
 	 }
 	 /**
-		 * 设置策略结束时间
-		 * @param endtime Time型，逻辑层传来的结束时间
+		 * 璁剧疆绛栫暐缁撴潫鏃堕棿
+		 * @param endtime Time鍨嬶紝閫昏緫灞備紶鏉ョ殑缁撴潫鏃堕棿
 		 * @return
 		 * @throws
 		 * @see
@@ -209,9 +210,9 @@ public class PromotionPO extends PO implements Serializable{
 	     promotionEndtime=endtime;
 	 }
 	 /**
-		 * 获取客户适用类型
+		 * 鑾峰彇瀹㈡埛閫傜敤绫诲瀷
 		 * @param
-		 * @return 返回客户适用类型
+		 * @return 杩斿洖瀹㈡埛閫傜敤绫诲瀷
 		 * @throws
 		 * @see
 		 */   
@@ -219,8 +220,8 @@ public class PromotionPO extends PO implements Serializable{
 	     return applyuserType;
 	 }
 	 /**
-		 * 设置客户适用种类
-		 * @param type String 型，逻辑层传来的客户适用种类
+		 * 璁剧疆瀹㈡埛閫傜敤绉嶇被
+		 * @param type String 鍨嬶紝閫昏緫灞備紶鏉ョ殑瀹㈡埛閫傜敤绉嶇被
 		 * @return
 		 * @throws
 		 * @see
@@ -229,9 +230,9 @@ public class PromotionPO extends PO implements Serializable{
 	    applyuserType=type;
 	 }
 	 /**
-		 * 获取适用商圈
+		 * 鑾峰彇閫傜敤鍟嗗湀
 		 * @param 
-		 * @return 返回适用商圈
+		 * @return 杩斿洖閫傜敤鍟嗗湀
 		 * @throws
 		 * @see
 		 */
@@ -239,8 +240,8 @@ public class PromotionPO extends PO implements Serializable{
 	    return applybusinesscircle;
 	 }
 	 /**
-		 * 设置适用商圈
-		 * @param circle String型，逻辑层传来的适用商圈
+		 * 璁剧疆閫傜敤鍟嗗湀
+		 * @param circle String鍨嬶紝閫昏緫灞備紶鏉ョ殑閫傜敤鍟嗗湀
 		 * @return
 		 * @throws
 		 * @see
@@ -249,9 +250,9 @@ public class PromotionPO extends PO implements Serializable{
 		 applybusinesscircle=circle;
 	 }
 	 /**
-		 * 获取客户适用等级
+		 * 鑾峰彇瀹㈡埛閫傜敤绛夌骇
 		 * @param
-		 * @return 返回客户适用等级
+		 * @return 杩斿洖瀹㈡埛閫傜敤绛夌骇
 		 * @throws
 		 * @see
 		 */
@@ -259,8 +260,8 @@ public class PromotionPO extends PO implements Serializable{
 	     return applyuserShipgrade;
 	 }
 	 /**
-		 * 设置客户适用等级
-		 * @param grade int型，逻辑层传来的客户适用等级
+		 * 璁剧疆瀹㈡埛閫傜敤绛夌骇
+		 * @param grade int鍨嬶紝閫昏緫灞備紶鏉ョ殑瀹㈡埛閫傜敤绛夌骇
 		 * @return
 		 * @throws
 		 * @see
@@ -269,9 +270,9 @@ public class PromotionPO extends PO implements Serializable{
 	     applyuserShipgrade=grade;
 	 }
 	 /**
-		 * 获取最低订购数量
+		 * 鑾峰彇鏈�浣庤璐暟閲�
 		 * @param
-		 * @return 返回最低订购数量
+		 * @return 杩斿洖鏈�浣庤璐暟閲�
 		 * @throws
 		 * @see
 		 */
@@ -279,8 +280,8 @@ public class PromotionPO extends PO implements Serializable{
 	     return miniNum;
 	 }
 	 /**
-		 * 设置最低订购数量
-		 * @param num int型，逻辑层传来的最低订购数量
+		 * 璁剧疆鏈�浣庤璐暟閲�
+		 * @param num int鍨嬶紝閫昏緫灞備紶鏉ョ殑鏈�浣庤璐暟閲�
 		 * @return
 		 * @throws
 		 * @see
@@ -289,9 +290,9 @@ public class PromotionPO extends PO implements Serializable{
 	     miniNum=num;
 	 }
 	 /**
-		 * 获取策略折扣
+		 * 鑾峰彇绛栫暐鎶樻墸
 		 * @param
-		 * @return 返回策略折扣
+		 * @return 杩斿洖绛栫暐鎶樻墸
 		 * @throws
 		 * @see
 		 */
@@ -299,8 +300,8 @@ public class PromotionPO extends PO implements Serializable{
 	     return promotionDiscount;
 	 }
 	 /**
-		 * 设置策略折扣
-		 * @param discount double型，逻辑层传来的策略折扣
+		 * 璁剧疆绛栫暐鎶樻墸
+		 * @param discount double鍨嬶紝閫昏緫灞備紶鏉ョ殑绛栫暐鎶樻墸
 		 * @return
 		 * @throws
 		 * @see

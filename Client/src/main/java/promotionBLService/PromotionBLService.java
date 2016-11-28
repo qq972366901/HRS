@@ -29,7 +29,7 @@ public interface PromotionBLService {
      * @return 返回ResultMessage枚举值中的一项
      * @see bussinesslogic.Promotion
      */
-	public ResultMessage madebyweb (PromotionVO vo ); 
+	public void madebyweb (PromotionVO vo ); 
 
 	
 	/**
@@ -59,19 +59,26 @@ public interface PromotionBLService {
      * @return ArrayList<PromotionVO>，一个营销策略值对象的列表
      * @see bussinesslogic.Promotion
      */
-	public ArrayList<PromotionVO> getPromotion(String userID);
+	public Vector<PromotionVO> getPromotion(String userID);
 	
-	public ArrayList<PromotionVO> getAllWebPromotion();
+	public Vector<Vector<String> > getAllWebPromotion();
 
 
-	public boolean deleteStrategy(int strategyNo);
+	public boolean deleteStrategy(String strategyNo);
 
 
-	public void updateMemberLevelSystem(PromotionVO vo);
+	public void updateMemberLevelSystem(MemberLevelSystemVO vo);
 
 
-	public void addMemberLevelSystem(PromotionVO vo);
+	public void addMemberLevelSystem(MemberLevelSystemVO vo);
 
 
-	public PromotionVO getMemberLevelSystem();
+	public MemberLevelSystemVO getMemberLevelSystem();
+
+
+	public Vector<String> getCity();
+
+
+	public Vector<String> getCircle(String city);
+
 }

@@ -1,6 +1,8 @@
 package PO;
 
 import java.io.Serializable;
+
+import common.Operate;
 /**
  * 信用记录的数据实体
  * @author LZ
@@ -11,19 +13,19 @@ public class CreditRecordPO  extends PO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String crid;
 	private String time;
-	private int action;
+	private Operate action;
 	private long creditchange;
 	private long currentcredit;
 	/**
 	 * 构造信用记录实体
 	 * 
 	 * @param t String型，逻辑层传来的信用记录时间
-	 * @param act int型，逻辑层传来的动作
+	 * @param act Operate型，逻辑层传来的动作
 	 * @param ch long型，逻辑层传来的信用变化
 	 * @param cu long型，逻辑层传来的当前信用值
 	 * 
 	 */
-	public CreditRecordPO(String id,String t,int act,long ch,long cu){
+	public CreditRecordPO(String id,String t,Operate act,long ch,long cu){
 		crid=id;
 		time=t;
 		action=act;
@@ -67,21 +69,21 @@ public class CreditRecordPO  extends PO implements Serializable{
 	/**
 	 * 获取行为
 	 * @param
-	 * @return action int型
+	 * @return action Operate型
 	 * @throws 返回行为
 	 * @see
 	 */
-	public int getAction(){
+	public Operate getAction(){
 		return action;
 	}
 	/**
 	 * 设置信用记录的行为
-	 * @param act int型，逻辑层传来的行为
+	 * @param act Operate型，逻辑层传来的行为
 	 * @return
 	 * @throws
 	 * @see
 	 */
-	public void setAction(int act){
+	public void setAction(Operate act){
 		action=act;
 	}
 	/**

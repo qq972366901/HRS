@@ -24,15 +24,6 @@ public class HotelDataServiceMySqlImpl implements Serializable,dataService.Hotel
 	 * @throws RemoteException
 	 * @see PO.HotelPO
 	 */
-	/**
-	 *在数据库中查找一个用户的历史酒店
-	 * @param userid String型，用户ID
-	 * @return 此用户的历史酒店列表
-	 */
-	public List<HotelPO> getHistoryHotelByUser(String userid){
-		return null;
-	}
-	
 	@Override
 	public HotelPO find(String id) throws RemoteException {
 		// TODO Auto-generated method stub
@@ -142,6 +133,11 @@ public class HotelDataServiceMySqlImpl implements Serializable,dataService.Hotel
 	 */
 	@Override
 	public ArrayList<HotelPO> findByScore(double sco) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public List<HotelPO> getHistoryHotelByUser(String userID) {
 		// TODO Auto-generated method stub
 		return null;
 	}

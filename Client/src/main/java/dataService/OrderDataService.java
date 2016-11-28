@@ -8,10 +8,10 @@ import java.util.ArrayList;
 
 /**负责实现订单数据储存所需要的服务接口
  * @author 刘伟
- * @version 1.01
+ * @version 1.0
  * see presentation.Order
  */
-public interface OrderDataService  extends DataService, Remote{
+public interface OrderDataService  extends DataService,Remote{
 /**
  * 按ID进行查找返回相应的OrderPO结果
  * @param in MessageInput型，界面输入的订单类型

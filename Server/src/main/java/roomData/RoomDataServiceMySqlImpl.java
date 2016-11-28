@@ -2,6 +2,7 @@ package roomData;
 
 import java.io.Serializable;
 import java.rmi.RemoteException;
+import java.util.List;
 
 import PO.RoomPO;
 /**
@@ -86,6 +87,10 @@ public class RoomDataServiceMySqlImpl implements Serializable,dataService.RoomDa
 	public void finish() throws RemoteException {
 		// TODO Auto-generated method stub
 		
+	}
+	public List<RoomPO> getAllRooms(String hotelid) {
+		
+		return null;
 	}
 
 }

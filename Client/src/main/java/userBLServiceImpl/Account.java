@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import PO.UserPO;
+import VO.CreditVO;
 import VO.LogVO;
 import VO.UserVO;
 import common.UserType;
@@ -65,7 +66,7 @@ public class Account{
 		}
 	}
 	/**
-	 * 更新账户信息
+	 * 更新账户基本信息
 	 * @param vo UserVO型，界面层传来的VO对象
 	 * @throws RemoteException
 	 * @see VO.UserVO

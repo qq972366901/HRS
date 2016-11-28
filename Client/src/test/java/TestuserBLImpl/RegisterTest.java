@@ -27,7 +27,7 @@ public class RegisterTest {
 		}*/
 		Calendar time1=Calendar.getInstance();
 		time1.set(2016,11,11);
-		user1=new UserVO("1","1","1234567",1,78,"普通会员",UserType.Customer,time1,"");
+		user1=new UserVO("1","1","1234567","普通会员",UserType.Customer,time1,"");
 		register=new Register();
 	}
 	@Test

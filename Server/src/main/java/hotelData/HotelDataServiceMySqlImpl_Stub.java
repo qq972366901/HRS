@@ -3,6 +3,7 @@ package hotelData;
 import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.List;
 
 import PO.HotelPO;
 
@@ -17,7 +18,7 @@ public class HotelDataServiceMySqlImpl_Stub implements Serializable,dataService.
 	public HotelPO find(String id) throws RemoteException {
 		// TODO Auto-generated method stub
 		System.out.println("Find Succeed!");
-		HotelPO po=new HotelPO("汤山镇泉韵路8号","江宁",5,"xxx","xxx","xxx","025-87131188","xxx","xxx",4.5);
+		HotelPO po=new HotelPO("汤山镇泉韵路8号","南京","江宁",5,"xxx","xxx","xxx","xxx",4.5);
 		return po;
 	}
 
@@ -55,7 +56,7 @@ public class HotelDataServiceMySqlImpl_Stub implements Serializable,dataService.
 	public HotelPO findByName(String name) throws RemoteException {
 		// TODO Auto-generated method stub
 		System.out.println("Find Succeed!");
-		HotelPO po=new HotelPO("汤山镇泉韵路8号","江宁",5,"xxx","xxx","xxx","025-87131188","xxx","xxx",4.5);
+		HotelPO po=new HotelPO("汤山镇泉韵路8号","南京","江宁",5,"xxx","xxx","xxx","xxx",4.5);
 		return po;
 	}
 
@@ -64,7 +65,7 @@ public class HotelDataServiceMySqlImpl_Stub implements Serializable,dataService.
 		// TODO Auto-generated method stub
 		System.out.println("Find Succeed!");
 		ArrayList<HotelPO> a=new ArrayList<HotelPO>();
-		HotelPO po=new HotelPO("汤山镇泉韵路8号","江宁",5,"xxx","xxx","xxx","025-87131188","xxx","xxx",4.5);
+		HotelPO po=new HotelPO("汤山镇泉韵路8号","南京","江宁",5,"xxx","xxx","xxx","xxx",4.5);
 		a.add(po);
 		return a;
 	}
@@ -74,7 +75,7 @@ public class HotelDataServiceMySqlImpl_Stub implements Serializable,dataService.
 		// TODO Auto-generated method stub
 		System.out.println("Find Succeed!");
 		ArrayList<HotelPO> a=new ArrayList<HotelPO>();
-		HotelPO po=new HotelPO("汤山镇泉韵路8号","江宁",5,"xxx","xxx","xxx","025-87131188","xxx","xxx",4.5);
+		HotelPO po=new HotelPO("汤山镇泉韵路8号","南京","江宁",5,"xxx","xxx","xxx","xxx",4.5);
 		a.add(po);
 		return a;
 	}
@@ -84,9 +85,15 @@ public class HotelDataServiceMySqlImpl_Stub implements Serializable,dataService.
 		// TODO Auto-generated method stub
 		System.out.println("Find Succeed!");
 		ArrayList<HotelPO> a=new ArrayList<HotelPO>();
-		HotelPO po=new HotelPO("汤山镇泉韵路8号","江宁",5,"xxx","xxx","xxx","025-87131188","xxx","xxx",4.5);
+		HotelPO po=new HotelPO("汤山镇泉韵路8号","南京","江宁",5,"xxx","xxx","xxx","xxx",4.5);
 		a.add(po);
 		return a;
+	}
+
+	@Override
+	public List<HotelPO> getHistoryHotelByUser(String userID) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

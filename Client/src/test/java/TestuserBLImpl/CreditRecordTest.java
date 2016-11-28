@@ -3,12 +3,14 @@ package TestuserBLImpl;
 import static org.junit.Assert.*;
 
 import java.rmi.RemoteException;
+import java.util.Calendar;
 import java.util.HashMap;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import VO.CreditRecordVO;
+import common.Operate;
 import runner.ClientRunner;
 import userBLServiceImpl.CreditRecord;
 
@@ -25,9 +27,15 @@ public class CreditRecordTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}*/
-		cr1=new CreditRecordVO("1@nju.edu.cn","2016/2/2 12/4/6","4728",0,50,3000);
-	    cr2=new CreditRecordVO("2@nju.edu.cn","2016/2/6 12/7/6","4738",2,-50,8900);
-		cr3=new CreditRecordVO("3@nju.edu.cn","2016/2/22 13/4/6","4228",3,100,4000);
+		Calendar time1=Calendar.getInstance();
+		time1.set(2016,11,11);
+		Calendar time2=Calendar.getInstance();
+		time2.set(2016,11,11);
+		Calendar time3=Calendar.getInstance();
+		time3.set(2016,11,11);
+		cr1=new CreditRecordVO("1@nju.edu.cn",time1,"4728",Operate.Done,50,3000);
+	    cr2=new CreditRecordVO("2@nju.edu.cn",time2,"4738",Operate.Abnormal,-50,8900);
+		cr3=new CreditRecordVO("3@nju.edu.cn",time3,"4228",Operate.Done,100,4000);
 	}
 	@Test
 	public void testAdd() throws RemoteException {

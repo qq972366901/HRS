@@ -34,9 +34,9 @@ public class UserTest {
 		Calendar time3=Calendar.getInstance();
 		time3.set(2016,11,11);
 
-		user1=new UserVO("1","1","1234567",1,78,"普通会员",UserType.Customer,time1,"");
-		user2=new UserVO("2","1","1234567",5,41780,"企业会员",UserType.Customer,time2,"Goldman Sachs");
-		user3=new UserVO("3","1","1234567",2,4178,"普通会员",UserType.Customer,time3,"");
+		user1=new UserVO("1","1","1234567","普通会员",UserType.Customer,time1,"");
+		user2=new UserVO("2","1","1234567","企业会员",UserType.Customer,time2,"Goldman Sachs");
+		user3=new UserVO("3","1","1234567","普通会员",UserType.Customer,time3,"");
 		user=Customer.getUserInstance();	
 	}
 
@@ -58,15 +58,6 @@ public class UserTest {
 		String id=user1.id;
 		UserVO vo=user.findByID(id);
 		assertEquals(user1,vo);// TODO
-	}
-
-	@Test
-	public void testUpdateLevel() throws RemoteException {
-		user.create(user1,"1234567");
-		user.create(user2,"1234567");
-		user.create(user3,"1234567");
-		user.updateLevel(user3.id,user3.credit);
-		assertEquals(user.findByID(user3.id).level,3);// TODO
 	}
 
 	@Test

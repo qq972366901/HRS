@@ -69,7 +69,7 @@ public class ClientRunner implements Serializable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        	mFrame = new JFrame("HRS");
+        	mFrame = new JFrame("HRS"); 
        	 	mFrame.setSize(1000, 700);
         	mFrame.setLocation(10, 10);
         	LoginViewControllerService controller =  new LoginViewControllerImpl();
@@ -77,22 +77,6 @@ public class ClientRunner implements Serializable{
     		controller.setView(view);
     		mFrame.getContentPane().add(view);
         	mFrame.setVisible(true);
-       
-		/*DataFactoryService df=RemoteHelper.getInstance().getDataFactoryService();
-		HotelDataService dh=(HotelDataService) df.getDataService("Hotel");
-		ArrayList<HotelPO> a=new ArrayList<HotelPO>();
-		HotelPO po=dh.find("423523");
-		a=dh.findByDistrict("仙林");
-		po=dh.findByName("xxx");
-		a=dh.findByScore(4);
-		a=dh.findByStar(2);
-		dh.insert(po);
-		dh.update(po);
-		dh.delete(po);
-		dh.init();
-		dh.finish();
-        Comment cm=new Comment();
-   		 cm.updatecomment("very good", 100, "001", "001");*/
 	}
 	public static void change(JPanel view){
 		mFrame.getContentPane().removeAll();

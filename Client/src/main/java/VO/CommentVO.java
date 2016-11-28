@@ -1,8 +1,10 @@
 package VO;
 
+import java.util.Vector;
+
 import PO.OrderPO;
 
-public class CommentVO {
+public class CommentVO{
 	public String comment;
 	public int score;
 	public String UserID;

@@ -5,6 +5,7 @@ import dataService.DataService;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**负责实现酒店数据储存所需要的服务接口
  * @author 刘伟
@@ -82,4 +83,5 @@ public interface HotelDataService  extends DataService,Remote{
  * @see data.Hotel
  */
 		public void finish() throws RemoteException;
+        public List<HotelPO> getHistoryHotelByUser(String userID);
 	}

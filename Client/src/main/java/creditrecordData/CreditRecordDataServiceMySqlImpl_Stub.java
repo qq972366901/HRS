@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.rmi.RemoteException;
 
 import PO.CreditRecordPO;
+import common.Operate;
 
 public class CreditRecordDataServiceMySqlImpl_Stub implements Serializable, dataService.CreditRecordDataService{
 	/**
@@ -15,7 +16,7 @@ public class CreditRecordDataServiceMySqlImpl_Stub implements Serializable, data
 	public CreditRecordPO find(String id) throws RemoteException {
 		// TODO Auto-generated method stub
 		System.out.println("Find Succeed!");
-		CreditRecordPO po=new CreditRecordPO("3223","2016/10/15 14/03",1,16,80);
+		CreditRecordPO po=new CreditRecordPO("3223","2016/10/15 14:03:00",Operate.Done,16,80);
 		return po;
 	}
 

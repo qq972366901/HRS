@@ -1,4 +1,6 @@
 package VO;
+import java.util.Vector;
+
 import Object.Hotel;
 
 import PO.HotelPO;
@@ -9,8 +11,12 @@ import PO.HotelPO;
  * @version 1.0
  * @see Object.Hotel
  */
-public class HotelVO extends VO {
+public class HotelVO{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public String hotelAddress;
 	public String hotelDistrict;
 	public int hotelStar;
@@ -31,7 +37,6 @@ public class HotelVO extends VO {
 		hotelDistrict = hpo.gethotelDistrict();
 		hotelProfile = hpo.gethotelProfile();
 		hotelStar = hpo.gethotelStar();
-		hotelPhone = hpo.gethotelPhone();
 		score = hpo.getScore();
 	}
 	
@@ -49,12 +54,13 @@ public class HotelVO extends VO {
 	 * @param hName String型，逻辑侧传来的酒店名称
 	 * @param hAccount String型，逻辑侧传来的酒店账号
 	 * @param sco double型，逻辑侧传来的酒店评分
+	 * @param phone String型，逻辑层传来的酒店联系方式
 	 * @return
 	 * @throws
 	 * @see
 	 */
 
-	public HotelVO (String hCity,String hAddress,String hDistrict,int hStar,String hProfile,String hService,String hName,String hAccount,double sco,String hPhone) {
+	public HotelVO (String hCity,String hAddress,String hDistrict,int hStar,String hProfile,String hService,String hName,String hAccount,double sco,String phone) {
 		hotelCity=hCity;
 		hotelAddress=hAddress;
 		hotelDistrict=hDistrict;
@@ -64,7 +70,7 @@ public class HotelVO extends VO {
 		hotelName=hName;
 		hotelAccount=hAccount;
 	    score=sco;
-	    hotelPhone = hPhone;
+	    hotelPhone=phone;
 	}
 	/**
      * 更新酒店信息

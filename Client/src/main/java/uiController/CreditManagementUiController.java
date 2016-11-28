@@ -2,6 +2,7 @@ package uiController;
 
 import java.rmi.RemoteException;
 
+import VO.CreditRecordVO;
 import VO.UserVO;
 import WebPromotionView.CreditManagementView;
 import WebPromotionView.WebPromotionUserView;
@@ -34,9 +35,12 @@ public class CreditManagementUiController implements CreditManagementUiService{
 		ClientRunner.change(view);
 	}
 	@Override
-	public void updateCredit(String acc, int value) {
-		// TODO Auto-generated method stub
-		userService.updateCredit(acc,value);
+	public void updateCredit(CreditRecordVO vo) {
+		userService.updateCreditRecord(vo);
 	}
-
+	@Override
+	public long getCurrencredit(String acc) {
+		// TODO Auto-generated method stub
+		return userService.showCredit(acc);
+	}
 }

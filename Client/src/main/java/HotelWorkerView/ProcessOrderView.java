@@ -8,6 +8,7 @@ import java.awt.event.ItemListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Vector;
@@ -26,6 +27,7 @@ import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
 import VO.OrderVO;
+import common.Operate;
 import common.UserType;
 import uiService.ProcessOrderUiService;
 
@@ -381,8 +383,9 @@ public class ProcessOrderView extends JPanel{
 		}
 		
 		final int rowIndex = index;
-		final int orderNo =Integer.valueOf((String)orderTable.getValueAt(index, 0));
-		
+		final String orderNo =(String)orderTable.getValueAt(index, 0);
+		final String userID=(String)orderTable.getValueAt(index, 2);
+		final int value=(int) orderTable.getValueAt(index, 6);
 		cancelFrame = new JFrame();
 		cancelFrame.setSize(1000, 700);
 		cancelFrame.setLocation(10, 10);
@@ -397,7 +400,11 @@ public class ProcessOrderView extends JPanel{
 		strategy.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent evt) {
 				if(evt.getStateChange() == ItemEvent.SELECTED){
-
+					@SuppressWarnings("unchecked")
+					JComboBox<String> jcb = (JComboBox<String>) evt.getSource();
+					String strategy=(String) jcb.getSelectedItem();
+					Calendar calendar=Calendar.getInstance();
+					controller.recover(calendar,orderNo,Operate.Appeal,strategy,value,userID);
 				}
 			}
 		});

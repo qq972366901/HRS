@@ -10,41 +10,38 @@ import java.io.Serializable;
 public class HotelPO extends PO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String hotelAddress;
+	private String hotelCity;
 	private String hotelDistrict;
 	private int hotelStar;
 	private String hotelProfile;
 	private String hotelService;
 	private String hotelName;
-	private String hotelPhone;
-	private String hotelReservation;
 	private String hotelAccount;
 	private double score;
 	/**
 	 * 构造酒店数据实体
 	 * @param hAddress String型，逻辑层传来的酒店地址
+	 * @param hCity String型，酒店所在城市
 	 * @param hDistrict String型，逻辑层传来的酒店所在商圈
 	 * @param hStar int型，逻辑层传来的酒店星级
 	 * @param hProfile String型，逻辑层传来的酒店简介
 	 * @param hService String型，逻辑层传来的酒店服务
 	 * @param hName String型，逻辑侧传来的酒店名称
-	 * @param hPhone String型，逻辑侧传来的酒店
-	 * @param hReservation String型，逻辑侧传来的酒店预订状态
 	 * @param hAccount String型，逻辑侧传来的酒店账号
 	 * @param sco double型，逻辑侧传来的酒店评分
 	 * @return
 	 * @throws
 	 * @see
 	 */
-	public HotelPO (String hAddress,String hDistrict,int hStar,String hProfile,String hService,String hName,String hPhone,String hReservation,String hAccount,double sco) {
+	public HotelPO (String hAddress,String hCity, String hDistrict,int hStar,String hProfile,String hService,String hName,String hAccount,double sco) {
 		
 		hotelAddress=hAddress;
+		hotelCity = hCity;
 		hotelDistrict=hDistrict;
 		hotelStar=hStar;
 		hotelProfile=hProfile;
 		hotelService=hService;
 		hotelName=hName;
-		hotelPhone=hPhone;
-		hotelReservation=hReservation;
 		hotelAccount=hAccount;
 	    score=sco;
 	}
@@ -68,6 +65,26 @@ public class HotelPO extends PO implements Serializable{
     public void sethotelAddress(String hAddress){
         hotelAddress=hAddress;
     }
+	/**
+	 * 设置酒店城市
+	 * @param hCity String型，逻辑层传来的酒店城市
+	 * @return
+	 * @throws
+	 * @see
+	 */
+    public void sethotelCity(String hCity){
+        hotelCity=hCity;
+    }
+    /**
+	 * 获取酒店城市
+	 * @param
+	 * @return 返回酒店城市
+	 * @throws
+	 * @see
+	 */
+	public String gethotelCity() {
+		return hotelCity;
+	}
     /**
 	 * 获取酒店所在商圈
 	 * @param
@@ -169,46 +186,6 @@ public class HotelPO extends PO implements Serializable{
 		hotelName=hName;
 	}
     /**
-	 * 获取酒店联系方式
-	 * @param
-	 * @return 返回酒店联系方式
-	 * @throws
-	 * @see
-	 */
-	public String gethotelPhone() {
-		return hotelPhone;
-	}
-	/**
-	 * 设置酒店联系方式
-	 * @param hPhone String型，逻辑层传来的酒店联系方式
-	 * @return
-	 * @throws
-	 * @see
-	 */
-    public void sethotelPhone (String hPhone){
-		hotelPhone=hPhone;
-	}
-    /**
-	 * 获取酒店预订状态
-	 * @param
-	 * @return 返回酒店状态
-	 * @throws
-	 * @see
-	 */
-	public String gethotelReservation() {
-		return hotelReservation;
-	}
-	/**
-	 * 设置酒店状态
-	 * @param hReservation String型，逻辑层传来的酒店状态
-	 * @return
-	 * @throws
-	 * @see
-	 */
-    public void sethotelReservation (String hReservation){
-		hotelReservation=hReservation;
-	} 
-    /**
 	 * 获取酒店评分
 	 * @param
 	 * @return 返回酒店评分
@@ -248,5 +225,4 @@ public class HotelPO extends PO implements Serializable{
     public void sethotelAccount (String hAcc){
 		hotelAccount=hAcc;
 	}
-
 }

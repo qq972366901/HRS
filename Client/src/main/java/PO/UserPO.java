@@ -16,7 +16,6 @@ public class UserPO extends PO implements Serializable{
 	String userpassword;
 	private String useraccount;
 	private String contactway;
-	private int level;
 	private String membertype;
 	private UserType type;
 	private Calendar birthday;
@@ -26,7 +25,6 @@ public class UserPO extends PO implements Serializable{
 	 * @param un String型，逻辑层传来的客户名称
 	 * @param ua String型，逻辑层传来的客户账号
 	 * @param co String型，逻辑层传来的客户联系方式
-	 * @param l int型，逻辑层传来的客户会员等级
 	 * @param mt String型，逻辑层传来的客户会员种类
 	 * @param t int型，逻辑层传来的用户种类
 	 * @param b String型，逻辑层传来的客户生日
@@ -35,12 +33,11 @@ public class UserPO extends PO implements Serializable{
 	 * @throws
 	 * @see
 	 */
-	public UserPO(String un,String password,String ua,String co,int l,String mt,UserType t,Calendar b,String e){
+	public UserPO(String un,String password,String ua,String co,String mt,UserType t,Calendar b,String e){
 		username=un;
 		userpassword = password;
 		useraccount=ua;
 		contactway=co;
-		level=l;
 		type=t;
 		membertype=mt;
 		birthday=b;
@@ -83,7 +80,7 @@ public class UserPO extends PO implements Serializable{
 	/**
 	 * 获取客户账号
 	 * @param
-	 * @retur 返回客户账号
+	 * @return 返回客户账号
 	 * @throws
 	 * @see
 	 */
@@ -119,26 +116,6 @@ public class UserPO extends PO implements Serializable{
 	 */
 	public void setContact(String co){
 		contactway=co;
-	}
-	/**
-	 * 获取客户会员等级
-	 * @param
-	 * @return 返回客户会员等级
-	 * @throws
-	 * @see
-	 */
-	public int getLevel(){
-		return level;
-	}
-	/**
-	 * 设置客户会员等级
-	 * @param l int型，逻辑层传来的客户会员等级
-	 * @return 
-	 * @throws
-	 * @see
-	 */
-	public void setLevel(int l){
-		level=l;
 	}
 	/**
 	 * 获取客户会员种类

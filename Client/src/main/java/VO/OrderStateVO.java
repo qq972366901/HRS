@@ -1,10 +1,15 @@
 package VO;
 
 import java.util.Calendar;
+import java.util.Vector;
 
 import PO.OrderPO;
 
-public class OrderStateVO {
+public class OrderStateVO{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public String userID;
     public String hotelID;
 	public String orderNumber;

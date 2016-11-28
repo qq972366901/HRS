@@ -1,4 +1,6 @@
 package VO;
+import java.util.Vector;
+
 import Object.Room;
 import PO.RoomPO;
 
@@ -9,7 +11,7 @@ import PO.RoomPO;
  * @see Object.Room
  */
 
-public class RoomVO extends VO {
+public class RoomVO{
 
 	public String hotelID;
 	public String roomId;

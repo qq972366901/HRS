@@ -1,5 +1,6 @@
 package uiController;
 
+import java.util.HashMap;
 import java.util.List;
 
 import UserView.CreditView;
@@ -33,7 +34,7 @@ public class CreditViewControllerImpl implements CreditViewControllerService {
 		return id;
 	}
 	@Override
-	public List<CreditRecordVO> getCreditRecord(String id) {
+	public HashMap<String,CreditRecordVO> getCreditRecord(String id) {
 		return user.showCreditRecord(id);
 	}
 }

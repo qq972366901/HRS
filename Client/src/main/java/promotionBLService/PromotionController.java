@@ -1,8 +1,12 @@
 package promotionBLService;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+import java.util.Vector;
 
 import Object.Promotion;
+import VO.MemberLevelSystemVO;
 import VO.PromotionVO;
 import common.ResultMessage;
 
@@ -26,8 +30,8 @@ public class PromotionController implements PromotionBLService {
      * @return 返回ResultMessage枚举值中的一项
      * @see bussinesslogic.Promotion
      */
-	public ResultMessage madebyweb (PromotionVO vo ){
-		return ResultMessage.Exist;
+	public void madebyweb (PromotionVO vo ){
+
 	}
 
 	
@@ -61,43 +65,76 @@ public class PromotionController implements PromotionBLService {
      * @return ArrayList<PromotionVO>，一个营销策略值对象的列表
      * @see bussinesslogic.Promotion
      */
-	public ArrayList<PromotionVO> getPromotion(String userID){
-		return new ArrayList<PromotionVO>();
+	public Vector<PromotionVO> getPromotion(String userID){
+		return new Vector<PromotionVO>();
 	}
 
 
 	@Override
-	public ArrayList<PromotionVO> getAllWebPromotion() {
-		// TODO Auto-generated method stub
-		return new ArrayList<PromotionVO>();
+	public Vector<Vector<String> > getAllWebPromotion() {
+		//只是为了在界面上显示而已
+		Vector<Vector<String>> promotionlist=new Vector<Vector<String>>();
+		Calendar time1=Calendar.getInstance();
+		time1.set(2016,11,11);
+		Calendar time2=Calendar.getInstance();
+		time2.set(2016,11,11);
+		PromotionVO vo1=new PromotionVO("xx","xx",time1,time2,"xx","xx",5,4.5);
+		PromotionVO vo2=new PromotionVO("xx","xx",time1,time2,"xx","xx",5,4.5);
+		promotionlist.add(vo1.getPromotion());
+		promotionlist.add(vo2.getPromotion());
+		return promotionlist;
 	}
 
 
 	@Override
-	public boolean deleteStrategy(int strategyNo) {
-		// TODO Auto-generated method stub
+	public boolean deleteStrategy(String strategyNo) {
 		return true;
 	}
 
 
 	@Override
-	public void updateMemberLevelSystem(PromotionVO vo) {
-		// TODO Auto-generated method stub
-		
+	public void updateMemberLevelSystem(MemberLevelSystemVO vo) {	
 	}
 
 
 	@Override
-	public void addMemberLevelSystem(PromotionVO vo) {
-		// TODO Auto-generated method stub
-		
+	public void addMemberLevelSystem(MemberLevelSystemVO vo) {	
 	}
 
 
 	@Override
-	public PromotionVO getMemberLevelSystem() {
-		// TODO Auto-generated method stub
-		return new PromotionVO();
+	public MemberLevelSystemVO getMemberLevelSystem() {
+		return new MemberLevelSystemVO(1,2,3,4,5,9.5,8.5,7.5,6.5,5.5);
 	}
 
+
+	@Override
+	public Vector<String> getCity() {
+		Vector<String> cities=new Vector<String>();
+		cities.add("北京");
+		cities.add("上海");
+		cities.add("南京");//暂时这么写，需要调用逻辑层方法
+		return cities;
+	}
+
+	@Override
+	public Vector<String> getCircle(String city) {
+		Vector<String> circles=new Vector<String>();
+		if(city.equals("北京")){
+			circles.addElement("北1");
+			circles.addElement("北2");
+			circles.addElement("北3");
+		}
+		else if(city.equals("上海")){
+			circles.addElement("上1");
+			circles.addElement("上2");
+			circles.addElement("上3");
+		}
+		else if(city.equals("南京")){
+			circles.addElement("南1");
+			circles.addElement("南2");
+			circles.addElement("南3");
+		}
+		return circles;
+	}
 }

@@ -23,7 +23,6 @@ import rmi.RemoteHelper;
 public class Customer {
 	private HashMap<String,UserVO> map;
 	private DataFactoryService df;
-	private PromotionInfo pi;
 	private static Customer user; 
 	private Customer(){ 
 		map=new HashMap<String,UserVO>();//暂时这样初始化，事实上需要从数据层取
@@ -71,38 +70,6 @@ public class Customer {
 		return user;
 	}
 	/**
-	 * 更新用户等级
-	 * @param UserVO型，界面层传来的VO对象
-	 * @throws RemoteException
-	 * @see VO.UserVO
-	 */
-	public void updateLevel(String id ,long credit) throws RemoteException{
-		pi=new MockMemberGrade();
-		HashMap<Integer,Long> level=pi.getLevelSystem();
-		if(map.containsKey(id)){
-			if(credit<level.get(1)){
-				map.get(id).level=0;
-			}
-			else if(credit>=level.get(5)){
-				map.get(id).level=5;
-			}
-			else if(level.get(1)<=credit&&credit<level.get(2)){
-				map.get(id).level=1;
-			}
-			else if(level.get(2)<credit&&credit<level.get(3)){
-				map.get(id).level=2;
-			}
-			else if(level.get(3)<=credit&&credit<level.get(4)){
-				map.get(id).level=3;
-			}
-			else{
-				map.get(id).level=4;
-			}
-			updateUserInfo(map.get(id),Log.getLogInstance().getPassword(id));
-			Account.getInstance().update(map.get(id),Log.getLogInstance().getPassword(id));
-		}
-	}
-	/**
 	 * 更新用户信息
 	 * @param vo UserVO型，界面层传来的VO对象
 	 * @throws RemoteException
@@ -111,7 +78,7 @@ public class Customer {
 	public void updateUserInfo(UserVO vo,String password) throws RemoteException{
 		if(map.containsKey(vo.id)){
 			map.put(vo.id, vo);
-			UserPO userpo=new UserPO(vo.username,password,vo.id,vo.contactway,vo.level,vo.membertype,vo.type,vo.birthday,vo.enterprise);
+			UserPO userpo=new UserPO(vo.username,password,vo.id,vo.contactway,vo.membertype,vo.type,vo.birthday,vo.enterprise);
 			//UserDataService dh=(UserDataService) df.getDataService("User");
 			//dh.update(userpo);
 		}
@@ -126,7 +93,7 @@ public class Customer {
 	public boolean create(UserVO vo,String password) throws RemoteException{
 		if(!map.containsKey(vo.id)){
 			map.put(vo.id, vo);
-			UserPO userpo=new UserPO(vo.username,password,vo.id,vo.contactway,vo.level,vo.membertype,vo.type,vo.birthday,vo.enterprise);
+			UserPO userpo=new UserPO(vo.username,password,vo.id,vo.contactway,vo.membertype,vo.type,vo.birthday,vo.enterprise);
 			//UserDataService dh=(UserDataService) df.getDataService("User");
 			//dh.insert(userpo);
 			return true;

@@ -10,7 +10,8 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import VO.PromotionVO;
+
+import VO.MemberLevelSystemVO;
 import uiService.MemberLevelSystemUiService;
 
 public class MemberLevelSystemView extends JPanel{
@@ -63,6 +64,9 @@ public class MemberLevelSystemView extends JPanel{
 		l1=new JTextField(10);
 		JLabel d1=new JLabel("折扣：");
 		dis1=new JComboBox<Double>();
+		for(double i=0.5;i<10;i+=0.5){
+			dis1.addItem(i);
+		}
 		p3.add(level1);
 		p3.add(l1);
 		p3.add(d1);
@@ -74,6 +78,9 @@ public class MemberLevelSystemView extends JPanel{
 		l2=new JTextField(10);
 		JLabel d2=new JLabel("折扣：");
 		dis2=new JComboBox<Double>();
+		for(double i=0.5;i<10;i+=0.5){
+			dis2.addItem(i);
+		}
 		p4.add(level2);
 		p4.add(l2);
 		p4.add(d2);
@@ -85,6 +92,9 @@ public class MemberLevelSystemView extends JPanel{
 		l3=new JTextField(10);
 		JLabel d3=new JLabel("折扣：");
 		dis3=new JComboBox<Double>();
+		for(double i=0.5;i<10;i+=0.5){
+			dis3.addItem(i);
+		}
 		p5.add(level3);
 		p5.add(l3);
 		p5.add(d3);
@@ -96,6 +106,9 @@ public class MemberLevelSystemView extends JPanel{
 		l4=new JTextField(10);
 		JLabel d4=new JLabel("折扣：");
 		dis4=new JComboBox<Double>();
+		for(double i=0.5;i<10;i+=0.5){
+			dis4.addItem(i);
+		}
 		p6.add(level4);
 		p6.add(l4);
 		p6.add(d4);
@@ -107,6 +120,9 @@ public class MemberLevelSystemView extends JPanel{
 		l5=new JTextField(10);
 		JLabel d5=new JLabel("折扣：");
 		dis5=new JComboBox<Double>();
+		for(double i=0.5;i<10;i+=0.5){
+			dis5.addItem(i);
+		}
 		p7.add(level5);
 		p7.add(l5);
 		p7.add(d5);
@@ -117,8 +133,17 @@ public class MemberLevelSystemView extends JPanel{
 		confir=new JButton("确定");
 		confir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//获取内容，待补充
-				PromotionVO vo=new PromotionVO();
+				long credit1=Long.valueOf(l1.getText());
+				long credit2=Long.valueOf(l2.getText());
+				long credit3=Long.valueOf(l3.getText());
+				long credit4=Long.valueOf(l4.getText());
+				long credit5=Long.valueOf(l5.getText());
+				double discount1=Long.valueOf((String) dis1.getSelectedItem());
+				double discount2=Long.valueOf((String) dis2.getSelectedItem());
+				double discount3=Long.valueOf((String) dis3.getSelectedItem());
+				double discount4=Long.valueOf((String) dis4.getSelectedItem());
+				double discount5=Long.valueOf((String) dis5.getSelectedItem());
+				MemberLevelSystemVO vo=new MemberLevelSystemVO(credit1,credit2,credit3,credit4,credit5,discount1,discount2,discount3,discount4,discount5);
 				if(hasMemberLevelSystem){
 					controller.updateMemberLevelSystem(vo);
 				}
@@ -142,11 +167,19 @@ public class MemberLevelSystemView extends JPanel{
 		this.add(p8);
 	}
 	
-	private void showMemberLevelSystem(){
-		PromotionVO vo=controller.getMemberLevelSystem();
+	public void showMemberLevelSystem(MemberLevelSystemVO vo){
 		if(vo!=null){
 			hasMemberLevelSystem=true;
-			//显示出会员等级系统
+			l1.setText(String.valueOf(vo.credit1));
+			l2.setText(String.valueOf(vo.credit2));
+			l3.setText(String.valueOf(vo.credit3));
+			l4.setText(String.valueOf(vo.credit4));
+			l5.setText(String.valueOf(vo.credit5));
+			dis1.setSelectedItem(vo.discount1);
+			dis2.setSelectedItem(vo.discount2);
+			dis3.setSelectedItem(vo.discount3);
+			dis4.setSelectedItem(vo.discount4);
+			dis5.setSelectedItem(vo.discount5);
 		}
 	}
 }

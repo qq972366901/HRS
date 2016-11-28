@@ -3,10 +3,13 @@ package WebPromotionView;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Vector;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -20,7 +23,6 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
-
 import VO.PromotionVO;
 import uiService.WebPromotionStrategyUiService;
 
@@ -33,15 +35,18 @@ public class WebPromotionStrategyView  extends JPanel{
 	private JButton back;
 	private JButton add;
 	private JButton del;
+	Vector<String> vColumns;
 	private JTable strategyTable;
 	private DefaultTableModel strategyListModel;
 	private JPanel addPanel;
 	private JFrame addFrame;
-	private ArrayList<PromotionVO> promotionArray;
+	JComboBox<String> citylist;
+	JComboBox<String> circlelist;
+	Vector<Vector<String> > vData;
+	private Vector<PromotionVO> promotionArray;
 	public WebPromotionStrategyView(WebPromotionStrategyUiService controller) {
-		// TODO Auto-generated constructor stub
 		this.controller=controller;
-		this.promotionArray=new ArrayList<PromotionVO>();
+		this.promotionArray=new Vector<PromotionVO>();
 		this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
 		initButton();
 		initStrategyList();
@@ -78,7 +83,7 @@ public class WebPromotionStrategyView  extends JPanel{
 	}
 	private void initStrategyList(){
 		JScrollPane scrollPane = new JScrollPane();
-		Vector<String> vColumns = new Vector<String>();
+		vColumns = new Vector<String>();
 		vColumns.add("策略编号");
 		vColumns.add("策略名称");
 		vColumns.add("开始时间");
@@ -87,7 +92,7 @@ public class WebPromotionStrategyView  extends JPanel{
 		vColumns.add("商圈范围");
 		vColumns.add("适用等级");
 		vColumns.add("折扣");
-		Vector<PromotionVO> vData = new Vector<PromotionVO>();
+		vData = new Vector<Vector<String> >();
 		vData.addAll(controller.getAllWebPromotion());
 		strategyListModel=new DefaultTableModel(vData, vColumns);
 		strategyTable = new JTable(strategyListModel){
@@ -102,7 +107,6 @@ public class WebPromotionStrategyView  extends JPanel{
 		this.add(scrollPane);
 	}
 	public void addButtonClicked() {
-		// TODO Auto-generated method stub
 		addFrame = new JFrame("增加策略");
 		addFrame.setSize(1000, 700);
 		addFrame.setLocation(10, 10);	
@@ -132,14 +136,24 @@ public class WebPromotionStrategyView  extends JPanel{
 		JPanel p4=new JPanel();
 		p4.setLayout(new FlowLayout(FlowLayout.CENTER));
 		JLabel city=new JLabel("适用城市：");
-		JComboBox<String> citylist=new JComboBox<String>();
+		citylist=new JComboBox<String>();
+		List<String> list=controller.addCity();
+		for(int i=0;i<list.size();i++){
+			citylist.addItem(list.get(i));
+		}
+		citylist.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String city=(String) citylist.getSelectedItem();
+				controller.addCircle(city);
+			}
+		});
 		p4.add(city);
 		p4.add(citylist);
 		addPanel.add(p4);
 		JPanel p5=new JPanel();
 		p5.setLayout(new FlowLayout(FlowLayout.CENTER));
 		JLabel circle=new JLabel("商圈范围：");
-		JComboBox<String> circlelist=new JComboBox<String>();
+		circlelist=new JComboBox<String>();
 		p5.add(circle);
 		p5.add(circlelist);
 		addPanel.add(p5);
@@ -147,6 +161,9 @@ public class WebPromotionStrategyView  extends JPanel{
 		p6.setLayout(new FlowLayout(FlowLayout.CENTER));
 		JLabel level=new JLabel("适用等级：");
 		JComboBox<Integer> levellist=new JComboBox<Integer>();
+		for(int i=0;i<=5;i++){
+			levellist.addItem(i);
+		}
 		p6.add(level);
 		p6.add(levellist);
 		addPanel.add(p6);
@@ -154,6 +171,9 @@ public class WebPromotionStrategyView  extends JPanel{
 		p7.setLayout(new FlowLayout(FlowLayout.CENTER));
 		JLabel discount=new JLabel("折扣：");
 		JComboBox<Double> discountlist=new JComboBox<Double>();
+		for(double i=0.5;i<10;i++){
+			discountlist.addItem(i);
+		}
 		p7.add(discount);
 		p7.add(discountlist);
 		addPanel.add(p7);
@@ -162,12 +182,34 @@ public class WebPromotionStrategyView  extends JPanel{
 		JButton contin=new JButton("继续");
 		contin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//获取填入的信息，待补充
 				boolean beginIsValid=timeIsValid(begintext.getText());
 				boolean endIsValid=timeIsValid(endtext.getText());
 				if(beginIsValid&&endIsValid){
-					PromotionVO vo=new PromotionVO();
+					String id="1";//随便写的
+					//String id=controller.generateID();调用方法产生ID
+					String name=nametext.getText();
+					Calendar c1=Calendar.getInstance();
+					Calendar c2=Calendar.getInstance();
+					Date d1 = null;
+					Date d2 = null;
+					SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+					try {
+						d1 = sdf.parse(begintext.getText());
+						d2 = sdf.parse(endtext.getText());
+					} catch (ParseException e) {
+						e.printStackTrace();
+					}
+					c1.setTime(d1);
+					c2.setTime(d2);
+					String city=(String) citylist.getSelectedItem();
+					String circle=(String) circlelist.getSelectedItem();
+					Integer level=(Integer) levellist.getSelectedItem();
+					Double dis=(Double) discountlist.getSelectedItem();
+					PromotionVO vo=new PromotionVO(id,name,c1,c2,city,circle,level,dis);
 					promotionArray.add(vo);
+					nametext.setText("");
+					begintext.setText("");
+					endtext.setText("");
 				}
 				nametext.setText("");
 				begintext.setText("");
@@ -181,16 +223,53 @@ public class WebPromotionStrategyView  extends JPanel{
 		JButton confir=new JButton("确定");
 		confir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				boolean beginIsValid=timeIsValid(begintext.getText());
+				boolean endIsValid=timeIsValid(endtext.getText());
+				if(beginIsValid&&endIsValid){
+					String id="1";//随便写的
+					//String id=controller.generateID();调用方法产生ID
+					String name=nametext.getText();
+					Calendar c1=Calendar.getInstance();
+					Calendar c2=Calendar.getInstance();
+					Date d1 = null;
+					Date d2 = null;
+					SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+					try {
+						d1 = sdf.parse(begintext.getText());
+						d2 = sdf.parse(endtext.getText());
+					} catch (ParseException e) {
+						e.printStackTrace();
+					}
+					c1.setTime(d1);
+					c2.setTime(d2);
+					String city=(String) citylist.getSelectedItem();
+					String circle=(String) circlelist.getSelectedItem();
+					Integer level=(Integer) levellist.getSelectedItem();
+					Double dis=(Double) discountlist.getSelectedItem();
+					PromotionVO vo=new PromotionVO(id,name,c1,c2,city,circle,level,dis);
+					promotionArray.add(vo);
 				for(int i=0;i<promotionArray.size();i++){
 					controller.addWebPromotion(promotionArray.get(i));
 				}
+				promotionArray.clear();
+				controller.updateListModel();
+				addFrame.dispose();
 			}
-		});
+			}});
 		p8.add(contin);
 		p8.add(confir);
 		addPanel.add(p8);
 		addFrame.getContentPane().add(addPanel);
 		addFrame.setVisible(true);
+	}
+	public void updateListModel() {
+		vData.clear();
+		((DefaultTableModel) strategyTable.getModel()).getDataVector().clear();
+		((DefaultTableModel) strategyTable.getModel()).fireTableDataChanged();
+		for(Vector<String> v:controller.getAllWebPromotion()){
+			strategyListModel.addRow(v);
+		}
+		strategyTable.updateUI(); 
 	}
 	private boolean timeIsValid(String time){
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -203,16 +282,21 @@ public class WebPromotionStrategyView  extends JPanel{
 		return true;
 	}
 	public void delButtonClicked() {
-		// TODO Auto-generated method stub
 		int index = strategyTable.getSelectedRow();
 		if(index == -1){
 			JOptionPane.showMessageDialog(null, "请选择策略！","", JOptionPane.ERROR_MESSAGE);
 			return;
 		}
 		final int rowIndex = index;
-		final int strategyNo =Integer.valueOf((String)strategyTable.getValueAt(index, 0));
+		final String strategyNo =(String) strategyTable.getValueAt(index, 0);
 		if(controller.deleteStrategy(strategyNo)){
 			strategyListModel.removeRow(rowIndex);
+		}
+	}
+	public void addCircle(Vector<String> circles) {
+		circlelist.removeAllItems();
+		for(int i=0;i<circles.size();i++){
+			circlelist.addItem(circles.get(i));
 		}
 	}
 }

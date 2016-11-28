@@ -1,6 +1,7 @@
 package uiController;
 
 
+import VO.MemberLevelSystemVO;
 import VO.PromotionVO;
 import WebPromotionView.MemberLevelSystemView;
 import WebPromotionView.WebPromotionUserView;
@@ -18,6 +19,7 @@ public class MemberLevelSystemUiController implements MemberLevelSystemUiService
 		// TODO Auto-generated method stub
 		this.view=view;
 		this.proService=new PromotionController();
+		view.showMemberLevelSystem(proService.getMemberLevelSystem());
 	}
 	@Override
 	public void toWebPromotionUserView() {
@@ -28,17 +30,17 @@ public class MemberLevelSystemUiController implements MemberLevelSystemUiService
 		ClientRunner.change(view);
 	}
 	@Override
-	public void updateMemberLevelSystem(PromotionVO vo) {
+	public void updateMemberLevelSystem(MemberLevelSystemVO vo) {
 		// TODO Auto-generated method stub
 		proService.updateMemberLevelSystem(vo);
 	}
 	@Override
-	public void addMemberLevelSystem(PromotionVO vo) {
+	public void addMemberLevelSystem(MemberLevelSystemVO vo) {
 		// TODO Auto-generated method stub
 		proService.addMemberLevelSystem(vo);
 	}
 	@Override
-	public PromotionVO getMemberLevelSystem() {
+	public MemberLevelSystemVO getMemberLevelSystem() {
 		// TODO Auto-generated method stub
 		return proService.getMemberLevelSystem();
 	}

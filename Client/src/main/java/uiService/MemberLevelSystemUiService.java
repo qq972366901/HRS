@@ -1,7 +1,6 @@
 package uiService;
 
-import VO.PromotionVO;
-
+import VO.MemberLevelSystemVO;
 import WebPromotionView.MemberLevelSystemView;
 
 public interface MemberLevelSystemUiService {
@@ -10,10 +9,10 @@ public interface MemberLevelSystemUiService {
 
 	public void toWebPromotionUserView();
 
-	public void updateMemberLevelSystem(PromotionVO vo);
+	public void updateMemberLevelSystem(MemberLevelSystemVO vo);
 
-	public void addMemberLevelSystem(PromotionVO vo);
+	public void addMemberLevelSystem(MemberLevelSystemVO vo);
 
-	public PromotionVO getMemberLevelSystem();
+	public MemberLevelSystemVO getMemberLevelSystem();
 
 }

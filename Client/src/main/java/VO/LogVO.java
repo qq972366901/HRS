@@ -1,8 +1,10 @@
 package VO;
 
+import java.util.Vector;
+
 import PO.UserPO;
 
-public class LogVO extends VO{
+public class LogVO{
 	/**
 	 * 
 	 */

@@ -3,6 +3,9 @@ package WebPromotionView;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -10,6 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import VO.CreditRecordVO;
+import common.Operate;
 import uiService.CreditManagementUiService;
 
 public class CreditManagementView extends JPanel {
@@ -26,7 +31,6 @@ public class CreditManagementView extends JPanel {
 	private JTextField accountText;
 	private JTextField valText;
 	public CreditManagementView(CreditManagementUiService controller) {
-		// TODO Auto-generated constructor stub
 		this.controller=controller;
 		this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
 		init();
@@ -63,8 +67,14 @@ public class CreditManagementView extends JPanel {
 		confir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String acc=accountText.getText();
-				int value=Integer.valueOf(valText.getText());
-				controller.updateCredit(acc,value);
+				long value=Long.valueOf(valText.getText());
+				long currentcredit=controller.getCurrencredit(acc);
+				currentcredit+=value; 
+				Date now = new Date(); 
+				Calendar calendar = Calendar.getInstance();
+				calendar.setTime(now);
+				CreditRecordVO vo=new CreditRecordVO(acc,calendar,"",Operate.Recharge,value,currentcredit);
+				controller.updateCredit(vo);
 			}
 		});
 		cancel=new JButton("取消");

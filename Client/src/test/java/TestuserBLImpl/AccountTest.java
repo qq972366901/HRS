@@ -33,9 +33,9 @@ public class AccountTest {
 		Calendar time3=Calendar.getInstance();
 		time3.set(2016,11,11);
 
-		user1=new UserVO("1","1","1234567",1,78,"普通会员",UserType.Customer,time1,"");
-		user2=new UserVO("2","1","1234567",5,41780,"企业会员",UserType.Customer,time2,"Goldman Sachs");
-		user3=new UserVO("3","1","1234567",3,4178,"普通会员",UserType.Customer,time3,"");
+		user1=new UserVO("1","1","1234567","普通会员",UserType.Customer,time1,"");
+		user2=new UserVO("2","1","1234567","企业会员",UserType.Customer,time2,"Goldman Sachs");
+		user3=new UserVO("3","1","1234567","普通会员",UserType.Customer,time3,"");
 	}
 	@Test
 	public void testAdd() throws RemoteException {

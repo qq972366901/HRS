@@ -1,6 +1,10 @@
 package VO;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
+import java.util.Vector;
+
 import Object.Promotion;
 import PO.*;
 
@@ -11,8 +15,12 @@ import PO.*;
  * @see Object.Promotion
  */
 
-public class PromotionVO extends VO {
-	 public String promotionNumber;
+public class PromotionVO{
+	 /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public String promotionNumber;
 	 public String promotionName;
 	 public int promotionState;
 	 public Calendar promotionBegintime;
@@ -44,7 +52,7 @@ public class PromotionVO extends VO {
 		 roomNum=roomnum;
 		 Birthday=birthday;
 		}
-	    public PromotionVO (UserPO po1,OrderPO po2,PromotionPO po){
+	    public PromotionVO (CreditPO credit,UserPO po1,OrderPO po2,PromotionPO po){
 	    	promotionNumber=po.getPromotionNumber();
 	    	promotionName=po.getPromotionName();
 	        promotionState=po.getPromotionState();
@@ -56,11 +64,36 @@ public class PromotionVO extends VO {
 	    	miniNum=po.getMiniNum();
 	    	promotionDiscount=po.getPromotionDiscount();
 	    	userType=po1.getMemberType();
-	    	userShipgrade=po1.getLevel();
+	    	userShipgrade=credit.getLevel();
 	    	roomNum=po2.getRoomNumber();
 	    	Birthday=po1.getBirthday();
 	    }
 	    public PromotionVO(){};
+	public PromotionVO(String string, String string2, Calendar time1, Calendar time2, String string3,String string4, int i, double d) {
+		promotionNumber=string;
+		 promotionName=string2;
+		 promotionBegintime=time1;
+		 promotionEndtime=time2;
+		 applyuserType=string3;
+		 applybusinesscircle=string4;
+		 applyuserShipgrade=i;
+		 promotionDiscount=d;
+	}
+	public Vector<String> getPromotion(){
+		Vector<String> list=new Vector<String>();
+		list.add(promotionNumber);
+		list.add(promotionName);
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String t1 = sdf.format(promotionBegintime.getTime());
+		String t2 = sdf.format(promotionEndtime.getTime());
+		list.add(t1);
+		list.add(t2);
+		list.add(applyuserType);
+		list.add(applybusinesscircle);
+		list.add(String.valueOf(applyuserShipgrade));
+		list.add(String.valueOf(promotionDiscount));
+		return list;
+	}
 	/**
      * 更新促销策略信息
      * 
