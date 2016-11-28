@@ -1,6 +1,6 @@
 package uiService;
 
-import UserView.AdminRoomView;
+import HotelWorkerView.AdminRoomView;
 
 public interface AdminRoomUiService {
 

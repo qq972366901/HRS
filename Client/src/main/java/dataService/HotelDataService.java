@@ -42,6 +42,11 @@ public interface HotelDataService  extends DataService, Remote{
 	 * @return 此用户的历史酒店列表
 	 */
 	public List<HotelPO> getHistoryHotelByUser(String userid);
+	/**
+	 *得到所有酒店
+	 * @return 返回所以酒店的列表
+	 */
+	public List<HotelPO> getAllHotel();
 	
 	
 	

@@ -1,8 +1,9 @@
 package HotelRoomAdd;
 
 import HotelBLServiceImpl.HotelRoom;
+import hotelBLService.HotelBLServiceController;
 
-public class HotelRoomAddController {
+public class HotelRoomAddController extends HotelBLServiceController {
 
 	/**
      * 更新酒店拥有的房间类型、数量、原始价格

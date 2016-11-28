@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -25,14 +26,12 @@ public class UpdateRoomInfoView extends JPanel {
 	
 	private UpdateRoomInfoUiService controller;
 	
-	private JTextField userNameTextField;
 	private JTextField roomNumberTextField;
-	private JTextField checkinTimeTextField;
-	private JTextField expectedCheckoutTimeTextField;
-	private JTextField checkoutTimeTextField;
+	private JTextField roomTypeTextField;
 	
 	private JButton backButton;
-	private JButton submitButton;
+	private JButton checkinButton;
+	private JButton checkoutButton;
 	
 	public UpdateRoomInfoView(UpdateRoomInfoUiService controller,String id) {
 		this.controller = controller;
@@ -59,31 +58,19 @@ public class UpdateRoomInfoView extends JPanel {
 		
 		JPanel updatePanel = new JPanel();
 		this.add(updatePanel, BorderLayout.CENTER);
-		updatePanel.setLayout(new GridLayout(13, 0, 0, 0));
+		updatePanel.setLayout(new GridLayout(13, 1, 0, 0));
 		
 		JPanel panel_1 = new JPanel();
 		updatePanel.add(panel_1);
 		
 		JPanel panel_2 = new JPanel();
 		updatePanel.add(panel_2);
-		panel_2.setLayout(new GridLayout(1, 4, 0, 0));
-		
-		JPanel panel_2_1 = new JPanel();
-		panel_2.add(panel_2_1);
-		
-		JLabel userNameLabel = new JLabel("入住人姓名：");
-		userNameLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_2.add(userNameLabel);
-		
-		userNameTextField = new JTextField();
-		panel_2.add(userNameTextField);
-		userNameTextField.setColumns(10);
-		
-		JPanel panel_2_2 = new JPanel();
-		panel_2.add(panel_2_2);
 		
 		JPanel panel_3 = new JPanel();
 		updatePanel.add(panel_3);
+		
+		JPanel panel_5 = new JPanel();
+		updatePanel.add(panel_5);
 		
 		JPanel panel_4 = new JPanel();
 		updatePanel.add(panel_4);
@@ -103,85 +90,91 @@ public class UpdateRoomInfoView extends JPanel {
 		JPanel panel_4_2 = new JPanel();
 		panel_4.add(panel_4_2);
 		
-		JPanel panel_5 = new JPanel();
-		updatePanel.add(panel_5);
-		
 		JPanel panel_6 = new JPanel();
 		updatePanel.add(panel_6);
-		panel_6.setLayout(new GridLayout(1, 4, 0, 0));
-		
-		JPanel panel_6_1 = new JPanel();
-		panel_6.add(panel_6_1);
-		
-		JLabel checkinTimeLabel = new JLabel("入住时间");
-		checkinTimeLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_6.add(checkinTimeLabel);
-		
-		checkinTimeTextField = new JTextField();
-		panel_6.add(checkinTimeTextField);
-		checkinTimeTextField.setColumns(10);
-		
-		JPanel panel_6_2 = new JPanel();
-		panel_6.add(panel_6_2);
 		
 		JPanel panel_7 = new JPanel();
 		updatePanel.add(panel_7);
+		panel_7.setLayout(new GridLayout(1, 4, 0, 0));
 		
+		JPanel panel_7_1 = new JPanel();
+		panel_7.add(panel_7_1);
+		
+		JLabel roomTypeLabel = new JLabel("房型：");
+		roomTypeLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_7.add(roomTypeLabel);
+		
+		roomTypeTextField = new JTextField();
+		panel_7.add(roomTypeTextField);
+		roomTypeTextField.setColumns(10);
+		
+		JPanel panel_7_2 = new JPanel();
+		panel_7.add(panel_7_2);
+
 		JPanel panel_8 = new JPanel();
 		updatePanel.add(panel_8);
-		panel_8.setLayout(new GridLayout(1,4, 0, 0));
-		
-		JPanel panel_8_1 = new JPanel();
-		panel_8.add(panel_8_1);
-		
-		JLabel expectedCheckoutTimeLabel = new JLabel("预计退房时间：");
-		expectedCheckoutTimeLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_8.add(expectedCheckoutTimeLabel);
-		
-		expectedCheckoutTimeTextField = new JTextField();
-		panel_8.add(expectedCheckoutTimeTextField);
-		expectedCheckoutTimeTextField.setColumns(10);
-		
-		JPanel panel_8_2 = new JPanel();
-		panel_8.add(panel_8_2);
-		
-		JPanel panel_9 = new JPanel();
-		updatePanel.add(panel_9);
-		
-		JPanel panel_10 = new JPanel();
-		updatePanel.add(panel_10);
-		panel_10.setLayout(new GridLayout(1, 4, 0, 0));
-		
-		JPanel panel_10_1 = new JPanel();
-		panel_10.add(panel_10_1);
-		
-		JLabel checkoutTimeLabel = new JLabel("退房时间：");
-		checkoutTimeLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_10.add(checkoutTimeLabel);
-		
-		checkoutTimeTextField = new JTextField();
-		panel_10.add(checkoutTimeTextField);
-		checkoutTimeTextField.setColumns(10);
-		
-		JPanel panel_10_2 = new JPanel();
-		panel_10.add(panel_10_2);
-		
-		JPanel panel_11 = new JPanel();
-		updatePanel.add(panel_11);
 		
 		JPanel panel_12 = new JPanel();
 		updatePanel.add(panel_12);
 		
-		submitButton = new JButton("提交");
-		panel_12.add(submitButton);
-		submitButton.addActionListener(new ActionListener(){
+		panel_12.setLayout(new GridLayout(1, 4, 0, 0));
+		
+		JPanel panel_12_1 = new JPanel();
+		panel_12.add(panel_12_1);
+		JPanel panel_12_2 = new JPanel();
+		panel_12.add(panel_12_2);
+		JPanel panel_12_3 = new JPanel();
+		panel_12.add(panel_12_3);
+		JPanel panel_12_4 = new JPanel();
+		panel_12.add(panel_12_4);
+		
+		checkinButton = new JButton("入住");
+		panel_12_2.add(checkinButton);
+		checkinButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
-				//系统更新房间入住信息
+				//系统更新房间号的房间状态为入住
+				String roomNumber = roomNumberTextField.getText();
+				if(roomNumber.length() < 1) {
+					JOptionPane.showMessageDialog(null, "请填写房间号！","", JOptionPane.ERROR_MESSAGE);
+				}
+				String roomType = roomTypeTextField.getText();
+				if(roomType.length() < 1) {
+					JOptionPane.showMessageDialog(null, "请填写房型！","", JOptionPane.ERROR_MESSAGE);
+				}
+				
+				controller.updateRoomInfo(hotelID, roomNumber, roomType,"已入住");
 			}
 		});
 		
+		checkoutButton = new JButton("退房");
+		panel_12_3.add(checkoutButton);
+		checkoutButton.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent arg0) {
+				//系统更新房间号的房间状态为空闲
+				String roomNumber = roomNumberTextField.getText();
+				if(roomNumber.length() < 1) {
+					JOptionPane.showMessageDialog(null, "请填写房间号！","", JOptionPane.ERROR_MESSAGE);
+				}
+				String roomType = roomTypeTextField.getText();
+				if(roomType.length() < 1) {
+					JOptionPane.showMessageDialog(null, "请填写房型！","", JOptionPane.ERROR_MESSAGE);
+				}
+				
+				controller.updateRoomInfo(hotelID, roomNumber, roomType,"空闲");
+			}
+		});
+		
+		JPanel panel_11 = new JPanel();
+		updatePanel.add(panel_11);
+		
 		JPanel panel_13 = new JPanel();
 		updatePanel.add(panel_13);
+		
+		JPanel panel_14 = new JPanel();
+		updatePanel.add(panel_14);
+		
+		JPanel panel_15 = new JPanel();
+		updatePanel.add(panel_15);
 	}
 
 }

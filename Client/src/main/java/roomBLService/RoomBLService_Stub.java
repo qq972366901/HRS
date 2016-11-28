@@ -98,4 +98,23 @@ public class RoomBLService_Stub implements RoomBLService{
 	public long getPrice(String roomType){
 		return 200;
 	}
+
+	@Override
+	public void updateRoomInfo(String hotelID, String roomNumber,String roomType,  String roomState) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean whetherSuccess(String hotelID, String roomtype,
+			int roomNumber) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void updateRoomState(String hotelID, String roomType, int roomNumber) {
+		// TODO Auto-generated method stub
+		
+	}
 }

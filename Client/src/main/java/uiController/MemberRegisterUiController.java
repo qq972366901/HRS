@@ -9,7 +9,6 @@ import UserView.customerMainView;
 import VO.UserVO;
 import WebPromotionView.WebPromotionUserView;
 import UserView.AddHotelView;
-import UserView.AdminRoomView;
 import UserView.LogView;
 import runner.ClientRunner;
 import uiService.AddHotelUiService;

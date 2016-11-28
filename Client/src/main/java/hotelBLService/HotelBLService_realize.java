@@ -192,4 +192,21 @@ public class HotelBLService_realize implements HotelBLService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
+	@Override
+	public void saveHotelInfo(String hotelName, String hotelCity, String hotelArea, String hoelLocation, int hotelStar,
+			String hotelService, String hotelIntroduction, String hotelPhone, String hotelID, double hotelScore) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public List<String> getHotelID(String city, String businessCircle, String roomType, int roomNumber, int priceLow,
+			int priceHigh, int hotelStar, int scoreLow, int scoreHigh, String everBooked,String userid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

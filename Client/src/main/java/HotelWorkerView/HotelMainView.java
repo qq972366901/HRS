@@ -21,14 +21,17 @@ public class HotelMainView extends JPanel {
 	
 	private HotelMainUiService controller;
 	
+	private String hotelID;
+	
 	private JButton backButton;
 	private JButton updateHotelInfoButton;
 	private JButton adminRoomButton;
 	private JButton browseOrderButton;
 	private JButton makeHotelPromotionButton;
 
-	public HotelMainView(HotelMainUiService controller) {
+	public HotelMainView(HotelMainUiService controller, String hotelid) {
 		this.controller = controller;
+		this.hotelID = hotelid;
 		initPanel();
 		this.validate();
 	}
