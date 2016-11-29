@@ -49,7 +49,7 @@ public class HotelInfo {
 		hvo.hotelStar = hStar;
 		hvo.hotelPhone = hPhone;
 		
-		HotelPO hpo = new HotelPO(hvo.hotelAddress,hvo.hotelCity, hvo.hotelDistrict,hvo.hotelStar,hvo.hotelProfile,hvo.hotelService,hvo.hotelName,hvo.hotelAccount,hvo.score);
+		HotelPO hpo = new HotelPO(hvo.hotelAddress,hvo.hotelCity, hvo.hotelDistrict,hvo.hotelStar,hvo.hotelProfile,hvo.hotelService,hvo.hotelName,hvo.hotelAccount,hvo.score,hvo.hotelPhone);
 		try {
 			hds.update(hpo);
 		} catch (RemoteException e) {

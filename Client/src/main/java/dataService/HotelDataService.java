@@ -97,5 +97,4 @@ public interface HotelDataService  extends DataService,Remote{
  * @see data.Hotel
  */
 		public void finish() throws RemoteException;
-        public List<HotelPO> getHistoryHotelByUser(String userID);
 	}

@@ -20,6 +20,20 @@ public interface HotelDataService  extends DataService,Remote{
  * @see data.Hotel
  */
 	public HotelPO find(String id) throws RemoteException;
+
+	/**
+	 *在数据库中查找一个用户的历史酒店
+	 * @param userid String型，用户ID
+	 * @return 此用户的历史酒店列表
+	 */
+	public List<HotelPO> getHistoryHotelByUser(String userid);
+	/**
+	 *得到所有酒店
+	 * @return 返回所以酒店的列表
+	 */
+	public List<HotelPO> getAllHotel();
+	
+
 /**
  * 按名称进行查找返回相应的HotelPO结果
  * @param in MessageInput型，界面输入的酒店名称
@@ -83,5 +97,4 @@ public interface HotelDataService  extends DataService,Remote{
  * @see data.Hotel
  */
 		public void finish() throws RemoteException;
-        public List<HotelPO> getHistoryHotelByUser(String userID);
 	}
