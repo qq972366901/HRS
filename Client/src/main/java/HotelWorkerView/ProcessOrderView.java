@@ -384,7 +384,6 @@ public class ProcessOrderView extends JPanel{
 		
 		final int rowIndex = index;
 		final String orderNo =(String)orderTable.getValueAt(index, 0);
-		final String userID=(String)orderTable.getValueAt(index, 2);
 		final int value=(int) orderTable.getValueAt(index, 6);
 		cancelFrame = new JFrame();
 		cancelFrame.setSize(1000, 700);
@@ -404,6 +403,8 @@ public class ProcessOrderView extends JPanel{
 					JComboBox<String> jcb = (JComboBox<String>) evt.getSource();
 					String strategy=(String) jcb.getSelectedItem();
 					Calendar calendar=Calendar.getInstance();
+					String userID="1";
+					//我需要一个通过订单编号查找用户账号的方法来获得userID
 					controller.recover(calendar,orderNo,Operate.Appeal,strategy,value,userID);
 				}
 			}
