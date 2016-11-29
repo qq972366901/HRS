@@ -2,6 +2,8 @@ package dataService;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.List;
 
 import PO.CreditPO;
 import PO.CreditRecordPO;
@@ -52,4 +54,6 @@ public interface CreditDataService  extends DataService,Remote{
 	 * @see data.CreditRecord
 	 */
 		public void finish() throws RemoteException;
-}
+		
+		//public ArrayList<String> get() throws RemoteException;
+ }

@@ -2,19 +2,31 @@ package creditrecordData;
 
 import java.io.Serializable;
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 
 import PO.CreditRecordPO;
+import dataService.CreditRecordDataService;
 /**
  * 职责是将逻辑层面发来的请求转发给后台CreditRecordData处理
  * @author LZ
  * @version 1.0
  * @see businesslogic.CreditRecord
  */
-public class CreditRecordDataServiceMySqlImpl implements Serializable,dataService.CreditRecordDataService{
+public class CreditRecordDataServiceMySqlImpl implements CreditRecordDataService{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private static CreditRecordDataServiceMySqlImpl creditRecordDataServiceMySqlImpl;
+	private CreditRecordDataServiceMySqlImpl() throws RemoteException{
+		UnicastRemoteObject.exportObject(this,8089);
+	}
+	public static CreditRecordDataServiceMySqlImpl getInstance() throws RemoteException{
+		if(creditRecordDataServiceMySqlImpl==null){
+			creditRecordDataServiceMySqlImpl=new CreditRecordDataServiceMySqlImpl();
+		}
+		return creditRecordDataServiceMySqlImpl;
+	}
 	/**
 	 * 按ID进行查找返回相应的CreditRecordPO结果
 	 * @param id String型，逻辑层传来的信用记录编号

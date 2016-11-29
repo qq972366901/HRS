@@ -2,20 +2,32 @@ package orderData;
 
 import java.io.Serializable;
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
 import PO.OrderPO;
+import dataService.OrderDataService;
 /**
  * 职责是将逻辑层面发来的请求转发给后台OrderData处理
  * @author LZ
  * @version 1.0
  * @see businesslogic.Order
  */
-public class OrderDataServiceMySqlImpl implements Serializable,dataService.OrderDataService{
+public class OrderDataServiceMySqlImpl implements OrderDataService{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private static OrderDataServiceMySqlImpl orderDataServiceMySqlImpl;
+	private OrderDataServiceMySqlImpl() throws RemoteException{
+		UnicastRemoteObject.exportObject(this,8089);
+	}
+	public static OrderDataServiceMySqlImpl getInstance() throws RemoteException{
+		if(orderDataServiceMySqlImpl==null){
+			orderDataServiceMySqlImpl=new OrderDataServiceMySqlImpl();
+		}
+		return orderDataServiceMySqlImpl;
+	}
 	/**
 	 * 按ID进行查找返回相应的OrderPO结果
 	 * @param id String型，逻辑层传来的订单编号

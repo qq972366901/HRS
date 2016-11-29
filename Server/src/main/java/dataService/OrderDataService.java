@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * @version 1.0
  * see presentation.Order
  */
-public interface OrderDataService  extends DataService,Remote{
+public interface OrderDataService  extends DataService{
 /**
  * 按ID进行查找返回相应的OrderPO结果
  * @param in MessageInput型，界面输入的订单类型

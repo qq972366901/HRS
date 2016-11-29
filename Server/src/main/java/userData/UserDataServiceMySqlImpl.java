@@ -2,19 +2,31 @@ package userData;
 
 import java.io.Serializable;
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 
 import PO.UserPO;
+import dataService.UserDataService;
 /**
  * 职责是将逻辑层面发来的请求转发给后台UserData处理
  * @author LZ
  * @version 1.0
  * @see businesslogic.User
  */
-public class UserDataServiceMySqlImpl implements Serializable,dataService.UserDataService{
+public class UserDataServiceMySqlImpl implements UserDataService{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private static UserDataServiceMySqlImpl userDataServiceMySqlImpl;
+	private UserDataServiceMySqlImpl() throws RemoteException{
+		UnicastRemoteObject.exportObject(this,8089);
+	}
+	public static UserDataServiceMySqlImpl getInstance() throws RemoteException{
+		if(userDataServiceMySqlImpl==null){
+			userDataServiceMySqlImpl=new UserDataServiceMySqlImpl();
+		}
+		return userDataServiceMySqlImpl;
+	}
 	/**
 	 * 按ID进行查找返回相应的UserPO结果
 	 * @param

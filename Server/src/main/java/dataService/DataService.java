@@ -1,6 +1,5 @@
 package dataService;
 
-import java.io.Serializable;
 import java.rmi.Remote;
 
 /**
@@ -9,6 +8,6 @@ import java.rmi.Remote;
  * @version 1.0
  * @see
  */
-public interface DataService extends Remote,Serializable{
+public interface DataService extends Remote{
 	
 }

@@ -26,12 +26,12 @@ public interface HotelDataService  extends DataService,Remote{
 	 * @param userid String型，用户ID
 	 * @return 此用户的历史酒店列表
 	 */
-	public List<HotelPO> getHistoryHotelByUser(String userid);
+	public List<HotelPO> getHistoryHotelByUser(String userid) throws RemoteException;
 	/**
 	 *得到所有酒店
 	 * @return 返回所以酒店的列表
 	 */
-	public List<HotelPO> getAllHotel();
+	public List<HotelPO> getAllHotel() throws RemoteException;
 	
 
 /**

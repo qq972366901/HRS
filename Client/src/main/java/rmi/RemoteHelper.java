@@ -2,8 +2,10 @@ package rmi;
 
 import java.io.Serializable;
 import java.rmi.Remote;
+import java.rmi.RemoteException;
 
 import dataService.DataFactoryService;
+import dataService.DataService;
 
 
 public class RemoteHelper implements Serializable{
