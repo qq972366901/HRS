@@ -1,9 +1,9 @@
 package uiController;
 
+import HotelWorkerView.AdminRoomView;
 import HotelWorkerView.HotelMainView;
 import HotelWorkerView.InputRoomInfoView;
 import HotelWorkerView.UpdateRoomInfoView;
-import UserView.AdminRoomView;
 import runner.ClientRunner;
 import uiService.AdminRoomUiService;
 import uiService.HotelMainUiService;
@@ -26,7 +26,7 @@ public class AdminRoomUiController implements AdminRoomUiService {
 	
 	public void toHotelMainView() {
 		HotelMainUiService controller = new HotelMainUiController(hotelID);
-		HotelMainView view = new HotelMainView(controller);
+		HotelMainView view = new HotelMainView(controller,hotelID);
 		controller.setView(view);
 		ClientRunner.change(view);
 	}

@@ -25,7 +25,7 @@ public class UpdateHotelInfoUiController implements UpdateHotelInfoUiService {
 
 	public void toHotelMainView() {
 		HotelMainUiService controller = new HotelMainUiController(hotelID);
-		HotelMainView view = new HotelMainView(controller);
+		HotelMainView view = new HotelMainView(controller,hotelID);
 		controller.setView(view);
 		ClientRunner.change(view);
 	}

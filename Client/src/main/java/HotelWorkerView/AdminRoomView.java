@@ -1,4 +1,4 @@
-package UserView;
+package HotelWorkerView;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -17,13 +17,16 @@ public class AdminRoomView extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
 	private AdminRoomUiService controller;
+	
+	private String hotelID;
 
 	private JButton backButton;
 	private JButton inputRoomButton;
 	private JButton updateRoomButton;
 	
-	public AdminRoomView(AdminRoomUiService controller) {
+	public AdminRoomView(AdminRoomUiService controller, String id) {
 		this.controller = controller;
+		hotelID = id;
 		initPanel();
 		this.validate();
 	}
@@ -92,3 +95,4 @@ public class AdminRoomView extends JPanel {
 	}
 
 }
+

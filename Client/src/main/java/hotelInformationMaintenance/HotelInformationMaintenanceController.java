@@ -1,9 +1,15 @@
 package hotelInformationMaintenance;
 
+import HotelBLServiceImpl.HotelAdd;
 import HotelBLServiceImpl.HotelInfo;
 import common.MessageInput;
 import common.ResultMessage;
 import hotelBLService.HotelBLServiceController;
+
+/**
+ * 负责实现更新酒店信息的功能
+ * @author 刘宗侃
+ */
 public class HotelInformationMaintenanceController  extends HotelBLServiceController{
 	
 	/**
@@ -24,6 +30,29 @@ public class HotelInformationMaintenanceController  extends HotelBLServiceContro
 		HotelInfo hotelInfo = HotelInfo.getHotelInfoInstance(id);
 		hotelInfo.updateHotelInfo(hotelName, hotelLocation, hotelService, hotelCity, hotelArea, hotelIntroduce, hotelStar,hotelPhone);
 	}
+	/**
+     * 网站管理人员添加酒店
+     * 
+     * @param hotelName String型，酒店名称
+     * @param hotelCity String型，酒店城市
+     * @param hotelArea String型，酒店商圈
+     * @param hotelLocation String型，酒店地址
+     * @param hotelStar int型，酒店星级
+     * @param hotelService String型，酒店设施服务
+     * @param hotelIntroduction String型，酒店简介
+     * @param hotelPhone String型，酒店联系电话
+     * @param hotelID String型，酒店账号ID
+     * @param hotelScore double型，酒店评分
+     */
+	public void saveHotelInfo(String hotelName, String hotelCity, String hotelArea, String hotelLocation,
+			int hotelStar, String hotelService, String hotelIntroduction, String hotelPhone, 
+			String hotelID, double hotelScore) {
+		HotelAdd hotelAdd = HotelAdd.getHotelAddInstance();
+		hotelAdd.addHotel(hotelName, hotelCity, hotelArea, hotelLocation, hotelStar, hotelService, hotelIntroduction, hotelPhone, hotelID, hotelScore);
+	}
+	
+	
+	
 	
 	
 	

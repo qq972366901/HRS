@@ -96,4 +96,10 @@ public class HotelDataServiceMySqlImpl_Stub implements Serializable,dataService.
 		return null;
 	}
 
+	@Override
+	public List<HotelPO> getAllHotel() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

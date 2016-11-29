@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: TestuserBLImpl.UserTest
 -------------------------------------------------------------------------------
-<<<<<<< HEAD
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
-=======
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
->>>>>>> 8f88033a4b97c1a95bbdb67d66a0d54abde99ee5
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec

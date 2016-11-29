@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: TestOrder.Test_payment
 -------------------------------------------------------------------------------
-<<<<<<< HEAD
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 sec
-=======
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
->>>>>>> 8f88033a4b97c1a95bbdb67d66a0d54abde99ee5
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec

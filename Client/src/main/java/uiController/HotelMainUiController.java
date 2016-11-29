@@ -2,12 +2,12 @@ package uiController;
 
 import java.rmi.RemoteException;
 
+import HotelWorkerView.AdminRoomView;
 import HotelWorkerView.HotelMainView;
 import HotelWorkerView.MakeHotelPromotionView;
 import HotelWorkerView.ProcessOrderView;
 import HotelWorkerView.UpdateHotelInfoView;
 import common.UserType;
-import UserView.AdminRoomView;
 import UserView.LogView;
 import runner.ClientRunner;
 import uiService.AdminRoomUiService;
@@ -48,7 +48,7 @@ public class HotelMainUiController implements HotelMainUiService {
 
 	public void toAdminRoomView() {
 		AdminRoomUiService controller = new AdminRoomUiController(hotelID);
-		AdminRoomView view = new AdminRoomView(controller);
+		AdminRoomView view = new AdminRoomView(controller,hotelID);
 		controller.setView(view);
 		ClientRunner.change(view);
 		

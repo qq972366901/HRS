@@ -47,7 +47,42 @@ public interface HotelBLService {
      * @return 返回用户住过的历史酒店列表
      */
 	public List<HotelVO> getHistoryHotel(String userID);
-	
+	/**
+     * 网站管理人员添加酒店
+     * 
+     * @param hotelName String型，酒店名称
+     * @param hotelCity String型，酒店城市
+     * @param hotelArea String型，酒店商圈
+     * @param hotelLocation String型，酒店地址
+     * @param hotelStar int型，酒店星级
+     * @param hotelService String型，酒店设施服务
+     * @param hotelIntroduction String型，酒店简介
+     * @param hotelPhone String型，酒店联系电话
+     * @param hotelID String型，酒店账号ID
+     * @param hotelScore double型，酒店评分
+     */
+	public void saveHotelInfo(String hotelName, String hotelCity, String hotelArea, String hoelLocation,
+			int hotelStar, String hotelService, String hotelIntroduction, String hotelPhone, 
+			String hotelID, double hotelScore);
+	/**
+     * 查找符合客户选择条件的酒店列表
+     * 
+     * @param city String型，酒店城市，若未选择，值为null
+     * @param businessCircle String型，商圈，若未选择，值为null
+     * @param roomType String型，房型，若未选择，值为null
+     * @param roomNumber int型，房间数量，若未选择，值为-1
+     * @param priceLow int型，房间最低价格，若未选择，值为-1
+     * @param priceHigh int型，房间最高价格，若未选择，值为-1
+     * @param hotelStar int型，酒店星级，若未选择，值为-1
+     * @param scoreLow int型，搜索选择的最低评分，若未选择，值为-1
+     * @param scoreHigh int型，搜索选择的最高评分，若未选择，值为-1
+     * @param everBooked String型，选择搜索的范围：全部，预定过，未预定过，若未选择，值为null
+     * @param userid String型，客户的id
+     * 
+     * @return 返回符合条件的酒店ID列表
+     */
+	public List<String> getHotelID(String city, String businessCircle, String roomType, int roomNumber,
+			int priceLow, int priceHigh, int hotelStar, int scoreLow, int scoreHigh, String everBooked,String userid);
 	
 	
 	
