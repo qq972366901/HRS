@@ -138,12 +138,14 @@ public class MemberLevelSystemView extends JPanel{
 				long credit3=Long.valueOf(l3.getText());
 				long credit4=Long.valueOf(l4.getText());
 				long credit5=Long.valueOf(l5.getText());
+				long credit[]={credit1,credit2,credit3,credit4,credit5};
 				double discount1=Long.valueOf((String) dis1.getSelectedItem());
 				double discount2=Long.valueOf((String) dis2.getSelectedItem());
 				double discount3=Long.valueOf((String) dis3.getSelectedItem());
 				double discount4=Long.valueOf((String) dis4.getSelectedItem());
 				double discount5=Long.valueOf((String) dis5.getSelectedItem());
-				MemberLevelSystemVO vo=new MemberLevelSystemVO(credit1,credit2,credit3,credit4,credit5,discount1,discount2,discount3,discount4,discount5);
+				double discount[]={discount1,discount2,discount3,discount4,discount5};
+				MemberLevelSystemVO vo=new MemberLevelSystemVO(credit,discount);
 				if(hasMemberLevelSystem){
 					controller.updateMemberLevelSystem(vo);
 				}
@@ -170,16 +172,18 @@ public class MemberLevelSystemView extends JPanel{
 	public void showMemberLevelSystem(MemberLevelSystemVO vo){
 		if(vo!=null){
 			hasMemberLevelSystem=true;
-			l1.setText(String.valueOf(vo.credit1));
-			l2.setText(String.valueOf(vo.credit2));
-			l3.setText(String.valueOf(vo.credit3));
-			l4.setText(String.valueOf(vo.credit4));
-			l5.setText(String.valueOf(vo.credit5));
-			dis1.setSelectedItem(vo.discount1);
-			dis2.setSelectedItem(vo.discount2);
-			dis3.setSelectedItem(vo.discount3);
-			dis4.setSelectedItem(vo.discount4);
-			dis5.setSelectedItem(vo.discount5);
+			long credit[]=vo.creditOfLevel;
+			double discount[]=vo.discountOfLevel;
+			l1.setText(String.valueOf(credit[0]));
+			l2.setText(String.valueOf(credit[1]));
+			l3.setText(String.valueOf(credit[2]));
+			l4.setText(String.valueOf(credit[3]));
+			l5.setText(String.valueOf(credit[4]));
+			dis1.setSelectedItem(discount[0]);
+			dis2.setSelectedItem(discount[1]);
+			dis3.setSelectedItem(discount[2]);
+			dis4.setSelectedItem(discount[3]);
+			dis5.setSelectedItem(discount[4]);
 		}
 	}
 }

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Vector;
 
 import VO.PromotionVO;
+import VO.WebPromotionVO;
 import WebPromotionView.WebPromotionStrategyView;
 import WebPromotionView.WebPromotionUserView;
 import promotionBLService.PromotionBLService;
@@ -32,7 +33,7 @@ public class WebPromotionStrategyUiController implements WebPromotionStrategyUiS
 	}
 
 	@Override
-	public Vector<Vector<String> > getAllWebPromotion() {
+	public List<WebPromotionVO> getAllWebPromotion() {
 		return proService.getAllWebPromotion();
 
 	}
@@ -49,10 +50,10 @@ public class WebPromotionStrategyUiController implements WebPromotionStrategyUiS
 
 	@Override
 	public boolean deleteStrategy(String strategyNo) {
-		return proService.deleteStrategy(strategyNo);
+		return proService.deleteWebPromotion(strategyNo);
 	}
 	@Override
-	public void addWebPromotion(PromotionVO vo) {
+	public void addWebPromotion(WebPromotionVO vo) {
 		proService.madebyweb(vo);
 	}
 

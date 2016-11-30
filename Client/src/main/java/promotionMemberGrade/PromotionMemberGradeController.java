@@ -1,31 +1,36 @@
 package promotionMemberGrade;
-import java.util.ArrayList;
 
-import Object.Promotion;
-import VO.PromotionVO;
+import PromotionBLServiceImpl.AddMemberLevelSystem;
+import PromotionBLServiceImpl.GetMemberLevelSystem;
+import PromotionBLServiceImpl.UpdateMemberLevelSystem;
+import VO.MemberLevelSystemVO;
 public class PromotionMemberGradeController{	
 	/**
-     * 取消一个订单
+     * 添加一种新的会员等级制度
      * 
-     * @param promotion Promotion型，需要取消的订单
-     * @return 取消成功则返回true，否则返回true
+     * @param vo long[]和double[]型，界面输入数据
      * @see bussinesslogic.Promotion
      */
-	public boolean cancel(Promotion promotion) {
-		return false;
+	public void addMemberLevelSystem(long credit[],double discount[]){
+		AddMemberLevelSystem.getAddMemberLevelSystemInstance().addMemberLevelSystem(credit,discount);
 	}
-	
-	
 	/**
-     * 显示所有能用的营销策略
+     * 更新的会员等级制度
      * 
-     * @param userID String型，客户的ID
-     * @return ArrayList<PromotionVO>，一个营销策略值对象的列表
+     * @param vo long[]和double[]型，界面输入数据
      * @see bussinesslogic.Promotion
      */
-	public ArrayList<PromotionVO> getPromotion(String userID) {
-		ArrayList<PromotionVO> array=new ArrayList<PromotionVO>();
-		return array;
+	public void updateMemberLevelSystem(long credit[],double discount[]){
+		UpdateMemberLevelSystem.getUpdateMemberLevelSystemInstance().updateMemberLevelSystem(credit,discount);
+	}
+	/**
+     * 得到会员等级制度
+     * 
+     * @param
+     * @see bussinesslogic.Promotion
+     */
+	public MemberLevelSystemVO getMemberLevelSystem(){
+		return GetMemberLevelSystem.getMemberLevelSystemInstance().getMemberLevelSystem();
 	}
 }
 

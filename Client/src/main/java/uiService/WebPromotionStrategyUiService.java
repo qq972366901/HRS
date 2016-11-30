@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Vector;
 
-import VO.PromotionVO;
+import VO.WebPromotionVO;
 import WebPromotionView.WebPromotionStrategyView;
 
 public interface WebPromotionStrategyUiService {
@@ -21,7 +21,7 @@ public interface WebPromotionStrategyUiService {
 
 	public boolean deleteStrategy(String strategyNo);
 
-	public void addWebPromotion(PromotionVO vo);
+	public void addWebPromotion(WebPromotionVO vo);
 
 	public void addCircle(String city);
 
