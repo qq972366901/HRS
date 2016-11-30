@@ -1,6 +1,8 @@
 package promotionWeb;
+import java.rmi.RemoteException;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Vector;
 
 import PromotionBLServiceImpl.AddWebPromotion;
 import PromotionBLServiceImpl.DeleteWebPromotion;
@@ -22,7 +24,7 @@ public class PromotionWebController{
 	/**
      * 得到所有的网站营销策略
      */
-	public List<WebPromotionVO> getAllWebPromotion() {
+	public Vector<Vector<String>> getAllWebPromotion() {
 		return  SearchWebPromotion.getSearchWebPromotionInstance().getAllWebPromotion();
 	}
 	/**
@@ -34,8 +36,9 @@ public class PromotionWebController{
 	}
 	/**
 	 * 得到在下订单时客户能获得的网站营销策略折扣
+	 * @throws RemoteException 
      */
-	public double getWebPromotionDiscount(String userID,String city,String bussinesscircle,Calendar orderbuildtime) {
+	public double getWebPromotionDiscount(String userID,String city,String bussinesscircle,Calendar orderbuildtime) throws RemoteException {
 		long creditvalue=Credit.getInstance().showCredit(userID);
 		MemberLevelSystemVO vo2=GetMemberLevelSystem.getMemberLevelSystemInstance().getMemberLevelSystem();
 		long credit[]=vo2.creditOfLevel;

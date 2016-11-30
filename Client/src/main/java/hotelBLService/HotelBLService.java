@@ -2,9 +2,9 @@ package hotelBLService;
 import java.util.ArrayList;
 import java.util.List;
 
+import Object.Hotel;
 import VO.*;
 import common.*;
-import Object.*;
 
 /**
  * 负责实现酒店功能的服务接口

@@ -35,7 +35,7 @@ public interface PromotionBLService {
 	/**
      * 得到所有的网站营销策略
      */
-	public List<WebPromotionVO> getAllWebPromotion();
+	public Vector<Vector<String>> getAllWebPromotion();
 	/**
 	 * 通过策略ID查找策略
      */

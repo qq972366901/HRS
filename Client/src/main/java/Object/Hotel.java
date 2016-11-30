@@ -13,7 +13,6 @@ import common.ResultMessage;
  * @see
  */
 public class Hotel {
-    
     private HotelList hotelList;
     private RoomList roomList;
     private OrderList orderList;
@@ -132,9 +131,6 @@ public class Hotel {
     public ResultMessage setScore(int score) {
     	return hotelList.setScore(score);
     }
-    
-    
-    
-
 }
+
 

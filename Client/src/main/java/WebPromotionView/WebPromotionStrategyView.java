@@ -3,10 +3,8 @@ package WebPromotionView;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -24,7 +22,6 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
-import VO.PromotionVO;
 import VO.WebPromotionVO;
 import uiService.WebPromotionStrategyUiService;
 
@@ -45,10 +42,10 @@ public class WebPromotionStrategyView  extends JPanel{
 	JComboBox<String> citylist;
 	JComboBox<String> circlelist;
 	Vector<Vector<String> > vData;
-	private Vector<PromotionVO> promotionArray;
+	private Vector<WebPromotionVO> promotionArray;
 	public WebPromotionStrategyView(WebPromotionStrategyUiService controller) {
 		this.controller=controller;
-		this.promotionArray=new Vector<PromotionVO>();
+		this.promotionArray=new Vector<WebPromotionVO>();
 		this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
 		initButton();
 		initStrategyList();

@@ -1,6 +1,8 @@
 package VO;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Vector;
 
 import PO.PromotionPO;
 
@@ -21,6 +23,20 @@ public class WebPromotionVO{
 		 applyBussinesscircle=applybussinesscircle;
 		 applyMemberGrade=applymembergrade;
 		}
+	 public Vector<String> getVector(){
+		 Vector<String> v=new Vector<String>();
+		 v.add(promotionNumber);
+		 v.add(promotionName);
+		 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		 String time1 = sdf.format(promotionBegintime.getTime());
+		 String time2 = sdf.format(promotionEndtime.getTime());
+		 v.add(time1);
+		 v.add(time2);
+		 v.add(applyCity);
+		 v.add(applyBussinesscircle);
+		 v.add(String.valueOf(applyMemberGrade));
+		 return v;
+	 }
 	    public WebPromotionVO (PromotionPO po){
 	    	promotionNumber=po.getPromotionNumber();
 	    	promotionName=po.getPromotionName();

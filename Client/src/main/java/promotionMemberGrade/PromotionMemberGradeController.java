@@ -4,7 +4,8 @@ import PromotionBLServiceImpl.AddMemberLevelSystem;
 import PromotionBLServiceImpl.GetMemberLevelSystem;
 import PromotionBLServiceImpl.UpdateMemberLevelSystem;
 import VO.MemberLevelSystemVO;
-public class PromotionMemberGradeController{	
+import userBLServiceImpl.PromotionInfo;
+public class PromotionMemberGradeController implements PromotionInfo{	
 	/**
      * 添加一种新的会员等级制度
      * 

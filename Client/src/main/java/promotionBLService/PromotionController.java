@@ -3,6 +3,7 @@ package promotionBLService;
 import java.rmi.RemoteException;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Vector;
 
 import PromotionBLServiceImpl.GetMemberLevelSystem;
 import VO.MemberLevelSystemVO;
@@ -58,7 +59,7 @@ public class PromotionController implements PromotionBLService {
 	/**
      * 得到所有的网站营销策略
      */
-	public List<WebPromotionVO> getAllWebPromotion(){
+	public Vector<Vector<String>> getAllWebPromotion(){
 		return promotionWebController.getAllWebPromotion();
 	}
 	/**
@@ -69,9 +70,16 @@ public class PromotionController implements PromotionBLService {
 	}
 	/**
 	 * 得到在下订单时客户能获得的网站营销策略折扣
+	 * @throws  
      */
 	public double getWebPromotionDiscount(String userID,String city,String bussinesscircle,Calendar orderbuildtime){
-		return promotionWebController.getWebPromotionDiscount(userID,city,bussinesscircle,orderbuildtime);
+		try {
+			return promotionWebController.getWebPromotionDiscount(userID,city,bussinesscircle,orderbuildtime);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return 0;
 	}
 	/**
 	 * 根据策略编号删除策略

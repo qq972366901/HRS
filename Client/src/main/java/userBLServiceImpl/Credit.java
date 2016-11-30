@@ -4,12 +4,13 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import Mock.MockMemberGrade;
 import PO.CreditPO;
 import VO.CreditRecordVO;
 import VO.CreditVO;
+import VO.MemberLevelSystemVO;
 import dataService.CreditDataService;
 import dataService.DataFactoryService;
+import promotionMemberGrade.PromotionMemberGradeController;
 import rmi.RemoteHelper;
 /**
  * 负责对于信用值的操作
@@ -63,22 +64,22 @@ public class Credit {
 	 * @see VO.UserVO
 	 */
 	public void updateLevel(String id ,long credit) throws RemoteException{
-		pi=new MockMemberGrade();
-		HashMap<Integer,Long> level=pi.getLevelSystem();
+		pi=new PromotionMemberGradeController();
+		MemberLevelSystemVO level=pi.getMemberLevelSystem();
 		if(map.containsKey(id)){
-			if(credit<level.get(1)){
+			if(credit<level.creditOfLevel[0]){
 				map.get(id).level=0;
 			}
-			else if(credit>=level.get(5)){
+			else if(credit>=level.creditOfLevel[4]){
 				map.get(id).level=5;
 			}
-			else if(level.get(1)<=credit&&credit<level.get(2)){
+			else if(level.creditOfLevel[0]<=credit&&credit<level.creditOfLevel[1]){
 				map.get(id).level=1;
 			}
-			else if(level.get(2)<credit&&credit<level.get(3)){
+			else if(level.creditOfLevel[1]<credit&&credit<level.creditOfLevel[2]){
 				map.get(id).level=2;
 			}
-			else if(level.get(3)<=credit&&credit<level.get(4)){
+			else if(level.creditOfLevel[2]<=credit&&credit<level.creditOfLevel[3]){
 				map.get(id).level=3;
 			}
 			else{

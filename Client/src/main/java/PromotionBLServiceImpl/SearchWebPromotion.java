@@ -3,11 +3,13 @@ package PromotionBLServiceImpl;
 import java.rmi.RemoteException;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Vector;
 
 import PO.PromotionPO;
 import VO.WebPromotionVO;
 import dataService.DataFactoryService;
 import dataService.PromotionDataService;
+import promotionMemberGrade.PromotionMemberGradeController;
 import rmi.RemoteHelper;
 
 public class SearchWebPromotion {
@@ -94,7 +96,14 @@ public class SearchWebPromotion {
 		}
 		return outcome;
 	}
-	public List<WebPromotionVO> getAllWebPromotion(){
-		return voList;
+	public Vector<Vector<String>> getAllWebPromotion(){
+		Vector< Vector<String>> list=new Vector<Vector<String>>();
+		for(int i=0;i<voList.size();i++){
+			Vector<String> v=voList.get(i).getVector();
+			PromotionMemberGradeController p=new PromotionMemberGradeController();
+			v.add(String.valueOf(p.getDiscountOfLevel(voList.get(i).applyMemberGrade)));
+			list.add(v);
+		}
+		return list;
 	}
 }

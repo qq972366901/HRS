@@ -2,13 +2,9 @@ package userCreditManagement;
 
 import java.rmi.RemoteException;
 
-import Mock.MockMemberGrade;
 import VO.CreditRecordVO;
-import VO.UserVO;
-import common.ResultMessage;
+import promotionMemberGrade.PromotionMemberGradeController;
 import userBLServiceImpl.Credit;
-import userBLServiceImpl.Customer;
-import userBLServiceImpl.MemberGrade;
 import userBLServiceImpl.PromotionInfo;
 
 
@@ -39,7 +35,7 @@ public class UserCreditManagementController {
 		 * @return
 		 */
 		public Double getDiscount(Integer level) {
-			PromotionInfo mg=new MockMemberGrade();
-			return mg.getDiscount(level);
+			PromotionInfo mg=new PromotionMemberGradeController();
+			return mg.getDiscountOfLevel(level);
 		}
 }

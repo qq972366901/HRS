@@ -4,7 +4,6 @@ import java.rmi.RemoteException;
 import java.util.List;
 import java.util.Vector;
 
-import VO.PromotionVO;
 import VO.WebPromotionVO;
 import WebPromotionView.WebPromotionStrategyView;
 import WebPromotionView.WebPromotionUserView;
@@ -38,7 +37,7 @@ public class WebPromotionStrategyUiController implements WebPromotionStrategyUiS
 	}
 
 	@Override
-	public List<WebPromotionVO> getAllWebPromotion() {
+	public Vector<Vector<String>> getAllWebPromotion() {
 		return proService.getAllWebPromotion();
 
 	}
