@@ -11,20 +11,24 @@ import java.util.Calendar;
 
 public class PromotionPO extends PO implements Serializable{
 	private static final long serialVersionUID = 1L;
+	private String hotelID;
 	private String promotionNumber;
 	private String promotionName;
-	private int promotionState;
 	private Calendar promotionBegintime;
 	private Calendar promotionEndtime;
 	private String applyuserType;
-	private String applybusinesscircle;
+	private String applybussinesscircle;
+	private String applycity;
 	private int applyuserShipgrade;
 	private int miniNum;
-	private double promotionDiscount;
-	private int[] creditOfLevel=new int[5];
+	private double Discount;
+	private long[] creditOfLevel=new long[5];
 	private double[] discountOfLevel=new double[5];
+	private double birthdayDiscount;
+	private double roomDiscount;
+	private double enterpriseDiscount;
 	/**
-	 * 鏋勯�犳櫘閫氫績閿�绛栫暐
+	 * 酒店营销策略
 	 * @param promotionnumber String鍨嬶紝閫昏緫灞備紶鏉ョ殑绛栫暐缂栧彿
 	 * @param promotionname String鍨嬶紝閫昏緫灞備紶鏉ョ殑绛栫暐鍚嶇О
 	 * @param promotionbegintime Time鍨嬶紝閫昏緫灞備紶鏉ョ殑绛栫暐寮�濮嬫椂闂�
@@ -38,17 +42,29 @@ public class PromotionPO extends PO implements Serializable{
 	 * @throws
 	 * @see
 	 */
-	public PromotionPO(String promotionnumber,String promotionname,Calendar promotionbegintime,Calendar promotionendtime, String usertype,String hotelbusinesscircle,int usershipgrade,int num,double promotiondiscount){
+	public PromotionPO(String hotelid,String promotionname,Calendar promotionbegintime,Calendar promotionendtime,double promotiondiscount,double birthdaydiscount,double roomdiscount,double enterprisediscount){
+	     hotelID=hotelid;
+	     promotionName=promotionname;
+	     promotionBegintime=promotionbegintime;
+	     promotionEndtime=promotionendtime;
+	     Discount=promotiondiscount;
+	     birthdayDiscount=birthdaydiscount;
+	     roomDiscount=roomdiscount;
+	     enterpriseDiscount=enterprisediscount;
+	 }
+	/**
+	 * 网站营销策略
+	 */
+	public PromotionPO(String promotionnumber,String promotionname,Calendar promotionbegintime,Calendar promotionendtime, String city,String hotelbusinesscircle,int usershipgrade){
 	     promotionNumber=promotionnumber;
 	     promotionName=promotionname;
 	     promotionBegintime=promotionbegintime;
 	     promotionEndtime=promotionendtime;
-	     applyuserType=usertype;
-	     applybusinesscircle=hotelbusinesscircle;
+	     applycity=city;
+	     applybussinesscircle=hotelbusinesscircle;
 	     applyuserShipgrade=usershipgrade;
-	     miniNum=num;
-	     promotionDiscount=promotiondiscount;
 	 }
+	
 	/**
 	 * 鏋勯�犱細鍛樼瓑绾у埗搴�
 	 * @param a int[]鍨嬶紝閫昏緫灞備紶鏉ョ殑姣忎釜绛夌骇鐨勪俊鐢ㄥ��
@@ -57,7 +73,7 @@ public class PromotionPO extends PO implements Serializable{
 	 * @throws
 	 * @see
 	 */
-	public PromotionPO(int a[],double b[]){
+	public PromotionPO(long a[],double b[]){
 		for(int i=0;i<a.length;i++){
 			creditOfLevel[i]=a[i];
 		}
@@ -72,7 +88,7 @@ public class PromotionPO extends PO implements Serializable{
 	 * @throws
 	 * @see
 	 */
-	 public int[] getCreditOfLevel(){
+	 public long[] getCreditOfLevel(){
 		 return creditOfLevel;
 	 }
 	 /**
@@ -82,7 +98,7 @@ public class PromotionPO extends PO implements Serializable{
 		 * @throws
 		 * @see
 		 */
-	 public void setCreditOfLevel(int[] a){
+	 public void setCreditOfLevel(long[] a){
 		 for(int i=0;i<a.length;i++){
 			creditOfLevel[i]=a[i];
 		}
@@ -108,6 +124,26 @@ public class PromotionPO extends PO implements Serializable{
 		 for(int i=0;i<b.length;i++){
 				discountOfLevel[i]=b[i];
 			}
+	 }
+	 /**
+		 * 鑾峰彇绛栫暐缂栧彿
+		 * @param
+		 * @return 杩斿洖绛栫暐缂栧彿
+		 * @throws
+		 * @see
+		 */
+	 public String getHotelID(){
+	     return hotelID;
+	 }
+	 /**
+		 * 璁剧疆绛栫暐缂栧彿
+		 * @param number String鍨嬶紝閫昏緫灞備紶鏉ョ殑绛栫暐缂栧彿
+		 * @return
+		 * @throws
+		 * @see
+		 */
+	 public void setHotelID(String id){
+	     hotelID=id;
 	 }
 	 /**
 		 * 鑾峰彇绛栫暐缂栧彿
@@ -148,26 +184,6 @@ public class PromotionPO extends PO implements Serializable{
 		 */
 	 public void setPromotionName(String name){
 	     promotionName=name;
-	 }
-	 /**
-		 * 鑾峰彇绛栫暐鐘舵��
-		 * @param
-		 * @return 杩斿洖绛栫暐鐘舵��
-		 * @throws
-		 * @see
-		 */
-	 public int getPromotionState(){
-	     return promotionState;
-	 }
-	 /**
-		 * 璁剧疆绛栫暐鐘舵��
-		 * @param state int鍨嬶紝閫昏緫灞備紶鏉ョ殑绛栫暐鐘舵��
-		 * @return
-		 * @throws
-		 * @see
-		 */
-	 public void setPromotionState(int state){
-	     promotionState=state;
 	 }
 	 /**
 		 * 鑾峰彇绛栫暐寮�濮嬫椂闂�
@@ -237,7 +253,7 @@ public class PromotionPO extends PO implements Serializable{
 		 * @see
 		 */
 	 public String getHotelBussinesscircle(){
-	    return applybusinesscircle;
+	    return applybussinesscircle;
 	 }
 	 /**
 		 * 璁剧疆閫傜敤鍟嗗湀
@@ -247,7 +263,7 @@ public class PromotionPO extends PO implements Serializable{
 		 * @see
 		 */
 	 public void setHotelBussinesscircle(String circle){
-		 applybusinesscircle=circle;
+		 applybussinesscircle=circle;
 	 }
 	 /**
 		 * 鑾峰彇瀹㈡埛閫傜敤绛夌骇
@@ -297,7 +313,7 @@ public class PromotionPO extends PO implements Serializable{
 		 * @see
 		 */
 	 public double getPromotionDiscount(){
-	     return promotionDiscount;
+	     return Discount;
 	 }
 	 /**
 		 * 璁剧疆绛栫暐鎶樻墸
@@ -307,6 +323,30 @@ public class PromotionPO extends PO implements Serializable{
 		 * @see
 		 */
 	 public void setPromotionDiscount(double discount){
-	     promotionDiscount=discount;
+	     Discount=discount;
+	 }
+	 public double getBirthdayDiscount(){
+	     return birthdayDiscount;
+	 }
+	 public void setBirthdayDiscount(double birthdaydiscount){
+		 birthdayDiscount=birthdaydiscount;
+	 }
+	 public double getRoomDiscount(){
+	     return roomDiscount;
+	 }
+	 public void setRoomDiscount(double roomdiscount){
+		 roomDiscount=roomdiscount;
+	 }
+	 public double getEnterpriseDiscount(){
+	     return enterpriseDiscount;
+	 }
+	 public void setEnterpriseDiscount(double enterprisediscount){
+		 enterpriseDiscount=enterprisediscount;
+	 }
+	 public String getApplyCity(){
+	     return applycity;
+	 }
+	 public void setApplyCity(String city){
+		 applycity=city;
 	 }
 }

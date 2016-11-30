@@ -25,6 +25,7 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 import VO.PromotionVO;
+import VO.WebPromotionVO;
 import uiService.WebPromotionStrategyUiService;
 
 public class WebPromotionStrategyView  extends JPanel{
@@ -194,8 +195,7 @@ public class WebPromotionStrategyView  extends JPanel{
 					String city=(String) citylist.getSelectedItem();
 					String circle=(String) circlelist.getSelectedItem();
 					Integer level=(Integer) levellist.getSelectedItem();
-					Double dis=controller.getDiscount(level);
-					PromotionVO vo=new PromotionVO(id,name,c1,c2,city,circle,level,dis);
+					WebPromotionVO vo=new WebPromotionVO(id,name,c1,c2,city,circle,level);
 					promotionArray.add(vo);
 					nametext.setText("");
 					begintext.setText("");
@@ -233,8 +233,7 @@ public class WebPromotionStrategyView  extends JPanel{
 					String city=(String) citylist.getSelectedItem();
 					String circle=(String) circlelist.getSelectedItem();
 					Integer level=(Integer) levellist.getSelectedItem();
-					Double dis=controller.getDiscount(level);
-					PromotionVO vo=new PromotionVO(id,name,c1,c2,city,circle,level,dis);
+					WebPromotionVO vo=new WebPromotionVO(id,name,c1,c2,city,circle,level);
 					promotionArray.add(vo);
 				for(int i=0;i<promotionArray.size();i++){
 					controller.addWebPromotion(promotionArray.get(i));

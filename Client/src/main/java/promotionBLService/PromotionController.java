@@ -1,140 +1,118 @@
 package promotionBLService;
 
-import java.util.ArrayList;
+import java.rmi.RemoteException;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Vector;
 
-import Object.Promotion;
+import PromotionBLServiceImpl.GetMemberLevelSystem;
 import VO.MemberLevelSystemVO;
-import VO.PromotionVO;
-import common.ResultMessage;
+import VO.WebPromotionVO;
+import promotionHotel.PromotionHotelController;
+import promotionMemberGrade.PromotionMemberGradeController;
+import promotionWeb.PromotionWebController;
 
+/**
+ * Promotion模块的实现
+ * @author LW
+ *
+ */
 public class PromotionController implements PromotionBLService {
-	/**
+		private PromotionHotelController promotionHotelController;
+		private PromotionWebController promotionWebController;
+		private PromotionMemberGradeController promotionMemberGradeController;
+		/**
+		 * 初始化
+		 * @throws RemoteException 
+		 */
+		public PromotionController() throws RemoteException{
+			this.promotionHotelController=new PromotionHotelController();
+			this.promotionWebController=new PromotionWebController();
+			this.promotionMemberGradeController=new PromotionMemberGradeController();
+		}
+	  /**
      * 添加一种新的酒店营销策略，并公布
      * 
-     * @param vo PromotionVO型，界面输入的营销策略
-     * @return 返回ResultMessage枚举值中的一项
+     * @param vo HotelPromotionVO型，界面输入的营销策略
+     * @return
      * @see bussinesslogic.Promotion
      */
-	public ResultMessage madebyhotel (PromotionVO vo){
-		return ResultMessage.Exist;
+	public void madebyhotel (String hotelid,String promotionname,Calendar promotionbegintime,Calendar promotionendtime,double promotiondiscount,double birthdaydiscount,double roomdiscount,double enterprisediscount){
+		promotionHotelController.madebyhotel (hotelid,promotionname,promotionbegintime,promotionendtime,promotiondiscount,birthdaydiscount,roomdiscount,enterprisediscount);
 	}
-	
-	
+
+	/**
+	 * 得到在下订单时客户能获得的酒店营销策略折扣
+     */
+	public double getHotelPromotionDiscount(String hotelid,String userID,int roomNumber,Calendar orderbuildtime){
+		return promotionHotelController.getHotelPromotionDiscount(hotelid,userID,roomNumber,orderbuildtime);
+	}
 	/**
      * 添加一种新的网站营销策略，并公布
      * 
-     * @param vo PromotionVO型，界面输入的营销策略
-     * @return 返回ResultMessage枚举值中的一项
+     * @param vo WebPromotionVO型，界面输入的营销策略
      * @see bussinesslogic.Promotion
      */
-	public void madebyweb (PromotionVO vo ){
-
+	public void madebyweb(String promotionnumber,String promotionname,Calendar promotionbegintime,Calendar promotionendtime,String applycity,String applybussinesscircle,int applymembergrade){
+		promotionWebController.madebyweb(promotionnumber,promotionname,promotionbegintime,promotionendtime,applycity,applybussinesscircle,applymembergrade);
 	}
-
-	
 	/**
-     * 标记会员等级标准
-     * 
-     * @param vo PromotionVO型，界面输入的会员等级标注
-     * @return 返回ResultMessage枚举值中的一项
-     * @see bussinesslogic.Promotion
+     * 得到所有的网站营销策略
      */
-	public ResultMessage memberlevelmade(PromotionVO vo){
-		return ResultMessage.Exist;
+	public List<WebPromotionVO> getAllWebPromotion(){
+		return promotionWebController.getAllWebPromotion();
 	}
-	
 	/**
-     * 取消一个订单
-     * 
-     * @param promotion Promotion型，需要取消的订单
-     * @return 取消成功则返回true，否则返回true
-     * @see bussinesslogic.Promotion
+	 * 通过策略ID查找策略
      */
-	public boolean cancel(Promotion promotion){
-		return true;
+	public WebPromotionVO getWebPromotionByPromotionNumber(String promotionnumber){
+		return promotionWebController.getWebPromotionByPromotionNumber(promotionnumber);
 	}
-	
-	
 	/**
-     * 显示所有能用的营销策略
+	 * 得到在下订单时客户能获得的网站营销策略折扣
+     */
+	public double getWebPromotionDiscount(String userID,String city,String bussinesscircle,Calendar orderbuildtime){
+		return promotionWebController.getWebPromotionDiscount(userID,city,bussinesscircle,orderbuildtime);
+	}
+	/**
+	 * 根据策略编号删除策略
+     */
+	public boolean deleteWebPromotion(String promotionnumber){
+		return promotionWebController.deleteWebPromotion(promotionnumber);
+	}
+	/**
+     * 添加一种新的会员等级制度
      * 
-     * @param userID String型，客户的ID
-     * @return ArrayList<PromotionVO>，一个营销策略值对象的列表
+     * @param vo long[]和double[]型，界面输入数据
      * @see bussinesslogic.Promotion
      */
-	public Vector<PromotionVO> getPromotion(String userID){
-		return new Vector<PromotionVO>();
+	public void addMemberLevelSystem(long credit[],double discount[]){
+		promotionMemberGradeController.addMemberLevelSystem(credit,discount);
 	}
-
-
-	@Override
-	public Vector<Vector<String> > getAllWebPromotion() {
-		//只是为了在界面上显示而已
-		Vector<Vector<String>> promotionlist=new Vector<Vector<String>>();
-		Calendar time1=Calendar.getInstance();
-		time1.set(2016,11,11);
-		Calendar time2=Calendar.getInstance();
-		time2.set(2016,11,11);
-		PromotionVO vo1=new PromotionVO("xx","xx",time1,time2,"xx","xx",5,4.5);
-		PromotionVO vo2=new PromotionVO("xx","xx",time1,time2,"xx","xx",5,4.5);
-		promotionlist.add(vo1.getPromotion());
-		promotionlist.add(vo2.getPromotion());
-		return promotionlist;
+	/**
+     * 更新的会员等级制度
+     * 
+     * @param vo long[]和double[]型，界面输入数据
+     * @see bussinesslogic.Promotion
+     */
+	public void updateMemberLevelSystem(long credit[],double discount[]){
+		promotionMemberGradeController.updateMemberLevelSystem(credit,discount);
 	}
-
-
-	@Override
-	public boolean deleteStrategy(String strategyNo) {
-		return true;
+	/**
+     * 得到会员等级制度
+     * 
+     * @param
+     * @see bussinesslogic.Promotion
+     */
+	public MemberLevelSystemVO getMemberLevelSystem(){
+		return promotionMemberGradeController.getMemberLevelSystem();		
 	}
-
-
-	@Override
-	public void updateMemberLevelSystem(MemberLevelSystemVO vo) {	
-	}
-
-
-	@Override
-	public void addMemberLevelSystem(MemberLevelSystemVO vo) {	
-	}
-
-
-	@Override
-	public MemberLevelSystemVO getMemberLevelSystem() {
-		return new MemberLevelSystemVO(1,2,3,4,5,9.5,8.5,7.5,6.5,5.5);
-	}
-
-
-	@Override
-	public Vector<String> getCity() {
-		Vector<String> cities=new Vector<String>();
-		cities.add("北京");
-		cities.add("上海");
-		cities.add("南京");//暂时这么写，需要调用逻辑层方法
-		return cities;
-	}
-
-	@Override
-	public Vector<String> getCircle(String city) {
-		Vector<String> circles=new Vector<String>();
-		if(city.equals("北京")){
-			circles.addElement("北1");
-			circles.addElement("北2");
-			circles.addElement("北3");
-		}
-		else if(city.equals("上海")){
-			circles.addElement("上1");
-			circles.addElement("上2");
-			circles.addElement("上3");
-		}
-		else if(city.equals("南京")){
-			circles.addElement("南1");
-			circles.addElement("南2");
-			circles.addElement("南3");
-		}
-		return circles;
+	/**
+     *根据等级获取折扣
+     * 
+     * @param
+     * @see bussinesslogic.Promotion
+     */
+	public double getDiscountOfLevel(int grade){
+		return promotionMemberGradeController.getDiscountOfLevel(grade);
 	}
 }

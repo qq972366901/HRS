@@ -1,8 +1,8 @@
 package promotionBLService;
 import java.util.*;
+
+import PromotionBLServiceImpl.GetMemberLevelSystem;
 import VO.*;
-import common.*;
-import Object.*;
 
 /**
  * 负责实现营销策略界面所需要的服务接口  
@@ -12,73 +12,68 @@ import Object.*;
  */
 
 public interface PromotionBLService {
-    /**
+	  /**
      * 添加一种新的酒店营销策略，并公布
      * 
-     * @param vo PromotionVO型，界面输入的营销策略
-     * @return 返回ResultMessage枚举值中的一项
+     * @param vo HotelPromotionVO型，界面输入的营销策略
+     * @return
      * @see bussinesslogic.Promotion
      */
-	public ResultMessage madebyhotel (PromotionVO vo);
-	
-	
+	public void madebyhotel (String hotelid,String promotionname,Calendar promotionbegintime,Calendar promotionendtime,double promotiondiscount,double birthdaydiscount,double roomdiscount,double enterprisediscount);
+
+	/**
+	 * 得到在下订单时客户能获得的酒店营销策略折扣
+     */
+	public double getHotelPromotionDiscount(String hotelid,String userID,int roomNumber,Calendar orderbuildtime);
 	/**
      * 添加一种新的网站营销策略，并公布
      * 
-     * @param vo PromotionVO型，界面输入的营销策略
-     * @return 返回ResultMessage枚举值中的一项
+     * @param vo WebPromotionVO型，界面输入的营销策略
      * @see bussinesslogic.Promotion
      */
-	public void madebyweb (PromotionVO vo ); 
-
-	
+	public void madebyweb(String promotionnumber,String promotionname,Calendar promotionbegintime,Calendar promotionendtime,String applycity,String applybussinesscircle,int applymembergrade);
 	/**
-     * 标记会员等级标准
-     * 
-     * @param vo PromotionVO型，界面输入的会员等级标注
-     * @return 返回ResultMessage枚举值中的一项
-     * @see bussinesslogic.Promotion
+     * 得到所有的网站营销策略
      */
-	public ResultMessage memberlevelmade(PromotionVO vo);
-
-	
+	public List<WebPromotionVO> getAllWebPromotion();
 	/**
-     * 取消一个订单
-     * 
-     * @param promotion Promotion型，需要取消的订单
-     * @return 取消成功则返回true，否则返回true
-     * @see bussinesslogic.Promotion
+	 * 通过策略ID查找策略
      */
-	public boolean cancel(Promotion promotion);
-	
-	
+	public WebPromotionVO getWebPromotionByPromotionNumber(String promotionnumber);
 	/**
-     * 显示所有能用的营销策略
+	 * 得到在下订单时客户能获得的网站营销策略折扣
+     */
+	public double getWebPromotionDiscount(String userID,String city,String bussinesscircle,Calendar orderbuildtime);
+	/**
+	 * 根据策略编号删除策略
+     */
+	public boolean deleteWebPromotion(String promotionnumber);
+	/**
+     * 添加一种新的会员等级制度
      * 
-     * @param userID String型，客户的ID
-     * @return ArrayList<PromotionVO>，一个营销策略值对象的列表
+     * @param vo long[]和double[]型，界面输入数据
      * @see bussinesslogic.Promotion
      */
-	public Vector<PromotionVO> getPromotion(String userID);
-	
-	public Vector<Vector<String> > getAllWebPromotion();
-
-
-	public boolean deleteStrategy(String strategyNo);
-
-
-	public void updateMemberLevelSystem(MemberLevelSystemVO vo);
-
-
-	public void addMemberLevelSystem(MemberLevelSystemVO vo);
-
-
+	public void addMemberLevelSystem(long credit[],double discount[]);
+	/**
+     * 更新的会员等级制度
+     * 
+     * @param vo long[]和double[]型，界面输入数据
+     * @see bussinesslogic.Promotion
+     */
+	public void updateMemberLevelSystem(long credit[],double discount[]);
+	/**
+     * 得到会员等级制度
+     * 
+     * @param
+     * @see bussinesslogic.Promotion
+     */
 	public MemberLevelSystemVO getMemberLevelSystem();
-
-
-	public Vector<String> getCity();
-
-
-	public Vector<String> getCircle(String city);
-
+	/**
+     *根据等级获取折扣
+     * 
+     * @param
+     * @see bussinesslogic.Promotion
+     */
+	public double getDiscountOfLevel(int grade);
 }

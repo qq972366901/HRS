@@ -1,8 +1,9 @@
 package uiController;
 
 
+import java.rmi.RemoteException;
+
 import VO.MemberLevelSystemVO;
-import VO.PromotionVO;
 import WebPromotionView.MemberLevelSystemView;
 import WebPromotionView.WebPromotionUserView;
 import promotionBLService.PromotionBLService;
@@ -18,7 +19,12 @@ public class MemberLevelSystemUiController implements MemberLevelSystemUiService
 	public void setView(MemberLevelSystemView view) {
 		// TODO Auto-generated method stub
 		this.view=view;
-		this.proService=new PromotionController();
+		try {
+			this.proService=new PromotionController();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		view.showMemberLevelSystem(proService.getMemberLevelSystem());
 	}
 	@Override
@@ -32,12 +38,12 @@ public class MemberLevelSystemUiController implements MemberLevelSystemUiService
 	@Override
 	public void updateMemberLevelSystem(MemberLevelSystemVO vo) {
 		// TODO Auto-generated method stub
-		proService.updateMemberLevelSystem(vo);
+		proService.updateMemberLevelSystem(vo.creditOfLevel,vo.discountOfLevel);
 	}
 	@Override
 	public void addMemberLevelSystem(MemberLevelSystemVO vo) {
 		// TODO Auto-generated method stub
-		proService.addMemberLevelSystem(vo);
+		proService.addMemberLevelSystem(vo.creditOfLevel,vo.discountOfLevel);
 	}
 	@Override
 	public MemberLevelSystemVO getMemberLevelSystem() {
