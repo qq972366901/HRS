@@ -1,5 +1,7 @@
 package promotionBLService;
 import java.util.*;
+
+import PromotionBLServiceImpl.GetMemberLevelSystem;
 import VO.*;
 
 /**
@@ -67,4 +69,11 @@ public interface PromotionBLService {
      * @see bussinesslogic.Promotion
      */
 	public MemberLevelSystemVO getMemberLevelSystem();
+	/**
+     *根据等级获取折扣
+     * 
+     * @param
+     * @see bussinesslogic.Promotion
+     */
+	public double getDiscountOfLevel(int grade);
 }

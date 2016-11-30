@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 import java.util.Calendar;
 import java.util.List;
 
+import PromotionBLServiceImpl.GetMemberLevelSystem;
 import VO.MemberLevelSystemVO;
 import VO.WebPromotionVO;
 import promotionHotel.PromotionHotelController;
@@ -104,5 +105,14 @@ public class PromotionController implements PromotionBLService {
      */
 	public MemberLevelSystemVO getMemberLevelSystem(){
 		return promotionMemberGradeController.getMemberLevelSystem();		
+	}
+	/**
+     *根据等级获取折扣
+     * 
+     * @param
+     * @see bussinesslogic.Promotion
+     */
+	public double getDiscountOfLevel(int grade){
+		return promotionMemberGradeController.getDiscountOfLevel(grade);
 	}
 }
