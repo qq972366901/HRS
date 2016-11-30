@@ -1,10 +1,13 @@
 package userData;
 
-import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.HashMap;
 
 import PO.UserPO;
+import dataHelper.DataHelperFactory;
+import dataHelper.UserDataHelper;
+import dataHelperImpl.UserDataHelperImpl;
 import dataService.UserDataService;
 /**
  * 职责是将逻辑层面发来的请求转发给后台UserData处理
@@ -13,13 +16,13 @@ import dataService.UserDataService;
  * @see businesslogic.User
  */
 public class UserDataServiceMySqlImpl implements UserDataService{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private static UserDataServiceMySqlImpl userDataServiceMySqlImpl;
+	private DataHelperFactory dataFactory;
+	private HashMap<String,UserPO> user;
+	private UserDataHelper helper;
 	private UserDataServiceMySqlImpl() throws RemoteException{
 		UnicastRemoteObject.exportObject(this,8089);
+		init();
 	}
 	public static UserDataServiceMySqlImpl getInstance() throws RemoteException{
 		if(userDataServiceMySqlImpl==null){
@@ -36,8 +39,7 @@ public class UserDataServiceMySqlImpl implements UserDataService{
 	 */
 	@Override
 	public UserPO find(String id) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		return user.get(id);
 	}
 	/**
 	 * 在数据库中增加一个po实体
@@ -48,8 +50,10 @@ public class UserDataServiceMySqlImpl implements UserDataService{
 	 */
 	@Override
 	public void insert(UserPO po) throws RemoteException {
-		// TODO Auto-generated method stub
-		
+		if(!user.containsKey(po.getAccount())){
+			user.put(po.getAccount(), po);
+			//存入数据库
+		}
 	}
 	/**
 	 * 在数据库中删除一个po
@@ -60,8 +64,10 @@ public class UserDataServiceMySqlImpl implements UserDataService{
 	 */
 	@Override
 	public void delete(UserPO po) throws RemoteException {
-		// TODO Auto-generated method stub
-		
+		if(user.containsKey(po.getAccount())){
+			user.remove(po.getAccount());
+			//更新数据库
+		}
 	}
 	/**
 	 * 在数据库中更新一个po
@@ -72,8 +78,10 @@ public class UserDataServiceMySqlImpl implements UserDataService{
 	 */
 	@Override
 	public void update(UserPO po) throws RemoteException {
-		// TODO Auto-generated method stub
-		
+		if(user.containsKey(po.getAccount())){
+			user.put(po.getAccount(), po);
+			//更新数据库数据
+		}
 	}
 	/**
 	 * 按初始化持久化数据库
@@ -84,8 +92,9 @@ public class UserDataServiceMySqlImpl implements UserDataService{
 	 */
 	@Override
 	public void init() throws RemoteException {
-		// TODO Auto-generated method stub
-		
+		helper=dataFactory.getUserDataHelper();
+		user=new HashMap<String,UserPO>();
+		//从数据库取数据
 	}
 	/**
 	 * 结束持久化数据库的使用
@@ -96,8 +105,6 @@ public class UserDataServiceMySqlImpl implements UserDataService{
 	 */
 	@Override
 	public void finish() throws RemoteException {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

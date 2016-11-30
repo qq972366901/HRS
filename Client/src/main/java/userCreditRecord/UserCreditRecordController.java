@@ -1,4 +1,5 @@
 package userCreditRecord;
+import java.rmi.RemoteException;
 import java.util.HashMap;
 import VO.CreditRecordVO;
 import userBLServiceImpl.Credit;
@@ -9,9 +10,10 @@ public class UserCreditRecordController{
 	* 显示信用值
 	* @param in MessageInput型，界面输入用户ID
 	* @return String型，返回客户的信用值
+	 * @throws RemoteException 
 	* @see bussinesslogic.Customer
 	*/
-	public long showCredit(String userID) {
+	public long showCredit(String userID) throws RemoteException {
 		return Credit.getInstance().showCredit(userID);
 	}
 	/**

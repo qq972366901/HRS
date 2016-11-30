@@ -54,6 +54,11 @@ public interface CreditDataService  extends DataService,Remote{
 	 * @see data.CreditRecord
 	 */
 		public void finish() throws RemoteException;
+		/**
+		 * 获取所有CreditPO
+		 * @return
+		 * @throws RemoteException
+		 */
+	    public ArrayList<CreditPO> getAllCredit() throws RemoteException;
 		
-		//public ArrayList<String> get() throws RemoteException;
  }

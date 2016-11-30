@@ -130,7 +130,13 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 	 */
 	@Override
 	public void recover(Calendar calendar, String orderNo, Operate appeal, String strategy, int value, String userID) {
-		long currentcredit=Credit.getInstance().showCredit(userID);
+		long currentcredit=0;
+		try {
+			currentcredit = Credit.getInstance().showCredit(userID);
+		} catch (RemoteException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		if(strategy.equals("全部")){
 			currentcredit+=value;
 		}

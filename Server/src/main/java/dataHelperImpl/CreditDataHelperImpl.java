@@ -6,9 +6,11 @@ import java.rmi.server.UnicastRemoteObject;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import PO.CreditPO;
 import dataHelper.CreditDataHelper;
 
 public class CreditDataHelperImpl implements Serializable, CreditDataHelper{
@@ -16,28 +18,57 @@ public class CreditDataHelperImpl implements Serializable, CreditDataHelper{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private String driverName;
+	private String dbURL;
+	private String userName;
+	private String userPwd;
+	private Connection dbConn;
 
 	@Override
-	public ArrayList<String> get() throws RemoteException{
-		ArrayList<String> list=new ArrayList<String>();
-		String driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
-		 String dbURL="jdbc:sqlserver://localhost:1433;DatabaseName=db_Student";
-		 String userName="liu";
-		 String userPwd="naigo961226";
-		 try{
+	public void insert(CreditPO po) {
+		init();
+		finish();
+	}
+	@Override
+	public void delete(CreditPO po) {
+		init();
+		finish();
+	}
+	@Override
+	public void update(CreditPO po) {
+		init();
+		finish();	
+	}
+	private void init() {
+		driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
+		dbURL="jdbc:sqlserver://localhost:1433;DatabaseName=db_Student";
+		userName="liu";
+		userPwd="naigo961226";
+		try{
 			 Class.forName(driverName);
-			 Connection dbConn=DriverManager.getConnection(dbURL,userName,userPwd);
-			 ResultSet rs=dbConn.createStatement().executeQuery("SELECT TOP 1000 [UserID],[UserName],[PassWord],[Email],[Role] FROM [db_Student].[dbo].[tb_User]");
-			 while(rs.next()){
-				 list.add(rs.getString("UserName"));
-				 list.add(rs.getString("PassWord"));
-			 }
+			 dbConn=DriverManager.getConnection(dbURL,userName,userPwd);
 			 System.out.println("连接数据库成功");
 		 }catch(Exception e){
 			 e.printStackTrace();
 			 System.out.print("连接失败");
 		 }
+	}
+	private void finish(){
+		if(dbConn!=null){
+			try {
+				dbConn.close();
+				System.out.print("关闭成功");
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.print("关闭失败");
+			}
+		}
+	}
+	@Override
+	public ArrayList<CreditPO> getAllCredit() {
+		ArrayList<CreditPO> list=new ArrayList<CreditPO>();
+		init();
+		finish();
 		return list;
 	}
-
 }

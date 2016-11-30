@@ -1,11 +1,16 @@
 package userBLServiceImpl;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import Mock.MockMemberGrade;
+import PO.CreditPO;
 import VO.CreditRecordVO;
 import VO.CreditVO;
+import dataService.CreditDataService;
+import dataService.DataFactoryService;
+import rmi.RemoteHelper;
 /**
  * 负责对于信用值的操作
  * @author LZ
@@ -16,10 +21,19 @@ public class Credit {
 	private HashMap<String,CreditVO> map;
 	private PromotionInfo pi;
 	private static Credit credit;
-	private Credit(){
-		map=new HashMap<String,CreditVO>();//需要从数据层取数据
+	DataFactoryService df;
+	CreditDataService cd;
+	private Credit() throws RemoteException{
+		df=RemoteHelper.getInstance().getDataFactoryService();
+		cd=(CreditDataService) df.getDataService("Credit");
+		map=new HashMap<String,CreditVO>();
+		ArrayList<CreditPO> list=cd.getAllCredit();
+		for(int i=0;i<list.size();i++){
+			CreditVO vo=new CreditVO(list.get(i));
+			map.put(vo.customerID,vo);
+		}
 	}
-	public static Credit getInstance(){
+	public static Credit getInstance() throws RemoteException{
 		if(credit==null){
 			credit=new Credit();
 		}
