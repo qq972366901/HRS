@@ -29,4 +29,6 @@ public interface WebPromotionStrategyUiService {
 
 	public void updateListModel();
 
+	public Double getDiscount(int level);
+
 }

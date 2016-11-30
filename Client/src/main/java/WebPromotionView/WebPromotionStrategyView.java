@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 import java.util.Vector;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -161,22 +162,12 @@ public class WebPromotionStrategyView  extends JPanel{
 		p6.setLayout(new FlowLayout(FlowLayout.CENTER));
 		JLabel level=new JLabel("适用等级：");
 		JComboBox<Integer> levellist=new JComboBox<Integer>();
-		for(int i=0;i<=5;i++){
+		for(int i=1;i<=5;i++){
 			levellist.addItem(i);
 		}
 		p6.add(level);
 		p6.add(levellist);
 		addPanel.add(p6);
-		JPanel p7=new JPanel();
-		p7.setLayout(new FlowLayout(FlowLayout.CENTER));
-		JLabel discount=new JLabel("折扣：");
-		JComboBox<Double> discountlist=new JComboBox<Double>();
-		for(double i=0.5;i<10;i++){
-			discountlist.addItem(i);
-		}
-		p7.add(discount);
-		p7.add(discountlist);
-		addPanel.add(p7);
 		JPanel p8=new JPanel();
 		p8.setLayout(new FlowLayout(FlowLayout.CENTER));
 		JButton contin=new JButton("继续");
@@ -185,8 +176,7 @@ public class WebPromotionStrategyView  extends JPanel{
 				boolean beginIsValid=timeIsValid(begintext.getText());
 				boolean endIsValid=timeIsValid(endtext.getText());
 				if(beginIsValid&&endIsValid){
-					String id="1";//随便写的
-					//String id=controller.generateID();调用方法产生ID
+					String id=UUID.randomUUID().toString().substring(0, 8);
 					String name=nametext.getText();
 					Calendar c1=Calendar.getInstance();
 					Calendar c2=Calendar.getInstance();
@@ -204,7 +194,7 @@ public class WebPromotionStrategyView  extends JPanel{
 					String city=(String) citylist.getSelectedItem();
 					String circle=(String) circlelist.getSelectedItem();
 					Integer level=(Integer) levellist.getSelectedItem();
-					Double dis=(Double) discountlist.getSelectedItem();
+					Double dis=controller.getDiscount(level);
 					PromotionVO vo=new PromotionVO(id,name,c1,c2,city,circle,level,dis);
 					promotionArray.add(vo);
 					nametext.setText("");
@@ -217,7 +207,6 @@ public class WebPromotionStrategyView  extends JPanel{
 				citylist.setSelectedIndex(0);
 				circlelist.setSelectedIndex(0);
 				levellist.setSelectedIndex(0);
-				discountlist.setSelectedIndex(0);
 			}
 		});
 		JButton confir=new JButton("确定");
@@ -226,8 +215,7 @@ public class WebPromotionStrategyView  extends JPanel{
 				boolean beginIsValid=timeIsValid(begintext.getText());
 				boolean endIsValid=timeIsValid(endtext.getText());
 				if(beginIsValid&&endIsValid){
-					String id="1";//随便写的
-					//String id=controller.generateID();调用方法产生ID
+					String id=UUID.randomUUID().toString().substring(0, 8);
 					String name=nametext.getText();
 					Calendar c1=Calendar.getInstance();
 					Calendar c2=Calendar.getInstance();
@@ -245,7 +233,7 @@ public class WebPromotionStrategyView  extends JPanel{
 					String city=(String) citylist.getSelectedItem();
 					String circle=(String) circlelist.getSelectedItem();
 					Integer level=(Integer) levellist.getSelectedItem();
-					Double dis=(Double) discountlist.getSelectedItem();
+					Double dis=controller.getDiscount(level);
 					PromotionVO vo=new PromotionVO(id,name,c1,c2,city,circle,level,dis);
 					promotionArray.add(vo);
 				for(int i=0;i<promotionArray.size();i++){

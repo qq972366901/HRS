@@ -106,4 +106,10 @@ public interface UserBLService {
 	 * @return 
 	 */
 	public boolean checkoldPassword(String userID, String password);
+	/**
+	 * 根据对应等级获得折扣
+	 * @param level
+	 * @return
+	 */
+	public Double getDiscount(int level);
 }

@@ -47,10 +47,16 @@ public class webPromotionUserUiController implements webPromotionUserUiService {
 	@Override
 	public void toWebPromotionStrategyView() {
 		// TODO Auto-generated method stub
-		WebPromotionStrategyUiService controller=new WebPromotionStrategyUiController();
-		WebPromotionStrategyView view=new WebPromotionStrategyView(controller);
-		controller.setView(view);
-		ClientRunner.change(view);
+		WebPromotionStrategyUiService controller;
+		try {
+			controller = new WebPromotionStrategyUiController();
+			WebPromotionStrategyView view=new WebPromotionStrategyView(controller);
+			controller.setView(view);
+			ClientRunner.change(view);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override

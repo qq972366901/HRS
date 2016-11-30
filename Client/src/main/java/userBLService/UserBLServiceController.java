@@ -57,7 +57,6 @@ public class UserBLServiceController implements UserBLService {
 		try {
 			userInfomationMaintenanceController.update(vo,password);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -72,7 +71,6 @@ public class UserBLServiceController implements UserBLService {
 		try {
 			return userManagementController.add(vo,password);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return false;
@@ -86,7 +84,6 @@ public class UserBLServiceController implements UserBLService {
 		try {
 			userManagementController.delete(id);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -109,7 +106,6 @@ public class UserBLServiceController implements UserBLService {
 		try {
 			userCreditManagementController.updateLevel(id,credit);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -124,7 +120,6 @@ public class UserBLServiceController implements UserBLService {
 			userCreditManagementController.updateCreditRecord(vo);
 			updateLevel(vo.account,vo.currentcredit);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -138,7 +133,6 @@ public class UserBLServiceController implements UserBLService {
 		try {
 			userRegisterAndLogController.register(vo,password);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -173,7 +167,6 @@ public class UserBLServiceController implements UserBLService {
 	 */
 	@Override
 	public boolean judge(String account) {
-		// TODO Auto-generated method stub
 		return userManagementController.judge(account);
 	}
     /**
@@ -187,7 +180,13 @@ public class UserBLServiceController implements UserBLService {
 	 */
 	@Override
 	public boolean checkoldPassword(String userID, String password) {
-		// TODO Auto-generated method stub
 		return userRegisterAndLogController.checkoldPassword(userID,password);
+	}
+	/**
+	 * 获取对应等级的折扣
+	 */
+	@Override
+	public Double getDiscount(int level) {
+		return userCreditManagementController.getDiscount(level);
 	}
 }

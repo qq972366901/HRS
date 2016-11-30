@@ -8,8 +8,14 @@ import java.util.HashMap;
  */
 public interface PromotionInfo {
 	/**
-	 * 获取会员等级系统信息
-	 * @return 返回会员等级系统
+	 * 根据等级提供折扣
+	 * @param level
+	 * @return
 	 */
-	public HashMap<Integer,Long>  getLevelSystem();
+	public Double getDiscount(Integer level);
+	/**
+	 * 获取会员等级系统
+	 * @return
+	 */
+	public HashMap<Integer, Long> getLevelSystem();
 }
