@@ -21,36 +21,30 @@ public interface RoomDataService  extends DataService,Remote{
 		public RoomPO find(String id) throws RemoteException;
 	/**
 	 * 在数据库中增加一个po记录
-	 * @param in MessageInput型，界面的选择
+	 * @param po RoomPO型，界面的选择
 	 * @return 
 	 * @see data.Room
 	 */
 		public void insert(RoomPO po) throws RemoteException;
 	/**
 	 * 在数据库中删除一个po
-	 * @param in MessageInput型，界面的选择
-	 * @return 
+	 * @param po RoomPO型，界面的选择
 	 * @see data.Room
 	 */
 		public void delete(RoomPO po) throws RemoteException;
 	/**
 	 *在数据库中更新一个po
-	 * @param in MessageInput型，界面的选择
-	 * @return 
+	 * @param po RoomPO型，界面的选择
 	 * @see data.Room
 	 */
 		public void update(RoomPO po) throws RemoteException;
 	/**
 	 * 按初始化持久化数据库
-	 * @param in MessageInput型，界面的选择
-	 * @return 
 	 * @see data.Room
 	 */
 		public void init() throws RemoteException;
 	/**
 	 * 结束持久化数据库的使用
-	 * @param in MessageInput型，界面的选择
-	 * @return 
 	 * @see data.Room
 	 */
 		public void finish() throws RemoteException;

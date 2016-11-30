@@ -1,33 +1,60 @@
 package hotelData;
 
-import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 import PO.HotelPO;
+import dataHelper.DataHelperFactory;
+import dataHelper.HotelDataHelper;
+import dataHelperImpl.DataHelperFactoryImpl;
 import dataService.HotelDataService;
 /**
  * 职责是将逻辑层面发来的请求转发给后台HotelData处理
- * @author LZ
+ * @author 刘宗侃
  * @version 1.0
  * @see businesslogic.Hotel
  */
 public class HotelDataServiceMySqlImpl implements HotelDataService{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+	
+	private HashMap<String,HotelPO> hotel;
+	
+	private DataHelperFactory factory;
+	private HotelDataHelper hotelDataHelper;
+	
 	private static HotelDataServiceMySqlImpl hotelDataServiceMySqlImpl;
 	private HotelDataServiceMySqlImpl() throws RemoteException{
 		UnicastRemoteObject.exportObject(this,8089);
+		init();
 	}
 	public static HotelDataServiceMySqlImpl getInstance() throws RemoteException{
 		if(hotelDataServiceMySqlImpl==null){
 			hotelDataServiceMySqlImpl=new HotelDataServiceMySqlImpl();
 		}
 		return hotelDataServiceMySqlImpl;
+	}
+	/**
+	 * 按初始化持久化数据库
+	 * @param
+	 * @return
+	 * @throws RemoteException
+	 * @see PO.HotelPO
+	 */
+	private void init() {
+		factory=new DataHelperFactoryImpl();
+		hotelDataHelper = factory.getHotelDataHelper();
+		List<HotelPO> list = null;
+		try {
+			list = hotelDataHelper.getAllHotel();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		for(int i=0;i<list.size();i++) {
+			hotel.put(list.get(i).gethotelAccount(), list.get(i));
+		}
 	}
 	/**
 	 * 按ID进行查找返回相应的HotelPO结果
@@ -38,8 +65,7 @@ public class HotelDataServiceMySqlImpl implements HotelDataService{
 	 */
 	@Override
 	public HotelPO find(String id) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		return hotel.get(id);
 	}
 	/**
 	 * 在数据库中增加一个po实体
@@ -50,8 +76,10 @@ public class HotelDataServiceMySqlImpl implements HotelDataService{
 	 */
 	@Override
 	public void insert(HotelPO po) throws RemoteException {
-		// TODO Auto-generated method stub
-		
+		if(!hotel.containsKey(po.gethotelAccount())) {
+			hotel.put(po.gethotelAccount(), po);
+			hotelDataHelper.insert(po);
+		}
 	}
 	/**
 	 * 在数据库中删除一个po
@@ -62,8 +90,10 @@ public class HotelDataServiceMySqlImpl implements HotelDataService{
 	 */
 	@Override
 	public void delete(HotelPO po) throws RemoteException {
-		// TODO Auto-generated method stub
-		
+		if(!hotel.containsKey(po.gethotelAccount())) {
+			hotel.remove(po.gethotelAccount());
+			hotelDataHelper.delete(po);
+		}
 	}
 	/**
 	 * 在数据库中更新一个po
@@ -74,31 +104,10 @@ public class HotelDataServiceMySqlImpl implements HotelDataService{
 	 */
 	@Override
 	public void update(HotelPO po) throws RemoteException {
-		// TODO Auto-generated method stub
-		
-	}
-	/**
-	 * 按初始化持久化数据库
-	 * @param
-	 * @return
-	 * @throws RemoteException
-	 * @see PO.HotelPO
-	 */
-	@Override
-	public void init() throws RemoteException {
-		// TODO Auto-generated method stub
-	}
-	/**
-	 * 结束持久化数据库的使用
-	 * @param
-	 * @return
-	 * @throws RemoteException
-	 * @see PO.HotelPO
-	 */
-	@Override
-	public void finish() throws RemoteException {
-		// TODO Auto-generated method stub
-		
+		if(!hotel.containsKey(po.gethotelAccount())) {
+			hotel.put(po.gethotelAccount(), po);
+			hotelDataHelper.update(po);
+		}
 	}
 	/**
 	 * 按名称进行查找返回相应的HotelPO结果
@@ -109,8 +118,16 @@ public class HotelDataServiceMySqlImpl implements HotelDataService{
 	 */
 	@Override
 	public HotelPO findByName(String name) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		HotelPO po = null;
+		Iterator<String> it = hotel.keySet().iterator();
+		while(it.hasNext()) {
+			String id = it.next();
+			if(name.equals(hotel.get(id).gethotelName())) {
+				po = hotel.get(id);
+				break;
+			}
+		}
+		return po;
 	}
 	/**
 	 * 按商圈进行查找返回相应的HotelPO结果
@@ -121,8 +138,15 @@ public class HotelDataServiceMySqlImpl implements HotelDataService{
 	 */
 	@Override
 	public ArrayList<HotelPO> findByDistrict(String district) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<HotelPO> list = new ArrayList<HotelPO>();
+		Iterator<String> it = hotel.keySet().iterator();
+		while(it.hasNext()) {
+			String id = it.next();
+			if(district.equals(hotel.get(id).gethotelDistrict())) {
+				list.add(hotel.get(id));
+			}
+		}
+		return list;
 	}
 	/**
 	 * 按星级进行查找返回相应的HotelPO结果
@@ -133,11 +157,18 @@ public class HotelDataServiceMySqlImpl implements HotelDataService{
 	 */
 	@Override
 	public ArrayList<HotelPO> findByStar(int star) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<HotelPO> list = new ArrayList<HotelPO>();
+		Iterator<String> it = hotel.keySet().iterator();
+		while(it.hasNext()) {
+			String id = it.next();
+			if(star == hotel.get(id).gethotelStar()) {
+				list.add(hotel.get(id));
+			}
+		}
+		return list;
 	}
 	/**
-	 * 
+	 * 按照酒店评分查找酒店
 	 * @param
 	 * @return
 	 * @throws RemoteException
@@ -145,18 +176,30 @@ public class HotelDataServiceMySqlImpl implements HotelDataService{
 	 */
 	@Override
 	public ArrayList<HotelPO> findByScore(double sco) throws RemoteException {
-		// TODO Auto-generated method stub
+		// 此方法感觉用不到
 		return null;
 	}
 
 	@Override
 	public List<HotelPO> getHistoryHotelByUser(String userID) {
-		return null;
+		List<HotelPO> list = null;
+		try {
+			list = hotelDataHelper.getHistoryHotelByUser(userID);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 
+	@SuppressWarnings("null")
 	@Override
 	public List<HotelPO> getAllHotel() {
-		// TODO Auto-generated method stub
-		return null;
+		List<HotelPO> list = null;
+		Iterator<String> it = hotel.keySet().iterator();
+		while(it.hasNext())   
+		{   
+		   list.add(hotel.get(it.next()));
+		}
+		return list;
 	}
 }

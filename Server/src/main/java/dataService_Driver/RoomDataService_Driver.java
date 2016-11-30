@@ -11,7 +11,5 @@ public class RoomDataService_Driver {
 		roomDataService.update(po);
 		roomDataService.insert(po);
 		roomDataService.delete(po);
-		roomDataService.init();
-		roomDataService.finish();
 	}
 }
