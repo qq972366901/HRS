@@ -11,7 +11,6 @@ import dataService.DataFactoryService;
 import dataService.HotelDataService;
 import dataService.OrderDataService;
 import dataService.UserDataService;
-import orderData.OrderDataServiceMySqlImpl_Stub;
 import rmi.RemoteHelper;
 /**
  * 订单的评价实现类

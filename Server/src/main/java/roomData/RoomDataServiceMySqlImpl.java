@@ -2,20 +2,32 @@ package roomData;
 
 import java.io.Serializable;
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
 
 import PO.RoomPO;
+import dataService.RoomDataService;
 /**
  * 职责是将逻辑层面发来的请求转发给后台RoomData处理
  * @author LZ
  * @version 1.0
  * @see businesslogic.Room
  */
-public class RoomDataServiceMySqlImpl implements Serializable,dataService.RoomDataService{
+public class RoomDataServiceMySqlImpl implements RoomDataService{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private static RoomDataServiceMySqlImpl roomDataServiceMySqlImpl;
+	private RoomDataServiceMySqlImpl() throws RemoteException{
+		UnicastRemoteObject.exportObject(this,8089);
+	}
+	public static RoomDataServiceMySqlImpl getInstance() throws RemoteException{
+		if(roomDataServiceMySqlImpl==null){
+			roomDataServiceMySqlImpl=new RoomDataServiceMySqlImpl();
+		}
+		return roomDataServiceMySqlImpl;
+	}
 	/**
 	 * 按ID进行查找返回相应的RoomPO结果
 	 * @param

@@ -39,14 +39,4 @@ public class UserManagementController{
 			// TODO Auto-generated method stub
 			return Account.getInstance().judgeAccount(id);
 		}
-		/**
-		 * 客户登出
-		 * @param in MessageInput型，界面选择的信息
-		 * @return 返回ResultMessage的一个枚举值
-		 * @see bussinesslogic.User
-		 */
-			public ResultMessage logout(String ID) {
-			return ResultMessage.Exist;
-		}
-
 }

@@ -11,7 +11,7 @@ import java.util.List;
  * @version 1.0
  * see presentation.Room
  */
-public interface RoomDataService  extends DataService,Remote{
+public interface RoomDataService  extends DataService{
 	/**
 	 * 按ID进行查找返回相应的RoomPO结果
 	 * @param in MessageInput型，界面输入的客户ID
@@ -54,5 +54,5 @@ public interface RoomDataService  extends DataService,Remote{
 	 * @see data.Room
 	 */
 		public void finish() throws RemoteException;
-		List<RoomPO> getAllRooms(String hotelid);
+		List<RoomPO> getAllRooms(String hotelid) throws RemoteException;
 	}

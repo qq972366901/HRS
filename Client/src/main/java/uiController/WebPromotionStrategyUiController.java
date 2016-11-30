@@ -1,9 +1,10 @@
 package uiController;
 
+import java.rmi.RemoteException;
 import java.util.List;
 import java.util.Vector;
 
-import VO.PromotionVO;
+import VO.WebPromotionVO;
 import WebPromotionView.WebPromotionStrategyView;
 import WebPromotionView.WebPromotionUserView;
 import promotionBLService.PromotionBLService;
@@ -11,12 +12,16 @@ import promotionBLService.PromotionController;
 import runner.ClientRunner;
 import uiService.WebPromotionStrategyUiService;
 import uiService.webPromotionUserUiService;
+import userBLService.UserBLService;
+import userBLService.UserBLServiceController;
 
 public class WebPromotionStrategyUiController implements WebPromotionStrategyUiService{
 	private WebPromotionStrategyView view;
 	private PromotionBLService proService;
-	public WebPromotionStrategyUiController(){
+	private UserBLService user;
+	public WebPromotionStrategyUiController() throws RemoteException{
 		this.proService=new PromotionController();
+		this.user=new UserBLServiceController();
 	}
 	@Override
 	public void setView(WebPromotionStrategyView view) {
@@ -32,7 +37,7 @@ public class WebPromotionStrategyUiController implements WebPromotionStrategyUiS
 	}
 
 	@Override
-	public Vector<Vector<String> > getAllWebPromotion() {
+	public Vector<Vector<String>> getAllWebPromotion() {
 		return proService.getAllWebPromotion();
 
 	}
@@ -49,10 +54,10 @@ public class WebPromotionStrategyUiController implements WebPromotionStrategyUiS
 
 	@Override
 	public boolean deleteStrategy(String strategyNo) {
-		return proService.deleteStrategy(strategyNo);
+		return proService.deleteWebPromotion(strategyNo);
 	}
 	@Override
-	public void addWebPromotion(PromotionVO vo) {
+	public void addWebPromotion(WebPromotionVO vo) {
 		proService.madebyweb(vo);
 	}
 
@@ -67,5 +72,9 @@ public class WebPromotionStrategyUiController implements WebPromotionStrategyUiS
 	@Override
 	public void updateListModel() {
 		view.updateListModel();	
+	}
+	@Override
+	public Double getDiscount(int level) {
+		return user.getDiscount(level);
 	}
 }

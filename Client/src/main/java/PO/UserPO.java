@@ -26,7 +26,7 @@ public class UserPO extends PO implements Serializable{
 	 * @param ua String型，逻辑层传来的客户账号
 	 * @param co String型，逻辑层传来的客户联系方式
 	 * @param mt String型，逻辑层传来的客户会员种类
-	 * @param t int型，逻辑层传来的用户种类
+	 * @param t UserType型，逻辑层传来的用户种类
 	 * @param b String型，逻辑层传来的客户生日
 	 * @param e String型，逻辑层传来的客户所在企业
 	 * @return 

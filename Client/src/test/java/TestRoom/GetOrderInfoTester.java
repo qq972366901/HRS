@@ -6,8 +6,6 @@ import org.junit.Test;
 
 import LineItem.OrderLineItem;
 import List.OrderList;
-import Object.Order;
-import Object.Room;
 import VO.OrderVO;
 
 public class GetOrderInfoTester {

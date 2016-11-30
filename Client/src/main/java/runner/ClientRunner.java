@@ -6,6 +6,7 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -21,6 +22,7 @@ import UserView.OrderBuildView;
 import UserView.AddHotelView;
 import UserView.UserManagementView;
 import UserView.WebAdminUserView;
+import dataService.CreditDataService;
 import dataService.DataFactoryService;
 import dataService.HotelDataService;
 import dataService.OrderDataService;
@@ -50,7 +52,7 @@ public class ClientRunner implements Serializable{
 	private void linkToServer() {
 		try {
 			remoteHelper = RemoteHelper.getInstance();
-			remoteHelper.setRemote(Naming.lookup("rmi://localhost:7777/DataRemoteObject"));
+			remoteHelper.setRemote(Naming.lookup("rmi://localhost:8089/DataFactoryService"));
 			System.out.println("linked");			
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
@@ -77,8 +79,17 @@ public class ClientRunner implements Serializable{
     		controller.setView(view);
     		mFrame.getContentPane().add(view);
         	mFrame.setVisible(true);
+<<<<<<< HEAD
         	Comment com=new Comment();
         	com.updatecomment("good", 5, "001", "001");
+=======
+        	/*DataFactoryService df=RemoteHelper.getInstance().getDataFactoryService();
+        	CreditDataService cd=(CreditDataService) df.getDataService("Credit");
+        	ArrayList<String> list=cd.get();
+        	for(int i=0;i<list.size();i++){
+        		System.out.println(list.get(i));
+        	}*/
+>>>>>>> df9506d06298abe3df0141511521e86bfeb14794
 	}
 	public static void change(JPanel view){
 		mFrame.getContentPane().removeAll();
@@ -112,7 +123,6 @@ public class ClientRunner implements Serializable{
 		try {
 			ClientRunner cr = new ClientRunner();
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

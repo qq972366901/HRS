@@ -1,8 +1,6 @@
 package VO;
 import java.util.Vector;
 
-import Object.Hotel;
-
 import PO.HotelPO;
 
 /**
@@ -81,17 +79,6 @@ public class HotelVO{
      */
 	public void update(HotelVO hotel) {
 		
-	}
-	
-	/**
-     * 创建酒店对象
-     * 
-     * @return 一个新录入的酒店
-     * @see Object.Hotel
-     */
-	public Hotel makeHotel() {
-		
-		return new Hotel();
 	}
 	
 }

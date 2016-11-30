@@ -41,18 +41,14 @@ public class PromotionList {
 	 * @param time Time型，撤销时间
 	 */
 	public void cancel(String promotionnumber) {
-		for(int i=0;i<promotions.size();i++){
-			if(promotions.get(i).getvo().promotionNumber.equals(promotionnumber)){
-				promotions.get(i).cancel();
-			}
+
 		}
-	}
 	/**
 	 * 取消营销策略
 	 *
 	 */
 	public void cancel() {
-		promotions.get(0).cancel();
+		
 	}
 	/**
 	 * 得到营销策略列表数量
@@ -76,14 +72,8 @@ public class PromotionList {
 	 * @return 返回营销策略
 	 */
 	public List<PromotionLineItem> getPromotion(){
-		List<PromotionLineItem> list=new ArrayList<PromotionLineItem>();
-		for(int i=0;i<promotions.size();i++){
-			if((promotions.get(i).getvo().applyuserType.equals(promotions.get(i).getvo().userType))&&(promotions.get(i).getvo().applyuserShipgrade==promotions.get(i).getvo().userShipgrade)){
-				list.add(promotions.get(i));
-			}
-		}
-		   return list;
-	}
+		return promotions;
+	
 }
-
+}
 

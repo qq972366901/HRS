@@ -3,7 +3,6 @@ import java.util.Calendar;
 import java.util.Vector;
 
 import PO.*;
-import Object.Order;
 
 /**
  * 订单的属性及数据创建与更新
@@ -215,15 +214,4 @@ public class OrderVO extends  Vector<String>{
 		comment=vo.comment;
 		score=vo.score;	
 	}
-	
-	/**
-     * 创建订单对象
-     * 
-     * @return 一个新下的订单
-     * @see Object.Order
-     */
-	public Order makeOrder() {		
-		return new Order();
-	}
-	
 }

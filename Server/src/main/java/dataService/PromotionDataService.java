@@ -10,7 +10,7 @@ import java.rmi.RemoteException;
  * @version 1.0
  * see presentation.Promotion
  */
-public interface PromotionDataService  extends DataService,Remote{
+public interface PromotionDataService  extends DataService{
 	/**
 	 * 按ID进行查找返回相应的PromotionPO结果
 	 * @param in MessageInput型，界面输入的客户ID

@@ -54,5 +54,5 @@ public interface RoomDataService  extends DataService,Remote{
 	 * @see data.Room
 	 */
 		public void finish() throws RemoteException;
-		List<RoomPO> getAllRooms(String hotelid);
+		List<RoomPO> getAllRooms(String hotelid) throws RemoteException;
 	}

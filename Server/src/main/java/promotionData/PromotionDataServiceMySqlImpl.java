@@ -2,6 +2,7 @@ package promotionData;
 
 import java.io.Serializable;
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 
 import PO.PromotionPO;
 /**
@@ -15,6 +16,16 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private static PromotionDataServiceMySqlImpl promotionDataServiceMySqlImpl;
+	private PromotionDataServiceMySqlImpl() throws RemoteException{
+		UnicastRemoteObject.exportObject(this,8089);
+	}
+	public static PromotionDataServiceMySqlImpl getInstance() throws RemoteException{
+		if(promotionDataServiceMySqlImpl==null){
+			promotionDataServiceMySqlImpl=new PromotionDataServiceMySqlImpl();
+		}
+		return promotionDataServiceMySqlImpl;
+	}
 	/**
 	 * 按ID进行查找返回相应的PromotionPO结果
 	 * @param id String 型，逻辑层传来的策略编号

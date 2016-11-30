@@ -2,21 +2,33 @@ package hotelData;
 
 import java.io.Serializable;
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.List;
 
 import PO.HotelPO;
+import dataService.HotelDataService;
 /**
  * 职责是将逻辑层面发来的请求转发给后台HotelData处理
  * @author LZ
  * @version 1.0
  * @see businesslogic.Hotel
  */
-public class HotelDataServiceMySqlImpl implements Serializable,dataService.HotelDataService{
+public class HotelDataServiceMySqlImpl implements HotelDataService{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private static HotelDataServiceMySqlImpl hotelDataServiceMySqlImpl;
+	private HotelDataServiceMySqlImpl() throws RemoteException{
+		UnicastRemoteObject.exportObject(this,8089);
+	}
+	public static HotelDataServiceMySqlImpl getInstance() throws RemoteException{
+		if(hotelDataServiceMySqlImpl==null){
+			hotelDataServiceMySqlImpl=new HotelDataServiceMySqlImpl();
+		}
+		return hotelDataServiceMySqlImpl;
+	}
 	/**
 	 * 按ID进行查找返回相应的HotelPO结果
 	 * @param id String型，逻辑层传来的酒店账号

@@ -7,7 +7,6 @@ import org.junit.Test;
 import LineItem.OrderLineItem;
 import List.OrderList;
 import Object.Hotel;
-import Object.Order;
 import VO.OrderVO;
 
 public class GetHistoryOrderTester {

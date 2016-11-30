@@ -1,7 +1,6 @@
 package VO;
 import java.util.Vector;
 
-import Object.Room;
 import PO.RoomPO;
 
 /**
@@ -44,26 +43,4 @@ public class RoomVO{
     	roomType = po.getroomType();
     	roomPrice = po.getroomPrice();
     }
-    /**
-     * 更新房间信息
-     * 
-     * @param room Room型，一个用来更新数据的房间对象
-     * @return 
-     * @see Object.Room
-     */
-	public void update(Room room) {
-		
-	}
-	
-	/**
-     * 创建房间对象
-     * 
-     * @return 一个新录入的房间
-     * @see Object.Room
-     */
-	public Room makeRoom() {
-		
-		return new Room();
-	}
-    
 }

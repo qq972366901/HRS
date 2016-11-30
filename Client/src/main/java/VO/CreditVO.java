@@ -1,8 +1,6 @@
 package VO;
 
-import java.util.Vector;
-
-import PO.UserPO;
+import PO.CreditPO;
 /**
  * 信用的属性及数据创建
  * @author LZ
@@ -21,7 +19,10 @@ public class CreditVO{
 		credit=cr;
 		level=le;
 	}
-	public CreditVO(UserPO po){
-		
+	
+	public CreditVO(CreditPO po) {
+		customerID=po.getAccount();
+		credit=po.getCredit();
+		level=po.getLevel();
 	}
 }
