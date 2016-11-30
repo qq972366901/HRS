@@ -3,6 +3,7 @@ package uiController;
 import HotelWorkerView.HotelMainView;
 import HotelWorkerView.UpdateHotelInfoView;
 import hotelBLService.HotelBLService;
+import hotelBLService.HotelBLServiceController;
 import runner.ClientRunner;
 import uiService.HotelMainUiService;
 import uiService.UpdateHotelInfoUiService;
@@ -11,7 +12,7 @@ public class UpdateHotelInfoUiController implements UpdateHotelInfoUiService {
 	
 	private UpdateHotelInfoView view;
 	
-	private HotelBLService hotel;
+	private HotelBLService hotel = new HotelBLServiceController();
 	
 	private String hotelID;
 	

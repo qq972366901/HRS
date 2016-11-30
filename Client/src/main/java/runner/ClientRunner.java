@@ -77,6 +77,8 @@ public class ClientRunner implements Serializable{
     		controller.setView(view);
     		mFrame.getContentPane().add(view);
         	mFrame.setVisible(true);
+        	Comment com=new Comment();
+        	com.updatecomment("good", 5, "001", "001");
 	}
 	public static void change(JPanel view){
 		mFrame.getContentPane().removeAll();
