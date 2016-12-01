@@ -1,7 +1,12 @@
 package uiController;
 
+import java.rmi.RemoteException;
+import java.util.Calendar;
+
 import HotelWorkerView.HotelMainView;
 import HotelWorkerView.MakeHotelPromotionView;
+import promotionBLService.PromotionBLService;
+import promotionBLService.PromotionController;
 import runner.ClientRunner;
 import uiService.HotelMainUiService;
 import uiService.MakeHotelPromotionUiService;
@@ -12,8 +17,15 @@ public class MakeHotelPromotionController implements MakeHotelPromotionUiService
 	
 	private String hotelID;
 	
-	public MakeHotelPromotionController (String id) {
+	private PromotionBLService promotion;
+	
+	public MakeHotelPromotionController (String id) throws RemoteException {
 		hotelID = id;
+		init();
+	}
+	
+	private void init() throws RemoteException {
+		promotion = new PromotionController();
 	}
 
 	public void setView(MakeHotelPromotionView view) {
@@ -27,8 +39,9 @@ public class MakeHotelPromotionController implements MakeHotelPromotionUiService
 		ClientRunner.change(view);
 	}
 
-	public void makeHotelPromotion() {
+	public void makeHotelPromotion(String hotelid,String promotionname,Calendar promotionbegintime,Calendar promotionendtime,double promotiondiscount,double birthdaydiscount,double roomdiscount,double enterprisediscount) {
 		//系统添加酒店营销策略
+		promotion.madebyhotel(hotelid, promotionname, promotionbegintime, promotionendtime, promotiondiscount, birthdaydiscount, roomdiscount, enterprisediscount);
 	}
 
 }

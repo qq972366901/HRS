@@ -12,7 +12,6 @@ import uiService.OrderBuildUiService;
 
 
 public class HotelBrowseUiController implements HotelBrowseUiService{
-	private static final long serialVersionUID = 1L;
 	private JPanel view;
 	private String userID;
 	public HotelBrowseUiController(String userID){

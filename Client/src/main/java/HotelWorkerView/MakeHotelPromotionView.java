@@ -4,9 +4,14 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -90,7 +95,7 @@ public class MakeHotelPromotionView extends JPanel {
 		JPanel panel_3_1 = new JPanel();
 		panel_3.add(panel_3_1);
 		
-		JLabel startTimeLabel = new JLabel("活动开始时间：");
+		JLabel startTimeLabel = new JLabel("活动开始时间(yyyy-MM-dd)：");
 		startTimeLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_3.add(startTimeLabel);
 		
@@ -111,7 +116,7 @@ public class MakeHotelPromotionView extends JPanel {
 		JPanel panel_5_1 = new JPanel();
 		panel_5.add(panel_5_1);
 		
-		JLabel endTimeLabel = new JLabel("活动结束时间：");
+		JLabel endTimeLabel = new JLabel("活动结束时间(yyyy-MM-dd)：");
 		endTimeLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_5.add(endTimeLabel);
 		
@@ -132,7 +137,7 @@ public class MakeHotelPromotionView extends JPanel {
 		JPanel panel_7_1 = new JPanel();
 		panel_7.add(panel_7_1);
 		
-		JLabel discountLabel = new JLabel("活动折扣：");
+		JLabel discountLabel = new JLabel("活动折扣(0.5~10)：");
 		discountLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_7.add(discountLabel);
 		
@@ -153,7 +158,7 @@ public class MakeHotelPromotionView extends JPanel {
 		JPanel panel_9_1 = new JPanel();
 		panel_9.add(panel_9_1);
 		
-		JLabel birthdayDiscountLabel = new JLabel("客户生日优惠折扣：");
+		JLabel birthdayDiscountLabel = new JLabel("客户生日优惠折扣(0.5~10)：");
 		birthdayDiscountLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_9.add(birthdayDiscountLabel);
 		
@@ -174,7 +179,7 @@ public class MakeHotelPromotionView extends JPanel {
 		JPanel panel_11_1 = new JPanel();
 		panel_11.add(panel_11_1);
 		
-		JLabel threeRoomsDiscountLabel = new JLabel("客户订房满三间折扣：");
+		JLabel threeRoomsDiscountLabel = new JLabel("客户订房满三间折扣(0.5~10)：");
 		threeRoomsDiscountLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_11.add(threeRoomsDiscountLabel);
 		
@@ -195,7 +200,7 @@ public class MakeHotelPromotionView extends JPanel {
 		JPanel panel_13_1 = new JPanel();
 		panel_13.add(panel_13_1);
 		
-		JLabel businessDiscountLabel = new JLabel("企业合作客户折扣：");
+		JLabel businessDiscountLabel = new JLabel("企业合作客户折扣(0.5~10)：");
 		businessDiscountLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_13.add(businessDiscountLabel);
 		
@@ -217,6 +222,42 @@ public class MakeHotelPromotionView extends JPanel {
 		submitButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
 				//系统添加酒店营销策略
+				String name = promotionNameTextField.getText();
+				if(name.length()<1) {
+					JOptionPane.showMessageDialog(null, "请填写营销策略名称！","", JOptionPane.ERROR_MESSAGE);
+					return;
+				}
+				String beginTimeString = startTimeTextField.getText();
+				SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd");
+				Date date1 = null;
+				try {
+					date1 = sdf.parse(beginTimeString);
+				} catch (ParseException e) {
+					JOptionPane.showMessageDialog(null, "请以yyyy-MM-dd格式填写时间","", JOptionPane.ERROR_MESSAGE);
+					return;
+				}
+				Calendar calendar1 = Calendar.getInstance();
+				calendar1.setTime(date1);
+				String endTimeString = endTimeTextField.getText();
+				Date date2 = null;
+				try {
+					date2 = sdf.parse(endTimeString);
+				} catch (ParseException e) {
+					JOptionPane.showMessageDialog(null, "请以yyyy-MM-dd格式填写时间","", JOptionPane.ERROR_MESSAGE);
+					return;
+				}
+				Calendar calendar2 = Calendar.getInstance();
+				calendar2.setTime(date2);
+				double discount = Double.parseDouble(discountTextField.getText());
+				double birthdayDiscount = Double.parseDouble(birthdayDiscountTextField.getText());
+				double threeRoomsDiscount = Double.parseDouble(threeRoomsDiscountTextField.getText());
+				double businessLogicDiscount = Double.parseDouble(businessDiscountTextField.getText());
+				if(discount < 0.5 || discount > 10 || birthdayDiscount < 0.5 || birthdayDiscount > 10 ||
+					threeRoomsDiscount < 0.5 || threeRoomsDiscount > 10 || businessLogicDiscount < 0.5 || businessLogicDiscount > 10) {
+					JOptionPane.showMessageDialog(null, "折扣在0.5到10之间！","", JOptionPane.ERROR_MESSAGE);
+					return;
+				}
+				controller.makeHotelPromotion(hotelID, name, calendar1, calendar2, discount, birthdayDiscount, threeRoomsDiscount, businessLogicDiscount);
 			}
 			
 		});
