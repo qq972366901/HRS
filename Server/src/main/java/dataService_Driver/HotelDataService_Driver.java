@@ -17,7 +17,5 @@ public class HotelDataService_Driver {
 		hotelDataService.insert(po);
 		hotelDataService.update(po);
 		hotelDataService.delete(po);
-		hotelDataService.init();
-		hotelDataService.finish();
 	}
 }

@@ -228,4 +228,20 @@ public class HotelPO extends PO implements Serializable{
     public void sethotelAccount (String hAcc){
 		hotelAccount=hAcc;
 	}
+    /**
+	 * 获取酒店联系电话
+	 * @param
+	 * @return 返回酒店联系电话
+	 */ 
+    public String getHotelPhone() {
+		return hotelPhone;
+	}
+    /**
+	 *  设置酒店联系电话
+	 * @param hPhone String型，逻辑层传来的酒店联系电话
+	 * @return
+	 */
+    public void setHotelPhone (String hPhone){
+		hotelPhone = hPhone;
+	}
 }

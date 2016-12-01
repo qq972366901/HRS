@@ -83,18 +83,4 @@ public interface HotelDataService  extends DataService{
  * @see data.Hotel
  */
 		public void update(HotelPO po) throws RemoteException;
-/**
- * 按初始化持久化数据库
- * @param in MessageInput型，界面的选择
- * @return 
- * @see data.Hotel
- */
-		public void init() throws RemoteException;
-/**
- * 结束持久化数据库的使用
- * @param in MessageInput型，界面的选择
- * @return 
- * @see data.Hotel
- */
-		public void finish() throws RemoteException;
 	}

@@ -2,7 +2,6 @@ package dataService;
 import PO.*;
 import dataService.DataService;
 
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
 
@@ -40,19 +39,12 @@ public interface RoomDataService  extends DataService{
 	 * @see data.Room
 	 */
 		public void update(RoomPO po) throws RemoteException;
-	/**
-	 * 按初始化持久化数据库
-	 * @param in MessageInput型，界面的选择
-	 * @return 
-	 * @see data.Room
-	 */
-		public void init() throws RemoteException;
-	/**
-	 * 结束持久化数据库的使用
-	 * @param in MessageInput型，界面的选择
-	 * @return 
-	 * @see data.Room
-	 */
-		public void finish() throws RemoteException;
-		List<RoomPO> getAllRooms(String hotelid) throws RemoteException;
+		/**
+		 * 得到一个酒店的所有房间列表
+		 * @param hotelid String型，逻辑层传来的酒店ID
+		 * @return 一个酒店的所有房间列表
+		 * @throws RemoteException
+		 * @see PO.RoomPO
+		 */
+		public List<RoomPO> getAllRooms(String hotelid) throws RemoteException;
 	}

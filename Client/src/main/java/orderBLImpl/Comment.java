@@ -48,7 +48,6 @@ public class Comment {
 	public void updatecomment(String comment,int score,String UserID,String orderID) {
 		try {
 			System.out.println("update!");
-			
 			orderData= (OrderDataService) DataFactory.getDataService("Order");
 			OrderPO po = orderData.find(orderID);
 			System.out.println(po.getOrderNumber()+"         "+po.getScore() + "            "+po.getComment());

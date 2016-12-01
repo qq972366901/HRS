@@ -13,12 +13,12 @@ import java.util.List;
  * see presentation.Hotel
  */
 public interface HotelDataService  extends DataService,Remote{
-/**
- * 按id进行查找返回相应的HotelPO结果
- * @param in MessageInput型，界面输入的酒店id
- * @return 返回ResultMessage枚举的一项
- * @see data.Hotel
- */
+	/**
+	 * 按id进行查找返回相应的HotelPO结果
+	 * @param id String型，酒店id
+	 * @return 此酒店的
+	 * @see data.Hotel
+	 */
 	public HotelPO find(String id) throws RemoteException;
 
 	/**
