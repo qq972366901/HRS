@@ -3,6 +3,7 @@ package uiController;
 import HotelWorkerView.AdminRoomView;
 import HotelWorkerView.InputRoomInfoView;
 import hotelBLService.HotelBLService;
+import hotelBLService.HotelBLServiceController;
 import runner.ClientRunner;
 import uiService.AdminRoomUiService;
 import uiService.InputRoomInfoUiService;
@@ -11,7 +12,7 @@ public class InputRoomInfoUiController implements InputRoomInfoUiService {
 	
 	private InputRoomInfoView view;
 	
-	private HotelBLService hotel;
+	private HotelBLService hotel = new HotelBLServiceController();
 	
 	private String hotelID;
 	
