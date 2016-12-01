@@ -1,8 +1,16 @@
 package uiController;
 
-import UserView.CommentView;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+
 import UserView.orderDetailView;
+import VO.HotelVO;
+import VO.OrderVO;
+import hotelBLService.HotelBLService;
+import hotelBLService.HotelBLServiceController;
 import orderBLService.OrderBLService;
+import orderBLService.OrderBLServiceController;
 import uiService.orderDetailViewControllerService;
 
 public class orderDetailViewControllerServiceImpl implements orderDetailViewControllerService {
@@ -10,71 +18,55 @@ public class orderDetailViewControllerServiceImpl implements orderDetailViewCont
 	    private String UserID;
 	    private String OrderID;
 	    private OrderBLService order;
-	    public orderDetailViewControllerServiceImpl(String UserID,String OrderID){
+	    private HotelBLService hotel;
+	    private int from;
+	    private String HotelID;
+	    public orderDetailViewControllerServiceImpl(String UserID,String OrderID,String hotelID,int f){
 	    	this.UserID=UserID;
+	    	from=f;
 	    	this.OrderID=OrderID;
-	    	//order=new OrderBLServiceImpl(OrderID);
+	    	this.HotelID=hotelID;
+	    	order=new OrderBLServiceController();
+	    	hotel=new HotelBLServiceController();
 	    }
 		@Override
 		public void setView(orderDetailView view) {
-			// TODO Auto-generated method stub
 			this.view=view;
 		}
-
+        public String getHotelID(){
+        	return this.HotelID;
+        }
+        public String getOrderID(){
+        	return this.OrderID;
+        }
 		@Override
 		public void exit() {
-			// TODO Auto-generated method stub
+			if(from==1){
 			view.exit();
+			}
+			else{
+				view.exit2();
+			}
 		}
 		@Override
 		public String getUserID() {
-			// TODO Auto-generated method stub
 			return UserID;
 		}
-		@Override
-		public boolean judgeScore(String input) {
-			if(input.equals("")){
-				return false;
-			}
-			char[] digit=input.toCharArray();
-			boolean flag=true;
-			for(char a:digit){
-				if(!Character.isDigit(a)){
-					flag=false;
-					break;
-				}
-			}
-			int temp;
-			if(flag){
-				temp=Integer.parseInt(input);
-				if(temp>=0&&temp<=100){
-					flag=true;
-				}
-				else{
-					flag=false;
-				}
-			}
-			return flag;
-		}
-		@Override
-		public boolean judgeComment(String comment) {
-			int cout=0;
-			for(char a:comment.toCharArray()){
-				if(a!=' '){
-					cout++;
-				}
-			}
-			if(cout>=5){
-				return true;
-			}
-			else{
-				return false;	
-			}
-		}
-		@Override
-		public void comment(String score, String comment) {
-			//order.comment(comment, order);
-			System.out.println(score+ " "+comment);
-			view.exit();
+		public  List<String> getDetail(){
+			OrderVO vo=order.showDetail(UserID,OrderID);
+			HotelVO vo1=hotel.findByHotelID(vo.hotelID);
+			List<String> list=new ArrayList<String>();
+			list.add(vo1.hotelName);
+			list.add(vo.roomType);
+			list.add(vo.orderNumber);
+			list.add(""+vo.orderValue);
+			list.add(""+vo.numOfPerson);
+			list.add(""+vo.roomNumber);
+			SimpleDateFormat sdf =new SimpleDateFormat("yyyy-MM-dd");
+			list.add(sdf.format(vo.expectedCheckIn));
+			list.add(sdf.format(vo.expectedCheckOut));
+			list.add(""+vo.score);
+			list.add(vo.comment);
+			return list;
 		}
 }

@@ -1,15 +1,12 @@
 package orderBLImpl;
 
 import java.rmi.RemoteException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import PO.OrderPO;
 import VO.OrderStateVO;
 import dataService.DataFactoryService;
-import dataService.HotelDataService;
 import dataService.OrderDataService;
-import dataService.UserDataService;
 import rmi.RemoteHelper;
 /**
  * 订单状态信息的处理
@@ -19,19 +16,15 @@ import rmi.RemoteHelper;
 public class OrderState {
 	private DataFactoryService DataFactory;
     private OrderDataService orderData;
-    private HotelDataService hotelData;
-    private UserDataService userData;
     private OrderPO order;
     private OrderStateVO state;
     public OrderState(String orderID) {
  	 try {   
  		 DataFactory=RemoteHelper.getInstance().getDataFactoryService();   
- 	   //orderData= (OrderDataService) DataFactory.getDataService("Order");
- 	   //userData= (UserDataService) DataFactory.getDataService("User");	  
-		order=orderData.find(orderID);
- 	   state=new OrderStateVO(order);
+ 	     orderData= (OrderDataService) DataFactory.getDataService("Order");  
+		 order=orderData.find(orderID);
+ 	     state=new OrderStateVO(order);
  	   } catch (RemoteException e) {
-		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
     }
@@ -47,10 +40,8 @@ public class OrderState {
 		Calendar cal=state.latest;
 		cal.add(Calendar.HOUR, -6);
 		Calendar rightnow=Calendar.getInstance();
-		state.Update();
-		
-			orderData.update(order);
-		
+		state.Update();		
+		orderData.update(order);		
 		if(cal.compareTo(rightnow)==-1){
 			return true;
 		}
@@ -58,7 +49,6 @@ public class OrderState {
 			return false;
 		}
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
 		}
@@ -76,12 +66,9 @@ public class OrderState {
 		state.orderState=1;
 		state.generationTime=Calendar.getInstance();
 		state.Update();
-		
-			orderData.update(order);
-		
+	    orderData.update(order);
 		return true;
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
 		}
@@ -102,12 +89,9 @@ public class OrderState {
 		state.orderState=2;
 		state.latest=delayTime;
 		state.Update();
-		
-			orderData.update(order);
-		
+		orderData.update(order);
 		return true;
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
 		}
@@ -125,7 +109,6 @@ public class OrderState {
 		try {
 			orderData.update(order);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

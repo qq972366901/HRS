@@ -3,7 +3,6 @@ package UserView;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import VO.CreditRecordVO;
 import runner.ClientRunner;
 import uiController.customerMainViewControllerImpl;
 import uiService.CreditViewControllerService;
@@ -67,8 +66,8 @@ public class CreditView extends JPanel {
 		totalcredit = new JLabel("");
 		totalcredit.setText(""+controller.getcredit(UserID));
 		panel1.add(totalcredit);
-		Vector<CreditRecordVO> Data=new Vector<CreditRecordVO>();
-		//Data.addAll(controller.getCreditRecord(UserID));
+		Vector<Vector<String>> Data=new Vector<Vector<String>>();
+		Data.addAll(controller.getCreditRecord(UserID));
 		Vector<String> Columns=new Vector<String>();
 		Columns.add("时间");
 		Columns.add("订单号");

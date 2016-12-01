@@ -1,53 +1,50 @@
 package uiController;
 
-import java.util.Vector;
-
-import UserView.reviseInformationView;
+import java.rmi.RemoteException;
 import UserView.revisePasswordView;
 import uiService.revisePasswordViewControllerService;
 import userBLService.UserBLService;
+import userBLService.UserBLServiceController;
 
 public class revisePasswordViewControllerImpl implements revisePasswordViewControllerService {
 	private revisePasswordView view;
 	private UserBLService user;
 	private String UserID;
-	private char[] judge={'a','z','A','Z','0','9'};
 	public revisePasswordViewControllerImpl(String ID){
-		//user=new UserBLServiceImpl();
+		try {
+			user=new UserBLServiceController();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		UserID=ID;
+		
 	}
 	@Override
 	public void setView(revisePasswordView view) {
-		// TODO Auto-generated method stub
 		this.view=view;
 	}
 
 	@Override
 	public void exit() {
-		// TODO Auto-generated method stub
 		view.exit();
 	}
 
 	@Override
-	public void revisepassword(Vector<String> vector) {
-		// TODO Auto-generated method stub
-		//user.update((UserVO) vector);
+	public void revisepassword(String password) {
+		user.revisepassword(UserID, password);
 		view.exit();
 	}
 	@Override
 	public String getUserID() {
-		// TODO Auto-generated method stub
 		return UserID;
 	}
 	@Override
 	public boolean checkoldPassword(String password) {
-		// TODO Auto-generated method stub
-		//user.checkoldPassword(UserID,password);
-		return true;
+		return user.checkoldPassword(UserID, password);
 	}
 	@Override
 	public boolean checknewPassword(String password) {
-		// TODO Auto-generated method stub
 		if(password.equals("")){
 			return false;
 		}
@@ -65,7 +62,6 @@ public class revisePasswordViewControllerImpl implements revisePasswordViewContr
 	}
 	@Override
 	public boolean checksame(String password1, String password2) {
-		// TODO Auto-generated method stub
 		if(password1.equals(password2)){
 			return true;
 		}
@@ -73,7 +69,6 @@ public class revisePasswordViewControllerImpl implements revisePasswordViewContr
 	}
 	@Override
 	public boolean checksame_old(String password1, String password2) {
-		// TODO Auto-generated method stub
 		if(password1.equals(password2)){
 			return true;
 		}

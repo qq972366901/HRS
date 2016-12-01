@@ -1,7 +1,9 @@
 package uiService;
 
-import UserView.HistroyHotelView;
+import java.util.Vector;
+
 import UserView.OrderView;
+import VO.OrderVO;
 
 public interface OrderViewControllerService {
 
@@ -12,4 +14,5 @@ public interface OrderViewControllerService {
     public void cancel(String orderID);
     public String getUserID();
     public void showDetail(String orderID);
+	public Vector<OrderVO> getAllOrder();
 }

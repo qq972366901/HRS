@@ -2,16 +2,13 @@ package UserView;
 
 import javax.swing.JPanel;
 
+import VO.HotelVO;
 import runner.ClientRunner;
 import uiController.HistroyHotelViewControllerImpl;
-import uiController.HotelDetailUiController;
 import uiController.HotelorderlistViewControllerImpl;
-import uiController.customerMainViewControllerImpl;
 import uiService.HistroyHotelViewControllerService;
 import uiService.HotelDetailUiService;
 import uiService.HotelorderlistViewControllerService;
-import uiService.customerMainViewControllerService;
-
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -50,6 +47,8 @@ public class HotelDetailView extends JPanel{
 	private JLabel hotelin;
 	private JButton intoOrderList;
 	public HotelDetailView(HotelDetailUiService controller) {
+		UserID=controller.getUserID();
+		HotelID=controller.getHotelID();
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		panel=new JPanel(new FlowLayout(FlowLayout.RIGHT));
 		panel1=new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -64,43 +63,43 @@ public class HotelDetailView extends JPanel{
 		panel10=new JPanel(new FlowLayout(FlowLayout.CENTER));
 		add(panel);
 		add(panel1);
-		
-		hotelName = new JLabel("酒店名称：");
+		HotelVO vo=controller.findByhotelID(HotelID);
+		hotelName = new JLabel("酒店名称："+vo.hotelName);
 		panel1.add(hotelName);
 		add(panel2);
 		
-		hotelCity = new JLabel("酒店所在城市：");
+		hotelCity = new JLabel("酒店所在城市："+vo.hotelCity);
 		panel2.add(hotelCity);
 		add(panel3);
 		
-		hotelCirc = new JLabel("酒店所在商圈：");
+		hotelCirc = new JLabel("酒店所在商圈："+vo.hotelDistrict);
 		panel3.add(hotelCirc);
 		add(panel4);
 		
-		hotelScore = new JLabel("酒店评分：");
+		hotelScore = new JLabel("酒店评分："+vo.score);
 		panel4.add(hotelScore);
 		add(panel5);
 		
-		hotelStar = new JLabel("酒店星级：");
+		hotelStar = new JLabel("酒店星级："+vo.hotelStar);
 		panel5.add(hotelStar);
 		add(panel6);
 		
-		hotelTel = new JLabel("酒店联系方式：");
+		hotelTel = new JLabel("酒店联系方式："+vo.hotelPhone);
 		panel6.add(hotelTel);
 		add(panel7);
 		
-		hotelService = new JLabel("酒店服务：");
+		hotelService = new JLabel("酒店服务："+vo.hotelService);
 		panel7.add(hotelService);
 		add(panel8);
 		
-		hotelAddress = new JLabel("酒店地址：");
+		hotelAddress = new JLabel("酒店地址："+vo.hotelAddress);
 		panel8.add(hotelAddress);
 		add(panel9);
 		
 		hotelIntroduce = new JLabel("酒店介绍：");
 		panel9.add(hotelIntroduce);
 		
-		hotelin = new JLabel("");
+		hotelin = new JLabel(vo.hotelProfile);
 		hotelin.setPreferredSize(new Dimension(900, 100));
 		panel9.add(hotelin);
 		add(panel10);

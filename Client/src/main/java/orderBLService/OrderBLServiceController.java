@@ -121,12 +121,11 @@ public class OrderBLServiceController implements OrderBLService{
      * 
      * @param String comment,客户的评论
      * @param int score,客户的评分
-     * @param String UserID，客户的id
      * @param String OrderID，订单的id
      * @see bussinesslogic.Order
      */
-	public void updatecomment(String comment,int score,String UserID,String orderID){
-		evaluation.updatecomment(comment, score, UserID, orderID);
+	public void updatecomment(String comment,int score,String orderID){
+		evaluation.updatecomment(comment, score, orderID);
 	}
 	
 	
@@ -249,35 +248,34 @@ public class OrderBLServiceController implements OrderBLService{
 
 	/**
 	 * 
-	 * @param inTime Calendar，预订的入住时间
-	 * @param outTime Calendar，预计离开时间
 	 * @param numsOfRoom int，需要的房间数量
 	 * @param RoomType String，房间的类型
 	 * @param hotelID String，酒店的id
 	 * @return boolean，能生成则返回true，若没有房间则返回false
 	 */
-	public boolean whetherMake(Calendar inTime,Calendar outTime,int numsOfRoom,String RoomType,String hotelID){
-		return build.whetherMake(inTime, outTime, numsOfRoom, RoomType, hotelID);
+	public boolean whetherMake(int numsOfRoom,String RoomType,String hotelID){
+		return build.whetherMake(numsOfRoom, RoomType, hotelID);
 	}
 	
 	/**
 	 * 根据不同操作更新客户的信用值(操作详情请看common包)
 	 * @param userID String,客户id
 	 * @param value int,订单的价值
+	 * @param orderID String,订单id
 	 * @param operate Operate枚举类，操作的名字
 	 */
-	public void updateCredit(String userID,int value,Operate operate){
+	public void updateCredit(String userID,String orderID,int value,Operate operate){
 		if(operate.equals(Operate.Done)){
-			execute.updateCredit(userID, value);
+			execute.updateCredit(userID, orderID,value);
 		}
 		else if(operate.equals(Operate.Cancel)){
-			management.updateCredit(userID, value);
+			management.updateCredit(userID, orderID,value);
 		}
 		else if(operate.equals(Operate.Delayed)){
-			execute.recoveryCredit(userID, value);
+			execute.recoveryCredit(userID, orderID,value);
 		}
 		else if(operate.equals(Operate.Appeal)){
-			abnormal.updateCredit(userID, value);
+			abnormal.updateCredit(userID,orderID, value);
 		}
 	}
 

@@ -12,4 +12,5 @@ public interface HotelorderlistViewControllerService {
         public List<OrderVO> getOrderList();
         public String getUserID();
         public String getHotelID();
+		public void showDetail(String id);
 }

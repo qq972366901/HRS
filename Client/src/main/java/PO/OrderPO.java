@@ -18,8 +18,7 @@ public class OrderPO extends PO implements Serializable{
 	private int numOfPerson;
 	private boolean child;
 	private String roomType;
-	private int roomNumber;//房间号
-	private int numberOfroom;//房间数量
+	private int roomNumber;//房间数量
 	private Calendar expectedCheckIn;
 	private Calendar expectedCheckOut;
 	private Calendar latest;
@@ -50,8 +49,7 @@ public class OrderPO extends PO implements Serializable{
 	 * @throws
 	 * @see
 	 */
-	public OrderPO (int number,String Usid,String Hid,String oNum, int state, int value, int pnum,boolean ch,String rType, int rNum, Calendar in, Calendar out,Calendar la ,Calendar can,Calendar gen,String comm, int sco) {
-		numberOfroom=number;
+	public OrderPO (String Usid,String Hid,String oNum, int state, int value, int pnum,boolean ch,String rType, int rNum, Calendar in, Calendar out,Calendar la ,Calendar can,Calendar gen,String comm, int sco) {
 		UserID=Usid;
 		HotelID=Hid;
 		orderNumber = oNum;
@@ -364,11 +362,4 @@ public class OrderPO extends PO implements Serializable{
 	public void setUserID(String userID) {
 		UserID = userID;
 	}
-	public int getNumberOfroom() {
-		return numberOfroom;
-	}
-	public void setNumberOfroom(int numberOfroom) {
-		this.numberOfroom = numberOfroom;
-	}
-
 }

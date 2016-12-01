@@ -1,13 +1,14 @@
 package uiService;
 
-import UserView.CommentView;
+import java.util.List;
+
 import UserView.orderDetailView;
 
 public interface orderDetailViewControllerService {
 	 public void setView(orderDetailView view);
      public void exit();
      public String getUserID();
-     public boolean judgeScore(String input);
-     public boolean judgeComment(String comment);
-     public void comment(String score,String comment);
+     public List<String> getDetail();
+     public String getHotelID();
+     public String getOrderID();
 }

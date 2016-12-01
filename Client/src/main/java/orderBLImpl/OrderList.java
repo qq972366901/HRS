@@ -5,15 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import PO.CreditPO;
-import PO.HotelPO;
 import PO.OrderPO;
-import PO.UserPO;
 import VO.OrderVO;
 import dataService.CreditDataService;
 import dataService.DataFactoryService;
-import dataService.HotelDataService;
 import dataService.OrderDataService;
-import dataService.UserDataService;
 import rmi.RemoteHelper;
 /**
  * 订单列表信息的处理
@@ -24,26 +20,15 @@ public class OrderList {
        private DataFactoryService DataFactory;
        private CreditDataService creditData;
        private OrderDataService orderData;
-       private HotelDataService hotelData;
-       private UserDataService userData;
-       private String[] type={"ALL","UnDone","Done","Abnormal","Cancel"};
        public OrderList() {
     	   DataFactory=RemoteHelper.getInstance().getDataFactoryService();
     	   try {
-			hotelData=(HotelDataService) DataFactory.getDataService("Hotel");
+
+			orderData= (OrderDataService) DataFactory.getDataService("Order");
+			creditData=(CreditDataService) DataFactory.getDataService("Credit");
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    	   //try {
-			//orderData= (OrderDataService) DataFactory.getDataService("Order");
-			//userData= (UserDataService) DataFactory.getDataService("User");
-			//creditData=(CreditDataService) DataFactory.getDataService("Credit");
-		//} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			//e.printStackTrace();
-		//}
-    	   
        }
        
        /**
@@ -54,32 +39,28 @@ public class OrderList {
         * @return List<OrderVO> ，订单的一个列表
         * @see bussinesslogic.Order
         */
-   	private List<OrderVO>  showTypeorderList(String userid,String Type) {
+   	private List<OrderVO>  showTypeorderList(String userID,String Type) {
    		try {
    			List<OrderPO> polist=new ArrayList<OrderPO>();
    		    List<OrderVO> volist=new ArrayList<OrderVO>();
-   		/*switch(Type){
-   		case "ALL":polist=orderData.findByType("All");
+   		switch(Type){
+   		case "ALL":polist=orderData.findByUserID(userID, 0);
    				   break;
-   		case "ALL":polist=orderData.findByType("All");
+   		case "UuDone":polist=orderData.findByUserID(userID, 2);
 		           break;
-   		case "ALL":polist=orderData.findByType("All");
-		   break;
-   		case "Cancel":polist=orderData.findByType("All");
-		   break;
-   		case "Abnormal":polist=orderData.findByType("All");
-		   break;
-   		}*/
-   		
-		
-   		UserPO user = userData.find(userid);
-		CreditPO credit=creditData.find(userid);
+   		case "Done":polist=orderData.findByUserID(userID, 1);
+		            break;
+   		case "Cancel":polist=orderData.findByUserID(userID, 4);
+		            break;
+   		case "Abnormal":polist=orderData.findByUserID(userID, 3);
+		            break;
+   		}
+		CreditPO credit=creditData.find(userID);
    		for(OrderPO order:polist){
-   			volist.add(new OrderVO(credit,user,order));
+   			volist.add(new OrderVO(credit,order));
    		}
 		return volist;
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}
@@ -97,26 +78,21 @@ public class OrderList {
    		try {
    		List<OrderPO> polist=new ArrayList<OrderPO>();
    		List<OrderVO> volist=new ArrayList<OrderVO>();
-   		/*switch(Type){
-   		case "ALL":polist=orderData.findByType("All");
+   		switch(Type){
+   		case "ALL":polist=orderData.findByHotelID(hotelID, 0);
    				   break;
-   		case "Unfinished":polist=orderData.findByType("Unfinished");
+   		case "Unfinished":polist=orderData.findByHotelID(hotelID, 2);
 		           break;
-   		case "Finished":polist=orderData.findByType("Finished");
+   		case "Finished":polist=orderData.findByHotelID(hotelID, 1);
 		   break;
-   		case "Abnormal":polist=orderData.findByType("Abnormal");
+   		case "Abnormal":polist=orderData.findByHotelID(hotelID, 3);
 		   break;
-   		}*/
-   		
-		
-   		HotelPO hotel= hotelData.find(hotelID);
-		
+   		}
    		for(OrderPO order:polist){
-   			volist.add(new OrderVO(hotel,order));
+   			volist.add(new OrderVO(order));
    		}
 		return volist;
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}
@@ -244,17 +220,14 @@ public class OrderList {
      */
 	public List<OrderVO> findByHotelID (String userID,String hotelID) {
 		try {
-			//List<OrderPO> order=orderData.findByHotelID(userID,hotelID);
-		List<OrderPO> order=new ArrayList<OrderPO>();		
-		UserPO	user = userData.find(userID);
+	    List<OrderPO> order=orderData.getUserOrderlistinHotel(userID, hotelID);	
 		CreditPO credit=creditData.find(userID);
 		List<OrderVO> orderlist=new ArrayList<OrderVO>();
 		for(OrderPO a:order){
-			orderlist.add(new OrderVO(credit,user,a));
+			orderlist.add(new OrderVO(credit,a));
 		}
 		return orderlist;
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}

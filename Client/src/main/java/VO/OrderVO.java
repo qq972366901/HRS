@@ -1,4 +1,5 @@
 package VO;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Vector;
 
@@ -17,9 +18,9 @@ public class OrderVO extends  Vector<String>{
 	 */
 	private static final long serialVersionUID = 1L;
 	public String userID;
+    public String hotelID;
     public int userLevel;
     public long credit;
-    public String hotelID;
 	public String orderNumber;
 	public int orderState;
 	public int orderValue;
@@ -27,7 +28,6 @@ public class OrderVO extends  Vector<String>{
 	public boolean child;
 	public String roomType;
 	public int roomNumber;
-	public int numberOfroom;
 	public Calendar expectedCheckIn;
 	public Calendar expectedCheckOut;
 	public Calendar latest;//最晚执行时间
@@ -48,7 +48,7 @@ public class OrderVO extends  Vector<String>{
 	 * @param pnum int型，逻辑层传来的人数
 	 * @param ch boolean型，逻辑层传来的有无儿童
 	 * @param rType String型，逻辑层传来的房间类型
-	 * @param rNum int型，逻辑层传来的房间号
+	 * @param rNum int型，逻辑层传来的房间数量
 	 * @param in Calendar型，逻辑层传来的预订入住时间
 	 * @param out Calendar型，逻辑层传来的预订离开时间
 	 * @param la Calendar型，逻辑层传来的最晚执行时间
@@ -60,12 +60,11 @@ public class OrderVO extends  Vector<String>{
 	 * @throws
 	 * @see
 	 */
-    public OrderVO (int number,String hotelID,int level,long credit,String userid,String oNum, int state, int value, int pnum,boolean ch,String rType, int rNum, Calendar in, Calendar out,Calendar la,Calendar cal,Calendar gen, String comm, int sco) {
-		numberOfroom=number;
+    public OrderVO (String hotelID,String userid,String oNum, int state, int value, int pnum,boolean ch,String rType, int rNum, Calendar in, Calendar out,Calendar la,Calendar cal,Calendar gen, String comm, int sco) {
     	this.hotelID=hotelID;
-		userLevel=level;
-		this.credit=credit;
     	userID=userid;
+    	userLevel=0;
+    	credit=0;
     	orderNumber = oNum;
 		orderState = state;
 		orderValue = value;
@@ -82,25 +81,35 @@ public class OrderVO extends  Vector<String>{
         generationTime=gen;
 	}
     public void addscore(){
+    	if(score>=0){
     	this.add(String.valueOf(score));
+    	}
+    	else{
+    		this.add("");
+    	}
     }
     public void addcancel(){
-    	this.add(String.valueOf(cancel));
+    	SimpleDateFormat sdf =new SimpleDateFormat("yyyy-MM-dd");
+    	this.add(sdf.format(this.cancel));
     }
     public void addcomment(){
     	this.add(comment);
     }
     public void addlatest(){
-    	this.add(String.valueOf(latest));
+    	SimpleDateFormat sdf =new SimpleDateFormat("yyyy-MM-dd");
+    	this.add(sdf.format(this.latest));
     }
     public void addgeenerationTim(){
-    	this.add(String.valueOf(generationTime));
+    	SimpleDateFormat sdf =new SimpleDateFormat("yyyy-MM-dd");
+    	this.add(sdf.format(generationTime));
     }
     public void addexpectedCheckIn(){
-    	this.add(String.valueOf(expectedCheckIn));
+    	SimpleDateFormat sdf =new SimpleDateFormat("yyyy-MM-dd");
+    	this.add(sdf.format(expectedCheckIn));
     }
     public void addexpectedCheckOut(){
-    	this.add(String.valueOf(expectedCheckOut));
+    	SimpleDateFormat sdf =new SimpleDateFormat("yyyy-MM-dd");
+    	this.add(sdf.format(expectedCheckOut));
     }
     public void addroomType(){
     	this.add(roomType);
@@ -117,12 +126,6 @@ public class OrderVO extends  Vector<String>{
     public void adduserID(){
     	this.add(userID);
     }
-    public void adduserLevel(){
-    	this.add(String.valueOf(userLevel));
-    }
-    public void addcredit(){
-    	this.add(String.valueOf(credit));
-    }
     public void addhotelID(){
     	this.add(hotelID);
     }
@@ -135,8 +138,11 @@ public class OrderVO extends  Vector<String>{
     public void addorderValue(){
     	this.add(String.valueOf(orderValue));
     }
-    public OrderVO (HotelPO po1,OrderPO po){
-    	hotelID=po1.gethotelName();
+    public OrderVO (OrderPO po){
+    	userID=po.getUserID();
+    	userLevel=0;
+    	credit=0;
+    	hotelID=po.getHotelID();
 		orderNumber=po.getOrderNumber();
 		orderState=po.getOrderState();
 		orderValue=po.getOrderValue();
@@ -152,9 +158,11 @@ public class OrderVO extends  Vector<String>{
 		comment=po.getComment();
 		score=po.getScore();	
     }
-    public OrderVO (CreditPO credit,UserPO po1,OrderPO po){
-    	userLevel=credit.getLevel();
-    	userID=po1.getAccount();
+    public OrderVO (CreditPO po1,OrderPO po){
+    	userID=po.getUserID();
+    	userLevel=po1.getLevel();
+    	credit=po1.getCredit();
+    	hotelID=po.getHotelID();
 		orderNumber=po.getOrderNumber();
 		orderState=po.getOrderState();
 		orderValue=po.getOrderValue();
@@ -170,24 +178,7 @@ public class OrderVO extends  Vector<String>{
 		comment=po.getComment();
 		score=po.getScore();	
     }
-    
-    public OrderVO (CreditRecordPO po1,OrderPO po){
-    	credit=po1.getCurrentcredit();
-		orderNumber=po.getOrderNumber();
-		orderState=po.getOrderState();
-		orderValue=po.getOrderValue();
-		numOfPerson=po.getNumOfPerson();
-		child=po.getChild();
-		roomType=po.getRoomType();
-		roomNumber=po.getRoomNumber();
-		expectedCheckIn=po.getExpectedCheckIn();
-		expectedCheckOut=po.getExpectedCheckOut();
-		latest=po.getLatest();
-		cancel=po.getCancel();
-		generationTime=po.getgenerationTime();
-		comment=po.getComment();
-		score=po.getScore();	
-    }
+   
     public OrderVO(){}
 	/**
      * 更新订单信息

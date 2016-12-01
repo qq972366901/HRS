@@ -32,12 +32,14 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.BoxLayout;
 
 public class OrderView extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private OrderViewControllerService controller;
 	private JPanel panel;
     private JButton back;
-    private JPanel panel_1;
-	
-	private JComboBox<String> typebox;
+    private JComboBox<String> typebox;
 	
 	private JScrollPane scrollPane;
 	
@@ -104,7 +106,6 @@ public class OrderView extends JPanel {
 		typebox.addItemListener(new ItemListener(){
 			@Override
 			public void itemStateChanged(ItemEvent evt) {
-				// TODO Auto-generated method stub
                 if(evt.getStateChange() == ItemEvent.SELECTED){
 					
 					String selected=(String)typebox.getSelectedItem();
@@ -118,11 +119,10 @@ public class OrderView extends JPanel {
 		scrollPane = new JScrollPane();
 		
 		Vector<OrderVO> Data=new Vector<OrderVO>();
-		//Data.addAll(controller.getOrderList());
+		Data.addAll(controller.getAllOrder());
 		Vector<String> Columns=new Vector<String>();
 		Columns.add("订单号");
 		Columns.add("订单状态");
-		Columns.add("客户名称");
 		Columns.add("价值");
 		Columns.add("房间详情");
 		Columns.add("评分");
@@ -246,7 +246,7 @@ public class OrderView extends JPanel {
 		model.removeRow(table.getSelectedRow());
 	}
 	public void showDetail(String id){
-		orderDetailViewControllerService con =  new orderDetailViewControllerServiceImpl(controller.getUserID(),id);
+		orderDetailViewControllerService con =  new orderDetailViewControllerServiceImpl(controller.getUserID(),id,"",1);
 		orderDetailView vie = new orderDetailView(con);
 		con.setView(vie);
 		ClientRunner.change(vie);

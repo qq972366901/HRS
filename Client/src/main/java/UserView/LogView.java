@@ -14,7 +14,6 @@ import javax.swing.JTextField;
 
 import UserView.MemberRegisterView;
 import WebPromotionView.WebPromotionUserView;
-import common.UserType;
 import runner.ClientRunner;
 import uiController.HotelMainUiController;
 import uiController.MemberRegisterUiController;
@@ -166,7 +165,13 @@ public class LogView extends JPanel {
 					JOptionPane.showMessageDialog(k, "账号密码输入有误！","", JOptionPane.ERROR_MESSAGE);
 					return;
 				}
-				controller.login(textField.getText(),String.valueOf(passwordField.getPassword()),type);
+				if(controller.login(textField.getText(),String.valueOf(passwordField.getPassword()))){
+					login();
+				}
+				else{
+					JOptionPane.showMessageDialog(k, "账号密码输入有误！","", JOptionPane.ERROR_MESSAGE);
+					return;
+				}
 			}
 		});
 		panel3.add(login);
@@ -174,7 +179,7 @@ public class LogView extends JPanel {
 		label2.setPreferredSize(new Dimension(10000,250));
 		panel3.add(label2);
 	}
-	public void login(UserType type){
+	public void login(){
 		if(this.type.equals("客户")){
 		   customerMainViewControllerService controller =  new customerMainViewControllerImpl(login.getText());
 		   customerMainView view = new customerMainView(controller);

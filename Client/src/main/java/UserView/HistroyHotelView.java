@@ -11,11 +11,9 @@ import javax.swing.JPanel;
 
 import runner.ClientRunner;
 import uiController.HotelDetailUiController;
-import uiController.HotelorderlistViewControllerImpl;
 import uiController.customerMainViewControllerImpl;
 import uiService.HistroyHotelViewControllerService;
 import uiService.HotelDetailUiService;
-import uiService.HotelorderlistViewControllerService;
 import uiService.customerMainViewControllerService;
 
 import javax.swing.JLabel;
@@ -29,6 +27,10 @@ import javax.swing.BoxLayout;
 
 
 public class HistroyHotelView extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private HistroyHotelViewControllerService controller;
 	private JPanel panel;
     private JButton back;
@@ -71,9 +73,7 @@ public class HistroyHotelView extends JPanel {
 		con.setView(vie);
 		ClientRunner.change(vie);
 	}
-	public void init_hotelname(){
-
-		
+	public void init_hotelname(){	
 		label = new JLabel("\u9152\u5E97\u540D\u79F0\uFF1A");
         panel_1.add(label);
 		
@@ -89,8 +89,7 @@ public class HistroyHotelView extends JPanel {
 			public void mouseClicked(MouseEvent e) {
 				// TODO Auto-generated method stub	
 				if(e.getClickCount()==2){
-					System.out.println(list.getSelectedValue());
-					controller.intoOrderList(list.getSelectedValue());
+					controller.intoOrderList(list.getSelectedIndex());
 				}
 			}
 			@Override

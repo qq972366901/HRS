@@ -18,8 +18,7 @@ public class OrderPO extends PO implements Serializable{
 	private int numOfPerson;
 	private boolean child;
 	private String roomType;
-	private int roomNumber;//房间号
-	private int numberOfroom;//房间数量
+	private int roomNumber;//房间数量
 	private Calendar expectedCheckIn;
 	private Calendar expectedCheckOut;
 	private Calendar latest;
@@ -29,7 +28,6 @@ public class OrderPO extends PO implements Serializable{
 	private int score;	
 	/**
 	 * 构造订单数据实体
-	 * @param number int型，逻辑层传来的房间数量
 	 * @param Usid String型，逻辑层传来的客户编号
 	 * @param Hid String型，逻辑层传来的酒店编号
 	 * @param oNum String型，逻辑层传来的订单编号
@@ -38,7 +36,7 @@ public class OrderPO extends PO implements Serializable{
 	 * @param pnum int型，逻辑层传来的人数
 	 * @param ch boolean型，逻辑层传来的有无儿童
 	 * @param rType String型，逻辑层传来的房间类型
-	 * @param rNum int型，逻辑层传来的房间编号
+	 * @param rNum int型，逻辑层传来的房间数量
 	 * @param in Calendar型，逻辑层传来的预订入住时间
 	 * @param out Calendar型，逻辑层传来的预订离开时间
 	 * @param la Calendar型，逻辑层传来的最晚执行时间
@@ -50,8 +48,7 @@ public class OrderPO extends PO implements Serializable{
 	 * @throws
 	 * @see
 	 */
-	public OrderPO (int number,String Usid,String Hid,String oNum, int state, int value, int pnum,boolean ch,String rType, int rNum, Calendar in, Calendar out,Calendar la ,Calendar can,Calendar gen,String comm, int sco) {
-		numberOfroom=number;
+	public OrderPO (String Usid,String Hid,String oNum, int state, int value, int pnum,boolean ch,String rType, int rNum, Calendar in, Calendar out,Calendar la ,Calendar can,Calendar gen,String comm, int sco) {
 		UserID=Usid;
 		HotelID=Hid;
 		orderNumber = oNum;
@@ -363,12 +360,6 @@ public class OrderPO extends PO implements Serializable{
 	}
 	public void setUserID(String userID) {
 		UserID = userID;
-	}
-	public int getNumberOfroom() {
-		return numberOfroom;
-	}
-	public void setNumberOfroom(int numberOfroom) {
-		this.numberOfroom = numberOfroom;
 	}
 
 }

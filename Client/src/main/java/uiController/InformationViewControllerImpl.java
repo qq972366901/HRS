@@ -1,21 +1,32 @@
 package uiController;
 
+import java.rmi.RemoteException;
+import java.text.SimpleDateFormat;
 import java.util.Vector;
 
 import UserView.InformationView;
+import VO.CreditVO;
 import VO.UserVO;
 import uiService.InformationViewControllerService;
 import userBLService.UserBLService;
+import userBLService.UserBLServiceController;
 
 public class InformationViewControllerImpl implements InformationViewControllerService{
     private InformationView view;
     private UserBLService user;
     private String UserID;
     private UserVO vo;
+    private CreditVO vo1;
     public InformationViewControllerImpl(String id){
-    	//user=new UserBLServiceImpl();
+    	try {
+			user=new UserBLServiceController();
+			
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     	UserID=id;
-    	vo=new UserVO();
+    	vo=user.findByID(id);
     }
     public void setView(InformationView view){
     	this.view=view;
@@ -26,23 +37,26 @@ public class InformationViewControllerImpl implements InformationViewControllerS
 	}
 	@Override
 	public void reviseinformation() {
-		// TODO Auto-generated method stub
 		view.reviseinformation();
 	}
 	@Override
 	public void revisepassword() {
-		// TODO Auto-generated method stub
 		view.revisepassword();
 	}
 	@Override
 	public String getUserID() {
-		// TODO Auto-generated method stub
 		return UserID;
 	}
 	@Override
 	public Vector<String> getInformation(String UserID) {
 		Vector<String> data=new Vector<String>();
-		//data=user.findByID(userID);
-		return null;
+		data.add(vo.username);
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+		data.add(vo.contactway);
+		data.add(sdf.format(vo.birthday));
+		data.add(vo.enterprise);
+		data.add(vo.membertype);
+		data.add(""+user.showCredit(UserID));
+		return data;
 	}
 }

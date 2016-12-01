@@ -5,20 +5,20 @@ import java.util.List;
 
 import UserView.HistroyHotelView;
 import VO.HotelVO;
-import VO.OrderVO;
 import VO.UserVO;
-import orderBLService.OrderBLService;
+import hotelBLService.HotelBLService;
+import hotelBLService.HotelBLServiceController;
 import uiService.HistroyHotelViewControllerService;
 
 public class HistroyHotelViewControllerImpl implements HistroyHotelViewControllerService {
 	private HistroyHotelView view;
 	private String id;
-	private OrderBLService order;
-	private OrderVO vo;
+	private HotelBLService hotel;
 	private UserVO vo1;
+	private List<HotelVO> list;
 	public HistroyHotelViewControllerImpl(String id){
 		this.id=id;
-		//order=new OrderBLServiceImpl(id);
+		hotel=new HotelBLServiceController();
 	}
 	public void setView(HistroyHotelView view){
 		this.view=view;
@@ -31,23 +31,20 @@ public class HistroyHotelViewControllerImpl implements HistroyHotelViewControlle
 	public List<String> getHotelName(String id) {		
 		vo1=new UserVO();
 		vo1.id=id;
-		//List<Hotel> list=order.gethistory(vo1);
+		list=hotel.getHistoryHotel(id);
 		List<String> listi=new ArrayList<String>();
-        for(int i=0;i<5;i++){
-        	listi.add("hhh"+i);
+        for(HotelVO vo:list){
+        	listi.add(vo.hotelName);
         }
         return listi;
 	}
 	@Override
 	public String getUserID() {
-		// TODO Auto-generated method stub
 		return id;
 	}
 	@Override
-	public void intoOrderList(String HotelName) {
-		// TODO Auto-generated method stub
-	    //order.findByType(vo)
-		//Vector<OrderVO> list=new Vector<OrderVO>(); 
-		view.intoOrderList("110",id);
+	public void intoOrderList(int index) {
+		HotelVO vo=list.get(index);
+		view.intoOrderList(vo.hotelAccount,id);
 	}
 }

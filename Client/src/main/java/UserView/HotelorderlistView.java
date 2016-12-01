@@ -4,10 +4,13 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.Vector;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -16,14 +19,20 @@ import VO.OrderVO;
 import runner.ClientRunner;
 import uiController.HistroyHotelViewControllerImpl;
 import uiController.HotelDetailUiController;
-import uiController.customerMainViewControllerImpl;
+import uiController.orderDetailViewControllerServiceImpl;
 import uiService.HistroyHotelViewControllerService;
 import uiService.HotelDetailUiService;
 import uiService.HotelorderlistViewControllerService;
-import uiService.customerMainViewControllerService;
+import uiService.orderDetailViewControllerService;
+
 import javax.swing.BoxLayout;
 
 public class HotelorderlistView extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private HotelorderlistViewControllerService controller;
     
 	private JPanel panel;
@@ -78,18 +87,17 @@ public class HotelorderlistView extends JPanel {
 		panel_1.add(label);
 		panel_1.add(hotelname);
 		Vector<OrderVO> Data=new Vector<OrderVO>();
-		//Data.addAll(controller.getOrderList());
+		Data.addAll(controller.getOrderList());
 		Vector<String> Columns=new Vector<String>();
 		Columns.add("订单号");
 		Columns.add("订单状态");
-		Columns.add("客户名称");
-		Columns.add("客户联系方式");
 		Columns.add("入住人数");
 		Columns.add("价值");
-		Columns.add("房间详情");
+		Columns.add("房间类型");
 		Columns.add("房间数量");
 		Columns.add("入住时间");
-		Columns.add("最晚执行时间");
+		Columns.add("离开时间");
+		Columns.add("评分");
 		table = new JTable(Data,Columns){
 			private static final long serialVersionUID = 1L;
 
@@ -97,7 +105,38 @@ public class HotelorderlistView extends JPanel {
 				return false;
 			}
 		};
-		
+		table.addMouseListener(new MouseListener(){
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				if(e.getClickCount()==2){
+					int index = table.getSelectedRow();
+					if(index == -1){
+						JOptionPane.showMessageDialog(null, "请选择订单！","", JOptionPane.ERROR_MESSAGE);
+						return;
+					}
+					String id=(String) table.getValueAt(index, 0);
+					controller.showDetail(id);
+				}
+			}
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub				
+			}
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub				
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub		
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub	
+			}
+		});
 		scrollPane = new JScrollPane();
 		scrollPane.setPreferredSize(new Dimension(1000,500));
 		scrollPane.setViewportView(table);
@@ -114,6 +153,12 @@ public class HotelorderlistView extends JPanel {
 	public void exit2(){
 		HistroyHotelViewControllerService con =  new HistroyHotelViewControllerImpl(UserID);
 		HistroyHotelView vie = new HistroyHotelView(con);
+		con.setView(vie);
+		ClientRunner.change(vie);
+	}
+	public void showDetail(String id){
+		orderDetailViewControllerService con =  new orderDetailViewControllerServiceImpl(UserID,id,HotelID,2);
+		orderDetailView vie = new orderDetailView(con);
 		con.setView(vie);
 		ClientRunner.change(vie);
 	}

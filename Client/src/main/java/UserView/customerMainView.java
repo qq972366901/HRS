@@ -24,6 +24,10 @@ import java.awt.GridLayout;
 import javax.swing.JLabel;
 
 public class customerMainView extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private customerMainViewControllerService controller;
 	private JButton information;
 	private JButton exit;
@@ -322,32 +326,8 @@ public class customerMainView extends JPanel {
          label_58 = new JLabel("");
          add(label_58);
          
-         init_informationbutton();
-         
-         init_orderbutton();
-         
-         init_creditbutton();
-         
-         init_searchbutton();
-         
-         init_histroybutton();
-         
          UserID=controller.getUserID();
-         
-         init_exitbutton();
 	}
-    public void init_informationbutton(){
-    }
-    public void init_orderbutton(){
-    }
-    public void init_creditbutton(){
-    }
-    public void init_searchbutton(){
-    }
-    public void init_histroybutton(){
-    }
-    public void init_exitbutton(){
-    }
     public void information(){
     	InformationViewControllerService controller =  new InformationViewControllerImpl(UserID);
 		InformationView view = new InformationView(controller);
