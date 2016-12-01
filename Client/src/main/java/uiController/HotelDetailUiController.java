@@ -29,8 +29,7 @@ public class HotelDetailUiController implements HotelDetailUiService {
     	 return HotelID;
      }
 	public HotelVO findByhotelID(String hotelID) {
-		//return hotel.findByhotelID(hotelID);
-		return null;
+		return hotel.findByHotelID(hotelID);
 	}
 	public void intoOrderList() {
 		view .intoOrderList();

@@ -19,12 +19,11 @@ public class OrderEvaluationController{
      * 
      * @param String comment,客户的评论
      * @param int score,客户的评分
-     * @param String UserID，客户的id
      * @param String OrderID，订单的id
 	 * @ 
      * @see bussinesslogic.Order
      */
-	public void updatecomment(String comment,int score,String UserID,String orderID) {
-		ct.updatecomment(comment, score, UserID, orderID);
+	public void updatecomment(String comment,int score,String orderID) {
+		ct.updatecomment(comment, score, orderID);
 	}
 }

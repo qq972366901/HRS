@@ -4,6 +4,8 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -20,15 +22,15 @@ import javax.swing.JTextArea;
 import javax.swing.BoxLayout;
 
 public class CommentView extends JPanel {
-    private JPanel panel;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JPanel panel;
     private JButton back;
     private CommentViewService controller;
-    private JPanel panel_1 ;
-	
-	private String UserID;
+    private String UserID;
 	private JTextField scoreinput;
-	
-	private JPanel panel_2 ;
 	
 	private JLabel hotelName ;
 	
@@ -53,8 +55,6 @@ public class CommentView extends JPanel {
 	
 	private JLabel comment;
 	
-	private JLabel label ;
-	
 	private JButton commentButton ;
 	
 	private JLabel lblNewLabel_1;
@@ -74,7 +74,6 @@ private JPanel panel1;
 	private JPanel panel9;
 	private JPanel panel10;
 	private JPanel panel10_1;
-	private JPanel panel10_2;
 	/**
 	 * Create the panel.
 	 */
@@ -138,28 +137,28 @@ private JPanel panel1;
 		ClientRunner.change(vie);
 	}
 	public void init_detail(){
-		
-		hotelName = new JLabel("\u9152\u5E97\u540D\u79F0\uFF1A");
+		List<String> list=new ArrayList<String>();
+		hotelName = new JLabel("\u9152\u5E97\u540D\u79F0\uFF1A"+list.get(0));
         panel1.add(hotelName);
 		
-		hotelType = new JLabel("\u623F\u95F4\u7C7B\u578B\uFF1A");
+		hotelType = new JLabel("\u623F\u95F4\u7C7B\u578B\uFF1A"+list.get(1));
 		panel2.add(hotelType);
 		
-		orderID = new JLabel("\u8BA2\u5355\u53F7\uFF1A");
+		orderID = new JLabel("\u8BA2\u5355\u53F7\uFF1A"+list.get(2));
 		panel3.add(orderID);
-		orderValue = new JLabel("\u8BA2\u5355\u4EF7\u683C\uFF1A");
+		orderValue = new JLabel("\u8BA2\u5355\u4EF7\u683C\uFF1A"+list.get(3));
 		panel4.add(orderValue);
 		
-		numOfPeople = new JLabel("\u4F4F\u623F\u4EBA\u6570\uFF1A");
+		numOfPeople = new JLabel("\u4F4F\u623F\u4EBA\u6570\uFF1A"+list.get(4));
 		panel5.add(numOfPeople);
 		
-		roomNumber = new JLabel("\u623F\u95F4\u53F7\uFF1A");
+		roomNumber = new JLabel("\u623F\u95F4\u53F7\uFF1A"+list.get(5));
 		panel6.add(roomNumber);
 		
-		inTime = new JLabel("\u5165\u4F4F\u65F6\u95F4\uFF1A");
+		inTime = new JLabel("\u5165\u4F4F\u65F6\u95F4\uFF1A"+list.get(6));
 		panel7.add(inTime);
 		
-		lastTime = new JLabel("\u6700\u665A\u5165\u4F4F\u65F6\u95F4\uFF1A");
+		lastTime = new JLabel("\u6700\u665A\u5165\u4F4F\u65F6\u95F4\uFF1A"+list.get(7));
 		panel8.add(lastTime);
 		
 		JLabel temp=new JLabel();
@@ -177,7 +176,7 @@ private JPanel panel1;
 		comment = new JLabel("\u8BC4\u4EF7\uFF1A");
         panel10.add(comment);
 		
-		label = new JLabel("");
+		new JLabel("");
 
 		
 		commentinput = new JTextArea(10,130);

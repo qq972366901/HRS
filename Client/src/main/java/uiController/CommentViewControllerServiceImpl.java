@@ -1,7 +1,16 @@
 package uiController;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+
 import UserView.CommentView;
+import VO.HotelVO;
+import VO.OrderVO;
+import hotelBLService.HotelBLService;
+import hotelBLService.HotelBLServiceController;
 import orderBLService.OrderBLService;
+import orderBLService.OrderBLServiceController;
 import uiService.CommentViewService;
 
 public class CommentViewControllerServiceImpl implements CommentViewService{
@@ -9,25 +18,24 @@ public class CommentViewControllerServiceImpl implements CommentViewService{
     private String UserID;
     private String OrderID;
     private OrderBLService order;
+    private HotelBLService hotel;
     public CommentViewControllerServiceImpl(String UserID,String OrderID){
     	this.UserID=UserID;
     	this.OrderID=OrderID;
-    	//order=new OrderBLServiceImpl(OrderID);
+    	order=new OrderBLServiceController();
+    	hotel=new HotelBLServiceController();
     }
 	@Override
 	public void setView(CommentView view) {
-		// TODO Auto-generated method stub
 		this.view=view;
 	}
 
 	@Override
 	public void exit() {
-		// TODO Auto-generated method stub
 		view.exit();
 	}
 	@Override
 	public String getUserID() {
-		// TODO Auto-generated method stub
 		return UserID;
 	}
 	@Override
@@ -72,9 +80,22 @@ public class CommentViewControllerServiceImpl implements CommentViewService{
 	}
 	@Override
 	public void comment(String score, String comment) {
-		//order.comment(comment, order);
-		System.out.println(score+ " "+comment);
+		order.updatecomment(comment, Integer.parseInt(score), OrderID);
 		view.exit();
 	}
-
+	public  List<String> getDetail(){
+		OrderVO vo=order.showDetail(UserID,OrderID);
+		HotelVO vo1=hotel.findByHotelID(vo.hotelID);
+		List<String> list=new ArrayList<String>();
+		list.add(vo1.hotelName);
+		list.add(vo.roomType);
+		list.add(vo.orderNumber);
+		list.add(""+vo.orderValue);
+		list.add(""+vo.numOfPerson);
+		list.add(""+vo.roomNumber);
+		SimpleDateFormat sdf =new SimpleDateFormat("yyyy-MM-dd");
+		list.add(sdf.format(vo.expectedCheckIn));
+		list.add(sdf.format(vo.expectedCheckOut));
+		return list;
+	}
 }

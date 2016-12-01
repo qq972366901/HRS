@@ -79,6 +79,7 @@ public class ClientRunner implements Serializable{
     		controller.setView(view);
     		mFrame.getContentPane().add(view);
         	mFrame.setVisible(true);
+        	Comment cm=new Comment();
         	/*DataFactoryService df=RemoteHelper.getInstance().getDataFactoryService();
         	CreditDataService cd=(CreditDataService) df.getDataService("Credit");
         	ArrayList<String> list=cd.get();

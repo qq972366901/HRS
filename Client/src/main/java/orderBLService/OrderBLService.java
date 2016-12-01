@@ -96,11 +96,10 @@ public interface OrderBLService {
      * 
      * @param String comment,客户的评论
      * @param int score,客户的评分
-     * @param String UserID，客户的id
      * @param String OrderID，订单的id
      * @see bussinesslogic.Order
      */
-	public void updatecomment(String comment,int score,String UserID,String orderID);
+	public void updatecomment(String comment,int score,String orderID);
 	
 	
 	/**
@@ -192,9 +191,10 @@ public interface OrderBLService {
 	 * 根据不同操作更新客户的信用值(操作详情请看common包)
 	 * @param userID String,客户id
 	 * @param value int,订单的价值
+	 * @param orderID String,订单id
 	 * @param operate Operate枚举类，操作的名字
 	 */
-	public void updateCredit(String userID,int value,Operate operate);
+	public void updateCredit(String userID,String orderID,int value,Operate operate);
 	
 	/**
      * 计算订单价值并显示
@@ -207,6 +207,12 @@ public interface OrderBLService {
 
 
 	ArrayList<OrderVO> show();
-
-	public boolean whetherMake(Calendar instance, Calendar instance2, int i, String string, String string2);
+	/**
+	 * 
+	 * @param numsOfRoom int，需要的房间数量
+	 * @param RoomType String，房间的类型
+	 * @param hotelID String，酒店的id
+	 * @return boolean，能生成则返回true，若没有房间则返回false
+	 */
+	public boolean whetherMake(int numsOfRoom,String RoomType,String hotelID);
 }

@@ -1,6 +1,6 @@
 package orderBuild;
 
-import java.util.Calendar;
+import RoomBLServiceImpl.RoomAvailableJudge;
 import VO.OrderVO;
 import orderBLImpl.OrderLineItem;
 /**
@@ -11,10 +11,9 @@ import orderBLImpl.OrderLineItem;
  */
 public class OrderBuildController{
 	OrderLineItem order;
-	//Hotel hotel;
+	RoomAvailableJudge room;
 	public OrderBuildController() {
 		order=new OrderLineItem();
-		//hotel=new Hotel();
 	}
 	/**
      * 保存订单信息
@@ -36,9 +35,8 @@ public class OrderBuildController{
 	 * @param hotelID String，酒店的id
 	 * @return boolean，能生成则返回true，若没有房间则返回false
 	 */
-	public boolean whetherMake(Calendar inTime,Calendar duration,int numsOfRoom,String RoomType,String hotelID){
-		//hotel.whetherMake(String inTime,String duration,int numsOfRoom,String RoomType,String hotelID);
-		return true;
-	}
-	
+	public boolean whetherMake(int numsOfRoom,String RoomType,String hotelID){
+		room=RoomAvailableJudge.getRoomAvailableJudgeInstance(hotelID);
+		return room.whetherSuccess(RoomType, numsOfRoom);
+	}	
 }

@@ -4,8 +4,6 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Vector;
-
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -19,6 +17,10 @@ import javax.swing.JPasswordField;
 import javax.swing.BoxLayout;
 
 public class revisePasswordView extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel panel;
     private JButton back;
     private revisePasswordViewControllerService controller;
@@ -27,9 +29,7 @@ public class revisePasswordView extends JPanel {
     private JPanel panel12 ;
     private JPanel panel13 ;
     private JPanel panel2 ;
-    private JPanel panel3 ;
-	
-	private JLabel oldpassword ;
+    private JLabel oldpassword ;
 	
 	private JLabel newpassword ;
 	
@@ -104,11 +104,6 @@ public class revisePasswordView extends JPanel {
 		revisepassword = new JButton("\u786E\u5B9A\u4FEE\u6539");
 		revisepassword.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
-				Vector<String> data=new Vector<String>();
-				data.add(String.valueOf(passwordField.getPassword()));
-				data.add(String.valueOf(passwordField_1.getPassword()));
-				data.add(String.valueOf(passwordField_2.getPassword()));
 				oldPassword=controller.checkoldPassword(String.valueOf(passwordField.getPassword()));
 				newPassword=controller.checknewPassword(String.valueOf(passwordField_1.getPassword()));
 				same=controller.checksame(String.valueOf(passwordField_1.getPassword()),String.valueOf(passwordField_2.getPassword()));
@@ -129,7 +124,7 @@ public class revisePasswordView extends JPanel {
 					JOptionPane.showMessageDialog(null, "新旧密码一致！","", JOptionPane.ERROR_MESSAGE);
 					return;
 				}
-				controller.revisepassword(data);
+				controller.revisepassword(String.valueOf(passwordField_1.getPassword()));
 			}
 		});
 		panel2.add(revisepassword);

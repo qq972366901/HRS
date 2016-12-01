@@ -1,11 +1,16 @@
 package orderManagement;
 
+import java.rmi.RemoteException;
+import java.util.Calendar;
 import java.util.List;
 
+import VO.CreditRecordVO;
 import VO.OrderVO;
+import common.Operate;
 import orderBLImpl.OrderLineItem;
 import orderBLImpl.OrderList;
 import orderBLImpl.OrderState;
+import userBLServiceImpl.Credit;
 /**
  * 客户的个人订单管理
  * 可以查看不同类型的订单，并对于一些未执行订单进行撤销操作
@@ -16,9 +21,11 @@ public class OrderManagementController{
 	OrderList list;
 	OrderLineItem order;
 	OrderState state;
+	Credit credit;
 	public OrderManagementController(){
 		list=new OrderList();
 		order=new OrderLineItem();
+		credit=Credit.getInstance();
 	}
 	/**
      * 获得一个客户的所有订单
@@ -109,9 +116,14 @@ public class OrderManagementController{
 	/**
 	 * 当客户撤销订单需要扣除信用值时，扣除信用值。
 	 * @param userID String,客户id
+	 * @param orderID String,订单id
 	 * @param value int,订单的价值
 	 */
-	public void updateCredit(String userID,int value){		
-	    //credit.add(userID,-value);
+	public void updateCredit(String userID,String orderID, int value){		
+		 try {
+				credit.updateCredit(new CreditRecordVO(userID,Calendar.getInstance(),orderID,Operate.Cancel, -value/2, credit.showCredit(userID)-value/2));
+			} catch (RemoteException e) {
+				e.printStackTrace();
+			}
 	}
 }

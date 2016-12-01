@@ -2,13 +2,16 @@ package UserView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import runner.ClientRunner;
+import uiController.HotelDetailUiController;
 import uiController.OrderViewControllerImpl;
+import uiService.HotelDetailUiService;
 import uiService.OrderViewControllerService;
 import uiService.orderDetailViewControllerService;
 
@@ -49,13 +52,7 @@ public class orderDetailView extends JPanel {
 	
 	private JLabel comment;
 	
-	private JLabel label ;
-	
-	private boolean judgeScore;
-	private boolean judgeComment;
 	private JTextArea commentinput;
-	private JLabel lblNewLabel_2;
-	
 	private JPanel panel1;
 	
 	private JPanel panel2;
@@ -67,9 +64,7 @@ public class orderDetailView extends JPanel {
 	private JPanel panel8;
 	private JPanel panel9;
 	private JPanel panel10;
-	private JPanel panel10_1;
-	private JPanel panel10_2;
-	
+	private String hotelid;
 	/**
 	 * Create the panel.
 	 */
@@ -111,6 +106,7 @@ public class orderDetailView extends JPanel {
         add(panel10);
         
         UserID=controller.getUserID();
+        hotelid=controller.getHotelID();
         init_exit();
         init_detail();
 	}
@@ -130,42 +126,48 @@ public class orderDetailView extends JPanel {
 		con.setView(vie);
 		ClientRunner.change(vie);
 	}
+	public void exit2(){
+		HotelDetailUiService con =  new HotelDetailUiController(hotelid,UserID);
+		HotelDetailView vie = new HotelDetailView(con);
+		con.setView(vie);
+		ClientRunner.change(vie);
+	}
 	public void init_detail(){
-		
-		hotelName = new JLabel("\u9152\u5E97\u540D\u79F0\uFF1A");
+		List<String> data=controller.getDetail();
+		hotelName = new JLabel("\u9152\u5E97\u540D\u79F0\uFF1A"+data.get(0));
         panel1.add(hotelName);
 		
-		hotelType = new JLabel("\u623F\u95F4\u7C7B\u578B\uFF1A");
+		hotelType = new JLabel("\u623F\u95F4\u7C7B\u578B\uFF1A"+data.get(1));
 		panel2.add(hotelType);
 		
-		orderID = new JLabel("\u8BA2\u5355\u53F7\uFF1A");
+		orderID = new JLabel("\u8BA2\u5355\u53F7\uFF1A"+data.get(2));
 		panel3.add(orderID);
-		orderValue = new JLabel("\u8BA2\u5355\u4EF7\u683C\uFF1A");
+		orderValue = new JLabel("\u8BA2\u5355\u4EF7\u683C\uFF1A"+data.get(3));
 		panel4.add(orderValue);
 		
-		numOfPeople = new JLabel("\u4F4F\u623F\u4EBA\u6570\uFF1A");
+		numOfPeople = new JLabel("\u4F4F\u623F\u4EBA\u6570\uFF1A"+data.get(4));
 		panel5.add(numOfPeople);
 		
-		roomNumber = new JLabel("\u623F\u95F4\u53F7\uFF1A");
+		roomNumber = new JLabel("房间数量："+data.get(5));
 		panel6.add(roomNumber);
 		
-		inTime = new JLabel("\u5165\u4F4F\u65F6\u95F4\uFF1A");
+		inTime = new JLabel("\u5165\u4F4F\u65F6\u95F4\uFF1A"+data.get(6));
 		panel7.add(inTime);
 		
-		lastTime = new JLabel("\u6700\u665A\u5165\u4F4F\u65F6\u95F4\uFF1A");
+		lastTime = new JLabel("离开时间："+data.get(7));
 		panel8.add(lastTime);
 		
-		score = new JLabel("\u8BC4\u5206\uFF1A");
+		score = new JLabel("\u8BC4\u5206\uFF1A"+data.get(8));
 		panel9.add(score);
 		
 		comment = new JLabel("\u8BC4\u4EF7\uFF1A");
 		panel10.add(comment);
 		
 
-		commentinput = new JTextArea(10,140);
+		commentinput = new JTextArea(2,55);
 		commentinput.setBackground(UIManager.getColor("Button.background"));
 		commentinput.setForeground(UIManager.getColor("Button.focus"));
-		commentinput.setText("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+		commentinput.setText(data.get(9));
 		commentinput.setLineWrap(true);
 		panel10.add(commentinput);
 	}

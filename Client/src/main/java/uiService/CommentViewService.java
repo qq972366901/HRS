@@ -1,5 +1,7 @@
 package uiService;
 
+import java.util.List;
+
 import UserView.CommentView;
 
 public interface CommentViewService {
@@ -9,4 +11,5 @@ public interface CommentViewService {
        public boolean judgeScore(String input);
        public boolean judgeComment(String comment);
        public void comment(String score,String comment);
+       public  List<String> getDetail();
 }

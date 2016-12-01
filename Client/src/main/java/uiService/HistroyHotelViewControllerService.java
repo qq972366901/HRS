@@ -10,5 +10,5 @@ public interface HistroyHotelViewControllerService {
     public void setView(HistroyHotelView view);
     public List<String> getHotelName(String id);
     public String getUserID();
-    public void intoOrderList(String HotelName);
+    public void intoOrderList(int i);
 }

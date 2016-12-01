@@ -13,6 +13,5 @@ public class OrderDataService_Driver {
 		orderDataService.delete(po);
 		orderDataService.init();
 		orderDataService.finish();
-		orderDataService.findByType("已执行");
 	}
 }
