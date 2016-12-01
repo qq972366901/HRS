@@ -26,8 +26,7 @@ public class UserInformationMaintenanceController{
 	 * @throws RemoteException 
 	 * @see bussinesslogic.Customer
 	 */
-	public void update(UserVO vo,String password) throws RemoteException{
-			Customer.getUserInstance().updateUserInfo(vo, password);
-			Log.getLogInstance().revisepassword(vo.id, password);
+	public void update(UserVO vo) throws RemoteException{
+			Customer.getUserInstance().updateUserInfo(vo);
 	}
 }

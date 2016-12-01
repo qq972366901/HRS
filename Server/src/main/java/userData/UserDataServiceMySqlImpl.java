@@ -134,5 +134,23 @@ public class UserDataServiceMySqlImpl implements UserDataService{
 		}  
 		return list;
 	}
+	@Override
+	public List<UserPO> getAllUser() throws RemoteException {
+		List<UserPO> list=new ArrayList<UserPO>();
+		Iterator<String> it=user.keySet().iterator();
+		while(it.hasNext()){
+			list.add(user.get(it.next()));
+		}  
+		return list;
+	}
+	@Override
+	public void modifyPassword(String userID, String password) throws RemoteException {
+		if(user.containsKey(userID)){
+			UserPO po=user.get(userID);
+			po.setPassword(password);
+			user.put(userID, po);
+			update(po);
+		}
+	}
 	
 }

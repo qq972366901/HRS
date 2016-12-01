@@ -25,7 +25,7 @@ public interface UserBLService {
  * @param passwordo String型，用户的密码
  * @see Customer.User
  */
-	public void update(UserVO vo,String password);
+	public void update(UserVO vo);
 /**
  * 新增客户信息
  * @param vo UserVO型，界面输入的新增信息

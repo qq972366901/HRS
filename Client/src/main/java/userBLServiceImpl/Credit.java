@@ -50,6 +50,11 @@ public class Credit {
 	public long showCredit(String id){
 		return map.get(id).credit;
 	}
+	/**
+	 * 显示信用等级
+	 * @param id
+	 * @return
+	 */
 	public int showLevel(String id){
 		return map.get(id).level;
 	}

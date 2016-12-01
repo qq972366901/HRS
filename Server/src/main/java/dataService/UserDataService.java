@@ -60,5 +60,16 @@ public interface UserDataService  extends DataService{
 		 * @throws RemoteException
 		 */
 		public List<UserPO> getAllWorker() throws RemoteException;
+		/**
+		 * 获取所有用户信息
+		 * @return
+		 */
+		public List<UserPO> getAllUser() throws RemoteException;
+		/**
+		 * 修改某位用户的密码
+		 * @param userID
+		 * @param password
+		 */
+		public void modifyPassword(String userID, String password) throws RemoteException;
 	}
 

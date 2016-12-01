@@ -14,13 +14,14 @@ import rmi.RemoteHelper;
 public class Log {
 	private HashMap<String,LogVO> list;
 	private DataFactoryService df;
+	UserDataService dh;
 	private static Log log;
 	private Log() throws RemoteException{
 		list=new HashMap<String,LogVO>();
 		list.put("1", new LogVO("1","1",false));//添加一个数据作为例子
 		df=RemoteHelper.getInstance().getDataFactoryService();
-		UserDataService dh=(UserDataService) df.getDataService("User");
-		List<UserPO> l=dh.getAllCustomer();
+		dh=(UserDataService) df.getDataService("User");
+		List<UserPO> l=dh.getAllUser();
 		for(UserPO user:l){
 			list.put(user.getAccount(), new LogVO(user));
 		}
@@ -69,10 +70,13 @@ public class Log {
 	 * 修改密码
 	 * @param userID
 	 * @param password
+	 * @throws RemoteException 
 	 */
-	public void revisepassword(String userID, String password) {
-		if(!list.containsKey(userID))list.get(userID).userpassword=password;
-		//此处不需要对数据层进行持久化，会有其他类代替完成
+	public void revisepassword(String userID, String password) throws RemoteException {
+		if(!list.containsKey(userID)){
+			list.get(userID).userpassword=password;
+			dh.modifyPassword(userID,password);
+		}
 	}
 	/**
 	 * 提供密码

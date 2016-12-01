@@ -54,9 +54,9 @@ public class UserBLServiceController implements UserBLService {
 	 * @param passwordo String型，用户的密码
 	 * @see Customer.User
 	 */
-	public void update(UserVO vo,String password) {
+	public void update(UserVO vo) {
 		try {
-			userInfomationMaintenanceController.update(vo,password);
+			userInfomationMaintenanceController.update(vo);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
@@ -99,7 +99,6 @@ public class UserBLServiceController implements UserBLService {
 		try {
 			return userCreditRecordController.showCredit(userID);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return 0;

@@ -75,14 +75,15 @@ public class Customer {
 	 * @throws RemoteException
 	 * @see VO.UserVO
 	 */
-	public void updateUserInfo(UserVO vo,String password) throws RemoteException{
+	public void updateUserInfo(UserVO vo) throws RemoteException{
 		if(map.containsKey(vo.id)){
 			map.put(vo.id, vo);
-			UserPO userpo=new UserPO(vo.username,password,vo.id,vo.contactway,vo.membertype,vo.type,vo.birthday,vo.enterprise);
+			UserPO userpo=new UserPO(vo.username,Log.getLogInstance().getPassword(vo.id),vo.id,vo.contactway,vo.membertype,vo.type,vo.birthday,vo.enterprise);
 			UserDataService dh=(UserDataService) df.getDataService("User");
 			dh.update(userpo);
 		}
 	}
+	
 	/**
 	 * 创建新用户
 	 * @param vo UserVO型，界面层传来的VO对象

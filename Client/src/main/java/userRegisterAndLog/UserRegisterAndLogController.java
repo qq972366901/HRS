@@ -47,7 +47,11 @@ public class UserRegisterAndLogController{
 		 * @param password
 		 */
 		public void revisepassword(String userID, String password) {
-			log.revisepassword(userID,password);
+			try {
+				log.revisepassword(userID,password);
+			} catch (RemoteException e) {
+				e.printStackTrace();
+			}
 		}
 		/**
 		 * 检查密码是否正确

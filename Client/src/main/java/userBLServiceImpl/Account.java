@@ -73,9 +73,9 @@ public class Account{
 	 * @see VO.UserVO
 	 */
 	public void update(UserVO vo,String password) throws RemoteException{
-		Log.getLogInstance().revisepassword(vo.id, password);
 		if(vo.type.equals(UserType.Customer)){
-			Customer.getUserInstance().updateUserInfo(vo, password);
+			Customer.getUserInstance().updateUserInfo(vo);
+			Log.getLogInstance().revisepassword(vo.id, password);
 		}
 		else{
 			AccountInfo user=new AccountInfo(vo.username,password,vo.id,vo.contactway,vo.membertype,vo.type,vo.birthday,vo.enterprise,(long)-1,-1);
