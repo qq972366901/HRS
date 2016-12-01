@@ -1,5 +1,6 @@
 package uiController;
 
+import java.rmi.RemoteException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +20,7 @@ public class CommentViewControllerServiceImpl implements CommentViewService{
     private String OrderID;
     private OrderBLService order;
     private HotelBLService hotel;
-    public CommentViewControllerServiceImpl(String UserID,String OrderID){
+    public CommentViewControllerServiceImpl(String UserID,String OrderID) throws RemoteException{
     	this.UserID=UserID;
     	this.OrderID=OrderID;
     	order=new OrderBLServiceController();
@@ -32,7 +33,12 @@ public class CommentViewControllerServiceImpl implements CommentViewService{
 
 	@Override
 	public void exit() {
-		view.exit();
+		try {
+			view.exit();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	@Override
 	public String getUserID() {
@@ -81,7 +87,12 @@ public class CommentViewControllerServiceImpl implements CommentViewService{
 	@Override
 	public void comment(String score, String comment) {
 		order.updatecomment(comment, Integer.parseInt(score), OrderID);
-		view.exit();
+		try {
+			view.exit();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	public  List<String> getDetail(){
 		OrderVO vo=order.showDetail(UserID,OrderID);

@@ -1,6 +1,8 @@
 package uiController;
 
 
+import java.rmi.RemoteException;
+
 import UserView.customerMainView;
 import uiService.customerMainViewControllerService;
 import userBLService.UserBLService;
@@ -40,7 +42,12 @@ public class customerMainViewControllerImpl implements customerMainViewControlle
 	}
 	@Override
 	public void order() {
-		view.order();
+		try {
+			view.order();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	@Override
 	public String getUserID() {

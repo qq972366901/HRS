@@ -13,6 +13,7 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -137,7 +138,7 @@ public class HotelDetailView extends JPanel{
 		con.setView(vie);
 		ClientRunner.change(vie);
 	}
-    public void intoOrderList(){
+    public void intoOrderList() throws RemoteException{
     	HotelorderlistViewControllerService con =  new HotelorderlistViewControllerImpl(HotelID,UserID);
 		HotelorderlistView vie = new HotelorderlistView(con);
 		con.setView(vie);

@@ -1,5 +1,7 @@
 package uiController;
 
+import java.rmi.RemoteException;
+
 import UserView.HotelDetailView;
 import VO.HotelVO;
 import hotelBLService.HotelBLService;
@@ -32,6 +34,11 @@ public class HotelDetailUiController implements HotelDetailUiService {
 		return hotel.findByHotelID(hotelID);
 	}
 	public void intoOrderList() {
-		view .intoOrderList();
+		try {
+			view .intoOrderList();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

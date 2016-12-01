@@ -1,6 +1,7 @@
 package orderExecute;
 
 import java.rmi.RemoteException;
+import java.text.ParseException;
 import java.util.Calendar;
 
 import VO.CreditRecordVO;
@@ -17,7 +18,7 @@ import userBLServiceImpl.Credit;
 public class OrderExecuteController{
 	OrderState state;
 	Credit credit;
-	public OrderExecuteController() {
+	public OrderExecuteController() throws RemoteException {
 		credit=Credit.getInstance();
 	}
 	/**
@@ -42,6 +43,8 @@ public class OrderExecuteController{
 		 try {
 				credit.updateCredit(new CreditRecordVO(userID,Calendar.getInstance(),orderID,Operate.Done, value, credit.showCredit(userID)+value));
 			} catch (RemoteException e) {
+				e.printStackTrace();
+			} catch (ParseException e) {
 				e.printStackTrace();
 			}
 	}
@@ -70,6 +73,8 @@ public class OrderExecuteController{
 		 try {
 				credit.updateCredit(new CreditRecordVO(userID,Calendar.getInstance(),orderID,Operate.Delayed, value, credit.showCredit(userID)+value));
 			} catch (RemoteException e) {
+				e.printStackTrace();
+			} catch (ParseException e) {
 				e.printStackTrace();
 			}
 	}

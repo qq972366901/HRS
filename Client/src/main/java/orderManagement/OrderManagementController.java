@@ -1,6 +1,7 @@
 package orderManagement;
 
 import java.rmi.RemoteException;
+import java.text.ParseException;
 import java.util.Calendar;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class OrderManagementController{
 	OrderLineItem order;
 	OrderState state;
 	Credit credit;
-	public OrderManagementController(){
+	public OrderManagementController() throws RemoteException{
 		list=new OrderList();
 		order=new OrderLineItem();
 		credit=Credit.getInstance();
@@ -123,6 +124,8 @@ public class OrderManagementController{
 		 try {
 				credit.updateCredit(new CreditRecordVO(userID,Calendar.getInstance(),orderID,Operate.Cancel, -value/2, credit.showCredit(userID)-value/2));
 			} catch (RemoteException e) {
+				e.printStackTrace();
+			} catch (ParseException e) {
 				e.printStackTrace();
 			}
 	}

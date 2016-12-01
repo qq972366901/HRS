@@ -1,5 +1,6 @@
 package orderBLService;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -21,7 +22,7 @@ public class OrderBLServiceController implements OrderBLService{
 	private OrderManagementController management;
 	private OrderOverviewController overview;
 	private OrderAbnormalController abnormal;
-	public OrderBLServiceController() {
+	public OrderBLServiceController() throws RemoteException {
 		build = new OrderBuildController();
 		evaluation= new OrderEvaluationController();
 		execute= new OrderExecuteController();

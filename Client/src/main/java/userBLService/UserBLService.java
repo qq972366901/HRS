@@ -80,7 +80,7 @@ public interface UserBLService {
  * @param password型，界面输入的用户账号
  * @see Customer.User
  */
-	public boolean login(String ID, String password)throws RemoteException;
+	public boolean login(String ID, String password);
 /**
  * 客户登出
  * @param ID String型，界面输入的客户ID

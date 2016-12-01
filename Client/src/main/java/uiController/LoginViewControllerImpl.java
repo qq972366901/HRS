@@ -25,12 +25,7 @@ public class LoginViewControllerImpl implements LoginViewControllerService{
 
 	@Override
 	public boolean login(String id,String password) {		
-            try {
-				return user.login(id, password);
-			} catch (RemoteException e) {				
-				e.printStackTrace();
-				return false;
-			}
+            return user.login(id, password);
 	}
 
 	@Override

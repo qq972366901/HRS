@@ -1,5 +1,6 @@
 package uiController;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
@@ -14,7 +15,7 @@ public class OrderViewControllerImpl implements OrderViewControllerService {
 	private OrderView view;
 	private OrderBLService order;
 	private String id;
-	public OrderViewControllerImpl(String UserID){
+	public OrderViewControllerImpl(String UserID) throws RemoteException{
 		id=UserID;
 		order=new OrderBLServiceController();
 	}
@@ -48,7 +49,12 @@ public class OrderViewControllerImpl implements OrderViewControllerService {
 	}
 	@Override
 	public void comment() {
-		view.comment();
+		try {
+			view.comment();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	@Override
 	public void cancel(String orderID) {
@@ -60,7 +66,12 @@ public class OrderViewControllerImpl implements OrderViewControllerService {
 	}
 	@Override
 	public void showDetail(String orderID) {
-		view.showDetail(orderID);
+		try {
+			view.showDetail(orderID);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	@Override
 	public Vector<OrderVO> getAllOrder() {

@@ -1,5 +1,6 @@
 package uiController;
 
+import java.rmi.RemoteException;
 import java.util.List;
 
 import UserView.HotelorderlistView;
@@ -13,7 +14,7 @@ public class HotelorderlistViewControllerImpl implements HotelorderlistViewContr
 	private OrderBLService order;
 	String hotelid;
 	String userid;
-	public HotelorderlistViewControllerImpl(String HotelID,String UserID){
+	public HotelorderlistViewControllerImpl(String HotelID,String UserID) throws RemoteException{
 		hotelid=HotelID;
 		userid=UserID;
 		order=new OrderBLServiceController();
@@ -56,6 +57,11 @@ public class HotelorderlistViewControllerImpl implements HotelorderlistViewContr
     }
 	@Override
 	public void showDetail(String id) {
-		view.showDetail(id);
+		try {
+			view.showDetail(id);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

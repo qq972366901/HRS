@@ -18,6 +18,7 @@ import uiService.OrderViewControllerService;
 import uiService.customerMainViewControllerService;
 
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 import java.awt.event.ActionEvent;
 import javax.swing.UIManager;
 import java.awt.GridLayout;
@@ -358,7 +359,7 @@ public class customerMainView extends JPanel {
 		controller.setView(view);
 		ClientRunner.change( view);
 	}
-	public void order(){
+	public void order() throws RemoteException{
 		OrderViewControllerService controller =  new OrderViewControllerImpl(UserID);
 		OrderView view = new OrderView(controller);
 		controller.setView(view);

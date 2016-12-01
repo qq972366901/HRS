@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.rmi.RemoteException;
 import java.util.Vector;
 
 import javax.swing.JButton;
@@ -156,7 +157,7 @@ public class HotelorderlistView extends JPanel {
 		con.setView(vie);
 		ClientRunner.change(vie);
 	}
-	public void showDetail(String id){
+	public void showDetail(String id) throws RemoteException{
 		orderDetailViewControllerService con =  new orderDetailViewControllerServiceImpl(UserID,id,HotelID,2);
 		orderDetailView vie = new orderDetailView(con);
 		con.setView(vie);

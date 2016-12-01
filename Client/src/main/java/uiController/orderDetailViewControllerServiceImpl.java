@@ -1,5 +1,6 @@
 package uiController;
 
+import java.rmi.RemoteException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +22,7 @@ public class orderDetailViewControllerServiceImpl implements orderDetailViewCont
 	    private HotelBLService hotel;
 	    private int from;
 	    private String HotelID;
-	    public orderDetailViewControllerServiceImpl(String UserID,String OrderID,String hotelID,int f){
+	    public orderDetailViewControllerServiceImpl(String UserID,String OrderID,String hotelID,int f) throws RemoteException{
 	    	this.UserID=UserID;
 	    	from=f;
 	    	this.OrderID=OrderID;
@@ -42,7 +43,12 @@ public class orderDetailViewControllerServiceImpl implements orderDetailViewCont
 		@Override
 		public void exit() {
 			if(from==1){
-			view.exit();
+			try {
+				view.exit();
+			} catch (RemoteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			}
 			else{
 				view.exit2();

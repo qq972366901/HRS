@@ -8,6 +8,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.rmi.RemoteException;
 import java.util.Vector;
 
 import javax.swing.JButton;
@@ -226,7 +227,7 @@ public class OrderView extends JPanel {
 			commentorder.setEnabled(false);
 		}
 	}
-	public void comment(){
+	public void comment() throws RemoteException{
 		int index = table.getSelectedRow();
 		if(index == -1){
 			JOptionPane.showMessageDialog(null, "请选择订单！","", JOptionPane.ERROR_MESSAGE);
@@ -245,7 +246,7 @@ public class OrderView extends JPanel {
 	public void cancel(){
 		model.removeRow(table.getSelectedRow());
 	}
-	public void showDetail(String id){
+	public void showDetail(String id) throws RemoteException{
 		orderDetailViewControllerService con =  new orderDetailViewControllerServiceImpl(controller.getUserID(),id,"",1);
 		orderDetailView vie = new orderDetailView(con);
 		con.setView(vie);

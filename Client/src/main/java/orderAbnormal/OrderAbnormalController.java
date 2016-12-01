@@ -1,6 +1,7 @@
 package orderAbnormal;
 
 import java.rmi.RemoteException;
+import java.text.ParseException;
 import java.util.Calendar;
 
 import VO.CreditRecordVO;
@@ -16,7 +17,7 @@ import userBLServiceImpl.Credit;
 public class OrderAbnormalController{
 	OrderState state;
 	Credit credit;
-	public OrderAbnormalController(){
+	public OrderAbnormalController() throws RemoteException{
 	      credit=Credit.getInstance();
 	}
 	/**
@@ -40,7 +41,8 @@ public class OrderAbnormalController{
 	      try {
 			credit.updateCredit(new CreditRecordVO(userID,Calendar.getInstance(),orderID,Operate.Appeal, value/2, credit.showCredit(userID)+value/2));
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
 			e.printStackTrace();
 		}
 	}

@@ -151,8 +151,13 @@ public class UserBLServiceController implements UserBLService {
 	 * @param password型，界面输入的用户账号
 	 * @see Customer.User
 	 */
-	public boolean login(String ID, String password)throws RemoteException {
-		return userRegisterAndLogController.login(ID, password);
+	public boolean login(String ID, String password){
+		try {
+			return userRegisterAndLogController.login(ID, password);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 	/**
 	 * 客户登出

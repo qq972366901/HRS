@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -130,7 +131,7 @@ private JPanel panel1;
 		});
 		panel.add(back);
 	}
-	public void exit(){
+	public void exit() throws RemoteException{
 		OrderViewControllerService con =  new OrderViewControllerImpl(UserID);
 		OrderView vie = new OrderView(con);
 		con.setView(vie);

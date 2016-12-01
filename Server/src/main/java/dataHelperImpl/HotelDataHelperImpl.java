@@ -62,7 +62,8 @@ public class HotelDataHelperImpl implements Serializable, HotelDataHelper{
 	public List<HotelPO> getAllHotel() throws RemoteException {
 		init();
 		finish();
-		return null;
+		List<HotelPO> list=new ArrayList<HotelPO>();
+		return list;
 	}
 	public HotelPO findByName(String name) throws RemoteException {
 		init();
