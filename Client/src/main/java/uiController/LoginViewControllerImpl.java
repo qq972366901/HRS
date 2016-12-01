@@ -39,9 +39,14 @@ public class LoginViewControllerImpl implements LoginViewControllerService{
 	}
 
 	@Override
-	public boolean register() {
+	public boolean register()  {
 		// TODO Auto-generated method stub
-		view.register();
+		try {
+			view.register();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return true;
 	}
 

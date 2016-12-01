@@ -43,9 +43,15 @@ public class PromotionController implements PromotionBLService {
 
 	/**
 	 * 得到在下订单时客户能获得的酒店营销策略折扣
+	 * @throws  
      */
 	public double getHotelPromotionDiscount(String hotelid,String userID,int roomNumber,Calendar orderbuildtime){
-		return promotionHotelController.getHotelPromotionDiscount(hotelid,userID,roomNumber,orderbuildtime);
+		try {
+			return promotionHotelController.getHotelPromotionDiscount(hotelid,userID,roomNumber,orderbuildtime);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return 0;
 	}
 	/**
      * 添加一种新的网站营销策略，并公布

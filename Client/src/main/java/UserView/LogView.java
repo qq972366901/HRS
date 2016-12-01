@@ -32,6 +32,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 import java.awt.event.ActionEvent;
@@ -43,6 +44,10 @@ import java.awt.BorderLayout;
 import javax.swing.BoxLayout;
 
 public class LogView extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPasswordField passwordField;
 	private JTextField textField;
 	private LoginViewControllerService controller;
@@ -195,14 +200,13 @@ public class LogView extends JPanel {
 			ClientRunner.change(view);
 	    }
 	}
-	public void register(){
+	public void register() throws RemoteException{
 		MemberRegisterUiService con=new MemberRegisterUiController();
 		MemberRegisterView vie=new MemberRegisterView(con);
 		con.setView(vie);
 		ClientRunner.change(vie);
 	}
 	public void updateRegisterButton(String selected) {
-		// TODO Auto-generated method stub
 		if(selected!="客户"){
 			register.setEnabled(false);
 		}

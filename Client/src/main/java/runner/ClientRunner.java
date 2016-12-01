@@ -5,15 +5,11 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import PO.HotelPO;
 import UserView.MemberRegisterView;
 import UserView.HotelBrowseView;
 import UserView.HotelSearchView;
@@ -22,17 +18,8 @@ import UserView.OrderBuildView;
 import UserView.AddHotelView;
 import UserView.UserManagementView;
 import UserView.WebAdminUserView;
-import dataService.CreditDataService;
-import dataService.DataFactoryService;
-import dataService.HotelDataService;
-import dataService.OrderDataService;
-import orderBLImpl.Comment;
-import orderBLService.OrderBLService;
-import orderBLService.OrderBLServiceController;
 import rmi.RemoteHelper;
-import uiController.HotelSearchUiController;
 import uiController.LoginViewControllerImpl;
-import uiService.HotelSearchUiService;
 import uiService.LoginViewControllerService;
 
 
@@ -68,7 +55,6 @@ public class ClientRunner implements Serializable{
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
 				| UnsupportedLookAndFeelException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         	mFrame = new JFrame("HRS"); 
@@ -79,12 +65,6 @@ public class ClientRunner implements Serializable{
     		controller.setView(view);
     		mFrame.getContentPane().add(view);
         	mFrame.setVisible(true);
-        	/*DataFactoryService df=RemoteHelper.getInstance().getDataFactoryService();
-        	CreditDataService cd=(CreditDataService) df.getDataService("Credit");
-        	ArrayList<String> list=cd.get();
-        	for(int i=0;i<list.size();i++){
-        		System.out.println(list.get(i));
-        	}*/
 	}
 	public static void change(JPanel view){
 		mFrame.getContentPane().removeAll();

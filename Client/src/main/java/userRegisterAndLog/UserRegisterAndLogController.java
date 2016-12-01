@@ -1,6 +1,7 @@
 package userRegisterAndLog;
 import java.rmi.RemoteException;
 
+import VO.LogVO;
 import VO.UserVO;
 import userBLServiceImpl.Log;
 import userBLServiceImpl.Register;
@@ -20,6 +21,7 @@ public class UserRegisterAndLogController{
 	 */
 	public void register(UserVO vo,String password) throws RemoteException {
 		register.add(vo,password);
+		log.add(vo.id, new LogVO(password,vo.id,true));
 	}
 		/**
 		 * 客户登录
@@ -45,7 +47,6 @@ public class UserRegisterAndLogController{
 		 * @param password
 		 */
 		public void revisepassword(String userID, String password) {
-			// TODO Auto-generated method stub
 			log.revisepassword(userID,password);
 		}
 		/**
@@ -55,7 +56,6 @@ public class UserRegisterAndLogController{
 		 * @return 
 		 */
 		public boolean checkoldPassword(String userID, String password) {
-			// TODO Auto-generated method stub
 			return log.passwordIsValid(userID,password);
 		}
 }

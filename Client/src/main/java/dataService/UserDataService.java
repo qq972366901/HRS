@@ -4,6 +4,7 @@ import dataService.DataService;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.List;
 
 /**负责实现客户数据储存所需要的服务接口
  * @author 刘伟
@@ -31,7 +32,7 @@ public interface UserDataService  extends DataService,Remote{
 	 * @return 
 	 * @see data.User
 	 */
-		public void delete(UserPO po) throws RemoteException;
+		public void delete(String userID) throws RemoteException;
 	/**
 	 *在数据库中更新一个po
 	 * @param in MessageInput型，界面的选择
@@ -46,12 +47,17 @@ public interface UserDataService  extends DataService,Remote{
 	 * @see data.User
 	 */
 		public void init() throws RemoteException;
-	/**
-	 * 结束持久化数据库的使用
-	 * @param in MessageInput型，界面的选择
-	 * @return 
-	 * @see data.User
-	 */
-		public void finish() throws RemoteException;
+		/**
+		 * 获取所有客户信息
+		 * @return
+		 * @throws RemoteException
+		 */
+		public List<UserPO> getAllCustomer() throws RemoteException;
+		/**
+		 * 获取所有非客户信息
+		 * @return
+		 * @throws RemoteException
+		 */
+		public List<UserPO> getAllWorker() throws RemoteException;
 	}
 

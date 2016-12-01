@@ -112,4 +112,8 @@ public interface UserBLService {
 	 * @return
 	 */
 	public Double getDiscount(int level);
+	/**
+	 * 更新所有客户的会员等级
+	 */
+	public void updateAllLevel();
 }

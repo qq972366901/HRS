@@ -209,4 +209,10 @@ public interface OrderBLService {
 	ArrayList<OrderVO> show();
 
 	public boolean whetherMake(Calendar instance, Calendar instance2, int i, String string, String string2);
+	/**
+	 * 获取所有已撤销订单
+	 * @param hotelId
+	 * @return
+	 */
+	public List<OrderVO> getCanceledOrders(String hotelId);
 }

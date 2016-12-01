@@ -1,10 +1,10 @@
 package userBLServiceImpl;
 
 import java.rmi.RemoteException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import PO.UserPO;
 import VO.LogVO;
 import VO.UserVO;
 import dataService.DataFactoryService;
@@ -15,12 +15,17 @@ public class Log {
 	private HashMap<String,LogVO> list;
 	private DataFactoryService df;
 	private static Log log;
-	private Log(){
-		list=new HashMap<String,LogVO>();//暂时这样初始化，事实上需要从数据层取
-		list.put("1", new LogVO("1","1",false));
+	private Log() throws RemoteException{
+		list=new HashMap<String,LogVO>();
+		list.put("1", new LogVO("1","1",false));//添加一个数据作为例子
 		df=RemoteHelper.getInstance().getDataFactoryService();
+		UserDataService dh=(UserDataService) df.getDataService("User");
+		List<UserPO> l=dh.getAllCustomer();
+		for(UserPO user:l){
+			list.put(user.getAccount(), new LogVO(user));
+		}
 	}
-	public static Log getLogInstance(){
+	public static Log getLogInstance() throws RemoteException{
 		if(log==null){
 			log=new Log();
 		}
@@ -67,7 +72,7 @@ public class Log {
 	 */
 	public void revisepassword(String userID, String password) {
 		if(!list.containsKey(userID))list.get(userID).userpassword=password;
-		//不需要对数据层进行持久化，在Customer类中已完成
+		//此处不需要对数据层进行持久化，会有其他类代替完成
 	}
 	/**
 	 * 提供密码

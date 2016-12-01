@@ -17,14 +17,18 @@ import uiService.LoginViewControllerService;
 import uiService.MemberRegisterUiService;
 import uiService.customerMainViewControllerService;
 import uiService.webPromotionUserUiService;
+import userBLService.UserBLService;
+import userBLService.UserBLServiceController;
 import userBLServiceImpl.Customer;
 
 public class MemberRegisterUiController implements MemberRegisterUiService {
-	private static final long serialVersionUID = 1L;
 	private JPanel view;
+	private UserBLService user;
+	public MemberRegisterUiController() throws RemoteException{
+		this.user=new UserBLServiceController();
+	}
 	@Override
 	public void setView(MemberRegisterView view) {
-		// TODO Auto-generated method stub
 		this.view=view;
 }
 
@@ -44,17 +48,9 @@ public class MemberRegisterUiController implements MemberRegisterUiService {
     /**
      * 新建一个用户
      * @return 
-     * @throws RemoteException 
      */
 	@Override
 	public boolean createUser(UserVO vo,String password) {
-		// TODO Auto-generated method stub
-		try {
-			return Customer.getUserInstance().create(vo,password);
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return false;
+		return user.add(vo, password);
 	}
 }

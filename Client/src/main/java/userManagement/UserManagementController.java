@@ -7,7 +7,7 @@ import userBLServiceImpl.Account;
 import userBLServiceImpl.Register;
 public class UserManagementController{
 	private Register register;
-	public UserManagementController(){
+	public UserManagementController() throws RemoteException{
 		register=new Register();
 	}
 		/**
@@ -34,9 +34,9 @@ public class UserManagementController{
 			 * 判断客户账号是否存在
 			 * @param account
 			 * @return
+			 * @throws RemoteException 
 			 */
-		public boolean judge(String id) {
-			// TODO Auto-generated method stub
+		public boolean judge(String id) throws RemoteException {
 			return Account.getInstance().judgeAccount(id);
 		}
 }

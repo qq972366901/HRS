@@ -1,6 +1,7 @@
 package userCreditManagement;
 
 import java.rmi.RemoteException;
+import java.text.ParseException;
 
 import VO.CreditRecordVO;
 import promotionMemberGrade.PromotionMemberGradeController;
@@ -24,9 +25,10 @@ public class UserCreditManagementController {
 		 * @param in MessageInput型，界面输入的更新信息
 		 * @return 返回ResultMessage的一个枚举值
 		 * @throws RemoteException 
+		 * @throws ParseException 
 		 * @see bussinesslogic.Customer
 		 */
-		public void updateCreditRecord(CreditRecordVO vo) throws RemoteException {
+		public void updateCreditRecord(CreditRecordVO vo) throws RemoteException, ParseException {
 			Credit.getInstance().updateCredit(vo);
 		}
 		/**
@@ -37,5 +39,15 @@ public class UserCreditManagementController {
 		public Double getDiscount(Integer level) {
 			PromotionInfo mg=new PromotionMemberGradeController();
 			return mg.getDiscountOfLevel(level);
+		}
+		/**
+		 * 更新所有客户的会员等级
+		 */
+		public void updateAllLevel() {
+			try {
+				Credit.getInstance().updateAllLevel();
+			} catch (RemoteException e) {
+				e.printStackTrace();
+			}
 		}
 }

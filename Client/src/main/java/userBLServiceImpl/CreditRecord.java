@@ -1,13 +1,10 @@
 package userBLServiceImpl;
 
 import java.rmi.RemoteException;
+import java.text.ParseException;
 import java.util.Calendar;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Map.Entry;
-
+import java.util.List;
 import PO.CreditRecordPO;
 import VO.CreditRecordVO;
 import common.Operate;
@@ -24,18 +21,29 @@ public class CreditRecord {
 	private HashMap<String,HashMap<String,CreditRecordVO>> map;//一个用户ID对应其自身的一系列信用记录
 	private DataFactoryService df;
 	private static CreditRecord creditRecord;
-	private CreditRecord(){
+	private CreditRecord() throws RemoteException, ParseException{
 		map=new HashMap<String,HashMap<String,CreditRecordVO>>();
 		HashMap<String,CreditRecordVO> hm=new HashMap<String,CreditRecordVO>();
 		Calendar cal=Calendar.getInstance();
 		CreditRecordVO crvo=new CreditRecordVO("1",cal,"1",Operate.Done,-50,600);
 		hm.put(crvo.orderID, crvo);
 		map.put("1",hm);//暂时这样初始化，需要从数据层取数据
-		//df=RemoteHelper.getInstance().getDataFactoryService();
-		//CreditRecordDataService service=(CreditRecordDataService) df.getDataService("CreditRecord");
-		//List<CreditRecordPO> list=service.getAllCreditRecord();
+		df=RemoteHelper.getInstance().getDataFactoryService();
+		CreditRecordDataService service=(CreditRecordDataService) df.getDataService("CreditRecord");
+		List<CreditRecordPO> list=service.getAllCreditRecord();
+		for(int i=0;i<list.size();i++){
+			CreditRecordPO po=list.get(i);
+			if(map.containsKey(po.getUserID())){
+				map.get(po.getUserID()).put(po.getID(), new CreditRecordVO(po));
+			}
+			else{
+				HashMap<String,CreditRecordVO> h=new HashMap<String,CreditRecordVO>();
+				h.put(po.getID(), new CreditRecordVO(po));
+				map.put(po.getUserID(), h);
+			}
+		}
 	}
-	public static CreditRecord getInstance(){
+	public static CreditRecord getInstance() throws RemoteException, ParseException{
 		if(creditRecord==null){
 			creditRecord=new CreditRecord();
 		}
@@ -65,25 +73,6 @@ public class CreditRecord {
 	public HashMap<String,CreditRecordVO> showCreditRecord(String id){
 		return map.get(id);
 	}
-	
-	/**
-	 * 更新信用记录
-	 * @param id String型，界面层传来的用户ID
-	 * @param vo CreditRecordVO型，界面层传来的VO对象
-	 * @throws RemoteException
-	 * @see VO.CreditRecordVO
-	 */
-	/*
-	public void updateCreditRecord(String id,CreditRecordVO vo) throws RemoteException{
-		map.get(id).get(vo.orderID).account=vo.account;
-		map.get(id).get(vo.orderID).action=vo.action;
-		map.get(id).get(vo.orderID).creditchange=vo.creditchange;
-		map.get(id).get(vo.orderID).currentcredit=vo.currentcredit;
-		map.get(id).get(vo.orderID).time=vo.time;
-		CreditRecordPO po=new CreditRecordPO(vo.orderID,vo.time,vo.action,vo.creditchange,vo.currentcredit);
-		//CreditRecordDataService dh=(CreditRecordDataService) df.getDataService("CreditRecord");
-		//dh.update(po);
-	}*/
 	/**
 	 * 增加信用记录
 	 * @param userID String型，界面层传来的客户ID
@@ -94,9 +83,9 @@ public class CreditRecord {
 	public void add(String userID,CreditRecordVO vo) throws RemoteException{
 		if(map.containsKey(userID)){
 			map.get(userID).put(vo.orderID, vo);
-			//CreditRecordPO po=new CreditRecordPO(vo.orderID,vo.time,vo.action,vo.creditchange,vo.currentcredit);
-			//CreditRecordDataService dh=(CreditRecordDataService) df.getDataService("CreditRecord");
-			//dh.insert(po);
+			CreditRecordPO po=new CreditRecordPO(vo.account,vo.orderID,vo.time,vo.action,vo.creditchange,vo.currentcredit);
+			CreditRecordDataService dh=(CreditRecordDataService) df.getDataService("CreditRecord");
+			dh.insert(po);
 		}
 		else{
 			HashMap<String,CreditRecordVO> m=new HashMap<String,CreditRecordVO>();

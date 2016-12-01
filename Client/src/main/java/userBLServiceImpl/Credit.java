@@ -1,8 +1,10 @@
 package userBLServiceImpl;
 
 import java.rmi.RemoteException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 
 import PO.CreditPO;
 import VO.CreditRecordVO;
@@ -48,12 +50,16 @@ public class Credit {
 	public long showCredit(String id){
 		return map.get(id).credit;
 	}
+	public int showLevel(String id){
+		return map.get(id).level;
+	}
 	/**
 	 * 根据信用记录更新信用值
 	 * @param vo CreditRecordVO型，界面层传入的VO对象
 	 * @throws RemoteException
+	 * @throws ParseException 
 	 */
-	public void updateCredit(CreditRecordVO vo) throws RemoteException{
+	public void updateCredit(CreditRecordVO vo) throws RemoteException, ParseException{
 		map.get(vo.account).credit=vo.currentcredit;
 		CreditRecord.getInstance().add(vo.account, vo);
 	}
@@ -86,5 +92,18 @@ public class Credit {
 				map.get(id).level=4;
 			}
 		}
+	}
+	/**
+	 * 更新所有客户的会员等级
+	 */
+	public void updateAllLevel() {
+		Iterator<String> it=map.keySet().iterator(); 
+		while(it.hasNext()){   
+		   try {
+			updateLevel(it.next(),map.get(it.next()).credit);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		}  
 	}
 }

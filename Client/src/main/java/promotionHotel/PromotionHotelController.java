@@ -1,4 +1,5 @@
 package promotionHotel;
+import java.rmi.RemoteException;
 import java.util.Calendar;
 
 import PromotionBLServiceImpl.AddHotelPromotion;
@@ -19,8 +20,9 @@ public class PromotionHotelController {
 	}
 	/**
 	 * 得到在下订单时客户能获得的酒店营销策略折扣
+	 * @throws RemoteException 
      */
-	public double getHotelPromotionDiscount(String hotelid,String userID,int roomNumber,Calendar orderbuildtime) {
+	public double getHotelPromotionDiscount(String hotelid,String userID,int roomNumber,Calendar orderbuildtime) throws RemoteException {
 		UserVO vo1=Customer.getUserInstance().findByID(userID);
 		Calendar birthday=vo1.birthday;
 		String membertype=vo1.membertype;

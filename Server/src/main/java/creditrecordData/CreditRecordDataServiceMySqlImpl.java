@@ -1,10 +1,14 @@
 package creditrecordData;
 
-import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
+import java.util.List;
 
 import PO.CreditRecordPO;
+import dataHelper.CreditRecordDataHelper;
+import dataHelper.DataHelperFactory;
+import dataHelperImpl.DataHelperFactoryImpl;
 import dataService.CreditRecordDataService;
 /**
  * 职责是将逻辑层面发来的请求转发给后台CreditRecordData处理
@@ -13,13 +17,14 @@ import dataService.CreditRecordDataService;
  * @see businesslogic.CreditRecord
  */
 public class CreditRecordDataServiceMySqlImpl implements CreditRecordDataService{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+	
 	private static CreditRecordDataServiceMySqlImpl creditRecordDataServiceMySqlImpl;
+	private CreditRecordDataHelper helper;
+	private List<CreditRecordPO> list;
+	private DataHelperFactory factory;
 	private CreditRecordDataServiceMySqlImpl() throws RemoteException{
 		UnicastRemoteObject.exportObject(this,8089);
+		init();
 	}
 	public static CreditRecordDataServiceMySqlImpl getInstance() throws RemoteException{
 		if(creditRecordDataServiceMySqlImpl==null){
@@ -35,9 +40,14 @@ public class CreditRecordDataServiceMySqlImpl implements CreditRecordDataService
 	 * @see PO.CreditRecordPO
 	 */
 	@Override
-	public CreditRecordPO find(String id) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+	public List<CreditRecordPO> find(String id) throws RemoteException {
+		List<CreditRecordPO> polist=new ArrayList<CreditRecordPO>();
+		for(int i=0;i<list.size();i++){
+			if(list.get(i).getUserID().equals(id)){
+				polist.add(list.get(i));
+			}
+		}
+		return polist;
 	}
 	/**
 	 * 在数据库中增加一个po实体
@@ -48,32 +58,8 @@ public class CreditRecordDataServiceMySqlImpl implements CreditRecordDataService
 	 */
 	@Override
 	public void insert(CreditRecordPO po) throws RemoteException {
-		// TODO Auto-generated method stub
-		
-	}
-	/**
-	 * 在数据库中删除一个po
-	 * @param po CreditRecordPO型，逻辑层传来的信用记录实体
-	 * @return
-	 * @throws 远程调用失败
-	 * @see PO.CreditRecordPO
-	 */
-	@Override
-	public void delete(CreditRecordPO po) throws RemoteException {
-		// TODO Auto-generated method stub
-		
-	}
-	/**
-	 * 在数据库中更新一个po
-	 * @param po CreditRecordPO型，逻辑层传来的信用记录实体
-	 * @return
-	 * @throws 远程调用失败
-	 * @see PO.CreditRecordPO
-	 */
-	@Override
-	public void update(CreditRecordPO po) throws RemoteException {
-		// TODO Auto-generated method stub
-		
+		list.add(po);
+		helper.insert(po);
 	}
 	/**
 	 * 按初始化持久化数据库
@@ -84,20 +70,13 @@ public class CreditRecordDataServiceMySqlImpl implements CreditRecordDataService
 	 */
 	@Override
 	public void init() throws RemoteException {
-		// TODO Auto-generated method stub
-		
+		factory=new DataHelperFactoryImpl();
+		helper=factory.getCreditRecordDataHelper();
+		list=helper.getAllCredit();
 	}
-	/**
-	 * 结束持久化数据库的使用
-	 * @param
-	 * @return
-	 * @throws 远程调用失败
-	 * @see PO.CreditRecordPO
-	 */
 	@Override
-	public void finish() throws RemoteException {
-		// TODO Auto-generated method stub
-		
+	public List<CreditRecordPO> getAllCreditRecord() throws RemoteException {
+		return list;
 	}
 
 }

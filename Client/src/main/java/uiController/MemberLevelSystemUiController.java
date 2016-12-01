@@ -11,25 +11,26 @@ import promotionBLService.PromotionController;
 import runner.ClientRunner;
 import uiService.MemberLevelSystemUiService;
 import uiService.webPromotionUserUiService;
+import userBLService.UserBLService;
+import userBLService.UserBLServiceController;
 
 public class MemberLevelSystemUiController implements MemberLevelSystemUiService{
 	private MemberLevelSystemView view;
 	private PromotionBLService proService;
+	private UserBLService userService;
 	@Override
 	public void setView(MemberLevelSystemView view) {
-		// TODO Auto-generated method stub
 		this.view=view;
 		try {
 			this.proService=new PromotionController();
+			this.userService=new UserBLServiceController();
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		view.showMemberLevelSystem(proService.getMemberLevelSystem());
 	}
 	@Override
 	public void toWebPromotionUserView() {
-		// TODO Auto-generated method stub
 		webPromotionUserUiService controller=new webPromotionUserUiController();
 		WebPromotionUserView view=new WebPromotionUserView(controller);
 		controller.setView(view);
@@ -37,18 +38,22 @@ public class MemberLevelSystemUiController implements MemberLevelSystemUiService
 	}
 	@Override
 	public void updateMemberLevelSystem(MemberLevelSystemVO vo) {
-		// TODO Auto-generated method stub
 		proService.updateMemberLevelSystem(vo.creditOfLevel,vo.discountOfLevel);
 	}
 	@Override
 	public void addMemberLevelSystem(MemberLevelSystemVO vo) {
-		// TODO Auto-generated method stub
 		proService.addMemberLevelSystem(vo.creditOfLevel,vo.discountOfLevel);
 	}
 	@Override
 	public MemberLevelSystemVO getMemberLevelSystem() {
-		// TODO Auto-generated method stub
 		return proService.getMemberLevelSystem();
+	}
+	/**
+	 * 由于会员等级系统的更新，需要更新所有客户的会员等级
+	 */
+	@Override
+	public void updateAllLevel() {
+		userService.updateAllLevel();
 	}
 
 

@@ -1,5 +1,6 @@
 package userCreditRecord;
 import java.rmi.RemoteException;
+import java.text.ParseException;
 import java.util.HashMap;
 import VO.CreditRecordVO;
 import userBLServiceImpl.Credit;
@@ -20,9 +21,11 @@ public class UserCreditRecordController{
 	 * 信用记录显示
 	 * @param id String型，界面传入的客户账号
 	 * @return 返回信用记录列表
+	 * @throws RemoteException 
+	 * @throws ParseException 
 	 * @see Customer.User
 	 */
-	public HashMap<String,CreditRecordVO> showCreditRecord(String userID) {
+	public HashMap<String,CreditRecordVO> showCreditRecord(String userID) throws RemoteException, ParseException {
 		return CreditRecord.getInstance().showCreditRecord(userID);
 	}	
 }

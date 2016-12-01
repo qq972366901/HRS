@@ -15,4 +15,6 @@ public interface MemberLevelSystemUiService {
 
 	public MemberLevelSystemVO getMemberLevelSystem();
 
+	public void updateAllLevel();
+
 }

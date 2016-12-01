@@ -40,7 +40,6 @@ public class MemberLevelSystemView extends JPanel{
 	private JComboBox<Double> dis5;
 	private boolean hasMemberLevelSystem;
 	public MemberLevelSystemView(MemberLevelSystemUiService controller) {
-		// TODO Auto-generated constructor stub
 		this.controller=controller;
 		this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
 		this.hasMemberLevelSystem=false;
@@ -152,6 +151,7 @@ public class MemberLevelSystemView extends JPanel{
 				else{
 					controller.addMemberLevelSystem(vo);
 				}
+				controller.updateAllLevel();
 			}
 		});
 		cancel=new JButton("取消");

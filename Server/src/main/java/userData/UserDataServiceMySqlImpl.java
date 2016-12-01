@@ -2,12 +2,16 @@ package userData;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 
 import PO.UserPO;
+import common.UserType;
 import dataHelper.DataHelperFactory;
 import dataHelper.UserDataHelper;
-import dataHelperImpl.UserDataHelperImpl;
+import dataHelperImpl.DataHelperFactoryImpl;
 import dataService.UserDataService;
 /**
  * 职责是将逻辑层面发来的请求转发给后台UserData处理
@@ -52,7 +56,7 @@ public class UserDataServiceMySqlImpl implements UserDataService{
 	public void insert(UserPO po) throws RemoteException {
 		if(!user.containsKey(po.getAccount())){
 			user.put(po.getAccount(), po);
-			//存入数据库
+			helper.insert(po);
 		}
 	}
 	/**
@@ -63,10 +67,10 @@ public class UserDataServiceMySqlImpl implements UserDataService{
 	 * @see PO.UserPO
 	 */
 	@Override
-	public void delete(UserPO po) throws RemoteException {
-		if(user.containsKey(po.getAccount())){
-			user.remove(po.getAccount());
-			//更新数据库
+	public void delete(String userID) throws RemoteException {
+		if(user.containsKey(userID)){
+			user.remove(userID);
+			helper.delete(user.get(userID));
 		}
 	}
 	/**
@@ -80,7 +84,7 @@ public class UserDataServiceMySqlImpl implements UserDataService{
 	public void update(UserPO po) throws RemoteException {
 		if(user.containsKey(po.getAccount())){
 			user.put(po.getAccount(), po);
-			//更新数据库数据
+			helper.update(po);
 		}
 	}
 	/**
@@ -92,19 +96,43 @@ public class UserDataServiceMySqlImpl implements UserDataService{
 	 */
 	@Override
 	public void init() throws RemoteException {
+		dataFactory=new DataHelperFactoryImpl();
 		helper=dataFactory.getUserDataHelper();
 		user=new HashMap<String,UserPO>();
-		//从数据库取数据
+		ArrayList<UserPO> list=new ArrayList<UserPO>();
+		list=helper.getAllUser();
+		for(int i=0;i<list.size();i++){
+			user.put(list.get(i).getAccount(), list.get(i));
+		}
 	}
 	/**
-	 * 结束持久化数据库的使用
-	 * @param
+	 * 获取所有客户信息
 	 * @return
 	 * @throws RemoteException
-	 * @see PO.UserPO
+	 */
+	public List<UserPO> getAllCustomer() throws RemoteException {
+		List<UserPO> list=new ArrayList<UserPO>();
+		Iterator<String> it=user.keySet().iterator();
+		while(it.hasNext()){
+			if(user.get(it.next()).getType().equals(UserType.Customer)){
+				list.add(user.get(it.next()));
+			}
+		}  
+		return list;
+	}
+	/**
+	 * 获取所有非客户的用户信息
 	 */
 	@Override
-	public void finish() throws RemoteException {
+	public List<UserPO> getAllWorker() throws RemoteException {
+		List<UserPO> list=new ArrayList<UserPO>();
+		Iterator<String> it=user.keySet().iterator();
+		while(it.hasNext()){
+			if(!user.get(it.next()).getType().equals(UserType.Customer)){
+				list.add(user.get(it.next()));
+			}
+		}  
+		return list;
 	}
-
+	
 }

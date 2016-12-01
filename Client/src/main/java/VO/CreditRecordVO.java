@@ -1,6 +1,9 @@
 package VO;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Vector;
 
 import PO.CreditRecordPO;
@@ -15,10 +18,6 @@ import common.Operate;
 
 public class CreditRecordVO{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	public String account;//即客户ID
 	public Calendar time;
 	public String orderID;
@@ -53,10 +52,16 @@ public class CreditRecordVO{
      * 创建信用记录对象
      * 
      * @return 一个新用户的信用记录
+	 * @throws ParseException 
      * @see Object.CreditRecord
      */
-	public CreditRecordVO(CreditRecordPO po) {
-
+	public CreditRecordVO(CreditRecordPO po) throws ParseException {
+		account=po.getUserID();
+		time=po.getTime();
+		orderID=po.getID();
+		action=po.getAction();
+		creditchange=po.getCreditchange();
+		currentcredit=po.getCurrentcredit();
 	}
 	
 }

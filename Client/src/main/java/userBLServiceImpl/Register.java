@@ -11,7 +11,7 @@ import VO.UserVO;
  */
 public class Register {
 	private Customer user;
-	public Register(){
+	public Register() throws RemoteException{
 		user=Customer.getUserInstance();
 	}
 	/**

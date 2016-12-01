@@ -1,14 +1,10 @@
 package userBLServiceImpl;
 
 import java.rmi.RemoteException;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Vector;
-
 import PO.UserPO;
+import VO.LogVO;
 import VO.UserVO;
 import dataService.DataFactoryService;
 import dataService.UserDataService;
@@ -23,40 +19,45 @@ public class Customer {
 	private HashMap<String,UserVO> map;
 	private DataFactoryService df;
 	private static Customer user; 
-	private Customer(){ 
-		map=new HashMap<String,UserVO>();//暂时这样初始化，事实上需要从数据层取
+	private Customer() throws RemoteException{ 
+		map=new HashMap<String,UserVO>();
 		df=RemoteHelper.getInstance().getDataFactoryService();
-		//UserDataService dh=(UserDataService) df.getDataService("User");
-		//List<UserPO> list=dh.getAllCustomer();
-		//for(UserPO user:list){map.put(user.id,new UserVO(user);}
+		UserDataService dh=(UserDataService) df.getDataService("User");
+		List<UserPO> list=dh.getAllCustomer();
+		for(UserPO user:list){
+			map.put(user.getAccount(),new UserVO(user));
+		}
 	}
-	public static Customer getUserInstance(){
+	public static Customer getUserInstance() throws RemoteException{
 		if(user==null){
 			user=new Customer();
 		}
 		return user;
 	}
 	/**
-	 * 提供所有客户信息给Account类使用
+	 * 判断账号是否存在
+	 * @param id
 	 * @return
 	 */
-	public List<UserVO> getAllCustomer(){
-		List<UserVO> list=new Vector<UserVO>();
-		Collection<UserVO> values = map.values();  
-		for (Iterator<UserVO> iterator=values.iterator(); iterator.hasNext();){  
-			UserVO value = iterator.next();  
-		    list.add(value); 
-		} 
-		return list;
+	public boolean hasCustomer(String id){
+		if(map.containsKey(id)){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 	/**
 	 * 删除一个用户
 	 * @param userID
+	 * @throws RemoteException 
 	 */
-	public void deleteCustomer(String userID){
-		map.remove(userID);
-		//UserDataService dh=(UserDataService) df.getDataService("User");
-		//dh.delete(userID);
+	public void deleteCustomer(String userID) throws RemoteException{
+		if(map.containsKey(userID)){
+			map.remove(userID);
+			UserDataService dh=(UserDataService) df.getDataService("User");
+			dh.delete(userID);
+		}
 	}
 	/**
 	 * 按ID查找用户
@@ -78,8 +79,8 @@ public class Customer {
 		if(map.containsKey(vo.id)){
 			map.put(vo.id, vo);
 			UserPO userpo=new UserPO(vo.username,password,vo.id,vo.contactway,vo.membertype,vo.type,vo.birthday,vo.enterprise);
-			//UserDataService dh=(UserDataService) df.getDataService("User");
-			//dh.update(userpo);
+			UserDataService dh=(UserDataService) df.getDataService("User");
+			dh.update(userpo);
 		}
 	}
 	/**
@@ -92,9 +93,10 @@ public class Customer {
 	public boolean create(UserVO vo,String password) throws RemoteException{
 		if(!map.containsKey(vo.id)){
 			map.put(vo.id, vo);
+			Log.getLogInstance().add(vo.id, new LogVO(password,vo.id,true));
 			UserPO userpo=new UserPO(vo.username,password,vo.id,vo.contactway,vo.membertype,vo.type,vo.birthday,vo.enterprise);
-			//UserDataService dh=(UserDataService) df.getDataService("User");
-			//dh.insert(userpo);
+			UserDataService dh=(UserDataService) df.getDataService("User");
+			dh.insert(userpo);
 			return true;
 		}
 		else{

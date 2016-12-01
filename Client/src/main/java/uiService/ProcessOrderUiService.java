@@ -36,4 +36,7 @@ public interface ProcessOrderUiService {
 	public void cancelAbnormalOrder();
 
 	public void recover(Calendar calendar, String orderNo, Operate appeal, String strategy, int value, String userID);
+
+	public List<OrderVO> getCanceledOrders(String hotelId);
+
 }

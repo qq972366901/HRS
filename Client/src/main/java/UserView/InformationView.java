@@ -21,7 +21,11 @@ import javax.swing.JLabel;
 import javax.swing.BoxLayout;
 
 public class InformationView extends JPanel {
-    private JPanel panel;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JPanel panel;
     private JButton back;
     private InformationViewControllerService controller;
     private JPanel panel_1 ;

@@ -1,6 +1,7 @@
 package uiController;
 
 import java.rmi.RemoteException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -51,9 +52,7 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 
 	@Override
 	public List<OrderVO> getAllOrders(String hotelId) {
-		//return orderService.show(hotelId);
-		List<OrderVO> list=new ArrayList<OrderVO>();
-		return list;
+		return orderService.getAllOrders(hotelId);
 	}
 
 	@Override
@@ -134,7 +133,6 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 		try {
 			currentcredit = Credit.getInstance().showCredit(userID);
 		} catch (RemoteException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		if(strategy.equals("全部")){
@@ -148,7 +146,16 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 			Credit.getInstance().updateCredit(vo);
 		} catch (RemoteException e) {
 			e.printStackTrace();
+		} catch (ParseException e) {
+			e.printStackTrace();
 		}
+	}
+	/**
+	 * 获取一个酒店所有已撤销订单
+	 */
+	@Override
+	public List<OrderVO> getCanceledOrders(String hotelId) {
+		return orderService.getCanceledOrders(hotelId);
 	}
 
 }

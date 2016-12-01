@@ -13,9 +13,10 @@ public class UserInformationMaintenanceController{
 	 * 根据客户ID查找客户信息并返回
 	 * @param  in MessageInput型，界面输入的客户ID
 	 * @return 返回ResultMessage的所有枚举值
+	 * @throws RemoteException 
 	 * @see bussinesslogic.Customer
 	 */
-	public UserVO findByID(String userID){
+	public UserVO findByID(String userID) throws RemoteException{
 			return Customer.getUserInstance().findByID(userID);
 	}
 	/**

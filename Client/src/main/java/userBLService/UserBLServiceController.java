@@ -1,15 +1,10 @@
 package userBLService;
 
 import java.rmi.RemoteException;
+import java.text.ParseException;
 import java.util.HashMap;
-import java.util.List;
-
-import javax.swing.JLabel;
-
 import VO.CreditRecordVO;
 import VO.UserVO;
-import common.ResultMessage;
-import common.UserType;
 import userCreditManagement.UserCreditManagementController;
 import userCreditRecord.UserCreditRecordController;
 import userInformationMaintenance.UserInformationMaintenanceController;
@@ -42,10 +37,16 @@ public class UserBLServiceController implements UserBLService {
 	 * 根据客户ID查找客户信息并返回
 	 * @param  userID String型，界面输入的客户ID
 	 * @return 返回UserVO
+	 * @throws  
 	 * @see Customer.User
 	 */
-	public UserVO findByID(String userID) {
-		return userInfomationMaintenanceController.findByID(userID);
+	public UserVO findByID(String userID){
+		try {
+			return userInfomationMaintenanceController.findByID(userID);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	/**
 	 * 更新客户信息
@@ -128,6 +129,8 @@ public class UserBLServiceController implements UserBLService {
 			updateLevel(vo.account,vo.currentcredit);
 		} catch (RemoteException e) {
 			e.printStackTrace();
+		} catch (ParseException e) {
+			e.printStackTrace();
 		}
 	}
 	/**
@@ -164,17 +167,32 @@ public class UserBLServiceController implements UserBLService {
 	 * 信用记录显示
 	 * @param id String型，界面传入的客户账号
 	 * @return 返回信用记录列表
+	 * @throws  
+	 * @throws  
 	 * @see Customer.User
 	 */
-	public HashMap<String,CreditRecordVO> showCreditRecord(String userID) {
-		return userCreditRecordController.showCreditRecord(userID);
+	public HashMap<String,CreditRecordVO> showCreditRecord(String userID){
+		try {
+			return userCreditRecordController.showCreditRecord(userID);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return new HashMap<String,CreditRecordVO>();
 	}
 	/**
 	 * 判断账号是否存在
+	 * @throws  
 	 */
 	@Override
-	public boolean judge(String account) {
-		return userManagementController.judge(account);
+	public boolean judge(String account){
+		try {
+			return userManagementController.judge(account);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
     /**
      * 修改密码
@@ -195,5 +213,12 @@ public class UserBLServiceController implements UserBLService {
 	@Override
 	public Double getDiscount(int level) {
 		return userCreditManagementController.getDiscount(level);
+	}
+	/**
+	 * 更新所有客户的会员等级
+	 */
+	@Override
+	public void updateAllLevel() {
+		userCreditManagementController.updateAllLevel();
 	}
 }

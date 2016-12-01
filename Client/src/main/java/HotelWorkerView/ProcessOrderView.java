@@ -96,6 +96,7 @@ public class ProcessOrderView extends JPanel{
 		list.add("未执行订单");
 		list.add("已执行订单");
 		list.add("异常订单");
+		list.add("已撤销订单");
 		
 		//初始化combobox
 		for (String str : list) {
@@ -290,6 +291,20 @@ public class ProcessOrderView extends JPanel{
 			delayButton.setEnabled(true);
 			entryButton.setEnabled(false);
 		}
+		else if(selected=="已撤销订单"){
+			//更新订单列表
+			orderListModel.setRowCount(0);
+			List<OrderVO> list=controller.getCanceledOrders(hotelId);
+			if(!list.isEmpty()){
+				for (OrderVO orderVo : controller.getCanceledOrders(hotelId)) {
+					orderListModel.addRow(orderVo);
+				}
+			}
+			//设置控件可用类型
+			cancel.setEnabled(false);
+			delayButton.setEnabled(false);
+			entryButton.setEnabled(false);
+		}
 	}
 	
 	/**
@@ -396,19 +411,6 @@ public class ProcessOrderView extends JPanel{
 		JComboBox<String> strategy=new JComboBox<String>();
 		strategy.addItem("全部");
 		strategy.addItem("一半");
-		strategy.addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent evt) {
-				if(evt.getStateChange() == ItemEvent.SELECTED){
-					@SuppressWarnings("unchecked")
-					JComboBox<String> jcb = (JComboBox<String>) evt.getSource();
-					String strategy=(String) jcb.getSelectedItem();
-					Calendar calendar=Calendar.getInstance();
-					String userID="1";
-					//我需要一个通过订单编号查找用户账号的方法来获得userID
-					controller.recover(calendar,orderNo,Operate.Appeal,strategy,value,userID);
-				}
-			}
-		});
 		p1.add(jl);
 		p1.add(strategy);
 		cancelPanel.add(p1);
@@ -417,7 +419,11 @@ public class ProcessOrderView extends JPanel{
 		JButton Confir=new JButton("确定");
 		Confir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+				String stra=(String) strategy.getSelectedItem();
+				Calendar calendar=Calendar.getInstance();
+				String userID="1";
+				//我需要一个通过订单编号查找用户账号的方法来获得userID
+				controller.recover(calendar,orderNo,Operate.Appeal,stra,value,userID);
 			}
 		});
 		JButton Cancel=new JButton("取消");

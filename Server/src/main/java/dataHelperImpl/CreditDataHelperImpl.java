@@ -1,23 +1,13 @@
 package dataHelperImpl;
 
-import java.io.Serializable;
-import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
-
 import PO.CreditPO;
 import dataHelper.CreditDataHelper;
 
-public class CreditDataHelperImpl implements Serializable, CreditDataHelper{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class CreditDataHelperImpl implements CreditDataHelper{
 	private String driverName;
 	private String dbURL;
 	private String userName;

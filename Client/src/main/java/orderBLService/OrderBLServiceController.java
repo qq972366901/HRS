@@ -298,4 +298,11 @@ public class OrderBLServiceController implements OrderBLService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	/**
+	 * 获取一个酒店所有已撤销订单
+	 */
+	@Override
+	public List<OrderVO> getCanceledOrders(String hotelId) {
+		return null;
+	}
 }

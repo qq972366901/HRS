@@ -22,15 +22,19 @@ import rmi.RemoteHelper;
  */
 public class OrderList {
        private DataFactoryService DataFactory;
-       private RemoteHelper remote;
        private CreditDataService creditData;
        private OrderDataService orderData;
        private HotelDataService hotelData;
        private UserDataService userData;
        private String[] type={"ALL","UnDone","Done","Abnormal","Cancel"};
        public OrderList() {
-    	   remote=remote.getInstance();
-    	   DataFactory=remote.getDataFactoryService();
+    	   DataFactory=RemoteHelper.getInstance().getDataFactoryService();
+    	   try {
+			hotelData=(HotelDataService) DataFactory.getDataService("Hotel");
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     	   //try {
 			//orderData= (OrderDataService) DataFactory.getDataService("Order");
 			//userData= (UserDataService) DataFactory.getDataService("User");
