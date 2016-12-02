@@ -13,7 +13,7 @@ import common.UserType;
 public class UserPO extends PO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String username;
-	String userpassword;
+	private String userpassword;
 	private String useraccount;
 	private String contactway;
 	private String membertype;

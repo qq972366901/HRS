@@ -100,7 +100,7 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 			case Customer:{
 				break;
 			}
-			case Hotelworker:{
+			case HotelWorker:{
 				HotelMainUiService controller=new HotelMainUiController(hotelId);
 	    		HotelMainView view=new HotelMainView(controller,hotelId);
 	    		controller.setView(view);

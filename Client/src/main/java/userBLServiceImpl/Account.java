@@ -85,6 +85,19 @@ public class Account{
 		}
 	}
 	/**
+	 * 更新工作人员的联系方式
+	 * @param id
+	 * @param phone
+	 * @throws RemoteException
+	 */
+	public void updateContactway(String id,String phone) throws RemoteException{
+		AccountInfo a=worker.get(id);
+		a.contactway=phone;
+		worker.put(id, a);
+		UserPO po=new UserPO(a.username,a.userpassword,a.useraccount,a.contactway,a.membertype,a.type,a.birthday,a.enterprise);
+		dh.update(po);
+	}
+	/**
 	 * 删除某个账户
 	 * @param vo UserVO型，界面层传来的VO对象
 	 * @throws RemoteException

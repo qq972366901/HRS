@@ -1,5 +1,5 @@
 package common;
 
 public enum UserType {
-	Customer,Hotelworker,WebPromotionWorker,WebManagementWorker
+	Customer,HotelWorker,WebPromotionWorker,WebManagementWorker
 }

@@ -55,18 +55,22 @@ public class HotelMainUiController implements HotelMainUiService {
 	}
 
 	public void toMakeHotelPromotionView() {
-		MakeHotelPromotionUiService controller = new MakeHotelPromotionController(hotelID);
-		MakeHotelPromotionView view = new MakeHotelPromotionView(controller,hotelID);
-		controller.setView(view);
-		ClientRunner.change(view);
+		MakeHotelPromotionUiService controller;
+		try {
+			controller = new MakeHotelPromotionController(hotelID);
+			MakeHotelPromotionView view = new MakeHotelPromotionView(controller,hotelID);
+			controller.setView(view);
+			ClientRunner.change(view);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public void toProcessOrderOrderView() {
-		// TODO Auto-generated method stub
 		ProcessOrderUiService controller;
 		try {
-			controller = new ProcessOrderUiController(hotelID,UserType.Hotelworker);
+			controller = new ProcessOrderUiController(hotelID,UserType.HotelWorker);
 			ProcessOrderView view=new ProcessOrderView(controller);
 			view.disableCancel();
 			controller.setView(view);
