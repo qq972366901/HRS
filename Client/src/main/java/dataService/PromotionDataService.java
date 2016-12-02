@@ -54,8 +54,22 @@ public interface PromotionDataService  extends DataService,Remote{
 	 * @see data.Promotion
 	 */
 		public void finish() throws RemoteException;
-	public List<PromotionPO> getAllHotelPromotion();
-	public List<PromotionPO> getAllWebPromotion();
-	public PromotionPO getMemberLevelSystem();
+		/**
+		 *得到所有的酒店策略
+		 */
+	    public List<PromotionPO> getAllHotelPromotion();
+	/**
+	 *得到所有的网站策略
+	 */
+	    public List<PromotionPO> getAllWebPromotion();
+	/**
+	 *得到会员等级系统
+	 */
+	    public PromotionPO getMemberLevelSystem();
+	    /**
+		 * 生成一个随机的网站策略号
+		 * @return String 策略编号
+		 */
+		public String generateWebPromotionID() throws RemoteException;
 	}
 

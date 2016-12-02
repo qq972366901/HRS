@@ -3,7 +3,7 @@ import java.rmi.RemoteException;
 import java.util.Calendar;
 
 import PromotionBLServiceImpl.AddHotelPromotion;
-import PromotionBLServiceImpl.SearchHotelPromotion;
+import PromotionBLServiceImpl.GetHotelPromotionDiscount;
 import VO.HotelPromotionVO;
 import VO.UserVO;
 import userBLServiceImpl.Customer;
@@ -23,20 +23,6 @@ public class PromotionHotelController {
 	 * @throws RemoteException 
      */
 	public double getHotelPromotionDiscount(String hotelid,String userID,int roomNumber,Calendar orderbuildtime) throws RemoteException {
-		UserVO vo1=Customer.getUserInstance().findByID(userID);
-		Calendar birthday=vo1.birthday;
-		String membertype=vo1.membertype;
-		HotelPromotionVO vo2=SearchHotelPromotion.getSearchHotelPromotionInstance().getHotelPromotion(hotelid,orderbuildtime);
-		double discount=vo2.discount;
-		if(birthday.compareTo(vo2. promotionBegintime)>=0&&birthday.compareTo(vo2. promotionEndtime)<=0){
-			discount=discount*(vo2.birthdayDiscount);
-		}
-		if(roomNumber>=3){
-			discount=discount*(vo2.roomDiscount);
-		}
-		if(membertype.equals("企业会员")){
-			discount=discount*(vo2.enterpriseDiscount);
-		}
-		return discount;
+		return GetHotelPromotionDiscount.getGetHotelPromotionDiscountInstance().getHotelPromotionDiscount(hotelid,userID,roomNumber,orderbuildtime);
 	}
 }

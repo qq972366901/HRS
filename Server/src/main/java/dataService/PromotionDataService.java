@@ -4,6 +4,7 @@ import dataService.DataService;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.List;
 
 /**负责实现营销策略数据储存所需要的服务接口
  * @author 刘伟
@@ -53,5 +54,22 @@ public interface PromotionDataService  extends DataService{
 	 * @see data.Promotion
 	 */
 		public void finish() throws RemoteException;
+		/**
+		 *得到所有的酒店策略
+		 */
+	    public List<PromotionPO> getAllHotelPromotion();
+	/**
+	 *得到所有的网站策略
+	 */
+	    public List<PromotionPO> getAllWebPromotion();
+	/**
+	 *得到会员等级系统
+	 */
+	    public PromotionPO getMemberLevelSystem();
+	    /**
+	  		 * 生成一个随机的网站策略号
+	  		 * @return String 策略编号
+	  		 */
+	  		public String generateWebPromotionID() throws RemoteException;
 	}
 

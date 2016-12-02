@@ -40,23 +40,7 @@ public class PromotionMemberGradeController implements PromotionInfo{
      * @see bussinesslogic.Promotion
      */
 	public double getDiscountOfLevel(int grade){
-		MemberLevelSystemVO vo=GetMemberLevelSystem.getMemberLevelSystemInstance().getMemberLevelSystem();
-		double[] discount=vo.discountOfLevel;
-		if(grade==0){
-			return 1;
-		}
-		else if(grade==1){
-			return discount[1];
-		}
-		else if(grade==1){
-			return discount[2];
-		}
-		else if(grade==1){
-			return discount[3];
-		}
-		else{
-			return discount[4];
-		}
+		return GetMemberLevelSystem.getMemberLevelSystemInstance().getDiscountOfLevel(grade);
 	}
 }
 

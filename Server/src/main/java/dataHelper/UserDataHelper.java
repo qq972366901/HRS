@@ -3,6 +3,7 @@ package dataHelper;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import PO.PromotionPO;
 import PO.UserPO;
 
 public interface UserDataHelper {
@@ -33,4 +34,5 @@ public interface UserDataHelper {
 		 * @throws RemoteException
 		 */
 	    public ArrayList<UserPO> getAllUser();
+		public void delete(PromotionPO po);
 }

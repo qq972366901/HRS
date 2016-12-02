@@ -3,8 +3,19 @@ package promotionData;
 import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 
+import PO.HotelPO;
 import PO.PromotionPO;
+import PO.UserPO;
+import common.UserType;
+import dataHelper.DataHelperFactory;
+import dataHelper.PromotionDataHelper;
+import dataHelper.UserDataHelper;
+import dataHelperImpl.DataHelperFactoryImpl;
 /**
  * 职责是将逻辑层面发来的请求转发给后台PromotionData处理
  * @author LZ
@@ -16,6 +27,11 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private DataHelperFactory datafactory;
+	private HashMap<String,PromotionPO> promotion;
+	private PromotionDataHelper helper;
+	
+	
 	private static PromotionDataServiceMySqlImpl promotionDataServiceMySqlImpl;
 	private PromotionDataServiceMySqlImpl() throws RemoteException{
 		UnicastRemoteObject.exportObject(this,8089);
@@ -36,7 +52,7 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
 	@Override
 	public PromotionPO find(String id) throws RemoteException {
 		// TODO Auto-generated method stub
-		return null;
+		return promotion.get(id);
 	}
 	/**
 	 * 在数据库中增加一个po实体
@@ -48,7 +64,24 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
 	@Override
 	public void insert(PromotionPO po) throws RemoteException {
 		// TODO Auto-generated method stub
-		
+		if(po.getPromotionNumber()!=null){
+		if(!promotion.containsKey(po.getPromotionNumber())){
+			promotion.put(po.getPromotionNumber(), po);
+			helper.insert(po);
+		}
+		}
+		else if(po.getHotelID()!=null){
+			if(!promotion.containsKey(po.getHotelID())){
+				promotion.put(po.getHotelID(), po);
+				helper.insert(po);
+			}
+		}
+		else{
+			if(!promotion.containsKey("会员等级系统")){
+				promotion.put("会员等级系统", po);
+				helper.insert(po);
+			}
+		}
 	}
 	/**
 	 * 在数据库中删除一个po
@@ -60,6 +93,10 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
 	@Override
 	public void delete(PromotionPO po) throws RemoteException {
 		// TODO Auto-generated method stub
+		if(promotion.containsKey(po.getPromotionNumber())){
+			promotion.remove(po.getPromotionNumber());
+			helper.delete(po);
+		}
 		
 	}
 	/**
@@ -72,7 +109,10 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
 	@Override
 	public void update(PromotionPO po) throws RemoteException {
 		// TODO Auto-generated method stub
-		
+		if(promotion.containsKey("会员等级系统")){
+			promotion.put("会员等级系统", po);
+			helper.update(po);
+		}
 	}
 	/**
 	 * 按初始化持久化数据库
@@ -84,7 +124,21 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
 	@Override
 	public void init() throws RemoteException {
 		// TODO Auto-generated method stub
-		
+		datafactory=new DataHelperFactoryImpl();
+		helper=datafactory.getPromotionDataHelper();
+		promotion=new HashMap<String,PromotionPO>();
+		List<PromotionPO> list1=new ArrayList<PromotionPO>();
+		List<PromotionPO> list2=new ArrayList<PromotionPO>();
+		list1=helper.getAllWebPromotion();
+		list2=helper.getAllHotelPromotion();
+		PromotionPO po=helper.getSystemMemberGrade();
+		for(int i=0;i<list1.size();i++){
+			promotion.put(list1.get(i).getPromotionNumber(), list1.get(i));
+		}
+		for(int i=0;i<list2.size();i++){
+			promotion.put(list2.get(i).getHotelID(), list1.get(i));
+		}
+		promotion.put("会员等级系统", po);
 	}
 	/**
 	 * 结束持久化数据库的使用
@@ -98,5 +152,51 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
 		// TODO Auto-generated method stub
 		
 	}
+	/**
+	 *得到所有的网站策略
+	 */
+	    public List<PromotionPO> getAllWebPromotion(){
+	    	List<PromotionPO> list=new ArrayList<PromotionPO>();
+			Iterator<String> it=promotion.keySet().iterator();
+			while(it.hasNext()){
+				if(promotion.get(it.next()).getPromotionNumber()!=null){
+					list.add(promotion.get(it.next()));
+				}
+			}  
+			return list;
+	    }
+	/**
+	 *得到所有的酒店策略
+	 */
+    public List<PromotionPO> getAllHotelPromotion(){
+    	List<PromotionPO> list=new ArrayList<PromotionPO>();
+		Iterator<String> it=promotion.keySet().iterator();
+		while(it.hasNext()){
+			if(promotion.get(it.next()).getHotelID()!=null){
+				list.add(promotion.get(it.next()));
+			}
+		}  
+		return list;
+    }
+
+/**
+ *得到会员等级系统
+ */
+    public PromotionPO getSystemMemberGrade(){
+    	List<PromotionPO> list=new ArrayList<PromotionPO>();
+		Iterator<String> it=promotion.keySet().iterator();
+		PromotionPO po=new PromotionPO(null,null);
+		while(it.hasNext()){
+			if(promotion.get(it.next()).getPromotionNumber()==null&&promotion.get(it.next()).getHotelID()==null){
+				po= promotion.get(it.next());
+				break;
+			}
+		}  
+		return po;
+    }
+    /**
+  		 * 生成一个随机的网站策略号
+  		 * @return String 策略编号
+  		 */
 
 }
