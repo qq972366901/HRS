@@ -83,7 +83,13 @@ public interface HotelBLService {
      */
 	public List<String> getHotelID(String city, String businessCircle, String roomType, int roomNumber,
 			int priceLow, int priceHigh, int hotelStar, int scoreLow, int scoreHigh, String everBooked,String userid);
-	
+	/**
+     * 网站工作人员更新酒店的联系方式
+     * 
+     * @param hotelid String型，酒店帐号
+     * @param hotelPhone String型，房间类型
+     */
+	public void updateHotelPhone(String hotelid, String hotelPhone);
 	
 	
 	

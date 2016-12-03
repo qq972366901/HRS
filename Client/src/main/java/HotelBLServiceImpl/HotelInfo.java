@@ -17,9 +17,9 @@ public class HotelInfo {
 	private DataFactoryService df;
 	private HotelDataService hds;
 	
-	private static HotelInfo hotelInfo;
+//	private static HotelInfo hotelInfo;
 	
-	private HotelInfo(String id) {
+	public HotelInfo(String id) {
 		hotelID = id;
 		df=RemoteHelper.getInstance().getDataFactoryService();
 		try {
@@ -31,12 +31,12 @@ public class HotelInfo {
 		}
 	}
 	
-	public static HotelInfo getHotelInfoInstance(String id) {
-		if(hotelInfo == null) {
-			hotelInfo = new HotelInfo(id);
-		}
-		return hotelInfo;
-	}
+//	public static HotelInfo getHotelInfoInstance(String id) {
+//		if(hotelInfo == null) {
+//			hotelInfo = new HotelInfo(id);
+//		}
+//		return hotelInfo;
+//	}
 	
 	public void updateHotelInfo(String hName, String hLocation, String hService, String hCity,
 			String hArea, String hIntroduce, int hStar, String hPhone) {
@@ -59,6 +59,15 @@ public class HotelInfo {
 	
 	public HotelVO getHotelVO() {
 		return this.hvo;
+	}
+	
+	public void updateHotelPhone(String hotelPhone) {
+		HotelPO hpo = new HotelPO(hvo.hotelAddress,hvo.hotelCity, hvo.hotelDistrict,hvo.hotelStar,hvo.hotelProfile,hvo.hotelService,hvo.hotelName,hvo.hotelAccount,hvo.score,hotelPhone);
+		try {
+			hds.update(hpo);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

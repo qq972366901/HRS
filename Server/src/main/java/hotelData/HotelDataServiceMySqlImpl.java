@@ -109,76 +109,6 @@ public class HotelDataServiceMySqlImpl implements HotelDataService{
 			hotelDataHelper.update(po);
 		}
 	}
-	/**
-	 * 按名称进行查找返回相应的HotelPO结果
-	 * @param name String型，逻辑层传来的酒店名称
-	 * @return 返回找到的PO实体
-	 * @throws RemoteException
-	 * @see PO.HotelPO
-	 */
-	@Override
-	public HotelPO findByName(String name) throws RemoteException {
-		HotelPO po = null;
-		Iterator<String> it = hotel.keySet().iterator();
-		while(it.hasNext()) {
-			String id = it.next();
-			if(name.equals(hotel.get(id).gethotelName())) {
-				po = hotel.get(id);
-				break;
-			}
-		}
-		return po;
-	}
-	/**
-	 * 按商圈进行查找返回相应的HotelPO结果
-	 * @param district String 型，逻辑层传来的酒店商圈
-	 * @return 返回找到的PO列表
-	 * @throws RemoteException
-	 * @see PO.HotelPO
-	 */
-	@Override
-	public ArrayList<HotelPO> findByDistrict(String district) throws RemoteException {
-		ArrayList<HotelPO> list = new ArrayList<HotelPO>();
-		Iterator<String> it = hotel.keySet().iterator();
-		while(it.hasNext()) {
-			String id = it.next();
-			if(district.equals(hotel.get(id).gethotelDistrict())) {
-				list.add(hotel.get(id));
-			}
-		}
-		return list;
-	}
-	/**
-	 * 按星级进行查找返回相应的HotelPO结果
-	 * @param star int型，逻辑层传来的酒店星级
-	 * @return 返回找到的PO列表
-	 * @throws RemoteException
-	 * @see PO.HotelPO
-	 */
-	@Override
-	public ArrayList<HotelPO> findByStar(int star) throws RemoteException {
-		ArrayList<HotelPO> list = new ArrayList<HotelPO>();
-		Iterator<String> it = hotel.keySet().iterator();
-		while(it.hasNext()) {
-			String id = it.next();
-			if(star == hotel.get(id).gethotelStar()) {
-				list.add(hotel.get(id));
-			}
-		}
-		return list;
-	}
-	/**
-	 * 按照酒店评分查找酒店
-	 * @param
-	 * @return
-	 * @throws RemoteException
-	 * @see PO.HotelPO
-	 */
-	@Override
-	public ArrayList<HotelPO> findByScore(double sco) throws RemoteException {
-		// 此方法感觉用不到
-		return null;
-	}
 
 	@Override
 	public List<HotelPO> getHistoryHotelByUser(String userID) {
@@ -201,5 +131,78 @@ public class HotelDataServiceMySqlImpl implements HotelDataService{
 		   list.add(hotel.get(it.next()));
 		}
 		return list;
+	}
+	/**
+	 * 按名称进行查找返回相应的HotelPO结果
+	 * @param name String型，逻辑层传来的酒店名称
+	 * @return 返回找到的PO实体
+	 * @throws RemoteException
+	 * @see PO.HotelPO
+	 */
+	@Override
+	public HotelPO findByName(String name) throws RemoteException {
+		// 此方法感觉用不到
+		HotelPO po = null;
+		Iterator<String> it = hotel.keySet().iterator();
+		while(it.hasNext()) {
+			String id = it.next();
+			if(name.equals(hotel.get(id).gethotelName())) {
+				po = hotel.get(id);
+				break;
+			}
+		}
+		return po;
+	}
+	/**
+	 * 按商圈进行查找返回相应的HotelPO结果
+	 * @param district String 型，逻辑层传来的酒店商圈
+	 * @return 返回找到的PO列表
+	 * @throws RemoteException
+	 * @see PO.HotelPO
+	 */
+	@Override
+	public ArrayList<HotelPO> findByDistrict(String district) throws RemoteException {
+		// 此方法感觉用不到
+		ArrayList<HotelPO> list = new ArrayList<HotelPO>();
+		Iterator<String> it = hotel.keySet().iterator();
+		while(it.hasNext()) {
+			String id = it.next();
+			if(district.equals(hotel.get(id).gethotelDistrict())) {
+				list.add(hotel.get(id));
+			}
+		}
+		return list;
+	}
+	/**
+	 * 按星级进行查找返回相应的HotelPO结果
+	 * @param star int型，逻辑层传来的酒店星级
+	 * @return 返回找到的PO列表
+	 * @throws RemoteException
+	 * @see PO.HotelPO
+	 */
+	@Override
+	public ArrayList<HotelPO> findByStar(int star) throws RemoteException {
+		// 此方法感觉用不到
+		ArrayList<HotelPO> list = new ArrayList<HotelPO>();
+		Iterator<String> it = hotel.keySet().iterator();
+		while(it.hasNext()) {
+			String id = it.next();
+			if(star <= hotel.get(id).gethotelStar()) {
+				list.add(hotel.get(id));
+			}
+		}
+		return list;
+	}
+	/**
+	 * 按照酒店评分查找酒店
+	 * @param
+	 * @return
+	 * @throws RemoteException
+	 * @see PO.HotelPO
+	 */
+	@Override
+	public ArrayList<HotelPO> findByScore(double sco) throws RemoteException {
+		// 此方法感觉用不到
+		return null;
 	}
 }
