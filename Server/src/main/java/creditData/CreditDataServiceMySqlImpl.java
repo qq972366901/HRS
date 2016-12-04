@@ -71,6 +71,7 @@ public class CreditDataServiceMySqlImpl implements CreditDataService{
 		creditDataHelper=factory.getCreditDataHelper();
 		ArrayList<CreditPO> list=new ArrayList<CreditPO>();
 		list=creditDataHelper.getAllCredit();
+		credit=new HashMap<String,CreditPO>();
 		for(int i=0;i<list.size();i++){
 			credit.put(list.get(i).getAccount(), list.get(i));
 		}
