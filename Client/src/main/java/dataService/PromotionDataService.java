@@ -50,15 +50,15 @@ public interface PromotionDataService  extends DataService,Remote{
 		/**
 		 *得到所有的酒店策略
 		 */
-	    public List<PromotionPO> getAllHotelPromotion();
+	    public List<PromotionPO> getAllHotelPromotion() throws RemoteException;
 	/**
 	 *得到所有的网站策略
 	 */
-	    public List<PromotionPO> getAllWebPromotion();
+	    public List<PromotionPO> getAllWebPromotion() throws RemoteException;
 	/**
 	 *得到会员等级系统
 	 */
-	    public PromotionPO getMemberLevelSystem();
+	    public PromotionPO getMemberLevelSystem() throws RemoteException;
 	    /**
 		 * 生成一个随机的网站策略号
 		 * @return String 策略编号

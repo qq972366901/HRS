@@ -1,5 +1,6 @@
 package dataHelperImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import PO.PromotionPO;
@@ -46,13 +47,13 @@ public class PromotionDataHelperImpl implements PromotionDataHelper{
 	@Override
 	public List<PromotionPO> getAllWebPromotion() {
 		// TODO Auto-generated method stub
-		return null;
+		return new ArrayList<PromotionPO>();
 	}
 
 	@Override
 	public List<PromotionPO> getAllHotelPromotion() {
 		// TODO Auto-generated method stub
-		return null;
+		return new ArrayList<PromotionPO>();
 	}
 
 	@Override

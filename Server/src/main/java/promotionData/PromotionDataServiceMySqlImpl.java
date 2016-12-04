@@ -37,6 +37,7 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
 	private static PromotionDataServiceMySqlImpl promotionDataServiceMySqlImpl;
 	private PromotionDataServiceMySqlImpl() throws RemoteException{
 		UnicastRemoteObject.exportObject(this,8089);
+		init();
 	}
 	public static PromotionDataServiceMySqlImpl getInstance() throws RemoteException{
 		if(promotionDataServiceMySqlImpl==null){

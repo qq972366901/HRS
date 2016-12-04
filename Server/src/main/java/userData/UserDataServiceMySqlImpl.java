@@ -115,7 +115,7 @@ public class UserDataServiceMySqlImpl implements UserDataService{
 		Iterator<String> it=user.keySet().iterator();
 		while(it.hasNext()){
 			if(user.get(it.next()).getType().equals(UserType.Customer)){
-				list.add(user.get(it.next()));
+				list.add(user.get(it));
 			}
 		}  
 		return list;

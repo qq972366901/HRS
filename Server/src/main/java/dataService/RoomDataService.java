@@ -12,26 +12,12 @@ import java.util.List;
  */
 public interface RoomDataService  extends DataService{
 	/**
-	 * 按ID进行查找返回相应的RoomPO结果
-	 * @param in MessageInput型，界面输入的客户ID
-	 * @return 返回ResultMessage枚举的一项
-	 * @see data.Room
-	 */
-		public RoomPO find(String id) throws RemoteException;
-	/**
 	 * 在数据库中增加一个po记录
 	 * @param in MessageInput型，界面的选择
 	 * @return 
 	 * @see data.Room
 	 */
 		public void insert(RoomPO po) throws RemoteException;
-	/**
-	 * 在数据库中删除一个po
-	 * @param in MessageInput型，界面的选择
-	 * @return 
-	 * @see data.Room
-	 */
-		public void delete(RoomPO po) throws RemoteException;
 	/**
 	 *在数据库中更新一个po
 	 * @param in MessageInput型，界面的选择

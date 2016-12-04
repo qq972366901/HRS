@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
@@ -12,6 +11,9 @@ import java.util.Random;
 import java.util.Set;
 
 import PO.OrderPO;
+import dataHelper.DataHelperFactory;
+import dataHelper.OrderDataHelper;
+import dataHelperImpl.DataHelperFactoryImpl;
 import dataService.OrderDataService;
 /**
  * 职责是将逻辑层面发来的请求转发给后台OrderData处理
@@ -26,15 +28,11 @@ public class OrderDataServiceMySqlImpl implements OrderDataService,Serializable{
 	private static final long serialVersionUID = 1L;
 	private static OrderDataServiceMySqlImpl orderDataServiceMySqlImpl;
 	private HashMap<String,OrderPO> map;
+	private DataHelperFactory datahelper;
+	private OrderDataHelper orderdatahelper;
 	private OrderDataServiceMySqlImpl() throws RemoteException{
 		UnicastRemoteObject.exportObject(this,8089);
-		map=new HashMap<String,OrderPO>();
-		OrderPO po1=new OrderPO("00001", "00123", "000", 2, 100, 3, false, "双人房", 3, Calendar.getInstance(), Calendar.getInstance(), null, null, null, "", -1);
-		OrderPO po2=new OrderPO( "00001", "00100", "001", 2, 100, 2, false, "单人房", 2, Calendar.getInstance(), Calendar.getInstance(), null, null, null, "", -1);
-		map.put("000", po1);
-		map.put("001", po2);
-		OrderPO po3=new OrderPO("00010", "00123", "002", 1, 100, 4, false, "家庭房", 1, Calendar.getInstance(), Calendar.getInstance(), null, null, null, "还可以", 5);
-	    map.put("002", po3);
+		init();
 	}
 	public static OrderDataServiceMySqlImpl getInstance() throws RemoteException{
 		if(orderDataServiceMySqlImpl==null){
@@ -188,8 +186,13 @@ public class OrderDataServiceMySqlImpl implements OrderDataService,Serializable{
 	 */
 	@Override
 	public void init() throws RemoteException {
-		// TODO Auto-generated method stub
-		
+		datahelper=new DataHelperFactoryImpl();
+		orderdatahelper=datahelper.getOrderDataHelper();
+		ArrayList<OrderPO> list=orderdatahelper.getAllUser();
+		map=new HashMap<String,OrderPO>();
+		for(OrderPO po:list){
+			map.put(po.getOrderNumber(), po);
+		}
 	}
 	/**
 	 * 结束持久化数据库的使用

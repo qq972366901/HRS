@@ -48,18 +48,6 @@ public class RoomDataServiceMySqlImpl implements RoomDataService{
 		factory=new DataHelperFactoryImpl();
 		roomDataHelper = factory.getRoomDataHelper();
 	}
-	
-	/**
-	 * 按ID进行查找返回相应的RoomPO结果
-	 * @param
-	 * @return
-	 * @throws RemoteException
-	 * @see PO.RoomPO
-	 */
-	public RoomPO find(String id) throws RemoteException {
-		//find方法通过getAllRooms(String hotelid)得到，此方法不用
-		return null;
-	}
 	/**
 	 * 在数据库中增加一个po实体
 	 * @param po RoomPO型，逻辑层传来的PO实体
@@ -79,26 +67,7 @@ public class RoomDataServiceMySqlImpl implements RoomDataService{
 		room.add(po);
 		roomDataHelper.insert(po);
 	}
-	/**
-	 * 在数据库中删除一个po
-	 * @param po RoomPO型，逻辑层传来的PO实体
-	 * @return
-	 * @throws RemoteException
-	 * @see PO.RoomPO
-	 */
-	public void delete(RoomPO po) throws RemoteException {
-		if(hotelID != po.getHotelId()) {
-			hotelID = po.getHotelId();
-			List<RoomPO> list;
-			list = roomDataHelper.getAllRooms(po.getHotelId());
-			for(int i=0;i<list.size();i++) {
-				room.add(list.get(i));
-			}
-		}
-		int index = room.indexOf(po);
-		room.remove(index);
-		roomDataHelper.delete(po);
-	}
+
 	/**
 	 * 在数据库中更新一个po
 	 * @param po RoomPO型，逻辑层传来的PO实体
