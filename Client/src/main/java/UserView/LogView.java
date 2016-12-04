@@ -181,7 +181,7 @@ public class LogView extends JPanel {
 	}
 	public void login(){
 		if(this.type.equals("客户")){
-		   customerMainViewControllerService controller =  new customerMainViewControllerImpl(login.getText());
+		   customerMainViewControllerService controller =  new customerMainViewControllerImpl(textField.getText());
 		   customerMainView view = new customerMainView(controller);
 		   controller.setView(view);
 		   ClientRunner.change(view);
@@ -193,8 +193,8 @@ public class LogView extends JPanel {
 			ClientRunner.change(view);
 		}
 		else if(this.type.equals("酒店工作人员")){
-			HotelMainUiService controller=new HotelMainUiController(login.getText());
-			HotelMainView view =new HotelMainView(controller,login.getText());
+			HotelMainUiService controller=new HotelMainUiController(textField.getText());
+			HotelMainView view =new HotelMainView(controller,textField.getText());
 			controller.setView(view);
 			ClientRunner.change(view);
 	    }

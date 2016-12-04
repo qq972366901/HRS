@@ -38,6 +38,7 @@ public class OrderDataServiceMySqlImpl implements OrderDataService,Serializable{
 		if(orderDataServiceMySqlImpl==null){
 			orderDataServiceMySqlImpl=new OrderDataServiceMySqlImpl();
 		}
+		System.out.println("Order go");
 		return orderDataServiceMySqlImpl;
 	}
 	/**
@@ -49,6 +50,7 @@ public class OrderDataServiceMySqlImpl implements OrderDataService,Serializable{
 	 */
 	@Override
 	public OrderPO find(String id) throws RemoteException {
+		System.out.println("find");
 		if(map.containsKey(id)){
 			return map.get(id);
 		}
@@ -95,12 +97,17 @@ public class OrderDataServiceMySqlImpl implements OrderDataService,Serializable{
 	 * @param orderstate int,订单的状态
 	 * @return List<OrderPO> 订单列表
 	 */
+	@Override
 	public List<OrderPO> findByUserID(String userID,int orderstate){
 		List<OrderPO> list=new ArrayList<OrderPO>();
 		OrderPO po;
 		int state;
 		String ID;
+		System.out.println(map.size());
+		System.out.println(567);
 		for(Entry<String,OrderPO> entry:map.entrySet()){
+			System.out.println(entry.getValue().getOrderNumber());
+			System.out.println(entry.getValue().getUserID());
 			po=entry.getValue();
 			ID=po.getUserID();
 			state=po.getOrderState();
@@ -191,6 +198,8 @@ public class OrderDataServiceMySqlImpl implements OrderDataService,Serializable{
 		ArrayList<OrderPO> list=orderdatahelper.getAllUser();
 		map=new HashMap<String,OrderPO>();
 		for(OrderPO po:list){
+			System.out.println(po.getOrderNumber());
+			System.out.println(po.getUserID());
 			map.put(po.getOrderNumber(), po);
 		}
 	}

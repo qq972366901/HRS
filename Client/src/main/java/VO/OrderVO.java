@@ -81,7 +81,7 @@ public class OrderVO extends  Vector<String>{
         generationTime=gen;
 	}
     public void addscore(){
-    	if(score>=0){
+    	if(score>0){
     	this.add(String.valueOf(score));
     	}
     	else{
@@ -133,7 +133,18 @@ public class OrderVO extends  Vector<String>{
     	this.add(orderNumber);
     }
     public void addorderState(){
-    	this.add(String.valueOf(orderState));
+    	if(orderState==1){
+    		this.add("已执行");
+    	}
+    	else if(orderState==2){
+    		this.add("未执行");
+    	}
+    	else if(orderState==3){
+    		this.add("异常");
+    	}
+    	else if(orderState==4){
+    		this.add("已撤销");
+    	}
     }
     public void addorderValue(){
     	this.add(String.valueOf(orderValue));

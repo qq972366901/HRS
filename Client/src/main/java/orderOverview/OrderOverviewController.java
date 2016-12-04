@@ -1,4 +1,5 @@
 package orderOverview;
+import java.rmi.RemoteException;
 import java.util.List;
 
 import VO.OrderVO;
@@ -11,7 +12,12 @@ import orderBLImpl.OrderList;
 public class OrderOverviewController{
 	OrderList list;
 	public OrderOverviewController() {
-		list=new OrderList();
+		try {
+			list=new OrderList();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	/**
      * 获得一个酒店的所有订单

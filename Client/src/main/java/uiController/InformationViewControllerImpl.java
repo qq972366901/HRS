@@ -51,9 +51,9 @@ public class InformationViewControllerImpl implements InformationViewControllerS
 	public Vector<String> getInformation(String UserID) {
 		Vector<String> data=new Vector<String>();
 		data.add(vo.username);
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		data.add(vo.contactway);
-		data.add(sdf.format(vo.birthday));
+		data.add(sdf.format(vo.birthday.getTime()));
 		data.add(vo.enterprise);
 		data.add(vo.membertype);
 		data.add(""+user.showCredit(UserID));

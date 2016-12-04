@@ -20,15 +20,11 @@ public class OrderList {
        private DataFactoryService DataFactory;
        private CreditDataService creditData;
        private OrderDataService orderData;
-       public OrderList() {
-    	   DataFactory=RemoteHelper.getInstance().getDataFactoryService();
-    	   try {
-
+       public OrderList() throws RemoteException {   	   
+            DataFactory=RemoteHelper.getInstance().getDataFactoryService();
 			orderData= (OrderDataService) DataFactory.getDataService("Order");
+			System.out.println("Order run");
 			creditData=(CreditDataService) DataFactory.getDataService("Credit");
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
        }
        
        /**
@@ -45,8 +41,9 @@ public class OrderList {
    		    List<OrderVO> volist=new ArrayList<OrderVO>();
    		switch(Type){
    		case "ALL":polist=orderData.findByUserID(userID, 0);
+   		           System.out.println(polist.size());
    				   break;
-   		case "UuDone":polist=orderData.findByUserID(userID, 2);
+   		case "UnDone":polist=orderData.findByUserID(userID, 2);
 		           break;
    		case "Done":polist=orderData.findByUserID(userID, 1);
 		            break;
@@ -107,7 +104,8 @@ public class OrderList {
      * @see bussinesslogic.Order
      */
 	public List<OrderVO>  showAllorder(String userid) {
-		return showTypeorderList(userid,"All");
+		System.out.println("ShowAll" + "id:" +userid);
+		return showTypeorderList(userid,"ALL");
 	}
    	
 	/**
@@ -119,7 +117,7 @@ public class OrderList {
      * @see bussinesslogic.Order
      */
 	public List<OrderVO>  showUndoneorder(String userid) {
-		return showTypeorderList(userid,"Undone");
+		return showTypeorderList(userid,"UnDone");
 	}
 	
 	/**
@@ -169,7 +167,7 @@ public class OrderList {
      * @see bussinesslogic.Order
      */
 	public List<OrderVO> getAllOrders(String hotelId) {
-		return showTypeHotelOrderList(hotelId,"All");
+		return showTypeHotelOrderList(hotelId,"ALL");
 	}
 	/**
      * 获得一个酒店的所有未执行订单

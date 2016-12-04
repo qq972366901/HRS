@@ -23,9 +23,9 @@ public class UserDataHelperImpl implements UserDataHelper{
 	private Connection dbConn;
 	private void init() {
 		driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
-		dbURL="jdbc:sqlserver://localhost:1433;DatabaseName=HRS";
-		userName="liu";
-		userPwd="naigo961226";
+		dbURL="jdbc:sqlserver://localhost:1433;DatabaseName=HRS1";
+		userName="lyx";
+		userPwd="liuyx970202";
 		try{
 			 Class.forName(driverName);
 			 dbConn=DriverManager.getConnection(dbURL,userName,userPwd);
@@ -115,7 +115,7 @@ public class UserDataHelperImpl implements UserDataHelper{
 					c.set(0, 0, 0);
 				}
 				else{
-					SimpleDateFormat sdf= new SimpleDateFormat("yyyy/MM/dd");
+					SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd");
 					Date date =sdf.parse(birthday);
 					c.setTime(date);
 				}

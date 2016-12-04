@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import PO.UserPO;
 import common.UserType;
@@ -112,10 +113,11 @@ public class UserDataServiceMySqlImpl implements UserDataService{
 	 */
 	public List<UserPO> getAllCustomer() throws RemoteException {
 		List<UserPO> list=new ArrayList<UserPO>();
-		Iterator<String> it=user.keySet().iterator();
+		Iterator<Map.Entry<String, UserPO>> it=user.entrySet().iterator();
 		while(it.hasNext()){
-			if(user.get(it.next()).getType().equals(UserType.Customer)){
-				list.add(user.get(it));
+			Map.Entry<String, UserPO> map=it.next();
+			if(map.getValue().getType().equals(UserType.Customer)){
+				list.add(map.getValue());
 			}
 		}  
 		return list;

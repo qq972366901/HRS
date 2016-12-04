@@ -233,7 +233,7 @@ public class OrderView extends JPanel {
 			JOptionPane.showMessageDialog(null, "请选择订单！","", JOptionPane.ERROR_MESSAGE);
 			return;
 		}
-		if(!table.getValueAt(index, 5).equals("")){
+		if(!table.getValueAt(index, 4).equals("")){
 			JOptionPane.showMessageDialog(null, "这个订单已经被评价过了！","", JOptionPane.ERROR_MESSAGE);
 			return;
 		}

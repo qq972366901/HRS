@@ -24,7 +24,10 @@ public class Customer {
 		df=RemoteHelper.getInstance().getDataFactoryService();
 		UserDataService dh=(UserDataService) df.getDataService("User");
 		List<UserPO> list=dh.getAllCustomer();
+		System.out.println(list.size());
 		for(UserPO user:list){
+			System.out.println(user.getAccount());
+			System.out.println(user.getPassword());
 			map.put(user.getAccount(),new UserVO(user));
 		}
 	}

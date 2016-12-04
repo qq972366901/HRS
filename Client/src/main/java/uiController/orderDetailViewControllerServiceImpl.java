@@ -60,18 +60,24 @@ public class orderDetailViewControllerServiceImpl implements orderDetailViewCont
 		}
 		public  List<String> getDetail(){
 			OrderVO vo=order.showDetail(UserID,OrderID);
-			HotelVO vo1=hotel.findByHotelID(vo.hotelID);
+			//HotelVO vo1=hotel.findByHotelID(vo.hotelID);
 			List<String> list=new ArrayList<String>();
-			list.add(vo1.hotelName);
+			//list.add(vo1.hotelName);
+			list.add("lalala");
 			list.add(vo.roomType);
 			list.add(vo.orderNumber);
 			list.add(""+vo.orderValue);
 			list.add(""+vo.numOfPerson);
 			list.add(""+vo.roomNumber);
 			SimpleDateFormat sdf =new SimpleDateFormat("yyyy-MM-dd");
-			list.add(sdf.format(vo.expectedCheckIn));
-			list.add(sdf.format(vo.expectedCheckOut));
-			list.add(""+vo.score);
+			list.add(sdf.format(vo.expectedCheckIn.getTime()));
+			list.add(sdf.format(vo.expectedCheckOut.getTime()));
+			if(vo.score==0){
+				list.add("");
+			}
+			else{
+				list.add(""+vo.score);
+			}	
 			list.add(vo.comment);
 			return list;
 		}
