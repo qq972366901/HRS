@@ -5,7 +5,11 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
+
 import PO.CreditPO;
+import PO.UserPO;
+import common.UserType;
 import dataHelper.CreditDataHelper;
 import dataHelper.DataHelperFactory;
 import dataHelperImpl.DataHelperFactoryImpl;
@@ -59,11 +63,9 @@ public class CreditDataServiceMySqlImpl implements CreditDataService{
 	@Override
 	public ArrayList<CreditPO> getAllCredit() throws RemoteException {
 		ArrayList<CreditPO> list=new ArrayList<CreditPO>();
-		Iterator<String> it=credit.keySet().iterator();
-		while(it.hasNext())   
-		{   
-		   list.add(credit.get(it.next()));
-		}  
+		for (Map.Entry<String, CreditPO> entry : credit.entrySet()) {
+            list.add(entry.getValue());
+        }
 		return list;
 	}
 	private void init(){

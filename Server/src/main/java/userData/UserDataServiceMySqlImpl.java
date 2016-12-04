@@ -3,9 +3,12 @@ package userData;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import PO.UserPO;
 import common.UserType;
@@ -112,12 +115,10 @@ public class UserDataServiceMySqlImpl implements UserDataService{
 	 */
 	public List<UserPO> getAllCustomer() throws RemoteException {
 		List<UserPO> list=new ArrayList<UserPO>();
-		Iterator<String> it=user.keySet().iterator();
-		while(it.hasNext()){
-			if(user.get(it.next()).getType().equals(UserType.Customer)){
-				list.add(user.get(it));
-			}
-		}  
+		for (Map.Entry<String, UserPO> entry : user.entrySet()) {
+			if(entry.getValue().getType().equals(UserType.Customer))
+            list.add(entry.getValue());
+        }
 		return list;
 	}
 	/**
@@ -126,21 +127,19 @@ public class UserDataServiceMySqlImpl implements UserDataService{
 	@Override
 	public List<UserPO> getAllWorker() throws RemoteException {
 		List<UserPO> list=new ArrayList<UserPO>();
-		Iterator<String> it=user.keySet().iterator();
-		while(it.hasNext()){
-			if(!user.get(it.next()).getType().equals(UserType.Customer)){
-				list.add(user.get(it.next()));
-			}
-		}  
+		for (Map.Entry<String, UserPO> entry : user.entrySet()) {
+			if(!entry.getValue().getType().equals(UserType.Customer))
+            list.add(entry.getValue());
+        }
 		return list;
 	}
 	@Override
 	public List<UserPO> getAllUser() throws RemoteException {
 		List<UserPO> list=new ArrayList<UserPO>();
-		Iterator<String> it=user.keySet().iterator();
-		while(it.hasNext()){
-			list.add(user.get(it.next()));
-		}  
+		for (Map.Entry<String, UserPO> entry : user.entrySet()) {
+			if(entry.getValue().getType().equals(UserType.Customer))
+            list.add(entry.getValue());
+        }
 		return list;
 	}
 	@Override

@@ -24,8 +24,8 @@ public class Customer {
 		df=RemoteHelper.getInstance().getDataFactoryService();
 		UserDataService dh=(UserDataService) df.getDataService("User");
 		List<UserPO> list=dh.getAllCustomer();
-		for(UserPO user:list){
-			map.put(user.getAccount(),new UserVO(user));
+		for(UserPO po:list){
+			map.put(po.getAccount(), new UserVO(po));
 		}
 	}
 	public static Customer getUserInstance() throws RemoteException{
