@@ -57,10 +57,15 @@ public class PromotionController implements PromotionBLService {
      * 添加一种新的网站营销策略，并公布
      * 
      * @param vo WebPromotionVO型，界面输入的营销策略
-     * @see bussinesslogic.Promotion
+	 * @see bussinesslogic.Promotion
      */
-	public void madebyweb(String promotionnumber,String promotionname,Calendar promotionbegintime,Calendar promotionendtime,String applycity,String applybussinesscircle,int applymembergrade){
-		promotionWebController.madebyweb(promotionnumber,promotionname,promotionbegintime,promotionendtime,applycity,applybussinesscircle,applymembergrade);
+	public void madebyweb(String promotionname,Calendar promotionbegintime,Calendar promotionendtime,String applycity,String applybussinesscircle,int applymembergrade){
+		try {
+			promotionWebController.madebyweb(promotionname,promotionbegintime,promotionendtime,applycity,applybussinesscircle,applymembergrade);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	/**
      * 得到所有的网站营销策略

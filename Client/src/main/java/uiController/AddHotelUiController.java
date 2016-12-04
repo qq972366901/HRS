@@ -6,6 +6,9 @@ import UserView.AddHotelView;
 import UserView.MemberRegisterView;
 import UserView.UserManagementView;
 import UserView.WebAdminUserView;
+import common.MessageInput;
+import common.ResultMessage;
+import hotelBLService.HotelBLService;
 import runner.ClientRunner;
 import uiService.AddHotelUiService;
 import uiService.MemberRegisterUiService;
@@ -15,6 +18,7 @@ import uiService.WebAdminUserUiService;
 public class AddHotelUiController implements  AddHotelUiService {
 	private static final long serialVersionUID = 1L;
 	private JPanel view;
+	private HotelBLService hotel;
 	@Override
 	public void setView(AddHotelView view) {
 		// TODO Auto-generated method stub
@@ -31,5 +35,13 @@ public class AddHotelUiController implements  AddHotelUiService {
 		UserManagementView view=new UserManagementView(controller);
 		controller.setView(view);
 		ClientRunner.change(view);
+	}
+	public void saveHotelInfo(String hotelName, String hotelCity, String hotelArea, String hoelLocation,
+			int hotelStar, String hotelService, String hotelIntroduction, String hotelPhone, 
+			String hotelID, double hotelScore){
+		hotel.saveHotelInfo(hotelName,hotelCity, hotelArea,hoelLocation,hotelStar,hotelService,hotelIntroduction,hotelPhone, hotelID,hotelScore);
+	}
+	public ResultMessage accuntadmin(MessageInput  in){
+		return hotel.accuntadmin(in);
 	}
 }

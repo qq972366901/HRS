@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
+import java.util.Set;
 
 import PO.HotelPO;
 import PO.PromotionPO;
@@ -141,31 +143,6 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
 		promotion.put("会员等级系统", po);
 	}
 	/**
-	 * 结束持久化数据库的使用
-	 * @param
-	 * @return
-	 * @throws RemoteException
-	 * @see PO.PromotionPO
-	 */
-	@Override
-	public void finish() throws RemoteException {
-		// TODO Auto-generated method stub
-		
-	}
-	/**
-	 *得到所有的网站策略
-	 */
-	    public List<PromotionPO> getAllWebPromotion(){
-	    	List<PromotionPO> list=new ArrayList<PromotionPO>();
-			Iterator<String> it=promotion.keySet().iterator();
-			while(it.hasNext()){
-				if(promotion.get(it.next()).getPromotionNumber()!=null){
-					list.add(promotion.get(it.next()));
-				}
-			}  
-			return list;
-	    }
-	/**
 	 *得到所有的酒店策略
 	 */
     public List<PromotionPO> getAllHotelPromotion(){
@@ -179,11 +156,23 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
 		return list;
     }
 
+	/**
+	 *得到所有的网站策略
+	 */
+	    public List<PromotionPO> getAllWebPromotion(){
+	    	List<PromotionPO> list=new ArrayList<PromotionPO>();
+			Iterator<String> it=promotion.keySet().iterator();
+			while(it.hasNext()){
+				if(promotion.get(it.next()).getPromotionNumber()!=null){
+					list.add(promotion.get(it.next()));
+				}
+			}  
+			return list;
+	    }
 /**
  *得到会员等级系统
  */
-    public PromotionPO getSystemMemberGrade(){
-    	List<PromotionPO> list=new ArrayList<PromotionPO>();
+    public PromotionPO getMemberLevelSystem(){
 		Iterator<String> it=promotion.keySet().iterator();
 		PromotionPO po=new PromotionPO(null,null);
 		while(it.hasNext()){
@@ -194,19 +183,23 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
 		}  
 		return po;
     }
-    /**
-  		 * 生成一个随机的网站策略号
-  		 * @return String 策略编号
-  		 */
-@Override
-public PromotionPO getMemberLevelSystem() {
-	// TODO Auto-generated method stub
-	return null;
-}
-@Override
-public String generateWebPromotionID() throws RemoteException {
-	// TODO Auto-generated method stub
-	return null;
-}
-
+		/**
+		 * 生成一个随机的网站策略号
+		 * @return String 策略编号
+		 */
+		public String generateWebPromotionID() throws RemoteException{
+			Random random=new Random();
+			String ran="";
+			boolean flag=true;
+			Set<String> set=promotion.keySet();
+			int size=set.size();
+			while(flag){
+			    ran=String.valueOf(random.nextInt(1000000));
+			    set.add(ran);
+			    if(set.size()!=size){
+			    	flag=false;
+			    }
+			}
+			return ran;
+		}
 }

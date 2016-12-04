@@ -16,10 +16,11 @@ public class PromotionWebController{
      * 添加一种新的网站营销策略，并公布
      * 
      * @param vo WebPromotionVO型，界面输入的营销策略
+	 * @throws RemoteException 
      * @see bussinesslogic.Promotion
      */
-	public void madebyweb(String promotionnumber,String promotionname,Calendar promotionbegintime,Calendar promotionendtime,String applycity,String applybussinesscircle,int applymembergrade) {
-        AddWebPromotion.getAddWebPromotionInstance().addWebPromotion(promotionnumber,promotionname,promotionbegintime,promotionendtime,applycity,applybussinesscircle,applymembergrade);
+	public void madebyweb(String promotionname,Calendar promotionbegintime,Calendar promotionendtime,String applycity,String applybussinesscircle,int applymembergrade) throws RemoteException {
+        AddWebPromotion.getAddWebPromotionInstance().addWebPromotion(promotionname,promotionbegintime,promotionendtime,applycity,applybussinesscircle,applymembergrade);
 	} 
 	/**
      * 得到所有的网站营销策略
@@ -47,7 +48,7 @@ public class PromotionWebController{
 	 * @return 
      */
 	public boolean deleteWebPromotion(String promotionnumber){
-		return DeleteWebPromotion.getDeleteWebPromotionInstance().deleteWebPromotion(promotionnumber);
+		return DeleteWebPromotion.getDeleteWebPromotionInstance(promotionnumber).deleteWebPromotion(promotionnumber);
 		
 	}
 }
