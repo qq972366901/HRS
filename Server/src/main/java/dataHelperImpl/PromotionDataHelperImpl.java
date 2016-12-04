@@ -54,21 +54,12 @@ public class PromotionDataHelperImpl implements PromotionDataHelper{
 	public void insert(PromotionPO po) {
 		// TODO Auto-generated method stub
 		init();
-		String sql;
+		String sql,sql1,sql2,sql3,sql4;
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 		String date1= sdf.format(po.getPromotionBegintime().getTime());
 		String date2= sdf.format(po.getPromotionEndtime().getTime());
 		if(po.getPromotionNumber()!=null){
 		sql="insert into [Promotion] values('"+po.getPromotionNumber()+"','"+po.getPromotionName()+"','"+date1+"','"+date2+"','"+po.getApplyCity()+"','"+po.getHotelBussinesscircle()+"','"+po.getUserShipgrade()+"')";
-		}
-		else if(po.getHotelID()!=null){
-		sql="insert into [Promotion] values('"+po.getHotelID()+"','"+po.getPromotionName()+"','"+date1+"','"+date2+"','"+po.getPromotionDiscount()+"','"+po.getBirthdayDiscount()+"','"+po.getRoomDiscount()+"','"+po.getEnterpriseDiscount()+"')";
-		}
-		else{
-		long[] credit=po.getCreditOfLevel();
-		double[] discount=po.getDiscountOfLevel();
-		sql="insert into [MemberLevelSystem] values('"+credit[0]+"','"+credit[1]+"','"+credit[2]+"','"+credit[3]+"','"+credit[4]+"','"+discount[0]+"','"+discount[1]+"','"+discount[2]+"','"+discount[3]+"','"+discount[4]+"')";	
-		}
 		try {
 			Statement st=dbConn.createStatement();
 			int res=st.executeUpdate(sql);
@@ -83,6 +74,52 @@ public class PromotionDataHelperImpl implements PromotionDataHelper{
 			System.out.println("插入失败");
 			e.printStackTrace();
 		}
+		}
+		else if(po.getHotelID()!=null){
+		sql="insert into [Promotion] values('"+po.getHotelID()+"','"+po.getPromotionName()+"','"+date1+"','"+date2+"','"+po.getPromotionDiscount()+"','"+po.getBirthdayDiscount()+"','"+po.getRoomDiscount()+"','"+po.getEnterpriseDiscount()+"')";
+		try {
+			Statement st=dbConn.createStatement();
+			int res=st.executeUpdate(sql);
+			if(res==1){
+				System.out.println("插入成功");
+			}
+			else{
+				System.out.println("插入失败");
+			}
+			st.close();
+		} catch (SQLException e) {
+			System.out.println("插入失败");
+			e.printStackTrace();
+		}
+		}
+		else{
+		long[] credit=po.getCreditOfLevel();
+		double[] discount=po.getDiscountOfLevel();
+		sql="insert into [MemberLevelSystem] values('"+1+"','"+credit[0]+"','"+discount[0]+"')";
+		sql1="insert into [MemberLevelSystem] values('"+2+"','"+credit[1]+"','"+discount[1]+"')";
+		sql2="insert into [MemberLevelSystem] values('"+3+"','"+credit[2]+"','"+discount[2]+"')";
+		sql3="insert into [MemberLevelSystem] values('"+4+"','"+credit[3]+"','"+discount[3]+"')";
+		sql4="insert into [MemberLevelSystem] values('"+5+"','"+credit[4]+"','"+discount[4]+"')";
+		try {
+			Statement st=dbConn.createStatement();
+			int res=st.executeUpdate(sql);
+			int res1=st.executeUpdate(sql1);
+			int res2=st.executeUpdate(sql2);
+			int res3=st.executeUpdate(sql3);
+			int res4=st.executeUpdate(sql4);
+			if(res==1&&res1==1&&res2==1&&res3==1&&res4==1){
+				System.out.println("插入成功");
+			}
+			else{
+				System.out.println("插入失败");
+			}
+			st.close();
+		} catch (SQLException e) {
+			System.out.println("插入失败");
+			e.printStackTrace();
+		}
+		}
+		
 		finish();
 	}
 
@@ -114,11 +151,19 @@ public class PromotionDataHelperImpl implements PromotionDataHelper{
 		init();
 		long[] credit= po.getCreditOfLevel();
 		double[] discount = po.getDiscountOfLevel();
-		String sql="update [MemberLevelSystem] set creditOfLevel1='"+credit[0]+"',creditOfLevel2='"+credit[1]+"',creditOfLevel3='"+credit[2]+"',creditOfLevel4='"+credit[3]+"',creditOfLevel5='"+credit[4]+"',discountOfLevel1='"+discount[0]+"',discountOfLevel2='"+discount[1]+"',discountOfLevel3='"+discount[2]+"',discountOfLevel4='"+discount[3]+"',discountOfLevel5='"+discount[4]+"'";
+		String sql="update [MemberLevelSystem] set grade='"+1+"',credit='"+credit[0]+"',discount='"+discount[0]+"' where grade='"+1+"'";
+		String sql1="update [MemberLevelSystem] set grade='"+2+"',credit='"+credit[1]+"',discount='"+discount[1]+"' where grade='"+2+"'";
+		String sql2="update [MemberLevelSystem] set grade='"+3+"',credit='"+credit[2]+"',discount='"+discount[2]+"' where grade='"+3+"'";
+		String sql3="update [MemberLevelSystem] set grade='"+4+"',credit='"+credit[3]+"',discount='"+discount[3]+"' where grade='"+4+"'";
+		String sql4="update [MemberLevelSystem] set grade='"+5+"',credit='"+credit[4]+"',discount='"+discount[4]+"' where grade='"+5+"'";
 		try {
 			Statement st=dbConn.createStatement();
 			int res=st.executeUpdate(sql);
-			if(res==1){
+			int res1=st.executeUpdate(sql1);
+			int res2=st.executeUpdate(sql2);
+			int res3=st.executeUpdate(sql3);
+			int res4=st.executeUpdate(sql4);
+			if(res==1&&res1==1&&res2==1&&res3==1&&res4==1){
 				System.out.println("更新成功");
 			}
 			else{
@@ -287,23 +332,17 @@ public class PromotionDataHelperImpl implements PromotionDataHelper{
 		try {
 			Statement st=dbConn.createStatement();
 			ResultSet rs=st.executeQuery("select * from [MemberLevelSystem]");
-			if(rs.getLong("creditOfLevel2")!=0){
-				long credit1=rs.getLong("creditOfLevel1");
-				long credit2=rs.getLong("creditOfLevel2");
-				long credit3=rs.getLong("creditOfLevel3");
-				long credit4=rs.getLong("creditOfLevel4");
-				long credit5=rs.getLong("creditOfLevel5");
-				double discount1=rs.getDouble("discountOfLevel1");
-				double discount2=rs.getDouble("discountOfLevel2");
-				double discount3=rs.getDouble("discountOfLevel3");
-				double discount4=rs.getDouble("discountOfLevel4");
-				double discount5=rs.getDouble("discountOfLevel5");
-				long[] credit={credit1,credit2,credit3,credit4,credit5};
-				double[] discount={discount1,discount2,discount3,discount4,discount5};
-				po=new PromotionPO(credit,discount);
-			}
-				rs.close();
-				st.close();
+			long[] credit=new long[5];
+			double[] discount=new double[5];
+			int i=0;
+			while(rs.next()){
+				credit[i]=rs.getLong("credit");
+				discount[i]=rs.getDouble("discount");
+				i++;
+				}
+			po=new PromotionPO(credit,discount);
+			rs.close();
+			st.close();
 			}catch(SQLException e) {
 				System.out.println("读取失败");
 				e.printStackTrace();
