@@ -18,8 +18,13 @@ public class UpdateMemberLevelSystem {
 	
 	private UpdateMemberLevelSystem() {
 		df=RemoteHelper.getInstance().getDataFactoryService();
-		PromotionPO po = pds.getMemberLevelSystem();
-		vo = new MemberLevelSystemVO(po);
+		PromotionPO po;
+		try {
+			po = pds.getMemberLevelSystem();
+			vo = new MemberLevelSystemVO(po);
+		} catch (RemoteException e1) {
+			e1.printStackTrace();
+		}
 		try {
 			pds = (PromotionDataService)df.getDataService("Promotion");
 		} catch (RemoteException e) {

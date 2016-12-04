@@ -31,7 +31,7 @@ public interface PromotionBLService {
      * @param vo WebPromotionVO型，界面输入的营销策略
      * @see bussinesslogic.Promotion
      */
-	public void madebyweb(String promotionname,Calendar promotionbegintime,Calendar promotionendtime,String applycity,String applybussinesscircle,int applymembergrade);
+	public void madebyweb(WebPromotionVO vo);
 	/**
      * 得到所有的网站营销策略
      */
@@ -76,4 +76,12 @@ public interface PromotionBLService {
      * @see bussinesslogic.Promotion
      */
 	public double getDiscountOfLevel(int grade);
+	/**
+     *得到可选城市
+     */
+	public List<String> getCity();
+	/**
+     *确定城市后得到可选商圈
+     */
+	public Vector<String> getCircle(String city);
 }

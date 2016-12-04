@@ -184,23 +184,4 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
 		}  
 		return po;
     }
-		/**
-		 * 生成一个随机的网站策略号
-		 * @return String 策略编号
-		 */
-		public String generateWebPromotionID() throws RemoteException{
-			Random random=new Random();
-			String ran="";
-			boolean flag=true;
-			Set<String> set=promotion.keySet();
-			int size=set.size();
-			while(flag){
-			    ran=String.valueOf(random.nextInt(1000000));
-			    set.add(ran);
-			    if(set.size()!=size){
-			    	flag=false;
-			    }
-			}
-			return ran;
-		}
 }
