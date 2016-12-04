@@ -44,13 +44,6 @@ public class RoomDataHelperImpl implements RoomDataHelper{
 			}
 		}
 	}
-	
-	public RoomPO find(String id) {
-		//此方法不用
-		init();
-		finish();
-		return null;
-	}
 
 	public void insert(RoomPO po) {
 		init();
@@ -71,13 +64,7 @@ public class RoomDataHelperImpl implements RoomDataHelper{
 		}
 		finish();
 	}
-
-	public void delete(RoomPO po) {
-		//此方法似乎不用
-		init();
-		finish();
-	}
-
+	
 	public void update(RoomPO po) {
 		init();
 		String hotelid = po.getHotelId();
