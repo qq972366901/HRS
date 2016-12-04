@@ -15,7 +15,7 @@ public class HotelInformationOverviewController extends HotelBLServiceController
      * @return 返回此酒店的详细信息
      */
 	public HotelVO findByHotelID(String hotelID) {
-		HotelInfo hotelInfo = HotelInfo.getHotelInfoInstance(hotelID);
+		HotelInfo hotelInfo = new HotelInfo(hotelID);
 		return hotelInfo.getHotelVO();
 	}
 	

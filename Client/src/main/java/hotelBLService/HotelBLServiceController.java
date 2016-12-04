@@ -110,7 +110,15 @@ public class HotelBLServiceController implements HotelBLService {
 			int priceLow, int priceHigh, int hotelStar, int scoreLow, int scoreHigh, String everBooked,String userid) {
 		return hotelInformationSearchController.getHotelID(city, businessCircle, roomType, roomNumber, priceLow, priceHigh, hotelStar, scoreLow, scoreHigh, everBooked, userid);
 	}
-	
+	/**
+     * 网站工作人员更新酒店的联系方式
+     * 
+     * @param hotelid String型，酒店帐号
+     * @param hotelPhone String型，房间类型
+     */
+	public void updateHotelPhone(String hotelid, String hotelPhone) {
+		hotelInformationMaintenanceController.updateHotelPhone(hotelid, hotelPhone);
+	}
 	
 	
 	

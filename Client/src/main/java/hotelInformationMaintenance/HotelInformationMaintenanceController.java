@@ -27,7 +27,7 @@ public class HotelInformationMaintenanceController  extends HotelBLServiceContro
      */
 	public void updateHotelInfo(String id,String hotelName, String hotelLocation, String hotelService, String hotelCity,
 			String hotelArea, String hotelIntroduce, int hotelStar, String hotelPhone){
-		HotelInfo hotelInfo = HotelInfo.getHotelInfoInstance(id);
+		HotelInfo hotelInfo = new HotelInfo(id);
 		hotelInfo.updateHotelInfo(hotelName, hotelLocation, hotelService, hotelCity, hotelArea, hotelIntroduce, hotelStar,hotelPhone);
 	}
 	/**
@@ -50,7 +50,16 @@ public class HotelInformationMaintenanceController  extends HotelBLServiceContro
 		HotelAdd hotelAdd = HotelAdd.getHotelAddInstance();
 		hotelAdd.addHotel(hotelName, hotelCity, hotelArea, hotelLocation, hotelStar, hotelService, hotelIntroduction, hotelPhone, hotelID, hotelScore);
 	}
-	
+	/**
+     * 网站工作人员更新酒店的联系方式
+     * 
+     * @param hotelid String型，酒店帐号
+     * @param hotelPhone String型，房间类型
+     */
+	public void updateHotelPhone(String hotelid, String hotelPhone) {
+		HotelInfo hotelInfo = new HotelInfo(hotelid);
+		hotelInfo.updateHotelPhone(hotelPhone);
+	}
 	
 	
 	
