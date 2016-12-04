@@ -34,5 +34,4 @@ public interface UserDataHelper {
 		 * @throws RemoteException
 		 */
 	    public ArrayList<UserPO> getAllUser();
-		public void delete(PromotionPO po);
 }
