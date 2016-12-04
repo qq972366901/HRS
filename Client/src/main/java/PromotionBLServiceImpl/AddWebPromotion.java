@@ -12,6 +12,7 @@ public class AddWebPromotion {
 
 	private DataFactoryService df;
 	private PromotionDataService pds;
+	private PromotionDataService promotiondata;
 	
 	private static AddWebPromotion addWebPromotion;
 	
@@ -32,8 +33,8 @@ public class AddWebPromotion {
 	}
 	
 	
-	public void addWebPromotion(String promotionnumber,String promotionname,Calendar promotionbegintime,Calendar promotionendtime,String applycity,String applybussinesscircle,int applymembergrade){
-		PromotionPO po = new PromotionPO(promotionnumber,promotionname,promotionbegintime,promotionendtime,applycity,applybussinesscircle,applymembergrade);
+	public void addWebPromotion(String promotionname,Calendar promotionbegintime,Calendar promotionendtime,String applycity,String applybussinesscircle,int applymembergrade) throws RemoteException{
+		PromotionPO po = new PromotionPO(promotiondata.generateWebPromotionID(),promotionname,promotionbegintime,promotionendtime,applycity,applybussinesscircle,applymembergrade);
 		
 		try {
 			pds.insert(po);

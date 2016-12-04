@@ -31,7 +31,7 @@ public interface PromotionBLService {
      * @param vo WebPromotionVO型，界面输入的营销策略
      * @see bussinesslogic.Promotion
      */
-	public void madebyweb(String promotionnumber,String promotionname,Calendar promotionbegintime,Calendar promotionendtime,String applycity,String applybussinesscircle,int applymembergrade);
+	public void madebyweb(String promotionname,Calendar promotionbegintime,Calendar promotionendtime,String applycity,String applybussinesscircle,int applymembergrade);
 	/**
      * 得到所有的网站营销策略
      */

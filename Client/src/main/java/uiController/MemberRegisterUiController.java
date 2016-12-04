@@ -53,4 +53,8 @@ public class MemberRegisterUiController implements MemberRegisterUiService {
 	public boolean createUser(UserVO vo,String password) {
 		return user.add(vo, password);
 	}
+	
+	public void register(UserVO vo,String password){
+		user.register(vo,password);
+	}
 }

@@ -47,13 +47,6 @@ public interface PromotionDataService  extends DataService,Remote{
 	 * @see data.Promotion
 	 */
 		public void init() throws RemoteException;
-	/**
-	 * 结束持久化数据库的使用
-	 * @param in MessageInput型，界面的选择
-	 * @return 
-	 * @see data.Promotion
-	 */
-		public void finish() throws RemoteException;
 		/**
 		 *得到所有的酒店策略
 		 */

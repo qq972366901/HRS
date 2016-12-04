@@ -201,8 +201,10 @@ public class MemberRegisterView extends JPanel{
 								 int option1 = JOptionPane.showConfirmDialog(panel,"            确认注册？","", JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE, null);
 							     switch (option1) {
 							     case JOptionPane.YES_OPTION: 
-							    	 {
+							    	 {   
+							    		 //添加用户
 							    		 int option2 = JOptionPane.showConfirmDialog(panel,"请记住你的账号：     \n是否跳转到客户主界面？","", JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE, null);
+							    		 //需要一个获取用户ID的方法
 							    		 switch (option2) {
 									     case JOptionPane.YES_OPTION:
 									    	 String id=UUID.randomUUID().toString().substring(0, 8);
