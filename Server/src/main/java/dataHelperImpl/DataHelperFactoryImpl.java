@@ -1,7 +1,5 @@
 package dataHelperImpl;
 
-import java.io.Serializable;
-
 import dataHelper.CreditDataHelper;
 import dataHelper.CreditRecordDataHelper;
 import dataHelper.DataHelperFactory;
@@ -11,12 +9,7 @@ import dataHelper.PromotionDataHelper;
 import dataHelper.RoomDataHelper;
 import dataHelper.UserDataHelper;
 
-public class DataHelperFactoryImpl implements DataHelperFactory,Serializable{
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class DataHelperFactoryImpl implements DataHelperFactory{
 
 	@Override
 	public CreditDataHelper getCreditDataHelper() {

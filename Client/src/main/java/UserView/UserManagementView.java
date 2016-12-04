@@ -24,7 +24,7 @@ public class UserManagementView extends JPanel{
 	private static final long serialVersionUID = 1L;
 	private JButton button1,button2,button3,button4,button5,button6,button7;
 	private JLabel label3,label4,label6,label7,label7_1,label7_2,label7_3,label8,label9,label10,label11,label12;
-	private JTextField textField2,textField3,textField4,textField5,textField6,textField7;
+	private JTextField textField2,textField3,textField4,textField5,textField6,textField7,textField8;
 	private JPanel panel,p3,p4,p5,p7,p8,p9,p10,p11,p12;
 	private JComboBox<String> comboBox,comboBox4;
 	private JComboBox<Integer> comboBox1,comboBox2,comboBox3,comboBox5;
@@ -69,7 +69,7 @@ public class UserManagementView extends JPanel{
 				label8.setVisible(false);
 				comboBox4.setVisible(false);
 				label9.setVisible(false);
-				comboBox5.setVisible(false);
+				textField8.setVisible(false);
 				label7.setVisible(false);
 				comboBox1.setVisible(false);
 				label7_1.setVisible(false);
@@ -90,7 +90,7 @@ public class UserManagementView extends JPanel{
 				textField3.setEnabled(false);
 				textField7.setEnabled(false);				
 				comboBox4.setEnabled(false);			
-				comboBox5.setEnabled(false);				
+				textField8.setEnabled(false);				
 				comboBox1.setEnabled(false);				
 				comboBox2.setEnabled(false);
 				comboBox3.setEnabled(false);			
@@ -127,7 +127,7 @@ public class UserManagementView extends JPanel{
 						label8.setVisible(false);
 						comboBox4.setVisible(false);
 						label9.setVisible(false);
-						comboBox5.setVisible(false);
+						textField8.setVisible(false);
 						label7.setVisible(false);
 						comboBox1.setVisible(false);
 						label7_1.setVisible(false);
@@ -148,7 +148,7 @@ public class UserManagementView extends JPanel{
 						textField3.setEnabled(false);
 						textField7.setEnabled(false);				
 						comboBox4.setEnabled(false);			
-						comboBox5.setEnabled(false);				
+						textField8.setEnabled(false);				
 						comboBox1.setEnabled(false);				
 						comboBox2.setEnabled(false);
 						comboBox3.setEnabled(false);			
@@ -189,7 +189,7 @@ public class UserManagementView extends JPanel{
 					label8.setVisible(false);
 					comboBox4.setVisible(false);
 					label9.setVisible(false);
-					comboBox5.setVisible(false);
+					textField8.setVisible(false);
 					label7.setVisible(false);
 					comboBox1.setVisible(false);
 					label7_1.setVisible(false);
@@ -210,7 +210,7 @@ public class UserManagementView extends JPanel{
 					textField3.setEnabled(false);
 					textField7.setEnabled(false);				
 					comboBox4.setEnabled(false);			
-					comboBox5.setEnabled(false);				
+					textField8.setEnabled(false);				
 					comboBox1.setEnabled(false);				
 					comboBox2.setEnabled(false);
 					comboBox3.setEnabled(false);			
@@ -228,7 +228,7 @@ public class UserManagementView extends JPanel{
 					label8.setVisible(true);
 					comboBox4.setVisible(true);
 					label9.setVisible(true);
-					comboBox5.setVisible(true);
+					textField8.setVisible(true);
 					label7.setVisible(true);
 					comboBox1.setVisible(true);
 					label7_1.setVisible(true);
@@ -246,7 +246,7 @@ public class UserManagementView extends JPanel{
 					textField3.setText("1");
 					textField7.setText("1");
 					comboBox4.addItem("1");
-					comboBox5.addItem(1);
+					textField8.setText("1");
 					comboBox1.addItem(1);
 					comboBox2.addItem(1);
 					comboBox3.addItem(1);
@@ -264,7 +264,7 @@ public class UserManagementView extends JPanel{
 					label8.setVisible(false);
 					comboBox4.setVisible(false);
 					label9.setVisible(false);
-					comboBox5.setVisible(false);
+					textField8.setVisible(false);
 					label7.setVisible(false);
 					comboBox1.setVisible(false);
 					label7_1.setVisible(false);
@@ -285,7 +285,7 @@ public class UserManagementView extends JPanel{
 					textField3.setEnabled(false);
 					textField7.setEnabled(false);				
 					comboBox4.setEnabled(false);			
-					comboBox5.setEnabled(false);				
+					textField8.setEnabled(false);				
 					comboBox1.setEnabled(false);				
 					comboBox2.setEnabled(false);
 					comboBox3.setEnabled(false);			
@@ -318,7 +318,7 @@ public class UserManagementView extends JPanel{
 					label8.setVisible(false);
 					comboBox4.setVisible(false);
 					label9.setVisible(false);
-					comboBox5.setVisible(false);
+					textField8.setVisible(false);
 					label7.setVisible(false);
 					comboBox1.setVisible(false);
 					label7_1.setVisible(false);
@@ -339,7 +339,7 @@ public class UserManagementView extends JPanel{
 					textField3.setEnabled(false);
 					textField7.setEnabled(false);				
 					comboBox4.setEnabled(false);			
-					comboBox5.setEnabled(false);				
+					textField8.setEnabled(false);				
 					comboBox1.setEnabled(false);				
 					comboBox2.setEnabled(false);
 					comboBox3.setEnabled(false);			
@@ -458,11 +458,10 @@ public class UserManagementView extends JPanel{
 		
 		
 		label9 = new JLabel("会员等级");
-		comboBox5=new JComboBox<Integer>();
-		comboBox5.setPreferredSize(new Dimension(186,22));
-		comboBox5.setEnabled(false);		
+		textField8=new JTextField(30);
+		textField8.setEnabled(false);		
 		p9.add(label9);
-		p9.add(comboBox5);
+		p9.add(textField8);
 	
 		
 		label7 = new JLabel("生    日");
@@ -521,7 +520,7 @@ public class UserManagementView extends JPanel{
 		label8.setVisible(false);
 		comboBox4.setVisible(false);
 		label9.setVisible(false);
-		comboBox5.setVisible(false);
+		textField8.setVisible(false);
 		label7.setVisible(false);
 		comboBox1.setVisible(false);
 		label7_1.setVisible(false);
@@ -559,7 +558,7 @@ public class UserManagementView extends JPanel{
 	        		textField3.setEnabled(false);
 					textField7.setEnabled(false);
 					comboBox4.setEnabled(false);
-					comboBox5.setEnabled(false);
+					textField8.setEnabled(false);
 					comboBox1.setEnabled(false);
 					comboBox2.setEnabled(false);
 					comboBox3.setEnabled(false);
@@ -580,13 +579,13 @@ public class UserManagementView extends JPanel{
 				textField3.setEnabled(true);
 				textField7.setEnabled(true);				
 				comboBox4.setEnabled(true);			
-				comboBox5.setEnabled(true);				
+				textField8.setEnabled(true);				
 				comboBox1.setEnabled(true);				
 				comboBox2.setEnabled(true);
 				comboBox3.setEnabled(true);			
 				textField4.setEnabled(true);				
 				textField5.setEnabled(true);				
-				textField6.setEnabled(true);
+				textField6.setEnabled(false);
 				button2.setEnabled(true);
 				button5.setEnabled(true);
 				button7.setEnabled(true);
@@ -604,7 +603,7 @@ public class UserManagementView extends JPanel{
 	        	textField3.setEnabled(false);
 				textField7.setEnabled(false);
 				comboBox4.setEnabled(false);
-				comboBox5.setEnabled(false);
+				textField8.setEnabled(false);
 				comboBox1.setEnabled(false);
 				comboBox2.setEnabled(false);
 				comboBox3.setEnabled(false);
@@ -646,7 +645,7 @@ public class UserManagementView extends JPanel{
 					label8.setVisible(false);
 					comboBox4.setVisible(false);
 					label9.setVisible(false);
-					comboBox5.setVisible(false);
+					textField8.setVisible(false);
 					label7.setVisible(false);
 					comboBox1.setVisible(false);
 					label7_1.setVisible(false);
@@ -667,7 +666,7 @@ public class UserManagementView extends JPanel{
 					textField3.setEnabled(false);
 					textField7.setEnabled(false);				
 					comboBox4.setEnabled(false);			
-					comboBox5.setEnabled(false);				
+					textField8.setEnabled(false);				
 					comboBox1.setEnabled(false);				
 					comboBox2.setEnabled(false);
 					comboBox3.setEnabled(false);			

@@ -6,11 +6,13 @@ import java.util.List;
 import java.util.Vector;
 
 import PO.PromotionPO;
+import VO.MemberLevelSystemVO;
 import VO.WebPromotionVO;
 import dataService.DataFactoryService;
 import dataService.PromotionDataService;
 import promotionMemberGrade.PromotionMemberGradeController;
 import rmi.RemoteHelper;
+import userBLServiceImpl.Credit;
 
 public class SearchWebPromotion {
 	private DataFactoryService df;
@@ -40,15 +42,43 @@ public class SearchWebPromotion {
 		return searchWebPromotion;
 	}
 	
-	public WebPromotionVO getWebPromotion(Calendar time,String city,String bussinesscircle,int grade) {
+	public double getWebPromotionDiscount(String userID,String city,String bussinesscircle,Calendar orderbuildtime) throws RemoteException {
 		WebPromotionVO  wpvo=new WebPromotionVO();
+		long creditvalue=Credit.getInstance().showCredit(userID);
+		MemberLevelSystemVO vo2=GetMemberLevelSystem.getMemberLevelSystemInstance().getMemberLevelSystem();
+		long credit[]=vo2.creditOfLevel;
+		int grade;
+		if(creditvalue<credit[0]){
+				grade=0;
+			}
+		else if(creditvalue>=credit[0]&&creditvalue<credit[1]){
+			    grade=1;
+		}
+		else if(creditvalue>=credit[1]&&creditvalue<credit[2]){
+		        grade=2;
+	    }
+		else if(creditvalue>=credit[2]&&creditvalue<credit[3]){
+		        grade=3;
+	    }
+		else if(creditvalue>=credit[3]&&creditvalue<credit[4]){
+		        grade=4;
+	    }
+		else{
+		        grade=5;
+		}
 		for(WebPromotionVO vo : voList) {
-		if(searchWebPromotion.judgeTime(vo,time)&&searchWebPromotion.judgeCity(vo,city) &&searchWebPromotion.judgeBussinessCircle(vo,bussinesscircle) &&searchWebPromotion.judgeMemberGrade(vo,grade)) {				
+		if(searchWebPromotion.judgeTime(vo,orderbuildtime)&&searchWebPromotion.judgeCity(vo,city) &&searchWebPromotion.judgeBussinessCircle(vo,bussinesscircle) &&searchWebPromotion.judgeMemberGrade(vo,grade)) {				
 			    wpvo=vo;
 				break;
 			}
 		}
-		return wpvo;
+		double discount[]=vo2.discountOfLevel;
+			if(wpvo==null){
+				return 1;
+			}
+			else{
+				return discount[grade-1];
+			}
 	}
 	private boolean judgeTime(WebPromotionVO vo,Calendar time) {
 		boolean outcome = false;

@@ -1,6 +1,5 @@
 package dataHelperImpl;
 
-import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -9,12 +8,8 @@ import java.util.List;
 import PO.RoomPO;
 import dataHelper.RoomDataHelper;
 
-public class RoomDataHelperImpl implements Serializable, RoomDataHelper{
+public class RoomDataHelperImpl implements RoomDataHelper{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private String driverName;
 	private String dbURL;
 	private String userName;

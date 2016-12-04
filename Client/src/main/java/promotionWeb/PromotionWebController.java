@@ -39,36 +39,8 @@ public class PromotionWebController{
 	 * @throws RemoteException 
      */
 	public double getWebPromotionDiscount(String userID,String city,String bussinesscircle,Calendar orderbuildtime) throws RemoteException {
-		long creditvalue=Credit.getInstance().showCredit(userID);
-		MemberLevelSystemVO vo2=GetMemberLevelSystem.getMemberLevelSystemInstance().getMemberLevelSystem();
-		long credit[]=vo2.creditOfLevel;
-		int grade;
-		if(creditvalue<credit[0]){
-				grade=0;
-			}
-		else if(creditvalue>=credit[0]&&creditvalue<credit[1]){
-			    grade=1;
-		}
-		else if(creditvalue>=credit[1]&&creditvalue<credit[2]){
-		        grade=2;
-	    }
-		else if(creditvalue>=credit[2]&&creditvalue<credit[3]){
-		        grade=3;
-	    }
-		else if(creditvalue>=credit[3]&&creditvalue<credit[4]){
-		        grade=4;
-	    }
-		else{
-		        grade=5;
-		}
-		WebPromotionVO vo3=SearchWebPromotion.getSearchWebPromotionInstance().getWebPromotion(orderbuildtime,city,bussinesscircle,grade);
-		double discount[]=vo2.discountOfLevel;
-		if(vo3==null){
-			return 1;
-		}
-		else{
-			return discount[grade-1];
-		}
+		return SearchWebPromotion.getSearchWebPromotionInstance().getWebPromotionDiscount(userID,city,bussinesscircle,orderbuildtime);
+	
 	}
 	/**
 	 * 根据策略编号删除策略

@@ -1,6 +1,5 @@
 package dataHelperImpl;
 
-import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,12 +10,8 @@ import java.util.List;
 import PO.HotelPO;
 import dataHelper.HotelDataHelper;
 
-public class HotelDataHelperImpl implements Serializable, HotelDataHelper{
+public class HotelDataHelperImpl implements HotelDataHelper{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private String driverName;
 	private String dbURL;
 	private String userName;
