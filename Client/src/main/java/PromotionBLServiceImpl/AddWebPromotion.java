@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 import java.util.Calendar;
 
 import PO.PromotionPO;
+import VO.WebPromotionVO;
 import dataService.DataFactoryService;
 import dataService.PromotionDataService;
 import rmi.RemoteHelper;
@@ -12,7 +13,6 @@ public class AddWebPromotion {
 
 	private DataFactoryService df;
 	private PromotionDataService pds;
-	private PromotionDataService promotiondata;
 	
 	private static AddWebPromotion addWebPromotion;
 	
@@ -33,8 +33,8 @@ public class AddWebPromotion {
 	}
 	
 	
-	public void addWebPromotion(String promotionname,Calendar promotionbegintime,Calendar promotionendtime,String applycity,String applybussinesscircle,int applymembergrade) throws RemoteException{
-		PromotionPO po = new PromotionPO(promotiondata.generateWebPromotionID(),promotionname,promotionbegintime,promotionendtime,applycity,applybussinesscircle,applymembergrade);
+	public void addWebPromotion(WebPromotionVO vo) throws RemoteException{
+		PromotionPO po = new PromotionPO(vo.promotionNumber,vo.promotionName,vo.promotionBegintime,vo.promotionEndtime,vo.applyCity,vo.applyBussinesscircle,vo.applyMemberGrade);
 		
 		try {
 			pds.insert(po);

@@ -59,10 +59,5 @@ public interface PromotionDataService  extends DataService{
 	 *得到会员等级系统
 	 */
 	    public PromotionPO getMemberLevelSystem();
-	    /**
-	  		 * 生成一个随机的网站策略号
-	  		 * @return String 策略编号
-	  		 */
-	  		public String generateWebPromotionID() throws RemoteException;
 	}
 

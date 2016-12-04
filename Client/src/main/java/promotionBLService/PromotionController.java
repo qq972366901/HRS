@@ -8,6 +8,7 @@ import java.util.Vector;
 import PromotionBLServiceImpl.GetMemberLevelSystem;
 import VO.MemberLevelSystemVO;
 import VO.WebPromotionVO;
+import common.CityAndBussinessCircle;
 import promotionHotel.PromotionHotelController;
 import promotionMemberGrade.PromotionMemberGradeController;
 import promotionWeb.PromotionWebController;
@@ -21,6 +22,7 @@ public class PromotionController implements PromotionBLService {
 		private PromotionHotelController promotionHotelController;
 		private PromotionWebController promotionWebController;
 		private PromotionMemberGradeController promotionMemberGradeController;
+		private CityAndBussinessCircle cityAndBussinessCircle;
 		/**
 		 * 初始化
 		 * @throws RemoteException 
@@ -29,6 +31,7 @@ public class PromotionController implements PromotionBLService {
 			this.promotionHotelController=new PromotionHotelController();
 			this.promotionWebController=new PromotionWebController();
 			this.promotionMemberGradeController=new PromotionMemberGradeController();
+			this.cityAndBussinessCircle=new CityAndBussinessCircle();
 		}
 	  /**
      * 添加一种新的酒店营销策略，并公布
@@ -59,9 +62,9 @@ public class PromotionController implements PromotionBLService {
      * @param vo WebPromotionVO型，界面输入的营销策略
 	 * @see bussinesslogic.Promotion
      */
-	public void madebyweb(String promotionname,Calendar promotionbegintime,Calendar promotionendtime,String applycity,String applybussinesscircle,int applymembergrade){
+	public void madebyweb(WebPromotionVO vo){
 		try {
-			promotionWebController.madebyweb(promotionname,promotionbegintime,promotionendtime,applycity,applybussinesscircle,applymembergrade);
+			promotionWebController.madebyweb(vo);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -133,5 +136,19 @@ public class PromotionController implements PromotionBLService {
      */
 	public double getDiscountOfLevel(int grade){
 		return promotionMemberGradeController.getDiscountOfLevel(grade);
+	}
+	/**
+     *得到可选城市
+     */
+	public List<String> getCity(){
+		return cityAndBussinessCircle.getCity();
+		
+	}
+	/**
+     *确定城市后得到可选商圈
+     */
+	public Vector<String> getCircle(String city){
+		return cityAndBussinessCircle.getCircle(city);
+		
 	}
 }

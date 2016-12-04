@@ -19,8 +19,8 @@ public class PromotionWebController{
 	 * @throws RemoteException 
      * @see bussinesslogic.Promotion
      */
-	public void madebyweb(String promotionname,Calendar promotionbegintime,Calendar promotionendtime,String applycity,String applybussinesscircle,int applymembergrade) throws RemoteException {
-        AddWebPromotion.getAddWebPromotionInstance().addWebPromotion(promotionname,promotionbegintime,promotionendtime,applycity,applybussinesscircle,applymembergrade);
+	public void madebyweb(WebPromotionVO vo) throws RemoteException {
+        AddWebPromotion.getAddWebPromotionInstance().addWebPromotion(vo);
 	} 
 	/**
      * 得到所有的网站营销策略
