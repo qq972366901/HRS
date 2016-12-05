@@ -69,5 +69,27 @@ public class HotelInfo {
 			e.printStackTrace();
 		}
 	}
+	
+	public void updateHotelScore(int sco) {
+		double newScore;
+		if(hvo.score - 0 < 0.001) {
+			newScore = sco;
+		} else {
+			int num = 1;
+			while(hvo.score * num % 1 > 0.01) {
+				num++;
+			}
+			newScore = (hvo.score*num + sco) / (num + 1);
+		}
+		HotelPO hpo = new HotelPO(hvo.hotelAddress,hvo.hotelCity, hvo.hotelDistrict,hvo.hotelStar,hvo.hotelProfile,hvo.hotelService,hvo.hotelName,hvo.hotelAccount,newScore,hvo.hotelPhone);
+		try {
+			hds.update(hpo);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+	}
+	public double getHotelScore() {
+		return hvo.score;
+	}
 
 }

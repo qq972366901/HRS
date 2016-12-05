@@ -60,7 +60,16 @@ public class HotelInformationMaintenanceController  extends HotelBLServiceContro
 		HotelInfo hotelInfo = new HotelInfo(hotelid);
 		hotelInfo.updateHotelPhone(hotelPhone);
 	}
-	
+	/**
+     * 订单评价评分后更新酒店评分
+     * 
+     * @param hotelid String型，酒店帐号
+     * @param score double型，订单评分
+     */
+	public void changeHotelScore(String hotelid, int score) {
+		HotelInfo hotelInfo = new HotelInfo(hotelid);
+		hotelInfo.updateHotelScore(score);
+	}
 	
 	
 	

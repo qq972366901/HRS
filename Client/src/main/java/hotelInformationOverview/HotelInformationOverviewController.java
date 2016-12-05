@@ -18,6 +18,16 @@ public class HotelInformationOverviewController extends HotelBLServiceController
 		HotelInfo hotelInfo = new HotelInfo(hotelID);
 		return hotelInfo.getHotelVO();
 	}
+	/**
+     * 酒店信息浏览得到酒店平均评分
+     * 
+     * @param hotelid String型，酒店帐号
+     * @return 返回此酒店的平均评分
+     */
+	public double getHotelScore(String hotelid) {
+		HotelInfo hotelInfo = new HotelInfo(hotelid);
+		return hotelInfo.getHotelScore();
+	}
 	
 	
 	
