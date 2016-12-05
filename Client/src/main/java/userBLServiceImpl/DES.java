@@ -57,11 +57,14 @@ public class DES {
   
             // 当使用其他对称加密算法时，如AES、Blowfish等算法时，用下述代码替换上述三行代码  
 //            secretKey = new SecretKeySpec(key, KEY_DES);  
-        } catch (InvalidKeyException e) {  
+        } catch (InvalidKeyException e) {
+        	System.out.println("InvalidKey");
             e.printStackTrace();  
-        } catch (NoSuchAlgorithmException e) {  
+        } catch (NoSuchAlgorithmException e) {
+        	System.out.println("NoSuchAlgorithm");
             e.printStackTrace();  
-        } catch (InvalidKeySpecException e) {  
+        } catch (InvalidKeySpecException e) {
+        	System.out.println("InvalidKeySpec");
             e.printStackTrace();  
         }  
         return secretKey;  
@@ -220,10 +223,11 @@ public class DES {
     }  
     /*
     public static void main(String[] args) {  
-        String key = DES.init();  
+        String key = DES.init(); 
+        key="inxFdi+8DqE=";
         System.out.println("DES密钥:\n" + key);  
   
-        String word = "A31r132 ";  
+        String word = "张明";  
           
   
         String encWord = encryptDES(word, key);  

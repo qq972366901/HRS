@@ -26,6 +26,8 @@ import uiService.MemberRegisterUiService;
 import uiService.WebAdminUserUiService;
 import uiService.customerMainViewControllerService;
 import uiService.webPromotionUserUiService;
+import userBLServiceImpl.DES;
+import userBLServiceImpl.Log;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -161,11 +163,16 @@ public class LogView extends JPanel {
 		login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				type=(String)comboBox_1.getSelectedItem();
-				if(textField.getText().equals("")){					
-					JOptionPane.showMessageDialog(k, "账号密码输入有误！","", JOptionPane.ERROR_MESSAGE);
-					return;
+				String key="";
+				try {
+					key=Log.getLogInstance().getKey(textField.getText());
+				} catch (RemoteException e1) {
+					System.out.println("获取密钥失败");
+					e1.printStackTrace();
 				}
-				if(controller.login(textField.getText(),String.valueOf(passwordField.getPassword()))){
+				String id=DES.encryptDES(textField.getText(), key);
+				String pwd=DES.encryptDES(String.valueOf(passwordField.getPassword()), key);
+				if(controller.login(id,pwd)){
 					login();
 				}
 				else{

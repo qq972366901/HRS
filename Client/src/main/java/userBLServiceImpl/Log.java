@@ -94,6 +94,9 @@ public class Log {
 			return "No Such User";
 		}
 	}
+	public int getNumber(){
+		return list.size();
+	}
 	/**
 	 * 删除一个用户
 	 * @param id
@@ -136,5 +139,16 @@ public class Log {
 				e.printStackTrace();
 			}
 		}
+	}
+	/**
+	 * 根据原始ID提供密钥
+	 * @param id
+	 * @return
+	 */
+	public String getKey(String id){
+		if(key.containsKey(id)){
+			return key.get(id);
+		}
+		return null;
 	}
 }

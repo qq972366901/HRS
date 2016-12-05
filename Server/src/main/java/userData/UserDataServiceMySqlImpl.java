@@ -135,7 +135,6 @@ public class UserDataServiceMySqlImpl implements UserDataService{
 	public List<UserPO> getAllUser() throws RemoteException {
 		List<UserPO> list=new ArrayList<UserPO>();
 		for (Map.Entry<String, UserPO> entry : user.entrySet()) {
-			if(entry.getValue().getType().equals(UserType.Customer))
             list.add(entry.getValue());
         }
 		return list;
