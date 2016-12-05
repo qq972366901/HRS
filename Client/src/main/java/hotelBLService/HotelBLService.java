@@ -90,6 +90,20 @@ public interface HotelBLService {
      * @param hotelPhone String型，房间类型
      */
 	public void updateHotelPhone(String hotelid, String hotelPhone);
+	/**
+     * 订单评价评分后更新酒店评分
+     * 
+     * @param hotelid String型，酒店帐号
+     * @param score double型，订单评分
+     */
+	public void changeHotelScore(String hotelid, int score);
+	/**
+     * 酒店信息浏览得到酒店平均评分
+     * 
+     * @param hotelid String型，酒店帐号
+     * @return 返回此酒店的平均评分
+     */
+	public double getHotelScore(String hotelid);
 	
 	
 	

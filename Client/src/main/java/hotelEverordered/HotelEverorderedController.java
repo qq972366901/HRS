@@ -20,7 +20,7 @@ public class HotelEverorderedController extends HotelBLServiceController{
 	
 	
 	
-	
+	//----------------------------------------------------------
 	/**
      * 查找用户的历史订单的酒店并返回历史酒店列表
      * 
