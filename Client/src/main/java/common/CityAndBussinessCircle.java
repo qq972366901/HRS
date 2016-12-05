@@ -80,6 +80,7 @@ public class CityAndBussinessCircle implements Serializable{
 		return list;
 	}
 	public Vector<String> getCircle(String city){
+		cityandbussinesscircle=new HashMap<String,Vector<String>>();
 		cityandbussinesscircle.put(list.get(0),list1);
 		cityandbussinesscircle.put(list.get(1),list2);
 		cityandbussinesscircle.put(list.get(2),list3);
