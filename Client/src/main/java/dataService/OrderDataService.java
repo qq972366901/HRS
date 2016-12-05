@@ -7,8 +7,8 @@ import java.rmi.RemoteException;
 import java.util.List;
 
 /**负责实现订单数据储存所需要的服务接口
- * @author 刘伟
- * @version 1.0
+ * @author 刘宇翔
+ * @version 1.1
  * see presentation.Order
  */
 public interface OrderDataService  extends DataService,Remote{

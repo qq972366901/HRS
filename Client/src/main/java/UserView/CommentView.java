@@ -138,7 +138,7 @@ private JPanel panel1;
 		ClientRunner.change(vie);
 	}
 	public void init_detail(){
-		List<String> list=new ArrayList<String>();
+		List<String> list=controller.getDetail();
 		hotelName = new JLabel("\u9152\u5E97\u540D\u79F0\uFF1A"+list.get(0));
         panel1.add(hotelName);
 		

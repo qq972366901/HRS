@@ -96,17 +96,18 @@ public class CommentViewControllerServiceImpl implements CommentViewService{
 	}
 	public  List<String> getDetail(){
 		OrderVO vo=order.showDetail(UserID,OrderID);
-		HotelVO vo1=hotel.findByHotelID(vo.hotelID);
+		//HotelVO vo1=hotel.findByHotelID(vo.hotelID);
 		List<String> list=new ArrayList<String>();
-		list.add(vo1.hotelName);
+		//list.add(vo1.hotelName);
+		list.add("lalala");
 		list.add(vo.roomType);
 		list.add(vo.orderNumber);
 		list.add(""+vo.orderValue);
 		list.add(""+vo.numOfPerson);
 		list.add(""+vo.roomNumber);
 		SimpleDateFormat sdf =new SimpleDateFormat("yyyy-MM-dd");
-		list.add(sdf.format(vo.expectedCheckIn));
-		list.add(sdf.format(vo.expectedCheckOut));
+		list.add(sdf.format(vo.expectedCheckIn.getTime()));
+		list.add(sdf.format(vo.expectedCheckOut.getTime()));
 		return list;
 	}
 }

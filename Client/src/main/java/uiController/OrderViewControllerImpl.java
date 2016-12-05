@@ -75,9 +75,13 @@ public class OrderViewControllerImpl implements OrderViewControllerService {
 	}
 	@Override
 	public Vector<OrderVO> getAllOrder() {
+		System.out.println(id);
 		List<OrderVO> orderlist=order.showAllorder(id);
+		System.out.println(orderlist.size());
 		Vector<OrderVO> list=new Vector<OrderVO>();
 		for(OrderVO vo:orderlist){
+			System.out.println(vo.orderNumber);
+			System.out.println(vo.orderState);
 			vo.addorderNumber();
 			vo.addorderState();
 			vo.addorderValue();
