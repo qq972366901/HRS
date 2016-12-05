@@ -1,12 +1,14 @@
 package uiController;
 
 import java.rmi.RemoteException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
 import UserView.OrderView;
 import VO.OrderVO;
+import common.Operate;
 import orderBLService.OrderBLService;
 import orderBLService.OrderBLServiceController;
 import uiService.OrderViewControllerService;
@@ -42,6 +44,7 @@ public class OrderViewControllerImpl implements OrderViewControllerService {
 			vo.addorderState();
 			vo.addorderValue();
 			vo.addroomType();
+			vo.addexpectedCheckIn();
 			vo.addscore();
 			list.add(vo);
 		}
@@ -58,7 +61,9 @@ public class OrderViewControllerImpl implements OrderViewControllerService {
 	}
 	@Override
 	public void cancel(String orderID) {
-	    order.cancel(id, orderID);
+	    if(order.cancel(id, orderID)){
+	    	order.updateCredit(id, orderID, order.showDetail(id, orderID).orderValue, Operate.Cancel);
+	    }
 		view.cancel();
 	}
 	public String getUserID(){
@@ -86,6 +91,7 @@ public class OrderViewControllerImpl implements OrderViewControllerService {
 			vo.addorderState();
 			vo.addorderValue();
 			vo.addroomType();
+			vo.addexpectedCheckIn();
 			vo.addscore();
 			list.add(vo);
 		}

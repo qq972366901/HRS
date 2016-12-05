@@ -73,7 +73,8 @@ public class Log {
 	 * @throws RemoteException 
 	 */
 	public void revisepassword(String userID, String password) throws RemoteException {
-		if(!list.containsKey(userID)){
+		if(list.containsKey(userID)){
+			System.out.println("revise password");
 			list.get(userID).userpassword=password;
 			dh.modifyPassword(userID,password);
 		}

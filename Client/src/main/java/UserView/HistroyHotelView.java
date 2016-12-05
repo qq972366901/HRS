@@ -74,7 +74,7 @@ public class HistroyHotelView extends JPanel {
 		ClientRunner.change(vie);
 	}
 	public void init_hotelname(){	
-		label = new JLabel("\u9152\u5E97\u540D\u79F0\uFF1A");
+		label = new JLabel("所有历史酒店");
         panel_1.add(label);
 		
 		JScrollPane scrollPane = new JScrollPane();

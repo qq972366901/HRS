@@ -60,10 +60,9 @@ public class orderDetailViewControllerServiceImpl implements orderDetailViewCont
 		}
 		public  List<String> getDetail(){
 			OrderVO vo=order.showDetail(UserID,OrderID);
-			//HotelVO vo1=hotel.findByHotelID(vo.hotelID);
+			HotelVO vo1=hotel.findByHotelID(vo.hotelID);
 			List<String> list=new ArrayList<String>();
-			//list.add(vo1.hotelName);
-			list.add("lalala");
+			list.add(vo1.hotelName);
 			list.add(vo.roomType);
 			list.add(vo.orderNumber);
 			list.add(""+vo.orderValue);

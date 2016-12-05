@@ -74,8 +74,9 @@ public class UserDataHelperImpl implements UserDataHelper{
 		init();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 		String date = sdf.format(po.getBirthday().getTime());
-		String sql="update [User] set username='"+po.getName()+",userpassword='"+po.getPassword()+"',useraccount='"+po.getAccount()+"',contactway='"+po.getContact()+"',membertype='"+po.getMemberType()+"',type='"+typeToString(po.getType())+"',birthday='"+date+"',enterprise"+po.getEnterprise()+"'";
+		String sql="update [User] set username='"+po.getName()+"',userpassword='"+po.getPassword()+"',contactway='"+po.getContact()+"',membertype='"+po.getMemberType()+"',type='"+typeToString(po.getType())+"',birthday='"+date+"',enterprise='"+po.getEnterprise()+"'where useraccount='"+po.getAccount()+"'";
 		try {
+			System.out.println(sql);
 			Statement st=dbConn.createStatement();
 			int res=st.executeUpdate(sql);
 			if(res==1){

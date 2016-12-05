@@ -32,6 +32,7 @@ public class revisePasswordViewControllerImpl implements revisePasswordViewContr
 
 	@Override
 	public void revisepassword(String password) {
+		System.out.println("Revise UserID:"+UserID+"Password : "+password);
 		user.revisepassword(UserID, password);
 		view.exit();
 	}

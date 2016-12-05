@@ -79,7 +79,7 @@ public class OrderDataHelperImpl implements OrderDataHelper{
 		String late = sdf.format(po.getLatest().getTime());
 		String cancel = sdf.format(po.getCancel().getTime());
 		String gen = sdf.format(po.getgenerationTime().getTime());
-		String sql="update [Order] set UserID = '"+po.getUserID()+"',HotelID = '"+po.getHotelID()+"',orderNumber = '"+po.getOrderNumber()+"',orderState = '"+po.getOrderState()+"',orderValue = '"+po.getOrderValue()+"',numOfPerson = '"+po.getNumOfPerson()+"',child = '"+po.getChild()+"',roomType = '"+po.getRoomType()+"',roomNumber = '"+po.getRoomNumber()+"',expectedCheckIn = '"+in+"',expectedCheckOut = '"+out+"',latest = '"+late+"',cancel = '"+cancel+"',generationTime = '"+gen+"',comment = '"+po.getComment()+"',score = '"+po.getScore()+"'";
+		String sql="update [Order] set UserID = '"+po.getUserID()+"',HotelID = '"+po.getHotelID()+"',orderState = '"+po.getOrderState()+"',orderValue = '"+po.getOrderValue()+"',numOfPerson = '"+po.getNumOfPerson()+"',child = '"+po.getChild()+"',roomType = '"+po.getRoomType()+"',roomNumber = '"+po.getRoomNumber()+"',expectedCheckIn = '"+in+"',expectedCheckOut = '"+out+"',latest = '"+late+"',cancel = '"+cancel+"',generationTime = '"+gen+"',comment = '"+po.getComment()+"',score = '"+po.getScore()+"'where orderNumber = '"+po.getOrderNumber()+"'";
 		try {
 			Statement st=dbConn.createStatement();
 			int res=st.executeUpdate(sql);

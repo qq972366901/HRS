@@ -11,8 +11,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import runner.ClientRunner;
 import uiController.HotelDetailUiController;
+import uiController.HotelorderlistViewControllerImpl;
 import uiController.OrderViewControllerImpl;
 import uiService.HotelDetailUiService;
+import uiService.HotelorderlistViewControllerService;
 import uiService.OrderViewControllerService;
 import uiService.orderDetailViewControllerService;
 
@@ -128,8 +130,8 @@ public class orderDetailView extends JPanel {
 		ClientRunner.change(vie);
 	}
 	public void exit2(){
-		HotelDetailUiService con =  new HotelDetailUiController(hotelid,UserID);
-		HotelDetailView vie = new HotelDetailView(con);
+		HotelorderlistViewControllerService con =  new HotelorderlistViewControllerImpl(hotelid,UserID);
+		HotelorderlistView vie = new HotelorderlistView(con);
 		con.setView(vie);
 		ClientRunner.change(vie);
 	}

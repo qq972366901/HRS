@@ -1,11 +1,13 @@
 package hotelEverordered;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
 import HotelBLServiceImpl.HotelInfoListByUser;
 import VO.HotelVO;
-import hotelBLService.HotelBLServiceController;
-public class HotelEverorderedController extends HotelBLServiceController{
+import VO.OrderVO;
+import orderBLImpl.OrderList;
+public class HotelEverorderedController{
 	
 	/**
      * 查找用户的历史酒店并返回历史酒店列表
@@ -19,7 +21,25 @@ public class HotelEverorderedController extends HotelBLServiceController{
 	}
 	
 	
-	
+	/**
+     * 根据用户id和酒店id查找该用户在该酒店的所有订单
+     * 
+     * @param String UserID，客户的id
+     * @param String HotelID，酒店的id
+     * @return List<OrderVO> ，客户的订单列表
+     * @see bussinesslogic.Order
+     */
+	public List<OrderVO> findByHotelID (String userID,String hotelID){
+		OrderList list;
+		try {
+			list = new OrderList();
+			return list.findByHotelID(userID, hotelID);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}	
+	}
 	
 	/**
      * 查找用户的历史订单的酒店并返回历史酒店列表

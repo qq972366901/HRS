@@ -130,17 +130,6 @@ public class OrderBLServiceController implements OrderBLService{
 	}
 	
 	
-	/**
-     * 根据用户id和酒店id查找该用户在该酒店的所有订单
-     * 
-     * @param String UserID，客户的id
-     * @param String HotelID，酒店的id
-     * @return List<OrderVO> ，客户的订单列表
-     * @see bussinesslogic.Order
-     */
-	public List<OrderVO> findByHotelID (String userID,String hotelID){
-		return null;	
-	}
 	
 	/**
      * 获得一个酒店的所有订单

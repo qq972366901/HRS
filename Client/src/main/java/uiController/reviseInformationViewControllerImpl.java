@@ -38,24 +38,27 @@ public class reviseInformationViewControllerImpl implements reviseInformationVie
 	@Override
 	public void updateinformation(Vector<String> vector) {
 	    UserVO vo=user.findByID(UserID);
-		//user.update(vo,);
 		for(int i=0;i<vector.size();i++){
 			if(!vector.get(i).equals("")){
 				switch(i){
 				case 0:vo.username=vector.get(i);break;
-				case 1:SimpleDateFormat sdf= new SimpleDateFormat("yyyy/MM/dd");
+				case 1:SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd");
 				       Calendar cal=Calendar.getInstance();
 				       try {
 						cal.setTime(sdf.parse(vector.get(i)));
+						vo.birthday=cal;
 					} catch (ParseException e) {
 						e.printStackTrace();
 					}
 				       break;
 				case 2:vo.contactway=vector.get(i);
+				       break;
 				case 3:vo.enterprise=vector.get(i);
+				       break;
 				}
 			}
 		}
+		user.update(vo);
 		view.exit();
 	}
 	@Override

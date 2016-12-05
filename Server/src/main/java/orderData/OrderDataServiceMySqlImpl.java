@@ -198,8 +198,6 @@ public class OrderDataServiceMySqlImpl implements OrderDataService,Serializable{
 		ArrayList<OrderPO> list=orderdatahelper.getAllUser();
 		map=new HashMap<String,OrderPO>();
 		for(OrderPO po:list){
-			System.out.println(po.getOrderNumber());
-			System.out.println(po.getUserID());
 			map.put(po.getOrderNumber(), po);
 		}
 	}

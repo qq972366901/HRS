@@ -126,6 +126,7 @@ public class OrderView extends JPanel {
 		Columns.add("订单状态");
 		Columns.add("价值");
 		Columns.add("房间详情");
+		Columns.add("预订入住时间");
 		Columns.add("评分");
 		model=new DefaultTableModel(Data,Columns);
 		table = new JTable(model){
@@ -230,11 +231,11 @@ public class OrderView extends JPanel {
 	public void comment() throws RemoteException{
 		int index = table.getSelectedRow();
 		if(index == -1){
-			JOptionPane.showMessageDialog(null, "请选择订单！","", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(k, "请选择订单！","", JOptionPane.ERROR_MESSAGE);
 			return;
 		}
-		if(!table.getValueAt(index, 4).equals("")){
-			JOptionPane.showMessageDialog(null, "这个订单已经被评价过了！","", JOptionPane.ERROR_MESSAGE);
+		if(!table.getValueAt(index, 5).equals("")){
+			JOptionPane.showMessageDialog(k, "这个订单已经被评价过了！","", JOptionPane.ERROR_MESSAGE);
 			return;
 		}
 		String id=(String)table.getValueAt(index, 0);

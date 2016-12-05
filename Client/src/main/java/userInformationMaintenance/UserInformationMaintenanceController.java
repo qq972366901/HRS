@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 
 import VO.UserVO;
 import common.ResultMessage;
+import userBLServiceImpl.Credit;
 import userBLServiceImpl.Customer;
 import userBLServiceImpl.Log;
 
@@ -28,5 +29,20 @@ public class UserInformationMaintenanceController{
 	 */
 	public void update(UserVO vo) throws RemoteException{
 			Customer.getUserInstance().updateUserInfo(vo);
+	}
+	/**
+	 * 显示信用等级
+	 * @param id
+	 * @return
+	 * @throws RemoteException 
+	 */
+	public int showLevel(String id){
+		try {
+			return Credit.getInstance().showLevel(id);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return 0;
+		}
 	}
 }

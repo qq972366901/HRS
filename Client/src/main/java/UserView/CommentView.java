@@ -171,7 +171,7 @@ private JPanel panel1;
 		scoreinput = new JTextField();
 		scoreinput.setColumns(10);
 		panel9.add(scoreinput);
-		lblNewLabel = new JLabel("\u8BC4\u5206\u6570\u503C\u57280\u5230100\u4E4B\u95F4");
+		lblNewLabel = new JLabel("评分数值在1到5之间");
 		panel9.add(lblNewLabel);
 		
 		comment = new JLabel("\u8BC4\u4EF7\uFF1A");

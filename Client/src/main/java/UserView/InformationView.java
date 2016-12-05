@@ -121,10 +121,10 @@ public class InformationView extends JPanel {
         		panel_1.add(name);
 		type = new JLabel("会员种类 ："+Data.get(4));
 		panel_25.add(type);
-		level = new JLabel("\u4F1A\u5458\u7B49\u7EA7 \uFF1A3");
+		level = new JLabel("会员等级 ："+Data.get(5));
 		panel_26.add(level);
 		
-		credit = new JLabel("\u4FE1\u7528\u503C \uFF1A1000");
+		credit = new JLabel("信用值 ："+Data.get(6));
 		panel_27.add(credit);
 		
 		reviseinformation = new JButton("\u4FEE\u6539\u57FA\u672C\u4FE1\u606F");
@@ -133,7 +133,7 @@ public class InformationView extends JPanel {
 				controller.reviseinformation();
 			}
 		});
-panel_2.add(reviseinformation);
+      panel_2.add(reviseinformation);
 		
 		revisepassword = new JButton("\u4FEE\u6539\u5BC6\u7801");
 		revisepassword.addActionListener(new ActionListener() {
