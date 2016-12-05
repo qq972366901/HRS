@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 
 import UserView.MemberRegisterView;
 import WebPromotionView.WebPromotionUserView;
+import common.UserType;
 import runner.ClientRunner;
 import uiController.HotelMainUiController;
 import uiController.MemberRegisterUiController;
@@ -26,6 +27,7 @@ import uiService.MemberRegisterUiService;
 import uiService.WebAdminUserUiService;
 import uiService.customerMainViewControllerService;
 import uiService.webPromotionUserUiService;
+import userBLServiceImpl.Account;
 import userBLServiceImpl.DES;
 import userBLServiceImpl.Log;
 
@@ -170,10 +172,26 @@ public class LogView extends JPanel {
 					System.out.println("获取密钥失败");
 					e1.printStackTrace();
 				}
-				String id=DES.encryptDES(textField.getText(), key);
-				String pwd=DES.encryptDES(String.valueOf(passwordField.getPassword()), key);
-				if(controller.login(id,pwd)){
-					login();
+				//System.out.println(key);
+				if(key!=null){
+					String id=DES.encryptDES(textField.getText(), key);
+					String pwd=DES.encryptDES(String.valueOf(passwordField.getPassword()), key);
+					//System.out.println(id);
+					//System.out.println(pwd);
+					UserType type=null;
+					try {
+						type=Account.getInstance().getType(id);
+					} catch (RemoteException e1) {
+						System.out.println("获取用户类型失败");
+						e1.printStackTrace();
+					}
+					if(controller.login(id,pwd)){
+						login(type);
+					}
+					else{
+						JOptionPane.showMessageDialog(k, "账号密码输入有误！","", JOptionPane.ERROR_MESSAGE);
+						return;
+					}
 				}
 				else{
 					JOptionPane.showMessageDialog(k, "账号密码输入有误！","", JOptionPane.ERROR_MESSAGE);
@@ -186,26 +204,26 @@ public class LogView extends JPanel {
 		label2.setPreferredSize(new Dimension(10000,250));
 		panel3.add(label2);
 	}
-	public void login(){
-		if(this.type.equals("客户")){
+	public void login(UserType t){
+		if(this.type.equals("客户")&&t.equals(UserType.Customer)){
 		   customerMainViewControllerService controller =  new customerMainViewControllerImpl(textField.getText());
 		   customerMainView view = new customerMainView(controller);
 		   controller.setView(view);
 		   ClientRunner.change(view);
 		}
-		else if(this.type.equals("网站营销人员")){
+		if(this.type.equals("网站营销人员")&&t.equals(UserType.WebPromotionWorker)){
 			webPromotionUserUiService controller=new webPromotionUserUiController();
 			WebPromotionUserView view=new WebPromotionUserView(controller);
 			controller.setView(view);
 			ClientRunner.change(view);
 		}
-		else if(this.type.equals("酒店工作人员")){
+		if(this.type.equals("酒店工作人员")&&t.equals(UserType.HotelWorker)){
 			HotelMainUiService controller=new HotelMainUiController(textField.getText());
 			HotelMainView view =new HotelMainView(controller,textField.getText());
 			controller.setView(view);
 			ClientRunner.change(view);
 	    }
-		else {
+		if(this.type.equals("网站管理人员")&&t.equals(UserType.WebManagementWorker)){
 			WebAdminUserUiService controller=new WebAdminUserUiController();
 			WebAdminUserView view=new WebAdminUserView(controller);
 			controller.setView(view);

@@ -55,7 +55,7 @@ public class PromotionDataHelperImpl implements PromotionDataHelper{
 		// TODO Auto-generated method stub
 		init();
 		String sql,sql1,sql2,sql3,sql4;
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		String date1= sdf.format(po.getPromotionBegintime().getTime());
 		String date2= sdf.format(po.getPromotionEndtime().getTime());
 		if(po.getPromotionNumber()!=null){

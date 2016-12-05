@@ -147,4 +147,16 @@ public class Account{
 			}
 		}
 	}
+	
+	public UserType getType(String id) throws RemoteException{
+		if(worker.containsKey(id)){
+			return worker.get(id).type;
+		} 
+		else if(Customer.getUserInstance().hasCustomer(id)){
+			return Customer.getUserInstance().findByID(id).type;
+		}
+		else{
+			return null;
+		}
+	}
 }

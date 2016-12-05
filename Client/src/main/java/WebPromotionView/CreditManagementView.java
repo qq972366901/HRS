@@ -3,6 +3,7 @@ package WebPromotionView;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -10,12 +11,16 @@ import java.util.Date;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import VO.CreditRecordVO;
 import common.Operate;
 import uiService.CreditManagementUiService;
+import userBLServiceImpl.Customer;
+import userBLServiceImpl.DES;
+import userBLServiceImpl.Log;
 
 public class CreditManagementView extends JPanel {
 	/**
@@ -66,15 +71,40 @@ public class CreditManagementView extends JPanel {
 		confir=new JButton("确定");
 		confir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String acc=accountText.getText();
-				long value=Long.valueOf(valText.getText());
-				long currentcredit=controller.getCurrencredit(acc);
-				currentcredit+=value; 
-				Date now = new Date(); 
-				Calendar calendar = Calendar.getInstance();
-				calendar.setTime(now);
-				CreditRecordVO vo=new CreditRecordVO(acc,calendar,"",Operate.Recharge,value,currentcredit);
-				controller.updateCredit(vo);
+				long time=100;
+				String key="";
+				try {
+					key=Log.getLogInstance().getKey(accountText.getText());
+				} catch (RemoteException e1) {
+					System.out.println("获取密钥失败");
+					e1.printStackTrace();
+				}
+				if(key!=null){
+					String acc=DES.encryptDES(accountText.getText(), key);
+					long value=Long.valueOf(valText.getText());
+					try {
+						if(Customer.getUserInstance().hasCustomer(acc)){
+							long currentcredit=controller.getCurrencredit(acc);
+							currentcredit+=value*time; 
+							Date now = new Date(); 
+							Calendar calendar = Calendar.getInstance();
+							calendar.setTime(now);
+							CreditRecordVO vo=new CreditRecordVO(acc,calendar,"",Operate.Recharge,value,currentcredit);
+							controller.updateCredit(vo);
+						}
+						else{
+							JOptionPane.showMessageDialog(null, "不存在此客户！","", JOptionPane.ERROR_MESSAGE);
+							return;
+						}
+					} catch (RemoteException e) {
+						System.out.println("判断客户是否存在失败");
+						e.printStackTrace();
+					}
+				}
+				else{
+					JOptionPane.showMessageDialog(null, "不存在此客户！","", JOptionPane.ERROR_MESSAGE);
+					return;
+				}
 			}
 		});
 		cancel=new JButton("取消");

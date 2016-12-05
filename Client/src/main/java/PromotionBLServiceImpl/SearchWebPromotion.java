@@ -1,6 +1,7 @@
 package PromotionBLServiceImpl;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Vector;
@@ -18,10 +19,10 @@ public class SearchWebPromotion {
 	private DataFactoryService df;
 	private PromotionDataService pds;
 	private List<WebPromotionVO> voList;
-	
 	private static SearchWebPromotion searchWebPromotion;
 	
 	private SearchWebPromotion() {
+		voList=new ArrayList<WebPromotionVO>();
 		df=RemoteHelper.getInstance().getDataFactoryService();
 		try {
 			pds = (PromotionDataService)df.getDataService("Promotion");
@@ -130,8 +131,8 @@ public class SearchWebPromotion {
 		Vector< Vector<String>> list=new Vector<Vector<String>>();
 		for(int i=0;i<voList.size();i++){
 			Vector<String> v=voList.get(i).getVector();
-			PromotionMemberGradeController p=new PromotionMemberGradeController();
-			v.add(String.valueOf(p.getDiscountOfLevel(voList.get(i).applyMemberGrade)));
+			//PromotionMemberGradeController p=new PromotionMemberGradeController();
+			//v.add(String.valueOf(p.getDiscountOfLevel(voList.get(i).applyMemberGrade)));
 			list.add(v);
 		}
 		return list;
