@@ -199,6 +199,8 @@ public class UserDataHelperImpl implements UserDataHelper{
 				String key=rs.getString("key");
 				list.put(id, key);
 			}
+			rs.close();
+			st.close();
 		} catch (SQLException e) {
 			System.out.println("读取失败");
 			e.printStackTrace();

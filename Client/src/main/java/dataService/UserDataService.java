@@ -74,6 +74,6 @@ public interface UserDataService  extends DataService,Remote{
 		/**
 		 * 获取所有密钥
 		 */
-		public HashMap<String,String> getAllKeys();
+		public HashMap<String,String> getAllKeys() throws RemoteException;
 	}
 
