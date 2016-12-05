@@ -4,6 +4,7 @@ import dataService.DataService;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.HashMap;
 import java.util.List;
 
 /**负责实现客户数据储存所需要的服务接口
@@ -71,5 +72,9 @@ public interface UserDataService  extends DataService{
 		 * @param password
 		 */
 		public void modifyPassword(String userID, String password) throws RemoteException;
+		/**
+		 * 获取所有密钥
+		 */
+		public HashMap<String,String> getAllKeys();
 	}
 

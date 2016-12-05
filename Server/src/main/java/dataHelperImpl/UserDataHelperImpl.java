@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 
 import PO.UserPO;
 import common.UserType;
@@ -23,9 +24,9 @@ public class UserDataHelperImpl implements UserDataHelper{
 	private Connection dbConn;
 	private void init() {
 		driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
-		dbURL="jdbc:sqlserver://localhost:1433;DatabaseName=HRS1";
-		userName="lyx";
-		userPwd="liuyx970202";
+		dbURL="jdbc:sqlserver://localhost:1433;DatabaseName=HRS";
+		userName="liu";
+		userPwd="naigo961226";
 		try{
 			 Class.forName(driverName);
 			 dbConn=DriverManager.getConnection(dbURL,userName,userPwd);
@@ -115,7 +116,7 @@ public class UserDataHelperImpl implements UserDataHelper{
 					c.set(0, 0, 0);
 				}
 				else{
-					SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd");
+					SimpleDateFormat sdf= new SimpleDateFormat("yyyy/MM/dd");
 					Date date =sdf.parse(birthday);
 					c.setTime(date);
 				}
@@ -185,5 +186,24 @@ public class UserDataHelperImpl implements UserDataHelper{
 		else{
 			return "WebManagementWorker";
 		}
+	}
+	@Override
+	public HashMap<String, String> getAllKeys() {
+		HashMap<String,String> list=new HashMap<String,String>();
+		init();
+		try {
+			Statement st = dbConn.createStatement();
+			ResultSet rs=st.executeQuery("select * from [Key]");
+			while(rs.next()){
+				String id=rs.getString("userid");
+				String key=rs.getString("key");
+				list.put(id, key);
+			}
+		} catch (SQLException e) {
+			System.out.println("读取失败");
+			e.printStackTrace();
+		}
+		finish();
+		return list;
 	}
 }

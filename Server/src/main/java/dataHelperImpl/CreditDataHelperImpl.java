@@ -81,9 +81,9 @@ public class CreditDataHelperImpl implements CreditDataHelper{
 	}
 	private void init() {
 		driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
-		dbURL="jdbc:sqlserver://localhost:1433;DatabaseName=HRS1";
-		userName="lyx";
-		userPwd="liuyx970202";
+		dbURL="jdbc:sqlserver://localhost:1433;DatabaseName=HRS";
+		userName="liu";
+		userPwd="naigo961226";
 		try{
 			 Class.forName(driverName);
 			 dbConn=DriverManager.getConnection(dbURL,userName,userPwd);

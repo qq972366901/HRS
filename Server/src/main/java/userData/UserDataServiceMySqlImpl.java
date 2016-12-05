@@ -3,14 +3,9 @@ package userData;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
-
-
 import PO.UserPO;
 import common.UserType;
 import dataHelper.DataHelperFactory;
@@ -27,6 +22,7 @@ public class UserDataServiceMySqlImpl implements UserDataService{
 	private static UserDataServiceMySqlImpl userDataServiceMySqlImpl;
 	private DataHelperFactory dataFactory;
 	private HashMap<String,UserPO> user;
+	private HashMap<String,String> key;
 	private UserDataHelper helper;
 	private UserDataServiceMySqlImpl() throws RemoteException{
 		UnicastRemoteObject.exportObject(this,8089);
@@ -103,6 +99,7 @@ public class UserDataServiceMySqlImpl implements UserDataService{
 		dataFactory=new DataHelperFactoryImpl();
 		helper=dataFactory.getUserDataHelper();
 		user=new HashMap<String,UserPO>();
+		key=helper.getAllKeys();
 		ArrayList<UserPO> list=new ArrayList<UserPO>();
 		list=helper.getAllUser();
 		for(int i=0;i<list.size();i++){
@@ -151,6 +148,10 @@ public class UserDataServiceMySqlImpl implements UserDataService{
 			user.put(userID, po);
 			update(po);
 		}
+	}
+	@Override
+	public HashMap<String, String> getAllKeys() {
+		return key;
 	}
 	
 }

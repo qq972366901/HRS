@@ -13,14 +13,15 @@ import rmi.RemoteHelper;
 
 public class Log {
 	private HashMap<String,LogVO> list;
+	private HashMap<String,String> key;
 	private DataFactoryService df;
 	UserDataService dh;
 	private static Log log;
 	private Log() throws RemoteException{
 		list=new HashMap<String,LogVO>();
-		list.put("1", new LogVO("1","1",false));//添加一个数据作为例子
 		df=RemoteHelper.getInstance().getDataFactoryService();
 		dh=(UserDataService) df.getDataService("User");
+		key=dh.getAllKeys();
 		List<UserPO> l=dh.getAllUser();
 		for(UserPO user:l){
 			list.put(user.getAccount(), new LogVO(user));

@@ -2,6 +2,7 @@ package dataHelper;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import PO.PromotionPO;
 import PO.UserPO;
@@ -34,4 +35,9 @@ public interface UserDataHelper {
 		 * @throws RemoteException
 		 */
 	    public ArrayList<UserPO> getAllUser();
+	    /**
+	     * 获取所有密钥
+	     * @return
+	     */
+		public HashMap<String, String> getAllKeys();
 }
