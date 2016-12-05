@@ -175,13 +175,13 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
  */
     public PromotionPO getMemberLevelSystem(){
 		Iterator<String> it=promotion.keySet().iterator();
-		PromotionPO po=new PromotionPO(null,null);
+		PromotionPO po;
 		while(it.hasNext()){
 			if(promotion.get(it.next()).getPromotionNumber()==null&&promotion.get(it.next()).getHotelID()==null){
 				po= promotion.get(it.next());
-				break;
+				return po;
 			}
 		}  
-		return po;
+		return null;
     }
 }

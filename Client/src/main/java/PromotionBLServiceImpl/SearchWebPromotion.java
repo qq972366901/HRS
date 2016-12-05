@@ -128,6 +128,7 @@ public class SearchWebPromotion {
 		return outcome;
 	}
 	public Vector<Vector<String>> getAllWebPromotion(){
+		voList=new Vector<WebPromotionVO>();
 		Vector< Vector<String>> list=new Vector<Vector<String>>();
 		for(int i=0;i<voList.size();i++){
 			Vector<String> v=voList.get(i).getVector();
