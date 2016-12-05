@@ -13,7 +13,7 @@ import rmi.RemoteHelper;
 
 public class Log {
 	private HashMap<String,LogVO> list;
-	private HashMap<String,String> key;
+	private HashMap<String,String> key;//维护未加密的id和对应密钥
 	private DataFactoryService df;
 	UserDataService dh;
 	private static Log log;
@@ -38,7 +38,9 @@ public class Log {
 	 * @param id String型，界面层传来的用户ID
 	 */
 	public void logout(String id){
-		list.get(id).inorout=false;
+		if(list.containsKey(id)){
+			list.get(id).inorout=false;
+		}
 	}
 	/**
 	 * 登录
@@ -74,9 +76,9 @@ public class Log {
 	 * @throws RemoteException 
 	 */
 	public void revisepassword(String userID, String password) throws RemoteException {
-		if(!list.containsKey(userID)){
+		if(list.containsKey(userID)){
 			list.get(userID).userpassword=password;
-			dh.modifyPassword(userID,password);
+			dh.modifyPassword(userID,userID);
 		}
 	}
 	/**
@@ -98,7 +100,15 @@ public class Log {
 	 */
 	public void delete(String id){
 		if(list.containsKey(id)){
-			list.remove(id);
+			String ID=DES.decryptDES(id,key.get(id));  
+			try {
+				key.remove(ID);
+				dh.deleteKey(ID);
+				list.remove(id);
+			} catch (RemoteException e) {
+				System.out.println("删除密钥失败");
+				e.printStackTrace();
+			}
 		}
 	}
 	/**
@@ -108,6 +118,23 @@ public class Log {
 	public void add(String id,LogVO vo){
 		if(!list.containsKey(id)){
 			list.put(id, vo);
+		}
+	}
+	/**
+	 * 增加一个密钥
+	 * @param id
+	 * @param k
+	 * @throws  
+	 */
+	public void addKey(String id,String k){
+		if(!key.containsKey(id)){
+			try {
+				key.put(id, k);
+				dh.addKey(id,k);
+			} catch (RemoteException e) {
+				System.out.println("增加失败");
+				e.printStackTrace();
+			}
 		}
 	}
 }

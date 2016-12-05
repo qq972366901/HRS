@@ -153,5 +153,19 @@ public class UserDataServiceMySqlImpl implements UserDataService{
 	public HashMap<String, String> getAllKeys() {
 		return key;
 	}
+	@Override
+	public void deleteKey(String secretID) throws RemoteException {
+		if(key.containsKey(secretID)){
+			key.remove(secretID);
+			helper.deleteKey(secretID);
+		}
+	}
+	@Override
+	public void addKey(String id, String k) throws RemoteException {
+		if(!key.containsKey(id)){
+			key.put(id, k);
+			helper.addKey(id,k);
+		}
+	}
 	
 }

@@ -40,4 +40,15 @@ public interface UserDataHelper {
 	     * @return
 	     */
 		public HashMap<String, String> getAllKeys();
+		/**
+		 * 删除一个密钥
+		 * @param secretID
+		 */
+		public void deleteKey(String secretID);
+		/**
+		 * 增加一个密钥
+		 * @param id
+		 * @param k
+		 */
+		public void addKey(String id, String k);
 }

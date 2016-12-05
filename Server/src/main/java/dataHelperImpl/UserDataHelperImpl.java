@@ -208,4 +208,44 @@ public class UserDataHelperImpl implements UserDataHelper{
 		finish();
 		return list;
 	}
+	@Override
+	public void deleteKey(String secretID) {
+		init();
+		String sql="delete from [Key] where userid='"+secretID+"'";
+		try {
+			Statement st = dbConn.createStatement();
+			int res=st.executeUpdate(sql);
+			if(res==1){
+				System.out.println("删除成功");
+			}
+			else{
+				System.out.println("删除失败");
+			}
+			st.close();
+		} catch (SQLException e) {
+			System.out.println("删除失败");
+			e.printStackTrace();
+		}
+		finish();
+	}
+	@Override
+	public void addKey(String id, String k) {
+		init();
+		String sql="insert into [Key] values('"+id+"','"+k+"')";
+		try {
+			Statement st=dbConn.createStatement();
+			int res=st.executeUpdate(sql);
+			if(res==1){
+				System.out.println("插入成功");
+			}
+			else{
+				System.out.println("插入失败");
+			}
+			st.close();
+		} catch (SQLException e) {
+			System.out.println("插入失败");
+			e.printStackTrace();
+		}
+		finish();
+	}
 }
