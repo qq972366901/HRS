@@ -35,6 +35,7 @@ public class HotelVO{
 		hotelDistrict = hpo.gethotelDistrict();
 		hotelProfile = hpo.gethotelProfile();
 		hotelStar = hpo.gethotelStar();
+		hotelPhone=hpo.getHotelPhone();
 		score = hpo.getScore();
 	}
 	

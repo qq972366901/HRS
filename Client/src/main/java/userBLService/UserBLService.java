@@ -1,10 +1,6 @@
 package userBLService;
-import java.rmi.RemoteException;
 import java.util.HashMap;
-import java.util.List;
-
 import VO.*;
-import common.*;
 /**
  * 负责实现用户管理界面所需要的服务接口
  * @author 刘伟
@@ -116,4 +112,10 @@ public interface UserBLService {
 	 * 更新所有客户的会员等级
 	 */
 	public void updateAllLevel();
+	/**
+	 * 显示信用等级
+	 * @param id
+	 * @return
+	 */
+	public int showLevel(String id);
 }

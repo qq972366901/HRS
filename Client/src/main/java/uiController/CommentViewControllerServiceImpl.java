@@ -60,7 +60,7 @@ public class CommentViewControllerServiceImpl implements CommentViewService{
 		int temp;
 		if(flag){
 			temp=Integer.parseInt(input);
-			if(temp>=0&&temp<=100){
+			if(temp>=1&&temp<=5){
 				flag=true;
 			}
 			else{

@@ -6,7 +6,7 @@ import VO.HotelVO;
 import VO.OrderVO;
 import Object.Hotel;
 import hotelBLService.HotelBLServiceController;
-public class HotelInformationOverviewController extends HotelBLServiceController{
+public class HotelInformationOverviewController{
 	
 	/**
      * 根据酒店帐号返回酒店详细信息

@@ -10,7 +10,7 @@ import hotelBLService.HotelBLServiceController;
  * 负责实现更新酒店信息的功能
  * @author 刘宗侃
  */
-public class HotelInformationMaintenanceController  extends HotelBLServiceController{
+public class HotelInformationMaintenanceController{
 	
 	/**
      * 更新酒店的基本信息

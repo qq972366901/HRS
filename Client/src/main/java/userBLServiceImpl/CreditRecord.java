@@ -71,6 +71,8 @@ public class CreditRecord {
 	 * @see VO.CreditRecordVO
 	 */
 	public HashMap<String,CreditRecordVO> showCreditRecord(String id){
+		System.out.println("show");
+		System.out.println(map.size());
 		return map.get(id);
 	}
 	/**

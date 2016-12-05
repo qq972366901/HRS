@@ -25,7 +25,13 @@ public class HotelBLServiceController implements HotelBLService {
 	HotelInformationOverviewController hotelInformationOverviewController;
 	HotelEverorderedController hotelEverorderedController;
 	HotelInformationSearchController hotelInformationSearchController;
-	
+	public HotelBLServiceController(){
+		hotelRoomAddController=new HotelRoomAddController();
+		hotelInformationMaintenanceController=new HotelInformationMaintenanceController();
+		hotelInformationOverviewController=new HotelInformationOverviewController();
+		hotelEverorderedController=new HotelEverorderedController();
+		hotelInformationSearchController=new HotelInformationSearchController();
+	}
 	/**
      * 更新酒店拥有的房间类型、数量、原始价格
      * 
@@ -138,7 +144,17 @@ public class HotelBLServiceController implements HotelBLService {
 		return hotelInformationOverviewController.getHotelScore(hotelid);
 	}
 	
-	
+	/**
+     * 根据用户id和酒店id查找该用户在该酒店的所有订单
+     * 
+     * @param String UserID，客户的id
+     * @param String HotelID，酒店的id
+     * @return List<OrderVO> ，客户的订单列表
+     * @see bussinesslogic.Order
+     */
+	public List<OrderVO> findByHotelID (String userID,String hotelID){
+		return hotelEverorderedController.findByHotelID(userID, hotelID);
+	}
 	
 	
 	

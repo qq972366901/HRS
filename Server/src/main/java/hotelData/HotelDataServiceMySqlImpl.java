@@ -44,6 +44,7 @@ public class HotelDataServiceMySqlImpl implements HotelDataService{
 	 * @see PO.HotelPO
 	 */
 	private void init() {
+		hotel=new HashMap<String,HotelPO>();
 		factory=new DataHelperFactoryImpl();
 		hotelDataHelper = factory.getHotelDataHelper();
 		List<HotelPO> list = null;
@@ -112,7 +113,7 @@ public class HotelDataServiceMySqlImpl implements HotelDataService{
 
 	@Override
 	public List<HotelPO> getHistoryHotelByUser(String userID) {
-		List<HotelPO> list = null;
+		List<HotelPO> list = new ArrayList<HotelPO>();
 		try {
 			list = hotelDataHelper.getHistoryHotelByUser(userID);
 		} catch (RemoteException e) {

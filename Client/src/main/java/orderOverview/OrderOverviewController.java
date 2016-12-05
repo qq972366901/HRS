@@ -5,7 +5,7 @@ import java.util.List;
 import VO.OrderVO;
 import orderBLImpl.OrderList;
 /**
- * 浏览酒店的所有订单，并执行延迟入住操作
+ * 浏览酒店的所有订单
  * @author Administrator
  *
  */

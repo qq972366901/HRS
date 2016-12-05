@@ -2,6 +2,10 @@ package uiController;
 
 import java.rmi.RemoteException;
 import java.text.SimpleDateFormat;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 import java.util.Vector;
 
 import UserView.CreditView;
@@ -42,10 +46,12 @@ public class CreditViewControllerImpl implements CreditViewControllerService {
 	@Override
 	public Vector<Vector<String>> getCreditRecord(String id) {
 		Vector<Vector<String>> volist=new Vector<Vector<String>>();
-		for(CreditRecordVO vo:user.showCreditRecord(id).values()){
+		Iterator<Map.Entry<String, CreditRecordVO>> it=user.showCreditRecord(id).entrySet().iterator();
+		while(it.hasNext()){
+			CreditRecordVO vo=it.next().getValue();
 			Vector<String> vector=new Vector<String>();
 			SimpleDateFormat sdf =new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-			vector.add(sdf.format(vo.time));
+			vector.add(sdf.format(vo.time.getTime()));
 			vector.add(vo.orderID);
 			vector.add(translate(vo.action));
 			vector.add(""+vo.creditchange);

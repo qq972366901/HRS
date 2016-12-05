@@ -1,23 +1,24 @@
 package uiController;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.List;
 
 import UserView.HotelorderlistView;
 import VO.OrderVO;
-import orderBLService.OrderBLService;
-import orderBLService.OrderBLServiceController;
+import hotelBLService.HotelBLService;
+import hotelBLService.HotelBLServiceController;
 import uiService.HotelorderlistViewControllerService;
 
 public class HotelorderlistViewControllerImpl implements HotelorderlistViewControllerService {
 	private HotelorderlistView view;
-	private OrderBLService order;
+	private HotelBLService hotel;
 	String hotelid;
 	String userid;
-	public HotelorderlistViewControllerImpl(String HotelID,String UserID) throws RemoteException{
+	public HotelorderlistViewControllerImpl(String HotelID,String UserID){
 		hotelid=HotelID;
 		userid=UserID;
-		order=new OrderBLServiceController();
+		hotel=new HotelBLServiceController();
 	}
 	@Override
 	public void setView(HotelorderlistView view) {
@@ -31,7 +32,8 @@ public class HotelorderlistViewControllerImpl implements HotelorderlistViewContr
 
 	@Override
 	public List<OrderVO> getOrderList() {
-		List<OrderVO> list=order.findByHotelID(userid, hotelid);
+		List<OrderVO> list=new ArrayList<OrderVO>();
+		list=hotel.findByHotelID(userid, hotelid);
 		for(OrderVO vo: list){
 			vo.addorderNumber();
 			vo.addorderState();

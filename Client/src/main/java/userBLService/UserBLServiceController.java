@@ -225,4 +225,12 @@ public class UserBLServiceController implements UserBLService {
 	public void updateAllLevel() {
 		userCreditManagementController.updateAllLevel();
 	}
+	/**
+	 * 显示信用等级
+	 * @param id
+	 * @return
+	 */
+	public int showLevel(String id){
+		return userInfomationMaintenanceController.showLevel(id);
+	}
 }
