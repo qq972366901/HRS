@@ -21,7 +21,11 @@ import uiService.CreditManagementUiService;
 import userBLServiceImpl.Customer;
 import userBLServiceImpl.DES;
 import userBLServiceImpl.Log;
-
+/**
+ * 信用管理界面
+ * @author LZ
+ *
+ */
 public class CreditManagementView extends JPanel {
 	/**
 	 * 

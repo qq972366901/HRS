@@ -49,37 +49,8 @@ public class CreditViewControllerImpl implements CreditViewControllerService {
 		Iterator<Map.Entry<String, CreditRecordVO>> it=user.showCreditRecord(id).entrySet().iterator();
 		while(it.hasNext()){
 			CreditRecordVO vo=it.next().getValue();
-			Vector<String> vector=new Vector<String>();
-			SimpleDateFormat sdf =new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-			vector.add(sdf.format(vo.time.getTime()));
-			vector.add(vo.orderID);
-			vector.add(translate(vo.action));
-			vector.add(""+vo.creditchange);
-			vector.add(""+vo.currentcredit);
-			volist.add(vector);
+			volist.add(vo.getVector());
 		}
 		return volist;
-	}
-	private String translate(Operate operate){
-		String str="";
-		if(operate.equals(Operate.Done)){
-			str="执行订单";
-		}
-		else if(operate.equals(Operate.Appeal)){
-			str="订单申诉";
-		}
-		else if(operate.equals(Operate.Cancel)){
-			str="订单撤销";
-		}
-		else if(operate.equals(Operate.Recharge)){
-			str="信用充值";
-		}
-		else if(operate.equals(Operate.Abnormal)){
-			str="订单超时/异常";
-		}
-		else if(operate.equals(Operate.Delayed)){
-			str="订单延时";
-		}
-		return str;
 	}
 }

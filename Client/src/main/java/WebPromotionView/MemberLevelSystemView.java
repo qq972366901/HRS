@@ -13,7 +13,11 @@ import javax.swing.JTextField;
 
 import VO.MemberLevelSystemVO;
 import uiService.MemberLevelSystemUiService;
-
+/**
+ * 会员等级制度界面
+ * @author LZ
+ *
+ */
 public class MemberLevelSystemView extends JPanel{
 	/**
 	 * 

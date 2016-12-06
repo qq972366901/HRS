@@ -10,7 +10,11 @@ import javax.swing.JPanel;
 import javax.swing.JToolBar;
 
 import uiService.webPromotionUserUiService;
-
+/**
+ * 网站营销人员主界面
+ * @author LZ
+ *
+ */
 public class WebPromotionUserView extends JPanel {
 
 	/**

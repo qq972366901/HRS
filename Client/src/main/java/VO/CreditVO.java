@@ -7,10 +7,6 @@ import PO.CreditPO;
  *
  */
 public class CreditVO{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	public String customerID;
 	public long credit;
 	public int level;

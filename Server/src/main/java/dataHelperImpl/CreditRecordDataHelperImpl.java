@@ -79,7 +79,7 @@ public class CreditRecordDataHelperImpl implements CreditRecordDataHelper{
 				String userID=rs.getString("userID");
 				String crid=rs.getString("creditRecordID");
 				String str=rs.getString("time");
-				SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				SimpleDateFormat sdf= new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 				Date date =sdf.parse(str);
 				Calendar calendar = Calendar.getInstance();
 				calendar.setTime(date);

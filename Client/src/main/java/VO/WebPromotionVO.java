@@ -27,7 +27,7 @@ public class WebPromotionVO{
 		 Vector<String> v=new Vector<String>();
 		 v.add(promotionNumber);
 		 v.add(promotionName);
-		 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		 SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		 String time1 = sdf.format(promotionBegintime.getTime());
 		 String time2 = sdf.format(promotionEndtime.getTime());
 		 v.add(time1);

@@ -83,29 +83,30 @@ public interface UserBLService {
  * @see Customer.User
  */
 	public void logout(String ID);
-    /**
-     * 判断用户账号是否存在
-     * @param ID
-     * @return
-     */
+	/**
+	 * 判断账号是否存在
+	 * @param account String型，逻辑层传入的用户账号
+	 * @return 返回布尔值表示是否存在此账号
+	 * @throws  
+	 */
     public boolean judge(String account);
     /**
      * 修改密码
-     * @param userID
-     * @param newpassword
+     * @param userID String型，界面层传入的用户账号
+     * @param password String 型，界面层传入的用户密码
      */
 	public void revisepassword(String userID, String password);
 	/**
 	 * 检查密码是否正确
-	 * @param userID
-	 * @param password
-	 * @return 
+	 * @param userID String型，界面层传入的用户账号
+     * @param password String 型，界面层传入的用户密码
+     * @return 返回布尔值表示密码是否正确
 	 */
 	public boolean checkoldPassword(String userID, String password);
 	/**
-	 * 根据对应等级获得折扣
-	 * @param level
-	 * @return
+	 * 获取对应等级的折扣
+	 * @param level int 型，界面层传入的会员等级
+	 * return 返回此等级对应的折扣
 	 */
 	public Double getDiscount(int level);
 	/**
@@ -114,8 +115,8 @@ public interface UserBLService {
 	public void updateAllLevel();
 	/**
 	 * 显示信用等级
-	 * @param id
-	 * @return
+	 * @param id String 型，界面层传入的客户账户
+	 * @return 返回此账号的信用等级
 	 */
 	public int showLevel(String id);
 }

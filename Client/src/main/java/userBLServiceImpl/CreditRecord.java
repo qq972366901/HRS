@@ -71,8 +71,8 @@ public class CreditRecord {
 	 * @see VO.CreditRecordVO
 	 */
 	public HashMap<String,CreditRecordVO> showCreditRecord(String id){
-		System.out.println("show");
-		System.out.println(map.size());
+		//System.out.println("show");
+		//System.out.println(map.size());
 		return map.get(id);
 	}
 	/**
@@ -104,5 +104,13 @@ public class CreditRecord {
 	 */
 	public CreditRecordVO getCreditRecord(String userID,String orderID){
 		return map.get(userID).get(orderID);
+	}
+	/**
+	 * 返回某客户信用记录的条数，仅用于测试，无业务需求
+	 * @param id
+	 * @return
+	 */
+	public int sizeOfRecord(String id){
+		return map.get(id).size();
 	}
 }

@@ -32,21 +32,6 @@ public class CreditRecordVO{
 		creditchange=cre;
 		currentcredit=cur;
 	}
-
-	public CreditRecordVO() {
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-     * 更新信用记录信息
-     * 
-     * @param creRco CreditRecord型，一个用来更新数据的信用记录对象
-     * @return 
-     * @see Object.CreditRecord
-     */
-	public void update(CreditRecordVO creRco) {
-		
-	}
 	
 	/**
      * 创建信用记录对象
@@ -64,5 +49,38 @@ public class CreditRecordVO{
 		currentcredit=po.getCurrentcredit();
 	}
 	
+	public Vector<String> getVector(){
+		Vector<String> v=new Vector<String>();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		String time1 = sdf.format(time.getTime());
+		v.add(time1);
+		v.add(orderID);
+		v.add(translate(action));
+		v.add(String.valueOf(creditchange));
+		v.add(String.valueOf(currentcredit));
+		return v;
+	}
+	private String translate(Operate operate){
+		String str="";
+		if(operate.equals(Operate.Done)){
+			str="执行订单";
+		}
+		else if(operate.equals(Operate.Appeal)){
+			str="订单申诉";
+		}
+		else if(operate.equals(Operate.Cancel)){
+			str="订单撤销";
+		}
+		else if(operate.equals(Operate.Recharge)){
+			str="信用充值";
+		}
+		else if(operate.equals(Operate.Abnormal)){
+			str="订单超时/异常";
+		}
+		else if(operate.equals(Operate.Delayed)){
+			str="订单延时";
+		}
+		return str;
+	}
 }
 

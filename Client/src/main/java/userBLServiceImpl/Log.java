@@ -78,7 +78,7 @@ public class Log {
 	public void revisepassword(String userID, String password) throws RemoteException {
 		if(list.containsKey(userID)){
 			list.get(userID).userpassword=password;
-			dh.modifyPassword(userID,userID);
+			dh.modifyPassword(userID,password);
 		}
 	}
 	/**
@@ -94,6 +94,10 @@ public class Log {
 			return "No Such User";
 		}
 	}
+	/**
+	 * 得到LogVO列表的长度
+	 * @return
+	 */
 	public int getNumber(){
 		return list.size();
 	}
@@ -150,5 +154,16 @@ public class Log {
 			return key.get(id);
 		}
 		return null;
+	}
+	/**
+	 * 返回此账号的登录情况，仅用于测试，无业务需求
+	 * @param id String 测试部分传入的用户账号
+	 * @return 此账号的登录情况
+	 */
+	public boolean logstate(String id){
+		if(list.containsKey(id)){
+			return list.get(id).inorout;
+		}
+		return false;
 	}
 }

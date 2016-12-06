@@ -80,13 +80,6 @@ public class Customer {
 	public void updateUserInfo(UserVO vo) throws RemoteException{
 		if(map.containsKey(vo.id)){
 			map.put(vo.id, vo);
-			SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
-			System.out.println(sdf.format(vo.birthday.getTime()));
-			System.out.println(vo.id);
-			System.out.println(vo.contactway);
-			System.out.println(vo.username);
-			System.out.println(vo.membertype);
-			System.out.println(vo.enterprise);
 			UserPO userpo=new UserPO(vo.username,Log.getLogInstance().getPassword(vo.id),vo.id,vo.contactway,vo.membertype,vo.type,vo.birthday,vo.enterprise);
 			UserDataService dh=(UserDataService) df.getDataService("User");
 			dh.update(userpo);

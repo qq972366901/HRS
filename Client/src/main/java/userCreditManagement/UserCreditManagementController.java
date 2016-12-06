@@ -12,8 +12,8 @@ import userBLServiceImpl.PromotionInfo;
 public class UserCreditManagementController {
 		/**
 		 * 更新会员等级
-		 * @param in MessageInput型，界面输入的更新信息
-		 * @return 返回ResultMessage的一个枚举值
+		 * @param id String型，界面传入的客户账户
+		 * @param credit long型，界面层传入的信用值
 		 * @throws RemoteException 
 		 * @see bussinesslogic.Customer
 		 */
@@ -22,10 +22,7 @@ public class UserCreditManagementController {
 		}
 		/**
 		 * 根据信用记录更新信用值
-		 * @param in MessageInput型，界面输入的更新信息
-		 * @return 返回ResultMessage的一个枚举值
-		 * @throws RemoteException 
-		 * @throws ParseException 
+		 * @param vo CreditRecordVO型，界面输入的信用记录
 		 * @see bussinesslogic.Customer
 		 */
 		public void updateCreditRecord(CreditRecordVO vo) throws RemoteException, ParseException {
@@ -33,8 +30,8 @@ public class UserCreditManagementController {
 		}
 		/**
 		 * 根据会员等级提供折扣
-		 * @param level
-		 * @return
+		 * @param level Integer型，界面层传入的会员等级
+		 * @return 返回此等级的折扣
 		 */
 		public Double getDiscount(Integer level) {
 			PromotionInfo mg=new PromotionMemberGradeController();

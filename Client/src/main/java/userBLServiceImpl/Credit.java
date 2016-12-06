@@ -101,14 +101,16 @@ public class Credit {
 	/**
 	 * 更新所有客户的会员等级
 	 */
-	public void updateAllLevel() {
+	public boolean updateAllLevel() {
 		Iterator<String> it=map.keySet().iterator(); 
 		while(it.hasNext()){   
 		   try {
-			updateLevel(it.next(),map.get(it.next()).credit);
-		} catch (RemoteException e) {
-			e.printStackTrace();
+			   updateLevel(it.next(),map.get(it.next()).credit);
+		   } catch (RemoteException e) {
+			   e.printStackTrace();
+			   return false;
+		   }
 		}
-		}  
+		return true;
 	}
 }

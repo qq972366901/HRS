@@ -75,7 +75,6 @@ public class Account{
 	public void update(UserVO vo,String password) throws RemoteException{
 		if(vo.type.equals(UserType.Customer)){
 			Customer.getUserInstance().updateUserInfo(vo);
-			Log.getLogInstance().revisepassword(vo.id, password);
 		}
 		else{
 			AccountInfo user=new AccountInfo(vo.username,password,vo.id,vo.contactway,vo.membertype,vo.type,vo.birthday,vo.enterprise,(long)-1,-1);
@@ -83,6 +82,7 @@ public class Account{
 			UserPO po=new UserPO(vo.username,password,vo.id,vo.contactway,vo.membertype,vo.type,vo.birthday,vo.enterprise);
 			dh.update(po);
 		}
+		Log.getLogInstance().revisepassword(vo.id, password);
 	}
 	/**
 	 * 更新工作人员的联系方式
@@ -119,13 +119,17 @@ public class Account{
 	 * @throws RemoteException
 	 * @see VO.UserVO
 	 */
-	public void add(UserVO vo,String password) throws RemoteException{
+	public boolean add(UserVO vo,String password) throws RemoteException{
 		if(worker.containsKey(vo.id)){
 			AccountInfo user=new AccountInfo(vo.username,password,vo.id,vo.contactway,vo.membertype,vo.type,vo.birthday,vo.enterprise,(long)-1,-1);
 			worker.put(vo.id, user);
 			Log.getLogInstance().add(vo.id, new LogVO(password,vo.id,false));
 			UserPO po=new UserPO(vo.username,password,vo.id,vo.contactway,vo.membertype,vo.type,vo.birthday,vo.enterprise);
 			dh.update(po);
+			return true;
+		}
+		else{
+			return false;
 		}
 	}
 	/**

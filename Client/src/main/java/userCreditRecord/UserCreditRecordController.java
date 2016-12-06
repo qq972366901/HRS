@@ -9,8 +9,8 @@ import userBLServiceImpl.CreditRecord;
 public class UserCreditRecordController{
 	/**
 	* 显示信用值
-	* @param in MessageInput型，界面输入用户ID
-	* @return String型，返回客户的信用值
+	* @param userID String型，界面输入用户ID
+	* @return 返回此用户的信用值
 	 * @throws RemoteException 
 	* @see bussinesslogic.Customer
 	*/
@@ -22,7 +22,6 @@ public class UserCreditRecordController{
 	 * @param id String型，界面传入的客户账号
 	 * @return 返回信用记录列表
 	 * @throws RemoteException 
-	 * @throws ParseException 
 	 * @see Customer.User
 	 */
 	public HashMap<String,CreditRecordVO> showCreditRecord(String userID) throws RemoteException, ParseException {

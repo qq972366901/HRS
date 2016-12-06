@@ -53,10 +53,7 @@ public class DES {
         try {  
             DESKeySpec dks = new DESKeySpec(key);  
             SecretKeyFactory factory = SecretKeyFactory.getInstance(KEY_DES);  
-            secretKey = factory.generateSecret(dks);  
-  
-            // 当使用其他对称加密算法时，如AES、Blowfish等算法时，用下述代码替换上述三行代码  
-//            secretKey = new SecretKeySpec(key, KEY_DES);  
+            secretKey = factory.generateSecret(dks);   
         } catch (InvalidKeyException e) {
         	System.out.println("InvalidKey");
             e.printStackTrace();  
@@ -169,8 +166,7 @@ public class DES {
      * @return 字符串 
      */  
     private static String byteToHexString(byte b) {  
-        int ret = b;  
-        //System.out.println("ret = " + ret);  
+        int ret = b;   
         if (ret < 0) {  
             ret += 256;  
         }  
@@ -224,10 +220,10 @@ public class DES {
     /*
     public static void main(String[] args) {  
         String key = DES.init(); 
-        key="2a3gnZirRRY=";
+        key="BNl1E0PmHGs=";
         System.out.println("DES密钥:\n" + key);  
   
-        String word = "2";  
+        String word = "3";  
           
   
         String encWord = encryptDES(word, key);  

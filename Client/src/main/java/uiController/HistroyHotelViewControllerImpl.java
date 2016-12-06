@@ -14,7 +14,7 @@ public class HistroyHotelViewControllerImpl implements HistroyHotelViewControlle
 	private HistroyHotelView view;
 	private String id;
 	private HotelBLService hotel;
-	private UserVO vo1;
+	//private UserVO vo1;
 	private List<HotelVO> list;
 	public HistroyHotelViewControllerImpl(String id){
 		this.id=id;
@@ -29,8 +29,8 @@ public class HistroyHotelViewControllerImpl implements HistroyHotelViewControlle
 	}
 	@Override
 	public List<String> getHotelName(String id) {		
-		vo1=new UserVO();
-		vo1.id=id;
+		//vo1=new UserVO();
+		//vo1.id=id;vo1有用吗？
 		list=hotel.getHistoryHotel(id);
 		List<String> listi=new ArrayList<String>();
         for(HotelVO vo:list){

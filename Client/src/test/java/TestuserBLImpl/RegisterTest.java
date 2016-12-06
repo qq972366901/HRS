@@ -10,30 +10,29 @@ import org.junit.Test;
 
 import VO.UserVO;
 import common.UserType;
-import runner.ClientRunner;
 import userBLServiceImpl.Register;
 
 public class RegisterTest {
-	private Register register;
-	UserVO user1;
+	Calendar c=Calendar.getInstance();
+	UserVO vo;
+	Register register;
 	@Before
-	public void setUp(){
-		/*
-		try {
-			ClientRunner cr = new ClientRunner();
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
-		Calendar time1=Calendar.getInstance();
-		time1.set(2016,11,11);
-		user1=new UserVO("1","1","1234567","普通会员",UserType.Customer,time1,"");
+	public void setUp() throws RemoteException{
+		vo=new UserVO("张三","2","11111111111","普通会员",UserType.Customer,c,"");
 		register=new Register();
 	}
+	
 	@Test
 	public void testAdd() throws RemoteException {
-		register.add(user1,"1234567");
-		assertEquals(user1,register.getUser(user1.id));// TODO
+		boolean result=register.add(vo,"1"); 
+		assertEquals(false,result); 
+	}
+
+	@Test
+	public void testGetUser() {
+		String id="ac4410375dd760d1";
+		UserVO vo=register.getUser(id);
+		assertEquals("3fc094e5553cf",vo.username);
 	}
 
 }

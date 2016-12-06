@@ -24,7 +24,11 @@ import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 import VO.WebPromotionVO;
 import uiService.WebPromotionStrategyUiService;
-
+/**
+ * 网站营销策略界面
+ * @author LZ
+ *
+ */
 public class WebPromotionStrategyView  extends JPanel{
 	/**
 	 * 

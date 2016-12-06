@@ -1,8 +1,6 @@
 package VO;
 
 import java.util.Calendar;
-import java.util.Vector;
-
 import PO.UserPO;
 import common.UserType;
 
@@ -41,9 +39,7 @@ public class UserVO{
 		birthday=user.getBirthday();
 		enterprise=user.getEnterprise();
 	}
-	public UserVO() {
-		// TODO Auto-generated constructor stub
-	}
+	
 	/**
      * 更新用户信息
      * 

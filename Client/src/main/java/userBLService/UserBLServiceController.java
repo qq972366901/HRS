@@ -44,6 +44,7 @@ public class UserBLServiceController implements UserBLService {
 		try {
 			return userInfomationMaintenanceController.findByID(userID);
 		} catch (RemoteException e) {
+			System.out.println("获取用户信息失败");
 			e.printStackTrace();
 		}
 		return null;
@@ -58,6 +59,7 @@ public class UserBLServiceController implements UserBLService {
 		try {
 			userInfomationMaintenanceController.update(vo);
 		} catch (RemoteException e) {
+			System.out.println("更新客户信息失败");
 			e.printStackTrace();
 		}
 	}
@@ -72,19 +74,21 @@ public class UserBLServiceController implements UserBLService {
 		try {
 			return userManagementController.add(vo,password);
 		} catch (RemoteException e) {
+			System.out.println("新增客户信息失败");
 			e.printStackTrace();
 		}
 		return false;
 	}
 	/**
 	 * 删除客户信息
-	 * @param id String型，界面选择的用户
+	 * @param id String型，界面选择的用户账号
 	 * @see Customer.User
 	 */
 	public void delete(String id) {
 		try {
 			userManagementController.delete(id);
 		} catch (RemoteException e) {
+			System.out.println("删除用户失败");
 			e.printStackTrace();
 		}
 	}
@@ -99,6 +103,7 @@ public class UserBLServiceController implements UserBLService {
 		try {
 			return userCreditRecordController.showCredit(userID);
 		} catch (RemoteException e) {
+			System.out.println("获取信用值失败");
 			e.printStackTrace();
 		}
 		return 0;
@@ -113,6 +118,7 @@ public class UserBLServiceController implements UserBLService {
 		try {
 			userCreditManagementController.updateLevel(id,credit);
 		} catch (RemoteException e) {
+			System.out.println("更新会员等级失败");
 			e.printStackTrace();
 		}
 	}
@@ -127,8 +133,10 @@ public class UserBLServiceController implements UserBLService {
 			userCreditManagementController.updateCreditRecord(vo);
 			updateLevel(vo.account,vo.currentcredit);
 		} catch (RemoteException e) {
+			System.out.println("rmi失败");
 			e.printStackTrace();
 		} catch (ParseException e) {
+			System.out.println("解析失败");
 			e.printStackTrace();
 		}
 	}
@@ -142,19 +150,21 @@ public class UserBLServiceController implements UserBLService {
 		try {
 			userRegisterAndLogController.register(vo,password);
 		} catch (RemoteException e) {
+			System.out.println("客户注册失败");
 			e.printStackTrace();
 		}
 	}
 	/**
 	 * 客户登录
 	 * @param ID String型，界面输入的用户账号
-	 * @param password型，界面输入的用户账号
+	 * @param password String型，界面输入的用户账号
 	 * @see Customer.User
 	 */
 	public boolean login(String ID, String password){
 		try {
 			return userRegisterAndLogController.login(ID, password);
 		} catch (RemoteException e) {
+			System.out.println("客户登录失败");
 			e.printStackTrace();
 		}
 		return false;
@@ -170,23 +180,25 @@ public class UserBLServiceController implements UserBLService {
 	/**
 	 * 信用记录显示
 	 * @param id String型，界面传入的客户账号
-	 * @return 返回信用记录列表
-	 * @throws  
-	 * @throws  
+	 * @return 返回信用记录列表 
 	 * @see Customer.User
 	 */
 	public HashMap<String,CreditRecordVO> showCreditRecord(String userID){
 		try {
 			return userCreditRecordController.showCreditRecord(userID);
 		} catch (RemoteException e) {
+			System.out.println("rmi失败");
 			e.printStackTrace();
 		} catch (ParseException e) {
+			System.out.println("解析失败");
 			e.printStackTrace();
 		}
 		return new HashMap<String,CreditRecordVO>();
 	}
 	/**
 	 * 判断账号是否存在
+	 * @param account String型，逻辑层传入的用户账号
+	 * @return 返回布尔值表示是否存在此账号
 	 * @throws  
 	 */
 	@Override
@@ -194,18 +206,24 @@ public class UserBLServiceController implements UserBLService {
 		try {
 			return userManagementController.judge(account);
 		} catch (RemoteException e) {
+			System.out.println("判断失败");
 			e.printStackTrace();
 		}
 		return false;
 	}
     /**
      * 修改密码
+     * @param userID String型，界面层传入的用户账号
+     * @param password String 型，界面层传入的用户密码
      */
 	public void revisepassword(String userID, String password){
 		userRegisterAndLogController.revisepassword(userID, password);
 	}
 	/**
 	 * 检查密码是否正确
+	 * @param userID String型，界面层传入的用户账号
+     * @param password String 型，界面层传入的用户密码
+     * @return 返回布尔值表示密码是否正确
 	 */
 	@Override
 	public boolean checkoldPassword(String userID, String password) {
@@ -213,6 +231,8 @@ public class UserBLServiceController implements UserBLService {
 	}
 	/**
 	 * 获取对应等级的折扣
+	 * @param level int 型，界面层传入的会员等级
+	 * return 返回此等级对应的折扣
 	 */
 	@Override
 	public Double getDiscount(int level) {
@@ -220,6 +240,7 @@ public class UserBLServiceController implements UserBLService {
 	}
 	/**
 	 * 更新所有客户的会员等级
+	 * 
 	 */
 	@Override
 	public void updateAllLevel() {
@@ -227,8 +248,8 @@ public class UserBLServiceController implements UserBLService {
 	}
 	/**
 	 * 显示信用等级
-	 * @param id
-	 * @return
+	 * @param id String 型，界面层传入的客户账户
+	 * @return 返回此账号的信用等级
 	 */
 	public int showLevel(String id){
 		return userInfomationMaintenanceController.showLevel(id);
