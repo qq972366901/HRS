@@ -52,9 +52,6 @@ public class DataFactoryMySqlImpl extends UnicastRemoteObject implements DataFac
 	 */
 	@Override
 	public DataService getDataService(String type) throws RemoteException{
-		if(type.equals("Order")){
-			return OrderDataServiceMySqlImpl.getInstance();
-		}
 		return dataService.get(type);
 	}
 }

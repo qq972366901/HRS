@@ -42,7 +42,7 @@ public class reviseInformationViewControllerImpl implements reviseInformationVie
 			if(!vector.get(i).equals("")){
 				switch(i){
 				case 0:vo.username=vector.get(i);break;
-				case 1:SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd");
+				case 1:SimpleDateFormat sdf= new SimpleDateFormat("yyyy/MM/dd");
 				       Calendar cal=Calendar.getInstance();
 				       try {
 						cal.setTime(sdf.parse(vector.get(i)));

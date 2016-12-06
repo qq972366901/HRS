@@ -46,7 +46,7 @@ public class OrderDataHelperImpl implements OrderDataHelper{
 	@Override
 	public void insert(OrderPO po) {
 		init();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		String in = sdf.format(po.getExpectedCheckIn().getTime());
 		String out = sdf.format(po.getExpectedCheckOut().getTime());
 		String late = sdf.format(po.getLatest().getTime());
@@ -73,7 +73,7 @@ public class OrderDataHelperImpl implements OrderDataHelper{
 	@Override
 	public void update(OrderPO po) {
 		init();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		String in = sdf.format(po.getExpectedCheckIn().getTime());
 		String out = sdf.format(po.getExpectedCheckOut().getTime());
 		String late = sdf.format(po.getLatest().getTime());
@@ -158,7 +158,7 @@ public class OrderDataHelperImpl implements OrderDataHelper{
 			return null;
 		}
 		else{
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Calendar cal=Calendar.getInstance();
 		try {
 			cal.setTime(sdf.parse(date));

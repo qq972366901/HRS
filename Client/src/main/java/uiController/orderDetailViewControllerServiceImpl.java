@@ -68,7 +68,7 @@ public class orderDetailViewControllerServiceImpl implements orderDetailViewCont
 			list.add(""+vo.orderValue);
 			list.add(""+vo.numOfPerson);
 			list.add(""+vo.roomNumber);
-			SimpleDateFormat sdf =new SimpleDateFormat("yyyy-MM-dd");
+			SimpleDateFormat sdf =new SimpleDateFormat("yyyy/MM/dd");
 			list.add(sdf.format(vo.expectedCheckIn.getTime()));
 			list.add(sdf.format(vo.expectedCheckOut.getTime()));
 			if(vo.score==0){

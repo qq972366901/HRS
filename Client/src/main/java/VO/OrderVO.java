@@ -89,26 +89,26 @@ public class OrderVO extends  Vector<String>{
     	}
     }
     public void addcancel(){
-    	SimpleDateFormat sdf =new SimpleDateFormat("yyyy-MM-dd");
+    	SimpleDateFormat sdf =new SimpleDateFormat("yyyy/MM/dd");
     	this.add(sdf.format(this.cancel.getTime()));
     }
     public void addcomment(){
     	this.add(comment);
     }
     public void addlatest(){
-    	SimpleDateFormat sdf =new SimpleDateFormat("yyyy-MM-dd");
+    	SimpleDateFormat sdf =new SimpleDateFormat("yyyy/MM/dd");
     	this.add(sdf.format(this.latest.getTime()));
     }
     public void addgeenerationTim(){
-    	SimpleDateFormat sdf =new SimpleDateFormat("yyyy-MM-dd");
+    	SimpleDateFormat sdf =new SimpleDateFormat("yyyy/MM/dd");
     	this.add(sdf.format(generationTime.getTime()));
     }
     public void addexpectedCheckIn(){
-    	SimpleDateFormat sdf =new SimpleDateFormat("yyyy-MM-dd");
+    	SimpleDateFormat sdf =new SimpleDateFormat("yyyy/MM/dd");
     	this.add(sdf.format(expectedCheckIn.getTime()));
     }
     public void addexpectedCheckOut(){
-    	SimpleDateFormat sdf =new SimpleDateFormat("yyyy-MM-dd");
+    	SimpleDateFormat sdf =new SimpleDateFormat("yyyy/MM/dd");
     	this.add(sdf.format(expectedCheckOut.getTime()));
     }
     public void addroomType(){
