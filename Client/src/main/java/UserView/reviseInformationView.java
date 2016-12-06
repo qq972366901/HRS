@@ -173,7 +173,7 @@ public class reviseInformationView extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				Vector<String> data=new Vector<String>();
 				data.add(nameinput.getText());
-				data.add(""+(int)y.getSelectedItem()+"-"+(int)m.getSelectedItem()+"-"+
+				data.add(""+(int)y.getSelectedItem()+"/"+(int)m.getSelectedItem()+"/"+
 				(int)d.getSelectedItem());
 				data.add(telinput.getText());
 				System.out.println(telinput.getText());

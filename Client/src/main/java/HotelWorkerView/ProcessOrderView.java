@@ -298,7 +298,7 @@ public class ProcessOrderView extends JPanel{
 			if(!list.isEmpty()){
 				for (OrderVO orderVo : controller.getCanceledOrders(hotelId)) {
 					orderListModel.addRow(orderVo);
-				}
+				} 
 			}
 			//设置控件可用类型
 			cancel.setEnabled(false);

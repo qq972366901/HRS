@@ -67,4 +67,19 @@ public class OrderLineItem {
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * 根据订单编号返回相应的客户账号
+	 * @param OrderID String，订单编号
+	 * @return String 客户账号
+	 */
+	public String getUserID(String OrderID){
+		try {
+			return orderData.find(OrderID).getUserID();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
 }

@@ -50,7 +50,7 @@ public class CreditViewControllerImpl implements CreditViewControllerService {
 		while(it.hasNext()){
 			CreditRecordVO vo=it.next().getValue();
 			Vector<String> vector=new Vector<String>();
-			SimpleDateFormat sdf =new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			SimpleDateFormat sdf =new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 			vector.add(sdf.format(vo.time.getTime()));
 			vector.add(vo.orderID);
 			vector.add(translate(vo.action));
