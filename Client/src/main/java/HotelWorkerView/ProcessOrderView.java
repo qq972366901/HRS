@@ -420,8 +420,7 @@ public class ProcessOrderView extends JPanel{
 				Calendar calendar=Calendar.getInstance();
 				String userID=controller.getUserID(orderNo);
 				controller.recover(calendar,orderNo,Operate.Appeal,stra,value,userID);
-				//将异常订单的状态改为已撤销，需要记录撤销时间
-				controller.dealwithAbnormalOrder(orderNo);
+				controller.dealwithAbnormalOrder(userID,orderNo);
 				orderListModel.removeRow(index);
 				cancelFrame.dispose();
 			}

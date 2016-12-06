@@ -165,4 +165,9 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 		return orderService.getUserID(orderNo);
 	}
 
+	@Override
+	public void dealwithAbnormalOrder(String userID, String orderNo) {
+		orderService.cancel(userID, orderNo);
+	}
+
 }

@@ -41,4 +41,6 @@ public interface ProcessOrderUiService {
 
 	public String getUserID(String orderNo);
 
+	public void dealwithAbnormalOrder(String userID, String orderNo);
+
 }
