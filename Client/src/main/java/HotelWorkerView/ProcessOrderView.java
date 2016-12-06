@@ -390,14 +390,11 @@ public class ProcessOrderView extends JPanel{
 	}
 
 	public void cancelAbnormalOrder() {
-		// TODO Auto-generated method stub
 		int index = orderTable.getSelectedRow();
 		if(index == -1){
 			JOptionPane.showMessageDialog(null, "请选择订单！","", JOptionPane.ERROR_MESSAGE);
 			return;
 		}
-		
-		final int rowIndex = index;
 		final String orderNo =(String)orderTable.getValueAt(index, 0);
 		final int value=(int) orderTable.getValueAt(index, 6);
 		cancelFrame = new JFrame();
@@ -423,6 +420,7 @@ public class ProcessOrderView extends JPanel{
 				Calendar calendar=Calendar.getInstance();
 				String userID=controller.getUserID(orderNo);
 				controller.recover(calendar,orderNo,Operate.Appeal,stra,value,userID);
+				orderListModel.removeRow(index);
 			}
 		});
 		JButton Cancel=new JButton("取消");
