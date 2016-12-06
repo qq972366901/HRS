@@ -129,4 +129,12 @@ public class OrderManagementController{
 				e.printStackTrace();
 			}
 	}
+	/**
+	 * 根据订单编号获取客户账户
+	 * @param orderNo String型，订单编号
+	 * @return String返回拥有此订单的账号
+	 */
+	public String getUserID(String orderNo) {
+		return order.getUserID(orderNo);
+	}
 }

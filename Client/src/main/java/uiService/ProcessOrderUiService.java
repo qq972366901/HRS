@@ -39,4 +39,6 @@ public interface ProcessOrderUiService {
 
 	public List<OrderVO> getCanceledOrders(String hotelId);
 
+	public String getUserID(String orderNo);
+
 }

@@ -293,4 +293,11 @@ public class OrderBLServiceController implements OrderBLService{
 	public List<OrderVO> getCanceledOrders(String hotelId) {
 		return null;
 	}
+	/**
+	 * 根据订单编号获取客户账户
+	 */
+	@Override
+	public String getUserID(String orderNo) {
+		return management.getUserID(orderNo);
+	}
 }

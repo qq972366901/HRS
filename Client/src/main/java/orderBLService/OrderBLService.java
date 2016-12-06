@@ -211,4 +211,10 @@ public interface OrderBLService {
 	 * @return boolean，能生成则返回true，若没有房间则返回false
 	 */
 	public boolean whetherMake(int numsOfRoom,String RoomType,String hotelID);
+	/**
+	 * 
+	 * @param orderNo String型，订单编号
+	 * @return String返回拥有此订单的客户账户
+	 */
+	public String getUserID(String orderNo);
 }

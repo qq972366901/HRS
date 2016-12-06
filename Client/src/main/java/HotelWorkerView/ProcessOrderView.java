@@ -421,8 +421,7 @@ public class ProcessOrderView extends JPanel{
 			public void actionPerformed(ActionEvent arg0) {
 				String stra=(String) strategy.getSelectedItem();
 				Calendar calendar=Calendar.getInstance();
-				String userID="1";
-				//我需要一个通过订单编号查找用户账号的方法来获得userID
+				String userID=controller.getUserID(orderNo);
 				controller.recover(calendar,orderNo,Operate.Appeal,stra,value,userID);
 			}
 		});
@@ -440,12 +439,10 @@ public class ProcessOrderView extends JPanel{
 	}
 
 	public void enableCancel() {
-		// TODO Auto-generated method stub
 		cancel.setEnabled(true);
 	}
 
 	public void disableCancel() {
-		// TODO Auto-generated method stub
 		cancel.setEnabled(false);
 	}
 

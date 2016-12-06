@@ -157,5 +157,12 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 	public List<OrderVO> getCanceledOrders(String hotelId) {
 		return orderService.getCanceledOrders(hotelId);
 	}
+	/**
+	 * 根据订单编号获取用户账号
+	 */
+	@Override
+	public String getUserID(String orderNo) {
+		return orderService.getUserID(orderNo);
+	}
 
 }
