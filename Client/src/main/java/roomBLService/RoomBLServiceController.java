@@ -7,6 +7,7 @@ import VO.RoomVO;
 import common.MessageInput;
 import common.ResultMessage;
 import roomAvailable.RoomAvailableController;
+import roomList.RoomListController;
 import roomUpdate.RoomUpdateController;
 /**
  * 负责实现房间功能的服务接口
@@ -16,10 +17,13 @@ public class RoomBLServiceController implements RoomBLService {
 	
 	RoomUpdateController roomUpdateController;
 	RoomAvailableController roomAvailableController;
+	RoomListController roomListController;
+	
 	
 	public RoomBLServiceController() {
 		roomUpdateController = new RoomUpdateController();
 		roomAvailableController = new RoomAvailableController();
+		roomListController = new RoomListController();
 	}
 	
 	/**
@@ -53,7 +57,15 @@ public class RoomBLServiceController implements RoomBLService {
 	public void updateRoomState(String hotelID, String roomType,int roomNumber) {
 		roomUpdateController.updateRoomState(hotelID, roomType, roomNumber);
 	}
-	
+	/**
+     * 得到酒店的所有空闲房间的最低价格，若无空闲房间，返回 -1 
+     * 
+     * @param hotelID String型，酒店ID
+     * @return 此酒店的所有空闲房间的最低价格
+     */
+	public int getRoomLowestPrice(String hotelID) {
+		return roomListController.getRoomLowestPrice(hotelID);
+	}
 	
 	
 	
