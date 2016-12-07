@@ -35,7 +35,13 @@ public interface RoomBLService {
      * @param roomNumber String型，预定的房间数量
      */
 	public void updateRoomState(String hotelID, String roomType,int roomNumber);
-	
+	/**
+     * 得到酒店的所有空闲房间的最低价格，若无空闲房间，返回 -1 
+     * 
+     * @param hotelID String型，酒店ID
+     * @return 此酒店的所有空闲房间的最低价格
+     */
+	public int getRoomLowestPrice(String hotelID);
 	
 	
 	

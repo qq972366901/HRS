@@ -45,4 +45,20 @@ public class RoomAllOfHotel {
 		return this.list;
 	}
 	
+	public int getLowestPrice() {
+		int low = -1;
+		for(RoomVO rvo : list) {
+			if(rvo.roomStatue.equals("空闲")) {
+				low = rvo.roomPrice;
+				break;
+			}
+		}
+		for(RoomVO rvo : list) {
+			if(rvo.roomStatue.equals("空闲") && rvo.roomPrice < low) {
+				low = rvo.roomPrice;
+			}
+		}
+		return low;
+	}
+	
 }
