@@ -6,6 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.List;
+import java.util.Vector;
 
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
@@ -20,6 +22,7 @@ import javax.swing.border.EmptyBorder;
 
 import uiController.UpdateHotelInfoUiController;
 import uiService.UpdateHotelInfoUiService;
+import common.CityAndBussinessCircle;
 
 /**
  * 维护酒店基本信息的界面
@@ -45,12 +48,8 @@ public class UpdateHotelInfoView extends JPanel {
 	private JButton submitButton;
 	
 	private JComboBox<String> hotelAreaJComboBox = new JComboBox<String>();
-	private ComboBoxModel<String> aModel1 = new DefaultComboBoxModel<String>(new String[] {
-            "新街口", "仙林大学城", "浦口" });
-    private ComboBoxModel<String> aModel2 = new DefaultComboBoxModel<String>(new String[] {
-            "姑苏区", "工业园区", "昆山" });
-    private ComboBoxModel<String> aModel3 = new DefaultComboBoxModel<String>(new String[] {
-            "黄浦区", "青浦区", "浦东新区" });
+	
+	CityAndBussinessCircle cityAndCircle = new CityAndBussinessCircle();
 	
 	public UpdateHotelInfoView(UpdateHotelInfoUiService controller,String id) {
 		this.hotelID = id;
@@ -148,20 +147,21 @@ public class UpdateHotelInfoView extends JPanel {
 		JComboBox<String> hotelCityComboBox = new JComboBox<String>();
 		hotelCityPanel.add(hotelCityComboBox);
 		hotelCityComboBox.addItem("请选择城市");
-		hotelCityComboBox.addItem("南京");
-		hotelCityComboBox.addItem("苏州");
-		hotelCityComboBox.addItem("上海");
+		List<String> cities = cityAndCircle.getCity();
+		for(int i=0;i<cities.size();i++) {
+			hotelCityComboBox.addItem(cities.get(i));
+		}
 		hotelCityComboBox.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
                 	hotelCity = hotelCityComboBox.getSelectedItem().toString();
-                    if (hotelCity.equals("南京")) {
-                    	hotelAreaJComboBox.setModel(aModel1);
-                    } else if (hotelCity.equals("苏州")) {
-                    	hotelAreaJComboBox.setModel(aModel2);
-                    } else if (hotelCity.equals("上海")) {
-                    	hotelAreaJComboBox.setModel(aModel3);
-                    }
+                	Vector<String> circles = cityAndCircle.getCircle(hotelCity);
+                	String[] circleArray = new String[circles.size()];
+                	for(int i=0;i<circles.size();i++) {
+                		circleArray[i] = circles.get(i);
+                	}
+                	ComboBoxModel<String> model = new DefaultComboBoxModel<String>(circleArray);
+                	hotelAreaJComboBox.setModel(model);
                 }
             }
         });

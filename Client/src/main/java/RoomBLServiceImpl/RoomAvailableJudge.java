@@ -21,7 +21,7 @@ public class RoomAvailableJudge {
 	
 	private RoomAvailableJudge(String id) {
 		hotelID = id;
-		df=RemoteHelper.getInstance().getDataFactoryService();
+		df = RemoteHelper.getInstance().getDataFactoryService();
 		try {
 			rds = (RoomDataService)df.getDataService("Room");
 			List<RoomPO> listpo = rds.getAllRooms(hotelID);

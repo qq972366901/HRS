@@ -114,7 +114,7 @@ public interface HotelBLService {
      * @return List<OrderVO> ，客户的订单列表
      * @see bussinesslogic.Order
      */
-	public List<OrderVO> findByHotelID (String userID,String hotelID);
+	public List<OrderVO> findByHotelIDAndUserID (String userID,String hotelID);
 	
 	
 	//-----------------------------------------------------------------

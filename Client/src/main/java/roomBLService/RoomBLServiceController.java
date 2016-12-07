@@ -8,11 +8,19 @@ import common.MessageInput;
 import common.ResultMessage;
 import roomAvailable.RoomAvailableController;
 import roomUpdate.RoomUpdateController;
-
+/**
+ * 负责实现房间功能的服务接口
+ * @author 刘宗侃
+ */
 public class RoomBLServiceController implements RoomBLService {
 	
 	RoomUpdateController roomUpdateController;
 	RoomAvailableController roomAvailableController;
+	
+	public RoomBLServiceController() {
+		roomUpdateController = new RoomUpdateController();
+		roomAvailableController = new RoomAvailableController();
+	}
 	
 	/**
      * 酒店工作人员更新单个房间的状态
@@ -30,7 +38,7 @@ public class RoomBLServiceController implements RoomBLService {
      * 
      * @param hotelID String型，酒店ID
      * @param roomType String型，房型
-     * @param roomNumber String型，预定的房间数量
+     * @param roomNumber int型，预定的房间数量
      */
 	public boolean whetherSuccess(String hotelID, String roomtype,int roomNumber) {
 		return roomAvailableController.whetherSuccess(hotelID, roomtype, roomNumber);
@@ -43,7 +51,7 @@ public class RoomBLServiceController implements RoomBLService {
      * @param roomNumber String型，预定的房间数量
      */
 	public void updateRoomState(String hotelID, String roomType,int roomNumber) {
-		
+		roomUpdateController.updateRoomState(hotelID, roomType, roomNumber);
 	}
 	
 	

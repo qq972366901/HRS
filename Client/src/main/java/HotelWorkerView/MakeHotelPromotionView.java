@@ -95,7 +95,7 @@ public class MakeHotelPromotionView extends JPanel {
 		JPanel panel_3_1 = new JPanel();
 		panel_3.add(panel_3_1);
 		
-		JLabel startTimeLabel = new JLabel("活动开始时间(yyyy-MM-dd)：");
+		JLabel startTimeLabel = new JLabel("活动开始时间(yyyy/MM/dd)：");
 		startTimeLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_3.add(startTimeLabel);
 		
@@ -116,7 +116,7 @@ public class MakeHotelPromotionView extends JPanel {
 		JPanel panel_5_1 = new JPanel();
 		panel_5.add(panel_5_1);
 		
-		JLabel endTimeLabel = new JLabel("活动结束时间(yyyy-MM-dd)：");
+		JLabel endTimeLabel = new JLabel("活动结束时间(yyyy/MM/dd)：");
 		endTimeLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_5.add(endTimeLabel);
 		
@@ -228,12 +228,12 @@ public class MakeHotelPromotionView extends JPanel {
 					return;
 				}
 				String beginTimeString = startTimeTextField.getText();
-				SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd");
+				SimpleDateFormat sdf= new SimpleDateFormat("yyyy/MM/dd");
 				Date date1 = null;
 				try {
 					date1 = sdf.parse(beginTimeString);
 				} catch (ParseException e) {
-					JOptionPane.showMessageDialog(null, "请以yyyy-MM-dd格式填写时间","", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "请以yyyy/MM/dd格式填写时间","", JOptionPane.ERROR_MESSAGE);
 					return;
 				}
 				Calendar calendar1 = Calendar.getInstance();
@@ -243,7 +243,7 @@ public class MakeHotelPromotionView extends JPanel {
 				try {
 					date2 = sdf.parse(endTimeString);
 				} catch (ParseException e) {
-					JOptionPane.showMessageDialog(null, "请以yyyy-MM-dd格式填写时间","", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "请以yyyy/MM/dd格式填写时间","", JOptionPane.ERROR_MESSAGE);
 					return;
 				}
 				Calendar calendar2 = Calendar.getInstance();
