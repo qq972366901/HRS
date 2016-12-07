@@ -4,10 +4,8 @@ import common.*;
 import VO.*;
 
 /**
- * 负责实现查看成本收益表和经营情况表界面所需要的服务接口
- * @author 刘宇翔
- * @version 1.0
- * @see presentation.Room
+ * 负责实现房间功能的服务接口
+ * @author 刘宗侃
  */
 
 public interface RoomBLService {
@@ -26,7 +24,7 @@ public interface RoomBLService {
      * 
      * @param hotelID String型，酒店ID
      * @param roomType String型，房型
-     * @param roomNumber String型，预定的房间数量
+     * @param roomNumber int型，预定的房间数量
      */
 	public boolean whetherSuccess(String hotelID, String roomtype,int roomNumber);
 	/**

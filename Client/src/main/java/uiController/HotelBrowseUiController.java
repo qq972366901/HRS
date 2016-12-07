@@ -47,7 +47,7 @@ public class HotelBrowseUiController implements HotelBrowseUiService{
 		return hotel.findByHotelID(hotelID);
 	}
 	public List<OrderVO> findByHotelID (String userID,String hotelID){
-		return hotel.findByHotelID (userID,hotelID);
+		return hotel.findByHotelIDAndUserID (userID,hotelID);
 	}
 	public boolean getroominfo(HotelVO vo){
 		return hotel.getroominfo(vo);

@@ -13,7 +13,7 @@ import rmi.RemoteHelper;
 public class HotelInfoListByUser {
 
 	private String userID;
-	private List<HotelVO> list;
+	private List<HotelVO> list = new ArrayList<HotelVO>();
 	
 	private DataFactoryService df;
 	private HotelDataService hds;

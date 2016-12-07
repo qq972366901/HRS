@@ -2,25 +2,22 @@ package TestHotel;
 
 import static org.junit.Assert.*;
 
-import java.util.List;
-
 import org.junit.Test;
 
 import VO.HotelVO;
 import hotelBLService.HotelBLService;
 import hotelBLService.HotelBLServiceController;
 
-public class GetHistoryHotelTester {
+public class FindByHotelIDTester {
 
 	@Test
 	public void test() {
-
+		
 		HotelBLService hotel = new HotelBLServiceController();
 		
-		List<HotelVO> list = hotel.getHistoryHotel("01");
+		HotelVO hvo = hotel.findByHotelID("001");
+		assertEquals("001", hvo.hotelAccount);
 		
-		assertEquals(0, list.size());
-	
 	}
 
 }

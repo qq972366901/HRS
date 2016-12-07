@@ -33,7 +33,7 @@ public class HotelorderlistViewControllerImpl implements HotelorderlistViewContr
 	@Override
 	public List<OrderVO> getOrderList() {
 		List<OrderVO> list=new ArrayList<OrderVO>();
-		list=hotel.findByHotelID(userid, hotelid);
+		list=hotel.findByHotelIDAndUserID(userid, hotelid);
 		for(OrderVO vo: list){
 			vo.addorderNumber();
 			vo.addorderState();

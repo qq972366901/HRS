@@ -27,7 +27,7 @@ public class RoomUpdateController{
      * 
      * @param hotelID String型，酒店ID
      * @param roomType String型，房型
-     * @param roomNumber String型，预定的房间数量
+     * @param roomNumber int型，预定的房间数量
      */
 	public void updateRoomState(String hotelID, String roomType,int roomNumber) {
 		RoomsReserved roomsReserved = RoomsReserved.getRoomsReservedInstance(hotelID);

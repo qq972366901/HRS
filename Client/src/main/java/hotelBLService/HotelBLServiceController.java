@@ -25,6 +25,7 @@ public class HotelBLServiceController implements HotelBLService {
 	HotelInformationOverviewController hotelInformationOverviewController;
 	HotelEverorderedController hotelEverorderedController;
 	HotelInformationSearchController hotelInformationSearchController;
+	
 	public HotelBLServiceController(){
 		hotelRoomAddController=new HotelRoomAddController();
 		hotelInformationMaintenanceController=new HotelInformationMaintenanceController();
@@ -152,7 +153,7 @@ public class HotelBLServiceController implements HotelBLService {
      * @return List<OrderVO> ，客户的订单列表
      * @see bussinesslogic.Order
      */
-	public List<OrderVO> findByHotelID (String userID,String hotelID){
+	public List<OrderVO> findByHotelIDAndUserID (String userID,String hotelID){
 		return hotelEverorderedController.findByHotelID(userID, hotelID);
 	}
 	

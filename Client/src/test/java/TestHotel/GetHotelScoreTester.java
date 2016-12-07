@@ -2,24 +2,25 @@ package TestHotel;
 
 import static org.junit.Assert.*;
 
-import java.util.List;
-
 import org.junit.Test;
 
-import VO.HotelVO;
 import hotelBLService.HotelBLService;
 import hotelBLService.HotelBLServiceController;
 
-public class GetHistoryHotelTester {
+public class GetHotelScoreTester {
 
 	@Test
 	public void test() {
 
 		HotelBLService hotel = new HotelBLServiceController();
 		
-		List<HotelVO> list = hotel.getHistoryHotel("01");
+		double score = hotel.getHotelScore("001");
+		boolean equal = false;
+		if(score - 0 < 0.001 && 0 - score < 0.001) {
+			equal = true;
+		}
 		
-		assertEquals(0, list.size());
+		assertEquals(true, equal);
 	
 	}
 
