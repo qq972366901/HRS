@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import HotelRoomAdd.HotelRoomAddController;
+import HotelRoomInfo.HotelRoomInfoController;
 import VO.HotelVO;
 import VO.OrderVO;
 import Object.Hotel;
@@ -25,6 +26,7 @@ public class HotelBLServiceController implements HotelBLService {
 	HotelInformationOverviewController hotelInformationOverviewController;
 	HotelEverorderedController hotelEverorderedController;
 	HotelInformationSearchController hotelInformationSearchController;
+	HotelRoomInfoController hotelRoomInfoController;
 	
 	public HotelBLServiceController(){
 		hotelRoomAddController=new HotelRoomAddController();
@@ -32,6 +34,7 @@ public class HotelBLServiceController implements HotelBLService {
 		hotelInformationOverviewController=new HotelInformationOverviewController();
 		hotelEverorderedController=new HotelEverorderedController();
 		hotelInformationSearchController=new HotelInformationSearchController();
+		hotelRoomInfoController = new HotelRoomInfoController();
 	}
 	/**
      * 更新酒店拥有的房间类型、数量、原始价格
@@ -155,6 +158,36 @@ public class HotelBLServiceController implements HotelBLService {
      */
 	public List<OrderVO> findByHotelIDAndUserID (String userID,String hotelID){
 		return hotelEverorderedController.findByHotelID(userID, hotelID);
+	}
+	/**
+     * 得到酒店的空闲房间的房型列表
+     * 
+     * @param hotelid String型，酒店帐号
+     * @return String型，房型列表
+     */
+	public List<String> getRoomType(String hotelid) {
+		return hotelRoomInfoController.getRoomType(hotelid);
+	}
+	/**
+     * 得到酒店空闲的此房型的剩余数量
+     * 
+     * @param hotelid String型，酒店帐号
+     * @param roomType String型，房间类型
+     * @return  int型，订单总的原价
+     */
+	public int getMaxRoomNumber(String hotelid, String roomType) {
+		return hotelRoomInfoController.getMaxRoomNumber(hotelid, roomType);
+	}
+	/**
+     * 得到客户酒店房间订单的总原价
+     * 
+     * @param hotelid String型，酒店帐号
+     * @param roomType String型，房间类型
+     * @param roomNumber int型，预定房间数量
+     * @return  int型，订单总的原价
+     */
+	public int getOrderPrice(String hotelid, String roomType, int roomNumber) {
+		return hotelRoomInfoController.getOrderPrice(hotelid, roomType, roomNumber);
 	}
 	
 	

@@ -1,6 +1,7 @@
 package HotelBLServiceImpl;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.List;
 
 import PO.RoomPO;
@@ -43,7 +44,6 @@ public class HotelRoom {
 	/**
      * 更新酒店拥有的房间类型、数量、原始价格
      * 
-     * @param id String型，酒店帐号
      * @param roomType String型，房间类型
      * @param roomNumber int型，房间数量
      * @param roomPrice int型，房间原始价格
@@ -59,6 +59,39 @@ public class HotelRoom {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	public List<String> getRoomType() {
+		List<String> type = new ArrayList<String>();
+		for(RoomVO vo : list) {
+			if(vo.roomStatue.equals("空闲")) {
+				if(!type.contains(vo.roomType)) {
+					type.add(vo.roomType);
+				}
+			}
+		}
+		return type;
+	}
+	
+	public int getMaxRoomNumber(String rType) {
+		int num = 0;
+		for(RoomVO vo : list) {
+			if(vo.roomStatue.equals("空闲") && vo.roomType.equals(rType)) {
+				num++;
+			}
+		}
+		return num;
+	}
+	
+	public int getOrderPrice(String rType, int roomNumber) {
+		int onePrice = 0;
+		for(RoomVO vo : list) {
+			if(vo.roomType.equals(rType)) {
+				onePrice = vo.roomPrice;
+			}
+		}
+		int allPrice = onePrice * roomNumber;
+		return allPrice;
 	}
 	
 }
