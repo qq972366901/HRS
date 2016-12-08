@@ -1,6 +1,8 @@
 package userBLService;
 import java.util.HashMap;
 import VO.*;
+import common.UserType;
+import userBLServiceImpl.AccountInfo;
 /**
  * 负责实现用户管理界面所需要的服务接口
  * @author 刘伟
@@ -8,6 +10,13 @@ import VO.*;
  * @see Customer.User
  */
 public interface UserBLService {
+	/**
+	 * 根据用户账号和类型获取客户账户信息，供网站管理人员查看
+	 * @param type UserType型，用户类型
+	 * @param account String型，用户账号
+	 * @return 返回用户账号信息
+	 */
+	public AccountInfo getUser(UserType type,String account);
 /**
  * 根据客户ID查找客户信息并返回
  * @param  userID String型，界面输入的客户ID

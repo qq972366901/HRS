@@ -5,6 +5,8 @@ import java.text.ParseException;
 import java.util.HashMap;
 import VO.CreditRecordVO;
 import VO.UserVO;
+import common.UserType;
+import userBLServiceImpl.AccountInfo;
 import userCreditManagement.UserCreditManagementController;
 import userCreditRecord.UserCreditRecordController;
 import userInformationMaintenance.UserInformationMaintenanceController;
@@ -253,5 +255,22 @@ public class UserBLServiceController implements UserBLService {
 	 */
 	public int showLevel(String id){
 		return userInfomationMaintenanceController.showLevel(id);
+	}
+	/**
+	 * 根据用户账号和类型获取客户账户信息，供网站管理人员查看
+	 * @param type UserType型，用户类型
+	 * @param account String型，用户账号
+	 * @return 返回用户账号信息
+	 * @throws  
+	 */
+	@Override
+	public AccountInfo getUser(UserType type, String account){
+		try {
+			return userManagementController.getUser(type,account);
+		} catch (RemoteException e) {
+			System.out.println("获取用户账号信息失败");
+			e.printStackTrace();
+		}
+		return null;
 	}
 }

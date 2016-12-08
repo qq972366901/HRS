@@ -2,7 +2,9 @@ package userManagement;
 
 import java.rmi.RemoteException;
 import VO.UserVO;
+import common.UserType;
 import userBLServiceImpl.Account;
+import userBLServiceImpl.AccountInfo;
 import userBLServiceImpl.Register;
 public class UserManagementController{
 	private Register register;
@@ -35,5 +37,15 @@ public class UserManagementController{
 		 */
 		public boolean judge(String id) throws RemoteException {
 			return Account.getInstance().judgeAccount(id);
+		}
+		/**
+		 * 根据用户账号和类型获取客户账户信息，供网站管理人员查看
+		 * @param type UserType型，用户类型
+		 * @param account String型，用户账号
+		 * @return 返回用户账号信息
+		 * @throws RemoteException 
+		 */
+		public AccountInfo getUser(UserType type, String account) throws RemoteException {
+			return Account.getInstance().getUser(type, account);
 		}
 }
