@@ -41,7 +41,4 @@ public class AddHotelUiController implements  AddHotelUiService {
 			String hotelID, double hotelScore){
 		hotel.saveHotelInfo(hotelName,hotelCity, hotelArea,hoelLocation,hotelStar,hotelService,hotelIntroduction,hotelPhone, hotelID,hotelScore);
 	}
-	public ResultMessage accuntadmin(MessageInput  in){
-		return hotel.accuntadmin(in);
-	}
 }

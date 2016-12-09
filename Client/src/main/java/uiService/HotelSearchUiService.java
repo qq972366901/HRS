@@ -17,10 +17,10 @@ public interface HotelSearchUiService {
 	public List<HotelVO> getHistoryHotel(String userID);
 	public List<String> getHotelID(String city, String businessCircle, String roomType, int roomNumber,
 			int priceLow, int priceHigh, int hotelStar, int scoreLow, int scoreHigh, String everBooked,String userid);
-	public ResultMessage messagelook(HotelVO hvo);
-	public ArrayList<HotelVO> messagesearch(MessageInput in);
-	public  ArrayList<HotelVO> historylook(String  id);
-	public HotelVO pricesort(ArrayList<Hotel>  ah);
-	public HotelVO starsort(ArrayList<Hotel>  ah);
-	public HotelVO scoresort(ArrayList<Hotel>  ah);
+//	public ResultMessage messagelook(HotelVO hvo);
+//	public ArrayList<HotelVO> messagesearch(MessageInput in);
+//	public  ArrayList<HotelVO> historylook(String  id);
+//	public HotelVO pricesort(ArrayList<Hotel>  ah);
+//	public HotelVO starsort(ArrayList<Hotel>  ah);
+//	public HotelVO scoresort(ArrayList<Hotel>  ah);
 }
