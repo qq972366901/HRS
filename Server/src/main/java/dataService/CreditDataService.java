@@ -1,7 +1,9 @@
 package dataService;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.List;
 
 import PO.CreditPO;
 import PO.CreditRecordPO;
@@ -11,7 +13,7 @@ import PO.CreditRecordPO;
  * @version 1.0
  * see presentation.Credit
  */
-public interface CreditDataService  extends DataService{
+public interface CreditDataService  extends DataService,Remote{
 	/**
 	 * 按ID进行查找返回相应的CreditPO结果
 	 * @param in MessageInput型，界面输入的客户ID
@@ -47,4 +49,5 @@ public interface CreditDataService  extends DataService{
 		 * @throws RemoteException
 		 */
 	    public ArrayList<CreditPO> getAllCredit() throws RemoteException;
+		
  }

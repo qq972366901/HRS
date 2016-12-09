@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 import PO.CreditPO;
+import PO.CreditRecordPO;
 import VO.CreditRecordVO;
 import VO.CreditVO;
 import VO.MemberLevelSystemVO;
@@ -66,7 +67,10 @@ public class Credit {
 	 */
 	public void updateCredit(CreditRecordVO vo) throws RemoteException, ParseException{
 		map.get(vo.account).credit=vo.currentcredit;
-		CreditRecord.getInstance().add(vo.account, vo);
+		updateLevel(vo.account,vo.currentcredit);//更新等级
+		CreditPO po=new CreditPO(vo.account,vo.currentcredit,map.get(vo.account).level);
+		cd.update(po);
+		CreditRecord.getInstance().add(vo.account, vo);//更新信用记录
 	}
 	/**
 	 * 更新用户等级
@@ -96,6 +100,8 @@ public class Credit {
 			else{
 				map.get(id).level=4;
 			}
+			CreditPO po=new CreditPO(id,credit,map.get(id).level);
+			cd.update(po);
 		}
 	}
 	/**

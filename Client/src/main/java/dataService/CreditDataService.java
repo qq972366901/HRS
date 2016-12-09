@@ -3,10 +3,7 @@ package dataService;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
-import java.util.List;
-
 import PO.CreditPO;
-import PO.CreditRecordPO;
 
 /**负责实现信用数据储存所需要的服务接口
  * @author LZ
@@ -27,33 +24,22 @@ public interface CreditDataService  extends DataService,Remote{
 	 * @return 
 	 * @see data.CreditRecord
 	 */
-		public void insert(CreditRecordPO po) throws RemoteException;
+		public void insert(CreditPO po) throws RemoteException;
 	/**
 	 * 在数据库中删除一个po
 	 * @param po CreditRecordPO型，逻辑层传入的PO对象
 	 * @return 
 	 * @see data.CreditRecord
 	 */
-		public void delete(CreditRecordPO po) throws RemoteException;
+		public void delete(CreditPO po) throws RemoteException;
 	/**
 	 *在数据库中更新一个po
 	 * @param po CreditRecordPO型，逻辑层传入的PO对象
 	 * @return 
 	 * @see data.CreditRecord
 	 */
-		public void update(CreditRecordPO po) throws RemoteException;
-	/**
-	 * 按初始化持久化数据库
-	 * @return 
-	 * @see data.CreditRecord
-	 */
-		public void init() throws RemoteException;
-	/**
-	 * 结束持久化数据库的使用
-	 * @return 
-	 * @see data.CreditRecord
-	 */
-		public void finish() throws RemoteException;
+		public void update(CreditPO po) throws RemoteException;
+
 		/**
 		 * 获取所有CreditPO
 		 * @return
