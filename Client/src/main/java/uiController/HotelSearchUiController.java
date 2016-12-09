@@ -66,22 +66,22 @@ public class HotelSearchUiController implements HotelSearchUiService{
 			int priceLow, int priceHigh, int hotelStar, int scoreLow, int scoreHigh, String everBooked,String userid){
 		return hotel.getHotelID(city,businessCircle,roomType,roomNumber,priceLow,priceHigh,hotelStar,scoreLow,scoreHigh,everBooked,userid);
 	}
-	public ResultMessage messagelook(HotelVO hvo){
-		return hotel.messagelook(hvo);
-	}
-	public ArrayList<HotelVO> messagesearch(MessageInput in){
-		return hotel.messagesearch(in);
-	}
-	public  ArrayList<HotelVO> historylook(String  id){
-		return hotel.historylook(id);
-	}
-	public HotelVO pricesort(ArrayList<Hotel>  ah){
-		return hotel.pricesort(ah);
-	}
-	public HotelVO starsort(ArrayList<Hotel>  ah){
-		return hotel.starsort(ah);
-	}
-	public HotelVO scoresort(ArrayList<Hotel>  ah){
-		return hotel.scoresort(ah);
-	}
+//	public ResultMessage messagelook(HotelVO hvo){
+//		return hotel.messagelook(hvo);
+//	}
+//	public ArrayList<HotelVO> messagesearch(MessageInput in){
+//		return hotel.messagesearch(in);
+//	}
+//	public  ArrayList<HotelVO> historylook(String  id){
+//		return hotel.historylook(id);
+//	}
+//	public HotelVO pricesort(ArrayList<Hotel>  ah){
+//		return hotel.pricesort(ah);
+//	}
+//	public HotelVO starsort(ArrayList<Hotel>  ah){
+//		return hotel.starsort(ah);
+//	}
+//	public HotelVO scoresort(ArrayList<Hotel>  ah){
+//		return hotel.scoresort(ah);
+//	}
 }

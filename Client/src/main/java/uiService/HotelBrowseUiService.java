@@ -12,5 +12,5 @@ public interface HotelBrowseUiService {
 	public void toOrderBuildView(String id);
 	public HotelVO findByHotelID(String hotelID);
 	public List<OrderVO> findByHotelID (String userID,String hotelID);
-	public boolean getroominfo(HotelVO vo);
+//	public boolean getroominfo(HotelVO vo);
 }
