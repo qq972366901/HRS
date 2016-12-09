@@ -45,15 +45,7 @@ public class MemberRegisterUiController implements MemberRegisterUiService {
 		controller.setView(view);
 		ClientRunner.change(view);
 	}
-    /**
-     * 新建一个用户
-     * @return 
-     */
-	@Override
-	public boolean createUser(UserVO vo,String password) {
-		return user.add(vo, password);
-	}
-	
+ 
 	public void register(UserVO vo,String password){
 		user.register(vo,password);
 	}

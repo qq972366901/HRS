@@ -6,8 +6,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.rmi.RemoteException;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+import java.util.UUID;
+import java.util.Vector;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -16,6 +20,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import VO.HotelVO;
+import VO.OrderVO;
 import uiService.OrderBuildUiService;
 
 public class OrderBuildView extends JPanel{
@@ -45,7 +51,12 @@ public class OrderBuildView extends JPanel{
 		this.add(panel);
 		button1.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {
-				controller.toHotelBrowseView("id");
+				try {
+					controller.toHotelBrowseView(controller.getUserID(),controller.getHotelID());
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		Calendar ca = Calendar.getInstance();
@@ -338,6 +349,22 @@ public class OrderBuildView extends JPanel{
 		JLabel label13_1=new JLabel(" ");
 		comboBox10= new JComboBox<String>();
 		comboBox10.setPreferredSize(new Dimension(170,22));
+		List<String> typelist=new Vector<String>(controller.getRoomType(controller.getHotelID()));
+		for(String type : typelist){
+			comboBox10.addItem(type);
+		}
+		comboBox10.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent evt) {
+				if(evt.getStateChange() == ItemEvent.SELECTED){	
+				String selected=(String)comboBox10.getSelectedItem();
+				comboBox11.removeAllItems();
+				int max=controller.getMaxRoomNumber(controller.getHotelID(),selected);
+				for(int i=1;i<max+1;i++){
+					comboBox11.addItem(i);
+				}
+				}
+			}
+		});
 		panel4.add(label13);
 		panel4.add(comboBox10);
 		panel4.add(label13_1);
@@ -348,7 +375,7 @@ public class OrderBuildView extends JPanel{
 		JLabel label14_1=new JLabel(" ");
 		comboBox11= new JComboBox<Integer>();
 		comboBox11.setPreferredSize(new Dimension(170,22));
-		for(int i=1;i<101;i++){
+		for(int i=1;i<controller.getMaxRoomNumber(controller.getHotelID(),typelist.get(0))+1;i++){
 		    comboBox11.addItem(i);
 			}
 		panel5.add(label14);
@@ -410,212 +437,154 @@ public class OrderBuildView extends JPanel{
 				     comboBox1.removeAllItems();
 				     comboBox2.removeAllItems();
 				     comboBox3.removeAllItems();
-				     label9.setText("订单最晚执行时间:"+nowyear+"年"+nowmonth+"月"+nowday+"日当晚凌晨12点整");
-					if((nowmonth==12&&nowday==30)||(nowmonth==12&&nowday==31)){
-					    comboBox1.addItem(nowyear);
-					    comboBox1.addItem(nowyear+1);
+				     year=nowyear;
+				     month=nowmonth;
+				     day=nowday;
+					if((month==12&&day==30)||(month==12&&day==31)){
+					    comboBox1.addItem(year);
+					    comboBox1.addItem(year+1);
 					}
 					else{
-						comboBox1.addItem(nowyear);
+						comboBox1.addItem(year);
 					}
-
-					
-					comboBox1.addItemListener(new ItemListener() {
-						public void itemStateChanged(ItemEvent evt) {
-							if(evt.getStateChange() == ItemEvent.SELECTED){		
-							int	selected=(int)comboBox1.getSelectedItem();
-							comboBox2.removeAllItems();
-							if(selected==nowyear){
-							if(((nowday==30||nowday==31)&&nowmonth!=12)||(nowday==29&&(nowmonth==2||nowmonth==4||nowmonth==6||nowmonth==9||nowmonth==11))||(nowmonth==2&&(nowday==28||nowday==27))){
-								comboBox2.addItem(nowmonth);
-								comboBox2.addItem(nowmonth+1);
-							}
-							if((nowday==30||nowday==31)&&nowmonth==12){
-								comboBox2.addItem(nowmonth);
-								comboBox2.addItem(1);
-							}
-							else{
-								comboBox2.addItem(nowmonth);
-							}
-							}
-							else if(selected==nowyear+1){
-								comboBox2.addItem(1);
-							}
-							label9.setText("订单最晚执行时间:"+comboBox1.getSelectedItem()+"年"+comboBox2.getSelectedItem()+"月"+comboBox3.getSelectedItem()+"日当晚凌晨12点整");
-							}
-						}
-					});
 					int	selected=(int)comboBox1.getSelectedItem();
-					if(selected==nowyear){
-					if(((nowday==30||nowday==31)&&nowmonth!=12)||(nowday==29&&(nowmonth==2||nowmonth==4||nowmonth==6||nowmonth==9||nowmonth==11))||(nowmonth==2&&(nowday==28||nowday==27))){
-						comboBox2.addItem(nowmonth);
-						comboBox2.addItem(nowmonth+1);
+					if(selected==year){
+					if(((day==30||day==31)&&month!=12)||(day==29&&(month==2||month==4||month==6||month==9||month==11))||(month==2&&(day==28||day==27))){
+						comboBox2.addItem(month);
+						comboBox2.addItem(month+1);
 					}
-					if((nowday==30||nowday==31)&&nowmonth==12){
-						comboBox2.addItem(nowmonth);
+					if((day==30||day==31)&&month==12){
+						comboBox2.addItem(month);
 						comboBox2.addItem(1);
 					}
 					else{
-						comboBox2.addItem(nowmonth);
+						comboBox2.addItem(month);
 					}
 					}
-					else if(selected==nowyear+1){
+					else if(selected==year+1){
 						comboBox2.addItem(1);
-					}
-					
-					comboBox2.addItemListener(new ItemListener() {
-						public void itemStateChanged(ItemEvent evt) {
-							if(evt.getStateChange() == ItemEvent.SELECTED){	
-								comboBox3.removeAllItems();
-								int	selected1=(int)comboBox1.getSelectedItem();
-								int selected2=(int)comboBox2.getSelectedItem();
-								if(nowyear==selected1&&nowmonth==selected2){
-									if(nowday==31){
-										comboBox3.addItem(31);
-									}
-									else if(nowday==30&&(nowmonth==1||nowmonth==3||nowmonth==5||nowmonth==7||nowmonth==8||nowmonth==10||nowmonth==12)){
-										comboBox3.addItem(30);
-										comboBox3.addItem(31);
-									}
-									else if(nowday==30&&(nowmonth==4||nowmonth==6||nowmonth==9||nowmonth==11)){
-										comboBox3.addItem(30);
-									}
-									else if(nowday==29&&(nowmonth==4||nowmonth==6||nowmonth==9||nowmonth==11)){
-										comboBox3.addItem(29);
-										comboBox3.addItem(30);
-									}
-									else if(nowday==29&&nowmonth==2){
-										comboBox3.addItem(29);
-									}
-									else if(nowday==28&&nowmonth==2){
-										comboBox3.addItem(28);
-									}
-									else{
-										comboBox3.addItem(nowday);
-										comboBox3.addItem(nowday+1);
-										comboBox3.addItem(nowday+2);
-									}
-								}
-								else if(nowyear==selected1&&nowmonth!=selected2){
-									if(nowday==31){
-										comboBox3.addItem(1);
-										comboBox3.addItem(2);
-									}
-									else if(nowday==30&&(nowmonth==1||nowmonth==3||nowmonth==5||nowmonth==7||nowmonth==8||nowmonth==10||nowmonth==12)){
-										comboBox3.addItem(1);
-									}
-									else if(nowday==30&&(nowmonth==4||nowmonth==6||nowmonth==9||nowmonth==11)){
-										comboBox3.addItem(1);
-										comboBox3.addItem(2);
-									}
-									else if(nowday==29&&(nowmonth==4||nowmonth==6||nowmonth==9||nowmonth==11)){
-										comboBox3.addItem(1);
-									}
-									else if(nowday==29&&nowmonth==2){
-										comboBox3.addItem(1);
-										comboBox3.addItem(2);
-									}
-									else if(nowday==28&&nowmonth==2){
-										comboBox3.addItem(1);
-										comboBox3.addItem(2);
-									}
-								}
-								else if(nowyear!=selected1){
-									if(nowday==30){
-										comboBox3.addItem(1);
-									}
-									else if(nowday==31){
-										comboBox3.addItem(1);
-										comboBox3.addItem(2);
-									}
-								}
-								label9.setText("订单最晚执行时间:"+comboBox1.getSelectedItem()+"年"+comboBox2.getSelectedItem()+"月"+comboBox3.getSelectedItem()+"日当晚凌晨12点整");
-								}
-							}
-					});
-								
+					}			
 					int	selected1=(int)comboBox1.getSelectedItem();
 					int selected2=(int)comboBox2.getSelectedItem();
-					if(nowyear==selected1&&nowmonth==selected2){
-						if(nowday==31){
+					if(year==selected1&&month==selected2){
+						if(day==31){
 							comboBox3.addItem(31);
 						}
-						else if(nowday==30&&(nowmonth==1||nowmonth==3||nowmonth==5||nowmonth==7||nowmonth==8||nowmonth==10||nowmonth==12)){
+						else if(day==30&&(month==1||month==3||month==5||month==7||month==8||month==10||month==12)){
 							comboBox3.addItem(30);
 							comboBox3.addItem(31);
 						}
-						else if(nowday==30&&(nowmonth==4||nowmonth==6||nowmonth==9||nowmonth==11)){
+						else if(day==30&&(month==4||month==6||month==9||month==11)){
 							comboBox3.addItem(30);
 						}
-						else if(nowday==29&&(nowmonth==4||nowmonth==6||nowmonth==9||nowmonth==11)){
+						else if(day==29&&(month==4||month==6||month==9||month==11)){
 							comboBox3.addItem(29);
 							comboBox3.addItem(30);
 						}
-						else if(nowday==29&&nowmonth==2){
+						else if(day==29&&month==2){
 							comboBox3.addItem(29);
 						}
-						else if(nowday==28&&nowmonth==2){
+						else if(day==28&&month==2){
 							comboBox3.addItem(28);
 						}
 						else{
-							comboBox3.addItem(nowday);
-							comboBox3.addItem(nowday+1);
-							comboBox3.addItem(nowday+2);
+							comboBox3.addItem(day);
+							comboBox3.addItem(day+1);
+							comboBox3.addItem(day+2);
 						}
 					}
-					else if(nowyear==selected1&&nowmonth!=selected2){
-						if(nowday==31){
+					else if(year==selected1&&month!=selected2){
+						if(day==31){
 							comboBox3.addItem(1);
 							comboBox3.addItem(2);
 						}
-						else if(nowday==30&&(nowmonth==1||nowmonth==3||nowmonth==5||nowmonth==7||nowmonth==8||nowmonth==10||nowmonth==12)){
+						else if(day==30&&(month==1||month==3||month==5||month==7||month==8||month==10||month==12)){
 							comboBox3.addItem(1);
 						}
-						else if(nowday==30&&(nowmonth==4||nowmonth==6||nowmonth==9||nowmonth==11)){
-							comboBox3.addItem(1);
-							comboBox3.addItem(2);
-						}
-						else if(nowday==29&&(nowmonth==4||nowmonth==6||nowmonth==9||nowmonth==11)){
-							comboBox3.addItem(1);
-						}
-						else if(nowday==29&&nowmonth==2){
+						else if(day==30&&(month==4||month==6||month==9||month==11)){
 							comboBox3.addItem(1);
 							comboBox3.addItem(2);
 						}
-						else if(nowday==28&&nowmonth==2){
+						else if(day==29&&(month==4||month==6||month==9||month==11)){
+							comboBox3.addItem(1);
+						}
+						else if(day==29&&month==2){
 							comboBox3.addItem(1);
 							comboBox3.addItem(2);
 						}
-					}
-					else if(nowyear!=selected1){
-						if(nowday==30){
-							comboBox3.addItem(1);
-						}
-						else if(nowday==31){
+						else if(day==28&&month==2){
 							comboBox3.addItem(1);
 							comboBox3.addItem(2);
 						}
 					}
-					comboBox3.addItemListener(new ItemListener() {
-						public void itemStateChanged(ItemEvent evt) {
-							if(evt.getStateChange() == ItemEvent.SELECTED){	
-					label9.setText("订单最晚执行时间:"+comboBox1.getSelectedItem()+"年"+comboBox2.getSelectedItem()+"月"+comboBox3.getSelectedItem()+"日当晚凌晨12点整");
-							}
+					else if(year!=selected1){
+						if(day==30){
+							comboBox3.addItem(1);
 						}
-					});
-				     
+						else if(day==31){
+							comboBox3.addItem(1);
+							comboBox3.addItem(2);
+						}
+					}
+				     break;
 				     case JOptionPane.NO_OPTION:
+				    	 break;
 				     }
 			    }			    
 				else if(date1.getTime()-date2.getTime()>=0){
-					JOptionPane.showMessageDialog(pane, "            时间冲突！","", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(pane, "开始时间与退房时间冲突！","", JOptionPane.ERROR_MESSAGE);
+				}
+				else if(!controller.whetherMake((int)comboBox11.getSelectedItem(),(String)comboBox10.getSelectedItem(),controller.getHotelID())){
+					JOptionPane.showMessageDialog(pane, "没有足够的满足条件的房间！","", JOptionPane.ERROR_MESSAGE);
 				}
 				else{
-					int option = JOptionPane.showConfirmDialog(pane,"            确认提交？","", JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE, null);
+					 int selected=(int)comboBox11.getSelectedItem();
+					 int price=controller.getOrderPrice(controller.getHotelID(),(String)comboBox10.getSelectedItem(),selected);
+					 HotelVO vo=controller.findByHotelID(controller.getHotelID());
+					 double webdiscount=controller.getWebPromotionDiscount(controller.getHotelID(),vo.hotelCity,vo.hotelDistrict,cal);
+					 double hoteldiscount=controller.getHotelPromotionDiscount(controller.getHotelID(),controller.getUserID(),selected,cal);
+					 double discount=1;
+					 if(webdiscount>=hoteldiscount){
+						 discount=hoteldiscount;
+					 }
+					 else{
+						 discount=webdiscount;
+					 }
+					 price=(int) (price*discount);
+					int option = JOptionPane.showConfirmDialog(pane,"你的订单总计"+price+"元"+"\n确认提交？","", JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE, null);
 					     switch (option) {
-					     case JOptionPane.YES_OPTION: 
-					     controller.toHotelBrowseView("id");
+					     case JOptionPane.YES_OPTION:
+					   String orderid=UUID.randomUUID().toString().substring(0, 8);
+					   boolean children=false;
+					   if(((String)comboBox13.getSelectedItem()).equals("有")){
+						   children=true;
+					   }
+					   Calendar calin=Calendar.getInstance();
+					   calin.set(Calendar.YEAR,(int)comboBox1.getSelectedItem());
+					   calin.set(Calendar.MONTH,(int)comboBox2.getSelectedItem());
+					   calin.set(Calendar.DAY_OF_MONTH,(int)comboBox3.getSelectedItem());     
+					   Calendar calout=Calendar.getInstance();
+					   calout.set(Calendar.YEAR,(int)comboBox4.getSelectedItem());
+					   calout.set(Calendar.MONTH,(int)comboBox5.getSelectedItem());
+					   calout.set(Calendar.DAY_OF_MONTH,(int)comboBox6.getSelectedItem());     
+					   OrderVO ordervo=new OrderVO(controller.getHotelID(),controller.getUserID(),orderid,2,price,(int)comboBox12.getSelectedItem(),children,(String)comboBox10.getSelectedItem(),selected,calin,calout,calin,null,cal,null,0);
+					   controller.saveOrderInfo(ordervo);
+					   controller.updateRoomState(controller.getHotelID(),(String)comboBox10.getSelectedItem(),selected);
+					   label17.setText("已为你选择了最低的优惠策略，打折后总计"+price+"元，订单号为"+orderid);
+					   comboBox1.setEnabled(false);
+					   comboBox2.setEnabled(false);
+					   comboBox3.setEnabled(false);
+					   comboBox4.setEnabled(false);
+					   comboBox5.setEnabled(false);
+					   comboBox6.setEnabled(false);
+					   comboBox10.setEnabled(false);
+					   comboBox11.setEnabled(false);
+					   comboBox12.setEnabled(false);
+					   comboBox13.setEnabled(false);
+					   button2.setVisible(false);
+					   break;
 					     case JOptionPane.NO_OPTION:
+					    	 break;
 					     }
 			}
 			}

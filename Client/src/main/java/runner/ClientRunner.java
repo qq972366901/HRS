@@ -19,7 +19,9 @@ import UserView.AddHotelView;
 import UserView.UserManagementView;
 import UserView.WebAdminUserView;
 import rmi.RemoteHelper;
+import uiController.HotelSearchUiController;
 import uiController.LoginViewControllerImpl;
+import uiService.HotelSearchUiService;
 import uiService.LoginViewControllerService;
 
 
@@ -60,8 +62,8 @@ public class ClientRunner implements Serializable{
         	mFrame = new JFrame("HRS"); 
        	 	mFrame.setSize(1000, 700);
         	mFrame.setLocation(10, 10);
-        	LoginViewControllerService controller =  new LoginViewControllerImpl();
-        	LogView view = new LogView(controller);
+        	HotelSearchUiService controller =  new HotelSearchUiController("1");
+        	HotelSearchView view = new HotelSearchView(controller);
     		controller.setView(view);
     		mFrame.getContentPane().add(view);
         	mFrame.setVisible(true);
