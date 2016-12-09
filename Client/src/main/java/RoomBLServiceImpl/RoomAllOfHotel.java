@@ -61,4 +61,15 @@ public class RoomAllOfHotel {
 		return low;
 	}
 	
+	public int getPrice(String rType) {
+		int price = -1;
+		for(RoomVO rvo : list) {
+			if(rvo.roomType.equals(rType)) {
+				price = rvo.roomPrice;
+				break;
+			}
+		}
+		return price;
+	}
+	
 }
