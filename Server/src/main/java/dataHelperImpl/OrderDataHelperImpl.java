@@ -20,9 +20,9 @@ public class OrderDataHelperImpl implements OrderDataHelper{
 	private Connection dbConn;
 	private void init() {
 		driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
-		dbURL="jdbc:sqlserver://localhost:1433;DatabaseName=HRS";
-		userName="sa";
-		userPwd="123456";
+		dbURL="jdbc:sqlserver://localhost:1433;DatabaseName=HRS1";
+		userName="lyx";
+		userPwd="liuyx970202";
 		try{
 			 Class.forName(driverName);
 			 dbConn=DriverManager.getConnection(dbURL,userName,userPwd);

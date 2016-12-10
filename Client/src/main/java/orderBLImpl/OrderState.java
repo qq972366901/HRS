@@ -4,7 +4,7 @@ import java.rmi.RemoteException;
 import java.util.Calendar;
 
 import PO.OrderPO;
-import VO.OrderStateVO;
+import VO.OrderState;
 import dataService.DataFactoryService;
 import dataService.OrderDataService;
 import rmi.RemoteHelper;
@@ -13,17 +13,17 @@ import rmi.RemoteHelper;
  * @author Administrator
  *
  */
-public class OrderState {
+public class Orderstate {
 	private DataFactoryService DataFactory;
     private OrderDataService orderData;
     private OrderPO order;
-    private OrderStateVO state;
-    public OrderState(String orderID) {
+    private OrderState state;
+    public Orderstate(String orderID) {
  	 try {   
  		 DataFactory=RemoteHelper.getInstance().getDataFactoryService();   
  	     orderData= (OrderDataService) DataFactory.getDataService("Order");  
 		 order=orderData.find(orderID);
- 	     state=new OrderStateVO(order);
+ 	     state=new OrderState(order);
  	   } catch (RemoteException e) {
 		e.printStackTrace();
 	}
@@ -41,7 +41,7 @@ public class OrderState {
 		cal.add(Calendar.HOUR, -6);
 		Calendar rightnow=Calendar.getInstance();
 		state.Update();		
-		orderData.update(order);		
+		orderData.update(state.po);		
 		if(cal.compareTo(rightnow)==-1){
 			return true;
 		}
@@ -66,7 +66,7 @@ public class OrderState {
 		state.orderState=1;
 		state.generationTime=Calendar.getInstance();
 		state.Update();
-	    orderData.update(order);
+	    orderData.update(state.po);
 		return true;
 		} catch (RemoteException e) {
 			e.printStackTrace();
@@ -89,7 +89,7 @@ public class OrderState {
 		state.orderState=2;
 		state.latest=delayTime;
 		state.Update();
-		orderData.update(order);
+		orderData.update(state.po);
 		return true;
 		} catch (RemoteException e) {
 			e.printStackTrace();
@@ -98,16 +98,17 @@ public class OrderState {
 	}
 	
 	/**
-     * 网站营销人员撤销异常订单(将订单状态改为已执行，增加信用值请使用updateCredit方法)
+     * 网站营销人员撤销异常订单(将订单状态改为已撤销，增加信用值请使用updateCredit方法)
      * 
 	 * @ 
      * @see bussinesslogic.Order
      */
 	public void cancelAbnormalOrder()  {
-		state.orderState=1;
+		state.orderState=4;
+		state.cancel=Calendar.getInstance();
 		state.Update();
 		try {
-			orderData.update(order);
+			orderData.update(state.po);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}

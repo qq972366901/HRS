@@ -5,14 +5,19 @@ import UserView.revisePasswordView;
 import uiService.revisePasswordViewControllerService;
 import userBLService.UserBLService;
 import userBLService.UserBLServiceController;
+import userBLServiceImpl.DES;
+import userBLServiceImpl.Log;
 
 public class revisePasswordViewControllerImpl implements revisePasswordViewControllerService {
 	private revisePasswordView view;
 	private UserBLService user;
 	private String UserID;
+	String key;
 	public revisePasswordViewControllerImpl(String ID){
 		try {
 			user=new UserBLServiceController();
+			key=Log.getLogInstance().getKey(ID);
+			ID=DES.encryptDES(UserID, key);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -32,8 +37,7 @@ public class revisePasswordViewControllerImpl implements revisePasswordViewContr
 
 	@Override
 	public void revisepassword(String password) {
-		System.out.println("Revise UserID:"+UserID+"Password : "+password);
-		user.revisepassword(UserID, password);
+		user.revisepassword(UserID, DES.encryptDES(password,key));
 		view.exit();
 	}
 	@Override
@@ -42,7 +46,7 @@ public class revisePasswordViewControllerImpl implements revisePasswordViewContr
 	}
 	@Override
 	public boolean checkoldPassword(String password) {
-		return user.checkoldPassword(UserID, password);
+		return user.checkoldPassword(UserID, DES.encryptDES(password,key));
 	}
 	@Override
 	public boolean checknewPassword(String password) {

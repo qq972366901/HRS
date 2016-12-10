@@ -114,6 +114,12 @@ public class OrderVO extends  Vector<String>{
     public void addroomType(){
     	this.add(roomType);
     }
+    public void adddetail(){
+    	this.add(roomType+":"+roomNumber+"间");
+    }
+    public void addUserInfo(String username){
+    	this.add(username);
+    }
     public void addroomNumber(){
     	this.add(String.valueOf(roomNumber));
     }

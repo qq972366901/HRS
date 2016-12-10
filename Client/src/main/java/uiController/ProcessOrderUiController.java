@@ -33,12 +33,14 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 	private OrderBLService orderService;
 	
 	private ProcessOrderView view;
+	private UserBLService user;
 	
 	private UserType usertype;
 	public ProcessOrderUiController(String hotelId,UserType type) throws RemoteException{
 		String key=Log.getLogInstance().getKey(hotelId);
 		this.hotelId =DES.encryptDES(hotelId, key);
 		this.usertype=type;
+		user= new UserBLServiceController();
 		orderService = new OrderBLServiceController();
 		new UserBLServiceController();
 	}
@@ -55,22 +57,22 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 
 	@Override
 	public List<OrderVO> getAllOrders(String hotelId) {
-		return orderService.getAllOrders(hotelId);
+		return translate(orderService.getAllOrders(hotelId));
 	}
 
 	@Override
 	public List<OrderVO> getUnfinishedOrders(String hotelId) {
-		return orderService.getUnfinishedOrders(hotelId);
+		return translate(orderService.getUnfinishedOrders(hotelId));
 	}
 
 	@Override
 	public List<OrderVO> getFinishedOrders(String hotelId) {
-		return orderService.getFinishedOrders(hotelId);
+		return translate(orderService.getFinishedOrders(hotelId));
 	}
 
 	@Override
 	public List<OrderVO> getAbnormalOrders(String hotelId) {
-		return orderService.getAbnormalOrders(hotelId);
+		return translate(orderService.getAbnormalOrders(hotelId));
 	}
 
 	@Override
@@ -167,7 +169,7 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 	 */
 	@Override
 	public List<OrderVO> getCanceledOrders(String hotelId) {
-		return orderService.getCanceledOrders(hotelId);
+		return translate(orderService.getCanceledOrders(hotelId));
 	}
 	/**
 	 * 根据订单编号获取用户账号
@@ -181,5 +183,17 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 	public void dealwithAbnormalOrder(String userID, String orderNo) {
 		orderService.cancel(userID, orderNo);
 	}
-
+    private List<OrderVO> translate(List<OrderVO> list){
+		for(OrderVO vo:list){
+			vo.addorderNumber();
+			vo.adddetail();
+			String skey=Log.getLogInstance().getSKey(vo.userID);
+			vo.addUserInfo(DES.decryptDES(user.findByID(vo.userID).username, skey));
+			vo.addexpectedCheckIn();
+			vo.addlatest();
+			vo.addorderState();
+			vo.addorderValue();
+		}
+    	return list;
+    }
 }

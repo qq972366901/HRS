@@ -14,20 +14,25 @@ import common.Operate;
 import uiService.CreditViewControllerService;
 import userBLService.UserBLService;
 import userBLService.UserBLServiceController;
+import userBLServiceImpl.DES;
+import userBLServiceImpl.Log;
 
 public class CreditViewControllerImpl implements CreditViewControllerService {
 	private CreditView view;
 	private String id;
 	private UserBLService user;
+	String key;
 	public CreditViewControllerImpl(String id){
-		this.id=id;
+		
 		try {
 			user=new UserBLServiceController();
+			key=Log.getLogInstance().getKey(id);
+			id=DES.encryptDES(id, key);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		this.id=id;
 	}
 	public void setView(CreditView view) {
         this.view=view;

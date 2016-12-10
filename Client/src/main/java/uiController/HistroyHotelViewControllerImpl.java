@@ -1,5 +1,6 @@
 package uiController;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +10,8 @@ import VO.UserVO;
 import hotelBLService.HotelBLService;
 import hotelBLService.HotelBLServiceController;
 import uiService.HistroyHotelViewControllerService;
+import userBLServiceImpl.DES;
+import userBLServiceImpl.Log;
 
 public class HistroyHotelViewControllerImpl implements HistroyHotelViewControllerService {
 	private HistroyHotelView view;
@@ -16,7 +19,15 @@ public class HistroyHotelViewControllerImpl implements HistroyHotelViewControlle
 	private HotelBLService hotel;
 	//private UserVO vo1;
 	private List<HotelVO> list;
+	private String key;
 	public HistroyHotelViewControllerImpl(String id){
+		try {
+			key=Log.getLogInstance().getKey(id);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		id=DES.encryptDES(id, key);
 		this.id=id;
 		hotel=new HotelBLServiceController();
 	}
@@ -34,7 +45,7 @@ public class HistroyHotelViewControllerImpl implements HistroyHotelViewControlle
 		list=hotel.getHistoryHotel(id);
 		List<String> listi=new ArrayList<String>();
         for(HotelVO vo:list){
-        	listi.add(vo.hotelName);
+        	listi.add(DES.decryptDES(vo.hotelName,key));
         }
         return listi;
 	}

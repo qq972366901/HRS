@@ -11,14 +11,19 @@ import common.Operate;
 import orderBLService.OrderBLService;
 import orderBLService.OrderBLServiceController;
 import uiService.OrderViewControllerService;
+import userBLServiceImpl.DES;
+import userBLServiceImpl.Log;
 
 public class OrderViewControllerImpl implements OrderViewControllerService {
 	private OrderView view;
 	private OrderBLService order;
 	private String id;
+	private String key;
 	public OrderViewControllerImpl(String UserID) throws RemoteException{
 		id=UserID;
 		order=new OrderBLServiceController();
+		key=Log.getLogInstance().getKey(id);
+		id=DES.encryptDES(UserID, key);
 	}
 	public void setView(OrderView view){
 		this.view=view;
