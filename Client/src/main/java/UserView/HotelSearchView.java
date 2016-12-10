@@ -35,6 +35,8 @@ import hotelBLService.HotelBLServiceController;
 import roomBLService.RoomBLService;
 import roomBLService.RoomBLServiceController;
 import uiService.HotelSearchUiService;
+import userBLServiceImpl.DES;
+import userBLServiceImpl.Log;
 
 public class HotelSearchView extends JPanel{
 	private static final long serialVersionUID = 1L;
@@ -49,6 +51,7 @@ public class HotelSearchView extends JPanel{
 	private HotelSearchUiService controller;
     private int a=0;
     private int b=0;
+    private int c=0;
     
 	public HotelSearchView(HotelSearchUiService c){
 		this.controller=c;
@@ -123,7 +126,7 @@ public class HotelSearchView extends JPanel{
      * @param hotelIDList List<String>型，酒店帐号列表
      * @return 返回按照评分从高到低排序后的酒店列表
      */
-	private List<String> scoreSort(List<String> hotelIDList) {
+	private List<String> scoreSortHigh(List<String> hotelIDList) {
 		List<HotelVO> temp = new ArrayList<HotelVO>();
 		for(int i=0;i<hotelIDList.size();i++) {
 			HotelVO vo = hotel.findByHotelID(hotelIDList.get(i));
@@ -132,6 +135,33 @@ public class HotelSearchView extends JPanel{
 		for(int i=0;i<temp.size();i++) {
 			for(int j=i;j<temp.size();j++) {
 				if(temp.get(j).score > temp.get(i).score) {
+					HotelVO hvo = temp.get(i);
+					temp.set(i, temp.get(j));
+					temp.set(j, hvo);
+				}
+			}
+		}
+		List<String> outcome = new ArrayList<String>();
+		for(int i=0;i<temp.size();i++) {
+			outcome.add(temp.get(i).hotelAccount);
+		}
+		return outcome;
+	}
+	/**
+     * 酒店列表按照评分从低到高排序
+     * 
+     * @param hotelIDList List<String>型，酒店帐号列表
+     * @return 返回按照评分从低到高排序后的酒店列表
+     */
+	private List<String> scoreSortLow(List<String> hotelIDList) {
+		List<HotelVO> temp = new ArrayList<HotelVO>();
+		for(int i=0;i<hotelIDList.size();i++) {
+			HotelVO vo = hotel.findByHotelID(hotelIDList.get(i));
+			temp.add(vo);
+		}
+		for(int i=0;i<temp.size();i++) {
+			for(int j=i;j<temp.size();j++) {
+				if(temp.get(j).score < temp.get(i).score) {
 					HotelVO hvo = temp.get(i);
 					temp.set(i, temp.get(j));
 					temp.set(j, hvo);
@@ -498,7 +528,15 @@ public class HotelSearchView extends JPanel{
 					Vector<Vector<Object>> data=new Vector<Vector<Object>>();
 					for(String hotelid : list){
 						Vector<Object> inf=new Vector<Object>();
-						inf.add(hotelid);
+						String key="";
+						try {
+							key=Log.getLogInstance().getSKey(hotelid);
+						} catch (RemoteException e1) {
+							System.out.println("获取密钥失败");
+							e1.printStackTrace();
+						}
+						String str=DES.decryptDES(hotelid, key);
+						inf.add(str);
 						inf.add(controller.findByHotelID(hotelid).hotelName);
 						inf.add(controller.findByHotelID(hotelid).hotelAddress);
 						inf.add(controller.getHotelPromotionByHotelID(hotelid).promotionName);
@@ -567,8 +605,16 @@ public class HotelSearchView extends JPanel{
 				}
 				else{
 				String hid=(String)table.getValueAt(index,0);
+				String key1="";
 				try {
-					controller.toHotelBrowseView(controller.getUserID(),hid);
+					key1=Log.getLogInstance().getKey(hid);
+				} catch (RemoteException e1) {
+					System.out.println("获取密钥失败");
+					e1.printStackTrace();
+				}
+				String hid1=DES.encryptDES(hid,key1);
+				try {
+					controller.toHotelBrowseView(controller.getUserID(),hid1);
 				} catch (RemoteException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -585,8 +631,16 @@ public class HotelSearchView extends JPanel{
 				}
 				else{
 					String hid=(String)table.getValueAt(index,0);
+					String key1="";
 					try {
-						controller.toOrderBuildView(controller.getUserID(),hid);
+						key1=Log.getLogInstance().getKey(hid);
+					} catch (RemoteException e1) {
+						System.out.println("获取密钥失败");
+						e1.printStackTrace();
+					}
+					String hid1=DES.encryptDES(hid,key1);
+					try {
+						controller.toOrderBuildView(controller.getUserID(),hid1);
 					} catch (RemoteException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -612,7 +666,15 @@ public class HotelSearchView extends JPanel{
 					Vector<Vector<Object>> data=new Vector<Vector<Object>>();
 					for(String hotelid : list1){
 						Vector<Object> inf=new Vector<Object>();
-						inf.add(hotelid);
+						String key="";
+						try {
+							key=Log.getLogInstance().getSKey(hotelid);
+						} catch (RemoteException e1) {
+							System.out.println("获取密钥失败");
+							e1.printStackTrace();
+						}
+						String str=DES.decryptDES(hotelid, key);
+						inf.add(str);
 						inf.add(controller.findByHotelID(hotelid).hotelName);
 						inf.add(controller.findByHotelID(hotelid).hotelAddress);
 						inf.add(controller.getHotelPromotionByHotelID(hotelid).promotionName);
@@ -666,7 +728,15 @@ public class HotelSearchView extends JPanel{
 					Vector<Vector<Object>> data=new Vector<Vector<Object>>();
 					for(String hotelid : list1){
 						Vector<Object> inf=new Vector<Object>();
-						inf.add(hotelid);
+						String key="";
+						try {
+							key=Log.getLogInstance().getSKey(hotelid);
+						} catch (RemoteException e1) {
+							System.out.println("获取密钥失败");
+							e1.printStackTrace();
+						}
+						String str=DES.decryptDES(hotelid, key);
+						inf.add(str);
 						inf.add(controller.findByHotelID(hotelid).hotelName);
 						inf.add(controller.findByHotelID(hotelid).hotelAddress);
 						inf.add(controller.getHotelPromotionByHotelID(hotelid).promotionName);
@@ -719,12 +789,21 @@ public class HotelSearchView extends JPanel{
 		});
 		button6.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {
+				if(b%2==0){
 				HotelSearchView view2=new HotelSearchView(controller);
-				List<String> list2=view2.scoreSort(controller.getHotelID((String)comboBox.getSelectedItem(),(String)comboBox2.getSelectedItem(),(String)comboBox8.getSelectedItem(),(int)comboBox9.getSelectedItem(),(int)comboBox4.getSelectedItem(), (int)comboBox5.getSelectedItem(),(int)comboBox3.getSelectedItem(),(int)comboBox6.getSelectedItem(),(int)comboBox7.getSelectedItem(),(String)comboBox16.getSelectedItem(),controller.getUserID()));
+				List<String> list2=view2.scoreSortHigh(controller.getHotelID((String)comboBox.getSelectedItem(),(String)comboBox2.getSelectedItem(),(String)comboBox8.getSelectedItem(),(int)comboBox9.getSelectedItem(),(int)comboBox4.getSelectedItem(), (int)comboBox5.getSelectedItem(),(int)comboBox3.getSelectedItem(),(int)comboBox6.getSelectedItem(),(int)comboBox7.getSelectedItem(),(String)comboBox16.getSelectedItem(),controller.getUserID()));
 				Vector<Vector<Object>> data=new Vector<Vector<Object>>();
 				for(String hotelid : list2){
 					Vector<Object> inf=new Vector<Object>();
-					inf.add(hotelid);
+					String key="";
+					try {
+						key=Log.getLogInstance().getSKey(hotelid);
+					} catch (RemoteException e1) {
+						System.out.println("获取密钥失败");
+						e1.printStackTrace();
+					}
+					String str=DES.decryptDES(hotelid, key);
+					inf.add(str);
 					inf.add(controller.findByHotelID(hotelid).hotelName);
 					inf.add(controller.findByHotelID(hotelid).hotelAddress);
 					inf.add(controller.getHotelPromotionByHotelID(hotelid).promotionName);
@@ -771,17 +850,89 @@ public class HotelSearchView extends JPanel{
 				};
 				table.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 				table.setFillsViewportHeight(true);
+				}
+				else{
+					HotelSearchView view2=new HotelSearchView(controller);
+					List<String> list2=view2.scoreSortLow(controller.getHotelID((String)comboBox.getSelectedItem(),(String)comboBox2.getSelectedItem(),(String)comboBox8.getSelectedItem(),(int)comboBox9.getSelectedItem(),(int)comboBox4.getSelectedItem(), (int)comboBox5.getSelectedItem(),(int)comboBox3.getSelectedItem(),(int)comboBox6.getSelectedItem(),(int)comboBox7.getSelectedItem(),(String)comboBox16.getSelectedItem(),controller.getUserID()));
+					Vector<Vector<Object>> data=new Vector<Vector<Object>>();
+					for(String hotelid : list2){
+						Vector<Object> inf=new Vector<Object>();
+						String key="";
+						try {
+							key=Log.getLogInstance().getSKey(hotelid);
+						} catch (RemoteException e1) {
+							System.out.println("获取密钥失败");
+							e1.printStackTrace();
+						}
+						String str=DES.decryptDES(hotelid, key);
+						inf.add(str);
+						inf.add(controller.findByHotelID(hotelid).hotelName);
+						inf.add(controller.findByHotelID(hotelid).hotelAddress);
+						inf.add(controller.getHotelPromotionByHotelID(hotelid).promotionName);
+						inf.add(controller.findByHotelID(hotelid).hotelStar);
+						inf.add(controller.findByHotelID(hotelid).score);
+						inf.add(controller.getRoomLowestPrice(hotelid)+"起");
+						String ever="否";
+						if(controller. findByHotelIDAndUserID (controller.getUserID(),hotelid)!=null&&controller. findByHotelIDAndUserID (controller.getUserID(),hotelid).size()>0){
+							ever="是";
+						}
+						inf.add(ever);
+						if(ever=="是"){
+						Set<Integer> state=new HashSet<Integer>();
+						for(OrderVO ordervo : controller. findByHotelIDAndUserID (controller.getUserID(),hotelid)){
+							state.add(ordervo.orderState);
+						}
+						String str1="";
+						String str2="";
+						String str3="";
+						for(int i : state){
+							if(i==1||i==2){
+								str1="正常订单";
+							}
+						    if(i==3){
+								str2="异常订单";
+							}
+							else if(i==4){
+								str3="撤销订单";
+							}
+						}
+						inf.add(str1+"."+str2+"."+str3);
+						}
+						else{
+						inf.add("");
+						}
+						data.add(inf);
+					}
+					model= new DefaultTableModel(data, vColumns);
+					table = new JTable(model){
+						private static final long serialVersionUID = 1L;
+						public boolean isCellEditable(int row, int column){
+							return false;
+						}
+					};
+					table.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+					table.setFillsViewportHeight(true);
+				}
+				b++;
 			}
 		});
 		button7.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {
-                if(b%2==0){
+                if(c%2==0){
                 	HotelSearchView view3=new HotelSearchView(controller);
 					List<String> list3=view3.priceSortHigh(controller.getHotelID((String)comboBox.getSelectedItem(),(String)comboBox2.getSelectedItem(),(String)comboBox8.getSelectedItem(),(int)comboBox9.getSelectedItem(),(int)comboBox4.getSelectedItem(), (int)comboBox5.getSelectedItem(),(int)comboBox3.getSelectedItem(),(int)comboBox6.getSelectedItem(),(int)comboBox7.getSelectedItem(),(String)comboBox16.getSelectedItem(),controller.getUserID()));
 					Vector<Vector<Object>> data=new Vector<Vector<Object>>();
 					for(String hotelid : list3){
 						Vector<Object> inf=new Vector<Object>();
-						inf.add(hotelid);
+						String key="";
+						try {
+							key=Log.getLogInstance().getSKey(hotelid);
+						} catch (RemoteException e1) {
+							System.out.println("获取密钥失败");
+							e1.printStackTrace();
+						}
+						String str=DES.decryptDES(hotelid, key);
+						inf.add(str);
 						inf.add(controller.findByHotelID(hotelid).hotelName);
 						inf.add(controller.findByHotelID(hotelid).hotelAddress);
 						inf.add(controller.getHotelPromotionByHotelID(hotelid).promotionName);
@@ -835,7 +986,15 @@ public class HotelSearchView extends JPanel{
 					Vector<Vector<Object>> data=new Vector<Vector<Object>>();
 					for(String hotelid : list3){
 						Vector<Object> inf=new Vector<Object>();
-						inf.add(hotelid);
+						String key="";
+						try {
+							key=Log.getLogInstance().getSKey(hotelid);
+						} catch (RemoteException e1) {
+							System.out.println("获取密钥失败");
+							e1.printStackTrace();
+						}
+						String str=DES.decryptDES(hotelid, key);
+						inf.add(str);
 						inf.add(controller.findByHotelID(hotelid).hotelName);
 						inf.add(controller.findByHotelID(hotelid).hotelAddress);
 						inf.add(controller.getHotelPromotionByHotelID(hotelid).promotionName);
@@ -883,7 +1042,7 @@ public class HotelSearchView extends JPanel{
 					table.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 					table.setFillsViewportHeight(true);
 				}
-				b++;
+				c++;
 			}
 		});
 		button5.setPreferredSize(new Dimension(105,22));

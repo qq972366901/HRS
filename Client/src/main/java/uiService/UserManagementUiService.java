@@ -19,4 +19,5 @@ public interface UserManagementUiService {
 	public void revisepassword(String userID, String password);
 	public void register(UserVO vo,String password);
 	public AccountInfo getUser(UserType type, String account);
+	public boolean addLog(String id,String k,String secretid);
 }
