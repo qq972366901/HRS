@@ -534,6 +534,9 @@ public class OrderBuildView extends JPanel{
 				else if(date1.getTime()-date2.getTime()>=0){
 					JOptionPane.showMessageDialog(pane, "开始时间与退房时间冲突！","", JOptionPane.ERROR_MESSAGE);
 				}
+				else if(controller.showCredit(controller.getUserID())<0){
+					JOptionPane.showMessageDialog(pane, "信用值不足，无法生成订单！","", JOptionPane.ERROR_MESSAGE);
+				}
 				else if(!controller.whetherMake((int)comboBox11.getSelectedItem(),(String)comboBox10.getSelectedItem(),controller.getHotelID())){
 					JOptionPane.showMessageDialog(pane, "没有足够的满足条件的房间！","", JOptionPane.ERROR_MESSAGE);
 				}

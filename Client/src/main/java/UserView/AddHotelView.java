@@ -25,6 +25,8 @@ import javax.swing.JTextField;
 import VO.UserVO;
 import common.UserType;
 import uiService.AddHotelUiService;
+import userBLServiceImpl.DES;
+import userBLServiceImpl.Log;
 
 
 public class AddHotelView extends JPanel {
@@ -221,11 +223,22 @@ public class AddHotelView extends JPanel {
 								}
 								else{
 									 String id=UUID.randomUUID().toString().substring(0, 8);
+									 String key=DES.init();
+									 try {
+										Log.getLogInstance().addKey(id,key);
+									} catch (RemoteException e2) {
+										// TODO Auto-generated catch block
+										e2.printStackTrace();
+									}
+									 String str1=DES.encryptDES(id,key);
+								     String str2=DES.encryptDES(password2, key);
+								     String str3=DES.encryptDES(textField1.getText(),key);
+								     String str4=DES.encryptDES(textField4.getText(), key);
 									 controller.saveHotelInfo(textField2.getText(),(String)comboBox3.getSelectedItem(),(String)comboBox1.getSelectedItem(), textField3.getText(),
-											(int)comboBox2.getSelectedItem(), textField6.getText(), textField7.getText(), textField4.getText(), 
-												id,0);
-									 UserVO vo=new UserVO(textField1.getText(),id,textField4.getText(),null,UserType.HotelWorker,null,null);
-									 controller.register(vo,password2);
+											(int)comboBox2.getSelectedItem(), textField6.getText(), textField7.getText(), str4, 
+												str1,0);
+									 UserVO vo=new UserVO(str3,str1,str4,null,UserType.HotelWorker,null,null);
+									 controller.register(vo,str2);
 									 int option = JOptionPane.showConfirmDialog(panel,"请记住你的账号："+id+"\n是否返回网站管理人员主界面？","", JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE, null);
 						    		 switch (option) {
 								     case JOptionPane.YES_OPTION:  
