@@ -21,9 +21,9 @@ public interface ProcessOrderUiService {
 	
 	public List<OrderVO> getAbnormalOrders(String hotelId);
 	
-	public boolean processUnfinishedOrder(int orderId);
+	public boolean processUnfinishedOrder(String orderId);
 	
-	public boolean processAbnormalOrder(int orderId,String delayTime);
+	public boolean processAbnormalOrder(String orderId,String delayTime);
 	
 	public void updateListModel(String comboboxValue);
 	
@@ -42,5 +42,6 @@ public interface ProcessOrderUiService {
 	public String getUserID(String orderNo);
 
 	public void dealwithAbnormalOrder(String userID, String orderNo);
+
 
 }

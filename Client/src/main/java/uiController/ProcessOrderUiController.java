@@ -2,8 +2,10 @@ package uiController;
 
 import java.rmi.RemoteException;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import HotelWorkerView.HotelMainView;
@@ -72,13 +74,22 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 	}
 
 	@Override
-	public boolean processUnfinishedOrder(int orderId) {
-		return false;
+	public boolean processUnfinishedOrder(String orderId) {
+		return orderService.processUnfinishedOrder(orderId);
 	}
 
 	@Override
-	public boolean processAbnormalOrder(int orderId, String delayTime) {
-		return false;
+	public boolean processAbnormalOrder(String orderId, String delayTime) {
+		SimpleDateFormat sdf= new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Date date;
+		Calendar calendar= Calendar.getInstance();
+		try {
+			date = sdf.parse(delayTime);
+			calendar.setTime(date);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return orderService.processAbnormalOrder(orderId, calendar);
 	}
 
 	@Override
