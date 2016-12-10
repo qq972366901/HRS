@@ -1,7 +1,4 @@
 package roomBLService;
-import java.util.*;
-import common.*;
-import VO.*;
 
 /**
  * 负责实现房间功能的服务接口
@@ -42,6 +39,14 @@ public interface RoomBLService {
      * @return 此酒店的所有空闲房间的最低价格
      */
 	public int getRoomLowestPrice(String hotelID);
+	/**
+     * 得到酒店的某房间类型的价格
+     * 
+     * @param hotelid String型，酒店的id
+     * @param roomType String型，一种房间类型
+     * @return 返回酒店的某房间类型的价格
+     */
+	public int getRoomPrice(String hotelid, String roomType);
 	
 	
 	
@@ -86,12 +91,4 @@ public interface RoomBLService {
 //	public ArrayList<RoomVO> getRoom();
 //	
 //	
-//	/**
-//     * 返回房间的价格
-//     * 
-//     * @param roomType String型，一种房间类型
-//     * @return 返回一个long数值
-//     * @see bussinesslogic.Room
-//     */
-//	public long getPrice(String roomType);
 }

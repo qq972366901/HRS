@@ -1,11 +1,5 @@
 package roomBLService;
 
-import java.util.ArrayList;
-
-import VO.OrderVO;
-import VO.RoomVO;
-import common.MessageInput;
-import common.ResultMessage;
 import roomAvailable.RoomAvailableController;
 import roomList.RoomListController;
 import roomUpdate.RoomUpdateController;
@@ -65,6 +59,16 @@ public class RoomBLServiceController implements RoomBLService {
      */
 	public int getRoomLowestPrice(String hotelID) {
 		return roomListController.getRoomLowestPrice(hotelID);
+	}
+	/**
+     * 得到酒店的某房间类型的价格
+     * 
+     * @param hotelid String型，酒店的id
+     * @param roomType String型，一种房间类型
+     * @return 返回酒店的某房间类型的价格
+     */
+	public int getRoomPrice(String hotelid, String roomType) {
+		return roomListController.getPrice(hotelid, roomType);
 	}
 	
 	
