@@ -16,6 +16,8 @@ import uiService.LoginViewControllerService;
 import uiService.MakeHotelPromotionUiService;
 import uiService.ProcessOrderUiService;
 import uiService.UpdateHotelInfoUiService;
+import userBLServiceImpl.DES;
+import userBLServiceImpl.Log;
 
 public class HotelMainUiController implements HotelMainUiService {
 
@@ -24,7 +26,18 @@ public class HotelMainUiController implements HotelMainUiService {
 	private String hotelID;
 	
 	public HotelMainUiController(String id) {
-		hotelID = id;
+		String key=null;
+		try {
+			key=Log.getLogInstance().getKey(id);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		if(key!=null){
+			hotelID = DES.encryptDES(id, key);
+		}
+		else{
+			System.out.println("加密失败");
+		}
 	}
 	
 	public void setView(HotelMainView view){

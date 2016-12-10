@@ -5,19 +5,28 @@ import java.rmi.RemoteException;
 
 import UserView.customerMainView;
 import uiService.customerMainViewControllerService;
-import userBLService.UserBLService;
+import userBLServiceImpl.DES;
+import userBLServiceImpl.Log;
 
 public class customerMainViewControllerImpl implements customerMainViewControllerService{
 	private customerMainView view;
-	private UserBLService user;
 	private String UserID;
 	public customerMainViewControllerImpl(String id){
-    	//user=new UserBLServiceImpl();
-    	UserID=id;
+		String key=null;
+		try {
+			key=Log.getLogInstance().getKey(id);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		if(key!=null){
+			UserID = DES.encryptDES(id, key);
+		}
+		else{
+			System.out.println("加密失败");
+		}
     }
 	@Override
 	public void setView(customerMainView view) {
-		// TODO Auto-generated method stub
 		this.view=view;
 	}
 	@Override
@@ -45,13 +54,11 @@ public class customerMainViewControllerImpl implements customerMainViewControlle
 		try {
 			view.order();
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	@Override
 	public String getUserID() {
-		// TODO Auto-generated method stub
 		return UserID;
 	}
 

@@ -7,7 +7,6 @@ import java.util.List;
 
 import VO.OrderVO;
 import common.Operate;
-import common.ResultMessage;
 import orderAbnormal.OrderAbnormalController;
 import orderBuild.OrderBuildController;
 import orderEvaluation.OrderEvaluationController;
@@ -274,13 +273,6 @@ public class OrderBLServiceController implements OrderBLService{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Override
-	public ResultMessage payment(OrderVO vo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	@Override
 	public ArrayList<OrderVO> show() {
 		// TODO Auto-generated method stub

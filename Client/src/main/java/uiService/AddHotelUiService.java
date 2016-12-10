@@ -6,8 +6,6 @@ import java.util.Vector;
 
 import UserView.AddHotelView;
 import VO.UserVO;
-import common.MessageInput;
-import common.ResultMessage;
 
 public interface AddHotelUiService {
 	public void setView(AddHotelView view);

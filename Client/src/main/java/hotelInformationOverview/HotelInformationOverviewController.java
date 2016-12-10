@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import HotelBLServiceImpl.HotelInfo;
 import VO.HotelVO;
 import VO.OrderVO;
-import Object.Hotel;
 import hotelBLService.HotelBLServiceController;
 public class HotelInformationOverviewController{
 	

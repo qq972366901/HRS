@@ -15,19 +15,19 @@ import uiService.UserManagementUiService;
 import uiService.WebAdminUserUiService;
 import userBLService.UserBLService;
 import userBLService.UserBLServiceController;
+import userBLServiceImpl.DES;
+import userBLServiceImpl.Log;
 
 public class WebAdminUserUiController implements WebAdminUserUiService{
-	private static final long serialVersionUID = 1L;
 	private JPanel view;
 	private String UserID;
 	private UserBLService user;
 	public WebAdminUserUiController(String id) throws RemoteException{
-    	//user=new UserBLServiceImpl();
-    	this.UserID=id;
+    	String key=Log.getLogInstance().getKey(id);
+    	this.UserID=DES.encryptDES(id, key);
     	this.user=new UserBLServiceController();
     }
 	public void setView(WebAdminUserView view) {
-		// TODO Auto-generated method stub
 		this.view=view;
 }
 	public void toAddHotelView(String id){
@@ -35,7 +35,6 @@ public class WebAdminUserUiController implements WebAdminUserUiService{
 		try {
 			controller = new AddHotelUiController(id);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		AddHotelView view=new AddHotelView(controller);

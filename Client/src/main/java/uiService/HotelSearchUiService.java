@@ -5,13 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
-import Object.Hotel;
 import UserView.HotelSearchView;
 import VO.HotelPromotionVO;
 import VO.HotelVO;
 import VO.OrderVO;
-import common.MessageInput;
-import common.ResultMessage;
 
 public interface HotelSearchUiService {
 	public String getUserID();

@@ -11,8 +11,6 @@ import UserView.MemberRegisterView;
 import UserView.UserManagementView;
 import UserView.WebAdminUserView;
 import VO.UserVO;
-import common.MessageInput;
-import common.ResultMessage;
 import hotelBLService.HotelBLService;
 import hotelBLService.HotelBLServiceController;
 import promotionBLService.PromotionBLService;

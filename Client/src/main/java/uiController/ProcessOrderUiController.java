@@ -22,22 +22,23 @@ import uiService.webPromotionUserUiService;
 import userBLService.UserBLService;
 import userBLService.UserBLServiceController;
 import userBLServiceImpl.Credit;
+import userBLServiceImpl.DES;
+import userBLServiceImpl.Log;
 
 public class ProcessOrderUiController implements ProcessOrderUiService{
 	private String hotelId;
 	
 	private OrderBLService orderService;
 	
-	private UserBLService userService;
-	
 	private ProcessOrderView view;
 	
 	private UserType usertype;
-	public ProcessOrderUiController(String hotelId,UserType type) throws RemoteException{ 
-		this.hotelId = hotelId;
+	public ProcessOrderUiController(String hotelId,UserType type) throws RemoteException{
+		String key=Log.getLogInstance().getKey(hotelId);
+		this.hotelId =DES.encryptDES(hotelId, key);
 		this.usertype=type;
 		orderService = new OrderBLServiceController();
-		userService = new UserBLServiceController();
+		new UserBLServiceController();
 	}
 
 	@Override

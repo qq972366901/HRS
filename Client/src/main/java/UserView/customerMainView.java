@@ -348,10 +348,15 @@ public class customerMainView extends JPanel {
 		ClientRunner.change(view);
 	}
 	public void search(){
-		HotelSearchUiService con=new HotelSearchUiController(UserID);
-		HotelSearchView vie=new HotelSearchView(con);
-		con.setView(vie);
-		ClientRunner.change(vie);
+		HotelSearchUiService con;
+		try {
+			con = new HotelSearchUiController(UserID);
+			HotelSearchView vie=new HotelSearchView(con);
+			con.setView(vie);
+			ClientRunner.change(vie);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 	}
 	public void histroy(){
 		HistroyHotelViewControllerService controller =  new HistroyHotelViewControllerImpl(UserID);

@@ -185,15 +185,6 @@ public interface OrderBLService {
 	 * @param operate Operate枚举类，操作的名字
 	 */
 	public void updateCredit(String userID,String orderID,int value,Operate operate);
-	
-	/**
-     * 计算订单价值并显示
-     * 
-     * @param vo OrderVO型，订单的值对象
-     * @return ResultMessage的一个枚举值
-     * @see bussinesslogic.Order
-     */
-	public ResultMessage payment(OrderVO vo);
 
 
 	ArrayList<OrderVO> show();
