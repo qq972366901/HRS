@@ -3,7 +3,6 @@ package userInformationMaintenance;
 import java.rmi.RemoteException;
 
 import VO.UserVO;
-import common.ResultMessage;
 import userBLServiceImpl.Credit;
 import userBLServiceImpl.Customer;
 import userBLServiceImpl.Log;

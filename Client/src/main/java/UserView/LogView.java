@@ -224,10 +224,15 @@ public class LogView extends JPanel {
 			ClientRunner.change(view);
 	    }
 		if(this.type.equals("网站管理人员")&&t.equals(UserType.WebManagementWorker)){
-			WebAdminUserUiService controller=new WebAdminUserUiController();
-			WebAdminUserView view=new WebAdminUserView(controller);
-			controller.setView(view);
-			ClientRunner.change(view);
+			WebAdminUserUiService controller;
+			try {
+				controller = new WebAdminUserUiController(textField.getText());
+				WebAdminUserView view=new WebAdminUserView(controller);
+				controller.setView(view);
+				ClientRunner.change(view);
+			} catch (RemoteException e) {
+				e.printStackTrace();
+			}
 	    }
 	}
 	public void register() throws RemoteException{

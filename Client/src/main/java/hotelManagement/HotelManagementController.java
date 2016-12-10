@@ -1,8 +1,5 @@
 package hotelManagement;
 
-import common.MessageInput;
-import common.ResultMessage;
-
 public class HotelManagementController{
 	/**
      * 维护酒店的基本信息，更新酒店数据

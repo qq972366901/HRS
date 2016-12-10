@@ -1,7 +1,5 @@
 package VO;
 
-import java.util.Vector;
-
 import PO.OrderPO;
 
 public class CommentVO{

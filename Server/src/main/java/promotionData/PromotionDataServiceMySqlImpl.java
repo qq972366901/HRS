@@ -147,7 +147,7 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
 	 *得到所有的酒店策略
 	 */
     public List<PromotionPO> getAllHotelPromotion(){
-    	List<PromotionPO> list=new ArrayList<PromotionPO>();
+    	List<PromotionPO> list=null;
 		Iterator<String> it=promotion.keySet().iterator();
 		while(it.hasNext()){
 			if(promotion.get(it.next()).getHotelID()!=null){
@@ -161,7 +161,7 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
 	 *得到所有的网站策略
 	 */
 	    public List<PromotionPO> getAllWebPromotion(){
-	    	List<PromotionPO> list=new ArrayList<PromotionPO>();
+	    	List<PromotionPO> list=null;
 			Iterator<String> it=promotion.keySet().iterator();
 			while(it.hasNext()){
 				if(promotion.get(it.next()).getPromotionNumber()!=null){
@@ -175,13 +175,12 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
  */
     public PromotionPO getMemberLevelSystem(){
 		Iterator<String> it=promotion.keySet().iterator();
-		PromotionPO po;
+		PromotionPO po=null;
 		while(it.hasNext()){
 			if(promotion.get(it.next()).getPromotionNumber()==null&&promotion.get(it.next()).getHotelID()==null){
 				po= promotion.get(it.next());
-				return po;
 			}
 		}  
-		return null;
+		return po;
     }
 }

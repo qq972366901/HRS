@@ -3,9 +3,11 @@ import java.rmi.RemoteException;
 import java.util.Calendar;
 
 import PromotionBLServiceImpl.AddHotelPromotion;
+import PromotionBLServiceImpl.GetHotelPromotionByHotelID;
 import PromotionBLServiceImpl.GetHotelPromotionDiscount;
 import VO.HotelPromotionVO;
 import VO.UserVO;
+import VO.WebPromotionVO;
 import userBLServiceImpl.Customer;
 public class PromotionHotelController {
 	  /**
@@ -24,5 +26,11 @@ public class PromotionHotelController {
      */
 	public double getHotelPromotionDiscount(String hotelid,String userID,int roomNumber,Calendar orderbuildtime) throws RemoteException {
 		return GetHotelPromotionDiscount.getGetHotelPromotionDiscountInstance().getHotelPromotionDiscount(hotelid,userID,roomNumber,orderbuildtime);
+	}
+	/**
+	 * 通过酒店ID查找酒店策略
+     */
+	public HotelPromotionVO getHotelPromotionByHotelID(String hotelid){
+		return GetHotelPromotionByHotelID.getHotelPromotionByHotelIDInstance().getHotelPromotionByHotelID(hotelid);
 	}
 }

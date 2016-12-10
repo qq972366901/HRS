@@ -6,8 +6,6 @@ import RoomBLServiceImpl.RoomStateChange;
 import RoomBLServiceImpl.RoomsReserved;
 import VO.OrderVO;
 import VO.RoomVO;
-import common.MessageInput;
-import common.ResultMessage;
 
 public class RoomUpdateController{
 	/**

@@ -202,20 +202,17 @@ public class MemberRegisterView extends JPanel{
 							     switch (option1) {
 							     case JOptionPane.YES_OPTION: 
 							    	 {   
-							    		 //添加用户
-							    		 int option2 = JOptionPane.showConfirmDialog(panel,"请记住你的账号：     \n是否跳转到客户主界面？","", JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE, null);
-							    		 //需要一个获取用户ID的方法
+							    		 String id=UUID.randomUUID().toString().substring(0, 8);
+								    	 Calendar time=Calendar.getInstance();
+								    	 time.set(Calendar.YEAR,(int)comboBox1.getSelectedItem());
+								    	 time.set(Calendar.MONTH,(int)comboBox2.getSelectedItem());
+								    	 time.set(Calendar.DAY_OF_MONTH,(int)comboBox3.getSelectedItem());
+								    	 UserVO vo=new UserVO(textField2.getText(),id,textField6.getText(),"企业会员",UserType.Customer,time,textField7.getText());
+								    	 controller.register(vo, password4);
+							    		 int option2 = JOptionPane.showConfirmDialog(panel,"请记住你的账号："+id+"\n是否跳转到客户主界面？","", JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE, null);
 							    		 switch (option2) {
-									     case JOptionPane.YES_OPTION:
-									    	 String id=UUID.randomUUID().toString().substring(0, 8);
-									    	 Calendar time=Calendar.getInstance();
-									    	 time.set(Calendar.YEAR,(int)comboBox1.getSelectedItem());
-									    	 time.set(Calendar.MONTH,(int)comboBox2.getSelectedItem());
-									    	 time.set(Calendar.DAY_OF_MONTH,(int)comboBox3.getSelectedItem());
-									    	 UserVO vo=new UserVO(textField2.getText(),id,textField6.getText(),"企业会员",UserType.Customer,time,textField7.getText());
-									    	 if(controller.createUser(vo, password4)){
-									    		 controller.tocustomerMainView("id");
-									    	 }
+							     case JOptionPane.YES_OPTION:			    	
+									     controller.tocustomerMainView(id);
 									    	 break;
 									     case JOptionPane.NO_OPTION:
 									    	 break;
@@ -252,18 +249,17 @@ public class MemberRegisterView extends JPanel{
 							     switch (option1) {
 							     case JOptionPane.YES_OPTION: 
 							    	 {
-							    		 int option2 = JOptionPane.showConfirmDialog(panel,"请记住你的账号：     \n是否跳转到客户主界面？","", JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE, null);
+							    		 String id=UUID.randomUUID().toString().substring(0, 8);
+								    	 Calendar time=Calendar.getInstance();
+								    	 time.set(Calendar.YEAR,(int)comboBox1.getSelectedItem());
+								    	 time.set(Calendar.MONTH,(int)comboBox2.getSelectedItem());
+								    	 time.set(Calendar.DAY_OF_MONTH,(int)comboBox3.getSelectedItem());
+								    	 UserVO vo=new UserVO(textField2.getText(),id,textField6.getText(),"普通会员",UserType.Customer,time,"");
+								    	 controller.register(vo, password4);
+							    		 int option2 = JOptionPane.showConfirmDialog(panel,"请记住你的账号："+id+"\n是否跳转到客户主界面？","", JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE, null);
 							    		 switch (option2) {
-									     case JOptionPane.YES_OPTION:  
-									    	 String id=UUID.randomUUID().toString().substring(0, 8);
-									    	 Calendar time=Calendar.getInstance();
-									    	 time.set(Calendar.YEAR,(int)comboBox1.getSelectedItem());
-									    	 time.set(Calendar.MONTH,(int)comboBox2.getSelectedItem());
-									    	 time.set(Calendar.DAY_OF_MONTH,(int)comboBox3.getSelectedItem());
-									    	 UserVO vo=new UserVO(textField2.getText(),id,textField6.getText(),"普通会员",UserType.Customer,time,"");
-									    	 if(controller.createUser(vo, password4)){
-									    		 controller.tocustomerMainView("id");
-									    	 }
+									     case JOptionPane.YES_OPTION:  		    	
+									    		 controller.tocustomerMainView(id);								    
 									    	 break;
 									     case JOptionPane.NO_OPTION:
 									    	 break;

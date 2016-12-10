@@ -38,15 +38,9 @@ import uiService.webPromotionUserUiService;
  */
 
 public class webPromotionUserUiController implements webPromotionUserUiService {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private WebPromotionUserView view;
 	@Override
 	public void toWebPromotionStrategyView() {
-		// TODO Auto-generated method stub
 		WebPromotionStrategyUiService controller;
 		try {
 			controller = new WebPromotionStrategyUiController();
@@ -54,14 +48,12 @@ public class webPromotionUserUiController implements webPromotionUserUiService {
 			controller.setView(view);
 			ClientRunner.change(view);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
 	@Override
 	public void toCreditManagementView() {
-		// TODO Auto-generated method stub
 		CreditManagementUiService controller=new CreditManagementUiController();
 		CreditManagementView view=new CreditManagementView(controller);
 		controller.setView(view);
@@ -70,7 +62,6 @@ public class webPromotionUserUiController implements webPromotionUserUiService {
 
 	@Override
 	public void toMemberLevelSystemView() {
-		// TODO Auto-generated method stub
 		MemberLevelSystemUiService controller=new MemberLevelSystemUiController();
 		MemberLevelSystemView view=new MemberLevelSystemView(controller);
 		controller.setView(view);
@@ -79,7 +70,6 @@ public class webPromotionUserUiController implements webPromotionUserUiService {
 
 	@Override
 	public void toLogView() {
-		// TODO Auto-generated method stub
 		LoginViewControllerService controller =  new LoginViewControllerImpl();
     	LogView view = new LogView(controller);
 		controller.setView(view);
@@ -88,13 +78,11 @@ public class webPromotionUserUiController implements webPromotionUserUiService {
 
 	@Override
 	public void setView(WebPromotionUserView view) {
-		// TODO Auto-generated method stub
 		this.view=view;
 	}
 
 	@Override
 	public void toProcessOrderOrderView() {
-		// TODO Auto-generated method stub
 		JFrame hotelFrame = new JFrame();
 		hotelFrame.setSize(600, 80);
 		hotelFrame.setLocation(400, 400);
@@ -116,7 +104,6 @@ public class webPromotionUserUiController implements webPromotionUserUiService {
 					ClientRunner.change(view);
 					hotelFrame.dispose();
 				} catch (RemoteException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}

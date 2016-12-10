@@ -37,9 +37,13 @@ public interface PromotionBLService {
      */
 	public Vector<Vector<String>> getAllWebPromotion();
 	/**
-	 * 通过策略ID查找策略
+	 * 通过策略ID查找网站策略
      */
 	public WebPromotionVO getWebPromotionByPromotionNumber(String promotionnumber);
+	/**
+	 * 通过酒店ID查找酒店策略
+     */
+	public HotelPromotionVO getHotelPromotionByHotelID(String hotelid);
 	/**
 	 * 得到在下订单时客户能获得的网站营销策略折扣
      */

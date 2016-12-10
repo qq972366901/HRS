@@ -189,7 +189,6 @@ public class OrderVO extends  Vector<String>{
 		comment=po.getComment();
 		score=po.getScore();	
     }
-   
     public OrderVO(){}
 	/**
      * 更新订单信息
@@ -215,5 +214,14 @@ public class OrderVO extends  Vector<String>{
 		generationTime=vo.generationTime;
 		comment=vo.comment;
 		score=vo.score;	
+	}
+	/**
+	 * 得到向量用于在表格中显示
+	 * @return
+	 */
+	public Vector<String> toVector() {
+		Vector<String> v=new Vector<String>();
+		//待实现
+		return v;
 	}
 }

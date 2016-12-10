@@ -222,7 +222,7 @@ public class ProcessOrderView extends JPanel{
 			return;
 		}
 		
-		int orderNo=Integer.valueOf((String)orderTable.getValueAt(index, 0));
+		String orderNo=(String)orderTable.getValueAt(index, 0);
 		if(controller.processUnfinishedOrder(orderNo)){
 			orderListModel.removeRow(index);
 		}else{
@@ -240,8 +240,8 @@ public class ProcessOrderView extends JPanel{
 			orderListModel.setRowCount(0);
 			List<OrderVO> list=controller.getAllOrders(hotelId);
 			if(!list.isEmpty()){
-				for (OrderVO orderVo : controller.getAllOrders(hotelId)) {
-					orderListModel.addRow(orderVo);
+				for (OrderVO orderVo : list) {
+					orderListModel.addRow(orderVo.toVector());
 				}
 			}
 			//设置控件可用类型
@@ -254,8 +254,8 @@ public class ProcessOrderView extends JPanel{
 			orderListModel.setRowCount(0);
 			List<OrderVO> list=controller.getUnfinishedOrders(hotelId);
 			if(!list.isEmpty()){
-				for (OrderVO orderVo : controller.getUnfinishedOrders(hotelId)) {
-					orderListModel.addRow(orderVo);
+				for (OrderVO orderVo : list) {
+					orderListModel.addRow(orderVo.toVector());
 				}
 			}
 			
@@ -269,8 +269,8 @@ public class ProcessOrderView extends JPanel{
 			orderListModel.setRowCount(0);
 			List<OrderVO> list=controller.getFinishedOrders(hotelId);
 			if(!list.isEmpty()){
-				for (OrderVO orderVo : controller.getFinishedOrders(hotelId)) {
-					orderListModel.addRow(orderVo);
+				for (OrderVO orderVo : list) {
+					orderListModel.addRow(orderVo.toVector());
 				}
 			}
 			//设置控件可用类型
@@ -282,8 +282,8 @@ public class ProcessOrderView extends JPanel{
 			orderListModel.setRowCount(0);
 			List<OrderVO> list=controller.getAbnormalOrders(hotelId);
 			if(!list.isEmpty()){
-				for (OrderVO orderVo : controller.getAbnormalOrders(hotelId)) {
-					orderListModel.addRow(orderVo);
+				for (OrderVO orderVo : list) {
+					orderListModel.addRow(orderVo.toVector());
 				}
 			}
 			//设置控件可用类型
@@ -296,8 +296,8 @@ public class ProcessOrderView extends JPanel{
 			orderListModel.setRowCount(0);
 			List<OrderVO> list=controller.getCanceledOrders(hotelId);
 			if(!list.isEmpty()){
-				for (OrderVO orderVo : controller.getCanceledOrders(hotelId)) {
-					orderListModel.addRow(orderVo);
+				for (OrderVO orderVo : list) {
+					orderListModel.addRow(orderVo.toVector());
 				} 
 			}
 			//设置控件可用类型
@@ -321,7 +321,7 @@ public class ProcessOrderView extends JPanel{
 		}
 		
 		final int rowIndex = index;
-		final int orderNo =Integer.valueOf((String)orderTable.getValueAt(index, 0));
+		final String orderNo =(String) orderTable.getValueAt(index, 0);
 		
 		delayFrame = new JFrame();
 		delayFrame.setSize(600, 80);
@@ -366,7 +366,7 @@ public class ProcessOrderView extends JPanel{
 	}
 	
 	//订单延期按钮点击事件
-	private boolean delayOrder(int orderNo) {
+	private boolean delayOrder(String orderNo) {
 	
 		String delayTime = delayTextField.getText();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");

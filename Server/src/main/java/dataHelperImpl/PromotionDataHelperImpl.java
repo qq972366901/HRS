@@ -59,7 +59,7 @@ public class PromotionDataHelperImpl implements PromotionDataHelper{
 		String date1= sdf.format(po.getPromotionBegintime().getTime());
 		String date2= sdf.format(po.getPromotionEndtime().getTime());
 		if(po.getPromotionNumber()!=null){
-		sql="insert into [Promotion] values('"+po.getPromotionNumber()+"','"+po.getPromotionName()+"','"+date1+"','"+date2+"','"+po.getApplyCity()+"','"+po.getHotelBussinesscircle()+"','"+po.getUserShipgrade()+"')";
+		sql="insert into [Promotion] values('"+null+"','"+po.getPromotionNumber()+"','"+po.getPromotionName()+"','"+date1+"','"+date2+"','"+po.getApplyCity()+"','"+po.getHotelBussinesscircle()+"','"+po.getUserShipgrade()+"','"+null+"','"+null+"','"+null+"','"+null+"')";
 		try {
 			Statement st=dbConn.createStatement();
 			int res=st.executeUpdate(sql);
@@ -76,7 +76,7 @@ public class PromotionDataHelperImpl implements PromotionDataHelper{
 		}
 		}
 		else if(po.getHotelID()!=null){
-		sql="insert into [Promotion] values('"+po.getHotelID()+"','"+po.getPromotionName()+"','"+date1+"','"+date2+"','"+po.getPromotionDiscount()+"','"+po.getBirthdayDiscount()+"','"+po.getRoomDiscount()+"','"+po.getEnterpriseDiscount()+"')";
+		sql="insert into [Promotion] values('"+po.getHotelID()+"','"+null+"','"+null+"','"+null+"','"+po.getPromotionDiscount()+"','"+po.getBirthdayDiscount()+"','"+po.getRoomDiscount()+"','"+po.getEnterpriseDiscount()+"')";
 		try {
 			Statement st=dbConn.createStatement();
 			int res=st.executeUpdate(sql);

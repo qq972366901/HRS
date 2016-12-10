@@ -3,6 +3,7 @@ package UserView;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -31,7 +32,8 @@ public class WebAdminUserView extends JPanel{
 		this.add(p1);
 		button1.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {
-				controller.toLogView("id");
+				controller.toLogView();
+				controller.logout(controller.getUserID());
 			}
 		});
 		JPanel p2=new JPanel();
@@ -41,7 +43,12 @@ public class WebAdminUserView extends JPanel{
 		this.add(p2);
 		button2.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {
-				controller.toUserManagementView("id");
+				try {
+					controller.toUserManagementView(controller.getUserID());
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		JPanel p3=new JPanel();
@@ -51,7 +58,7 @@ public class WebAdminUserView extends JPanel{
 		this.add(p3);
 		button3.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {
-				controller.toAddHotelView("id");
+				controller.toAddHotelView(controller.getUserID());
 			}
 		});
 	}
