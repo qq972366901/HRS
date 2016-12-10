@@ -98,13 +98,13 @@ public class OrderState {
 	}
 	
 	/**
-     * 网站营销人员撤销异常订单(将订单状态改为已执行，增加信用值请使用updateCredit方法)
+     * 网站营销人员撤销异常订单(将订单状态改为已撤销，增加信用值请使用updateCredit方法)
      * 
 	 * @ 
      * @see bussinesslogic.Order
      */
 	public void cancelAbnormalOrder()  {
-		state.orderState=1;
+		state.orderState=4;
 		state.Update();
 		try {
 			orderData.update(order);
