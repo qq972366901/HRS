@@ -1,10 +1,7 @@
 package hotelInformationOverview;
-import java.util.ArrayList;
 
 import HotelBLServiceImpl.HotelInfo;
 import VO.HotelVO;
-import VO.OrderVO;
-import hotelBLService.HotelBLServiceController;
 public class HotelInformationOverviewController{
 	
 	/**
@@ -31,66 +28,143 @@ public class HotelInformationOverviewController{
 	
 	
 	
-	/**
-     * 显示酒店的详细信息
-     * 
-     * @param vo HotelVO型，一个酒店的值对象
-     * @return boolean型，显示成功则返回true，否则返回false
-     * @see bussinesslogic.Hotel
-     */
-public boolean getroominfo(HotelVO vo) {
-		return false;
-	}
+	//---------------------------------------
+//	HotelBLService hotel = new HotelBLServiceController();
+//	RoomBLService room = new RoomBLServiceController();
+//	/**
+//     * 酒店列表按照星级从高到低排序
+//     * 
+//     * @param hotelIDList List<String>型，酒店帐号列表
+//     * @return 返回按照星级从高到低排序后的酒店列表
+//     */
+//	private List<String> starSortHigh(List<String> hotelIDList) {
+//		List<HotelVO> temp = new ArrayList<HotelVO>();
+//		for(int i=0;i<hotelIDList.size();i++) {
+//			HotelVO vo = hotel.findByHotelID(hotelIDList.get(i));
+//			temp.add(vo);
+//		}
+//		for(int i=0;i<temp.size();i++) {
+//			for(int j=i;j<temp.size();j++) {
+//				if(temp.get(j).hotelStar > temp.get(i).hotelStar) {
+//					HotelVO hvo = temp.get(i);
+//					temp.set(i, temp.get(j));
+//					temp.set(j, hvo);
+//				}
+//			}
+//		}
+//		List<String> outcome = new ArrayList<String>();
+//		for(int i=0;i<temp.size();i++) {
+//			outcome.add(temp.get(i).hotelAccount);
+//		}
+//		return outcome;
+//	}
+//	/**
+//     * 酒店列表按照星级从低到高排序
+//     * 
+//     * @param hotelIDList List<String>型，酒店帐号列表
+//     * @return 返回按照星级从低到高排序后的酒店列表
+//     */
+//	private List<String> starSortLow(List<String> hotelIDList) {
+//		List<HotelVO> temp = new ArrayList<HotelVO>();
+//		for(int i=0;i<hotelIDList.size();i++) {
+//			HotelVO vo = hotel.findByHotelID(hotelIDList.get(i));
+//			temp.add(vo);
+//		}
+//		for(int i=0;i<temp.size();i++) {
+//			for(int j=i;j<temp.size();j++) {
+//				if(temp.get(j).hotelStar < temp.get(i).hotelStar) {
+//					HotelVO hvo = temp.get(i);
+//					temp.set(i, temp.get(j));
+//					temp.set(j, hvo);
+//				}
+//			}
+//		}
+//		List<String> outcome = new ArrayList<String>();
+//		for(int i=0;i<temp.size();i++) {
+//			outcome.add(temp.get(i).hotelAccount);
+//		}
+//		return outcome;
+//	}
+//	/**
+//     * 酒店列表按照评分从高到低排序
+//     * 
+//     * @param hotelIDList List<String>型，酒店帐号列表
+//     * @return 返回按照评分从高到低排序后的酒店列表
+//     */
+//	private List<String> scoreSort(List<String> hotelIDList) {
+//		List<HotelVO> temp = new ArrayList<HotelVO>();
+//		for(int i=0;i<hotelIDList.size();i++) {
+//			HotelVO vo = hotel.findByHotelID(hotelIDList.get(i));
+//			temp.add(vo);
+//		}
+//		for(int i=0;i<temp.size();i++) {
+//			for(int j=i;j<temp.size();j++) {
+//				if(temp.get(j).score > temp.get(i).score) {
+//					HotelVO hvo = temp.get(i);
+//					temp.set(i, temp.get(j));
+//					temp.set(j, hvo);
+//				}
+//			}
+//		}
+//		List<String> outcome = new ArrayList<String>();
+//		for(int i=0;i<temp.size();i++) {
+//			outcome.add(temp.get(i).hotelAccount);
+//		}
+//		return outcome;
+//	}
+//	/**
+//     * 酒店列表按照房间最低价格从高到低排序
+//     * 
+//     * @param hotelIDList List<String>型，酒店帐号列表
+//     * @return 返回按照房间最低价格从高到低排序后的酒店列表
+//     */
+//	private List<String> priceSortHigh(List<String> hotelIDList) {
+//		for(int i=0;i<hotelIDList.size();i++) {
+//			for(int j=i;j<hotelIDList.size();j++) {
+//				if(room.getRoomLowestPrice(hotelIDList.get(i)) < room.getRoomLowestPrice(hotelIDList.get(j))) {
+//					String s = hotelIDList.get(i);
+//					hotelIDList.set(i, hotelIDList.get(j));
+//					hotelIDList.set(j, s);
+//				}
+//			}
+//		}
+//		return hotelIDList;
+//	}
+//	/**
+//     * 酒店列表按照房间最低价格从低到高排序
+//     * 
+//     * @param hotelIDList List<String>型，酒店帐号列表
+//     * @return 返回按照房间最低价格从低到高排序后的酒店列表
+//     */
+//	private List<String> priceSortLow(List<String> hotelIDList) {
+//		for(int i=0;i<hotelIDList.size();i++) {
+//			for(int j=i;j<hotelIDList.size();j++) {
+//				if(room.getRoomLowestPrice(hotelIDList.get(i)) > room.getRoomLowestPrice(hotelIDList.get(j))) {
+//					String s = hotelIDList.get(i);
+//					hotelIDList.set(i, hotelIDList.get(j));
+//					hotelIDList.set(j, s);
+//				}
+//			}
+//		}
+//		return hotelIDList;
+//	}
 
-
-/**
- * 按价格从低到高显示酒店列表
- * 
- * @param ah ArrayList<Hotel>型，一个酒店值对象的列表
- * @return 一个HotelVO值对象
- * @see bussinesslogic.Hotel
- */
-public HotelVO pricesort(ArrayList<Hotel>  ah) {
-	HotelVO hv=new HotelVO();
-	return hv;
 }
 
 
-/**
- * 按星级从低到高显示酒店列表
- * 
- * @param ah ArrayList<Hotel>型，一个酒店值对象的列表
- * @return 一个HotelVO值对象
- * @see bussinesslogic.Hotel
- */
-public HotelVO starsort(ArrayList<Hotel>  ah) {
-	HotelVO hv=new HotelVO();
-	return hv;
-}
 
 
-/**
- * 按评分从低到高显示酒店列表
- * 
- * @param ah ArrayList<Hotel>型，一个酒店值对象的列表
- * @return 一个HotelVO值对象
- * @see bussinesslogic.Hotel
- */
-public HotelVO scoresort(ArrayList<Hotel>  ah) {
-	HotelVO hv=new HotelVO();
-	return hv;
-}
-/**
- * 显示客户在酒店的细节以及历史订单
- * 
- * @param vo HotelVO型，一个酒店值对象
- * @return 一个OrderVO值对象
- * @see bussinesslogic.Hotel
- */
-public OrderVO gethistoryorder(HotelVO  vo) {
-	OrderVO hv=new OrderVO();
-	return hv;
-}
 
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
