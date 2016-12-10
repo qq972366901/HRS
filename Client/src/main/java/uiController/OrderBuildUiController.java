@@ -23,6 +23,8 @@ import runner.ClientRunner;
 import uiService.HotelBrowseUiService;
 import uiService.LoginViewControllerService;
 import uiService.OrderBuildUiService;
+import userBLService.UserBLService;
+import userBLService.UserBLServiceController;
 
 public class OrderBuildUiController implements OrderBuildUiService{
 	private static final long serialVersionUID = 1L;
@@ -33,11 +35,13 @@ public class OrderBuildUiController implements OrderBuildUiService{
 	private RoomBLService room;
 	private HotelBLService hotel;
 	private PromotionBLService promotion;
+	private UserBLService user;
 	public OrderBuildUiController(String userID,String hotelID) throws RemoteException{
 		this.order=new OrderBLServiceController();
 	    this.room=new RoomBLServiceController();
 	    this.hotel=new HotelBLServiceController();
 	    this.promotion=new PromotionController();
+	    this.user=new UserBLServiceController();
 		this.userID=userID;
 		this.hotelID=hotelID;
 	}
@@ -89,5 +93,8 @@ public class OrderBuildUiController implements OrderBuildUiService{
 	}
 	public HotelVO findByHotelID(String hoteid){
 		return hotel.findByHotelID(hoteid);
+	}
+	public long showCredit(String userid){
+		return user.showCredit(userid);
 	}
 }

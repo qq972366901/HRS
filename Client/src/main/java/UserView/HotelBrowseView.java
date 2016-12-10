@@ -19,6 +19,7 @@ import javax.swing.table.DefaultTableModel;
 import VO.OrderVO;
 import uiService.HotelBrowseUiService;
 import uiService.HotelSearchUiService;
+import userBLServiceImpl.Log;
 
 
 public class HotelBrowseView extends JPanel{
@@ -102,6 +103,14 @@ public class HotelBrowseView extends JPanel{
 		this.add(panel6);
 		JPanel panel7= new JPanel();
 		panel7.setLayout(new FlowLayout(FlowLayout.LEFT));
+		String key="";
+		String id=
+		try {
+			key=Log.getLogInstance().getKey();
+		} catch (RemoteException e1) {
+			System.out.println("获取密钥失败");
+			e1.printStackTrace();
+		}
 		label7=new JLabel("酒店联系方式："+controller. findByHotelID(hotelid).hotelPhone);
 		panel7.add(label7);
 		this.add(panel7);

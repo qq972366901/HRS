@@ -21,6 +21,8 @@ import javax.swing.JTextField;
 import VO.UserVO;
 import common.UserType;
 import uiService.UserManagementUiService;
+import userBLServiceImpl.DES;
+import userBLServiceImpl.Log;
 
 
 
@@ -32,7 +34,8 @@ public class UserManagementView extends JPanel{
 	private JPanel panel,p3,p4,p5,p7,p8,p9,p10,p11,p12;
 	private JComboBox<String> comboBox,comboBox4;
 	private JComboBox<Integer> comboBox1,comboBox2,comboBox3,comboBox5;
-	private String userid;
+	String str1=null;
+	String key="";
 	private UserManagementUiService controller;
 	public UserManagementView(UserManagementUiService c){
 		this.controller=c;
@@ -188,16 +191,24 @@ public class UserManagementView extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				String	selected=(String)comboBox.getSelectedItem();
 				//需要判断账号是否存在
+				try {
+					key=Log.getLogInstance().getKey(textField2.getText());
+				} catch (RemoteException e1) {
+					System.out.println("获取密钥失败");
+					e1.printStackTrace();
+				}
+				if(key!=null){
+					str1=DES.encryptDES(textField2.getText(),key);
+				}
 				if(textField2.getText().equals("")){
 					JOptionPane.showMessageDialog(panel, "请输入用户账号进行搜索！","", JOptionPane.ERROR_MESSAGE);
 				}
-				else if(controller.judge(textField2.getText())==false){
+				else if(controller.judge(str1)==false){
 					JOptionPane.showMessageDialog(panel, "请输入正确的账号进行搜索！","", JOptionPane.ERROR_MESSAGE);
 				}
 				else{
 					
-				if(selected.equals("客户")&&controller.findByID(textField2.getText()).type.equals(UserType.Customer)){
-					userid=textField2.getText();
+				if(selected.equals("客户")&&controller.findByID(str1).type.equals(UserType.Customer)){
 					label3.setVisible(false);
 					textField3.setVisible(false);
 					label12.setVisible(false);
@@ -259,24 +270,26 @@ public class UserManagementView extends JPanel{
 					label11.setVisible(true);
 					textField6.setVisible(true);
 					//从VO获取数据
-					textField3.setText(controller.findByID(userid).username);
-					textField7.setText(controller.getUser(UserType.Customer,userid).userpassword);
-					comboBox4.addItem(controller.findByID(userid).membertype);
-					textField8.setText(String.valueOf(controller.showLevel(userid)));
-					Calendar birthday=controller.findByID(userid).birthday;
+					String str2=DES.decryptDES(controller.findByID(str1).username, key);
+				    String str3=DES.decryptDES(controller.getUser(UserType.Customer,str1).userpassword,key);
+				    String str4=DES.decryptDES(controller.findByID(str1).contactway, key);
+					textField3.setText(str2);
+					textField7.setText(str3);
+					comboBox4.addItem(controller.findByID(str1).membertype);
+					textField8.setText(String.valueOf(controller.showLevel(str1)));
+					Calendar birthday=controller.findByID(str1).birthday;
 					int year=birthday.get(Calendar.YEAR);
 					int month=birthday.get(Calendar.MONTH);
 					int day=birthday.get(Calendar.DATE);
 					comboBox1.addItem(year);
 					comboBox2.addItem(month);
 					comboBox3.addItem(day);
-					textField4.setText(controller.findByID(userid).contactway);
-					textField5.setText(controller.findByID(userid).enterprise);
-					textField6.setText(String.valueOf(controller.showCredit(userid)));					
+					textField4.setText(str4);
+					textField5.setText(controller.findByID(str1).enterprise);
+					textField6.setText(String.valueOf(controller.showCredit(str1)));					
 					button6.setEnabled(true);
 				}
 				else if(selected.equals("酒店工作人员")&&controller.findByID(textField2.getText()).type.equals(UserType.HotelWorker)){
-					userid=textField2.getText();
 					label3.setVisible(false);
 					textField3.setVisible(false);
 					label12.setVisible(false);
@@ -324,14 +337,16 @@ public class UserManagementView extends JPanel{
 			label4.setVisible(true);
 			textField4.setVisible(true);
 			//从VO获取数据
-			textField3.setText(controller.findByID(userid).username);
-			textField7.setText(controller.getUser(UserType.HotelWorker,userid).userpassword);
-			textField4.setText(controller.findByID(userid).contactway);
+			String str2=DES.decryptDES(controller.findByID(str1).username, key);
+		    String str3=DES.decryptDES(controller.getUser(UserType.Customer,str1).userpassword,key);
+		    String str4=DES.decryptDES(controller.findByID(str1).contactway, key);
+			textField3.setText(str2);
+			textField7.setText(str3);
+			textField4.setText(str4);
 			button6.setEnabled(true);
 			
 				}
 				else if(selected.equals("网站营销人员")&&controller.findByID(textField2.getText()).type.equals(UserType.WebPromotionWorker)){
-					userid=textField2.getText();
 					label3.setVisible(false);
 					textField3.setVisible(false);
 					label12.setVisible(false);
@@ -379,10 +394,12 @@ public class UserManagementView extends JPanel{
 			label4.setVisible(true);
 			textField4.setVisible(true);
 			//从VO获取数据
-			textField3.setText(controller.findByID(userid).username);
-			textField7.setText(controller.getUser(UserType.WebPromotionWorker,userid).userpassword);
-			textField4.setText(controller.findByID(userid).contactway);
-			
+			String str2=DES.decryptDES(controller.findByID(str1).username, key);
+		    String str3=DES.decryptDES(controller.getUser(UserType.Customer,str1).userpassword,key);
+		    String str4=DES.decryptDES(controller.findByID(str1).contactway, key);
+			textField3.setText(str2);
+			textField7.setText(str3);
+			textField4.setText(str4);
 			button6.setEnabled(true);
 			button6.addActionListener(new ActionListener() {
 		        public void actionPerformed(ActionEvent e) {
@@ -595,8 +612,8 @@ public class UserManagementView extends JPanel{
 					button7.setVisible(false);
 					button2.setEnabled(false);
 					button7.setEnabled(false);
-					if(controller.findByID(userid).type.equals(UserType.Customer)){
-						if(controller.findByID(userid).membertype.equals("普通会员")){
+					if(controller.findByID(str1).type.equals(UserType.Customer)){
+						if(controller.findByID(str1).membertype.equals("普通会员")){
 							int year=(int)comboBox1.getSelectedItem();
 							int month=(int)comboBox2.getSelectedItem();
 							int day=(int)comboBox3.getSelectedItem();
@@ -604,11 +621,14 @@ public class UserManagementView extends JPanel{
 							c.set(Calendar.YEAR,year);
 							c.set(Calendar.MONTH,month-1);//从0开始，0表是1月，1表示2月依次类推
 							c.set(Calendar.DAY_OF_MONTH,day);
-							UserVO vo=new UserVO(textField3.getText(),userid,textField4.getText(),(String)comboBox4.getSelectedItem(),UserType.Customer,c,null);
+							String str2=DES.encryptDES(textField3.getText(),key);
+						    String str3=DES.encryptDES(textField7.getText(),key);
+						    String str4=DES.encryptDES(textField4.getText(),key);
+							UserVO vo=new UserVO(str2,str1,str4,(String)comboBox4.getSelectedItem(),UserType.Customer,c,null);
 							controller.update(vo);
-							controller.revisepassword(userid,textField7.getText());
+							controller.revisepassword(str1,str3);
 						}
-						else if(controller.findByID(userid).membertype.equals("企业会员")){
+						else if(controller.findByID(str1).membertype.equals("企业会员")){
 							int year=(int)comboBox1.getSelectedItem();
 							int month=(int)comboBox2.getSelectedItem();
 							int day=(int)comboBox3.getSelectedItem();
@@ -616,18 +636,27 @@ public class UserManagementView extends JPanel{
 							c.set(Calendar.YEAR,year);
 							c.set(Calendar.MONTH,month-1);//从0开始，0表是1月，1表示2月依次类推
 							c.set(Calendar.DAY_OF_MONTH,day);
-							UserVO vo=new UserVO(textField3.getText(),userid,textField4.getText(),(String)comboBox4.getSelectedItem(),UserType.Customer,c,textField5.getText());
+							String str2=DES.encryptDES(textField3.getText(),key);
+						    String str3=DES.encryptDES(textField7.getText(),key);
+						    String str4=DES.encryptDES(textField4.getText(),key);
+							UserVO vo=new UserVO(str2,str1,str4,(String)comboBox4.getSelectedItem(),UserType.Customer,c,textField5.getText());
 							controller.update(vo);
-							controller.revisepassword(userid,textField7.getText());
+							controller.revisepassword(str1,str3);
 						}
 					}
-					else if(controller.findByID(userid).type.equals(UserType.HotelWorker)){
-						UserVO vo=new UserVO(textField3.getText(),userid,textField4.getText(),null,UserType.HotelWorker,null,null);
-						controller.revisepassword(userid,textField7.getText());
+					else if(controller.findByID(str1).type.equals(UserType.HotelWorker)){
+						String str2=DES.encryptDES(textField3.getText(),key);
+					    String str3=DES.encryptDES(textField7.getText(),key);
+					    String str4=DES.encryptDES(textField4.getText(),key);
+						UserVO vo=new UserVO(str2,str1,str4,null,UserType.HotelWorker,null,null);
+						controller.revisepassword(str1,str3);
 					}
-					else if(controller.findByID(userid).type.equals(UserType.WebPromotionWorker)){
-						UserVO vo=new UserVO(textField3.getText(),userid,textField4.getText(),null,UserType.WebPromotionWorker,null,null);
-						controller.revisepassword(userid,textField7.getText());
+					else if(controller.findByID(str1).type.equals(UserType.WebPromotionWorker)){
+						String str2=DES.encryptDES(textField3.getText(),key);
+					    String str3=DES.encryptDES(textField7.getText(),key);
+					    String str4=DES.encryptDES(textField4.getText(),key);
+						UserVO vo=new UserVO(str2,str1,str4,null,UserType.WebPromotionWorker,null,null);
+						controller.revisepassword(str1,str3);
 					}
 	        	}
 	        }
@@ -807,20 +836,23 @@ public class UserManagementView extends JPanel{
 				button5.setEnabled(false);
 				button7.setVisible(false);
 				button7.setEnabled(false);
-				textField3.setText(controller.findByID(userid).username);
-				textField7.setText(controller.getUser(controller.findByID(userid).type,userid).userpassword);
-				comboBox4.addItem(controller.findByID(userid).membertype);
-				textField8.setText(String.valueOf(controller.showLevel(userid)));
-				Calendar birthday=controller.findByID(userid).birthday;
+				String str2=DES.decryptDES(controller.findByID(str1).username,key);
+				String str3=DES.decryptDES(controller.getUser(controller.findByID(str1).type,str1).userpassword,key);
+				String str4=DES.decryptDES(controller.findByID(str1).contactway,key);
+				textField3.setText(str2);
+				textField7.setText(str3);
+				comboBox4.addItem(controller.findByID(str1).membertype);
+				textField8.setText(String.valueOf(controller.showLevel(str1)));
+				Calendar birthday=controller.findByID(str1).birthday;
 				int year=birthday.get(Calendar.YEAR);
 				int month=birthday.get(Calendar.MONTH);
 				int day=birthday.get(Calendar.DATE);
 				comboBox1.addItem(year);
 				comboBox2.addItem(month);
 				comboBox3.addItem(day);
-				textField4.setText(controller.findByID(userid).contactway);
-				textField5.setText(controller.findByID(userid).enterprise);
-				textField6.setText(String.valueOf(controller.showCredit(userid)));
+				textField4.setText(str4);
+				textField5.setText(controller.findByID(str1).enterprise);
+				textField6.setText(String.valueOf(controller.showCredit(str1)));
 	        }
 		});
 		button7.addActionListener(new ActionListener() {
@@ -842,8 +874,19 @@ public class UserManagementView extends JPanel{
 						}
 	        	else{
 	        		String id=UUID.randomUUID().toString().substring(0, 8);
-	        		UserVO vo=new UserVO(textField3.getText(),id,textField4.getText(),null,UserType.WebPromotionWorker,null,null);
-	        		controller.register(vo,textField7.getText());
+	        		String key1=DES.init();
+	        		 try {
+							Log.getLogInstance().addKey(id,key1);
+						} catch (RemoteException e2) {
+							// TODO Auto-generated catch block
+							e2.printStackTrace();
+						}
+	        		 String str5=DES.encryptDES(id,key1);
+				     String str6=DES.encryptDES(textField7.getText(), key1);
+				     String str7=DES.encryptDES(textField3.getText(),key1);
+				     String str8=DES.encryptDES(textField4.getText(), key1);
+	        		UserVO vo=new UserVO(str7,str5,str8,null,UserType.WebPromotionWorker,null,null);
+	        		controller.register(vo,str6);
 	        		JOptionPane.showMessageDialog(panel, "  成功添加网站营销人员！\n请记住账号："+id,"", JOptionPane.ERROR_MESSAGE);
 	        		label3.setVisible(false);
 					textField3.setVisible(false);
