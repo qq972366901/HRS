@@ -73,9 +73,15 @@ public interface UserDataService  extends DataService{
 		 */
 		public void modifyPassword(String userID, String password) throws RemoteException;
 		/**
-		 * 获取所有密钥
+		 * 获取所有原始账号和密钥
 		 */
 		public HashMap<String,String> getAllKeys() throws RemoteException;
+		/**
+		 * 获取所有加密账号和密钥
+		 * @return
+		 * @throws RemoteException
+		 */
+		public HashMap<String,String> getAllSKeys() throws RemoteException;
 		/**
 		 * 删除一个密钥
 		 * @param secretID
@@ -88,6 +94,6 @@ public interface UserDataService  extends DataService{
 		 * @param k
 		 * @throws RemoteException
 		 */
-		public void addKey(String id, String k) throws RemoteException;
+		public void addKey(String id, String k,String secretid) throws RemoteException;
 	}
 

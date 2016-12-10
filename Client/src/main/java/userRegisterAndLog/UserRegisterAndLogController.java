@@ -61,4 +61,13 @@ public class UserRegisterAndLogController{
 		public boolean checkoldPassword(String userID, String password) {
 			return log.passwordIsValid(userID,password);
 		}
+		/**
+		 * 为Log类增加原始账号，密钥，加密账号
+		 * @param id
+		 * @param k
+		 * @param secretid
+		 */
+		public boolean addLog(String id, String k, String secretid) {
+			return log.addKey(id, k, secretid);
+		}
 }

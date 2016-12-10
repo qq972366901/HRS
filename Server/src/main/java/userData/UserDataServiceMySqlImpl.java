@@ -23,6 +23,7 @@ public class UserDataServiceMySqlImpl implements UserDataService{
 	private DataHelperFactory dataFactory;
 	private HashMap<String,UserPO> user;
 	private HashMap<String,String> key;
+	private HashMap<String,String> skey;
 	private UserDataHelper helper;
 	private UserDataServiceMySqlImpl() throws RemoteException{
 		UnicastRemoteObject.exportObject(this,8089);
@@ -100,6 +101,7 @@ public class UserDataServiceMySqlImpl implements UserDataService{
 		helper=dataFactory.getUserDataHelper();
 		user=new HashMap<String,UserPO>();
 		key=helper.getAllKeys();
+		skey=helper.getAllSKeys();
 		ArrayList<UserPO> list=new ArrayList<UserPO>();
 		list=helper.getAllUser();
 		for(int i=0;i<list.size();i++){
@@ -154,17 +156,23 @@ public class UserDataServiceMySqlImpl implements UserDataService{
 		return key;
 	}
 	@Override
+	public HashMap<String, String> getAllSKeys() {
+		return skey;
+	}
+	@Override
 	public void deleteKey(String secretID) throws RemoteException {
 		if(key.containsKey(secretID)){
 			key.remove(secretID);
+			skey.remove(secretID);
 			helper.deleteKey(secretID);
 		}
 	}
 	@Override
-	public void addKey(String id, String k) throws RemoteException {
+	public void addKey(String id, String k,String secretid) throws RemoteException {
 		if(!key.containsKey(id)){
 			key.put(id, k);
-			helper.addKey(id,k);
+			skey.put(secretid, k);
+			helper.addKey(id,k,secretid);
 		}
 	}
 	

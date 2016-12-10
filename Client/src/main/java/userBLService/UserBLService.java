@@ -11,6 +11,13 @@ import userBLServiceImpl.AccountInfo;
  */
 public interface UserBLService {
 	/**
+	 * 为Log类增加原始账号，密钥，加密账号
+	 * @param id
+	 * @param k
+	 * @param secretid
+	 */
+	public boolean addLog(String id,String k,String secretid);
+	/**
 	 * 根据用户账号和类型获取客户账户信息，供网站管理人员查看
 	 * @param type UserType型，用户类型
 	 * @param account String型，用户账号

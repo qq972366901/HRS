@@ -273,4 +273,9 @@ public class UserBLServiceController implements UserBLService {
 		}
 		return null;
 	}
+
+	@Override
+	public boolean addLog(String id, String k, String secretid) {
+		return userRegisterAndLogController.addLog(id,k,secretid);
+	}
 }

@@ -25,8 +25,8 @@ public class UserDataHelperImpl implements UserDataHelper{
 	private void init() {
 		driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
 		dbURL="jdbc:sqlserver://localhost:1433;DatabaseName=HRS";
-		userName="sa";
-		userPwd="123456";
+		userName="liu";
+		userPwd="naigo961226";
 		try{
 			 Class.forName(driverName);
 			 dbConn=DriverManager.getConnection(dbURL,userName,userPwd);
@@ -194,7 +194,7 @@ public class UserDataHelperImpl implements UserDataHelper{
 		init();
 		try {
 			Statement st = dbConn.createStatement();
-			ResultSet rs=st.executeQuery("select * from [Key]");
+			ResultSet rs=st.executeQuery("select [userid],[key] from [Key]");
 			while(rs.next()){
 				String id=rs.getString("userid");
 				String key=rs.getString("key");
@@ -230,9 +230,9 @@ public class UserDataHelperImpl implements UserDataHelper{
 		finish();
 	}
 	@Override
-	public void addKey(String id, String k) {
+	public void addKey(String id, String k,String secretid) {
 		init();
-		String sql="insert into [Key] values('"+id+"','"+k+"')";
+		String sql="insert into [Key] values('"+id+"','"+k+"','"+secretid+"')";
 		try {
 			Statement st=dbConn.createStatement();
 			int res=st.executeUpdate(sql);
@@ -248,5 +248,26 @@ public class UserDataHelperImpl implements UserDataHelper{
 			e.printStackTrace();
 		}
 		finish();
+	}
+	@Override
+	public HashMap<String, String> getAllSKeys() {
+		HashMap<String,String> list=new HashMap<String,String>();
+		init();
+		try {
+			Statement st = dbConn.createStatement();
+			ResultSet rs=st.executeQuery("select [key],[secretid] from [Key]");
+			while(rs.next()){
+				String key=rs.getString("key");
+				String id=rs.getString("secretid");
+				list.put(id, key);
+			}
+			rs.close();
+			st.close();
+		} catch (SQLException e) {
+			System.out.println("读取失败");
+			e.printStackTrace();
+		}
+		finish();
+		return list;
 	}
 }

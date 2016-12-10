@@ -36,10 +36,15 @@ public interface UserDataHelper {
 		 */
 	    public ArrayList<UserPO> getAllUser();
 	    /**
-	     * 获取所有密钥
+	     * 获取所有原始账号和密钥
 	     * @return
 	     */
 		public HashMap<String, String> getAllKeys();
+		/**
+		 * 获取所有加密账号和密钥
+		 * @return
+		 */
+		public HashMap<String,String> getAllSKeys();
 		/**
 		 * 删除一个密钥
 		 * @param secretID
@@ -50,5 +55,5 @@ public interface UserDataHelper {
 		 * @param id
 		 * @param k
 		 */
-		public void addKey(String id, String k);
+		public void addKey(String id, String k,String secretid);
 }

@@ -14,6 +14,7 @@ import rmi.RemoteHelper;
 public class Log {
 	private HashMap<String,LogVO> list;
 	private HashMap<String,String> key;//维护未加密的id和对应密钥
+	private HashMap<String,String> skey;//维护已加密的id和对应密钥
 	private DataFactoryService df;
 	UserDataService dh;
 	private static Log log;
@@ -22,6 +23,7 @@ public class Log {
 		df=RemoteHelper.getInstance().getDataFactoryService();
 		dh=(UserDataService) df.getDataService("User");
 		key=dh.getAllKeys();
+		skey=dh.getAllSKeys();
 		List<UserPO> l=dh.getAllUser();
 		for(UserPO user:l){
 			list.put(user.getAccount(), new LogVO(user));
@@ -128,21 +130,25 @@ public class Log {
 		}
 	}
 	/**
+	 * @return 
 	 * 增加一个密钥
 	 * @param id
 	 * @param k
 	 * @throws  
 	 */
-	public void addKey(String id,String k){
+	public boolean addKey(String id,String k,String secretid){
 		if(!key.containsKey(id)){
 			try {
 				key.put(id, k);
-				dh.addKey(id,k);
+				skey.put(secretid, k);
+				dh.addKey(id,k,secretid);
+				return true;
 			} catch (RemoteException e) {
 				System.out.println("增加失败");
 				e.printStackTrace();
 			}
 		}
+		return false;
 	}
 	/**
 	 * 根据原始ID提供密钥
@@ -152,6 +158,17 @@ public class Log {
 	public String getKey(String id){
 		if(key.containsKey(id)){
 			return key.get(id);
+		}
+		return null;
+	}
+	/**
+	 * 根据加密账号提供密钥
+	 * @param secretid
+	 * @return
+	 */
+	public String getSKey(String secretid){
+		if(skey.containsKey(secretid)){
+			return key.get(secretid);
 		}
 		return null;
 	}
