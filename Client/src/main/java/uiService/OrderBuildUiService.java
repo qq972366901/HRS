@@ -23,4 +23,5 @@ public interface OrderBuildUiService {
 	public double getWebPromotionDiscount(String userID,String city,String bussinesscircle,Calendar orderbuildtime);
 	public double getHotelPromotionDiscount(String hotelid,String userID,int roomNumber,Calendar orderbuildtime);
 	public HotelVO findByHotelID(String hotelID);
+	public long showCredit(String userID);
 }
