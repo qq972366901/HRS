@@ -15,4 +15,16 @@ public class RoomListController {
 		return roomAllOfHotel.getLowestPrice();
 	}
 	
+	/**
+     * 得到酒店的某房间类型的价格
+     * 
+     * @param hotelid String型，酒店的id
+     * @param roomType String型，一种房间类型
+     * @return 返回酒店的某房间类型的价格
+     */
+	public int getPrice(String hotelid, String roomType) {
+		RoomAllOfHotel roomAllOfHotel = RoomAllOfHotel.getRoomAllOfHotelInstance(hotelid);
+		return roomAllOfHotel.getPrice(roomType);
+	}
+	
 }
