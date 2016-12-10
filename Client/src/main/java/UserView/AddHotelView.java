@@ -233,7 +233,8 @@ public class AddHotelView extends JPanel {
 									}
 								     String str2=DES.encryptDES(password2, key);
 								     String str3=DES.encryptDES(textField1.getText(),key);
-								     String str4=DES.encryptDES(textField4.getText(), key);
+								     String str4=DES.encryptDES(textField4.getText(),key);
+								     controller.addLog(id,key,str1);
 									 controller.saveHotelInfo(textField2.getText(),(String)comboBox3.getSelectedItem(),(String)comboBox1.getSelectedItem(), textField3.getText(),
 											(int)comboBox2.getSelectedItem(), textField6.getText(), textField7.getText(), str4, 
 												str1,0);

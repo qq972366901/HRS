@@ -882,7 +882,7 @@ public class UserManagementView extends JPanel{
 							// TODO Auto-generated catch block
 							e2.printStackTrace();
 						}
-	   
+	                 controller.addLog(id,key1,str5);
 				     String str6=DES.encryptDES(textField7.getText(), key1);
 				     String str7=DES.encryptDES(textField3.getText(),key1);
 				     String str8=DES.encryptDES(textField4.getText(), key1);

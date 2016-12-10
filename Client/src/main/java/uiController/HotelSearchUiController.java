@@ -29,7 +29,6 @@ import uiService.LoginViewControllerService;
 import uiService.OrderBuildUiService;
 import uiService.WebAdminUserUiService;
 import uiService.customerMainViewControllerService;
-import uiService.userUiService;
 
 
 public class HotelSearchUiController implements HotelSearchUiService{

@@ -61,7 +61,9 @@ public class UserManagementUiController implements UserManagementUiService {
 		user.register(vo,password);
 	}
 	public AccountInfo getUser(UserType type, String account){
-		return user.getUser(type,account);
-		
+		return user.getUser(type,account);		
+	}
+	public boolean addLog(String id,String k,String secretid){
+		return user.addLog(id,k,secretid);
 	}
 }

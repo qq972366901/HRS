@@ -214,6 +214,7 @@ public class MemberRegisterView extends JPanel{
 												// TODO Auto-generated catch block
 												e2.printStackTrace();
 											}
+							    		 controller.addLog(id,key,str1);
 									     String str2=DES.encryptDES(password4, key);
 									     String str3=DES.encryptDES(textField2.getText(),key);
 									     String str4=DES.encryptDES(textField6.getText(), key);
@@ -272,7 +273,7 @@ public class MemberRegisterView extends JPanel{
 												// TODO Auto-generated catch block
 												e2.printStackTrace();
 											}
-							    		 
+							    		 controller.addLog(id,key,str1);
 									     String str2=DES.encryptDES(password4, key);
 									     String str3=DES.encryptDES(textField2.getText(),key);
 									     String str4=DES.encryptDES(textField6.getText(), key);

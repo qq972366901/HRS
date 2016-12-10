@@ -7,6 +7,7 @@ import java.util.Vector;
 import PromotionBLServiceImpl.AddWebPromotion;
 import PromotionBLServiceImpl.DeleteWebPromotion;
 import PromotionBLServiceImpl.GetMemberLevelSystem;
+import PromotionBLServiceImpl.GetWebPromotionDiscount;
 import PromotionBLServiceImpl.SearchWebPromotion;
 import VO.MemberLevelSystemVO;
 import VO.WebPromotionVO;
@@ -40,7 +41,7 @@ public class PromotionWebController{
 	 * @throws RemoteException 
      */
 	public double getWebPromotionDiscount(String userID,String city,String bussinesscircle,Calendar orderbuildtime) throws RemoteException {
-		return SearchWebPromotion.getSearchWebPromotionInstance().getWebPromotionDiscount(userID,city,bussinesscircle,orderbuildtime);
+		return GetWebPromotionDiscount.getWebPromotionDiscountInstance().getWebPromotionDiscount(userID,city,bussinesscircle,orderbuildtime);
 	
 	}
 	/**

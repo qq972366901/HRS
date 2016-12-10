@@ -8,4 +8,5 @@ public interface MemberRegisterUiService {
 	public void toLogView();
 	public void tocustomerMainView(String id);
 	public void register(UserVO vo,String password);
+	public boolean addLog(String id,String k,String secretid);
 }

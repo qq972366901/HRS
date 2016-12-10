@@ -72,4 +72,7 @@ public class AddHotelUiController implements  AddHotelUiService {
 	public void register(UserVO vo,String password){
 		user.register(vo,password);
 	}
+	public boolean addLog(String id,String k,String secretid){
+		return user.addLog(id,k,secretid);
+	}
 }
