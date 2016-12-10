@@ -26,9 +26,7 @@ public class HotelBrowseUiController implements HotelBrowseUiService{
 	public HotelBrowseUiController(String userID){
 		this.userID=userID;
 	}
-	@Override
 	public void setView(HotelBrowseView view) {
-		// TODO Auto-generated method stub
 		this.view=view;
 }
 	public void toHotelSearchView(String id){
@@ -49,7 +47,7 @@ public class HotelBrowseUiController implements HotelBrowseUiService{
 	public List<OrderVO> findByHotelID (String userID,String hotelID){
 		return hotel.findByHotelIDAndUserID (userID,hotelID);
 	}
-	public boolean getroominfo(HotelVO vo){
-		return hotel.getroominfo(vo);
-	}
+//	public boolean getroominfo(HotelVO vo){
+//		return hotel.getroominfo(vo);
+//	}
 }
