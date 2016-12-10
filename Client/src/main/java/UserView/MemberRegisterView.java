@@ -207,13 +207,13 @@ public class MemberRegisterView extends JPanel{
 							    	 {   
 							    		 String id=UUID.randomUUID().toString().substring(0, 8);
 							    		 String key=DES.init();
+							    		 String str1=DES.encryptDES(id,key);
 							    		 try {
-												Log.getLogInstance().addKey(id,key);
+												Log.getLogInstance().addKey(id,key,str1);
 											} catch (RemoteException e2) {
 												// TODO Auto-generated catch block
 												e2.printStackTrace();
 											}
-							    		 String str1=DES.encryptDES(id,key);
 									     String str2=DES.encryptDES(password4, key);
 									     String str3=DES.encryptDES(textField2.getText(),key);
 									     String str4=DES.encryptDES(textField6.getText(), key);
@@ -265,13 +265,14 @@ public class MemberRegisterView extends JPanel{
 							    	 {
 							    		 String id=UUID.randomUUID().toString().substring(0, 8);
 							    		 String key=DES.init();
+							    		 String str1=DES.encryptDES(id,key);
 							    		 try {
-												Log.getLogInstance().addKey(id,key);
+												Log.getLogInstance().addKey(id,key,str1);
 											} catch (RemoteException e2) {
 												// TODO Auto-generated catch block
 												e2.printStackTrace();
 											}
-							    		 String str1=DES.encryptDES(id,key);
+							    		 
 									     String str2=DES.encryptDES(password4, key);
 									     String str3=DES.encryptDES(textField2.getText(),key);
 									     String str4=DES.encryptDES(textField6.getText(), key);

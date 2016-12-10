@@ -875,13 +875,14 @@ public class UserManagementView extends JPanel{
 	        	else{
 	        		String id=UUID.randomUUID().toString().substring(0, 8);
 	        		String key1=DES.init();
+	        		String str5=DES.encryptDES(id,key1);
 	        		 try {
-							Log.getLogInstance().addKey(id,key1);
+							Log.getLogInstance().addKey(id,key1,str5);
 						} catch (RemoteException e2) {
 							// TODO Auto-generated catch block
 							e2.printStackTrace();
 						}
-	        		 String str5=DES.encryptDES(id,key1);
+	   
 				     String str6=DES.encryptDES(textField7.getText(), key1);
 				     String str7=DES.encryptDES(textField3.getText(),key1);
 				     String str8=DES.encryptDES(textField4.getText(), key1);
