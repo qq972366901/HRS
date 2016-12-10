@@ -3,6 +3,8 @@ package UserView;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
+import java.util.List;
 import java.util.Vector;
 
 import javax.swing.BoxLayout;
@@ -14,18 +16,19 @@ import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
+import VO.OrderVO;
 import uiService.HotelBrowseUiService;
 import uiService.HotelSearchUiService;
 
 
 public class HotelBrowseView extends JPanel{
 	private static final long serialVersionUID = 1L;
-	private JLabel label1,label2,label3,label4,label5,label6,label7,label8,label9,label11,label12;
+	private JLabel label1,label2,label3,label4,label5,label6,label7,label8,label9,label10,label11,label12;
 	private JButton button1,button2;
 	private JTable table,table1;
 	private DefaultTableModel model,model1;
 	private HotelBrowseUiService controller;
-	
+	private String hotelid=controller.getHotelID();
 
 	public HotelBrowseView(HotelBrowseUiService c){
 		this.controller=c;
@@ -43,62 +46,73 @@ public class HotelBrowseView extends JPanel{
 		this.add(panel);
 		button1.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {
-				controller.toHotelSearchView("id");
+				try {
+					controller.toHotelSearchView(controller.getUserID());
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		JPanel panel1= new JPanel();
 		panel1.setLayout(new FlowLayout(FlowLayout.LEFT));
-		label1=new JLabel("酒店名称：");
+		label1=new JLabel("酒店名称："+controller. findByHotelID(hotelid).hotelName);
 		panel1.add(label1);
 		this.add(panel1);
 		JPanel panel2= new JPanel();
 		panel2.setLayout(new FlowLayout(FlowLayout.LEFT));
-		label2=new JLabel("酒店星级：");
+		label2=new JLabel("酒店星级："+controller. findByHotelID(hotelid).hotelStar);
 		panel2.add(label2);
 		this.add(panel2);
 		JPanel panel11= new JPanel();
 		panel11.setLayout(new FlowLayout(FlowLayout.LEFT));
-		label11=new JLabel("酒店评分：");
+		label11=new JLabel("酒店评分："+controller. findByHotelID(hotelid).score);
 		panel11.add(label11);
 		this.add(panel11);
 		JPanel panel12= new JPanel();		
 		panel12.setLayout(new FlowLayout(FlowLayout.LEFT));
-		label12=new JLabel("客房类型：");
+		List<String> typelist=controller.getRoomType(hotelid);		
+		label12=new JLabel("客房类型："+typelist.get(0)+" "+typelist.get(1)+" "+typelist.get(2)+" "+typelist.get(3)+" "+typelist.get(4));
 		panel12.add(label12);
 		this.add(panel12);
 		JPanel panel3= new JPanel();
 		panel3.setLayout(new FlowLayout(FlowLayout.LEFT));
-		label3=new JLabel("所属地址：");
+		label3=new JLabel("所属城市："+controller. findByHotelID(hotelid).hotelCity);
 		panel3.add(label3);
 		this.add(panel3);
 		JPanel panel4= new JPanel();
 		panel4.setLayout(new FlowLayout(FlowLayout.LEFT));
-		label4=new JLabel("所属商圈：");
+		label4=new JLabel("所属商圈："+controller. findByHotelID(hotelid).hotelDistrict);
 		panel4.add(label4);
 		this.add(panel4);
+		JPanel panel13= new JPanel();
+		panel13.setLayout(new FlowLayout(FlowLayout.LEFT));
+		label10=new JLabel("所在地址："+controller. findByHotelID(hotelid).hotelAddress);
+		panel13.add(label10);
+		this.add(panel13);
 		JPanel panel5= new JPanel();
 		panel5.setLayout(new FlowLayout(FlowLayout.LEFT));
-		label5=new JLabel("设施服务：");
+		label5=new JLabel("设施服务："+controller. findByHotelID(hotelid).hotelService);
 		panel5.add(label5);
 		this.add(panel5);
 		JPanel panel6= new JPanel();
 		panel6.setLayout(new FlowLayout(FlowLayout.LEFT));
-		label6=new JLabel("酒店简介：");
+		label6=new JLabel("酒店简介："+controller. findByHotelID(hotelid).hotelProfile);
 		panel6.add(label6);
 		this.add(panel6);
 		JPanel panel7= new JPanel();
 		panel7.setLayout(new FlowLayout(FlowLayout.LEFT));
-		label7=new JLabel("酒店联系方式：");
+		label7=new JLabel("酒店联系方式："+controller. findByHotelID(hotelid).hotelPhone);
 		panel7.add(label7);
 		this.add(panel7);
 		JPanel panel8= new JPanel();
 		panel8.setLayout(new FlowLayout(FlowLayout.LEFT));
-		label8=new JLabel("酒店营销策略：");
+		label8=new JLabel("酒店营销策略："+controller.getHotelPromotionByHotelID(hotelid).promotionName);
 		panel8.add(label8);
 		this.add(panel8);
 		JPanel panel9= new JPanel();
 		panel9.setLayout(new FlowLayout(FlowLayout.LEFT));
-		label9=new JLabel("酒店各类型房间价格：");
+		label9=new JLabel("酒店各类型房间价格："+typelist.get(0)+" "+controller.getRoomPrice(hotelid,typelist.get(0))+" "+typelist.get(1)+" "+controller.getRoomPrice(hotelid,typelist.get(1))+" "+typelist.get(2)+" "+controller.getRoomPrice(hotelid,typelist.get(2))+" "+typelist.get(3)+" "+controller.getRoomPrice(hotelid,typelist.get(3))+" "+typelist.get(4)+" "+controller.getRoomPrice(hotelid,typelist.get(0)));
 		panel9.add(label9);
 		this.add(panel9);
 		
@@ -120,7 +134,34 @@ public class HotelBrowseView extends JPanel{
 		vColumns1.add("房间数量");
 		vColumns1.add("价值");
 		vColumns1.add("评分");
-		model1= new DefaultTableModel(null, vColumns1);
+		List<OrderVO> ordervolist=controller.findByHotelIDAndUserID(controller.getUserID(),hotelid);
+		Vector<Vector<Object>> data1=new Vector<Vector<Object>>();
+		for(OrderVO vo : ordervolist){
+			Vector<Object> inf=new Vector<Object>();
+			inf.add(vo.orderNumber);
+			String state="";
+			if(vo.orderState==1){
+				state="已执行订单";
+			}
+			else if(vo.orderState==2){
+				state="未执行订单";
+			}
+            else if(vo.orderState==3){
+				state="异常订单";
+			}
+            else if(vo.orderState==4){
+	            state="撤销订单";
+            }
+			inf.add(state);
+			inf.add(vo.expectedCheckIn);
+			inf.add(vo.expectedCheckOut);
+			inf.add(vo.roomType);
+			inf.add(vo.roomNumber);
+			inf.add(vo.orderValue);
+			inf.add(vo.score);
+			data1.add(inf);
+		}
+		model1= new DefaultTableModel(data1, vColumns1);
 		table1 = new JTable(model1){
 			private static final long serialVersionUID = 1L;
 			public boolean isCellEditable(int row, int column){
@@ -142,7 +183,16 @@ public class HotelBrowseView extends JPanel{
 		vColumns.add("客户账号");
 		vColumns.add("客户评价");
 		vColumns.add("客户评分");
-		model= new DefaultTableModel(null, vColumns);
+		List<OrderVO> orderlist=controller.getFinishedOrders(hotelid);
+		Vector<Vector<Object>> data=new Vector<Vector<Object>>();
+		for(OrderVO vo : orderlist){
+			Vector<Object> inf=new Vector<Object>();
+			inf.add(vo.userID);
+			inf.add(vo.comment);
+			inf.add(vo.score);
+			data.add(inf);
+		}
+		model= new DefaultTableModel(data, vColumns);
 		table = new JTable(model){
 			private static final long serialVersionUID = 1L;
 			public boolean isCellEditable(int row, int column){
@@ -160,7 +210,12 @@ public class HotelBrowseView extends JPanel{
 		this.add(panel10);
 		button2.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {
-				controller.toOrderBuildView("id");
+				try {
+					controller.toOrderBuildView(controller.getUserID(),hotelid);
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 	}

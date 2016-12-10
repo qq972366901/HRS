@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Vector;
 
 import PromotionBLServiceImpl.GetMemberLevelSystem;
+import VO.HotelPromotionVO;
 import VO.MemberLevelSystemVO;
 import VO.WebPromotionVO;
 import common.CityAndBussinessCircle;
@@ -81,6 +82,12 @@ public class PromotionController implements PromotionBLService {
      */
 	public WebPromotionVO getWebPromotionByPromotionNumber(String promotionnumber){
 		return promotionWebController.getWebPromotionByPromotionNumber(promotionnumber);
+	}
+	/**
+	 * 通过酒店ID查找酒店策略
+     */
+	public HotelPromotionVO getHotelPromotionByHotelID(String hotelid){
+		return promotionHotelController.getHotelPromotionByHotelID(hotelid);
 	}
 	/**
 	 * 得到在下订单时客户能获得的网站营销策略折扣

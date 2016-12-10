@@ -16,11 +16,9 @@ public class PromotionPO extends PO implements Serializable{
 	private String promotionName;
 	private Calendar promotionBegintime;
 	private Calendar promotionEndtime;
-	private String applyuserType;
 	private String applybussinesscircle;
 	private String applycity;
 	private int applyuserShipgrade;
-	private int miniNum;
 	private double Discount;
 	private long[] creditOfLevel=new long[5];
 	private double[] discountOfLevel=new double[5];
@@ -225,26 +223,7 @@ public class PromotionPO extends PO implements Serializable{
 	 public void setPromotionEndtime(Calendar endtime){
 	     promotionEndtime=endtime;
 	 }
-	 /**
-		 * 鑾峰彇瀹㈡埛閫傜敤绫诲瀷
-		 * @param
-		 * @return 杩斿洖瀹㈡埛閫傜敤绫诲瀷
-		 * @throws
-		 * @see
-		 */   
-	 public String getUserType(){
-	     return applyuserType;
-	 }
-	 /**
-		 * 璁剧疆瀹㈡埛閫傜敤绉嶇被
-		 * @param type String 鍨嬶紝閫昏緫灞備紶鏉ョ殑瀹㈡埛閫傜敤绉嶇被
-		 * @return
-		 * @throws
-		 * @see
-		 */
-	 public void setUserType(String type){
-	    applyuserType=type;
-	 }
+
 	 /**
 		 * 鑾峰彇閫傜敤鍟嗗湀
 		 * @param 
@@ -285,26 +264,7 @@ public class PromotionPO extends PO implements Serializable{
 	 public void setUserShipgrade(int grade){
 	     applyuserShipgrade=grade;
 	 }
-	 /**
-		 * 鑾峰彇鏈�浣庤璐暟閲�
-		 * @param
-		 * @return 杩斿洖鏈�浣庤璐暟閲�
-		 * @throws
-		 * @see
-		 */
-	 public int getMiniNum(){
-	     return miniNum;
-	 }
-	 /**
-		 * 璁剧疆鏈�浣庤璐暟閲�
-		 * @param num int鍨嬶紝閫昏緫灞備紶鏉ョ殑鏈�浣庤璐暟閲�
-		 * @return
-		 * @throws
-		 * @see
-		 */
-	 public void setMiniNUm(int num){
-	     miniNum=num;
-	 }
+
 	 /**
 		 * 鑾峰彇绛栫暐鎶樻墸
 		 * @param

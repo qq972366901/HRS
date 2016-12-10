@@ -4,6 +4,13 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+import java.util.Vector;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -15,6 +22,8 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import VO.UserVO;
+import common.UserType;
 import uiService.AddHotelUiService;
 
 
@@ -43,7 +52,12 @@ public class AddHotelView extends JPanel {
 		this.add(panel1);
 		button1.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {
-				controller.toWebAdminUserView("id");
+				try {
+					controller.toWebAdminUserView(controller.getUserID());
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});	
 		JPanel panel2 = new JPanel();
@@ -58,6 +72,22 @@ public class AddHotelView extends JPanel {
 		label8 = new JLabel("所属城市");
 		comboBox3=new JComboBox<String>();
 		comboBox3.setPreferredSize(new Dimension(125,22));
+		List<String> list1=new ArrayList<String>(controller.getCity());
+		for(String city : list1){
+		comboBox3.addItem(city);
+		}
+		comboBox3.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent evt) {
+				if(evt.getStateChange() == ItemEvent.SELECTED){		
+					String	selected=(String)comboBox3.getSelectedItem();
+					comboBox1.removeAllItems();
+					Vector<String> list2=new Vector<String>(controller.getCircle(selected));
+					for(String circle : list2){
+						comboBox1.addItem(circle);
+					}
+				}
+			}
+		});
 		panel9.add(label8);
 		panel9.add(comboBox3);
 		this.add(panel9);
@@ -66,6 +96,10 @@ public class AddHotelView extends JPanel {
 		label4 = new JLabel("所属商圈");
 		comboBox1=new JComboBox<String>();
 		comboBox1.setPreferredSize(new Dimension(125,22));
+		Vector<String> list3=new Vector<String>(controller.getCircle((String)comboBox3.getItemAt(0)));
+		for(String circle : list3){
+			comboBox1.addItem(circle);
+		}
 		panel4.add(label4);
 		panel4.add(comboBox1);
 		this.add(panel4);
@@ -186,10 +220,21 @@ public class AddHotelView extends JPanel {
 									JOptionPane.showMessageDialog(panel, "密码只能由数字和字母组成！","", JOptionPane.ERROR_MESSAGE);
 								}
 								else{
-									 int option = JOptionPane.showConfirmDialog(panel,"请记住你的账号：     \n是否返回网站管理人员主界面？","", JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE, null);
+									 String id=UUID.randomUUID().toString().substring(0, 8);
+									 controller.saveHotelInfo(textField2.getText(),(String)comboBox3.getSelectedItem(),(String)comboBox1.getSelectedItem(), textField3.getText(),
+											(int)comboBox2.getSelectedItem(), textField6.getText(), textField7.getText(), textField4.getText(), 
+												id,0);
+									 UserVO vo=new UserVO(textField1.getText(),id,textField4.getText(),null,UserType.HotelWorker,null,null);
+									 controller.register(vo,password2);
+									 int option = JOptionPane.showConfirmDialog(panel,"请记住你的账号："+id+"\n是否返回网站管理人员主界面？","", JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE, null);
 						    		 switch (option) {
 								     case JOptionPane.YES_OPTION:  
-								    	 controller.toWebAdminUserView("id");
+								    	 try {
+											controller.toWebAdminUserView(controller.getUserID());
+										} catch (RemoteException e1) {
+											// TODO Auto-generated catch block
+											e1.printStackTrace();
+										}
 								     case JOptionPane.NO_OPTION:
 								    	 frame.dispose();
 						    		 }
