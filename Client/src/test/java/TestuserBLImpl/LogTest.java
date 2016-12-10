@@ -55,7 +55,8 @@ public class LogTest {
 	public void testAddKey() throws RemoteException {
 		String id="1";
 		String key="1";
-		Log.getLogInstance().addKey(id, key);
+		String sid="1";
+		Log.getLogInstance().addKey(id, key,sid);
 		assertEquals(key,Log.getLogInstance().getKey(id));
 	}
 
