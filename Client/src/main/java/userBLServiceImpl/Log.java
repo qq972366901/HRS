@@ -1,4 +1,4 @@
-package userBLServiceImpl;
+﻿package userBLServiceImpl;
 
 import java.rmi.RemoteException;
 import java.util.HashMap;
@@ -168,7 +168,7 @@ public class Log {
 	 */
 	public String getSKey(String secretid){
 		if(skey.containsKey(secretid)){
-			return key.get(secretid);
+			return skey.get(secretid);
 		}
 		return null;
 	}
