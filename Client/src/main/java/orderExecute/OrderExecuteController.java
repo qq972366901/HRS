@@ -41,7 +41,7 @@ public class OrderExecuteController{
 	 */
 	public void updateCredit(String userID,String orderID, int value){		
 		 try {
-				credit.updateCredit(new CreditRecordVO(userID,Calendar.getInstance(),orderID,Operate.Done, value, credit.showCredit(userID)+value));
+				credit.updateCredit(new CreditRecordVO(null,userID,Calendar.getInstance(),orderID,Operate.Done, value, credit.showCredit(userID)+value));
 			} catch (RemoteException e) {
 				e.printStackTrace();
 			} catch (ParseException e) {
@@ -71,7 +71,7 @@ public class OrderExecuteController{
 	 */
 	public void recoveryCredit(String userID,String orderID, int value){
 		 try {
-				credit.updateCredit(new CreditRecordVO(userID,Calendar.getInstance(),orderID,Operate.Delayed, value, credit.showCredit(userID)+value));
+				credit.updateCredit(new CreditRecordVO(null,userID,Calendar.getInstance(),orderID,Operate.Delayed, value, credit.showCredit(userID)+value));
 			} catch (RemoteException e) {
 				e.printStackTrace();
 			} catch (ParseException e) {

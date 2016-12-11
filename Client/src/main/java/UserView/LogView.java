@@ -71,7 +71,6 @@ public class LogView extends JPanel {
     private JLabel label2;
     private JLabel label3;
     private JPanel k;
-    
     /**
 	 * Create the panel.
 	 */
@@ -178,15 +177,19 @@ public class LogView extends JPanel {
 					String pwd=DES.encryptDES(String.valueOf(passwordField.getPassword()), key);
 					//System.out.println(id);
 					//System.out.println(pwd);
-					UserType type=null;
+					UserType idtype=null;
 					try {
-						type=Account.getInstance().getType(id);
+						idtype=Account.getInstance().getType(id);
 					} catch (RemoteException e1) {
 						System.out.println("获取用户类型失败");
 						e1.printStackTrace();
 					}
+					if(stringToString(type)!=typeToString(idtype)){
+						JOptionPane.showMessageDialog(k, "账号密码输入有误！","", JOptionPane.ERROR_MESSAGE);
+						return;
+					}
 					if(controller.login(id,pwd)){
-						login(type);
+						login(idtype);
 					}
 					else{
 						JOptionPane.showMessageDialog(k, "账号密码输入有误！","", JOptionPane.ERROR_MESSAGE);
@@ -254,6 +257,34 @@ public class LogView extends JPanel {
 		}
 		else{
 			register.setEnabled(true);
+		}
+	}
+	private String typeToString(UserType type){
+		if(type.equals(UserType.Customer)){
+			return "Customer";
+		}
+		else if(type.equals(UserType.HotelWorker)){
+			return "HotelWorker";
+		}
+		else if(type.equals(UserType.WebPromotionWorker)){
+			return "WebPromotionWorker";
+		}
+		else{
+			return "WebManagementWorker";
+		}
+	}
+	private String stringToString(String type){
+		if(type.equals("客户")){
+			return "Customer";
+		}
+		else if(type.equals("酒店工作人员")){
+			return "HotelWorker";
+		}
+		else if(type.equals("网站营销人员")){
+			return "WebPromotionWorker";
+		}
+		else{
+			return "WebManagementWorker";
 		}
 	}
 }

@@ -17,14 +17,15 @@ import common.Operate;
  */
 
 public class CreditRecordVO{
-	
+	public String cid;
 	public String account;//即客户ID
 	public Calendar time;
 	public String orderID;
 	public Operate action;
 	public long creditchange;
 	public long currentcredit;
-	public CreditRecordVO(String a,Calendar t,String id,Operate act,long cre,long cur){
+	public CreditRecordVO(String c,String a,Calendar t,String id,Operate act,long cre,long cur){
+		cid=c;
 		account=a;
 		time=t;
 		orderID=id;
@@ -41,10 +42,10 @@ public class CreditRecordVO{
      * @see Object.CreditRecord
      */
 	public CreditRecordVO(CreditRecordPO po) throws ParseException {
-		
+		cid=po.getID();
 		account=po.getUserID();
 		time=po.getTime();
-		orderID=po.getID();
+		orderID=po.getOrderID();
 		action=po.getAction();
 		creditchange=po.getCreditchange();
 		currentcredit=po.getCurrentcredit();
