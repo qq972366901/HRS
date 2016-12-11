@@ -325,6 +325,7 @@ public class HotelSearchView extends JPanel{
 				label8=new JLabel(" 房间类型");
 				comboBox8= new JComboBox<String>();
 				comboBox8.setPreferredSize(new Dimension(171,22));
+				comboBox8.addItem(null);
 				comboBox8.addItem("大床房");
 				comboBox8.addItem("标准双人间");
 				comboBox8.addItem("三人间");
@@ -333,6 +334,7 @@ public class HotelSearchView extends JPanel{
 				label9=new JLabel(" 房间数量");
 				comboBox9= new JComboBox<Integer>();
 				comboBox9.setPreferredSize(new Dimension(171,22));
+				comboBox9.addItem(null);
 				for(int i=1;i<101;i++){
 				    comboBox9.addItem(i);
 					}
@@ -516,15 +518,37 @@ public class HotelSearchView extends JPanel{
 			public void actionPerformed(ActionEvent e){
 				Calendar cal1=Calendar.getInstance();
 				Calendar cal2=Calendar.getInstance();
-				cal1.set((int)comboBox10.getSelectedItem(),(int)comboBox11.getSelectedItem(),(int) comboBox12.getSelectedItem());
-				cal2.set((int)comboBox13.getSelectedItem(),(int)comboBox14.getSelectedItem(),(int) comboBox15.getSelectedItem());
+				cal1.set((int)comboBox10.getSelectedItem(),(int)comboBox11.getSelectedItem()-1,(int) comboBox12.getSelectedItem());
+				cal2.set((int)comboBox13.getSelectedItem(),(int)comboBox14.getSelectedItem()-1,(int) comboBox15.getSelectedItem());
 				Date date1=cal1.getTime();
 				Date date2=cal2.getTime();				
 				 if(date1.getTime()-date2.getTime()>0){
 					JOptionPane.showMessageDialog(pane, "            时间冲突！","", JOptionPane.ERROR_MESSAGE);
 				}
 				else{
-					List<String> list=controller.getHotelID((String)comboBox.getSelectedItem(),(String)comboBox2.getSelectedItem(),(String)comboBox8.getSelectedItem(),(int)comboBox9.getSelectedItem(),(int)comboBox4.getSelectedItem(), (int)comboBox5.getSelectedItem(),(int)comboBox3.getSelectedItem(),(int)comboBox6.getSelectedItem(),(int)comboBox7.getSelectedItem(),(String)comboBox16.getSelectedItem(),controller.getUserID());
+
+					int star;
+					if(comboBox3.getSelectedItem()==null){
+						star=-1;
+					}
+					else{
+						star=(int)comboBox3.getSelectedItem();
+					}
+					String roomtype;
+					if(comboBox8.getSelectedItem()==null){
+						roomtype=null;
+					}
+					else{
+						roomtype=(String)comboBox8.getSelectedItem();
+					}
+					int roomNum;
+					if(comboBox9.getSelectedItem()==null){
+						roomNum=-1;
+					}
+					else{
+						roomNum=(int)comboBox9.getSelectedItem();
+					}
+					List<String> list=controller.getHotelID((String)comboBox.getSelectedItem(),(String)comboBox2.getSelectedItem(),roomtype,roomNum,(int)comboBox4.getSelectedItem(), (int)comboBox5.getSelectedItem(),star,(int)comboBox6.getSelectedItem(),(int)comboBox7.getSelectedItem(),(String)comboBox16.getSelectedItem(),controller.getUserID());
 					Vector<Vector<Object>> data=new Vector<Vector<Object>>();
 					for(String hotelid : list){
 						Vector<Object> inf=new Vector<Object>();
