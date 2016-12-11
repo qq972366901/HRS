@@ -1,6 +1,7 @@
 package HotelBLServiceImpl;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.List;
 
 import PO.HotelPO;
@@ -16,8 +17,8 @@ public class HotelSearch {
 	private DataFactoryService df;
 	private HotelDataService hds;
 	
-	private List<HotelVO> hvoList;
-	private List<String> hotelidList;
+	private List<HotelVO> hvoList = new ArrayList<HotelVO>();
+	private List<String> hotelidList = new ArrayList<String>();
 	
 	private static HotelSearch hotelSearch;
 	

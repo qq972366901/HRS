@@ -20,7 +20,6 @@ import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import uiController.UpdateHotelInfoUiController;
 import uiService.UpdateHotelInfoUiService;
 import common.CityAndBussinessCircle;
 
@@ -33,7 +32,7 @@ public class UpdateHotelInfoView extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private String hotelID;
 	
-	private UpdateHotelInfoUiService controller = new UpdateHotelInfoUiController(hotelID);
+	private UpdateHotelInfoUiService controller;
 	
 	private JTextArea hotelNameTextArea;
 	private JTextArea hotelLocationTextArea;
@@ -160,6 +159,7 @@ public class UpdateHotelInfoView extends JPanel {
                 	for(int i=0;i<circles.size();i++) {
                 		circleArray[i] = circles.get(i);
                 	}
+                	hotelArea = circleArray[0];
                 	ComboBoxModel<String> model = new DefaultComboBoxModel<String>(circleArray);
                 	hotelAreaJComboBox.setModel(model);
                 }

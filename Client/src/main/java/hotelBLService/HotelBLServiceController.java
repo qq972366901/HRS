@@ -1,6 +1,5 @@
 package hotelBLService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import HotelRoomAdd.HotelRoomAddController;
@@ -40,9 +39,10 @@ public class HotelBLServiceController implements HotelBLService {
      * @param roomType String型，房间类型
      * @param roomNumber int型，房间数量
      * @param roomPrice int型，房间原始价格
+     * @param roomNNN String型，房间号范围
      */
-	public void updateHotelRooms(String id,String roomType, int roomNumber, int roomPrice) {
-		hotelRoomAddController.updateHotelRooms(id,roomType, roomNumber, roomPrice);
+	public void updateHotelRooms(String id,String roomType, int roomNumber, int roomPrice, String roomNNN) {
+		hotelRoomAddController.updateHotelRooms(id,roomType, roomNumber, roomPrice, roomNNN);
 	}
 	/**
      * 更新酒店的基本信息

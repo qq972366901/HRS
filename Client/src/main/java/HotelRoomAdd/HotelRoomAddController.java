@@ -11,10 +11,11 @@ public class HotelRoomAddController{
      * @param roomType String型，房间类型
      * @param roomNumber int型，房间数量
      * @param roomPrice int型，房间原始价格
+     * @param roomNNN String型，房间号范围
      */
-	public void updateHotelRooms(String id, String roomType, int roomNumber, int roomPrice) {
+	public void updateHotelRooms(String id, String roomType, int roomNumber, int roomPrice, String roomNNN) {
 		HotelRoom hotelRoom = HotelRoom.getHotelRoomInstance(id);
-		hotelRoom.updateHotelRooms(roomType, roomNumber, roomPrice);
+		hotelRoom.updateHotelRooms(roomType, roomNumber, roomPrice, roomNNN);
 	}
 	
 }

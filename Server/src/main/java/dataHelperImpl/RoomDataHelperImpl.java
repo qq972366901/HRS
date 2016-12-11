@@ -22,8 +22,8 @@ public class RoomDataHelperImpl implements RoomDataHelper{
 	private void init() {
 		driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
 		dbURL="jdbc:sqlserver://localhost:1433;DatabaseName=HRS";
-		userName="liu";
-		userPwd="naigo961226";
+		userName="sa";
+		userPwd="123456";
 		try{
 			 Class.forName(driverName);
 			 dbConn=DriverManager.getConnection(dbURL,userName,userPwd);
@@ -97,13 +97,15 @@ public class RoomDataHelperImpl implements RoomDataHelper{
 			Statement st=dbConn.createStatement();
 			ResultSet rs=st.executeQuery("select * from [Room] where hotelID='"+hotelid+"'");
 			while(rs.next()){
+				String hid = rs.getString("hotelID");
 				String roomid=rs.getString("roomID");
 				String rStatue = rs.getString("roomStatue");
 				String rType = rs.getString("roomType");
 				int rPrice = rs.getInt("roomPrice");
-				RoomPO po=new RoomPO(hotelid, roomid, rStatue, rType, rPrice);
+				RoomPO po=new RoomPO(hid, roomid, rStatue, rType, rPrice);
 				list.add(po);
 			}
+			System.out.println("得到所有房间");
 			rs.close();
 			st.close();
 		} catch (SQLException e) {

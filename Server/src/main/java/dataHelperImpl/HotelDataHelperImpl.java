@@ -23,8 +23,8 @@ public class HotelDataHelperImpl implements HotelDataHelper{
 	private void init() {
 		driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
 		dbURL="jdbc:sqlserver://localhost:1433;DatabaseName=HRS";
-		userName="liu";
-		userPwd="naigo961226";
+		userName="sa";
+		userPwd="123456";
 		try{
 			 Class.forName(driverName);
 			 dbConn=DriverManager.getConnection(dbURL,userName,userPwd);
@@ -63,6 +63,7 @@ public class HotelDataHelperImpl implements HotelDataHelper{
 			double sco = (double)rs.getFloat("score");
 			String phone = rs.getString("hotelPhone");
 			po = new HotelPO(hAddress, hCity, hDistrict, hStar,hProfile, hService, hName, hAccount, sco, phone);
+			System.out.println("获得酒店");
 			rs.close();
 			st.close();
 		} catch (SQLException e) {

@@ -1,6 +1,7 @@
 package RoomBLServiceImpl;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.List;
 
 import PO.RoomPO;
@@ -12,7 +13,7 @@ import rmi.RemoteHelper;
 public class RoomStateChange {
 
 	private String hotelID;
-	private List<RoomVO> list;
+	private List<RoomVO> list = new ArrayList<RoomVO>();
 	
 	private DataFactoryService df;
 	private RoomDataService rds;
@@ -42,9 +43,9 @@ public class RoomStateChange {
 	}
 	
 	public void updateRoomState(String rNumber, String rType, String rState) {
-		if(rState == "空闲") {
+		if(rState.equals("空闲")) {
 			for(RoomVO rvo: list) {
-				if(rvo.roomType == rType && rvo.roomStatue == "已入住" && rvo.roomId == rNumber) {
+				if(rvo.roomType.equals(rType) && rvo.roomStatue.equals("已入住") && rvo.roomId.equals(rNumber)) {
 					rvo.roomStatue = "空闲";
 					RoomPO rpo = new RoomPO(rvo.hotelID,rvo.roomId,"空闲",rvo.roomType,rvo.roomPrice);
 					try {
@@ -57,37 +58,17 @@ public class RoomStateChange {
 			}
 		}
 		
-		if(rState == "已入住") {
-			boolean containRoomNum = false;
-			RoomVO temp = null;
+		if(rState.equals("已入住")) {
 			for(RoomVO rvo: list) {
-				if(rvo.roomType == rType && rvo.roomStatue != "已入住" && rvo.roomId == rNumber) {
-					containRoomNum = true;
-					temp = rvo;
-					break;
-				}
-			}
-			if(containRoomNum) {
-				temp.roomId = rNumber;
-				temp.roomStatue = "已入住";
-				RoomPO rpo = new RoomPO(temp.hotelID,temp.roomId,"已入住",temp.roomType,temp.roomPrice);
-				try {
-					rds.update(rpo);
-				} catch (RemoteException e) {
-					e.printStackTrace();
-				}
-			} else {
-				for(RoomVO rvo: list) {
-					if(rvo.roomType == rType && rvo.roomStatue != "已入住" ) {
-						rvo.roomStatue = "已入住";
-						RoomPO rpo = new RoomPO(rvo.hotelID,rvo.roomId,"已入住",rvo.roomType,rvo.roomPrice);
-						try {
-							rds.update(rpo);
-						} catch (RemoteException e) {
-							e.printStackTrace();
-						}
-						break;
+				if(rvo.roomType.equals(rType) && !rvo.roomStatue.equals("已入住") && rvo.roomId.equals(rNumber)) {
+					rvo.roomStatue = "已入住";
+					RoomPO rpo = new RoomPO(rvo.hotelID,rvo.roomId,"已入住",rvo.roomType,rvo.roomPrice);
+					try {
+						rds.update(rpo);
+					} catch (RemoteException e) {
+						e.printStackTrace();
 					}
+					break;
 				}
 			}
 		}

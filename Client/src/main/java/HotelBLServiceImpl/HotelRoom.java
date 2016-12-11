@@ -13,7 +13,7 @@ import rmi.RemoteHelper;
 public class HotelRoom {
 	
 	private String hotelID;
-	private List<RoomVO> list;
+	private List<RoomVO> list = new ArrayList<RoomVO>();
 	
 	private DataFactoryService df;
 	private RoomDataService rds;
@@ -48,11 +48,16 @@ public class HotelRoom {
      * @param roomNumber int型，房间数量
      * @param roomPrice int型，房间原始价格
      */
-	public void updateHotelRooms(String roomType, int roomNumber, int roomPrice) {
+	public void updateHotelRooms(String roomType, int roomNumber, int roomPrice,String roomNNN) {
+		int endIndex = roomNNN.indexOf("-");
+		String rNNN = roomNNN.substring(0, endIndex).trim();
+		int num = Integer.parseInt(rNNN);
 		for(int i=0;i<roomNumber;i++) {
-			RoomVO rvo = new RoomVO(hotelID,"000","空闲",roomType,roomPrice);
+			String NNN = "" + num;
+			num = num + 1;
+			RoomVO rvo = new RoomVO(hotelID,NNN,"空闲",roomType,roomPrice);
 			list.add(rvo);
-			RoomPO rpo = new RoomPO(hotelID,"000","空闲",roomType,roomPrice);
+			RoomPO rpo = new RoomPO(hotelID,NNN,"空闲",roomType,roomPrice);
 			try {
 				rds.insert(rpo);
 			} catch (RemoteException e) {
