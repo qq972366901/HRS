@@ -50,9 +50,8 @@ public class OrderDataHelperImpl implements OrderDataHelper{
 		String in = sdf.format(po.getExpectedCheckIn().getTime());
 		String out = sdf.format(po.getExpectedCheckOut().getTime());
 		String late = sdf.format(po.getLatest().getTime());
-		String cancel = sdf.format(po.getCancel().getTime());
 		String gen = sdf.format(po.getgenerationTime().getTime());
-		String sql="insert into [Order] values('"+po.getUserID()+"','"+po.getHotelID()+"','"+po.getOrderNumber()+"','"+po.getOrderState()+"','"+po.getOrderValue()+"','"+po.getNumOfPerson()+"','"+po.getChild()+"','"+po.getRoomType()+"','"+po.getRoomNumber()+"','"+in+"','"+out+"','"+late+"','"+cancel+"','"+gen+"','"+po.getComment()+"','"+po.getScore()+"')";
+		String sql="insert into [Order] values('"+po.getUserID()+"','"+po.getHotelID()+"','"+po.getOrderNumber()+"','"+po.getOrderState()+"','"+po.getOrderValue()+"','"+po.getNumOfPerson()+"','"+po.getChild()+"','"+po.getRoomType()+"','"+po.getRoomNumber()+"','"+in+"','"+out+"','"+late+"',null,'"+gen+"',null,null)";
 		try {
 			Statement st=dbConn.createStatement();
 			int res=st.executeUpdate(sql);
