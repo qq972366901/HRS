@@ -92,7 +92,7 @@ public class HotelDataServiceMySqlImpl implements HotelDataService{
 	 */
 	@Override
 	public void delete(HotelPO po) throws RemoteException {
-		if(!hotel.containsKey(po.gethotelAccount())) {
+		if(hotel.containsKey(po.gethotelAccount())) {
 			hotel.remove(po.gethotelAccount());
 			hotelDataHelper.delete(po);
 		}
@@ -106,7 +106,7 @@ public class HotelDataServiceMySqlImpl implements HotelDataService{
 	 */
 	@Override
 	public void update(HotelPO po) throws RemoteException {
-		if(!hotel.containsKey(po.gethotelAccount())) {
+		if(hotel.containsKey(po.gethotelAccount())) {
 			hotel.put(po.gethotelAccount(), po);
 			hotelDataHelper.update(po);
 		}
