@@ -9,11 +9,15 @@ import uiController.HotelorderlistViewControllerImpl;
 import uiService.HistroyHotelViewControllerService;
 import uiService.HotelDetailUiService;
 import uiService.HotelorderlistViewControllerService;
+import userBLServiceImpl.DES;
+import userBLServiceImpl.Log;
+
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.rmi.RemoteException;
+import java.text.DecimalFormat;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -76,16 +80,22 @@ public class HotelDetailView extends JPanel{
 		hotelCirc = new JLabel("酒店所在商圈："+vo.hotelDistrict);
 		panel3.add(hotelCirc);
 		add(panel4);
-		
-		hotelScore = new JLabel("酒店评分："+vo.score);
+		DecimalFormat    df   = new DecimalFormat("######0.00"); 
+		hotelScore = new JLabel("酒店评分："+df.format(vo.score));
 		panel4.add(hotelScore);
 		add(panel5);
 		
 		hotelStar = new JLabel("酒店星级："+vo.hotelStar);
 		panel5.add(hotelStar);
 		add(panel6);
-		
-		hotelTel = new JLabel("酒店联系方式："+vo.hotelPhone);
+		String key="";
+		try {
+			key=Log.getLogInstance().getSKey(HotelID);
+		} catch (RemoteException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		hotelTel = new JLabel("酒店联系方式："+DES.decryptDES(vo.hotelPhone,key));
 		panel6.add(hotelTel);
 		add(panel7);
 		

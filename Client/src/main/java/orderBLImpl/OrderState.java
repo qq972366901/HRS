@@ -1,10 +1,11 @@
 package orderBLImpl;
 
 import java.rmi.RemoteException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import PO.OrderPO;
-import VO.OrderState;
 import dataService.DataFactoryService;
 import dataService.OrderDataService;
 import rmi.RemoteHelper;
@@ -17,13 +18,13 @@ public class Orderstate {
 	private DataFactoryService DataFactory;
     private OrderDataService orderData;
     private OrderPO order;
-    private OrderState state;
+    private OrderStateInfo state;
     public Orderstate(String orderID) {
  	 try {   
  		 DataFactory=RemoteHelper.getInstance().getDataFactoryService();   
  	     orderData= (OrderDataService) DataFactory.getDataService("Order");  
 		 order=orderData.find(orderID);
- 	     state=new OrderState(order);
+ 	     state=new OrderStateInfo(order);
  	   } catch (RemoteException e) {
 		e.printStackTrace();
 	}
@@ -36,10 +37,18 @@ public class Orderstate {
      */
 	public boolean cancel() {
 		try {
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		state.orderState=4;
-		Calendar cal=state.latest;
+		Calendar cal=Calendar.getInstance();
+		try {
+			cal.setTime(sdf.parse(sdf.format(state.latest.getTime())));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 		cal.add(Calendar.HOUR, -6);
-		Calendar rightnow=Calendar.getInstance();
+		Calendar rightnow=Calendar.getInstance();		
+		state.cancel=Calendar.getInstance();
+		state.generationTime=Calendar.getInstance();
 		state.Update();		
 		orderData.update(state.po);		
 		if(cal.compareTo(rightnow)==-1){
@@ -77,7 +86,7 @@ public class Orderstate {
 	
 	
 	/**
-     * 酒店人员处理异常订单，延迟入住(将订单状态改为已 执行，增加信用值请使用updateCredit方法)
+     * 酒店人员处理异常订单，延迟入住(将订单状态改为未 执行，增加信用值请使用updateCredit方法)
      * 
      * @param String delayTime,延时入住的时间
      * @return boolean值,处理成功返回true，否则返回false
@@ -88,6 +97,7 @@ public class Orderstate {
 		try {
 		state.orderState=2;
 		state.latest=delayTime;
+		state.generationTime=Calendar.getInstance();
 		state.Update();
 		orderData.update(state.po);
 		return true;

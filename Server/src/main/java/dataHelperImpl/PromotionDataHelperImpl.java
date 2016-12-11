@@ -28,8 +28,8 @@ public class PromotionDataHelperImpl implements PromotionDataHelper{
 	private void init() {
 		driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
 		dbURL="jdbc:sqlserver://localhost:1433;DatabaseName=HRS";
-		userName="liu";
-		userPwd="naigo961226";
+		userName="lyx";
+		userPwd="liuyx970202";
 		try{
 			 Class.forName(driverName);
 			 dbConn=DriverManager.getConnection(dbURL,userName,userPwd);
@@ -258,7 +258,7 @@ public class PromotionDataHelperImpl implements PromotionDataHelper{
 				endtime.setTime(endtime2);
 				String city=rs.getString("applycity");
 				String circle=rs.getString("applybussinesscircle");
-				int grade=rs.getInt("userShipgrade");
+				int grade=rs.getInt("applyuserShipgrade");
 				PromotionPO po=new PromotionPO(number,name,begintime,endtime,city,circle,grade);
 				list.add(po);
 				}

@@ -13,7 +13,6 @@ import hotelBLService.HotelBLServiceController;
 import orderBLService.OrderBLService;
 import orderBLService.OrderBLServiceController;
 import uiService.orderDetailViewControllerService;
-import userBLServiceImpl.DES;
 import userBLServiceImpl.Log;
 
 public class orderDetailViewControllerServiceImpl implements orderDetailViewControllerService {
@@ -24,10 +23,9 @@ public class orderDetailViewControllerServiceImpl implements orderDetailViewCont
 	    private HotelBLService hotel;
 	    private int from;
 	    private String HotelID;
-	    private String key1;
+	    private String key;
 	    public orderDetailViewControllerServiceImpl(String UserID,String OrderID,String hotelID,int f) throws RemoteException{
-	    	key1=Log.getLogInstance().getKey(hotelID);
-			hotelID=DES.encryptDES(hotelID, key1);
+	    	key=Log.getLogInstance().getSKey(hotelID);
 	    	this.UserID=UserID;
 	    	from=f;
 	    	this.OrderID=OrderID;
@@ -64,10 +62,10 @@ public class orderDetailViewControllerServiceImpl implements orderDetailViewCont
 			return UserID;
 		}
 		public  List<String> getDetail(){
-			OrderVO vo=order.showDetail(UserID,OrderID);
+			OrderVO vo=order.showDetail(OrderID);
 			HotelVO vo1=hotel.findByHotelID(vo.hotelID);
 			List<String> list=new ArrayList<String>();
-			list.add(DES.decryptDES(vo1.hotelName,key1));
+			list.add(vo1.hotelName);
 			list.add(vo.roomType);
 			list.add(vo.orderNumber);
 			list.add(""+vo.orderValue);

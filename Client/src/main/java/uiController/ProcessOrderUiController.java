@@ -37,8 +37,8 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 	
 	private UserType usertype;
 	public ProcessOrderUiController(String hotelId,UserType type) throws RemoteException{
-		String key=Log.getLogInstance().getKey(hotelId);
-		this.hotelId =DES.encryptDES(hotelId, key);
+		String key=Log.getLogInstance().getSKey(hotelId);
+		this.hotelId =hotelId;
 		this.usertype=type;
 		user= new UserBLServiceController();
 		orderService = new OrderBLServiceController();
@@ -77,6 +77,8 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 
 	@Override
 	public boolean processUnfinishedOrder(String orderId) {
+		OrderVO vo=orderService.showDetail(orderId);
+		orderService.updateCredit(vo.userID, orderId, vo.orderValue, Operate.Done);
 		return orderService.processUnfinishedOrder(orderId);
 	}
 
@@ -91,6 +93,8 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
+		OrderVO vo=orderService.showDetail(orderId);
+		orderService.updateCredit(vo.userID, orderId, vo.orderValue, Operate.Delayed);
 		return orderService.processAbnormalOrder(orderId, calendar);
 	}
 
@@ -187,7 +191,13 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 		for(OrderVO vo:list){
 			vo.addorderNumber();
 			vo.adddetail();
-			String skey=Log.getLogInstance().getSKey(vo.userID);
+			String skey="";
+			try {
+				skey = Log.getLogInstance().getSKey(vo.userID);
+			} catch (RemoteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			vo.addUserInfo(DES.decryptDES(user.findByID(vo.userID).username, skey));
 			vo.addexpectedCheckIn();
 			vo.addlatest();

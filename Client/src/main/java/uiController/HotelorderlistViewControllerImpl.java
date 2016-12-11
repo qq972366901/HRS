@@ -9,7 +9,6 @@ import VO.OrderVO;
 import hotelBLService.HotelBLService;
 import hotelBLService.HotelBLServiceController;
 import uiService.HotelorderlistViewControllerService;
-import userBLServiceImpl.DES;
 import userBLServiceImpl.Log;
 
 public class HotelorderlistViewControllerImpl implements HotelorderlistViewControllerService {
@@ -21,14 +20,12 @@ public class HotelorderlistViewControllerImpl implements HotelorderlistViewContr
 	String key2;
 	public HotelorderlistViewControllerImpl(String HotelID,String UserID){
 		try {
-			key1=Log.getLogInstance().getKey(UserID);
-			key2=Log.getLogInstance().getKey(HotelID);
-			HotelID=DES.encryptDES(HotelID, key2);
+			key1=Log.getLogInstance().getSKey(HotelID);
+			key2=Log.getLogInstance().getSKey(UserID);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		UserID=DES.encryptDES(UserID, key1);
 		hotelid=HotelID;
 		userid=UserID;
 		hotel=new HotelBLServiceController();

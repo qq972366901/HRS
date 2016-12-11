@@ -11,19 +11,20 @@ import common.Operate;
 import orderBLService.OrderBLService;
 import orderBLService.OrderBLServiceController;
 import uiService.OrderViewControllerService;
-import userBLServiceImpl.DES;
-import userBLServiceImpl.Log;
 
 public class OrderViewControllerImpl implements OrderViewControllerService {
 	private OrderView view;
 	private OrderBLService order;
 	private String id;
-	private String key;
-	public OrderViewControllerImpl(String UserID) throws RemoteException{
+	public OrderViewControllerImpl(String UserID){
 		id=UserID;
-		order=new OrderBLServiceController();
-		key=Log.getLogInstance().getKey(id);
-		id=DES.encryptDES(UserID, key);
+		try {
+			order=new OrderBLServiceController();
+		} catch (RemoteException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		id=UserID;
 	}
 	public void setView(OrderView view){
 		this.view=view;
@@ -66,7 +67,7 @@ public class OrderViewControllerImpl implements OrderViewControllerService {
 	@Override
 	public void cancel(String orderID) {
 	    if(order.cancel(id, orderID)){
-	    	order.updateCredit(id, orderID, order.showDetail(id, orderID).orderValue, Operate.Cancel);
+	    	order.updateCredit(id, orderID, order.showDetail(orderID).orderValue, Operate.Cancel);
 	    }
 		view.cancel();
 	}
@@ -76,7 +77,7 @@ public class OrderViewControllerImpl implements OrderViewControllerService {
 	@Override
 	public void showDetail(String orderID) {
 		try {
-			view.showDetail(orderID);
+			view.showDetail(orderID,order.showDetail(orderID).hotelID);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -84,13 +85,9 @@ public class OrderViewControllerImpl implements OrderViewControllerService {
 	}
 	@Override
 	public Vector<OrderVO> getAllOrder() {
-		System.out.println(id);
 		List<OrderVO> orderlist=order.showAllorder(id);
-		System.out.println(orderlist.size());
 		Vector<OrderVO> list=new Vector<OrderVO>();
 		for(OrderVO vo:orderlist){
-			System.out.println(vo.orderNumber);
-			System.out.println(vo.orderState);
 			vo.addorderNumber();
 			vo.addorderState();
 			vo.addorderValue();

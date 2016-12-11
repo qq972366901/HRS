@@ -32,17 +32,15 @@ public class OrderLineItem {
     /**
      * 显示订单的详细信息
      * 
-     * @param String UserID，客户的id
      * @param String OrderID，订单的id
      * @return OrderVO ,一个订单
      * @ 
      * @see bussinesslogic.Order
      */
-	public OrderVO showDetail(String userID,String OrderID) {
+	public OrderVO showDetail(String OrderID) {
 		try {
 			OrderPO order=orderData.find(OrderID);
-			CreditPO credit=creditData.find(userID);
-			return new OrderVO(credit,order);		
+			return new OrderVO(order);		
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

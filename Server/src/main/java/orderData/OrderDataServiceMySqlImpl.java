@@ -38,7 +38,6 @@ public class OrderDataServiceMySqlImpl implements OrderDataService,Serializable{
 		if(orderDataServiceMySqlImpl==null){
 			orderDataServiceMySqlImpl=new OrderDataServiceMySqlImpl();
 		}
-		System.out.println("Order go");
 		return orderDataServiceMySqlImpl;
 	}
 	/**
@@ -68,6 +67,7 @@ public class OrderDataServiceMySqlImpl implements OrderDataService,Serializable{
 	@Override
 	public void insert(OrderPO po) throws RemoteException {
 		map.put(po.getOrderNumber(), po);
+		orderdatahelper.insert(po);
 	}
 	/**
 	 * 在数据库中删除一个po
@@ -79,6 +79,7 @@ public class OrderDataServiceMySqlImpl implements OrderDataService,Serializable{
 	@Override
 	public void delete(OrderPO po) throws RemoteException {
 		map.remove(po.getOrderNumber(), po);
+		orderdatahelper.delete(po);
 	}
 	/**
 	 * 在数据库中跟新一个po
@@ -90,6 +91,7 @@ public class OrderDataServiceMySqlImpl implements OrderDataService,Serializable{
 	@Override
 	public void update(OrderPO po) throws RemoteException {
 		map.put(po.getOrderNumber(), po);
+		orderdatahelper.update(po);
 	}
 	/**
 	 * 找到一个客户的所有制定类型的订单（0为全部订单，1为已执行订单，2为未执行订单，3为异常订单，4为撤销订单）
@@ -103,11 +105,7 @@ public class OrderDataServiceMySqlImpl implements OrderDataService,Serializable{
 		OrderPO po;
 		int state;
 		String ID;
-		System.out.println(map.size());
-		System.out.println(567);
 		for(Entry<String,OrderPO> entry:map.entrySet()){
-			System.out.println(entry.getValue().getOrderNumber());
-			System.out.println(entry.getValue().getUserID());
 			po=entry.getValue();
 			ID=po.getUserID();
 			state=po.getOrderState();
@@ -159,7 +157,7 @@ public class OrderDataServiceMySqlImpl implements OrderDataService,Serializable{
 		Set<String> set=map.keySet();
 		int size=set.size();
 		while(flag){
-		    ran=String.valueOf(random.nextInt(999));
+		    ran=String.valueOf(random.nextInt(99999));
 		    set.add(ran);
 		    if(set.size()!=size){
 		    	flag=false;

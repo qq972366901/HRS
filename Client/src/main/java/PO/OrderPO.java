@@ -81,7 +81,7 @@ public class OrderPO extends PO implements Serializable{
 	/**
 	 * 获取订单状态
 	 * @param
-	 * @return 返回订单状态(-1为异常，0为未执行，1为已执行，-2为撤销)
+	 * @return 返回订单状态(1为未执行，2为已执行，3为异常，4为撤销)
 	 * @throws
 	 * @see
 	 */

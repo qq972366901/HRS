@@ -5,7 +5,6 @@ import java.rmi.RemoteException;
 
 import UserView.customerMainView;
 import uiService.customerMainViewControllerService;
-import userBLServiceImpl.DES;
 import userBLServiceImpl.Log;
 
 public class customerMainViewControllerImpl implements customerMainViewControllerService{
@@ -14,12 +13,12 @@ public class customerMainViewControllerImpl implements customerMainViewControlle
 	public customerMainViewControllerImpl(String id){
 		String key=null;
 		try {
-			key=Log.getLogInstance().getKey(id);
+			key=Log.getLogInstance().getSKey(id);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
 		if(key!=null){
-			UserID = DES.encryptDES(id, key);
+			UserID = id;
 		}
 		else{
 			System.out.println("加密失败");

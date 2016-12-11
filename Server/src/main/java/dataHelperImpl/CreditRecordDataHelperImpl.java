@@ -23,8 +23,8 @@ public class CreditRecordDataHelperImpl implements CreditRecordDataHelper{
 	private void init() {
 		driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
 		dbURL="jdbc:sqlserver://localhost:1433;DatabaseName=HRS";
-		userName="liu";
-		userPwd="naigo961226";
+		userName="lyx";
+		userPwd="liuyx970202";
 		try{
 			 Class.forName(driverName);
 			 dbConn=DriverManager.getConnection(dbURL,userName,userPwd);
@@ -50,7 +50,7 @@ public class CreditRecordDataHelperImpl implements CreditRecordDataHelper{
 		init();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		String date= sdf.format(po.getTime().getTime());
-		String sql="insert into [CreditRecord] values('"+po.getUserID()+"','"+po.getID()+"','"+date+"','"+ActionToString(po.getAction())+"','"+po.getCreditchange()+"','"+po.getCurrentcredit()+"')";
+		String sql="insert into [CreditRecord] values('"+po.getID()+"','"+po.getUserID()+"',null,'"+date+"','"+ActionToString(po.getAction())+"','"+po.getCreditchange()+"','"+po.getCurrentcredit()+"')";
 		try {
 			Statement st=dbConn.createStatement();
 			int res=st.executeUpdate(sql);
@@ -77,7 +77,7 @@ public class CreditRecordDataHelperImpl implements CreditRecordDataHelper{
 			ResultSet rs=st.executeQuery("select * from [CreditRecord]");
 			while(rs.next()){
 				String userID=rs.getString("userID");
-				String crid=rs.getString("creditRecordID");
+				String crid=rs.getString("recordID");
 				String str=rs.getString("time");
 				SimpleDateFormat sdf= new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 				Date date =sdf.parse(str);

@@ -16,8 +16,7 @@ public class revisePasswordViewControllerImpl implements revisePasswordViewContr
 	public revisePasswordViewControllerImpl(String ID){
 		try {
 			user=new UserBLServiceController();
-			key=Log.getLogInstance().getKey(ID);
-			ID=DES.encryptDES(UserID, key);
+			key=Log.getLogInstance().getSKey(ID);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

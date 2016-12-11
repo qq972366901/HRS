@@ -25,8 +25,8 @@ public class UserDataHelperImpl implements UserDataHelper{
 	private void init() {
 		driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
 		dbURL="jdbc:sqlserver://localhost:1433;DatabaseName=HRS";
-		userName="liu";
-		userPwd="naigo961226";
+		userName="lyx";
+		userPwd="liuyx970202";
 		try{
 			 Class.forName(driverName);
 			 dbConn=DriverManager.getConnection(dbURL,userName,userPwd);
@@ -77,7 +77,6 @@ public class UserDataHelperImpl implements UserDataHelper{
 		String date = sdf.format(po.getBirthday().getTime());
 		String sql="update [User] set username='"+po.getName()+"',userpassword='"+po.getPassword()+"',contactway='"+po.getContact()+"',membertype='"+po.getMemberType()+"',type='"+typeToString(po.getType())+"',birthday='"+date+"',enterprise='"+po.getEnterprise()+"'where useraccount='"+po.getAccount()+"'";
 		try {
-			System.out.println(sql);
 			Statement st=dbConn.createStatement();
 			int res=st.executeUpdate(sql);
 			if(res==1){
