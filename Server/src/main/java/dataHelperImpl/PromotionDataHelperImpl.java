@@ -233,34 +233,34 @@ public class PromotionDataHelperImpl implements PromotionDataHelper{
 			ResultSet rs=st.executeQuery("select * from [Promotion]");
 			while(rs.next()){
 				if(rs.getString("promotionNumber")!=null){
-				String number=rs.getString("promotionNumber");
-				String name=rs.getString("promotionName");
-				SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-				String begintime1 = rs.getString("promotionBegintime");
-				Date begintime2 = null;
-				try {
-					begintime2 = sdf.parse(begintime1);
-				} catch (ParseException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				Calendar begintime= Calendar. getInstance();
-				begintime.setTime(begintime2);
-				String endtime1 = rs.getString("promotionEndtime");
-				Date endtime2 = null;
-				try {
-					endtime2 = sdf.parse(endtime1);
-				} catch (ParseException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				Calendar endtime= Calendar. getInstance();
-				endtime.setTime(endtime2);
-				String city=rs.getString("applycity");
-				String circle=rs.getString("applybussinesscircle");
-				int grade=rs.getInt("userShipgrade");
-				PromotionPO po=new PromotionPO(number,name,begintime,endtime,city,circle,grade);
-				list.add(po);
+					String number=rs.getString("promotionNumber");
+					String name=rs.getString("promotionName");
+					SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+					String begintime1 = rs.getString("promotionBegintime");
+					Date begintime2 = null;
+					try {
+						begintime2 = sdf.parse(begintime1);
+					} catch (ParseException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					Calendar begintime= Calendar. getInstance();
+					begintime.setTime(begintime2);
+					String endtime1 = rs.getString("promotionEndtime");
+					Date endtime2 = null;
+					try {
+						endtime2 = sdf.parse(endtime1);
+					} catch (ParseException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					Calendar endtime= Calendar. getInstance();
+					endtime.setTime(endtime2);
+					String city=rs.getString("applycity");
+					String circle=rs.getString("applybussinesscircle");
+					int grade=rs.getInt("applyuserShipgrade");
+					PromotionPO po=new PromotionPO(number,name,begintime,endtime,city,circle,grade);
+					list.add(po);
 				}
 			}
 			rs.close();

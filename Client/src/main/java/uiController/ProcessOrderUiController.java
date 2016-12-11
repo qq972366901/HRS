@@ -187,12 +187,18 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 		for(OrderVO vo:list){
 			vo.addorderNumber();
 			vo.adddetail();
-			String skey=Log.getLogInstance().getSKey(vo.userID);
-			vo.addUserInfo(DES.decryptDES(user.findByID(vo.userID).username, skey));
-			vo.addexpectedCheckIn();
-			vo.addlatest();
-			vo.addorderState();
-			vo.addorderValue();
+			String skey;
+			try {
+				skey = Log.getLogInstance().getSKey(vo.userID);
+				vo.addUserInfo(DES.decryptDES(user.findByID(vo.userID).username, skey));
+				vo.addexpectedCheckIn();
+				vo.addlatest();
+				vo.addorderState();
+				vo.addorderValue();
+			} catch (RemoteException e) {
+				System.out.println("获取密钥失败");
+				e.printStackTrace();
+			}
 		}
     	return list;
     }

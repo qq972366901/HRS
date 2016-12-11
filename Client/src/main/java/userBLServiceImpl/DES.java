@@ -220,9 +220,10 @@ public class DES {
     /*
     public static void main(String[] args) {  
         String key = DES.init(); 
+        key="m9ockVvsp4Y=";
         System.out.println("DES密钥:\n" + key);  
   
-        String word = "0";  
+        String word = "4";  
           
   
         String encWord = encryptDES(word, key);  

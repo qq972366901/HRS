@@ -7,8 +7,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.Set;
+import java.util.Vector;
 
 import PO.HotelPO;
 import PO.PromotionPO;
@@ -139,7 +141,7 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
 			promotion.put(list1.get(i).getPromotionNumber(), list1.get(i));
 		}
 		for(int i=0;i<list2.size();i++){
-			promotion.put(list2.get(i).getHotelID(), list1.get(i));
+			promotion.put(list2.get(i).getHotelID(), list2.get(i));
 		}
 		promotion.put("会员等级系统", po);
 	}
@@ -147,13 +149,11 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
 	 *得到所有的酒店策略
 	 */
     public List<PromotionPO> getAllHotelPromotion(){
-    	List<PromotionPO> list=null;
-		Iterator<String> it=promotion.keySet().iterator();
-		while(it.hasNext()){
-			if(promotion.get(it.next()).getHotelID()!=null){
-				list.add(promotion.get(it.next()));
-			}
-		}  
+    	List<PromotionPO> list=new Vector<PromotionPO>();
+		for (Map.Entry<String,PromotionPO> entry : promotion.entrySet()) {
+			if(entry.getValue().getPromotionNumber()==null&&entry.getValue().getHotelID()!=null)
+				list.add(entry.getValue());
+        }
 		return list;
     }
 
@@ -161,26 +161,17 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
 	 *得到所有的网站策略
 	 */
 	    public List<PromotionPO> getAllWebPromotion(){
-	    	List<PromotionPO> list=null;
-			Iterator<String> it=promotion.keySet().iterator();
-			while(it.hasNext()){
-				if(promotion.get(it.next()).getPromotionNumber()!=null){
-					list.add(promotion.get(it.next()));
-				}
-			}  
+	    	List<PromotionPO> list=new Vector<PromotionPO>();
+			for (Map.Entry<String,PromotionPO> entry : promotion.entrySet()) {
+				if(entry.getValue().getPromotionNumber()!=null)
+					list.add(entry.getValue());
+	        }
 			return list;
 	    }
 /**
  *得到会员等级系统
  */
     public PromotionPO getMemberLevelSystem(){
-		Iterator<String> it=promotion.keySet().iterator();
-		PromotionPO po=null;
-		while(it.hasNext()){
-			if(promotion.get(it.next()).getPromotionNumber()==null&&promotion.get(it.next()).getHotelID()==null){
-				po= promotion.get(it.next());
-			}
-		}  
-		return po;
+		return promotion.get("会员等级系统");
     }
 }
