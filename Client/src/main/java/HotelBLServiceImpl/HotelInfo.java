@@ -28,6 +28,7 @@ public class HotelInfo {
 		df=RemoteHelper.getInstance().getDataFactoryService();
 		try {
 			hds = (HotelDataService)df.getDataService("Hotel");
+			key=Log.getLogInstance().getKey(hotelID);
 			HotelPO hpo = hds.find(DES.encryptDES(hotelID, key));
 			hvo = new HotelVO(hpo);
 		} catch (RemoteException e) {
@@ -51,12 +52,6 @@ public class HotelInfo {
 		hvo.hotelDistrict = hArea;
 		hvo.hotelProfile = hIntroduce;
 		hvo.hotelStar = hStar;
-		String key = null;
-		try {
-			key=Log.getLogInstance().getKey(hotelID);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
 		if(key!=null){
 			hvo.hotelPhone = DES.encryptDES(hPhone, key);
 		}
