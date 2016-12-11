@@ -28,8 +28,8 @@ public class HotelInfo {
 		df=RemoteHelper.getInstance().getDataFactoryService();
 		try {
 			hds = (HotelDataService)df.getDataService("Hotel");
-			key=Log.getLogInstance().getKey(hotelID);
-			HotelPO hpo = hds.find(DES.encryptDES(hotelID, key));
+			key=Log.getLogInstance().getSKey(id);
+			HotelPO hpo = hds.find(hotelID);
 			hvo = new HotelVO(hpo);
 		} catch (RemoteException e) {
 			e.printStackTrace();
@@ -72,6 +72,7 @@ public class HotelInfo {
 	}
 	
 	public void updateHotelPhone(String hotelPhone) {
+		hvo.hotelPhone = hotelPhone;
 		HotelPO hpo = new HotelPO(hvo.hotelAddress,hvo.hotelCity, hvo.hotelDistrict,hvo.hotelStar,hvo.hotelProfile,hvo.hotelService,hvo.hotelName,hvo.hotelAccount,hvo.score,hotelPhone);
 		try {
 			hds.update(hpo);

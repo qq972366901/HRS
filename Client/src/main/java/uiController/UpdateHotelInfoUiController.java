@@ -50,7 +50,7 @@ public class UpdateHotelInfoUiController implements UpdateHotelInfoUiService {
 	public void updateHotelInfo(String hotelName, String hotelLocation, String hotelService, String hotelCity,
 			String hotelArea, String hotelIntroduce, int hotelStar, String hotelPhone) {
 		//数据库更新酒店信息
-		hotel.updateHotelInfo(DES.decryptDES(hotelID, key), hotelName, hotelLocation, hotelService, hotelCity, hotelArea, hotelIntroduce, hotelStar, hotelPhone);
+		hotel.updateHotelInfo(hotelID, hotelName, hotelLocation, hotelService, hotelCity, hotelArea, hotelIntroduce, hotelStar, hotelPhone);
 	}
 
 }
