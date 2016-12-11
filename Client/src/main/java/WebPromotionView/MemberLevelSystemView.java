@@ -8,6 +8,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -142,20 +143,25 @@ public class MemberLevelSystemView extends JPanel{
 				long credit4=Long.valueOf(l4.getText());
 				long credit5=Long.valueOf(l5.getText());
 				long credit[]={credit1,credit2,credit3,credit4,credit5};
-				double discount1=Long.valueOf((String) dis1.getSelectedItem());
-				double discount2=Long.valueOf((String) dis2.getSelectedItem());
-				double discount3=Long.valueOf((String) dis3.getSelectedItem());
-				double discount4=Long.valueOf((String) dis4.getSelectedItem());
-				double discount5=Long.valueOf((String) dis5.getSelectedItem());
+				double discount1=(double) dis1.getSelectedItem();
+				double discount2=(double) dis2.getSelectedItem();
+				double discount3=(double) dis3.getSelectedItem();
+				double discount4=(double) dis4.getSelectedItem();
+				double discount5=(double) dis5.getSelectedItem();
 				double discount[]={discount1,discount2,discount3,discount4,discount5};
 				MemberLevelSystemVO vo=new MemberLevelSystemVO(credit,discount);
 				if(hasMemberLevelSystem){
 					controller.updateMemberLevelSystem(vo);
+					if(controller.updateAllLevel()){
+						JOptionPane.showMessageDialog(null, "操作成功！","", JOptionPane.YES_OPTION);
+					}
 				}
 				else{
 					controller.addMemberLevelSystem(vo);
+					if(controller.updateAllLevel()){
+						JOptionPane.showMessageDialog(null, "操作成功！","", JOptionPane.YES_OPTION);
+					}
 				}
-				controller.updateAllLevel();
 			}
 		});
 		cancel=new JButton("取消");

@@ -52,8 +52,8 @@ public class MemberLevelSystemUiController implements MemberLevelSystemUiService
 	 * 由于会员等级系统的更新，需要更新所有客户的会员等级
 	 */
 	@Override
-	public void updateAllLevel() {
-		userService.updateAllLevel();
+	public boolean updateAllLevel() {
+		return userService.updateAllLevel();
 	}
 
 

@@ -25,9 +25,7 @@ public class GetMemberLevelSystem {
 		}
 	}
     public static GetMemberLevelSystem getMemberLevelSystemInstance() {
-	  if(getMemberLevelSystem== null) {
-		  getMemberLevelSystem= new GetMemberLevelSystem();
-	}
+		 getMemberLevelSystem= new GetMemberLevelSystem();
 	     return getMemberLevelSystem;
     }
     public MemberLevelSystemVO getMemberLevelSystem(){

@@ -245,8 +245,8 @@ public class UserBLServiceController implements UserBLService {
 	 * 
 	 */
 	@Override
-	public void updateAllLevel() {
-		userCreditManagementController.updateAllLevel();
+	public boolean updateAllLevel() {
+		return userCreditManagementController.updateAllLevel();
 	}
 	/**
 	 * 显示信用等级

@@ -16,8 +16,9 @@ public class UpdateMemberLevelSystem {
 	
 	private static UpdateMemberLevelSystem updateMemberLevelSystem;
 	
-	private UpdateMemberLevelSystem() {
+	private UpdateMemberLevelSystem() throws RemoteException {
 		df=RemoteHelper.getInstance().getDataFactoryService();
+		pds=(PromotionDataService) df.getDataService("Promotion");
 		PromotionPO po;
 		try {
 			po = pds.getMemberLevelSystem();
@@ -34,7 +35,11 @@ public class UpdateMemberLevelSystem {
 	
 	public static UpdateMemberLevelSystem getUpdateMemberLevelSystemInstance() {
 		if(updateMemberLevelSystem == null) {
-			updateMemberLevelSystem = new UpdateMemberLevelSystem();
+			try {
+				updateMemberLevelSystem = new UpdateMemberLevelSystem();
+			} catch (RemoteException e) {
+				e.printStackTrace();
+			}
 		}
 		return updateMemberLevelSystem;
 	}

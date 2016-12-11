@@ -5,9 +5,11 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 import PO.CreditPO;
 import PO.CreditRecordPO;
+import PO.UserPO;
 import VO.CreditRecordVO;
 import VO.CreditVO;
 import VO.MemberLevelSystemVO;
@@ -108,15 +110,14 @@ public class Credit {
 	 * 更新所有客户的会员等级
 	 */
 	public boolean updateAllLevel() {
-		Iterator<String> it=map.keySet().iterator(); 
-		while(it.hasNext()){   
-		   try {
-			   updateLevel(it.next(),map.get(it.next()).credit);
-		   } catch (RemoteException e) {
-			   e.printStackTrace();
-			   return false;
-		   }
-		}
+		for (Map.Entry<String,CreditVO> entry : map.entrySet()) {
+            try {
+				updateLevel(entry.getValue().customerID,entry.getValue().credit);
+			} catch (RemoteException e) {
+				e.printStackTrace();
+				return false;
+			}
+        }
 		return true;
 	}
 }

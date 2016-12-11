@@ -127,8 +127,9 @@ public interface UserBLService {
 	public Double getDiscount(int level);
 	/**
 	 * 更新所有客户的会员等级
+	 * @return 
 	 */
-	public void updateAllLevel();
+	public boolean updateAllLevel();
 	/**
 	 * 显示信用等级
 	 * @param id String 型，界面层传入的客户账户

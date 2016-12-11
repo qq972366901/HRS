@@ -151,11 +151,11 @@ public class PromotionDataHelperImpl implements PromotionDataHelper{
 		init();
 		long[] credit= po.getCreditOfLevel();
 		double[] discount = po.getDiscountOfLevel();
-		String sql="update [MemberLevelSystem] set grade='"+1+"',credit='"+credit[0]+"',discount='"+discount[0]+"' where grade='"+1+"'";
-		String sql1="update [MemberLevelSystem] set grade='"+2+"',credit='"+credit[1]+"',discount='"+discount[1]+"' where grade='"+2+"'";
-		String sql2="update [MemberLevelSystem] set grade='"+3+"',credit='"+credit[2]+"',discount='"+discount[2]+"' where grade='"+3+"'";
-		String sql3="update [MemberLevelSystem] set grade='"+4+"',credit='"+credit[3]+"',discount='"+discount[3]+"' where grade='"+4+"'";
-		String sql4="update [MemberLevelSystem] set grade='"+5+"',credit='"+credit[4]+"',discount='"+discount[4]+"' where grade='"+5+"'";
+		String sql="update [MemberLevelSystem] set [credit]='"+credit[0]+"',[discount]='"+discount[0]+"' where [level]='"+1+"'";
+		String sql1="update [MemberLevelSystem] set [credit]='"+credit[1]+"',[discount]='"+discount[1]+"' where [level]='"+2+"'";
+		String sql2="update [MemberLevelSystem] set [credit]='"+credit[2]+"',[discount]='"+discount[2]+"' where [level]='"+3+"'";
+		String sql3="update [MemberLevelSystem] set [credit]='"+credit[3]+"',[discount]='"+discount[3]+"' where [level]='"+4+"'";
+		String sql4="update [MemberLevelSystem] set [credit]='"+credit[4]+"',[discount]='"+discount[4]+"' where [level]='"+5+"'";
 		try {
 			Statement st=dbConn.createStatement();
 			int res=st.executeUpdate(sql);

@@ -39,12 +39,14 @@ public class UserCreditManagementController {
 		}
 		/**
 		 * 更新所有客户的会员等级
+		 * @return 
 		 */
-		public void updateAllLevel() {
+		public boolean updateAllLevel() {
 			try {
-				Credit.getInstance().updateAllLevel();
+				return Credit.getInstance().updateAllLevel();
 			} catch (RemoteException e) {
 				e.printStackTrace();
 			}
+			return false;
 		}
 }
