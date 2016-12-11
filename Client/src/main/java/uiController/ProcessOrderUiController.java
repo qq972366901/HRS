@@ -3,7 +3,6 @@ package uiController;
 import java.rmi.RemoteException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -159,7 +158,7 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 		else{
 			currentcredit+=(value/2);
 		}
-		CreditRecordVO vo=new CreditRecordVO(userID,calendar,orderNo,appeal,value,currentcredit);
+		CreditRecordVO vo=new CreditRecordVO(null,userID,calendar,orderNo,appeal,value,currentcredit);
 		try {
 			Credit.getInstance().updateCredit(vo);
 		} catch (RemoteException e) {

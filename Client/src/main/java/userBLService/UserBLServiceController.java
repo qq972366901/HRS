@@ -278,4 +278,5 @@ public class UserBLServiceController implements UserBLService {
 	public boolean addLog(String id, String k, String secretid) {
 		return userRegisterAndLogController.addLog(id,k,secretid);
 	}
+	
 }

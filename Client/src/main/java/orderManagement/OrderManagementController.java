@@ -121,7 +121,7 @@ public class OrderManagementController{
 	 */
 	public void updateCredit(String userID,String orderID, int value){		
 		 try {
-				credit.updateCredit(new CreditRecordVO(userID,Calendar.getInstance(),orderID,Operate.Cancel, -value/2, credit.showCredit(userID)-value/2));
+				credit.updateCredit(new CreditRecordVO(null,userID,Calendar.getInstance(),orderID,Operate.Cancel, -value/2, credit.showCredit(userID)-value/2));
 			} catch (RemoteException e) {
 				e.printStackTrace();
 			} catch (ParseException e) {

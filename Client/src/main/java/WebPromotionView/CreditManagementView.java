@@ -93,7 +93,7 @@ public class CreditManagementView extends JPanel {
 							Date now = new Date(); 
 							Calendar calendar = Calendar.getInstance();
 							calendar.setTime(now);
-							CreditRecordVO vo=new CreditRecordVO(acc,calendar,"",Operate.Recharge,value*time,currentcredit);
+							CreditRecordVO vo=new CreditRecordVO(null,acc,calendar,"",Operate.Recharge,value*time,currentcredit);
 							controller.updateCredit(vo);
 							JOptionPane.showMessageDialog(null, "操作成功！","", JOptionPane.YES_OPTION);
 						}
