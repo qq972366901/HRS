@@ -400,7 +400,7 @@ public class UserManagementView extends JPanel{
 				JOptionPane.showMessageDialog(panel, "请输入与选择类型相符的账号进行搜索！","", JOptionPane.ERROR_MESSAGE);
 			}
 			}
-			});
+			}});
 		button6=new JButton("更改");
 		button6.setEnabled(false);
 		
