@@ -44,7 +44,7 @@ public class RoomsReserved {
 	
 	public void updateRoomsState(String type,int number) {
 		for(RoomVO rvo : list) {
-			if(rvo.roomType == type && rvo.roomStatue == "空闲") {
+			if(rvo.roomType.equals(type) && rvo.roomStatue.equals("空闲")) {
 				rvo.roomStatue = "已预订";
 				RoomPO rpo = new RoomPO(rvo.hotelID,rvo.roomId,"已预订",rvo.roomType,rvo.roomPrice);
 				try {

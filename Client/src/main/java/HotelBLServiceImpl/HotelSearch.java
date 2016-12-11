@@ -64,7 +64,7 @@ public class HotelSearch {
 		if(city.length() < 1) {
 			return true;
 		}
-		if(vo.hotelCity == city) {
+		if(vo.hotelCity.equals(city)) {
 			outcome = true;
 		}
 		return outcome;
@@ -74,7 +74,7 @@ public class HotelSearch {
 		if(businessCircle.length() < 1) {
 			return true;
 		}
-		if(vo.hotelDistrict == businessCircle) {
+		if(vo.hotelDistrict.equals(businessCircle)) {
 			outcome = true;
 		}
 		return outcome;
@@ -86,7 +86,7 @@ public class HotelSearch {
 		RoomAllOfHotel roomAllOfHotel = RoomAllOfHotel.getRoomAllOfHotelInstance(vo.hotelAccount);
 		List<RoomVO> listtemp = roomAllOfHotel.getAllRooms();
 		for(RoomVO rvo : listtemp) {
-			if(rvo.roomStatue == "空闲" && rvo.roomType == rType && rvo.roomPrice <= priceHigh && 
+			if(rvo.roomStatue.equals("空闲") && rvo.roomType.equals(rType) && rvo.roomPrice <= priceHigh && 
 					rvo.roomPrice >= priceLow) {
 				roomNumber--;
 			}
@@ -128,19 +128,19 @@ public class HotelSearch {
 	}
 	private boolean judgeEverBooked(HotelVO vo, String everBooked, String userid) {
 		boolean outcome = false;
-		if(everBooked == "全部" || everBooked.length() < 1) {
+		if(everBooked.equals("全部") || everBooked.length() < 1) {
 			return true;
 		}
 		HotelInfoListByUser hotelInfoListByUser = HotelInfoListByUser.getHotelInfoListByUserInstance(userid);
 		List<HotelVO> listtemp = hotelInfoListByUser.getHistoryHotel();
-		if(everBooked == "预定过") {
+		if(everBooked.equals("预定过")) {
 			for(HotelVO tempvo : listtemp) {
 				if(tempvo.hotelAccount == vo.hotelAccount) {
 					outcome = true;
 					break;
 				}
 			}
-		} else if(everBooked == "未预定过") {
+		} else if(everBooked.equals("未预定过")) {
 			boolean contain = false;
 			for(HotelVO tempvo : listtemp) {
 				if(tempvo.hotelAccount == vo.hotelAccount) {

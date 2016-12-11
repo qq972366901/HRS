@@ -45,7 +45,7 @@ public class RoomAvailableJudge {
 	public boolean whetherSuccess(String type,int number) {
 		boolean success = false;
 		for(RoomVO rvo : list) {
-			if(rvo.roomType == type && rvo.roomStatue == "空闲") {
+			if(rvo.roomType.equals(type) && rvo.roomStatue.equals("空闲")) {
 				number--;
 			}
 			if(number == 0) {
