@@ -61,12 +61,10 @@ public class SearchWebPromotion {
 		return outcome;
 	}
 	public Vector<Vector<String>> getAllWebPromotion(){
-		voList=new Vector<WebPromotionVO>();
+		//voList=new Vector<WebPromotionVO>();
 		Vector< Vector<String>> list=new Vector<Vector<String>>();
 		for(int i=0;i<voList.size();i++){
 			Vector<String> v=voList.get(i).getVector();
-			//PromotionMemberGradeController p=new PromotionMemberGradeController();
-			//v.add(String.valueOf(p.getDiscountOfLevel(voList.get(i).applyMemberGrade)));
 			list.add(v);
 		}
 		return list;
