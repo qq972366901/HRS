@@ -120,12 +120,12 @@ public class Account{
 	 * @see VO.UserVO
 	 */
 	public boolean add(UserVO vo,String password) throws RemoteException{
-		if(worker.containsKey(vo.id)){
+		if(!worker.containsKey(vo.id)){
 			AccountInfo user=new AccountInfo(vo.username,password,vo.id,vo.contactway,vo.membertype,vo.type,vo.birthday,vo.enterprise,(long)-1,-1);
 			worker.put(vo.id, user);
 			Log.getLogInstance().add(vo.id, new LogVO(password,vo.id,false));
 			UserPO po=new UserPO(vo.username,password,vo.id,vo.contactway,vo.membertype,vo.type,vo.birthday,vo.enterprise);
-			dh.update(po);
+			dh.insert(po);
 			return true;
 		}
 		else{

@@ -57,16 +57,16 @@ public class UserDataHelperImpl implements UserDataHelper{
 			sql="insert into [User] values('"+po.getName()+"','"+po.getPassword()+"','"+po.getAccount()+"','"+po.getContact()+"','"+po.getMemberType()+"','"+typeToString(po.getType())+"','"+date+"','"+po.getEnterprise()+"')";
 		}
 		else{
-			sql="insert into [User] values('"+po.getName()+"','"+po.getPassword()+"','"+po.getAccount()+"','"+po.getContact()+"','"+po.getMemberType()+"','"+typeToString(po.getType())+"',"+null+",'"+po.getEnterprise()+"')";
+			sql="insert into [User] values('"+po.getName()+"','"+po.getPassword()+"','"+po.getAccount()+"','"+po.getContact()+"',"+null+",'"+typeToString(po.getType())+"',"+null+","+null+")";
 		}
 		try {
 			Statement st=dbConn.createStatement();
 			int res=st.executeUpdate(sql);
 			if(res==1){
-				System.out.println("插入成功");
+				System.out.println("插入用户成功");
 			}
 			else{
-				System.out.println("插入失败");
+				System.out.println("插入用户失败");
 			}
 			st.close();
 		} catch (SQLException e) {
@@ -242,10 +242,10 @@ public class UserDataHelperImpl implements UserDataHelper{
 			Statement st=dbConn.createStatement();
 			int res=st.executeUpdate(sql);
 			if(res==1){
-				System.out.println("插入成功");
+				System.out.println("插入Key成功");
 			}
 			else{
-				System.out.println("插入失败");
+				System.out.println("插入Key失败");
 			}
 			st.close();
 		} catch (SQLException e) {
