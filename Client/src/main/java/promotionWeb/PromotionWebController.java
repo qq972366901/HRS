@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Vector;
 
 import PromotionBLServiceImpl.AddWebPromotion;
-import PromotionBLServiceImpl.DeleteWebPromotion;
 import PromotionBLServiceImpl.GetMemberLevelSystem;
 import PromotionBLServiceImpl.GetWebPromotionDiscount;
 import PromotionBLServiceImpl.SearchWebPromotion;
@@ -50,7 +49,7 @@ public class PromotionWebController{
 	 * @return 
      */
 	public boolean deleteWebPromotion(String promotionnumber){
-		return DeleteWebPromotion.getDeleteWebPromotionInstance(promotionnumber).deleteWebPromotion(promotionnumber);
+		return SearchWebPromotion.getSearchWebPromotionInstance().deleteWebPromotion(promotionnumber);
 		
 	}
 }

@@ -32,7 +32,7 @@ public interface PromotionDataService  extends DataService,Remote{
 	 * @return 
 	 * @see data.Promotion
 	 */
-		public void delete(PromotionPO po) throws RemoteException;
+		public void delete(String id) throws RemoteException;
 	/**
 	 *在数据库中跟新一个po
 	 * @param in MessageInput型，界面的选择

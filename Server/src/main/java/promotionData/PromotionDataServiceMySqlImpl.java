@@ -96,11 +96,11 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
 	 * @see PO.PromotionPO
 	 */
 	@Override
-	public void delete(PromotionPO po) throws RemoteException {
+	public void delete(String id) throws RemoteException {
 		// TODO Auto-generated method stub
-		if(promotion.containsKey(po.getPromotionNumber())){
-			promotion.remove(po.getPromotionNumber());
-			helper.delete(po);
+		if(promotion.containsKey(id)){
+			promotion.remove(id);
+			helper.delete(id);
 		}
 		
 	}

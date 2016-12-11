@@ -71,4 +71,20 @@ public class SearchWebPromotion {
 	public void addWebPromotion(WebPromotionVO vo){
 		voList.add(vo);
 	}
+
+	public boolean deleteWebPromotion(String promotionnumber) {
+		for(int i=0;i<voList.size();i++){
+			if(voList.get(i).promotionNumber.equals(promotionnumber)){
+				try {
+					voList.remove(i);
+					pds.delete(promotionnumber);
+					return true;
+				} catch (RemoteException e) {
+					System.out.println("删除网站营销策略失败");
+					e.printStackTrace();
+				}
+			}
+		}
+		return false;
+	}
 }

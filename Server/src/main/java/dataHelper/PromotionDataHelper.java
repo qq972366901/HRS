@@ -14,11 +14,11 @@ public interface PromotionDataHelper {
 	public void insert(PromotionPO po);
 	/**
 	 * 在数据库中删除一个po
-	 * @param po PromotionPO型，逻辑层传入的PO对象
+	 * @param id PromotionPO型，逻辑层传入的PO对象
 	 * @return 
 	 * @see data.Promotion
 	 */
-	public void delete(PromotionPO po);
+	public void delete(String id);
 	/**
 	 *在数据库中更新一个po
 	 * @param po PromotionPO型，逻辑层传入的PO对象

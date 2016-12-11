@@ -124,10 +124,10 @@ public class PromotionDataHelperImpl implements PromotionDataHelper{
 	}
 
 	@Override
-	public void delete(PromotionPO po) {
+	public void delete(String id) {
 		// TODO Auto-generated method stub
 		init();
-		String sql="delete from [Promotion] where promotionNumber='"+po.getPromotionNumber()+"'";
+		String sql="delete from [Promotion] where promotionNumber='"+id+"'";
 		try {
 			Statement st=dbConn.createStatement();
 			int res=st.executeUpdate(sql);
