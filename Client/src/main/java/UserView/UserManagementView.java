@@ -35,7 +35,7 @@ public class UserManagementView extends JPanel{
 	private JComboBox<String> comboBox,comboBox4;
 	private JComboBox<Integer> comboBox1,comboBox2,comboBox3,comboBox5;
 	String str1=null;
-	String key="";
+	String key=null;
 	private UserManagementUiService controller;
 	public UserManagementView(UserManagementUiService c){
 		this.controller=c;
@@ -54,7 +54,7 @@ public class UserManagementView extends JPanel{
 		button1.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {
 				try {
-					controller.toWebAdminUserView(controller.getUserID());
+					controller.toWebAdminUserView(DES.decryptDES(controller.getUserID(),Log.getLogInstance().getSKey(controller.getUserID())));
 				} catch (RemoteException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -200,7 +200,7 @@ public class UserManagementView extends JPanel{
 				if(key!=null){
 					str1=DES.encryptDES(textField2.getText(),key);
 				}
-				if(textField2.getText().equals("")){
+				if(textField2.getText().equals(null)){
 					JOptionPane.showMessageDialog(panel, "请输入用户账号进行搜索！","", JOptionPane.ERROR_MESSAGE);
 				}
 				else if(controller.judge(str1)==false){
@@ -208,7 +208,7 @@ public class UserManagementView extends JPanel{
 				}
 				else{
 					
-				if(selected.equals("客户")&&controller.findByID(str1).type.equals(UserType.Customer)){
+				if(selected.equals("客户")&&(controller.findByID(str1).type.equals(UserType.Customer))){
 					label3.setVisible(false);
 					textField3.setVisible(false);
 					label12.setVisible(false);
@@ -279,7 +279,7 @@ public class UserManagementView extends JPanel{
 					textField8.setText(String.valueOf(controller.showLevel(str1)));
 					Calendar birthday=controller.findByID(str1).birthday;
 					int year=birthday.get(Calendar.YEAR);
-					int month=birthday.get(Calendar.MONTH);
+					int month=birthday.get(Calendar.MONTH)+1;
 					int day=birthday.get(Calendar.DATE);
 					comboBox1.addItem(year);
 					comboBox2.addItem(month);
@@ -289,7 +289,7 @@ public class UserManagementView extends JPanel{
 					textField6.setText(String.valueOf(controller.showCredit(str1)));					
 					button6.setEnabled(true);
 				}
-				else if(selected.equals("酒店工作人员")&&controller.findByID(textField2.getText()).type.equals(UserType.HotelWorker)){
+				else if(selected.equals("酒店工作人员")&&(controller.findByID(textField2.getText()).type.equals(UserType.HotelWorker))){
 					label3.setVisible(false);
 					textField3.setVisible(false);
 					label12.setVisible(false);
@@ -346,7 +346,7 @@ public class UserManagementView extends JPanel{
 			button6.setEnabled(true);
 			
 				}
-				else if(selected.equals("网站营销人员")&&controller.findByID(textField2.getText()).type.equals(UserType.WebPromotionWorker)){
+				else if(selected.equals("网站营销人员")&&(controller.findByID(textField2.getText()).type.equals(UserType.WebPromotionWorker))){
 					label3.setVisible(false);
 					textField3.setVisible(false);
 					label12.setVisible(false);
@@ -505,10 +505,10 @@ public class UserManagementView extends JPanel{
 		p9.add(textField8);
 	
 		
-		label7 = new JLabel("生    日");
+		label7 = new JLabel(" 生    日");
 		Calendar cal=Calendar.getInstance();
 		comboBox1=new JComboBox<Integer>();
-		comboBox1.setPreferredSize(new Dimension(43,22));
+		comboBox1.setPreferredSize(new Dimension(49,22));
 		comboBox1.setEnabled(false);		
 		label7_1 = new JLabel("年");
 		comboBox2=new JComboBox<Integer>();

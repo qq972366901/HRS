@@ -220,7 +220,7 @@ public class MemberRegisterView extends JPanel{
 									     String str4=DES.encryptDES(textField6.getText(), key);
 								    	 Calendar time=Calendar.getInstance();
 								    	 time.set(Calendar.YEAR,(int)comboBox1.getSelectedItem());
-								    	 time.set(Calendar.MONTH,(int)comboBox2.getSelectedItem());
+								    	 time.set(Calendar.MONTH,(int)comboBox2.getSelectedItem()-1);
 								    	 time.set(Calendar.DAY_OF_MONTH,(int)comboBox3.getSelectedItem());
 								    	 UserVO vo=new UserVO(str3,str1,str4,"企业会员",UserType.Customer,time,textField7.getText());
 								    	 controller.register(vo, str2);
@@ -279,7 +279,7 @@ public class MemberRegisterView extends JPanel{
 									     String str4=DES.encryptDES(textField6.getText(), key);
 								    	 Calendar time=Calendar.getInstance();
 								    	 time.set(Calendar.YEAR,(int)comboBox1.getSelectedItem());
-								    	 time.set(Calendar.MONTH,(int)comboBox2.getSelectedItem());
+								    	 time.set(Calendar.MONTH,(int)comboBox2.getSelectedItem()-1);
 								    	 time.set(Calendar.DAY_OF_MONTH,(int)comboBox3.getSelectedItem());
 								    	 UserVO vo=new UserVO(str3,str1,str4,"普通会员",UserType.Customer,time,"");
 								    	 controller.register(vo,str2);
