@@ -54,7 +54,7 @@ public class UserManagementView extends JPanel{
 		button1.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {
 				try {
-					controller.toWebAdminUserView(DES.decryptDES(controller.getUserID(),Log.getLogInstance().getSKey(controller.getUserID())));
+					controller.toWebAdminUserView(controller.getUserID());
 				} catch (RemoteException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -161,10 +161,7 @@ public class UserManagementView extends JPanel{
 						textField3.setEnabled(false);
 						textField7.setEnabled(false);				
 						comboBox4.setEnabled(false);			
-						textField8.setEnabled(false);				
-						comboBox1.setEnabled(false);				
-						comboBox2.setEnabled(false);
-						comboBox3.setEnabled(false);			
+						textField8.setEnabled(false);							
 						textField4.setEnabled(false);				
 						textField5.setEnabled(false);				
 						textField6.setEnabled(false);
@@ -207,6 +204,7 @@ public class UserManagementView extends JPanel{
 					JOptionPane.showMessageDialog(panel, "请输入正确的账号进行搜索！","", JOptionPane.ERROR_MESSAGE);
 				}
 				else{
+<<<<<<< HEAD
 					if(selected.equals("客户")&&controller.getUser(UserType.Customer,str1)!=null){
 						label3.setVisible(false);
 						textField3.setVisible(false);
@@ -232,21 +230,47 @@ public class UserManagementView extends JPanel{
 						button2.setVisible(false);
 						button5.setVisible(false);
 						button7.setVisible(false);
+=======
+>>>>>>> 91578cbd4e10a6ae69930246bc7e0d22213b4edf
 					
-						textField3.setEnabled(false);
-						textField7.setEnabled(false);				
-						comboBox4.setEnabled(false);			
-						textField8.setEnabled(false);				
-						comboBox1.setEnabled(false);				
-						comboBox2.setEnabled(false);
-						comboBox3.setEnabled(false);			
-						textField4.setEnabled(false);				
-						textField5.setEnabled(false);				
-						textField6.setEnabled(false);
-						button5.setEnabled(false);
-						button2.setEnabled(false);
-						button7.setEnabled(false);
+				if(selected.equals("客户")&&(controller.findByID(str1).type.equals(UserType.Customer))){
+					label3.setVisible(false);
+					textField3.setVisible(false);
+					label12.setVisible(false);
+					textField7.setVisible(false);
+					label8.setVisible(false);
+					comboBox4.setVisible(false);
+					label9.setVisible(false);
+					textField8.setVisible(false);
+					label7.setVisible(false);
+					comboBox1.setVisible(false);
+					label7_1.setVisible(false);
+					comboBox2.setVisible(false);
+					label7_2.setVisible(false);
+					comboBox3.setVisible(false);
+					label7_3.setVisible(false);
+					label4.setVisible(false);
+					textField4.setVisible(false);
+					label10.setVisible(false);
+					textField5.setVisible(false);
+					label11.setVisible(false);
+					textField6.setVisible(false);
+					button2.setVisible(false);
+					button5.setVisible(false);
+					button7.setVisible(false);
+					
+					textField3.setEnabled(false);
+					textField7.setEnabled(false);				
+					comboBox4.setEnabled(false);			
+					textField8.setEnabled(false);							
+					textField4.setEnabled(false);				
+					textField5.setEnabled(false);				
+					textField6.setEnabled(false);
+					button5.setEnabled(false);
+					button2.setEnabled(false);
+					button7.setEnabled(false);
 	
+<<<<<<< HEAD
 						label3.setVisible(true);
 						textField3.setVisible(true);
 						label12.setVisible(true);
@@ -415,10 +439,177 @@ public class UserManagementView extends JPanel{
 			}
 			else{
 				JOptionPane.showMessageDialog(panel, "请输入与选择类型相符的账号进行搜索！","", JOptionPane.ERROR_MESSAGE);
+=======
+					label3.setVisible(true);
+					textField3.setVisible(true);
+					label12.setVisible(true);
+					textField7.setVisible(true);
+					label8.setVisible(true);
+					comboBox4.setVisible(true);
+					label9.setVisible(true);
+					textField8.setVisible(true);
+					label7.setVisible(true);
+					comboBox1.setVisible(true);
+					label7_1.setVisible(true);
+					comboBox2.setVisible(true);
+					label7_2.setVisible(true);
+					comboBox3.setVisible(true);
+					label7_3.setVisible(true);
+					label4.setVisible(true);
+					textField4.setVisible(true);
+					label10.setVisible(true);
+					textField5.setVisible(true);
+					label11.setVisible(true);
+					textField6.setVisible(true);
+					//从VO获取数据
+					String str2=DES.decryptDES(controller.findByID(str1).username, key);
+				    String str3=DES.decryptDES(controller.getUser(UserType.Customer,str1).userpassword,key);
+				    String str4=DES.decryptDES(controller.findByID(str1).contactway, key);
+					textField3.setText(str2);
+					textField7.setText(str3);
+					comboBox4.addItem(controller.findByID(str1).membertype);
+					textField8.setText(String.valueOf(controller.showLevel(str1)));
+					Calendar birthday=controller.findByID(str1).birthday;
+					int year=birthday.get(Calendar.YEAR);
+					int month=birthday.get(Calendar.MONTH)+1;
+					int day=birthday.get(Calendar.DATE);
+					comboBox1.addItem(year);
+					comboBox2.addItem(month);
+					comboBox3.addItem(day);
+					textField4.setText(str4);
+					textField5.setText(controller.findByID(str1).enterprise);
+					textField6.setText(String.valueOf(controller.showCredit(str1)));					
+					button6.setEnabled(true);
+				}
+				else if(selected.equals("酒店工作人员")&&(controller.findByID(textField2.getText()).type.equals(UserType.HotelWorker))){
+					label3.setVisible(false);
+					textField3.setVisible(false);
+					label12.setVisible(false);
+					textField7.setVisible(false);
+					label8.setVisible(false);
+					comboBox4.setVisible(false);
+					label9.setVisible(false);
+					textField8.setVisible(false);
+					label7.setVisible(false);
+					comboBox1.setVisible(false);
+					label7_1.setVisible(false);
+					comboBox2.setVisible(false);
+					label7_2.setVisible(false);
+					comboBox3.setVisible(false);
+					label7_3.setVisible(false);
+					label4.setVisible(false);
+					textField4.setVisible(false);
+					label10.setVisible(false);
+					textField5.setVisible(false);
+					label11.setVisible(false);
+					textField6.setVisible(false);
+					button2.setVisible(false);
+					button5.setVisible(false);
+					button7.setVisible(false);
+					
+					textField3.setEnabled(false);
+					textField7.setEnabled(false);				
+					comboBox4.setEnabled(false);			
+					textField8.setEnabled(false);							
+					textField4.setEnabled(false);				
+					textField5.setEnabled(false);				
+					textField6.setEnabled(false);
+					button2.setEnabled(false);
+					button5.setEnabled(false);
+					button7.setEnabled(false);
+					textField5.setText("1");
+					textField6.setText("1");
+			label3.setVisible(true);
+			textField3.setVisible(true);
+			label12.setVisible(true);
+			textField7.setVisible(true);
+			label4.setVisible(true);
+			textField4.setVisible(true);
+			//从VO获取数据
+			String str2=DES.decryptDES(controller.findByID(str1).username, key);
+		    String str3=DES.decryptDES(controller.getUser(UserType.Customer,str1).userpassword,key);
+		    String str4=DES.decryptDES(controller.findByID(str1).contactway, key);
+			textField3.setText(str2);
+			textField7.setText(str3);
+			textField4.setText(str4);
+			button6.setEnabled(true);
+			
+				}
+				else if(selected.equals("网站营销人员")&&(controller.findByID(textField2.getText()).type.equals(UserType.WebPromotionWorker))){
+					label3.setVisible(false);
+					textField3.setVisible(false);
+					label12.setVisible(false);
+					textField7.setVisible(false);
+					label8.setVisible(false);
+					comboBox4.setVisible(false);
+					label9.setVisible(false);
+					textField8.setVisible(false);
+					label7.setVisible(false);
+					comboBox1.setVisible(false);
+					label7_1.setVisible(false);
+					comboBox2.setVisible(false);
+					label7_2.setVisible(false);
+					comboBox3.setVisible(false);
+					label7_3.setVisible(false);
+					label4.setVisible(false);
+					textField4.setVisible(false);
+					label10.setVisible(false);
+					textField5.setVisible(false);
+					label11.setVisible(false);
+					textField6.setVisible(false);
+					button2.setVisible(false);
+					button5.setVisible(false);
+					button7.setVisible(false);
+					
+					textField3.setEnabled(false);
+					textField7.setEnabled(false);				
+					comboBox4.setEnabled(false);			
+					textField8.setEnabled(false);						
+					textField4.setEnabled(false);				
+					textField5.setEnabled(false);				
+					textField6.setEnabled(false);
+					button2.setEnabled(false);
+					button5.setEnabled(false);
+					button7.setEnabled(false);
+					textField5.setText("1");
+					textField6.setText("1");
+			label3.setVisible(true);
+			textField3.setVisible(true);
+			label12.setVisible(true);
+			textField7.setVisible(true);
+			label4.setVisible(true);
+			textField4.setVisible(true);
+			//从VO获取数据
+			String str2=DES.decryptDES(controller.findByID(str1).username, key);
+		    String str3=DES.decryptDES(controller.getUser(UserType.Customer,str1).userpassword,key);
+		    String str4=DES.decryptDES(controller.findByID(str1).contactway, key);
+			textField3.setText(str2);
+			textField7.setText(str3);
+			textField4.setText(str4);
+			button6.setEnabled(true);
+			button6.addActionListener(new ActionListener() {
+		        public void actionPerformed(ActionEvent e) {
+			textField3.setEnabled(true);
+			textField7.setEnabled(true);
+			textField4.setEnabled(true);
+			button2.setVisible(true);
+			button5.setVisible(true);
+			button2.setEnabled(true);
+			button5.setEnabled(true);
+			button7.setVisible(false);
+			button7.setEnabled(false);
+
+		
+		        }
+			});
+				}
+				else{
+					JOptionPane.showMessageDialog(panel, "请输入与选择类型相符的账号进行搜索！","", JOptionPane.ERROR_MESSAGE);
+				}
+>>>>>>> 91578cbd4e10a6ae69930246bc7e0d22213b4edf
 			}
 			}
-		}
-		});
+			});
 		button6=new JButton("更改");
 		button6.setEnabled(false);
 		
@@ -596,9 +787,7 @@ public class UserManagementView extends JPanel{
 					textField7.setEnabled(false);
 					comboBox4.setEnabled(false);
 					textField8.setEnabled(false);
-					comboBox1.setEnabled(false);
-					comboBox2.setEnabled(false);
-					comboBox3.setEnabled(false);
+
 					textField4.setEnabled(false);
 					textField5.setEnabled(false);
 					textField6.setEnabled(false);
@@ -609,22 +798,6 @@ public class UserManagementView extends JPanel{
 					button2.setEnabled(false);
 					button7.setEnabled(false);
 					if(controller.findByID(str1).type.equals(UserType.Customer)){
-						if(controller.findByID(str1).membertype.equals("普通会员")){
-							int year=(int)comboBox1.getSelectedItem();
-							int month=(int)comboBox2.getSelectedItem();
-							int day=(int)comboBox3.getSelectedItem();
-							Calendar c =Calendar.getInstance();
-							c.set(Calendar.YEAR,year);
-							c.set(Calendar.MONTH,month-1);//从0开始，0表是1月，1表示2月依次类推
-							c.set(Calendar.DAY_OF_MONTH,day);
-							String str2=DES.encryptDES(textField3.getText(),key);
-						    String str3=DES.encryptDES(textField7.getText(),key);
-						    String str4=DES.encryptDES(textField4.getText(),key);
-							UserVO vo=new UserVO(str2,str1,str4,(String)comboBox4.getSelectedItem(),UserType.Customer,c,null);
-							controller.update(vo);
-							controller.revisepassword(str1,str3);
-						}
-						else if(controller.findByID(str1).membertype.equals("企业会员")){
 							int year=(int)comboBox1.getSelectedItem();
 							int month=(int)comboBox2.getSelectedItem();
 							int day=(int)comboBox3.getSelectedItem();
@@ -638,13 +811,13 @@ public class UserManagementView extends JPanel{
 							UserVO vo=new UserVO(str2,str1,str4,(String)comboBox4.getSelectedItem(),UserType.Customer,c,textField5.getText());
 							controller.update(vo);
 							controller.revisepassword(str1,str3);
-						}
 					}
 					else if(controller.findByID(str1).type.equals(UserType.HotelWorker)){
 						String str2=DES.encryptDES(textField3.getText(),key);
 					    String str3=DES.encryptDES(textField7.getText(),key);
 					    String str4=DES.encryptDES(textField4.getText(),key);
 						UserVO vo=new UserVO(str2,str1,str4,null,UserType.HotelWorker,null,null);
+						controller.update(vo);
 						controller.revisepassword(str1,str3);
 					}
 					else if(controller.findByID(str1).type.equals(UserType.WebPromotionWorker)){
@@ -652,6 +825,7 @@ public class UserManagementView extends JPanel{
 					    String str3=DES.encryptDES(textField7.getText(),key);
 					    String str4=DES.encryptDES(textField4.getText(),key);
 						UserVO vo=new UserVO(str2,str1,str4,null,UserType.WebPromotionWorker,null,null);
+						controller.update(vo);
 						controller.revisepassword(str1,str3);
 					}
 	        	}
@@ -659,53 +833,11 @@ public class UserManagementView extends JPanel{
 		});
 		button6.addActionListener(new ActionListener() {
 	        public void actionPerformed(ActionEvent e) {
-	        	if(controller.findByID(textField2.getText()).membertype.equals("普通会员")){
+	        	if(controller.findByID(str1).membertype.equals("普通会员")){
 				textField3.setEnabled(true);
 				textField7.setEnabled(true);				
 				comboBox4.setEnabled(true);			
 				textField8.setEnabled(false);				
-				comboBox1.setEnabled(true);				
-				comboBox2.setEnabled(true);
-				comboBox3.setEnabled(true);	
-				for(int i=1900;i<2017;i++){
-					comboBox1.addItem(i);
-				}
-				comboBox1.addItemListener(new ItemListener() {
-					public void itemStateChanged(ItemEvent evt) {
-						if(evt.getStateChange() == ItemEvent.SELECTED){		
-						int	selected1=(int)comboBox1.getSelectedItem();
-						int selected2=(int)comboBox2.getSelectedItem();
-						cal.set(Calendar.YEAR,selected1);
-						cal.set(Calendar.MONTH,selected2-1);
-						int maxDate=cal.getActualMaximum(Calendar.DATE);
-						comboBox3.removeAllItems();
-						for(int k=1;k<maxDate+1;k++){
-							comboBox3.addItem(k);
-						}
-						}
-					}
-				});
-				for(int i=1;i<13;i++){
-					comboBox2.addItem(i);
-				}
-				comboBox2.addItemListener(new ItemListener() {
-					public void itemStateChanged(ItemEvent evt) {
-						if(evt.getStateChange() == ItemEvent.SELECTED){		
-							int	selected1=(int)comboBox1.getSelectedItem();
-							int selected2=(int)comboBox2.getSelectedItem();
-							cal.set(Calendar.YEAR,selected1);
-							cal.set(Calendar.MONTH,selected2-1);
-							int maxDate=cal.getActualMaximum(Calendar.DATE);
-							comboBox3.removeAllItems();
-							for(int k=1;k<maxDate+1;k++){
-								comboBox3.addItem(k);
-							}
-							}
-						}
-				});
-				for(int k=1;k<32;k++){
-					comboBox3.addItem(k);
-				}
 				textField4.setEnabled(true);				
 				textField5.setEnabled(false);				
 				textField6.setEnabled(false);
@@ -735,55 +867,13 @@ public class UserManagementView extends JPanel{
 					}
 				});
 	        	}
-	        	else if(controller.findByID(textField2.getText()).membertype.equals("企业会员")){
+	        	else if(controller.findByID(str1).membertype.equals("企业会员")){
 	        		textField3.setEnabled(true);
 					textField7.setEnabled(true);				
 					comboBox4.setEnabled(true);			
-					textField8.setEnabled(false);				
-					comboBox1.setEnabled(true);				
-					comboBox2.setEnabled(true);
-					comboBox3.setEnabled(true);
-					for(int i=1900;i<2017;i++){
-						comboBox1.addItem(i);
-					}
-					comboBox1.addItemListener(new ItemListener() {
-						public void itemStateChanged(ItemEvent evt) {
-							if(evt.getStateChange() == ItemEvent.SELECTED){		
-							int	selected1=(int)comboBox1.getSelectedItem();
-							int selected2=(int)comboBox2.getSelectedItem();
-							cal.set(Calendar.YEAR,selected1);
-							cal.set(Calendar.MONTH,selected2-1);
-							int maxDate=cal.getActualMaximum(Calendar.DATE);
-							comboBox3.removeAllItems();
-							for(int k=1;k<maxDate+1;k++){
-								comboBox3.addItem(k);
-							}
-							}
-						}
-					});
-					for(int i=1;i<13;i++){
-						comboBox2.addItem(i);
-					}
-					comboBox2.addItemListener(new ItemListener() {
-						public void itemStateChanged(ItemEvent evt) {
-							if(evt.getStateChange() == ItemEvent.SELECTED){		
-								int	selected1=(int)comboBox1.getSelectedItem();
-								int selected2=(int)comboBox2.getSelectedItem();
-								cal.set(Calendar.YEAR,selected1);
-								cal.set(Calendar.MONTH,selected2-1);
-								int maxDate=cal.getActualMaximum(Calendar.DATE);
-								comboBox3.removeAllItems();
-								for(int k=1;k<maxDate+1;k++){
-									comboBox3.addItem(k);
-								}
-								}
-							}
-					});
-					for(int k=1;k<32;k++){
-						comboBox3.addItem(k);
-					}
 					textField4.setEnabled(true);				
-					textField5.setEnabled(true);				
+					textField5.setEnabled(true);
+					String enterprise=textField5.getText();
 					textField6.setEnabled(false);
 					button2.setEnabled(true);
 					button5.setEnabled(true);
@@ -802,9 +892,11 @@ public class UserManagementView extends JPanel{
 							if(evt.getStateChange() == ItemEvent.SELECTED){	
 								String selected=(String)comboBox4.getSelectedItem();
 								if(selected.equals("普通会员")){
+									textField5.setText(null);
 									textField5.setEnabled(false);
 								}
 								else{
+									textField5.setText(enterprise);
 									textField5.setEnabled(true);
 								}
 							}
@@ -816,7 +908,28 @@ public class UserManagementView extends JPanel{
 	
 		button5.addActionListener(new ActionListener() {
 	        public void actionPerformed(ActionEvent e) {
-	        	textField3.setEnabled(false);
+				String str2=DES.decryptDES(controller.findByID(str1).username,key);
+				String str3=DES.decryptDES(controller.getUser(controller.findByID(str1).type,str1).userpassword,key);
+				String str4=DES.decryptDES(controller.findByID(str1).contactway,key);
+				textField3.setText(str2);
+				textField7.setText(str3);
+				comboBox4.removeAllItems();
+				comboBox4.addItem(controller.findByID(str1).membertype);
+				textField8.setText(String.valueOf(controller.showLevel(str1)));
+				comboBox1.removeAllItems();
+				comboBox2.removeAllItems();
+				comboBox3.removeAllItems();
+				Calendar birthday=controller.findByID(str1).birthday;
+				int year=birthday.get(Calendar.YEAR);
+				int month=birthday.get(Calendar.MONTH)+1;
+				int day=birthday.get(Calendar.DATE);
+				comboBox3.addItem(day);
+				comboBox1.addItem(year);
+				comboBox2.addItem(month);
+				textField4.setText(str4);
+				textField5.setText(controller.findByID(str1).enterprise);
+				textField6.setText(String.valueOf(controller.showCredit(str1)));
+				textField3.setEnabled(false);
 				textField7.setEnabled(false);
 				comboBox4.setEnabled(false);
 				textField8.setEnabled(false);
@@ -832,23 +945,6 @@ public class UserManagementView extends JPanel{
 				button5.setEnabled(false);
 				button7.setVisible(false);
 				button7.setEnabled(false);
-				String str2=DES.decryptDES(controller.findByID(str1).username,key);
-				String str3=DES.decryptDES(controller.getUser(controller.findByID(str1).type,str1).userpassword,key);
-				String str4=DES.decryptDES(controller.findByID(str1).contactway,key);
-				textField3.setText(str2);
-				textField7.setText(str3);
-				comboBox4.addItem(controller.findByID(str1).membertype);
-				textField8.setText(String.valueOf(controller.showLevel(str1)));
-				Calendar birthday=controller.findByID(str1).birthday;
-				int year=birthday.get(Calendar.YEAR);
-				int month=birthday.get(Calendar.MONTH);
-				int day=birthday.get(Calendar.DATE);
-				comboBox1.addItem(year);
-				comboBox2.addItem(month);
-				comboBox3.addItem(day);
-				textField4.setText(str4);
-				textField5.setText(controller.findByID(str1).enterprise);
-				textField6.setText(String.valueOf(controller.showCredit(str1)));
 	        }
 		});
 		button7.addActionListener(new ActionListener() {
@@ -875,6 +971,7 @@ public class UserManagementView extends JPanel{
 	        		 try {
 							Log.getLogInstance().addKey(id,key1,str5);
 						} catch (RemoteException e2) {
+							// TODO Auto-generated catch block
 							e2.printStackTrace();
 						}
 	                 controller.addLog(id,key1,str5);
