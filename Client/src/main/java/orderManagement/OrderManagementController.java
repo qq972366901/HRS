@@ -106,12 +106,11 @@ public class OrderManagementController{
      * 显示订单的详细信息
      * 
      * @param String UserID，客户的id
-     * @param String OrderID，订单的id
      * @return OrderVO ,一个订单
      * @see bussinesslogic.Order
      */
-	public OrderVO showDetail(String userID,String orderID){
-		return order.showDetail(userID, orderID);		
+	public OrderVO showDetail(String orderID){
+		return order.showDetail(orderID);		
 	}
 	
 	/**

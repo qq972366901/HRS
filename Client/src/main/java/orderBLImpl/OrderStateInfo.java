@@ -1,15 +1,12 @@
-package VO;
+package orderBLImpl;
 
 import java.util.Calendar;
-import java.util.Vector;
-
 import PO.OrderPO;
 
-public class OrderState{
+public class OrderStateInfo{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
 	public String userID;
     public String hotelID;
 	public String orderNumber;
@@ -20,7 +17,7 @@ public class OrderState{
 	public Calendar cancel;//取消时间
 	public Calendar generationTime;//操作时间（生成...）
     public OrderPO po;
-	public OrderState(OrderPO po){
+	public OrderStateInfo(OrderPO po){
 		userID=po.getUserID();
 		hotelID=po.getHotelID();
 		orderNumber=po.getOrderNumber();
@@ -30,7 +27,7 @@ public class OrderState{
 		this.latest=po.getLatest();
 		this.cancel=po.getCancel();
 		this.generationTime=po.getgenerationTime();
-		po=new OrderPO(po.getUserID(),po.getHotelID(),po.getOrderNumber(),po.getOrderState(),po.getOrderValue(),po.getNumOfPerson(),po.getChild(),po.getRoomType(),po.getRoomNumber(),po.getExpectedCheckIn()
+		this.po=new OrderPO(po.getUserID(),po.getHotelID(),po.getOrderNumber(),po.getOrderState(),po.getOrderValue(),po.getNumOfPerson(),po.getChild(),po.getRoomType(),po.getRoomNumber(),po.getExpectedCheckIn()
 				,po.getExpectedCheckOut(),po.getLatest(),po.getCancel(),po.getgenerationTime(),po.getComment(),po.getScore());
 	}
 	public void Update(){

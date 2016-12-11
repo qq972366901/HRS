@@ -23,7 +23,6 @@ public class OrderList {
        public OrderList() throws RemoteException {   	   
             DataFactory=RemoteHelper.getInstance().getDataFactoryService();
 			orderData= (OrderDataService) DataFactory.getDataService("Order");
-			System.out.println("Order run");
 			creditData=(CreditDataService) DataFactory.getDataService("Credit");
        }
        
@@ -84,6 +83,7 @@ public class OrderList {
 		   break;
    		case "Abnormal":polist=orderData.findByHotelID(hotelID, 3);
 		   break;
+   		case "Cancel":polist=orderData.findByHotelID(hotelID, 4);
    		}
    		for(OrderPO order:polist){
    			volist.add(new OrderVO(order));
@@ -104,7 +104,6 @@ public class OrderList {
      * @see bussinesslogic.Order
      */
 	public List<OrderVO>  showAllorder(String userid) {
-		System.out.println("ShowAll" + "id:" +userid);
 		return showTypeorderList(userid,"ALL");
 	}
    	
@@ -208,6 +207,17 @@ public class OrderList {
 		return showTypeHotelOrderList(hotelId,"Abnormal");
 	}
 	
+	/**
+     * 获得一个酒店的所有已撤销订单
+     * 
+     * @param String HotelID，酒店的id
+     * @return List<OrderVO> ，订单的一个列表
+	 * @ 
+     * @see bussinesslogic.Order
+     */
+	public List<OrderVO> getCancelOrders(String hotelId)  {
+		return showTypeHotelOrderList(hotelId,"Cancel");
+	}
 	/**
      * 根据用户id和酒店id查找该用户在该酒店的所有订单
      * 

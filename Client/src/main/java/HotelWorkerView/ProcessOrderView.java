@@ -242,7 +242,7 @@ public class ProcessOrderView extends JPanel{
 			List<OrderVO> list=controller.getAllOrders(hotelId);
 			if(!list.isEmpty()){
 				for (OrderVO orderVo : list) {
-					orderListModel.addRow(orderVo.toVector());
+					orderListModel.addRow(orderVo);
 				}
 			}
 			//设置控件可用类型
@@ -256,7 +256,7 @@ public class ProcessOrderView extends JPanel{
 			List<OrderVO> list=controller.getUnfinishedOrders(hotelId);
 			if(!list.isEmpty()){
 				for (OrderVO orderVo : list) {
-					orderListModel.addRow(orderVo.toVector());
+					orderListModel.addRow(orderVo);
 				}
 			}
 			
@@ -271,7 +271,7 @@ public class ProcessOrderView extends JPanel{
 			List<OrderVO> list=controller.getFinishedOrders(hotelId);
 			if(!list.isEmpty()){
 				for (OrderVO orderVo : list) {
-					orderListModel.addRow(orderVo.toVector());
+					orderListModel.addRow(orderVo);
 				}
 			}
 			//设置控件可用类型
@@ -284,7 +284,7 @@ public class ProcessOrderView extends JPanel{
 			List<OrderVO> list=controller.getAbnormalOrders(hotelId);
 			if(!list.isEmpty()){
 				for (OrderVO orderVo : list) {
-					orderListModel.addRow(orderVo.toVector());
+					orderListModel.addRow(orderVo);
 				}
 			}
 			//设置控件可用类型
@@ -303,7 +303,7 @@ public class ProcessOrderView extends JPanel{
 			List<OrderVO> list=controller.getCanceledOrders(hotelId);
 			if(!list.isEmpty()){
 				for (OrderVO orderVo : list) {
-					orderListModel.addRow(orderVo.toVector());
+					orderListModel.addRow(orderVo);
 				} 
 			}
 			//设置控件可用类型

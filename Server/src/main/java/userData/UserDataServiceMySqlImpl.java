@@ -144,7 +144,6 @@ public class UserDataServiceMySqlImpl implements UserDataService{
 	@Override
 	public void modifyPassword(String userID, String password) throws RemoteException {
 		if(user.containsKey(userID)){
-			System.out.println("Revise password");
 			UserPO po=user.get(userID);
 			po.setPassword(password);
 			user.put(userID, po);

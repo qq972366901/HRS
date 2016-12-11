@@ -205,8 +205,15 @@ public class LogView extends JPanel {
 		panel3.add(label2);
 	}
 	public void login(UserType t){
+		String key="";
+		try {
+			key=Log.getLogInstance().getKey(textField.getText());
+		} catch (RemoteException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		if(this.type.equals("客户")&&t.equals(UserType.Customer)){
-		   customerMainViewControllerService controller =  new customerMainViewControllerImpl(textField.getText());
+		   customerMainViewControllerService controller =  new customerMainViewControllerImpl(DES.encryptDES(textField.getText(), key));
 		   customerMainView view = new customerMainView(controller);
 		   controller.setView(view);
 		   ClientRunner.change(view);
