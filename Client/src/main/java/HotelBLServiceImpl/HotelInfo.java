@@ -7,6 +7,8 @@ import VO.HotelVO;
 import dataService.DataFactoryService;
 import dataService.HotelDataService;
 import rmi.RemoteHelper;
+import userBLServiceImpl.DES;
+import userBLServiceImpl.Log;
 
 public class HotelInfo {
 	
@@ -17,6 +19,8 @@ public class HotelInfo {
 	private DataFactoryService df;
 	private HotelDataService hds;
 	
+	private String key = null;
+	
 //	private static HotelInfo hotelInfo;
 	
 	public HotelInfo(String id) {
@@ -24,7 +28,7 @@ public class HotelInfo {
 		df=RemoteHelper.getInstance().getDataFactoryService();
 		try {
 			hds = (HotelDataService)df.getDataService("Hotel");
-			HotelPO hpo = hds.find(hotelID);
+			HotelPO hpo = hds.find(DES.encryptDES(hotelID, key));
 			hvo = new HotelVO(hpo);
 		} catch (RemoteException e) {
 			e.printStackTrace();
@@ -47,7 +51,18 @@ public class HotelInfo {
 		hvo.hotelDistrict = hArea;
 		hvo.hotelProfile = hIntroduce;
 		hvo.hotelStar = hStar;
-		hvo.hotelPhone = hPhone;
+		String key = null;
+		try {
+			key=Log.getLogInstance().getKey(hotelID);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		if(key!=null){
+			hvo.hotelPhone = DES.encryptDES(hPhone, key);
+		}
+		else{
+			System.out.println("加密失败");
+		}
 		
 		HotelPO hpo = new HotelPO(hvo.hotelAddress,hvo.hotelCity, hvo.hotelDistrict,hvo.hotelStar,hvo.hotelProfile,hvo.hotelService,hvo.hotelName,hvo.hotelAccount,hvo.score,hvo.hotelPhone);
 		try {
