@@ -5,7 +5,7 @@ import java.util.Vector;
 
 import PO.OrderPO;
 
-public class OrderStateVO{
+public class OrderState{
 	/**
 	 * 
 	 */
@@ -20,7 +20,7 @@ public class OrderStateVO{
 	public Calendar cancel;//取消时间
 	public Calendar generationTime;//操作时间（生成...）
     public OrderPO po;
-	public OrderStateVO(OrderPO po){
+	public OrderState(OrderPO po){
 		userID=po.getUserID();
 		hotelID=po.getHotelID();
 		orderNumber=po.getOrderNumber();
@@ -30,7 +30,8 @@ public class OrderStateVO{
 		this.latest=po.getLatest();
 		this.cancel=po.getCancel();
 		this.generationTime=po.getgenerationTime();
-		this.po=po;
+		po=new OrderPO(po.getUserID(),po.getHotelID(),po.getOrderNumber(),po.getOrderState(),po.getOrderValue(),po.getNumOfPerson(),po.getChild(),po.getRoomType(),po.getRoomNumber(),po.getExpectedCheckIn()
+				,po.getExpectedCheckOut(),po.getLatest(),po.getCancel(),po.getgenerationTime(),po.getComment(),po.getScore());
 	}
 	public void Update(){
 		po.setOrderState(orderState);

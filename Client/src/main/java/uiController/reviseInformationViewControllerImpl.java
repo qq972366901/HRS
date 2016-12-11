@@ -11,14 +11,19 @@ import VO.UserVO;
 import uiService.reviseInformationViewControllerService;
 import userBLService.UserBLService;
 import userBLService.UserBLServiceController;
+import userBLServiceImpl.DES;
+import userBLServiceImpl.Log;
 
 public class reviseInformationViewControllerImpl implements reviseInformationViewControllerService {
 	private reviseInformationView view;
 	private UserBLService user;
 	private String UserID;
+	private String key;
 	public reviseInformationViewControllerImpl(String id){
 		try {
 			user=new UserBLServiceController();
+			key=Log.getLogInstance().getKey(id);
+			id=DES.encryptDES(UserID, key);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -41,7 +46,7 @@ public class reviseInformationViewControllerImpl implements reviseInformationVie
 		for(int i=0;i<vector.size();i++){
 			if(!vector.get(i).equals("")){
 				switch(i){
-				case 0:vo.username=vector.get(i);break;
+				case 0:vo.username=vector.get(i);vo.username=DES.encryptDES(vo.username, key);break;
 				case 1:SimpleDateFormat sdf= new SimpleDateFormat("yyyy/MM/dd");
 				       Calendar cal=Calendar.getInstance();
 				       try {
@@ -51,7 +56,7 @@ public class reviseInformationViewControllerImpl implements reviseInformationVie
 						e.printStackTrace();
 					}
 				       break;
-				case 2:vo.contactway=vector.get(i);
+				case 2:vo.contactway=DES.encryptDES(vector.get(i),key);
 				       break;
 				case 3:vo.enterprise=vector.get(i);
 				       break;

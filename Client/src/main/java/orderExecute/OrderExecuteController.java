@@ -6,7 +6,7 @@ import java.util.Calendar;
 
 import VO.CreditRecordVO;
 import common.Operate;
-import orderBLImpl.OrderState;
+import orderBLImpl.Orderstate;
 import userBLServiceImpl.Credit;
 /**
  * 酒店工作人员对订单的操作
@@ -16,7 +16,7 @@ import userBLServiceImpl.Credit;
  *
  */
 public class OrderExecuteController{
-	OrderState state;
+	Orderstate state;
 	Credit credit;
 	public OrderExecuteController() throws RemoteException {
 		credit=Credit.getInstance();
@@ -30,7 +30,7 @@ public class OrderExecuteController{
      * @see bussinesslogic.Order
      */
 	public boolean processUnfinishedOrder(String orderId)  {
-		state=new OrderState(orderId);
+		state=new Orderstate(orderId);
 		return state.processUnfinishedOrder();
 	}
 	/**
@@ -60,7 +60,7 @@ public class OrderExecuteController{
      * @see bussinesslogic.Order
      */
 	public boolean processAbnormalOrder(String orderId,Calendar delayTime)  {
-		state=new OrderState(orderId);
+		state=new Orderstate(orderId);
 		return state.processAbnormalOrder(delayTime);
 	}
 	/**

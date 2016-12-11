@@ -13,6 +13,8 @@ import hotelBLService.HotelBLServiceController;
 import orderBLService.OrderBLService;
 import orderBLService.OrderBLServiceController;
 import uiService.CommentViewService;
+import userBLServiceImpl.DES;
+import userBLServiceImpl.Log;
 
 public class CommentViewControllerServiceImpl implements CommentViewService{
     private CommentView view;
@@ -20,7 +22,10 @@ public class CommentViewControllerServiceImpl implements CommentViewService{
     private String OrderID;
     private OrderBLService order;
     private HotelBLService hotel;
+    private String key;
     public CommentViewControllerServiceImpl(String UserID,String OrderID) throws RemoteException{
+    	key=Log.getLogInstance().getKey(UserID);
+		UserID=DES.encryptDES(UserID, key);
     	this.UserID=UserID;
     	this.OrderID=OrderID;
     	order=new OrderBLServiceController();

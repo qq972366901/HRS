@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import PO.OrderPO;
-import VO.CommentVO;
 import dataService.DataFactoryService;
 import dataService.OrderDataService;
 import rmi.RemoteHelper;
@@ -39,11 +38,11 @@ public class Comment {
 	public void updatecomment(String comment,int score,String orderID) {
 		try {
 			OrderPO po = orderData.find(orderID);
-			CommentVO vo=new CommentVO(po);
-			vo.comment=comment;
-			vo.score=score;
-			vo.update();
-			orderData.update(po);
+			CommentInfo info=new CommentInfo(po);
+			info.comment=comment;
+			info.score=score;
+			info.update();
+			orderData.update(info.po);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
@@ -56,13 +55,13 @@ public class Comment {
 	 * @return List<CommentVO> 一个评价的列表;
 	 * @ 
 	 */
-	public List<CommentVO> getHotelComment(String HotelID) {
+	public List<CommentInfo> getHotelComment(String HotelID) {
 		List<OrderPO> orderlist;
 		try {
 			orderlist = orderData.findByHotelID(HotelID, 0);
-			List<CommentVO> commentlist=new ArrayList<CommentVO>();
+			List<CommentInfo> commentlist=new ArrayList<CommentInfo>();
 			for(OrderPO order:orderlist){
-				commentlist.add(new CommentVO(order));
+				commentlist.add(new CommentInfo(order));
 			}
 			return commentlist;
 		} catch (RemoteException e) {		

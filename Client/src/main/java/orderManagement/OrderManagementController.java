@@ -10,7 +10,7 @@ import VO.OrderVO;
 import common.Operate;
 import orderBLImpl.OrderLineItem;
 import orderBLImpl.OrderList;
-import orderBLImpl.OrderState;
+import orderBLImpl.Orderstate;
 import userBLServiceImpl.Credit;
 /**
  * 客户的个人订单管理
@@ -21,7 +21,7 @@ import userBLServiceImpl.Credit;
 public class OrderManagementController{
 	OrderList list;
 	OrderLineItem order;
-	OrderState state;
+	Orderstate state;
 	Credit credit;
 	public OrderManagementController() throws RemoteException{
 		list=new OrderList();
@@ -97,7 +97,7 @@ public class OrderManagementController{
      * @see bussinesslogic.Order
      */
 	public boolean cancel(String userid,String orderID){
-		state=new OrderState(orderID);
+		state=new Orderstate(orderID);
 		return state.cancel();
 	}
 	
