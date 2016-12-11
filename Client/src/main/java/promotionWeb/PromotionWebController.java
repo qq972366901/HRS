@@ -21,6 +21,7 @@ public class PromotionWebController{
      * @see bussinesslogic.Promotion
      */
 	public void madebyweb(WebPromotionVO vo) throws RemoteException {
+		SearchWebPromotion.getSearchWebPromotionInstance().addWebPromotion(vo);
         AddWebPromotion.getAddWebPromotionInstance().addWebPromotion(vo);
 	} 
 	/**

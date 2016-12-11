@@ -243,7 +243,6 @@ public class WebPromotionStrategyView  extends JPanel{
 				for(int i=0;i<promotionArray.size();i++){
 					controller.addWebPromotion(promotionArray.get(i));
 				}
-				promotionArray.clear();
 				controller.updateListModel();
 				addFrame.dispose();
 			}

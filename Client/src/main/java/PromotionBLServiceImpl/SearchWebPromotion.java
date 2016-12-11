@@ -68,4 +68,7 @@ public class SearchWebPromotion {
 		}
 		return list;
 	}
+	public void addWebPromotion(WebPromotionVO vo){
+		voList.add(vo);
+	}
 }
