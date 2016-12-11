@@ -14,17 +14,15 @@ import rmi.RemoteHelper;
  * @author Administrator
  *
  */
-public class Orderstate {
+public class OrderState {
 	private DataFactoryService DataFactory;
     private OrderDataService orderData;
-    private OrderPO order;
     private OrderStateInfo state;
-    public Orderstate(String orderID) {
+    public OrderState(String orderID) {
  	 try {   
  		 DataFactory=RemoteHelper.getInstance().getDataFactoryService();   
  	     orderData= (OrderDataService) DataFactory.getDataService("Order");  
-		 order=orderData.find(orderID);
- 	     state=new OrderStateInfo(order);
+ 	     state=new OrderStateInfo(orderData.find(orderID));
  	   } catch (RemoteException e) {
 		e.printStackTrace();
 	}
