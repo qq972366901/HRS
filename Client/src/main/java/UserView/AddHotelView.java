@@ -55,7 +55,7 @@ public class AddHotelView extends JPanel {
 		button1.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {
 				try {				
-					controller.toWebAdminUserView(DES.decryptDES(controller.getUserID(),Log.getLogInstance().getSKey(controller.getUserID())));
+					controller.toWebAdminUserView(controller.getUserID());
 				} catch (RemoteException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -245,7 +245,7 @@ public class AddHotelView extends JPanel {
 						    		 switch (option) {
 								     case JOptionPane.YES_OPTION:  
 								    	 try {
-											controller.toWebAdminUserView(DES.decryptDES(controller.getUserID(),Log.getLogInstance().getSKey(controller.getUserID())));
+											controller.toWebAdminUserView(controller.getUserID());
 										} catch (RemoteException e1) {
 											// TODO Auto-generated catch block
 											e1.printStackTrace();
