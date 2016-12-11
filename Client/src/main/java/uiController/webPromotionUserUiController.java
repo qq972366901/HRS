@@ -104,7 +104,6 @@ public class webPromotionUserUiController implements webPromotionUserUiService {
 				try {
 					controller = new ProcessOrderUiController(acc,UserType.WebPromotionWorker);
 					ProcessOrderView view=new ProcessOrderView(controller);
-					view.enableCancel();
 					controller.setView(view);
 					ClientRunner.change(view);
 					hotelFrame.dispose();

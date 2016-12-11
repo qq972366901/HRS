@@ -43,5 +43,7 @@ public interface ProcessOrderUiService {
 
 	public void dealwithAbnormalOrder(String userID, String orderNo);
 
+	public UserType getUserType();
+
 
 }

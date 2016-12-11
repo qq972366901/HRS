@@ -235,6 +235,7 @@ public class ProcessOrderView extends JPanel{
 	 * @param selected
 	 */
 	public void updateListModel(String selected) {
+		UserType type=controller.getUserType();
 		if(selected == "所有类型"){
 			//更新订单列表
 			orderListModel.setRowCount(0);
@@ -287,7 +288,12 @@ public class ProcessOrderView extends JPanel{
 				}
 			}
 			//设置控件可用类型
-			cancel.setEnabled(false);
+			if(type.equals(UserType.WebPromotionWorker)){
+				cancel.setEnabled(true);
+			}
+			else{
+				cancel.setEnabled(false);
+			}
 			delayButton.setEnabled(true);
 			entryButton.setEnabled(false);
 		}
@@ -436,10 +442,6 @@ public class ProcessOrderView extends JPanel{
 		cancelPanel.add(p2);
 		cancelFrame.getContentPane().add(cancelPanel);
 		cancelFrame.setVisible(true);
-	}
-
-	public void enableCancel() {
-		cancel.setEnabled(true);
 	}
 
 	public void disableCancel() {

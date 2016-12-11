@@ -202,4 +202,9 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 		}
     	return list;
     }
+
+	@Override
+	public UserType getUserType() {
+		return usertype;
+	}
 }
