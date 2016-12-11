@@ -263,7 +263,12 @@ public class ProcessOrderView extends JPanel{
 			//设置控件可用类型
 			cancel.setEnabled(false);
 			delayButton.setEnabled(false);
-			entryButton.setEnabled(true);
+			if(!type.equals(UserType.WebPromotionWorker)){
+				entryButton.setEnabled(true);
+			}
+			else{
+				entryButton.setEnabled(false);
+			}
 			
 		}else if(selected == "已执行订单"){
 			//更新订单列表
@@ -290,11 +295,12 @@ public class ProcessOrderView extends JPanel{
 			//设置控件可用类型
 			if(type.equals(UserType.WebPromotionWorker)){
 				cancel.setEnabled(true);
+				delayButton.setEnabled(false);
 			}
 			else{
 				cancel.setEnabled(false);
+				delayButton.setEnabled(true);
 			}
-			delayButton.setEnabled(true);
 			entryButton.setEnabled(false);
 		}
 		else if(selected=="已撤销订单"){
