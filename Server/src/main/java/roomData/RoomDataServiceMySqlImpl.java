@@ -2,12 +2,14 @@ package roomData;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 import java.util.List;
 
 import PO.RoomPO;
 import dataHelper.DataHelperFactory;
 import dataHelper.RoomDataHelper;
 import dataHelperImpl.DataHelperFactoryImpl;
+import dataHelperImpl.RoomDataHelperImpl;
 import dataService.RoomDataService;
 /**
  * 职责是将逻辑层面发来的请求转发给后台RoomData处理
@@ -17,14 +19,14 @@ import dataService.RoomDataService;
  */
 public class RoomDataServiceMySqlImpl implements RoomDataService{
 
-	private List<RoomPO> room;
+	private List<RoomPO> room = new ArrayList<RoomPO>();;
 	
 	private String hotelID;
 	
 	private static RoomDataServiceMySqlImpl roomDataServiceMySqlImpl;
 	
 	private DataHelperFactory factory;
-	private RoomDataHelper roomDataHelper;
+	private RoomDataHelper roomDataHelper = new RoomDataHelperImpl();
 	
 	private RoomDataServiceMySqlImpl() throws RemoteException{
 		UnicastRemoteObject.exportObject(this,8089);
@@ -78,13 +80,19 @@ public class RoomDataServiceMySqlImpl implements RoomDataService{
 	public void update(RoomPO po) throws RemoteException {
 		if(hotelID != po.getHotelId()) {
 			hotelID = po.getHotelId();
-			List<RoomPO> list;
+			List<RoomPO> list = new ArrayList<RoomPO>();
 			list = roomDataHelper.getAllRooms(po.getHotelId());
 			for(int i=0;i<list.size();i++) {
 				room.add(list.get(i));
 			}
 		}
-		int index = room.indexOf(po);
+		int index = -1;
+		for(int i=0;i<room.size();i++) {
+			if(room.get(i).getroomId().equals(po.getroomId())) {
+				index = i;
+				break;
+			}
+		}
 		room.set(index, po);
 		roomDataHelper.update(po);
 	}
@@ -98,8 +106,7 @@ public class RoomDataServiceMySqlImpl implements RoomDataService{
 	public List<RoomPO> getAllRooms(String hotelid) {
 		if(hotelID != hotelid) {
 			hotelID = hotelid;
-			List<RoomPO> list;
-			list = roomDataHelper.getAllRooms(hotelid);
+			List<RoomPO> list = roomDataHelper.getAllRooms(hotelid);
 			for(int i=0;i<list.size();i++) {
 				room.add(list.get(i));
 			}

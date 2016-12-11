@@ -1,9 +1,7 @@
 package hotelBLService;
-import java.util.ArrayList;
 import java.util.List;
 
 import VO.*;
-import common.*;
 
 /**
  * 负责实现酒店功能的服务接口
@@ -18,8 +16,9 @@ public interface HotelBLService {
      * @param roomType String型，房间类型
      * @param roomNumber int型，房间数量
      * @param roomPrice int型，房间原始价格
+     * @param roomNNN String型，房间号范围
      */
-	public void updateHotelRooms(String id, String roomType, int roomNumber, int roomPrice);
+	public void updateHotelRooms(String id, String roomType, int roomNumber, int roomPrice, String roomNNN);
 	/**
      * 更新酒店的基本信息
      * 

@@ -24,6 +24,8 @@ import uiService.HotelBrowseUiService;
 import uiService.HotelSearchUiService;
 import uiService.OrderBuildUiService;
 import userBLService.UserBLService;
+import userBLServiceImpl.DES;
+import userBLServiceImpl.Log;
 
 
 public class HotelBrowseUiController implements HotelBrowseUiService{
@@ -36,7 +38,18 @@ public class HotelBrowseUiController implements HotelBrowseUiService{
 	private PromotionBLService promotion;
 	public HotelBrowseUiController(String userid,String hotelid) throws RemoteException{
 		this.userID=userid;
-		this.hotelID=hotelid;
+		String key=null;
+		try {
+			key=Log.getLogInstance().getKey(hotelid);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		if(key!=null){
+			hotelID = DES.encryptDES(hotelid, key);
+		}
+		else{
+			System.out.println("加密失败");
+		}
 		this.hotel=new HotelBLServiceController();
 	    this.order=new OrderBLServiceController();
 	    this.room=new RoomBLServiceController();

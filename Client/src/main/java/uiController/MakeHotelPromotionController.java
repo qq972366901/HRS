@@ -10,6 +10,8 @@ import promotionBLService.PromotionController;
 import runner.ClientRunner;
 import uiService.HotelMainUiService;
 import uiService.MakeHotelPromotionUiService;
+import userBLServiceImpl.DES;
+import userBLServiceImpl.Log;
 
 public class MakeHotelPromotionController implements MakeHotelPromotionUiService {
 	
@@ -19,8 +21,20 @@ public class MakeHotelPromotionController implements MakeHotelPromotionUiService
 	
 	private PromotionBLService promotion;
 	
+	private String key=null;
+	
 	public MakeHotelPromotionController (String id) throws RemoteException {
-		hotelID = id;
+		try {
+			key=Log.getLogInstance().getKey(id);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		if(key!=null){
+			hotelID = DES.encryptDES(id, key);
+		}
+		else{
+			System.out.println("加密失败");
+		}
 		init();
 	}
 	
@@ -33,7 +47,7 @@ public class MakeHotelPromotionController implements MakeHotelPromotionUiService
 	}
 
 	public void toHotelMainView() {
-		HotelMainUiService controller = new HotelMainUiController(hotelID);
+		HotelMainUiService controller = new HotelMainUiController(DES.decryptDES(hotelID, key));
 		HotelMainView view = new HotelMainView(controller,hotelID);
 		controller.setView(view);
 		ClientRunner.change(view);

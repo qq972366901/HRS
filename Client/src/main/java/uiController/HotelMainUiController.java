@@ -25,8 +25,9 @@ public class HotelMainUiController implements HotelMainUiService {
 	
 	private String hotelID;
 	
+	private String key=null;
+	
 	public HotelMainUiController(String id) {
-		String key=null;
 		try {
 			key=Log.getLogInstance().getKey(id);
 		} catch (RemoteException e) {
@@ -53,14 +54,14 @@ public class HotelMainUiController implements HotelMainUiService {
 	}
 	
 	public void toUpdateHotelInfoView() {
-		UpdateHotelInfoUiService controller = new UpdateHotelInfoUiController(hotelID);
+		UpdateHotelInfoUiService controller = new UpdateHotelInfoUiController(DES.decryptDES(hotelID, key));
 		UpdateHotelInfoView view = new UpdateHotelInfoView(controller,hotelID);
 		controller.setView(view);
 		ClientRunner.change(view);
 	}
 
 	public void toAdminRoomView() {
-		AdminRoomUiService controller = new AdminRoomUiController(hotelID);
+		AdminRoomUiService controller = new AdminRoomUiController(DES.decryptDES(hotelID, key));
 		AdminRoomView view = new AdminRoomView(controller,hotelID);
 		controller.setView(view);
 		ClientRunner.change(view);
@@ -70,7 +71,7 @@ public class HotelMainUiController implements HotelMainUiService {
 	public void toMakeHotelPromotionView() {
 		MakeHotelPromotionUiService controller;
 		try {
-			controller = new MakeHotelPromotionController(hotelID);
+			controller = new MakeHotelPromotionController(DES.decryptDES(hotelID, key));
 			MakeHotelPromotionView view = new MakeHotelPromotionView(controller,hotelID);
 			controller.setView(view);
 			ClientRunner.change(view);

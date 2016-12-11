@@ -17,6 +17,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import uiController.MakeHotelPromotionController;
 import uiService.MakeHotelPromotionUiService;
 /**
  * 制定酒店营销策略的界面

@@ -24,11 +24,12 @@ public class InputRoomInfoView extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private String hotelID;
 	
-	private InputRoomInfoUiService controller = new InputRoomInfoUiController(hotelID);
+	private InputRoomInfoUiService controller;
 	
 	private JTextField roomTypeTextField;
 	private JTextField roomNumberTextField;
 	private JTextField roomPriceTextField;
+	private JTextField roomNNNTextField;
 	
 	private JButton backButton;
 	private JButton submitButton;
@@ -58,7 +59,7 @@ public class InputRoomInfoView extends JPanel {
 		
 		JPanel inputPanel = new JPanel();
 		this.add(inputPanel, BorderLayout.CENTER);
-		inputPanel.setLayout(new GridLayout(9, 1, 0, 0));
+		inputPanel.setLayout(new GridLayout(11, 1, 0, 0));
 		
 		JPanel panel_1 = new JPanel();
 		inputPanel.add(panel_1);
@@ -123,6 +124,27 @@ public class InputRoomInfoView extends JPanel {
 		JPanel panel_6_2 = new JPanel();
 		panel_6.add(panel_6_2);
 		
+		JPanel panel_10 = new JPanel();
+		inputPanel.add(panel_10);
+		
+		JPanel panel_11 = new JPanel();
+		inputPanel.add(panel_11);
+		panel_11.setLayout(new GridLayout(1, 4, 0, 0));
+		
+		JPanel panel_11_1 = new JPanel();
+		panel_11.add(panel_11_1);
+		
+		JLabel roomNNNLabel = new JLabel("房间号（?-?）：");
+		roomNNNLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_11.add(roomNNNLabel);
+		
+		roomNNNTextField = new JTextField();
+		panel_11.add(roomNNNTextField);
+		roomNNNTextField.setColumns(20);
+		
+		JPanel panel_11_2 = new JPanel();
+		panel_11.add(panel_11_2);
+		
 		JPanel panel_7 = new JPanel();
 		inputPanel.add(panel_7);
 		
@@ -162,7 +184,24 @@ public class InputRoomInfoView extends JPanel {
 				}
 				int roomPrice = Integer.parseInt(roomPriceString);
 				
-				controller.inputRoomInfo(roomType,roomNumber,roomPrice);
+				String roomNNN = roomNNNTextField.getText();
+				if(roomNNN.length() < 3) {
+					JOptionPane.showMessageDialog(null, "请输入正确的房间号范围，如301-303","", JOptionPane.ERROR_MESSAGE);
+				}
+				boolean validNNN = true;
+				for(int i=0;i<roomNNN.length();i++) {
+					if((roomNNN.charAt(i) < '0' || roomNNN.charAt(i) > '9' ) && (roomNNN.charAt(i) != '-' &&
+							roomNNN.charAt(i) != ' ')) {
+						validNNN = false;
+						break;
+					}
+				}
+				if(!validNNN) {
+					JOptionPane.showMessageDialog(null, "请输入正确的房间号!","", JOptionPane.ERROR_MESSAGE);
+					return;
+				}
+				
+				controller.inputRoomInfo(roomType,roomNumber,roomPrice,roomNNN);
 			}
 		});
 		

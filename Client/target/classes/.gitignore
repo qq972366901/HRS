@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /META-INF/
 /uiController/
 /uiService/
@@ -9,3 +10,13 @@
 /userManagement/
 /userRegisterAndLog/
 /UserView/
+=======
+/hotelBLService/
+/HotelWorkerView/
+/uiController/
+/HotelBLServiceImpl/
+/RoomBLServiceImpl/
+/uiService/
+/HotelRoomAdd/
+/hotelInformationMaintenance/
+>>>>>>> 6ab5843941f49c9950dae11cd523ad81f4b4040e

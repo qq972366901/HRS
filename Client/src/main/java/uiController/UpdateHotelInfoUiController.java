@@ -1,5 +1,7 @@
 package uiController;
 
+import java.rmi.RemoteException;
+
 import HotelWorkerView.HotelMainView;
 import HotelWorkerView.UpdateHotelInfoView;
 import hotelBLService.HotelBLService;
@@ -7,6 +9,8 @@ import hotelBLService.HotelBLServiceController;
 import runner.ClientRunner;
 import uiService.HotelMainUiService;
 import uiService.UpdateHotelInfoUiService;
+import userBLServiceImpl.DES;
+import userBLServiceImpl.Log;
 
 public class UpdateHotelInfoUiController implements UpdateHotelInfoUiService {
 	
@@ -16,8 +20,20 @@ public class UpdateHotelInfoUiController implements UpdateHotelInfoUiService {
 	
 	private String hotelID;
 	
+	private String key=null;
+	
 	public UpdateHotelInfoUiController(String id) {
-		hotelID = id;
+		try {
+			key=Log.getLogInstance().getKey(id);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		if(key!=null){
+			hotelID = DES.encryptDES(id, key);
+		}
+		else{
+			System.out.println("加密失败");
+		}
 	}
 
 	public void setView(UpdateHotelInfoView view) {
@@ -25,7 +41,7 @@ public class UpdateHotelInfoUiController implements UpdateHotelInfoUiService {
 	}
 
 	public void toHotelMainView() {
-		HotelMainUiService controller = new HotelMainUiController(hotelID);
+		HotelMainUiService controller = new HotelMainUiController(DES.decryptDES(hotelID, key));
 		HotelMainView view = new HotelMainView(controller,hotelID);
 		controller.setView(view);
 		ClientRunner.change(view);

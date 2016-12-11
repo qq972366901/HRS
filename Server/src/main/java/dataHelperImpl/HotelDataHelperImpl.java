@@ -63,6 +63,7 @@ public class HotelDataHelperImpl implements HotelDataHelper{
 			double sco = (double)rs.getFloat("score");
 			String phone = rs.getString("hotelPhone");
 			po = new HotelPO(hAddress, hCity, hDistrict, hStar,hProfile, hService, hName, hAccount, sco, phone);
+			System.out.println("获得酒店");
 			rs.close();
 			st.close();
 		} catch (SQLException e) {

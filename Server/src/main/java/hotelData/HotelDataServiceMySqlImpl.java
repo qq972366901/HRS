@@ -11,6 +11,7 @@ import PO.HotelPO;
 import dataHelper.DataHelperFactory;
 import dataHelper.HotelDataHelper;
 import dataHelperImpl.DataHelperFactoryImpl;
+import dataHelperImpl.HotelDataHelperImpl;
 import dataService.HotelDataService;
 /**
  * 职责是将逻辑层面发来的请求转发给后台HotelData处理
@@ -20,10 +21,10 @@ import dataService.HotelDataService;
  */
 public class HotelDataServiceMySqlImpl implements HotelDataService{
 	
-	private HashMap<String,HotelPO> hotel;
+	private HashMap<String,HotelPO> hotel = new HashMap<String,HotelPO>();
 	
 	private DataHelperFactory factory;
-	private HotelDataHelper hotelDataHelper;
+	private HotelDataHelper hotelDataHelper = new HotelDataHelperImpl();
 	
 	private static HotelDataServiceMySqlImpl hotelDataServiceMySqlImpl;
 	private HotelDataServiceMySqlImpl() throws RemoteException{

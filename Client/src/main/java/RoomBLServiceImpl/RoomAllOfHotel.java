@@ -1,6 +1,7 @@
 package RoomBLServiceImpl;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.List;
 
 import PO.RoomPO;
@@ -12,7 +13,7 @@ import rmi.RemoteHelper;
 public class RoomAllOfHotel {
 
 	private String hotelID;
-	private List<RoomVO> list;
+	private List<RoomVO> list = new ArrayList<RoomVO>();
 	
 	private DataFactoryService df;
 	private RoomDataService rds;
