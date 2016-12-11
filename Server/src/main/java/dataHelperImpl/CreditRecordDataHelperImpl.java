@@ -50,7 +50,7 @@ public class CreditRecordDataHelperImpl implements CreditRecordDataHelper{
 		init();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		String date= sdf.format(po.getTime().getTime());
-		String sql="insert into [CreditRecord] values('"+po.getUserID()+"','"+po.getID()+"','"+date+"','"+ActionToString(po.getAction())+"','"+po.getCreditchange()+"','"+po.getCurrentcredit()+"')";
+		String sql="insert into [CreditRecord] values('"+po.getID()+"','"+po.getUserID()+"','"+po.getOrderID()+"','"+date+"','"+ActionToString(po.getAction())+"','"+po.getCreditchange()+"','"+po.getCurrentcredit()+"')";
 		try {
 			Statement st=dbConn.createStatement();
 			int res=st.executeUpdate(sql);
@@ -76,8 +76,9 @@ public class CreditRecordDataHelperImpl implements CreditRecordDataHelper{
 			Statement st=dbConn.createStatement();
 			ResultSet rs=st.executeQuery("select * from [CreditRecord]");
 			while(rs.next()){
+				String recordID=rs.getString("recordID");
 				String userID=rs.getString("userID");
-				String crid=rs.getString("creditRecordID");
+				String orderid=rs.getString("orderID");
 				String str=rs.getString("time");
 				SimpleDateFormat sdf= new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 				Date date =sdf.parse(str);
@@ -87,7 +88,7 @@ public class CreditRecordDataHelperImpl implements CreditRecordDataHelper{
 				Operate action=getAction(act);
 				long creditchange=rs.getLong("creditchange");
 				long currentcredit=rs.getLong("currentcredit");
-				CreditRecordPO po=new CreditRecordPO(userID,crid,calendar,action,creditchange,currentcredit);
+				CreditRecordPO po=new CreditRecordPO(recordID,userID,orderid,calendar,action,creditchange,currentcredit);
 				list.add(po);
 			}
 			rs.close();

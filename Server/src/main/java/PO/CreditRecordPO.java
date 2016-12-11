@@ -2,6 +2,7 @@ package PO;
 
 import java.io.Serializable;
 import java.util.Calendar;
+
 import common.Operate;
 /**
  * 信用记录的数据实体
@@ -11,8 +12,9 @@ import common.Operate;
  */
 public class CreditRecordPO  extends PO implements Serializable{
 	private static final long serialVersionUID = 1L;
-	private String userID;
 	private String crid;
+	private String userID;
+	private String orderID;
 	private Calendar time;
 	private Operate action;
 	private long creditchange;
@@ -26,13 +28,20 @@ public class CreditRecordPO  extends PO implements Serializable{
 	 * @param cu long型，逻辑层传来的当前信用值
 	 * 
 	 */
-	public CreditRecordPO(String user,String id,Calendar t,Operate act,long ch,long cu){
+	public CreditRecordPO(String recordID,String user,String id,Calendar t,Operate act,long ch,long cu){
+		crid=recordID;
 		userID=user;
-		crid=id;
+		orderID=id;
 		time=t;
 		action=act;
 		creditchange=ch;
 		currentcredit=cu;
+	}
+	public String getOrderID(){
+		return orderID;
+	}
+	public void setOrderID(String s){
+		orderID=s;
 	}
 	/**
 	 * 获取客户账号

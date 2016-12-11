@@ -54,10 +54,15 @@ public class webPromotionUserUiController implements webPromotionUserUiService {
 
 	@Override
 	public void toCreditManagementView() {
-		CreditManagementUiService controller=new CreditManagementUiController();
-		CreditManagementView view=new CreditManagementView(controller);
-		controller.setView(view);
-		ClientRunner.change(view);
+		CreditManagementUiService controller;
+		try {
+			controller = new CreditManagementUiController();
+			CreditManagementView view=new CreditManagementView(controller);
+			controller.setView(view);
+			ClientRunner.change(view);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override

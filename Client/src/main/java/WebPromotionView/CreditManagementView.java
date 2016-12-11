@@ -93,8 +93,9 @@ public class CreditManagementView extends JPanel {
 							Date now = new Date(); 
 							Calendar calendar = Calendar.getInstance();
 							calendar.setTime(now);
-							CreditRecordVO vo=new CreditRecordVO(acc,calendar,"",Operate.Recharge,value,currentcredit);
+							CreditRecordVO vo=new CreditRecordVO(acc,calendar,"",Operate.Recharge,value*time,currentcredit);
 							controller.updateCredit(vo);
+							JOptionPane.showMessageDialog(null, "操作成功！","", JOptionPane.YES_OPTION);
 						}
 						else{
 							JOptionPane.showMessageDialog(null, "不存在此客户！","", JOptionPane.ERROR_MESSAGE);

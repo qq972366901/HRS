@@ -5,6 +5,8 @@ import java.text.ParseException;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
+
 import PO.CreditRecordPO;
 import VO.CreditRecordVO;
 import common.Operate;
@@ -45,21 +47,6 @@ public class CreditRecord {
 		}
 		return creditRecord;
 	}
-	/*
-	public HashMap<String,Long> getCurrentCredit(){
-		HashMap<String, Long> list=new HashMap<String,Long>();
-		for (Entry<String, HashMap<String,CreditRecordVO>> entry : map.entrySet()) {
-		    String id=entry.getKey();
-		    HashMap<String,CreditRecordVO> hashmap=entry.getValue();
-		    Iterator<String> it=hashmap.keySet().iterator();//这是取得键对象
-		    CreditRecordVO vo=null;
-		    while(it.hasNext()){   
-		        vo=hashmap.get(it.next());  
-		    }
-		    list.put(id, vo.currentcredit);
-		}
-		return list;
-	}*/
 	/**
 	 * 显示信用记录
 	 * @param id String型，界面层传来的客户ID
@@ -87,7 +74,8 @@ public class CreditRecord {
 			m.put(vo.orderID, vo);
 			map.put(userID, m);
 		}
-		CreditRecordPO po=new CreditRecordPO(vo.account,vo.orderID,vo.time,vo.action,vo.creditchange,vo.currentcredit);
+		String orderID=UUID.randomUUID().toString().substring(0, 8);
+		CreditRecordPO po=new CreditRecordPO(orderID,vo.account,vo.orderID,vo.time,vo.action,vo.creditchange,vo.currentcredit);
 		dh.insert(po);
 	}
 	/**

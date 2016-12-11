@@ -17,7 +17,7 @@ import common.Operate;
  */
 
 public class CreditRecordVO{
-
+	
 	public String account;//即客户ID
 	public Calendar time;
 	public String orderID;
@@ -41,6 +41,7 @@ public class CreditRecordVO{
      * @see Object.CreditRecord
      */
 	public CreditRecordVO(CreditRecordPO po) throws ParseException {
+		
 		account=po.getUserID();
 		time=po.getTime();
 		orderID=po.getID();

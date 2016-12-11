@@ -15,6 +15,9 @@ import userBLService.UserBLServiceController;
 public class CreditManagementUiController implements CreditManagementUiService{
 	private CreditManagementView view;
 	private UserBLService userService;
+	public CreditManagementUiController() throws RemoteException{
+		userService=new UserBLServiceController();
+	}
 	@Override
 	public void setView(CreditManagementView view) {
 		// TODO Auto-generated method stub
