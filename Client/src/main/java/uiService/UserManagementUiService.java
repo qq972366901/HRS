@@ -11,8 +11,8 @@ public interface UserManagementUiService {
 	public String getUserID();
 	public void setView(UserManagementView view);
 	public void toWebAdminUserView(String id) throws RemoteException;
-	public UserVO findByID(String userID);
 	public void update(UserVO vo);
+	public UserVO findByID(String id);
 	public long showCredit(String userID);
 	public boolean judge(String account);
 	public int showLevel(String id);

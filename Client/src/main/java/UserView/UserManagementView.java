@@ -207,7 +207,7 @@ public class UserManagementView extends JPanel{
 					JOptionPane.showMessageDialog(panel, "请输入正确的账号进行搜索！","", JOptionPane.ERROR_MESSAGE);
 				}
 				else{
-					if(selected.equals("客户")&&controller.findByID(str1)!=null&&controller.findByID(str1).type.equals(UserType.Customer)){
+					if(selected.equals("客户")&&controller.getUser(UserType.Customer,str1)!=null){
 						label3.setVisible(false);
 						textField3.setVisible(false);
 						label12.setVisible(false);
@@ -269,14 +269,14 @@ public class UserManagementView extends JPanel{
 						label11.setVisible(true);
 						textField6.setVisible(true);
 						//从VO获取数据
-						String str2=DES.decryptDES(controller.findByID(str1).username, key);
+						String str2=DES.decryptDES(controller.getUser(UserType.Customer,str1).username, key);
 						String str3=DES.decryptDES(controller.getUser(UserType.Customer,str1).userpassword,key);
-						String str4=DES.decryptDES(controller.findByID(str1).contactway, key);
+						String str4=DES.decryptDES(controller.getUser(UserType.Customer,str1).contactway, key);
 						textField3.setText(str2);
 						textField7.setText(str3);
-						comboBox4.addItem(controller.findByID(str1).membertype);
+						comboBox4.addItem(controller.getUser(UserType.Customer,str1).membertype);
 						textField8.setText(String.valueOf(controller.showLevel(str1)));
-						Calendar birthday=controller.findByID(str1).birthday;
+						Calendar birthday=controller.getUser(UserType.Customer,str1).birthday;
 						int year=birthday.get(Calendar.YEAR);
 						int month=birthday.get(Calendar.MONTH)+1;
 						int day=birthday.get(Calendar.DATE);
@@ -284,11 +284,11 @@ public class UserManagementView extends JPanel{
 						comboBox2.addItem(month);
 						comboBox3.addItem(day);
 						textField4.setText(str4);
-						textField5.setText(controller.findByID(str1).enterprise);
+						textField5.setText(controller.getUser(UserType.Customer,str1).enterprise);
 						textField6.setText(String.valueOf(controller.showCredit(str1)));					
 						button6.setEnabled(true);
 					}
-					else if(selected.equals("酒店工作人员")&&controller.findByID(str1)!=null&&controller.findByID(str1).type.equals(UserType.HotelWorker)){
+					else if(selected.equals("酒店工作人员")&&controller.getUser(UserType.HotelWorker,str1)!=null){
 						label3.setVisible(false);
 						textField3.setVisible(false);
 						label12.setVisible(false);
@@ -336,15 +336,15 @@ public class UserManagementView extends JPanel{
 						label4.setVisible(true);
 						textField4.setVisible(true);
 						//从VO获取数据
-						String str2=DES.decryptDES(controller.findByID(str1).username, key);
-						String str3=DES.decryptDES(controller.getUser(UserType.Customer,str1).userpassword,key);
-						String str4=DES.decryptDES(controller.findByID(str1).contactway, key);
+						String str2=DES.decryptDES(controller.getUser(UserType.HotelWorker,str1).username, key);
+						String str3=DES.decryptDES(controller.getUser(UserType.HotelWorker,str1).userpassword,key);
+						String str4=DES.decryptDES(controller.getUser(UserType.HotelWorker,str1).contactway, key);
 						textField3.setText(str2);
 						textField7.setText(str3);
 						textField4.setText(str4);
 						button6.setEnabled(true);
 					}
-					else if(selected.equals("网站营销人员")&&controller.findByID(str1)!=null&&controller.findByID(str1).type.equals(UserType.WebPromotionWorker)){
+					else if(selected.equals("网站营销人员")&&controller.getUser(UserType.WebPromotionWorker,str1)!=null){
 						label3.setVisible(false);
 						textField3.setVisible(false);
 						label12.setVisible(false);
@@ -392,9 +392,9 @@ public class UserManagementView extends JPanel{
 						label4.setVisible(true);
 						textField4.setVisible(true);
 						//从VO获取数据
-						String str2=DES.decryptDES(controller.findByID(str1).username, key);
-						String str3=DES.decryptDES(controller.getUser(UserType.Customer,str1).userpassword,key);
-						String str4=DES.decryptDES(controller.findByID(str1).contactway, key);
+						String str2=DES.decryptDES(controller.getUser(UserType.WebPromotionWorker,str1).username, key);
+						String str3=DES.decryptDES(controller.getUser(UserType.WebPromotionWorker,str1).userpassword,key);
+						String str4=DES.decryptDES(controller.getUser(UserType.WebPromotionWorker,str1).contactway, key);
 						textField3.setText(str2);
 						textField7.setText(str3);
 						textField4.setText(str4);
