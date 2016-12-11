@@ -37,6 +37,7 @@ public class OrderAbnormalController{
 	 * @param orderID String,订单编号
 	 * @param value int,订单的价值
 	 */
+	/*
 	public void updateCredit(String userID,String orderID,int value){		
 	      try {
 			credit.updateCredit(new CreditRecordVO(userID,Calendar.getInstance(),orderID,Operate.Appeal, value/2, credit.showCredit(userID)+value/2));
@@ -45,5 +46,5 @@ public class OrderAbnormalController{
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
 }

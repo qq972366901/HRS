@@ -25,6 +25,8 @@ import uiService.MemberLevelSystemUiService;
 import uiService.ProcessOrderUiService;
 import uiService.WebPromotionStrategyUiService;
 import uiService.webPromotionUserUiService;
+import userBLServiceImpl.DES;
+import userBLServiceImpl.Log;
 
 /**
  * 负责实现酒店管理系统的网站营销人员界面的控制器
@@ -100,9 +102,17 @@ public class webPromotionUserUiController implements webPromotionUserUiService {
 		hotelButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String acc = hotelField.getText();
+				String key="";
+				try {
+					key=Log.getLogInstance().getKey(acc);
+				} catch (RemoteException e1) {
+					System.out.println("获取密钥失败");
+					e1.printStackTrace();
+				}
+				String account=DES.encryptDES(acc, key);
 				ProcessOrderUiService controller;
 				try {
-					controller = new ProcessOrderUiController(acc,UserType.WebPromotionWorker);
+					controller = new ProcessOrderUiController(account,UserType.WebPromotionWorker);
 					ProcessOrderView view=new ProcessOrderView(controller);
 					controller.setView(view);
 					ClientRunner.change(view);

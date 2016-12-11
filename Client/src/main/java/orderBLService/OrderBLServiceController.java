@@ -261,9 +261,6 @@ public class OrderBLServiceController implements OrderBLService{
 		else if(operate.equals(Operate.Delayed)){
 			execute.recoveryCredit(userID, orderID,value);
 		}
-		else if(operate.equals(Operate.Appeal)){
-			abnormal.updateCredit(userID,orderID, value);
-		}
 	}
 	/**
 	 * 获取一个酒店所有已撤销订单

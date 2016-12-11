@@ -157,7 +157,8 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 			currentcredit+=value;
 		}
 		else{
-			currentcredit+=(value/2);
+			value/=value;
+			currentcredit+=value;
 		}
 		CreditRecordVO vo=new CreditRecordVO(userID,calendar,orderNo,appeal,value,currentcredit);
 		try {
@@ -184,8 +185,8 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 	}
 
 	@Override
-	public void dealwithAbnormalOrder(String userID, String orderNo) {
-		orderService.cancel(userID, orderNo);
+	public void dealwithAbnormalOrder(String orderNo) {
+		orderService.cancelAbnormalOrder(orderNo);
 	}
     private List<OrderVO> translate(List<OrderVO> list){
 		for(OrderVO vo:list){

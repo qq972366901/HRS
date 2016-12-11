@@ -408,7 +408,7 @@ public class ProcessOrderView extends JPanel{
 			return;
 		}
 		final String orderNo =(String)orderTable.getValueAt(index, 0);
-		final int value=(int) orderTable.getValueAt(index, 6);
+		final int value=Integer.valueOf((String) orderTable.getValueAt(index, 6));
 		cancelFrame = new JFrame();
 		cancelFrame.setSize(1000, 700);
 		cancelFrame.setLocation(10, 10);
@@ -432,7 +432,7 @@ public class ProcessOrderView extends JPanel{
 				Calendar calendar=Calendar.getInstance();
 				String userID=controller.getUserID(orderNo);
 				controller.recover(calendar,orderNo,Operate.Appeal,stra,value,userID);
-				controller.dealwithAbnormalOrder(userID,orderNo);
+				controller.dealwithAbnormalOrder(orderNo);
 				orderListModel.removeRow(index);
 				cancelFrame.dispose();
 			}
