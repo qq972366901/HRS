@@ -5,6 +5,7 @@ import java.util.Calendar;
 import java.util.Vector;
 
 import PO.PromotionPO;
+import PromotionBLServiceImpl.GetMemberLevelSystem;
 
 public class WebPromotionVO{
 	 public String promotionNumber;
@@ -14,7 +15,8 @@ public class WebPromotionVO{
 	 public int applyMemberGrade;
 	 public String applyCity;
 	 public String applyBussinesscircle;
-	 public WebPromotionVO (String promotionnumber,String promotionname,Calendar promotionbegintime,Calendar promotionendtime,String applycity,String applybussinesscircle,int applymembergrade) {
+	 public double discount;
+	 public WebPromotionVO (String promotionnumber,String promotionname,Calendar promotionbegintime,Calendar promotionendtime,String applycity,String applybussinesscircle,int applymembergrade,double dis) {
 		 promotionNumber=promotionnumber;
 		 promotionName=promotionname;
 		 promotionBegintime=promotionbegintime;
@@ -22,6 +24,7 @@ public class WebPromotionVO{
 		 applyCity=applycity;
 		 applyBussinesscircle=applybussinesscircle;
 		 applyMemberGrade=applymembergrade;
+		 discount=dis;
 		}
 	 public Vector<String> getVector(){
 		 Vector<String> v=new Vector<String>();
@@ -35,6 +38,7 @@ public class WebPromotionVO{
 		 v.add(applyCity);
 		 v.add(applyBussinesscircle);
 		 v.add(String.valueOf(applyMemberGrade));
+		 v.add(String.valueOf(discount));
 		 return v;
 	 }
 	    public WebPromotionVO (PromotionPO po){
@@ -45,6 +49,7 @@ public class WebPromotionVO{
 	    	applyMemberGrade=po.getUserShipgrade();
 	    	applyCity=po.getApplyCity();
 	    	applyBussinesscircle=po.getHotelBussinesscircle();
+	    	discount=GetMemberLevelSystem.getMemberLevelSystemInstance().getDiscountOfLevel(applyMemberGrade);
 	    }
 	    public WebPromotionVO(){};
 	/**
@@ -62,6 +67,7 @@ public class WebPromotionVO{
 		 applyMemberGrade=promo.applyMemberGrade;
 		 applyCity=promo.applyCity;
 		 applyBussinesscircle=promo.applyBussinesscircle;
+		 discount=GetMemberLevelSystem.getMemberLevelSystemInstance().getDiscountOfLevel(applyMemberGrade);
 	}
 	
 	/**

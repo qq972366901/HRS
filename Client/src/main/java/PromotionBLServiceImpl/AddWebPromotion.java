@@ -34,7 +34,7 @@ public class AddWebPromotion {
 	
 	
 	public void addWebPromotion(WebPromotionVO vo) throws RemoteException{
-		PromotionPO po = new PromotionPO(vo.promotionNumber,vo.promotionName,vo.promotionBegintime,vo.promotionEndtime,vo.applyCity,vo.applyBussinesscircle,vo.applyMemberGrade);
+		PromotionPO po = new PromotionPO(vo.promotionNumber,vo.promotionName,vo.promotionBegintime,vo.promotionEndtime,vo.applyCity,vo.applyBussinesscircle,vo.applyMemberGrade,vo.discount);
 		
 		try {
 			pds.insert(po);

@@ -45,7 +45,7 @@ public class DeleteWebPromotion {
 		wvo.applyCity=null;
 		wvo.applyBussinesscircle=null;
 		wvo.applyMemberGrade=-1;
-		PromotionPO po=new PromotionPO(wvo.promotionNumber,wvo.promotionName,wvo.promotionBegintime,wvo.promotionEndtime,wvo.applyCity,wvo.applyBussinesscircle,wvo.applyMemberGrade);
+		PromotionPO po=new PromotionPO(wvo.promotionNumber,wvo.promotionName,wvo.promotionBegintime,wvo.promotionEndtime,wvo.applyCity,wvo.applyBussinesscircle,wvo.applyMemberGrade,wvo.discount);
 		try {
 			pds.delete(po);
 			return true;

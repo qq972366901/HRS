@@ -53,7 +53,7 @@ public class PromotionPO extends PO implements Serializable{
 	/**
 	 * 网站营销策略
 	 */
-	public PromotionPO(String promotionnumber,String promotionname,Calendar promotionbegintime,Calendar promotionendtime, String city,String hotelbusinesscircle,int usershipgrade){
+	public PromotionPO(String promotionnumber,String promotionname,Calendar promotionbegintime,Calendar promotionendtime, String city,String hotelbusinesscircle,int usershipgrade,double dis){
 	     promotionNumber=promotionnumber;
 	     promotionName=promotionname;
 	     promotionBegintime=promotionbegintime;
@@ -61,6 +61,7 @@ public class PromotionPO extends PO implements Serializable{
 	     applycity=city;
 	     applybussinesscircle=hotelbusinesscircle;
 	     applyuserShipgrade=usershipgrade;
+	     Discount=dis;
 	 }
 	
 	/**
@@ -309,4 +310,7 @@ public class PromotionPO extends PO implements Serializable{
 	 public void setApplyCity(String city){
 		 applycity=city;
 	 }
+	 public double getDiscount() {
+			return Discount;
+		}
 }
