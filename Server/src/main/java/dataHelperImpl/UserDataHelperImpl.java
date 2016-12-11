@@ -51,8 +51,14 @@ public class UserDataHelperImpl implements UserDataHelper{
 	public void insert(UserPO po) {
 		init();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-		String date = sdf.format(po.getBirthday().getTime());
-		String sql="insert into [User] values('"+po.getName()+"','"+po.getPassword()+"','"+po.getAccount()+"','"+po.getContact()+"','"+po.getMemberType()+"','"+typeToString(po.getType())+"','"+date+"','"+po.getEnterprise()+"')";
+		String sql;
+		if(po.getBirthday()!=null){
+			String date = sdf.format(po.getBirthday().getTime());
+			sql="insert into [User] values('"+po.getName()+"','"+po.getPassword()+"','"+po.getAccount()+"','"+po.getContact()+"','"+po.getMemberType()+"','"+typeToString(po.getType())+"','"+date+"','"+po.getEnterprise()+"')";
+		}
+		else{
+			sql="insert into [User] values('"+po.getName()+"','"+po.getPassword()+"','"+po.getAccount()+"','"+po.getContact()+"','"+po.getMemberType()+"','"+typeToString(po.getType())+"',"+null+",'"+po.getEnterprise()+"')";
+		}
 		try {
 			Statement st=dbConn.createStatement();
 			int res=st.executeUpdate(sql);

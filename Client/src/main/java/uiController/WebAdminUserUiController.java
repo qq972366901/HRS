@@ -23,8 +23,7 @@ public class WebAdminUserUiController implements WebAdminUserUiService{
 	private String UserID;
 	private UserBLService user;
 	public WebAdminUserUiController(String id) throws RemoteException{
-    	String key=Log.getLogInstance().getKey(id);
-    	this.UserID=DES.encryptDES(id, key);
+    	this.UserID=id;
     	this.user=new UserBLServiceController();
     }
 	public void setView(WebAdminUserView view) {

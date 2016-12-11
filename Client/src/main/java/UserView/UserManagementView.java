@@ -208,7 +208,7 @@ public class UserManagementView extends JPanel{
 				}
 				else{
 					
-				if(selected.equals("客户")&&controller.findByID(str1).type.equals(UserType.Customer)){
+				if(selected.equals("客户")&&controller.findByID(str1)!=null&&controller.findByID(str1).type.equals(UserType.Customer)){
 					label3.setVisible(false);
 					textField3.setVisible(false);
 					label12.setVisible(false);
@@ -289,7 +289,7 @@ public class UserManagementView extends JPanel{
 					textField6.setText(String.valueOf(controller.showCredit(str1)));					
 					button6.setEnabled(true);
 				}
-				else if(selected.equals("酒店工作人员")&&controller.findByID(textField2.getText()).type.equals(UserType.HotelWorker)){
+				else if(selected.equals("酒店工作人员")&&controller.findByID(str1)!=null&&controller.findByID(str1).type.equals(UserType.HotelWorker)){
 					label3.setVisible(false);
 					textField3.setVisible(false);
 					label12.setVisible(false);
@@ -346,7 +346,7 @@ public class UserManagementView extends JPanel{
 			button6.setEnabled(true);
 			
 				}
-				else if(selected.equals("网站营销人员")&&controller.findByID(textField2.getText()).type.equals(UserType.WebPromotionWorker)){
+				else if(selected.equals("网站营销人员")&&controller.findByID(str1)!=null&&controller.findByID(str1).type.equals(UserType.WebPromotionWorker)){
 					label3.setVisible(false);
 					textField3.setVisible(false);
 					label12.setVisible(false);
@@ -879,7 +879,6 @@ public class UserManagementView extends JPanel{
 	        		 try {
 							Log.getLogInstance().addKey(id,key1,str5);
 						} catch (RemoteException e2) {
-							// TODO Auto-generated catch block
 							e2.printStackTrace();
 						}
 	                 controller.addLog(id,key1,str5);

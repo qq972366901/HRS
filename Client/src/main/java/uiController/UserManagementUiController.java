@@ -58,7 +58,7 @@ public class UserManagementUiController implements UserManagementUiService {
 		user.revisepassword(userID,password);
 	}
 	public void register(UserVO vo,String password){
-		user.register(vo,password);
+		user.add(vo,password);
 	}
 	public AccountInfo getUser(UserType type, String account){
 		return user.getUser(type,account);		

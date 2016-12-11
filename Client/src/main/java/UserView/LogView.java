@@ -233,7 +233,7 @@ public class LogView extends JPanel {
 		if(this.type.equals("网站管理人员")&&t.equals(UserType.WebManagementWorker)){
 			WebAdminUserUiService controller;
 			try {
-				controller = new WebAdminUserUiController(textField.getText());
+				controller = new WebAdminUserUiController(DES.encryptDES(textField.getText(), key));
 				WebAdminUserView view=new WebAdminUserView(controller);
 				controller.setView(view);
 				ClientRunner.change(view);
