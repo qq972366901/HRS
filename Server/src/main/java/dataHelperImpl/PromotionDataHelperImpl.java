@@ -76,7 +76,7 @@ public class PromotionDataHelperImpl implements PromotionDataHelper{
 		}
 		}
 		else if(po.getHotelID()!=null){
-		sql="insert into [Promotion] values('"+po.getHotelID()+"',"+null+","+null+","+null+",'"+po.getPromotionDiscount()+"','"+po.getBirthdayDiscount()+"','"+po.getRoomDiscount()+"','"+po.getEnterpriseDiscount()+"')";
+		sql="insert into [Promotion] values('"+po.getHotelID()+"',"+null+",'"+po.getPromotionName()+"','"+date1+"','"+date2+"',"+null+","+null+","+null+",'"+po.getPromotionDiscount()+"','"+po.getBirthdayDiscount()+"','"+po.getRoomDiscount()+"','"+po.getEnterpriseDiscount()+"')";
 		try {
 			Statement st=dbConn.createStatement();
 			int res=st.executeUpdate(sql);
