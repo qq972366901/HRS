@@ -120,4 +120,20 @@ public class Credit {
         }
 		return true;
 	}
+	/**
+	 * 添加一个CreditVO
+	 * @param cvo
+	 */
+	public void add(CreditVO cvo) {
+		if(!map.containsKey(cvo.customerID)){
+			try {
+				map.put(cvo.customerID, cvo);
+				CreditPO po=new CreditPO(cvo.customerID,cvo.credit,cvo.level);
+				cd.insert(po);
+			} catch (RemoteException e) {
+				System.out.println("添加Credit失败");
+				e.printStackTrace();
+			}
+		}
+	}
 }
