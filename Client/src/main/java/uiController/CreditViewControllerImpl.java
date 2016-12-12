@@ -1,20 +1,15 @@
 package uiController;
 
 import java.rmi.RemoteException;
-import java.text.SimpleDateFormat;
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
 import UserView.CreditView;
 import VO.CreditRecordVO;
-import common.Operate;
 import uiService.CreditViewControllerService;
 import userBLService.UserBLService;
 import userBLService.UserBLServiceController;
-import userBLServiceImpl.DES;
 import userBLServiceImpl.Log;
 
 public class CreditViewControllerImpl implements CreditViewControllerService {
@@ -26,8 +21,7 @@ public class CreditViewControllerImpl implements CreditViewControllerService {
 		
 		try {
 			user=new UserBLServiceController();
-			key=Log.getLogInstance().getKey(id);
-			id=DES.encryptDES(id, key);
+			key=Log.getLogInstance().getSKey(id);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

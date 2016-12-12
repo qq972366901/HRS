@@ -235,13 +235,14 @@ public class ProcessOrderView extends JPanel{
 	 * @param selected
 	 */
 	public void updateListModel(String selected) {
+		UserType type=controller.getUserType();
 		if(selected == "所有类型"){
 			//更新订单列表
 			orderListModel.setRowCount(0);
 			List<OrderVO> list=controller.getAllOrders(hotelId);
 			if(!list.isEmpty()){
 				for (OrderVO orderVo : list) {
-					orderListModel.addRow(orderVo.toVector());
+					orderListModel.addRow(orderVo);
 				}
 			}
 			//设置控件可用类型
@@ -255,14 +256,19 @@ public class ProcessOrderView extends JPanel{
 			List<OrderVO> list=controller.getUnfinishedOrders(hotelId);
 			if(!list.isEmpty()){
 				for (OrderVO orderVo : list) {
-					orderListModel.addRow(orderVo.toVector());
+					orderListModel.addRow(orderVo);
 				}
 			}
 			
 			//设置控件可用类型
 			cancel.setEnabled(false);
 			delayButton.setEnabled(false);
-			entryButton.setEnabled(true);
+			if(!type.equals(UserType.WebPromotionWorker)){
+				entryButton.setEnabled(true);
+			}
+			else{
+				entryButton.setEnabled(false);
+			}
 			
 		}else if(selected == "已执行订单"){
 			//更新订单列表
@@ -270,7 +276,7 @@ public class ProcessOrderView extends JPanel{
 			List<OrderVO> list=controller.getFinishedOrders(hotelId);
 			if(!list.isEmpty()){
 				for (OrderVO orderVo : list) {
-					orderListModel.addRow(orderVo.toVector());
+					orderListModel.addRow(orderVo);
 				}
 			}
 			//设置控件可用类型
@@ -283,12 +289,18 @@ public class ProcessOrderView extends JPanel{
 			List<OrderVO> list=controller.getAbnormalOrders(hotelId);
 			if(!list.isEmpty()){
 				for (OrderVO orderVo : list) {
-					orderListModel.addRow(orderVo.toVector());
+					orderListModel.addRow(orderVo);
 				}
 			}
 			//设置控件可用类型
-			cancel.setEnabled(false);
-			delayButton.setEnabled(true);
+			if(type.equals(UserType.WebPromotionWorker)){
+				cancel.setEnabled(true);
+				delayButton.setEnabled(false);
+			}
+			else{
+				cancel.setEnabled(false);
+				delayButton.setEnabled(true);
+			}
 			entryButton.setEnabled(false);
 		}
 		else if(selected=="已撤销订单"){
@@ -297,7 +309,7 @@ public class ProcessOrderView extends JPanel{
 			List<OrderVO> list=controller.getCanceledOrders(hotelId);
 			if(!list.isEmpty()){
 				for (OrderVO orderVo : list) {
-					orderListModel.addRow(orderVo.toVector());
+					orderListModel.addRow(orderVo);
 				} 
 			}
 			//设置控件可用类型
@@ -396,7 +408,7 @@ public class ProcessOrderView extends JPanel{
 			return;
 		}
 		final String orderNo =(String)orderTable.getValueAt(index, 0);
-		final int value=(int) orderTable.getValueAt(index, 6);
+		final int value=Integer.valueOf((String) orderTable.getValueAt(index, 6));
 		cancelFrame = new JFrame();
 		cancelFrame.setSize(1000, 700);
 		cancelFrame.setLocation(10, 10);
@@ -420,7 +432,7 @@ public class ProcessOrderView extends JPanel{
 				Calendar calendar=Calendar.getInstance();
 				String userID=controller.getUserID(orderNo);
 				controller.recover(calendar,orderNo,Operate.Appeal,stra,value,userID);
-				controller.dealwithAbnormalOrder(userID,orderNo);
+				controller.dealwithAbnormalOrder(orderNo);
 				orderListModel.removeRow(index);
 				cancelFrame.dispose();
 			}
@@ -436,10 +448,6 @@ public class ProcessOrderView extends JPanel{
 		cancelPanel.add(p2);
 		cancelFrame.getContentPane().add(cancelPanel);
 		cancelFrame.setVisible(true);
-	}
-
-	public void enableCancel() {
-		cancel.setEnabled(true);
 	}
 
 	public void disableCancel() {

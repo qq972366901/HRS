@@ -25,8 +25,8 @@ public class UserDataHelperImpl implements UserDataHelper{
 	private void init() {
 		driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
 		dbURL="jdbc:sqlserver://localhost:1433;DatabaseName=HRS";
-		userName="sa";
-		userPwd="123456";
+		userName="liu";
+		userPwd="naigo961226";
 		try{
 			 Class.forName(driverName);
 			 dbConn=DriverManager.getConnection(dbURL,userName,userPwd);
@@ -51,16 +51,22 @@ public class UserDataHelperImpl implements UserDataHelper{
 	public void insert(UserPO po) {
 		init();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-		String date = sdf.format(po.getBirthday().getTime());
-		String sql="insert into [User] values('"+po.getName()+"','"+po.getPassword()+"','"+po.getAccount()+"','"+po.getContact()+"','"+po.getMemberType()+"','"+typeToString(po.getType())+"','"+date+"','"+po.getEnterprise()+"')";
+		String sql;
+		if(po.getBirthday()!=null){
+			String date = sdf.format(po.getBirthday().getTime());
+			sql="insert into [User] values('"+po.getName()+"','"+po.getPassword()+"','"+po.getAccount()+"','"+po.getContact()+"','"+po.getMemberType()+"','"+typeToString(po.getType())+"','"+date+"','"+po.getEnterprise()+"')";
+		}
+		else{
+			sql="insert into [User] values('"+po.getName()+"','"+po.getPassword()+"','"+po.getAccount()+"','"+po.getContact()+"',"+null+",'"+typeToString(po.getType())+"',"+null+","+null+")";
+		}
 		try {
 			Statement st=dbConn.createStatement();
 			int res=st.executeUpdate(sql);
 			if(res==1){
-				System.out.println("插入成功");
+				System.out.println("插入用户成功");
 			}
 			else{
-				System.out.println("插入失败");
+				System.out.println("插入用户失败");
 			}
 			st.close();
 		} catch (SQLException e) {
@@ -77,7 +83,6 @@ public class UserDataHelperImpl implements UserDataHelper{
 		String date = sdf.format(po.getBirthday().getTime());
 		String sql="update [User] set username='"+po.getName()+"',userpassword='"+po.getPassword()+"',contactway='"+po.getContact()+"',membertype='"+po.getMemberType()+"',type='"+typeToString(po.getType())+"',birthday='"+date+"',enterprise='"+po.getEnterprise()+"'where useraccount='"+po.getAccount()+"'";
 		try {
-			System.out.println(sql);
 			Statement st=dbConn.createStatement();
 			int res=st.executeUpdate(sql);
 			if(res==1){
@@ -237,10 +242,10 @@ public class UserDataHelperImpl implements UserDataHelper{
 			Statement st=dbConn.createStatement();
 			int res=st.executeUpdate(sql);
 			if(res==1){
-				System.out.println("插入成功");
+				System.out.println("插入Key成功");
 			}
 			else{
-				System.out.println("插入失败");
+				System.out.println("插入Key失败");
 			}
 			st.close();
 		} catch (SQLException e) {

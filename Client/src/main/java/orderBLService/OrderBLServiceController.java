@@ -1,7 +1,6 @@
 package orderBLService;
 
 import java.rmi.RemoteException;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -106,13 +105,12 @@ public class OrderBLServiceController implements OrderBLService{
 	/**
      * 显示订单的详细信息
      * 
-     * @param String UserID，客户的id
      * @param String OrderID，订单的id
      * @return OrderVO ,一个订单
      * @see bussinesslogic.Order
      */
-	public OrderVO showDetail(String userID,String orderID){
-		return management.showDetail(userID, orderID);	
+	public OrderVO showDetail(String orderID){
+		return management.showDetail( orderID);	
 	}
 	
 	
@@ -263,27 +261,13 @@ public class OrderBLServiceController implements OrderBLService{
 		else if(operate.equals(Operate.Delayed)){
 			execute.recoveryCredit(userID, orderID,value);
 		}
-		else if(operate.equals(Operate.Appeal)){
-			abnormal.updateCredit(userID,orderID, value);
-		}
-	}
-
-	@Override
-	public ArrayList<OrderVO> show(String hotelId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public ArrayList<OrderVO> show() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 	/**
 	 * 获取一个酒店所有已撤销订单
 	 */
 	@Override
 	public List<OrderVO> getCanceledOrders(String hotelId) {
-		return null;
+		return overview.getCancelOrders(hotelId);
 	}
 	/**
 	 * 根据订单编号获取客户账户
@@ -292,4 +276,5 @@ public class OrderBLServiceController implements OrderBLService{
 	public String getUserID(String orderNo) {
 		return management.getUserID(orderNo);
 	}
+
 }

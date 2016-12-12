@@ -247,8 +247,8 @@ public class OrderView extends JPanel {
 	public void cancel(){
 		model.removeRow(table.getSelectedRow());
 	}
-	public void showDetail(String id) throws RemoteException{
-		orderDetailViewControllerService con =  new orderDetailViewControllerServiceImpl(controller.getUserID(),id,"",1);
+	public void showDetail(String id,String hotelid) throws RemoteException{
+		orderDetailViewControllerService con =  new orderDetailViewControllerServiceImpl(controller.getUserID(),id,hotelid,1);
 		orderDetailView vie = new orderDetailView(con);
 		con.setView(vie);
 		ClientRunner.change(vie);

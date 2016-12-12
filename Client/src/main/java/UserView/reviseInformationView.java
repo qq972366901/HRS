@@ -176,8 +176,6 @@ public class reviseInformationView extends JPanel {
 				data.add(""+(int)y.getSelectedItem()+"/"+(int)m.getSelectedItem()+"/"+
 				(int)d.getSelectedItem());
 				data.add(telinput.getText());
-				System.out.println(telinput.getText());
-				System.out.println(enterpriseinput.getText());
 				data.add(enterpriseinput.getText());
 				controller.updateinformation(data);
 			}

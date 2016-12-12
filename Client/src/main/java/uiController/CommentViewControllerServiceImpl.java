@@ -24,8 +24,7 @@ public class CommentViewControllerServiceImpl implements CommentViewService{
     private HotelBLService hotel;
     private String key;
     public CommentViewControllerServiceImpl(String UserID,String OrderID) throws RemoteException{
-    	key=Log.getLogInstance().getKey(UserID);
-		UserID=DES.encryptDES(UserID, key);
+    	key=Log.getLogInstance().getSKey(UserID);
     	this.UserID=UserID;
     	this.OrderID=OrderID;
     	order=new OrderBLServiceController();
@@ -100,11 +99,10 @@ public class CommentViewControllerServiceImpl implements CommentViewService{
 		}
 	}
 	public  List<String> getDetail(){
-		OrderVO vo=order.showDetail(UserID,OrderID);
-		//HotelVO vo1=hotel.findByHotelID(vo.hotelID);
+		OrderVO vo=order.showDetail(OrderID);
+		HotelVO vo1=hotel.findByHotelID(vo.hotelID);
 		List<String> list=new ArrayList<String>();
-		//list.add(vo1.hotelName);
-		list.add("lalala");
+		list.add(vo1.hotelName);
 		list.add(vo.roomType);
 		list.add(vo.orderNumber);
 		list.add(""+vo.orderValue);

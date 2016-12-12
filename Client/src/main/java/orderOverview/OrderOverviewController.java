@@ -42,7 +42,17 @@ public class OrderOverviewController{
 		return list.getUnfinishedOrders(hotelId);
 	}
 	
-	
+	/**
+     * 获得一个酒店的所有已撤销订单
+     * 
+     * @param String HotelID，酒店的id
+     * @return List<OrderVO> ，订单的一个列表
+	 * @ 
+     * @see bussinesslogic.Order
+     */
+	public List<OrderVO> getCancelOrders(String hotelId)  {
+		return list.getCancelOrders(hotelId);
+	}
 	
 	/**
      * 获得一个酒店的所有已执行订单

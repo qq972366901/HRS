@@ -11,13 +11,6 @@ import common.*;
  */
 
 public interface OrderBLService {
-    /**
-     * 显示所有订单信息
-     * 
-     * @return ArrayList<OrderVO>，一个订单值对象的列表
-     * @see bussinesslogic.Order
-     */
-	public ArrayList<OrderVO> show(String hotelId);
 
 	/**
      * 获得一个客户的所有订单
@@ -83,12 +76,11 @@ public interface OrderBLService {
 	/**
      * 显示订单的详细信息
      * 
-     * @param String UserID，客户的id
      * @param String OrderID，订单的id
      * @return OrderVO ,一个订单
      * @see bussinesslogic.Order
      */
-	public OrderVO showDetail(String userID,String orderID);
+	public OrderVO showDetail(String orderID);
 	
 	
 	/**
@@ -185,9 +177,6 @@ public interface OrderBLService {
 	 * @param operate Operate枚举类，操作的名字
 	 */
 	public void updateCredit(String userID,String orderID,int value,Operate operate);
-
-
-	ArrayList<OrderVO> show();
 	/**
 	 * 获取所有已撤销订单
 	 * @param hotelId

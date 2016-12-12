@@ -38,8 +38,8 @@ public class UserManagementUiController implements UserManagementUiService {
 		controller.setView(view);
 		ClientRunner.change(view);
 	}
-	public UserVO findByID(String userID){
-		return user.findByID(userID);
+	public AccountInfo findByID(UserType type,String userID){
+		return user.findAllPeopleByID(type,userID);
 	}
 	public void update(UserVO vo){
 		user.update(vo);
@@ -58,12 +58,16 @@ public class UserManagementUiController implements UserManagementUiService {
 		user.revisepassword(userID,password);
 	}
 	public void register(UserVO vo,String password){
-		user.register(vo,password);
+		user.add(vo,password);
 	}
 	public AccountInfo getUser(UserType type, String account){
 		return user.getUser(type,account);		
 	}
 	public boolean addLog(String id,String k,String secretid){
 		return user.addLog(id,k,secretid);
+	}
+	@Override
+	public UserVO findByID(String id) {
+		return user.findByID(id);
 	}
 }

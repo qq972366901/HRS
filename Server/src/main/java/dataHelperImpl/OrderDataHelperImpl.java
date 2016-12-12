@@ -21,8 +21,8 @@ public class OrderDataHelperImpl implements OrderDataHelper{
 	private void init() {
 		driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
 		dbURL="jdbc:sqlserver://localhost:1433;DatabaseName=HRS";
-		userName="sa";
-		userPwd="123456";
+		userName="liu";
+		userPwd="naigo961226";
 		try{
 			 Class.forName(driverName);
 			 dbConn=DriverManager.getConnection(dbURL,userName,userPwd);
@@ -50,9 +50,8 @@ public class OrderDataHelperImpl implements OrderDataHelper{
 		String in = sdf.format(po.getExpectedCheckIn().getTime());
 		String out = sdf.format(po.getExpectedCheckOut().getTime());
 		String late = sdf.format(po.getLatest().getTime());
-		String cancel = sdf.format(po.getCancel().getTime());
 		String gen = sdf.format(po.getgenerationTime().getTime());
-		String sql="insert into [Order] values('"+po.getUserID()+"','"+po.getHotelID()+"','"+po.getOrderNumber()+"','"+po.getOrderState()+"','"+po.getOrderValue()+"','"+po.getNumOfPerson()+"','"+po.getChild()+"','"+po.getRoomType()+"','"+po.getRoomNumber()+"','"+in+"','"+out+"','"+late+"','"+cancel+"','"+gen+"','"+po.getComment()+"','"+po.getScore()+"')";
+		String sql="insert into [Order] values('"+po.getUserID()+"','"+po.getHotelID()+"','"+po.getOrderNumber()+"','"+po.getOrderState()+"','"+po.getOrderValue()+"','"+po.getNumOfPerson()+"','"+po.getChild()+"','"+po.getRoomType()+"','"+po.getRoomNumber()+"','"+in+"','"+out+"','"+late+"',null,'"+gen+"',null,null)";
 		try {
 			Statement st=dbConn.createStatement();
 			int res=st.executeUpdate(sql);
@@ -77,12 +76,28 @@ public class OrderDataHelperImpl implements OrderDataHelper{
 		String in = sdf.format(po.getExpectedCheckIn().getTime());
 		String out = sdf.format(po.getExpectedCheckOut().getTime());
 		String late = sdf.format(po.getLatest().getTime());
-		String cancel = sdf.format(po.getCancel().getTime());
+		String cancel;
+		String sql="";
+		String sql1="";
 		String gen = sdf.format(po.getgenerationTime().getTime());
-		String sql="update [Order] set UserID = '"+po.getUserID()+"',HotelID = '"+po.getHotelID()+"',orderState = '"+po.getOrderState()+"',orderValue = '"+po.getOrderValue()+"',numOfPerson = '"+po.getNumOfPerson()+"',child = '"+po.getChild()+"',roomType = '"+po.getRoomType()+"',roomNumber = '"+po.getRoomNumber()+"',expectedCheckIn = '"+in+"',expectedCheckOut = '"+out+"',latest = '"+late+"',cancel = '"+cancel+"',generationTime = '"+gen+"',comment = '"+po.getComment()+"',score = '"+po.getScore()+"'where orderNumber = '"+po.getOrderNumber()+"'";
+		if(po.getComment()!=null){
+			sql1="update [Order] set comment = '"+po.getComment()+"'where orderNumber = '"+po.getOrderNumber()+"'";
+		}
+		else{
+			sql1="update [Order] set comment = null where orderNumber = '"+po.getOrderNumber()+"'";
+		}
+		if(po.getCancel()!=null){
+			System.out.println("Cancel");
+			cancel = sdf.format(po.getCancel().getTime());
+			sql="update [Order] set UserID = '"+po.getUserID()+"',HotelID = '"+po.getHotelID()+"',orderState = '"+po.getOrderState()+"',orderValue = '"+po.getOrderValue()+"',numOfPerson = '"+po.getNumOfPerson()+"',child = '"+po.getChild()+"',roomType = '"+po.getRoomType()+"',roomNumber = '"+po.getRoomNumber()+"',expectedCheckIn = '"+in+"',expectedCheckOut = '"+out+"',latest = '"+late+"',cancel = '"+cancel+"',generationTime = '"+gen+"',score = '"+po.getScore()+"'where orderNumber = '"+po.getOrderNumber()+"'";
+		}	
+		else{
+			sql="update [Order] set UserID = '"+po.getUserID()+"',HotelID = '"+po.getHotelID()+"',orderState = '"+po.getOrderState()+"',orderValue = '"+po.getOrderValue()+"',numOfPerson = '"+po.getNumOfPerson()+"',child = '"+po.getChild()+"',roomType = '"+po.getRoomType()+"',roomNumber = '"+po.getRoomNumber()+"',expectedCheckIn = '"+in+"',expectedCheckOut = '"+out+"',latest = '"+late+"',cancel = null,generationTime = '"+gen+"',score = '"+po.getScore()+"'where orderNumber = '"+po.getOrderNumber()+"'";
+		}
 		try {
 			Statement st=dbConn.createStatement();
-			int res=st.executeUpdate(sql);
+			int res=st.executeUpdate(sql1);
+			res=st.executeUpdate(sql);
 			if(res==1){
 				System.out.println("更新成功");
 			}

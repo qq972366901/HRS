@@ -3,7 +3,6 @@ package uiController;
 import java.rmi.RemoteException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -37,8 +36,8 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 	
 	private UserType usertype;
 	public ProcessOrderUiController(String hotelId,UserType type) throws RemoteException{
-		String key=Log.getLogInstance().getKey(hotelId);
-		this.hotelId =DES.encryptDES(hotelId, key);
+		String key=Log.getLogInstance().getSKey(hotelId);
+		this.hotelId =hotelId;
 		this.usertype=type;
 		user= new UserBLServiceController();
 		orderService = new OrderBLServiceController();
@@ -77,6 +76,8 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 
 	@Override
 	public boolean processUnfinishedOrder(String orderId) {
+		OrderVO vo=orderService.showDetail(orderId);
+		orderService.updateCredit(vo.userID, orderId, vo.orderValue, Operate.Done);
 		return orderService.processUnfinishedOrder(orderId);
 	}
 
@@ -91,6 +92,8 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
+		OrderVO vo=orderService.showDetail(orderId);
+		orderService.updateCredit(vo.userID, orderId, vo.orderValue, Operate.Delayed);
 		return orderService.processAbnormalOrder(orderId, calendar);
 	}
 
@@ -153,9 +156,10 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 			currentcredit+=value;
 		}
 		else{
-			currentcredit+=(value/2);
+			value/=value;
+			currentcredit+=value;
 		}
-		CreditRecordVO vo=new CreditRecordVO(userID,calendar,orderNo,appeal,value,currentcredit);
+		CreditRecordVO vo=new CreditRecordVO(null,userID,calendar,orderNo,appeal,value,currentcredit);
 		try {
 			Credit.getInstance().updateCredit(vo);
 		} catch (RemoteException e) {
@@ -180,26 +184,31 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 	}
 
 	@Override
-	public void dealwithAbnormalOrder(String userID, String orderNo) {
-		orderService.cancel(userID, orderNo);
+	public void dealwithAbnormalOrder(String orderNo) {
+		orderService.cancelAbnormalOrder(orderNo);
 	}
     private List<OrderVO> translate(List<OrderVO> list){
 		for(OrderVO vo:list){
 			vo.addorderNumber();
 			vo.adddetail();
-			String skey;
+			String skey="";
 			try {
 				skey = Log.getLogInstance().getSKey(vo.userID);
-				vo.addUserInfo(DES.decryptDES(user.findByID(vo.userID).username, skey));
-				vo.addexpectedCheckIn();
-				vo.addlatest();
-				vo.addorderState();
-				vo.addorderValue();
 			} catch (RemoteException e) {
-				System.out.println("获取密钥失败");
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			vo.addUserInfo(DES.decryptDES(user.findByID(vo.userID).username, skey));
+			vo.addexpectedCheckIn();
+			vo.addlatest();
+			vo.addorderState();
+			vo.addorderValue();
 		}
     	return list;
     }
+
+	@Override
+	public UserType getUserType() {
+		return usertype;
+	}
 }

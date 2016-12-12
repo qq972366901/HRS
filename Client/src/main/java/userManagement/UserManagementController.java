@@ -7,10 +7,6 @@ import userBLServiceImpl.Account;
 import userBLServiceImpl.AccountInfo;
 import userBLServiceImpl.Register;
 public class UserManagementController{
-	private Register register;
-	public UserManagementController() throws RemoteException{
-		register=new Register();
-	}
 	/**
 	 * 新增客户信息
 	 * @param vo UserVO型，界面输入的新增信息
@@ -19,7 +15,7 @@ public class UserManagementController{
 	 * @see Customer.User
 	 */
 		public boolean add(UserVO vo,String password) throws RemoteException {
-			return register.add(vo,password);
+			return Account.getInstance().add(vo, password);
 		}
 		/**
 		 * 删除客户信息

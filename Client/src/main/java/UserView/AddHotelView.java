@@ -54,7 +54,7 @@ public class AddHotelView extends JPanel {
 		this.add(panel1);
 		button1.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {
-				try {
+				try {				
 					controller.toWebAdminUserView(controller.getUserID());
 				} catch (RemoteException e1) {
 					// TODO Auto-generated catch block
@@ -235,11 +235,12 @@ public class AddHotelView extends JPanel {
 								     String str3=DES.encryptDES(textField1.getText(),key);
 								     String str4=DES.encryptDES(textField4.getText(),key);
 								     controller.addLog(id,key,str1);
+								     UserVO vo=new UserVO(str3,str1,str4,null,UserType.HotelWorker,null,null);
+									 controller.register(vo,str2);
 									 controller.saveHotelInfo(textField2.getText(),(String)comboBox3.getSelectedItem(),(String)comboBox1.getSelectedItem(), textField3.getText(),
 											(int)comboBox2.getSelectedItem(), textField6.getText(), textField7.getText(), str4, 
 												str1,0);
-									 UserVO vo=new UserVO(str3,str1,str4,null,UserType.HotelWorker,null,null);
-									 controller.register(vo,str2);
+						
 									 int option = JOptionPane.showConfirmDialog(panel,"请记住你的账号："+id+"\n是否返回网站管理人员主界面？","", JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE, null);
 						    		 switch (option) {
 								     case JOptionPane.YES_OPTION:  

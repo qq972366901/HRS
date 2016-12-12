@@ -278,4 +278,14 @@ public class UserBLServiceController implements UserBLService {
 	public boolean addLog(String id, String k, String secretid) {
 		return userRegisterAndLogController.addLog(id,k,secretid);
 	}
+
+	@Override
+	public AccountInfo findAllPeopleByID(UserType type,String userID) {
+		try {
+			return userManagementController.getUser(type, userID);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

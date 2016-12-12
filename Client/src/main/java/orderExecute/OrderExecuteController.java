@@ -6,7 +6,7 @@ import java.util.Calendar;
 
 import VO.CreditRecordVO;
 import common.Operate;
-import orderBLImpl.Orderstate;
+import orderBLImpl.OrderState;
 import userBLServiceImpl.Credit;
 /**
  * 酒店工作人员对订单的操作
@@ -16,7 +16,7 @@ import userBLServiceImpl.Credit;
  *
  */
 public class OrderExecuteController{
-	Orderstate state;
+	OrderState state;
 	Credit credit;
 	public OrderExecuteController() throws RemoteException {
 		credit=Credit.getInstance();
@@ -30,7 +30,7 @@ public class OrderExecuteController{
      * @see bussinesslogic.Order
      */
 	public boolean processUnfinishedOrder(String orderId)  {
-		state=new Orderstate(orderId);
+		state=new OrderState(orderId);
 		return state.processUnfinishedOrder();
 	}
 	/**
@@ -41,7 +41,7 @@ public class OrderExecuteController{
 	 */
 	public void updateCredit(String userID,String orderID, int value){		
 		 try {
-				credit.updateCredit(new CreditRecordVO(userID,Calendar.getInstance(),orderID,Operate.Done, value, credit.showCredit(userID)+value));
+				credit.updateCredit(new CreditRecordVO(null,userID,Calendar.getInstance(),orderID,Operate.Done, value, credit.showCredit(userID)+value));
 			} catch (RemoteException e) {
 				e.printStackTrace();
 			} catch (ParseException e) {
@@ -60,7 +60,7 @@ public class OrderExecuteController{
      * @see bussinesslogic.Order
      */
 	public boolean processAbnormalOrder(String orderId,Calendar delayTime)  {
-		state=new Orderstate(orderId);
+		state=new OrderState(orderId);
 		return state.processAbnormalOrder(delayTime);
 	}
 	/**
@@ -71,7 +71,7 @@ public class OrderExecuteController{
 	 */
 	public void recoveryCredit(String userID,String orderID, int value){
 		 try {
-				credit.updateCredit(new CreditRecordVO(userID,Calendar.getInstance(),orderID,Operate.Delayed, value, credit.showCredit(userID)+value));
+				credit.updateCredit(new CreditRecordVO(null,userID,Calendar.getInstance(),orderID,Operate.Delayed, value, credit.showCredit(userID)+value));
 			} catch (RemoteException e) {
 				e.printStackTrace();
 			} catch (ParseException e) {

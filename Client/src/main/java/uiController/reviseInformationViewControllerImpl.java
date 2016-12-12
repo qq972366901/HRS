@@ -22,8 +22,7 @@ public class reviseInformationViewControllerImpl implements reviseInformationVie
 	public reviseInformationViewControllerImpl(String id){
 		try {
 			user=new UserBLServiceController();
-			key=Log.getLogInstance().getKey(id);
-			id=DES.encryptDES(UserID, key);
+			key=Log.getLogInstance().getSKey(id);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -46,7 +45,7 @@ public class reviseInformationViewControllerImpl implements reviseInformationVie
 		for(int i=0;i<vector.size();i++){
 			if(!vector.get(i).equals("")){
 				switch(i){
-				case 0:vo.username=vector.get(i);vo.username=DES.encryptDES(vo.username, key);break;
+				case 0:vo.username=DES.encryptDES(vector.get(i), key);break;
 				case 1:SimpleDateFormat sdf= new SimpleDateFormat("yyyy/MM/dd");
 				       Calendar cal=Calendar.getInstance();
 				       try {

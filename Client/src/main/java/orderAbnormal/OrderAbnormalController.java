@@ -6,7 +6,7 @@ import java.util.Calendar;
 
 import VO.CreditRecordVO;
 import common.Operate;
-import orderBLImpl.Orderstate;
+import orderBLImpl.OrderState;
 import userBLServiceImpl.Credit;
 /**
  * 网站人员对于异常订单申诉成功的订单进行撤销操作
@@ -15,7 +15,7 @@ import userBLServiceImpl.Credit;
  *
  */
 public class OrderAbnormalController{
-	Orderstate state;
+	OrderState state;
 	Credit credit;
 	public OrderAbnormalController() throws RemoteException{
 	      credit=Credit.getInstance();
@@ -28,7 +28,7 @@ public class OrderAbnormalController{
      * @see bussinesslogic.Order
      */
 	public void cancelAbnormalOrder(String orderID)  {
-	     state=new Orderstate(orderID);
+	     state=new OrderState(orderID);
 	     state.cancelAbnormalOrder();
 	}
 	/**
@@ -37,13 +37,14 @@ public class OrderAbnormalController{
 	 * @param orderID String,订单编号
 	 * @param value int,订单的价值
 	 */
+	/*
 	public void updateCredit(String userID,String orderID,int value){		
 	      try {
-			credit.updateCredit(new CreditRecordVO(userID,Calendar.getInstance(),orderID,Operate.Appeal, value/2, credit.showCredit(userID)+value/2));
+			credit.updateCredit(new CreditRecordVO(null,userID,Calendar.getInstance(),orderID,Operate.Appeal, value/2, credit.showCredit(userID)+value/2));
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
 }

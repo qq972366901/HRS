@@ -10,7 +10,7 @@ import VO.OrderVO;
 import common.Operate;
 import orderBLImpl.OrderLineItem;
 import orderBLImpl.OrderList;
-import orderBLImpl.Orderstate;
+import orderBLImpl.OrderState;
 import userBLServiceImpl.Credit;
 /**
  * 客户的个人订单管理
@@ -21,7 +21,7 @@ import userBLServiceImpl.Credit;
 public class OrderManagementController{
 	OrderList list;
 	OrderLineItem order;
-	Orderstate state;
+	OrderState state;
 	Credit credit;
 	public OrderManagementController() throws RemoteException{
 		list=new OrderList();
@@ -97,7 +97,7 @@ public class OrderManagementController{
      * @see bussinesslogic.Order
      */
 	public boolean cancel(String userid,String orderID){
-		state=new Orderstate(orderID);
+		state=new OrderState(orderID);
 		return state.cancel();
 	}
 	
@@ -106,12 +106,11 @@ public class OrderManagementController{
      * 显示订单的详细信息
      * 
      * @param String UserID，客户的id
-     * @param String OrderID，订单的id
      * @return OrderVO ,一个订单
      * @see bussinesslogic.Order
      */
-	public OrderVO showDetail(String userID,String orderID){
-		return order.showDetail(userID, orderID);		
+	public OrderVO showDetail(String orderID){
+		return order.showDetail(orderID);		
 	}
 	
 	/**
@@ -122,7 +121,7 @@ public class OrderManagementController{
 	 */
 	public void updateCredit(String userID,String orderID, int value){		
 		 try {
-				credit.updateCredit(new CreditRecordVO(userID,Calendar.getInstance(),orderID,Operate.Cancel, -value/2, credit.showCredit(userID)-value/2));
+				credit.updateCredit(new CreditRecordVO(null,userID,Calendar.getInstance(),orderID,Operate.Cancel, -value/2, credit.showCredit(userID)-value/2));
 			} catch (RemoteException e) {
 				e.printStackTrace();
 			} catch (ParseException e) {

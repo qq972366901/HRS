@@ -96,7 +96,7 @@ public class OrderVO extends  Vector<String>{
     	this.add(comment);
     }
     public void addlatest(){
-    	SimpleDateFormat sdf =new SimpleDateFormat("yyyy/MM/dd");
+    	SimpleDateFormat sdf =new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     	this.add(sdf.format(this.latest.getTime()));
     }
     public void addgeenerationTim(){

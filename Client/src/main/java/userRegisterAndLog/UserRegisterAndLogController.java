@@ -1,8 +1,10 @@
 package userRegisterAndLog;
 import java.rmi.RemoteException;
 
+import VO.CreditVO;
 import VO.LogVO;
 import VO.UserVO;
+import userBLServiceImpl.Credit;
 import userBLServiceImpl.Log;
 import userBLServiceImpl.Register;
 public class UserRegisterAndLogController{
@@ -21,6 +23,8 @@ public class UserRegisterAndLogController{
 	 */
 	public void register(UserVO vo,String password) throws RemoteException {
 		register.add(vo,password);
+		CreditVO cvo=new CreditVO(vo.id,0,0);
+		Credit.getInstance().add(cvo);
 		log.add(vo.id, new LogVO(password,vo.id,true));
 	}
 	/**
