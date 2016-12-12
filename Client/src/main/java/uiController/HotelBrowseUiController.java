@@ -38,18 +38,7 @@ public class HotelBrowseUiController implements HotelBrowseUiService{
 	private PromotionBLService promotion;
 	public HotelBrowseUiController(String userid,String hotelid) throws RemoteException{
 		this.userID=userid;
-		String key=null;
-		try {
-			key=Log.getLogInstance().getKey(hotelid);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		if(key!=null){
-			hotelID = DES.encryptDES(hotelid, key);
-		}
-		else{
-			System.out.println("加密失败");
-		}
+        this.hotelID = hotelid;
 		this.hotel=new HotelBLServiceController();
 	    this.order=new OrderBLServiceController();
 	    this.room=new RoomBLServiceController();

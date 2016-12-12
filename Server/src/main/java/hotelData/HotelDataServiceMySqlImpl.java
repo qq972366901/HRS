@@ -126,7 +126,7 @@ public class HotelDataServiceMySqlImpl implements HotelDataService{
 	@SuppressWarnings("null")
 	@Override
 	public List<HotelPO> getAllHotel() {
-		List<HotelPO> list = null;
+		List<HotelPO> list = new ArrayList<HotelPO>();
 		Iterator<String> it = hotel.keySet().iterator();
 		while(it.hasNext())   
 		{   
