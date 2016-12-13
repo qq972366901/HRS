@@ -54,11 +54,13 @@ public class Account{
 		else{
 			try {
 				UserVO userVO=Customer.getUserInstance().findByID(account);
-				String password=Log.getLogInstance().getPassword(account);
-				long credit=Credit.getInstance().showCredit(account);
-				int level=Credit.getInstance().showLevel(account);
-				AccountInfo user=new AccountInfo(userVO.username,password,userVO.id,userVO.contactway,userVO.membertype,UserType.Customer,userVO.birthday,userVO.enterprise,credit,level);
-				return user;
+				if(userVO!=null){
+					String password=Log.getLogInstance().getPassword(account);
+					long credit=Credit.getInstance().showCredit(account);
+					int level=Credit.getInstance().showLevel(account);
+					AccountInfo user=new AccountInfo(userVO.username,password,userVO.id,userVO.contactway,userVO.membertype,UserType.Customer,userVO.birthday,userVO.enterprise,credit,level);
+					return user;
+				}
 			} catch (RemoteException e) {
 				e.printStackTrace();
 			}
