@@ -90,7 +90,7 @@ public class HotelSearch {
 					rvo.roomPrice >= priceLow) {
 				roomNumber--;
 			}
-			if(roomNumber == 0) {
+			if(roomNumber <= 0) {
 				outcome = true;
 				break;
 			}

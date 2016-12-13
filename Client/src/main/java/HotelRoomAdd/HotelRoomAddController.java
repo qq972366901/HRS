@@ -1,7 +1,6 @@
 package HotelRoomAdd;
 
 import HotelBLServiceImpl.HotelRoom;
-import hotelBLService.HotelBLServiceController;
 
 public class HotelRoomAddController{
 	/**

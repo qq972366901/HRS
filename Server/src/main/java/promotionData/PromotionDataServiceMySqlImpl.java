@@ -70,16 +70,16 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
 	public void insert(PromotionPO po) throws RemoteException {
 		// TODO Auto-generated method stub
 		if(po.getPromotionNumber()!=null){
-		if(!promotion.containsKey(po.getPromotionNumber())){
-			promotion.put(po.getPromotionNumber(), po);
-			helper.insert(po);
-		}
-		}
-		else if(po.getHotelID()!=null){
-			if(!promotion.containsKey(po.getHotelID())){
-				promotion.put(po.getHotelID(), po);
+			if(!promotion.containsKey(po.getPromotionNumber())){
+				promotion.put(po.getPromotionNumber(), po);
 				helper.insert(po);
 			}
+		}
+		else if(po.getHotelID()!=null){
+			//if(!promotion.containsKey(po.getHotelID())){
+				promotion.put(po.getHotelID(), po);
+				helper.insert(po);
+			//}
 		}
 		else{
 			if(!promotion.containsKey("会员等级系统")){

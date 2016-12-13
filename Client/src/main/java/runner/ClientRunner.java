@@ -19,9 +19,7 @@ import UserView.AddHotelView;
 import UserView.UserManagementView;
 import UserView.WebAdminUserView;
 import rmi.RemoteHelper;
-import uiController.HotelSearchUiController;
 import uiController.LoginViewControllerImpl;
-import uiService.HotelSearchUiService;
 import uiService.LoginViewControllerService;
 
 
