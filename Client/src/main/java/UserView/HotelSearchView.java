@@ -229,7 +229,7 @@ public class HotelSearchView extends JPanel{
 	private void initCombobox() {
 		        JPanel panel1 = new JPanel();
 				panel1.setLayout(new FlowLayout(FlowLayout.LEFT));
-				label18=new JLabel("  Search");
+				label18=new JLabel("预定状态");
 		        comboBox16= new JComboBox<String>();
 		        comboBox16.setPreferredSize(new Dimension(171,22));
 		        comboBox16.addItem("全部");
@@ -552,7 +552,7 @@ public class HotelSearchView extends JPanel{
 						roomtype=null;
 					}
 					else{
-						roomtype=(String)comboBox8.getSelectedItem();
+						roomtype=comboBox8.getSelectedItem().toString().trim();
 					}
 					int roomNum;
 					if(comboBox9.getSelectedItem()==null){

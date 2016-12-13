@@ -1,15 +1,2 @@
-/META-INF/
-/uiController/
-/uiService/
-/userBLService/
-/userBLServiceImpl/
-/userCreditManagement/
-/userCreditRecord/
-/userInformationMaintenance/
-/userManagement/
-/userRegisterAndLog/
-/hotelInformationMaintenance/
-/HotelRoomAdd/
-/PO/
-/rmi/
-/runner/
+/UserView/
+/HotelBLServiceImpl/

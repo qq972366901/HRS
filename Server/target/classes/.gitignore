@@ -1,9 +1,1 @@
-<<<<<<< HEAD
-/dataHelperImpl/
-/META-INF/
-/dataService/
-=======
-/META-INF/
-/dataHelperImpl/
->>>>>>> 2604ddf3adf40e9ae0e0556e6f546f56dd0a2e94
-/hotelData/
+/roomData/
