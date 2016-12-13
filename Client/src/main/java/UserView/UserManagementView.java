@@ -197,6 +197,9 @@ public class UserManagementView extends JPanel{
 				if(key!=null){
 					str1=DES.encryptDES(textField2.getText(),key);
 				}
+				else{
+					return;
+				}
 				if(textField2.getText().equals("")){
 					JOptionPane.showMessageDialog(panel, "请输入用户账号进行搜索！","", JOptionPane.ERROR_MESSAGE);
 				}
