@@ -143,6 +143,7 @@ public class UpdateRoomInfoView extends JPanel {
 				}
 				
 				controller.updateRoomInfo(hotelID, roomNumber, roomType,"已入住");
+			    JOptionPane.showMessageDialog(null, "入住成功！");  
 			}
 		});
 		
@@ -161,6 +162,7 @@ public class UpdateRoomInfoView extends JPanel {
 				}
 				
 				controller.updateRoomInfo(hotelID, roomNumber, roomType,"空闲");
+				JOptionPane.showMessageDialog(null, "退房成功！");
 			}
 		});
 		

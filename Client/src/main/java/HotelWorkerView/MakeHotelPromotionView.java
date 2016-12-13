@@ -259,6 +259,7 @@ public class MakeHotelPromotionView extends JPanel {
 					return;
 				}
 				controller.makeHotelPromotion(hotelID, name, calendar1, calendar2, discount, birthdayDiscount, threeRoomsDiscount, businessLogicDiscount);
+				JOptionPane.showMessageDialog(null, "已录入酒店营销策略！");
 			}
 			
 		});
