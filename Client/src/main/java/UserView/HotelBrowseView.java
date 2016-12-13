@@ -30,10 +30,11 @@ public class HotelBrowseView extends JPanel{
 	private JTable table,table1;
 	private DefaultTableModel model,model1;
 	private HotelBrowseUiService controller;
-	private String hotelid=controller.getHotelID();
+	private String hotelid;
 
 	public HotelBrowseView(HotelBrowseUiService c){
 		this.controller=c;
+		this.hotelid=controller.getHotelID();
 		this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));;
 		initButton();
 		initTable();

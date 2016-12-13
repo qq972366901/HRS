@@ -186,6 +186,30 @@ public class UserManagementView extends JPanel{
 		button3=new JButton("查询");
 		button3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				label3.setVisible(false);
+				textField3.setVisible(false);
+				label12.setVisible(false);
+				textField7.setVisible(false);
+				label8.setVisible(false);
+				comboBox4.setVisible(false);
+				label9.setVisible(false);
+				textField8.setVisible(false);
+				label7.setVisible(false);
+				comboBox1.setVisible(false);
+				label7_1.setVisible(false);
+				comboBox2.setVisible(false);
+				label7_2.setVisible(false);
+				comboBox3.setVisible(false);
+				label7_3.setVisible(false);
+				label4.setVisible(false);
+				textField4.setVisible(false);
+				label10.setVisible(false);
+				textField5.setVisible(false);
+				label11.setVisible(false);
+				textField6.setVisible(false);
+				button7.setVisible(false);
+				button5.setVisible(false);
+				button2.setVisible(false);
 				String	selected=(String)comboBox.getSelectedItem();
 				//需要判断账号是否存在
 				try {

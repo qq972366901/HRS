@@ -46,9 +46,12 @@ public class HotelSearchView extends JPanel{
 	private JComboBox<Integer> comboBox3,comboBox4,comboBox5,comboBox6,comboBox7,comboBox9,comboBox10,comboBox11,comboBox12,comboBox13,comboBox14,comboBox15;
 	private JTable table;
 	private JPanel pane;
+	List<String> hlist;
+	List<String> hlist2=new ArrayList<String>();
 	private DefaultTableModel model;
 	Vector<String> vColumns;
 	private HotelSearchUiService controller;
+	private JScrollPane scrollPane ;
     private int a=0;
     private int b=0;
     private int c=0;
@@ -64,15 +67,15 @@ public class HotelSearchView extends JPanel{
 		pane=new JPanel();
 		pane=this;
 	}
-	HotelBLService hotel = new HotelBLServiceController();
-	RoomBLService room = new RoomBLServiceController();
+	static HotelBLService hotel = new HotelBLServiceController();
+	static RoomBLService room = new RoomBLServiceController();
 	/**
      * 酒店列表按照星级从高到低排序
      * 
      * @param hotelIDList List<String>型，酒店帐号列表
      * @return 返回按照星级从高到低排序后的酒店列表
      */
-	private List<String> starSortHigh(List<String> hotelIDList) {
+	private static List<String> starSortHigh(List<String> hotelIDList) {
 		List<HotelVO> temp = new ArrayList<HotelVO>();
 		for(int i=0;i<hotelIDList.size();i++) {
 			HotelVO vo = hotel.findByHotelID(hotelIDList.get(i));
@@ -99,7 +102,7 @@ public class HotelSearchView extends JPanel{
      * @param hotelIDList List<String>型，酒店帐号列表
      * @return 返回按照星级从低到高排序后的酒店列表
      */
-	private List<String> starSortLow(List<String> hotelIDList) {
+	private static List<String> starSortLow(List<String> hotelIDList) {
 		List<HotelVO> temp = new ArrayList<HotelVO>();
 		for(int i=0;i<hotelIDList.size();i++) {
 			HotelVO vo = hotel.findByHotelID(hotelIDList.get(i));
@@ -126,7 +129,7 @@ public class HotelSearchView extends JPanel{
      * @param hotelIDList List<String>型，酒店帐号列表
      * @return 返回按照评分从高到低排序后的酒店列表
      */
-	private List<String> scoreSortHigh(List<String> hotelIDList) {
+	private static List<String> scoreSortHigh(List<String> hotelIDList) {
 		List<HotelVO> temp = new ArrayList<HotelVO>();
 		for(int i=0;i<hotelIDList.size();i++) {
 			HotelVO vo = hotel.findByHotelID(hotelIDList.get(i));
@@ -153,7 +156,7 @@ public class HotelSearchView extends JPanel{
      * @param hotelIDList List<String>型，酒店帐号列表
      * @return 返回按照评分从低到高排序后的酒店列表
      */
-	private List<String> scoreSortLow(List<String> hotelIDList) {
+	private static List<String> scoreSortLow(List<String> hotelIDList) {
 		List<HotelVO> temp = new ArrayList<HotelVO>();
 		for(int i=0;i<hotelIDList.size();i++) {
 			HotelVO vo = hotel.findByHotelID(hotelIDList.get(i));
@@ -180,7 +183,7 @@ public class HotelSearchView extends JPanel{
      * @param hotelIDList List<String>型，酒店帐号列表
      * @return 返回按照房间最低价格从高到低排序后的酒店列表
      */
-	private List<String> priceSortHigh(List<String> hotelIDList) {
+	private static List<String> priceSortHigh(List<String> hotelIDList) {
 		for(int i=0;i<hotelIDList.size();i++) {
 			for(int j=i;j<hotelIDList.size();j++) {
 				if(room.getRoomLowestPrice(hotelIDList.get(i)) < room.getRoomLowestPrice(hotelIDList.get(j))) {
@@ -198,7 +201,7 @@ public class HotelSearchView extends JPanel{
      * @param hotelIDList List<String>型，酒店帐号列表
      * @return 返回按照房间最低价格从低到高排序后的酒店列表
      */
-	private List<String> priceSortLow(List<String> hotelIDList) {
+	private static List<String> priceSortLow(List<String> hotelIDList) {
 		for(int i=0;i<hotelIDList.size();i++) {
 			for(int j=i;j<hotelIDList.size();j++) {
 				if(room.getRoomLowestPrice(hotelIDList.get(i)) > room.getRoomLowestPrice(hotelIDList.get(j))) {
@@ -229,9 +232,9 @@ public class HotelSearchView extends JPanel{
 				label18=new JLabel("  Search");
 		        comboBox16= new JComboBox<String>();
 		        comboBox16.setPreferredSize(new Dimension(171,22));
-		        comboBox16.addItem("所有酒店");
-		        comboBox16.addItem("预定过的酒店");
-		        comboBox16.addItem("未预定过的酒店");
+		        comboBox16.addItem("全部");
+		        comboBox16.addItem("预定过");
+		        comboBox16.addItem("未预定过");
 				label=new JLabel("     城市");
 				comboBox= new JComboBox<String>();
 				List<String> list1=new ArrayList<String>(controller.getCity());
@@ -302,7 +305,7 @@ public class HotelSearchView extends JPanel{
 				label6=new JLabel(" 评分区间");
 				comboBox6= new JComboBox<Integer>();
 				comboBox6.setPreferredSize(new Dimension(78,22));
-				for(int i=1;i<6;i++){
+				for(int i=0;i<6;i++){
 				    comboBox6.addItem(i);
 					}
 				comboBox6.addItemListener(new ItemListener() {
@@ -516,6 +519,16 @@ public class HotelSearchView extends JPanel{
 		button4=new JButton("搜索");
 		button4.addActionListener(new ActionListener(){			
 			public void actionPerformed(ActionEvent e){
+				model= new DefaultTableModel(null, vColumns);
+				table = new JTable(model){
+					private static final long serialVersionUID = 1L;
+					public boolean isCellEditable(int row, int column){
+						return false;
+					}
+				};
+				table.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+				scrollPane.getViewport().add(table);
+				table.setFillsViewportHeight(true);
 				Calendar cal1=Calendar.getInstance();
 				Calendar cal2=Calendar.getInstance();
 				cal1.set((int)comboBox10.getSelectedItem(),(int)comboBox11.getSelectedItem()-1,(int) comboBox12.getSelectedItem());
@@ -543,14 +556,23 @@ public class HotelSearchView extends JPanel{
 					}
 					int roomNum;
 					if(comboBox9.getSelectedItem()==null){
-						roomNum=-1;
+						roomNum=0;
 					}
 					else{
 						roomNum=(int)comboBox9.getSelectedItem();
+					}					
+					hlist=controller.getHotelID((String)comboBox.getSelectedItem(),(String)comboBox2.getSelectedItem(),roomtype,roomNum,(int)comboBox4.getSelectedItem(), (int)comboBox5.getSelectedItem(),star,(int)comboBox6.getSelectedItem(),(int)comboBox7.getSelectedItem(),(String)comboBox16.getSelectedItem(),controller.getUserID());
+					if(hlist==null || hlist.size() ==0 ){
+						JOptionPane.showMessageDialog(pane, "  未找到满足条件的酒店！","", JOptionPane.ERROR_MESSAGE);
 					}
-					List<String> list=controller.getHotelID((String)comboBox.getSelectedItem(),(String)comboBox2.getSelectedItem(),roomtype,roomNum,(int)comboBox4.getSelectedItem(), (int)comboBox5.getSelectedItem(),star,(int)comboBox6.getSelectedItem(),(int)comboBox7.getSelectedItem(),(String)comboBox16.getSelectedItem(),controller.getUserID());
+					else{
+						System.out.println(hlist);
+						hlist2.clear();
+						for (int i = 0; i < hlist.size(); i++) {
+				            hlist2.add(hlist.get(i));
+				        }
 					Vector<Vector<Object>> data=new Vector<Vector<Object>>();
-					for(String hotelid : list){
+					for(String hotelid : hlist){
 						Vector<Object> inf=new Vector<Object>();
 						String key="";
 						try {
@@ -566,7 +588,7 @@ public class HotelSearchView extends JPanel{
 						inf.add(controller.getHotelPromotionByHotelID(hotelid).promotionName);
 						inf.add(controller.findByHotelID(hotelid).hotelStar);
 						inf.add(controller.findByHotelID(hotelid).score);
-						inf.add(controller.getRoomLowestPrice(hotelid)+"起");
+						inf.add(controller.getRoomLowestPrice(hotelid)+"元起");
 						String ever="否";
 						if(controller. findByHotelIDAndUserID (controller.getUserID(),hotelid)!=null&&controller. findByHotelIDAndUserID (controller.getUserID(),hotelid).size()>0){
 							ever="是";
@@ -582,13 +604,13 @@ public class HotelSearchView extends JPanel{
 						String str3="";
 						for(int i : state){
 							if(i==1||i==2){
-								str1="正常订单";
+								str1="正常";
 							}
 						    if(i==3){
-								str2="异常订单";
+								str2="异常";
 							}
 							else if(i==4){
-								str3="撤销订单";
+								str3="撤销";
 							}
 						}
 						inf.add(str1+"."+str2+"."+str3);
@@ -606,8 +628,11 @@ public class HotelSearchView extends JPanel{
 						}
 					};
 					table.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+					scrollPane.getViewport().add(table);
 					table.setFillsViewportHeight(true);
+					hlist.clear();
 				}
+			}
 			}
 		});
 		panel7.add(label19);
@@ -685,8 +710,8 @@ public class HotelSearchView extends JPanel{
 		button5.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {
 				if(a%2==0){
-					HotelSearchView view1=new HotelSearchView(controller);
-					List<String> list1=view1.starSortHigh(controller.getHotelID((String)comboBox.getSelectedItem(),(String)comboBox2.getSelectedItem(),(String)comboBox8.getSelectedItem(),(int)comboBox9.getSelectedItem(),(int)comboBox4.getSelectedItem(), (int)comboBox5.getSelectedItem(),(int)comboBox3.getSelectedItem(),(int)comboBox6.getSelectedItem(),(int)comboBox7.getSelectedItem(),(String)comboBox16.getSelectedItem(),controller.getUserID()));
+					List<String> list1=HotelSearchView.starSortHigh(hlist2);
+					
 					Vector<Vector<Object>> data=new Vector<Vector<Object>>();
 					for(String hotelid : list1){
 						Vector<Object> inf=new Vector<Object>();
@@ -704,7 +729,7 @@ public class HotelSearchView extends JPanel{
 						inf.add(controller.getHotelPromotionByHotelID(hotelid).promotionName);
 						inf.add(controller.findByHotelID(hotelid).hotelStar);
 						inf.add(controller.findByHotelID(hotelid).score);
-						inf.add(controller.getRoomLowestPrice(hotelid)+"起");
+						inf.add(controller.getRoomLowestPrice(hotelid)+"元起");
 						String ever="否";
 						if(controller. findByHotelIDAndUserID (controller.getUserID(),hotelid)!=null&&controller. findByHotelIDAndUserID (controller.getUserID(),hotelid).size()>0){
 							ever="是";
@@ -720,13 +745,13 @@ public class HotelSearchView extends JPanel{
 						String str3="";
 						for(int i : state){
 							if(i==1||i==2){
-								str1="正常订单";
+								str1="正常";
 							}
 						    if(i==3){
-								str2="异常订单";
+								str2="异常";
 							}
 							else if(i==4){
-								str3="撤销订单";
+								str3="撤销";
 							}
 						}
 						inf.add(str1+"."+str2+"."+str3);
@@ -744,11 +769,11 @@ public class HotelSearchView extends JPanel{
 						}
 					};
 					table.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+					scrollPane.getViewport().add(table);
 					table.setFillsViewportHeight(true);
 				}
 				else{
-					HotelSearchView view1=new HotelSearchView(controller);
-					List<String> list1=view1.starSortLow(controller.getHotelID((String)comboBox.getSelectedItem(),(String)comboBox2.getSelectedItem(),(String)comboBox8.getSelectedItem(),(int)comboBox9.getSelectedItem(),(int)comboBox4.getSelectedItem(), (int)comboBox5.getSelectedItem(),(int)comboBox3.getSelectedItem(),(int)comboBox6.getSelectedItem(),(int)comboBox7.getSelectedItem(),(String)comboBox16.getSelectedItem(),controller.getUserID()));
+					List<String> list1=HotelSearchView.starSortLow(hlist2);
 					Vector<Vector<Object>> data=new Vector<Vector<Object>>();
 					for(String hotelid : list1){
 						Vector<Object> inf=new Vector<Object>();
@@ -766,7 +791,7 @@ public class HotelSearchView extends JPanel{
 						inf.add(controller.getHotelPromotionByHotelID(hotelid).promotionName);
 						inf.add(controller.findByHotelID(hotelid).hotelStar);
 						inf.add(controller.findByHotelID(hotelid).score);
-						inf.add(controller.getRoomLowestPrice(hotelid)+"起");
+						inf.add(controller.getRoomLowestPrice(hotelid)+"元起");
 						String ever="否";
 						if(controller. findByHotelIDAndUserID (controller.getUserID(),hotelid)!=null&&controller. findByHotelIDAndUserID (controller.getUserID(),hotelid).size()>0){
 							ever="是";
@@ -782,13 +807,13 @@ public class HotelSearchView extends JPanel{
 						String str3="";
 						for(int i : state){
 							if(i==1||i==2){
-								str1="正常订单";
+								str1="正常";
 							}
 						    if(i==3){
-								str2="异常订单";
+								str2="异常";
 							}
 							else if(i==4){
-								str3="撤销订单";
+								str3="撤销";
 							}
 						}
 						inf.add(str1+"."+str2+"."+str3);
@@ -806,6 +831,7 @@ public class HotelSearchView extends JPanel{
 						}
 					};
 					table.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+					scrollPane.getViewport().add(table);
 					table.setFillsViewportHeight(true);
 				}
 				a++;			
@@ -814,8 +840,7 @@ public class HotelSearchView extends JPanel{
 		button6.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {
 				if(b%2==0){
-				HotelSearchView view2=new HotelSearchView(controller);
-				List<String> list2=view2.scoreSortHigh(controller.getHotelID((String)comboBox.getSelectedItem(),(String)comboBox2.getSelectedItem(),(String)comboBox8.getSelectedItem(),(int)comboBox9.getSelectedItem(),(int)comboBox4.getSelectedItem(), (int)comboBox5.getSelectedItem(),(int)comboBox3.getSelectedItem(),(int)comboBox6.getSelectedItem(),(int)comboBox7.getSelectedItem(),(String)comboBox16.getSelectedItem(),controller.getUserID()));
+				List<String> list2=HotelSearchView.scoreSortHigh(hlist2);
 				Vector<Vector<Object>> data=new Vector<Vector<Object>>();
 				for(String hotelid : list2){
 					Vector<Object> inf=new Vector<Object>();
@@ -833,7 +858,7 @@ public class HotelSearchView extends JPanel{
 					inf.add(controller.getHotelPromotionByHotelID(hotelid).promotionName);
 					inf.add(controller.findByHotelID(hotelid).hotelStar);
 					inf.add(controller.findByHotelID(hotelid).score);
-					inf.add(controller.getRoomLowestPrice(hotelid)+"起");
+					inf.add(controller.getRoomLowestPrice(hotelid)+"元起");
 					String ever="否";
 					if(controller. findByHotelIDAndUserID (controller.getUserID(),hotelid)!=null&&controller. findByHotelIDAndUserID (controller.getUserID(),hotelid).size()>0){
 						ever="是";
@@ -849,13 +874,13 @@ public class HotelSearchView extends JPanel{
 					String str3="";
 					for(int i : state){
 						if(i==1||i==2){
-							str1="正常订单";
+							str1="正常";
 						}
 					    if(i==3){
-							str2="异常订单";
+							str2="异常";
 						}
 						else if(i==4){
-							str3="撤销订单";
+							str3="撤销";
 						}
 					}
 					inf.add(str1+"."+str2+"."+str3);
@@ -873,11 +898,11 @@ public class HotelSearchView extends JPanel{
 					}
 				};
 				table.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+				scrollPane.getViewport().add(table);
 				table.setFillsViewportHeight(true);
 				}
 				else{
-					HotelSearchView view2=new HotelSearchView(controller);
-					List<String> list2=view2.scoreSortLow(controller.getHotelID((String)comboBox.getSelectedItem(),(String)comboBox2.getSelectedItem(),(String)comboBox8.getSelectedItem(),(int)comboBox9.getSelectedItem(),(int)comboBox4.getSelectedItem(), (int)comboBox5.getSelectedItem(),(int)comboBox3.getSelectedItem(),(int)comboBox6.getSelectedItem(),(int)comboBox7.getSelectedItem(),(String)comboBox16.getSelectedItem(),controller.getUserID()));
+					List<String> list2=HotelSearchView.scoreSortLow(hlist2);
 					Vector<Vector<Object>> data=new Vector<Vector<Object>>();
 					for(String hotelid : list2){
 						Vector<Object> inf=new Vector<Object>();
@@ -895,7 +920,7 @@ public class HotelSearchView extends JPanel{
 						inf.add(controller.getHotelPromotionByHotelID(hotelid).promotionName);
 						inf.add(controller.findByHotelID(hotelid).hotelStar);
 						inf.add(controller.findByHotelID(hotelid).score);
-						inf.add(controller.getRoomLowestPrice(hotelid)+"起");
+						inf.add(controller.getRoomLowestPrice(hotelid)+"元起");
 						String ever="否";
 						if(controller. findByHotelIDAndUserID (controller.getUserID(),hotelid)!=null&&controller. findByHotelIDAndUserID (controller.getUserID(),hotelid).size()>0){
 							ever="是";
@@ -911,13 +936,13 @@ public class HotelSearchView extends JPanel{
 						String str3="";
 						for(int i : state){
 							if(i==1||i==2){
-								str1="正常订单";
+								str1="正常";
 							}
 						    if(i==3){
-								str2="异常订单";
+								str2="异常";
 							}
 							else if(i==4){
-								str3="撤销订单";
+								str3="撤销";
 							}
 						}
 						inf.add(str1+"."+str2+"."+str3);
@@ -935,6 +960,7 @@ public class HotelSearchView extends JPanel{
 						}
 					};
 					table.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+					scrollPane.getViewport().add(table);
 					table.setFillsViewportHeight(true);
 				}
 				b++;
@@ -943,8 +969,7 @@ public class HotelSearchView extends JPanel{
 		button7.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {
                 if(c%2==0){
-                	HotelSearchView view3=new HotelSearchView(controller);
-					List<String> list3=view3.priceSortHigh(controller.getHotelID((String)comboBox.getSelectedItem(),(String)comboBox2.getSelectedItem(),(String)comboBox8.getSelectedItem(),(int)comboBox9.getSelectedItem(),(int)comboBox4.getSelectedItem(), (int)comboBox5.getSelectedItem(),(int)comboBox3.getSelectedItem(),(int)comboBox6.getSelectedItem(),(int)comboBox7.getSelectedItem(),(String)comboBox16.getSelectedItem(),controller.getUserID()));
+					List<String> list3=HotelSearchView.priceSortHigh(hlist2);
 					Vector<Vector<Object>> data=new Vector<Vector<Object>>();
 					for(String hotelid : list3){
 						Vector<Object> inf=new Vector<Object>();
@@ -962,7 +987,7 @@ public class HotelSearchView extends JPanel{
 						inf.add(controller.getHotelPromotionByHotelID(hotelid).promotionName);
 						inf.add(controller.findByHotelID(hotelid).hotelStar);
 						inf.add(controller.findByHotelID(hotelid).score);
-						inf.add(controller.getRoomLowestPrice(hotelid)+"起");
+						inf.add(controller.getRoomLowestPrice(hotelid)+"元起");
 						String ever="否";
 						if(controller. findByHotelIDAndUserID (controller.getUserID(),hotelid)!=null&&controller. findByHotelIDAndUserID (controller.getUserID(),hotelid).size()>0){
 							ever="是";
@@ -978,13 +1003,13 @@ public class HotelSearchView extends JPanel{
 						String str3="";
 						for(int i : state){
 							if(i==1||i==2){
-								str1="正常订单";
+								str1="正常";
 							}
 						    if(i==3){
-								str2="异常订单";
+								str2="异常";
 							}
 							else if(i==4){
-								str3="撤销订单";
+								str3="撤销";
 							}
 						}
 						inf.add(str1+"."+str2+"."+str3);
@@ -1002,11 +1027,11 @@ public class HotelSearchView extends JPanel{
 						}
 					};
 					table.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+					scrollPane.getViewport().add(table);
 					table.setFillsViewportHeight(true);
 				}
 				else{
-					HotelSearchView view3=new HotelSearchView(controller);
-					List<String> list3=view3.priceSortLow(controller.getHotelID((String)comboBox.getSelectedItem(),(String)comboBox2.getSelectedItem(),(String)comboBox8.getSelectedItem(),(int)comboBox9.getSelectedItem(),(int)comboBox4.getSelectedItem(), (int)comboBox5.getSelectedItem(),(int)comboBox3.getSelectedItem(),(int)comboBox6.getSelectedItem(),(int)comboBox7.getSelectedItem(),(String)comboBox16.getSelectedItem(),controller.getUserID()));
+					List<String> list3=HotelSearchView.priceSortLow(hlist2);
 					Vector<Vector<Object>> data=new Vector<Vector<Object>>();
 					for(String hotelid : list3){
 						Vector<Object> inf=new Vector<Object>();
@@ -1024,7 +1049,7 @@ public class HotelSearchView extends JPanel{
 						inf.add(controller.getHotelPromotionByHotelID(hotelid).promotionName);
 						inf.add(controller.findByHotelID(hotelid).hotelStar);
 						inf.add(controller.findByHotelID(hotelid).score);
-						inf.add(controller.getRoomLowestPrice(hotelid)+"起");
+						inf.add(controller.getRoomLowestPrice(hotelid)+"元起");
 						String ever="否";
 						if(controller. findByHotelIDAndUserID (controller.getUserID(),hotelid)!=null&&controller. findByHotelIDAndUserID (controller.getUserID(),hotelid).size()>0){
 							ever="是";
@@ -1040,13 +1065,13 @@ public class HotelSearchView extends JPanel{
 						String str3="";
 						for(int i : state){
 							if(i==1||i==2){
-								str1="正常订单";
+								str1="正常";
 							}
 						    if(i==3){
-								str2="异常订单";
+								str2="异常";
 							}
 							else if(i==4){
-								str3="撤销订单";
+								str3="撤销";
 							}
 						}
 						inf.add(str1+"."+str2+"."+str3);
@@ -1064,6 +1089,7 @@ public class HotelSearchView extends JPanel{
 						}
 					};
 					table.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+					scrollPane.getViewport().add(table);
 					table.setFillsViewportHeight(true);
 				}
 				c++;
@@ -1077,7 +1103,7 @@ public class HotelSearchView extends JPanel{
 		panel8.add(button6);
 		panel8.add(button7);
 		this.add(panel8);
-        JScrollPane scrollPane = new JScrollPane();
+        scrollPane = new JScrollPane();
         
 		vColumns = new Vector<String>();
 		vColumns.add("酒店账号");
