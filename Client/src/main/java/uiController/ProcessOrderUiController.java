@@ -35,8 +35,10 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 	private UserBLService user;
 	
 	private UserType usertype;
+	
+	private String key;
 	public ProcessOrderUiController(String hotelId,UserType type) throws RemoteException{
-		String key=Log.getLogInstance().getSKey(hotelId);
+		key=Log.getLogInstance().getSKey(hotelId);
 		this.hotelId =hotelId;
 		this.usertype=type;
 		user= new UserBLServiceController();
@@ -118,7 +120,7 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 				break;
 			}
 			case HotelWorker:{
-				HotelMainUiService controller=new HotelMainUiController(hotelId);
+				HotelMainUiService controller=new HotelMainUiController(DES.decryptDES(hotelId, key));
 	    		HotelMainView view=new HotelMainView(controller,hotelId);
 	    		controller.setView(view);
 				ClientRunner.change(view);
