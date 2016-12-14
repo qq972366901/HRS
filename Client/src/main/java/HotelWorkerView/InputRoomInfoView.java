@@ -202,6 +202,7 @@ public class InputRoomInfoView extends JPanel {
 				}
 				
 				controller.inputRoomInfo(roomType,roomNumber,roomPrice,roomNNN);
+				JOptionPane.showMessageDialog(null, "录入成功！");
 			}
 		});
 		

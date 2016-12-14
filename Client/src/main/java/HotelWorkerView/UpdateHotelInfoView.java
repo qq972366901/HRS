@@ -279,6 +279,7 @@ public class UpdateHotelInfoView extends JPanel {
 				}
 				
 				controller.updateHotelInfo(hotelName, hotelLocation, hotelService, hotelCity, hotelArea, hotelIntroduce, hotelStar, hotelPhone);
+				JOptionPane.showMessageDialog(null, "已更新酒店信息！");
 			}
 			
 		});
