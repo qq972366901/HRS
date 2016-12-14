@@ -12,7 +12,7 @@ import rmi.RemoteHelper;
 
 public class RoomAllOfHotel {
 
-	private String hotelID;
+	private static String hotelID;
 	private List<RoomVO> list = new ArrayList<RoomVO>();
 	
 	private DataFactoryService df;
@@ -37,6 +37,9 @@ public class RoomAllOfHotel {
 	
 	public static RoomAllOfHotel getRoomAllOfHotelInstance(String id) {
 		if(roomAllOfHotel == null) {
+			roomAllOfHotel = new RoomAllOfHotel(id);
+		}
+		if(hotelID != id) {
 			roomAllOfHotel = new RoomAllOfHotel(id);
 		}
 		return roomAllOfHotel;

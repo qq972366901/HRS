@@ -12,7 +12,7 @@ import rmi.RemoteHelper;
 
 public class RoomStateChange {
 
-	private String hotelID;
+	private static String hotelID;
 	private List<RoomVO> list = new ArrayList<RoomVO>();
 	
 	private DataFactoryService df;
@@ -37,6 +37,9 @@ public class RoomStateChange {
 	
 	public static RoomStateChange getRoomStateChangeInstance(String id) {
 		if(roomStateChange == null) {
+			roomStateChange = new RoomStateChange(id);
+		}
+		if(hotelID != id) {
 			roomStateChange = new RoomStateChange(id);
 		}
 		return roomStateChange;
