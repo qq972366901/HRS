@@ -3,6 +3,7 @@ package UserView;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.math.BigDecimal;
 import java.rmi.RemoteException;
 import java.util.List;
 import java.util.Vector;
@@ -32,6 +33,7 @@ public class HotelBrowseView extends JPanel{
 	private HotelBrowseUiService controller;
 	private String hotelid;
 
+	
 	public HotelBrowseView(HotelBrowseUiService c){
 		this.controller=c;
 		this.hotelid=controller.getHotelID();
@@ -64,18 +66,24 @@ public class HotelBrowseView extends JPanel{
 		this.add(panel1);
 		JPanel panel2= new JPanel();
 		panel2.setLayout(new FlowLayout(FlowLayout.LEFT));
-		label2=new JLabel("酒店星级："+controller. findByHotelID(hotelid).hotelStar);
+		label2=new JLabel("酒店星级："+controller. findByHotelID(hotelid).hotelStar+"星级");
 		panel2.add(label2);
 		this.add(panel2);
 		JPanel panel11= new JPanel();
 		panel11.setLayout(new FlowLayout(FlowLayout.LEFT));
-		label11=new JLabel("酒店评分："+controller. findByHotelID(hotelid).score);
+		BigDecimal bg= new BigDecimal(controller.findByHotelID(hotelid).score);
+		label11=new JLabel("酒店评分："+bg.setScale(2, BigDecimal.ROUND_DOWN).doubleValue()+"分");
 		panel11.add(label11);
 		this.add(panel11);
 		JPanel panel12= new JPanel();		
 		panel12.setLayout(new FlowLayout(FlowLayout.LEFT));
-		List<String> typelist=controller.getRoomType(hotelid);		
-		label12=new JLabel("客房类型："+typelist.get(0)+" "+typelist.get(1)+" "+typelist.get(2)+" "+typelist.get(3)+" "+typelist.get(4));
+		List<String> typelist=controller.getRoomType(hotelid);
+		System.out.println(typelist);
+		String type ="";
+		for(String tp : typelist){
+			type=type+tp+" ";
+		}
+		label12=new JLabel("客房类型："+type);
 		panel12.add(label12);
 		this.add(panel12);
 		JPanel panel3= new JPanel();
@@ -121,12 +129,23 @@ public class HotelBrowseView extends JPanel{
 		this.add(panel7);
 		JPanel panel8= new JPanel();
 		panel8.setLayout(new FlowLayout(FlowLayout.LEFT));
-		label8=new JLabel("酒店营销策略："+controller.getHotelPromotionByHotelID(hotelid).promotionName);
+		String promotion;
+		if(controller.getHotelPromotionByHotelID(hotelid).promotionName==null){
+			promotion="无";
+		}
+		else{
+			promotion=controller.getHotelPromotionByHotelID(hotelid).promotionName;
+		}
+		label8=new JLabel("酒店营销策略："+promotion);
 		panel8.add(label8);
 		this.add(panel8);
 		JPanel panel9= new JPanel();
+		String price="";
+		for(String tp : typelist){
+			price=price+tp+"："+controller.getRoomPrice(hotelid,tp)+"元/天   ";
+		}
 		panel9.setLayout(new FlowLayout(FlowLayout.LEFT));
-		label9=new JLabel("酒店各类型房间价格："+typelist.get(0)+" "+controller.getRoomPrice(hotelid,typelist.get(0))+" "+typelist.get(1)+" "+controller.getRoomPrice(hotelid,typelist.get(1))+" "+typelist.get(2)+" "+controller.getRoomPrice(hotelid,typelist.get(2))+" "+typelist.get(3)+" "+controller.getRoomPrice(hotelid,typelist.get(3))+" "+typelist.get(4)+" "+controller.getRoomPrice(hotelid,typelist.get(0)));
+		label9=new JLabel("酒店各类型房间价格："+price);
 		panel9.add(label9);
 		this.add(panel9);
 		

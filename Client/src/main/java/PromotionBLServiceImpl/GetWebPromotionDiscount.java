@@ -43,28 +43,8 @@ public class GetWebPromotionDiscount {
 		
 		public double getWebPromotionDiscount(String userID,String city,String bussinesscircle,Calendar orderbuildtime) throws RemoteException {
 			WebPromotionVO  wpvo=new WebPromotionVO();
-			long creditvalue=Credit.getInstance().showCredit(userID);
+			int grade=Credit.getInstance().showLevel(userID);
 			MemberLevelSystemVO vo2=GetMemberLevelSystem.getMemberLevelSystemInstance().getMemberLevelSystem();
-			long credit[]=vo2.creditOfLevel;
-			int grade;
-			if(creditvalue<credit[0]){
-					grade=0;
-				}
-			else if(creditvalue>=credit[0]&&creditvalue<credit[1]){
-				    grade=1;
-			}
-			else if(creditvalue>=credit[1]&&creditvalue<credit[2]){
-			        grade=2;
-		    }
-			else if(creditvalue>=credit[2]&&creditvalue<credit[3]){
-			        grade=3;
-		    }
-			else if(creditvalue>=credit[3]&&creditvalue<credit[4]){
-			        grade=4;
-		    }
-			else{
-			        grade=5;
-			}
 			for(WebPromotionVO vo : voList) {
 			if(getWebPromotionDiscount.judgeTime(vo,orderbuildtime)&&getWebPromotionDiscount.judgeCity(vo,city) &&getWebPromotionDiscount.judgeBussinessCircle(vo,bussinesscircle) &&getWebPromotionDiscount.judgeMemberGrade(vo,grade)) {				
 				    wpvo=vo;
@@ -76,7 +56,12 @@ public class GetWebPromotionDiscount {
 					return 1;
 				}
 				else{
+					if(grade==0){
+						return 1;
+					}
+					else{
 					return discount[grade-1];
+				}
 				}
 		}
 		private boolean judgeTime(WebPromotionVO vo,Calendar time) {

@@ -151,7 +151,7 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
     public List<PromotionPO> getAllHotelPromotion(){
     	List<PromotionPO> list=new Vector<PromotionPO>();
 		for (Map.Entry<String,PromotionPO> entry : promotion.entrySet()) {
-			if(entry.getValue().getPromotionNumber()==null&&entry.getValue().getHotelID()!=null)
+			if(entry.getValue().getHotelID()!=null)
 				list.add(entry.getValue());
         }
 		return list;

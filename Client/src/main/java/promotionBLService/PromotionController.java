@@ -55,7 +55,7 @@ public class PromotionController implements PromotionBLService {
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
-		return 0;
+		return 1;
 	}
 	/**
      * 添加一种新的网站营销策略，并公布
@@ -100,7 +100,7 @@ public class PromotionController implements PromotionBLService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return 0;
+		return 1;
 	}
 	/**
 	 * 根据策略编号删除策略

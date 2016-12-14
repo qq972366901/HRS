@@ -63,6 +63,12 @@ public class OrderBuildView extends JPanel{
 		year = ca.get(Calendar.YEAR);//获取年份
 		month=ca.get(Calendar.MONTH)+1;//获取月份
 		day=ca.get(Calendar.DATE);//获取日
+		Calendar nextca= Calendar.getInstance();
+		nextca.add(Calendar.DAY_OF_MONTH, 1);
+		int nextyear = nextca.get(Calendar.YEAR);//获取年份
+		int nextmonth=nextca.get(Calendar.MONTH)+1;//获取月份
+		int nextday=nextca.get(Calendar.DATE);//获取日
+		int nextmax=nextca.getActualMaximum(Calendar.DATE);
 		
 		Calendar cal=Calendar.getInstance();
 		panel1 = new JPanel();
@@ -285,13 +291,30 @@ public class OrderBuildView extends JPanel{
 		label5=new JLabel("                          退  房  时  间 ");
 		label5_1=new JLabel("（默认为当天中午12点整）");
 		comboBox4= new JComboBox<Integer>();
-		for(int i=2016;i<2101;i++){
+		for(int i=nextyear;i<2100;i++){
 		    comboBox4.addItem(i);
 			}
 		comboBox4.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent evt) {
 				if(evt.getStateChange() == ItemEvent.SELECTED){		
 				int	selected1=(int)comboBox4.getSelectedItem();
+				if(selected1==nextyear){
+					comboBox5.removeAllItems();
+					for(int i=nextmonth;i<13;i++){
+						comboBox5.addItem(i);
+					}
+					comboBox6.removeAllItems();
+					for(int j=nextday;j<nextmax+1;j++){
+						comboBox6.addItem(j);
+					}
+				}
+				  else{
+					if(selected1!=nextyear){
+						comboBox5.removeAllItems();
+						for(int i=1;i<13;i++){
+							comboBox5.addItem(i);
+						}
+					}
 				int selected2=(int)comboBox5.getSelectedItem();
 				cal.set(Calendar.YEAR,selected1);
 				cal.set(Calendar.MONTH,selected2-1);
@@ -301,11 +324,12 @@ public class OrderBuildView extends JPanel{
 					comboBox6.addItem(k);
 				}
 				}
+				}
 			}
 		});
 		label6=new JLabel("年");
 		comboBox5= new JComboBox<Integer>();
-		for(int i=1;i<13;i++){
+		for(int i=nextmonth;i<13;i++){
 		    comboBox5.addItem(i);
 			}
 		comboBox5.addItemListener(new ItemListener() {
@@ -325,7 +349,7 @@ public class OrderBuildView extends JPanel{
 		});
 		label7=new JLabel("月");
 		comboBox6= new JComboBox<Integer>();		
-		for(int i=1;i<32;i++){
+		for(int i=nextday;i<nextmax+1;i++){
 		    comboBox6.addItem(i);
 			}
 		label8=new JLabel("日");
@@ -359,6 +383,7 @@ public class OrderBuildView extends JPanel{
 				String selected=(String)comboBox10.getSelectedItem();
 				comboBox11.removeAllItems();
 				int max=controller.getMaxRoomNumber(controller.getHotelID(),selected);
+				System.out.println(max);
 				for(int i=1;i<max+1;i++){
 					comboBox11.addItem(i);
 				}
@@ -375,7 +400,7 @@ public class OrderBuildView extends JPanel{
 		JLabel label14_1=new JLabel(" ");
 		comboBox11= new JComboBox<Integer>();
 		comboBox11.setPreferredSize(new Dimension(170,22));
-		for(int i=1;i<controller.getMaxRoomNumber(controller.getHotelID(),typelist.get(0))+1;i++){
+		for(int i=1;i<controller.getMaxRoomNumber(controller.getHotelID(),(String)comboBox10.getSelectedItem())+1;i++){
 		    comboBox11.addItem(i);
 			}
 		panel5.add(label14);
@@ -544,8 +569,10 @@ public class OrderBuildView extends JPanel{
 					 int selected=(int)comboBox11.getSelectedItem();
 					 int price=controller.getOrderPrice(controller.getHotelID(),(String)comboBox10.getSelectedItem(),selected);
 					 HotelVO vo=controller.findByHotelID(controller.getHotelID());
-					 double webdiscount=controller.getWebPromotionDiscount(controller.getHotelID(),vo.hotelCity,vo.hotelDistrict,cal);
+					 double webdiscount=controller.getWebPromotionDiscount(controller.getUserID(),vo.hotelCity,vo.hotelDistrict,cal);
+
 					 double hoteldiscount=controller.getHotelPromotionDiscount(controller.getHotelID(),controller.getUserID(),selected,cal);
+					 System.out.println("六");
 					 double discount=1;
 					 if(webdiscount>=hoteldiscount){
 						 discount=hoteldiscount;

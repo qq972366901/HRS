@@ -49,7 +49,12 @@ public class GetHotelPromotionDiscount {
 				break;
 			}
 		}
-		double discount=hpvo.discount;
+		double discount;
+		if(hpvo==null){
+			discount=1;
+		}
+		else{
+		discount=hpvo.discount;
 		UserVO vo1=Customer.getUserInstance().findByID(userID);
 		Calendar birthday=vo1.birthday;
 		String membertype=vo1.membertype;
@@ -61,6 +66,7 @@ public class GetHotelPromotionDiscount {
 		}
 		if(membertype.equals("企业会员")){
 			discount=discount*(hpvo.enterpriseDiscount);
+		}
 		}
 		return discount;
 	}

@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.math.BigDecimal;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -358,10 +359,16 @@ public class HotelSearchView extends JPanel{
 				JPanel panel4 = new JPanel();
 				panel4.setLayout(new FlowLayout(FlowLayout.LEFT));
 				Calendar ca = Calendar.getInstance();
+				Calendar nextca=Calendar.getInstance();
+				nextca.add(Calendar.DAY_OF_MONTH, 1);
 				int year = ca.get(Calendar.YEAR);//获取年份
 				int month=ca.get(Calendar.MONTH)+1;//获取月份
 				int day=ca.get(Calendar.DATE);//获取日
+				int nextyear = nextca.get(Calendar.YEAR);//获取年份
+				int nextmonth=nextca.get(Calendar.MONTH)+1;//获取月份
+				int nextday=nextca.get(Calendar.DATE);//获取日
 				int max=ca.getActualMaximum(Calendar.DATE);
+				int nextmax=nextca.getActualMaximum(Calendar.DATE);
 				label10=new JLabel("入住日期");
 				comboBox10= new JComboBox<Integer>();
 				comboBox10.setPreferredSize(new Dimension(116,22));
@@ -432,25 +439,25 @@ public class HotelSearchView extends JPanel{
 				label14=new JLabel(" 退房日期");
 				comboBox13= new JComboBox<Integer>();
 				comboBox13.setPreferredSize(new Dimension(116,22));
-				for(int i=year;i<2100;i++){
+				for(int i=nextyear;i<2100;i++){
 				    comboBox13.addItem(i);
 					}
 				comboBox13.addItemListener(new ItemListener() {
 					public void itemStateChanged(ItemEvent evt) {
 						if(evt.getStateChange() == ItemEvent.SELECTED){		
 						int	selected1=(int)comboBox13.getSelectedItem();
-						if(selected1==year){
+						if(selected1==nextyear){
 							comboBox14.removeAllItems();
-							for(int i=month;i<13;i++){
+							for(int i=nextmonth;i<13;i++){
 								comboBox14.addItem(i);
 							}
 							comboBox15.removeAllItems();
-							for(int j=day;j<max+1;j++){
+							for(int j=nextday;j<nextmax+1;j++){
 								comboBox15.addItem(j);
 							}
 						}
 						  else{
-							if(selected1!=year){
+							if(selected1!=nextyear){
 								comboBox14.removeAllItems();
 								for(int i=1;i<13;i++){
 									comboBox14.addItem(i);
@@ -471,7 +478,7 @@ public class HotelSearchView extends JPanel{
 				label15=new JLabel("年");
 				comboBox14= new JComboBox<Integer>();
 				comboBox14.setPreferredSize(new Dimension(116,22));
-				for(int i=month;i<13;i++){
+				for(int i=nextmonth;i<13;i++){
 				    comboBox14.addItem(i);
 					}
 				comboBox14.addItemListener(new ItemListener() {
@@ -492,7 +499,7 @@ public class HotelSearchView extends JPanel{
 				label16=new JLabel("月");
 				comboBox15= new JComboBox<Integer>();
 				comboBox15.setPreferredSize(new Dimension(116,22));
-				for(int i=day;i<max+1;i++){
+				for(int i=nextday;i<nextmax+1;i++){
 				    comboBox15.addItem(i);
 					}
 				label17=new JLabel("日");
@@ -566,7 +573,6 @@ public class HotelSearchView extends JPanel{
 						JOptionPane.showMessageDialog(pane, "  未找到满足条件的酒店！","", JOptionPane.ERROR_MESSAGE);
 					}
 					else{
-						System.out.println(hlist);
 						hlist2.clear();
 						for (int i = 0; i < hlist.size(); i++) {
 				            hlist2.add(hlist.get(i));
@@ -587,7 +593,8 @@ public class HotelSearchView extends JPanel{
 						inf.add(controller.findByHotelID(hotelid).hotelAddress);
 						inf.add(controller.getHotelPromotionByHotelID(hotelid).promotionName);
 						inf.add(controller.findByHotelID(hotelid).hotelStar);
-						inf.add(controller.findByHotelID(hotelid).score);
+						BigDecimal bg= new BigDecimal(controller.findByHotelID(hotelid).score);
+						inf.add(bg.setScale(2, BigDecimal.ROUND_DOWN).doubleValue());
 						inf.add(controller.getRoomLowestPrice(hotelid)+"元起");
 						String ever="否";
 						if(controller. findByHotelIDAndUserID (controller.getUserID(),hotelid)!=null&&controller. findByHotelIDAndUserID (controller.getUserID(),hotelid).size()>0){
@@ -728,7 +735,8 @@ public class HotelSearchView extends JPanel{
 						inf.add(controller.findByHotelID(hotelid).hotelAddress);
 						inf.add(controller.getHotelPromotionByHotelID(hotelid).promotionName);
 						inf.add(controller.findByHotelID(hotelid).hotelStar);
-						inf.add(controller.findByHotelID(hotelid).score);
+						BigDecimal bg= new BigDecimal(controller.findByHotelID(hotelid).score);
+						inf.add(bg.setScale(2, BigDecimal.ROUND_DOWN).doubleValue());
 						inf.add(controller.getRoomLowestPrice(hotelid)+"元起");
 						String ever="否";
 						if(controller. findByHotelIDAndUserID (controller.getUserID(),hotelid)!=null&&controller. findByHotelIDAndUserID (controller.getUserID(),hotelid).size()>0){
@@ -790,7 +798,8 @@ public class HotelSearchView extends JPanel{
 						inf.add(controller.findByHotelID(hotelid).hotelAddress);
 						inf.add(controller.getHotelPromotionByHotelID(hotelid).promotionName);
 						inf.add(controller.findByHotelID(hotelid).hotelStar);
-						inf.add(controller.findByHotelID(hotelid).score);
+						BigDecimal bg= new BigDecimal(controller.findByHotelID(hotelid).score);
+						inf.add(bg.setScale(2, BigDecimal.ROUND_DOWN).doubleValue());
 						inf.add(controller.getRoomLowestPrice(hotelid)+"元起");
 						String ever="否";
 						if(controller. findByHotelIDAndUserID (controller.getUserID(),hotelid)!=null&&controller. findByHotelIDAndUserID (controller.getUserID(),hotelid).size()>0){
@@ -857,7 +866,8 @@ public class HotelSearchView extends JPanel{
 					inf.add(controller.findByHotelID(hotelid).hotelAddress);
 					inf.add(controller.getHotelPromotionByHotelID(hotelid).promotionName);
 					inf.add(controller.findByHotelID(hotelid).hotelStar);
-					inf.add(controller.findByHotelID(hotelid).score);
+					BigDecimal bg= new BigDecimal(controller.findByHotelID(hotelid).score);
+					inf.add(bg.setScale(2, BigDecimal.ROUND_DOWN).doubleValue());
 					inf.add(controller.getRoomLowestPrice(hotelid)+"元起");
 					String ever="否";
 					if(controller. findByHotelIDAndUserID (controller.getUserID(),hotelid)!=null&&controller. findByHotelIDAndUserID (controller.getUserID(),hotelid).size()>0){
@@ -919,7 +929,8 @@ public class HotelSearchView extends JPanel{
 						inf.add(controller.findByHotelID(hotelid).hotelAddress);
 						inf.add(controller.getHotelPromotionByHotelID(hotelid).promotionName);
 						inf.add(controller.findByHotelID(hotelid).hotelStar);
-						inf.add(controller.findByHotelID(hotelid).score);
+						BigDecimal bg= new BigDecimal(controller.findByHotelID(hotelid).score);
+						inf.add(bg.setScale(2, BigDecimal.ROUND_DOWN).doubleValue());
 						inf.add(controller.getRoomLowestPrice(hotelid)+"元起");
 						String ever="否";
 						if(controller. findByHotelIDAndUserID (controller.getUserID(),hotelid)!=null&&controller. findByHotelIDAndUserID (controller.getUserID(),hotelid).size()>0){
@@ -986,7 +997,8 @@ public class HotelSearchView extends JPanel{
 						inf.add(controller.findByHotelID(hotelid).hotelAddress);
 						inf.add(controller.getHotelPromotionByHotelID(hotelid).promotionName);
 						inf.add(controller.findByHotelID(hotelid).hotelStar);
-						inf.add(controller.findByHotelID(hotelid).score);
+						BigDecimal bg= new BigDecimal(controller.findByHotelID(hotelid).score);
+						inf.add(bg.setScale(2, BigDecimal.ROUND_DOWN).doubleValue());
 						inf.add(controller.getRoomLowestPrice(hotelid)+"元起");
 						String ever="否";
 						if(controller. findByHotelIDAndUserID (controller.getUserID(),hotelid)!=null&&controller. findByHotelIDAndUserID (controller.getUserID(),hotelid).size()>0){
@@ -1048,7 +1060,8 @@ public class HotelSearchView extends JPanel{
 						inf.add(controller.findByHotelID(hotelid).hotelAddress);
 						inf.add(controller.getHotelPromotionByHotelID(hotelid).promotionName);
 						inf.add(controller.findByHotelID(hotelid).hotelStar);
-						inf.add(controller.findByHotelID(hotelid).score);
+						BigDecimal bg= new BigDecimal(controller.findByHotelID(hotelid).score);
+						inf.add(bg.setScale(2, BigDecimal.ROUND_DOWN).doubleValue());
 						inf.add(controller.getRoomLowestPrice(hotelid)+"元起");
 						String ever="否";
 						if(controller. findByHotelIDAndUserID (controller.getUserID(),hotelid)!=null&&controller. findByHotelIDAndUserID (controller.getUserID(),hotelid).size()>0){
