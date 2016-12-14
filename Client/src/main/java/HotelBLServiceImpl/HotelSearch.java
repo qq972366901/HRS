@@ -83,16 +83,41 @@ public class HotelSearch {
 	private boolean judgeRoom(HotelVO vo, String rType, int roomNumber,
 			int priceLow, int priceHigh) {
 		boolean outcome = false;
+		int num = roomNumber;
 		RoomAllOfHotel roomAllOfHotel = RoomAllOfHotel.getRoomAllOfHotelInstance(vo.hotelAccount);
 		List<RoomVO> listtemp = roomAllOfHotel.getAllRooms();
-		for(RoomVO rvo : listtemp) {
-			if(rvo.roomStatue.equals("空闲") && rvo.roomType.equals(rType) && rvo.roomPrice <= priceHigh && 
-					rvo.roomPrice >= priceLow) {
-				roomNumber--;
+		if(rType != null) {
+			for(RoomVO rvo : listtemp) {
+				if(rvo.roomStatue.equals("空闲") && rvo.roomType.equals(rType)
+						&& rvo.roomPrice <= priceHigh && 
+						rvo.roomPrice >= priceLow) {
+					if(roomNumber == -1) {
+						outcome = true;
+						break;
+					} else {
+						num--;
+					}
+				}
+				if(num <= 0 && roomNumber != -1) {
+					outcome = true;
+					break;
+				}
 			}
-			if(roomNumber <= 0) {
-				outcome = true;
-				break;
+		} else {
+			for(RoomVO rvo : listtemp) {
+				if(rvo.roomStatue.equals("空闲") && rvo.roomPrice <= priceHigh && 
+						rvo.roomPrice >= priceLow) {
+					if(roomNumber == -1) {
+						outcome = true;
+						break;
+					} else {
+						num--;
+					}
+				}
+				if(num <= 0 && roomNumber != -1) {
+					outcome = true;
+					break;
+				}
 			}
 		}
 		return outcome;
