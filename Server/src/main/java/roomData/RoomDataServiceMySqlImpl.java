@@ -60,6 +60,7 @@ public class RoomDataServiceMySqlImpl implements RoomDataService{
 	public void insert(RoomPO po) throws RemoteException {
 		if(hotelID != po.getHotelId()) {
 			hotelID = po.getHotelId();
+			room.clear();
 			List<RoomPO> list;
 			list = roomDataHelper.getAllRooms(po.getHotelId());
 			for(int i=0;i<list.size();i++) {
@@ -80,6 +81,7 @@ public class RoomDataServiceMySqlImpl implements RoomDataService{
 	public void update(RoomPO po) throws RemoteException {
 		if(hotelID != po.getHotelId()) {
 			hotelID = po.getHotelId();
+			room.clear();
 			List<RoomPO> list = new ArrayList<RoomPO>();
 			list = roomDataHelper.getAllRooms(po.getHotelId());
 			for(int i=0;i<list.size();i++) {
@@ -106,6 +108,7 @@ public class RoomDataServiceMySqlImpl implements RoomDataService{
 	public List<RoomPO> getAllRooms(String hotelid) {
 		if(hotelID != hotelid) {
 			hotelID = hotelid;
+			room.clear();
 			List<RoomPO> list = roomDataHelper.getAllRooms(hotelid);
 			for(int i=0;i<list.size();i++) {
 				room.add(list.get(i));

@@ -2,7 +2,6 @@ package hotelInformationMaintenance;
 
 import HotelBLServiceImpl.HotelAdd;
 import HotelBLServiceImpl.HotelInfo;
-import hotelBLService.HotelBLServiceController;
 
 /**
  * 负责实现更新酒店信息的功能

@@ -3,7 +3,6 @@ package PO;
 import java.io.Serializable;
 import java.util.Calendar;
 
-import VO.CreditRecordVO;
 import common.Operate;
 /**
  * 信用记录的数据实体
