@@ -1,6 +1,12 @@
-/UserView/
-/HotelBLServiceImpl/
 /META-INF/
-/hotelBLService/
-/HotelWorkerView/
 /uiController/
+/uiService/
+/userBLService/
+/userBLServiceImpl/
+/userCreditManagement/
+/userCreditRecord/
+/userInformationMaintenance/
+/userManagement/
+/userRegisterAndLog/
+/HotelBLServiceImpl/
+/RoomBLServiceImpl/

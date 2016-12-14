@@ -12,7 +12,7 @@ import rmi.RemoteHelper;
 
 public class RoomAvailableJudge {
 
-	private String hotelID;
+	private static String hotelID;
 	private List<RoomVO> list = new ArrayList<RoomVO>();
 	
 	private DataFactoryService df;
@@ -37,6 +37,9 @@ public class RoomAvailableJudge {
 	
 	public static RoomAvailableJudge getRoomAvailableJudgeInstance(String id) {
 		if(roomAvailableJudge == null) {
+			roomAvailableJudge = new RoomAvailableJudge(id);
+		}
+		if(hotelID != id) {
 			roomAvailableJudge = new RoomAvailableJudge(id);
 		}
 		return roomAvailableJudge;
