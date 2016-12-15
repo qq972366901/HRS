@@ -96,7 +96,7 @@ public class OrderList {
    	}
    	
    	/**
-     * 获得一个客户的所有未执行订单
+     * 获得一个客户的所有订单
      * 
      * @param String UserID，客户的id
      * @return List<OrderVO> ，订单的一个列表
