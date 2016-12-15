@@ -9,22 +9,17 @@ import java.util.Vector;
 
 import PO.PromotionPO;
 import VO.HotelPromotionVO;
-import VO.HotelVO;
-import VO.UserVO;
+import VO.WebPromotionVO;
 import dataService.DataFactoryService;
 import dataService.PromotionDataService;
 import rmi.RemoteHelper;
-import userBLServiceImpl.Customer;
 
-public class GetHotelPromotionDiscount {
+public class GetHotelPromotionByHotelIDAndTime {
 	private DataFactoryService df;
 	private PromotionDataService pds;
-	
-	private List<HotelPromotionVO> voList= new ArrayList<HotelPromotionVO>();;
-	
-	private static GetHotelPromotionDiscount getHotelPromotionDiscount;
-	
-	private GetHotelPromotionDiscount() {
+	private List<HotelPromotionVO> voList=new ArrayList<HotelPromotionVO>();
+	private static GetHotelPromotionByHotelIDAndTime getHotelPromotionByHotelID;
+	private GetHotelPromotionByHotelIDAndTime() {
 		df=RemoteHelper.getInstance().getDataFactoryService();
 		try {
 			pds = (PromotionDataService)df.getDataService("Promotion");
@@ -40,46 +35,25 @@ public class GetHotelPromotionDiscount {
 		}
 	}
 	
-	public static GetHotelPromotionDiscount getGetHotelPromotionDiscountInstance() {
-		if(getHotelPromotionDiscount== null) {
-			getHotelPromotionDiscount = new GetHotelPromotionDiscount();
+	public static GetHotelPromotionByHotelIDAndTime getHotelPromotionByHotelIDInstance() {
+		if(getHotelPromotionByHotelID== null) {
+			getHotelPromotionByHotelID= new GetHotelPromotionByHotelIDAndTime();
 		}
-		return getHotelPromotionDiscount;
+		return getHotelPromotionByHotelID;
 	}
-	
-	public double getHotelPromotionDiscount(String hotelid,String userID,int roomNumber,Calendar orderbuildtime) throws RemoteException {
-		HotelPromotionVO  hpvo=new HotelPromotionVO();
+	public HotelPromotionVO getHotelPromotionByHotelIDAndTime(String hotelid,Calendar time) {
+	    HotelPromotionVO  hpvo=new HotelPromotionVO();
 		for(HotelPromotionVO vo : voList) {
-		if(getHotelPromotionDiscount.judgeHotel(vo,hotelid) &&getHotelPromotionDiscount.judgeTime(vo,orderbuildtime)) {				
+		if((getHotelPromotionByHotelID.judgeHotelID(vo,hotelid))&&getHotelPromotionByHotelID.judgeTime(vo,time)) {
 			    hpvo=vo;
 				break;
 			}
 		}
-		double discount;
-		if(hpvo==null){
-			discount=1;
-		}
-		else{
-		discount=hpvo.discount/10;
-		UserVO vo1=Customer.getUserInstance().findByID(userID);
-		Calendar birthday=vo1.birthday;
-		String membertype=vo1.membertype;
-		if(birthday.compareTo(hpvo. promotionBegintime)>=0&&birthday.compareTo(hpvo. promotionEndtime)<=0){
-			discount=discount*(hpvo.birthdayDiscount/10);
-		}
-		if(roomNumber>=3){
-			discount=discount*(hpvo.roomDiscount/10);
-		}
-		if(membertype.equals("企业会员")){
-			discount=discount*(hpvo.enterpriseDiscount/10);
-		}
-		}
-		return discount;
+		return hpvo;
 	}
-	
-	private boolean judgeHotel(HotelPromotionVO vo, String hotelid) {
+	private boolean judgeHotelID(HotelPromotionVO vo,String hotelid) {
 		boolean outcome = false;
-		if(vo.hotelID .equals(hotelid)) {
+		if(vo.hotelID.equals(hotelid)) {
 			outcome = true;
 		}
 		return outcome;
@@ -103,14 +77,11 @@ public class GetHotelPromotionDiscount {
 		cal3.set(year3,month3,day3);
 		Date date1=cal1.getTime(); 
 		Date date2=cal2.getTime(); 
-		Date date3=cal3.getTime();  
+		Date date3=cal3.getTime(); 
 	if(date3.getTime()>date1.getTime()&&date3.getTime()<date2.getTime()) {
 			outcome = true;
 		}
 		return outcome;
 		
 	}
-
-	
-	
 }

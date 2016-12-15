@@ -563,7 +563,7 @@ public class HotelSearchView extends JPanel{
 					}
 					int roomNum;
 					if(comboBox9.getSelectedItem()==null){
-						roomNum=0;
+						roomNum=-1;
 					}
 					else{
 						roomNum=(int)comboBox9.getSelectedItem();
@@ -578,6 +578,7 @@ public class HotelSearchView extends JPanel{
 				            hlist2.add(hlist.get(i));
 				        }
 					Vector<Vector<Object>> data=new Vector<Vector<Object>>();
+					Calendar cal=Calendar.getInstance();
 					for(String hotelid : hlist){
 						Vector<Object> inf=new Vector<Object>();
 						String key="";
@@ -591,7 +592,11 @@ public class HotelSearchView extends JPanel{
 						inf.add(str);
 						inf.add(controller.findByHotelID(hotelid).hotelName);
 						inf.add(controller.findByHotelID(hotelid).hotelAddress);
-						inf.add(controller.getHotelPromotionByHotelID(hotelid).promotionName);
+						String promotioninf="暂无";
+						if(controller.getHotelPromotionByHotelIDAndTime(hotelid,cal).promotionName!=null){
+							promotioninf=controller.getHotelPromotionByHotelIDAndTime(hotelid,cal).promotionName+" "+controller.getHotelPromotionByHotelIDAndTime(hotelid,cal).discount+"折起";
+						}
+						inf.add(promotioninf);
 						inf.add(controller.findByHotelID(hotelid).hotelStar);
 						BigDecimal bg= new BigDecimal(controller.findByHotelID(hotelid).score);
 						inf.add(bg.setScale(2, BigDecimal.ROUND_DOWN).doubleValue());
@@ -716,6 +721,7 @@ public class HotelSearchView extends JPanel{
 		
 		button5.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {
+				Calendar cal=Calendar.getInstance();
 				if(a%2==0){
 					List<String> list1=HotelSearchView.starSortHigh(hlist2);
 					
@@ -733,7 +739,11 @@ public class HotelSearchView extends JPanel{
 						inf.add(str);
 						inf.add(controller.findByHotelID(hotelid).hotelName);
 						inf.add(controller.findByHotelID(hotelid).hotelAddress);
-						inf.add(controller.getHotelPromotionByHotelID(hotelid).promotionName);
+						String promotioninf="暂无";
+						if(controller.getHotelPromotionByHotelIDAndTime(hotelid,cal).promotionName!=null){
+							promotioninf=controller.getHotelPromotionByHotelIDAndTime(hotelid,cal).promotionName+" "+controller.getHotelPromotionByHotelIDAndTime(hotelid,cal).discount+"折起";
+						}
+						inf.add(promotioninf);
 						inf.add(controller.findByHotelID(hotelid).hotelStar);
 						BigDecimal bg= new BigDecimal(controller.findByHotelID(hotelid).score);
 						inf.add(bg.setScale(2, BigDecimal.ROUND_DOWN).doubleValue());
@@ -796,7 +806,12 @@ public class HotelSearchView extends JPanel{
 						inf.add(str);
 						inf.add(controller.findByHotelID(hotelid).hotelName);
 						inf.add(controller.findByHotelID(hotelid).hotelAddress);
-						inf.add(controller.getHotelPromotionByHotelID(hotelid).promotionName);
+						String promotioninf="暂无";
+						System.out.println(controller.getHotelPromotionByHotelIDAndTime(hotelid,cal).promotionName);
+						if(controller.getHotelPromotionByHotelIDAndTime(hotelid,cal).promotionName!=null){
+							promotioninf=controller.getHotelPromotionByHotelIDAndTime(hotelid,cal).promotionName+" "+controller.getHotelPromotionByHotelIDAndTime(hotelid,cal).discount+"折起";
+						}
+						inf.add(promotioninf);
 						inf.add(controller.findByHotelID(hotelid).hotelStar);
 						BigDecimal bg= new BigDecimal(controller.findByHotelID(hotelid).score);
 						inf.add(bg.setScale(2, BigDecimal.ROUND_DOWN).doubleValue());
@@ -848,6 +863,7 @@ public class HotelSearchView extends JPanel{
 		});
 		button6.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {
+				Calendar cal=Calendar.getInstance();
 				if(b%2==0){
 				List<String> list2=HotelSearchView.scoreSortHigh(hlist2);
 				Vector<Vector<Object>> data=new Vector<Vector<Object>>();
@@ -864,7 +880,11 @@ public class HotelSearchView extends JPanel{
 					inf.add(str);
 					inf.add(controller.findByHotelID(hotelid).hotelName);
 					inf.add(controller.findByHotelID(hotelid).hotelAddress);
-					inf.add(controller.getHotelPromotionByHotelID(hotelid).promotionName);
+					String promotioninf="暂无";
+					if(controller.getHotelPromotionByHotelIDAndTime(hotelid,cal).promotionName!=null){
+						promotioninf=controller.getHotelPromotionByHotelIDAndTime(hotelid,cal).promotionName+" "+controller.getHotelPromotionByHotelIDAndTime(hotelid,cal).discount+"折起";
+					}
+					inf.add(promotioninf);
 					inf.add(controller.findByHotelID(hotelid).hotelStar);
 					BigDecimal bg= new BigDecimal(controller.findByHotelID(hotelid).score);
 					inf.add(bg.setScale(2, BigDecimal.ROUND_DOWN).doubleValue());
@@ -927,7 +947,11 @@ public class HotelSearchView extends JPanel{
 						inf.add(str);
 						inf.add(controller.findByHotelID(hotelid).hotelName);
 						inf.add(controller.findByHotelID(hotelid).hotelAddress);
-						inf.add(controller.getHotelPromotionByHotelID(hotelid).promotionName);
+						String promotioninf="暂无";
+						if(controller.getHotelPromotionByHotelIDAndTime(hotelid,cal).promotionName!=null){
+							promotioninf=controller.getHotelPromotionByHotelIDAndTime(hotelid,cal).promotionName+" "+controller.getHotelPromotionByHotelIDAndTime(hotelid,cal).discount+"折起";
+						}
+						inf.add(promotioninf);
 						inf.add(controller.findByHotelID(hotelid).hotelStar);
 						BigDecimal bg= new BigDecimal(controller.findByHotelID(hotelid).score);
 						inf.add(bg.setScale(2, BigDecimal.ROUND_DOWN).doubleValue());
@@ -979,6 +1003,7 @@ public class HotelSearchView extends JPanel{
 		});
 		button7.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {
+				Calendar cal=Calendar.getInstance();
                 if(c%2==0){
 					List<String> list3=HotelSearchView.priceSortHigh(hlist2);
 					Vector<Vector<Object>> data=new Vector<Vector<Object>>();
@@ -995,7 +1020,11 @@ public class HotelSearchView extends JPanel{
 						inf.add(str);
 						inf.add(controller.findByHotelID(hotelid).hotelName);
 						inf.add(controller.findByHotelID(hotelid).hotelAddress);
-						inf.add(controller.getHotelPromotionByHotelID(hotelid).promotionName);
+						String promotioninf="暂无";
+						if(controller.getHotelPromotionByHotelIDAndTime(hotelid,cal).promotionName!=null){
+							promotioninf=controller.getHotelPromotionByHotelIDAndTime(hotelid,cal).promotionName+" "+controller.getHotelPromotionByHotelIDAndTime(hotelid,cal).discount+"折起";
+						}
+						inf.add(promotioninf);
 						inf.add(controller.findByHotelID(hotelid).hotelStar);
 						BigDecimal bg= new BigDecimal(controller.findByHotelID(hotelid).score);
 						inf.add(bg.setScale(2, BigDecimal.ROUND_DOWN).doubleValue());
@@ -1058,7 +1087,11 @@ public class HotelSearchView extends JPanel{
 						inf.add(str);
 						inf.add(controller.findByHotelID(hotelid).hotelName);
 						inf.add(controller.findByHotelID(hotelid).hotelAddress);
-						inf.add(controller.getHotelPromotionByHotelID(hotelid).promotionName);
+						String promotioninf="暂无";
+						if(controller.getHotelPromotionByHotelIDAndTime(hotelid,cal).promotionName!=null){
+							promotioninf=controller.getHotelPromotionByHotelIDAndTime(hotelid,cal).promotionName+" "+controller.getHotelPromotionByHotelIDAndTime(hotelid,cal).discount+"折起";
+						}
+						inf.add(promotioninf);
 						inf.add(controller.findByHotelID(hotelid).hotelStar);
 						BigDecimal bg= new BigDecimal(controller.findByHotelID(hotelid).score);
 						inf.add(bg.setScale(2, BigDecimal.ROUND_DOWN).doubleValue());

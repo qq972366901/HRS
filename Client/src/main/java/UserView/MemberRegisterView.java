@@ -69,6 +69,7 @@ public class MemberRegisterView extends JPanel{
 					textField7.setEditable(true);
 				}
 				else if(selected.equals("普通会员")){
+					textField7.setText("");
 					textField7.setEditable(false);				
 				}
 				}

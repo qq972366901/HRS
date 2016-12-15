@@ -58,7 +58,7 @@ public class OrderLineItem {
      */
 	public  void saveOrderInfo(OrderVO vo) {
 		try {
-			OrderPO order=new OrderPO(vo.userID,vo.hotelID,orderData.generateOrderID(),vo.orderState,vo.orderValue,vo.numOfPerson,vo.child,vo.roomType,vo.roomNumber,vo.expectedCheckIn
+			OrderPO order=new OrderPO(vo.userID,vo.hotelID,vo.orderNumber,vo.orderState,vo.orderValue,vo.numOfPerson,vo.child,vo.roomType,vo.roomNumber,vo.expectedCheckIn
 					,vo.expectedCheckOut,vo.latest,vo.cancel,vo.generationTime,vo.comment,vo.score);
 			orderData.update(order);
 		} catch (RemoteException e) {

@@ -1,6 +1,7 @@
 package uiController;
 
 import java.rmi.RemoteException;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.swing.JPanel;
@@ -75,8 +76,8 @@ public class HotelBrowseUiController implements HotelBrowseUiService{
 	public List<String> getRoomType(String hotelid){
 		return hotel.getRoomType(hotelid);
 	}
-	public HotelPromotionVO getHotelPromotionByHotelID(String hotelid){
-		return promotion.getHotelPromotionByHotelID(hotelid);
+	public HotelPromotionVO getHotelPromotionByHotelIDAndTime(String hotelid,Calendar time){
+		return promotion.getHotelPromotionByHotelIDAndTime(hotelid,time);
 	}
 	public long getRoomPrice(String hotelid,String roomType){
 		return room.getRoomPrice(hotelid,roomType);
