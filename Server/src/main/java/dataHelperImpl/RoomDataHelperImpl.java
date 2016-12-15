@@ -22,8 +22,8 @@ public class RoomDataHelperImpl implements RoomDataHelper{
 	private void init() {
 		driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
 		dbURL="jdbc:sqlserver://localhost:1433;DatabaseName=HRS";
-		userName="liu";
-		userPwd="naigo961226";
+		userName="sa";
+		userPwd="123456";
 		try{
 			 Class.forName(driverName);
 			 dbConn=DriverManager.getConnection(dbURL,userName,userPwd);
