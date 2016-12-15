@@ -2,18 +2,34 @@
 
 import static org.junit.Assert.*;
 
+import java.net.MalformedURLException;
+import java.rmi.Naming;
+import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.Calendar;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import VO.UserVO;
 import common.UserType;
+import rmi.RemoteHelper;
 import userBLServiceImpl.Account;
 import userBLServiceImpl.AccountInfo;
 
 public class AccountTest {
-
+	private RemoteHelper remoteHelper;
+	@Before
+	public void setup(){
+		remoteHelper = RemoteHelper.getInstance();
+		try {
+			remoteHelper.setRemote(Naming.lookup("rmi://localhost:8089/DataFactoryService"));
+			System.out.println("linked");
+		} catch (MalformedURLException | RemoteException | NotBoundException e) {
+			System.out.println("failue");
+			e.printStackTrace();
+		}
+	}
 	@Test
 	public void testGetUser() throws RemoteException {
 		AccountInfo info=Account.getInstance().getUser(UserType.WebManagementWorker, "ac4410375dd760d1");
@@ -30,7 +46,7 @@ public class AccountTest {
 
 	@Test
 	public void testDelete() throws RemoteException {
-		String id="ac4410375dd760d1";
+		String id="xx";
 		Account.getInstance().delete(id);
 		assertEquals(false,Account.getInstance().judgeAccount(id));
 	}

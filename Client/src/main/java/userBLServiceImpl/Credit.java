@@ -68,11 +68,13 @@ public class Credit {
 	 * @throws ParseException 
 	 */
 	public void updateCredit(CreditRecordVO vo) throws RemoteException, ParseException{
-		map.get(vo.account).credit=vo.currentcredit;
-		updateLevel(vo.account,vo.currentcredit);//更新等级
-		CreditPO po=new CreditPO(vo.account,vo.currentcredit,map.get(vo.account).level);
-		cd.update(po);
-		CreditRecord.getInstance().add(vo.account, vo);//更新信用记录
+		if(map.containsKey(vo.account)){
+			map.get(vo.account).credit=vo.currentcredit;
+			updateLevel(vo.account,vo.currentcredit);//更新等级
+			CreditPO po=new CreditPO(vo.account,vo.currentcredit,map.get(vo.account).level);
+			cd.update(po);
+			CreditRecord.getInstance().add(vo.account, vo);//更新信用记录
+		}
 	}
 	/**
 	 * 更新用户等级
