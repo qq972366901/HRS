@@ -12,4 +12,6 @@ public interface CommentViewService {
        public boolean judgeComment(String comment);
        public void comment(String score,String comment);
        public  List<String> getDetail();
+       public void changeHotelScore(String hotelid, int score);
+       public String getHotelID();
 }

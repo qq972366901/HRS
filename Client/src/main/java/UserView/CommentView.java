@@ -196,6 +196,7 @@ private JPanel panel1;
 			       }
 			       else{
 			    	   controller.comment(scoreinput.getText(),commentinput.getText());
+			    	   controller.changeHotelScore(controller.getHotelID(),Integer.parseInt(scoreinput.getText()));
 			       }
 			}
 		});
