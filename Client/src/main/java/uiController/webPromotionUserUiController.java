@@ -102,23 +102,25 @@ public class webPromotionUserUiController implements webPromotionUserUiService {
 		hotelButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String acc = hotelField.getText();
-				String key="";
+				String key=null;
 				try {
 					key=Log.getLogInstance().getKey(acc);
 				} catch (RemoteException e1) {
 					System.out.println("获取密钥失败");
 					e1.printStackTrace();
 				}
-				String account=DES.encryptDES(acc, key);
-				ProcessOrderUiService controller;
-				try {
-					controller = new ProcessOrderUiController(account,UserType.WebPromotionWorker);
-					ProcessOrderView view=new ProcessOrderView(controller);
-					controller.setView(view);
-					ClientRunner.change(view);
-					hotelFrame.dispose();
-				} catch (RemoteException e) {
-					e.printStackTrace();
+				if(key!=null){
+					String account=DES.encryptDES(acc, key);
+					ProcessOrderUiService controller;
+					try {
+						controller = new ProcessOrderUiController(account,UserType.WebPromotionWorker);
+						ProcessOrderView view=new ProcessOrderView(controller);
+						controller.setView(view);
+						ClientRunner.change(view);
+						hotelFrame.dispose();
+					} catch (RemoteException e) {
+						e.printStackTrace();
+				}
 				}
 			}
 		});

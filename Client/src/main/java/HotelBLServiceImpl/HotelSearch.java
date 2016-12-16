@@ -61,7 +61,7 @@ public class HotelSearch {
 	
 	private boolean judgeCity(HotelVO vo, String city) {
 		boolean outcome = false;
-		if(city.length() < 1) {
+		if(city.length() < 1 || city == null) {
 			return true;
 		}
 		if(vo.hotelCity.equals(city)) {
@@ -71,7 +71,7 @@ public class HotelSearch {
 	}
 	private boolean judgeBusinessCircle(HotelVO vo, String businessCircle) {
 		boolean outcome = false;
-		if(businessCircle.length() < 1) {
+		if(businessCircle.length() < 1 || businessCircle == null) {
 			return true;
 		}
 		if(vo.hotelDistrict.equals(businessCircle)) {
@@ -153,7 +153,7 @@ public class HotelSearch {
 	}
 	private boolean judgeEverBooked(HotelVO vo, String everBooked, String userid) {
 		boolean outcome = false;
-		if(everBooked.equals("全部") || everBooked.length() < 1) {
+		if(everBooked.equals("全部") || everBooked.length() < 1 || everBooked == null) {
 			return true;
 		}
 		HotelInfoListByUser hotelInfoListByUser = HotelInfoListByUser.getHotelInfoListByUserInstance(userid);
