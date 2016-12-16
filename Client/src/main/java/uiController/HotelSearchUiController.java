@@ -1,6 +1,7 @@
 package uiController;
 
 import java.rmi.RemoteException;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Vector;
 
@@ -84,8 +85,8 @@ public class HotelSearchUiController implements HotelSearchUiService{
 	public int getRoomLowestPrice(String hotelid){
 		return room.getRoomLowestPrice(hotelid);
 	}
-	public HotelPromotionVO getHotelPromotionByHotelID(String hotelid){
-		return promotion.getHotelPromotionByHotelID(hotelid);
+	public HotelPromotionVO getHotelPromotionByHotelIDAndTime(String hotelid,Calendar time){
+		return promotion.getHotelPromotionByHotelIDAndTime(hotelid,time);
 	}
 	public List<OrderVO> findByHotelIDAndUserID (String userid,String hotelid){
 		return hotel.findByHotelIDAndUserID (userid,hotelid);

@@ -2,6 +2,7 @@ package uiService;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Vector;
 
@@ -22,6 +23,6 @@ public interface HotelSearchUiService {
 			int priceLow, int priceHigh, int hotelStar, int scoreLow, int scoreHigh, String everBooked,String userid);
 	public HotelVO findByHotelID(String hotelID);
 	public int getRoomLowestPrice(String hotelID);
-	public HotelPromotionVO getHotelPromotionByHotelID(String hotelid);
+	public HotelPromotionVO getHotelPromotionByHotelIDAndTime(String hotelid,Calendar time);
 	public List<OrderVO> findByHotelIDAndUserID (String userid,String hotelid);
 }

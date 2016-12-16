@@ -18,11 +18,10 @@ import userBLServiceImpl.Credit;
 public class SearchWebPromotion {
 	private DataFactoryService df;
 	private PromotionDataService pds;
-	private List<WebPromotionVO> voList;
+	private List<WebPromotionVO> voList=new ArrayList<WebPromotionVO>();
 	private static SearchWebPromotion searchWebPromotion;
 	
 	private SearchWebPromotion() {
-		voList=new ArrayList<WebPromotionVO>();
 		df=RemoteHelper.getInstance().getDataFactoryService();
 		try {
 			pds = (PromotionDataService)df.getDataService("Promotion");

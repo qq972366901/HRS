@@ -83,11 +83,11 @@ public class OrderBuildUiController implements OrderBuildUiService{
 	public int getOrderPrice(String hotelid, String roomType, int roomNumber){
 		return hotel.getOrderPrice(hotelid,roomType,roomNumber);
 	}
-	public double getWebPromotionDiscount(String userid,String city,String bussinesscircle,Calendar orderbuildtime){
+	public double getWebPromotionDiscount(String userid,String city,String bussinesscircle,Calendar orderbuildtime) throws RemoteException{
 		return promotion.getWebPromotionDiscount(userid,city,bussinesscircle,orderbuildtime);
 		
 	}
-	public double getHotelPromotionDiscount(String hotelid,String userid,int roomNumber,Calendar orderbuildtime){
+	public double getHotelPromotionDiscount(String hotelid,String userid,int roomNumber,Calendar orderbuildtime) throws RemoteException{
 		return promotion.getHotelPromotionDiscount(hotelid,userid,roomNumber,orderbuildtime);
 		
 	}

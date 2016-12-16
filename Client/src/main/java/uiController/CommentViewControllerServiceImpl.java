@@ -113,4 +113,11 @@ public class CommentViewControllerServiceImpl implements CommentViewService{
 		list.add(sdf.format(vo.expectedCheckOut.getTime()));
 		return list;
 	}
+	public void changeHotelScore(String hotelid, int score){
+		hotel.changeHotelScore(hotelid,score);
+	}
+	public String getHotelID(){
+		OrderVO vo=order.showDetail(OrderID);
+		return vo.hotelID;
+	}
 }

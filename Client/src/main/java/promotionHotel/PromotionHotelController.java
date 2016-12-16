@@ -3,7 +3,7 @@ import java.rmi.RemoteException;
 import java.util.Calendar;
 
 import PromotionBLServiceImpl.AddHotelPromotion;
-import PromotionBLServiceImpl.GetHotelPromotionByHotelID;
+import PromotionBLServiceImpl.GetHotelPromotionByHotelIDAndTime;
 import PromotionBLServiceImpl.GetHotelPromotionDiscount;
 import VO.HotelPromotionVO;
 import VO.UserVO;
@@ -30,7 +30,7 @@ public class PromotionHotelController {
 	/**
 	 * 通过酒店ID查找酒店策略
      */
-	public HotelPromotionVO getHotelPromotionByHotelID(String hotelid){
-		return GetHotelPromotionByHotelID.getHotelPromotionByHotelIDInstance().getHotelPromotionByHotelID(hotelid);
+	public HotelPromotionVO getHotelPromotionByHotelIDAndTime(String hotelid,Calendar time){
+		return GetHotelPromotionByHotelIDAndTime.getHotelPromotionByHotelIDInstance().getHotelPromotionByHotelIDAndTime(hotelid,time);
 	}
 }
