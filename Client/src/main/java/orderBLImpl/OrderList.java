@@ -240,4 +240,22 @@ public class OrderList {
 			return null;
 		}
 	}
+	/**
+	 * 更新订单的状态，将超时的订单设置为异常
+	 */
+	public List<OrderVO> updateOrderState(){
+		try {
+			List<OrderPO> list=orderData.updateOrderState();
+			List<OrderVO> list1=new ArrayList<OrderVO>();
+			for(OrderPO po:list){
+				OrderVO vo=new OrderVO(po);
+				list1.add(vo);
+			}
+			return list1;
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
 }

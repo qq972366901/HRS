@@ -276,5 +276,10 @@ public class OrderBLServiceController implements OrderBLService{
 	public String getUserID(String orderNo) {
 		return management.getUserID(orderNo);
 	}
-
+	/**
+	 * 更新订单的状态，将超时的订单设置为异常
+	 */
+	public void updateOrderState() {
+		management.updateOrderState();
+	}
 }

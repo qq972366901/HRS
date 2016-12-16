@@ -136,4 +136,18 @@ public class OrderManagementController{
 	public String getUserID(String orderNo) {
 		return order.getUserID(orderNo);
 	}
+	/**
+	 * 更新订单的状态，将超时的订单设置为异常
+	 */
+	public void updateOrderState(){
+		try {
+		List<OrderVO> l=list.updateOrderState();
+		for(OrderVO vo: l){
+			credit.updateCredit(new CreditRecordVO(null,vo.userID,Calendar.getInstance(),vo.orderNumber,Operate.Abnormal, -vo.orderValue, credit.showCredit(vo.userID)-vo.orderValue));
+		   }
+		} catch (RemoteException | ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+	}
 }

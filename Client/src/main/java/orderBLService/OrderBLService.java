@@ -1,5 +1,8 @@
 package orderBLService;
+import java.rmi.RemoteException;
 import java.util.*;
+
+import PO.OrderPO;
 import VO.*;
 import common.*;
 
@@ -197,4 +200,8 @@ public interface OrderBLService {
 	 * @return String返回拥有此订单的客户账户
 	 */
 	public String getUserID(String orderNo);
+	/**
+	 * 更新订单的状态，将超时的订单设置为异常
+	 */
+	public void updateOrderState();
 }
