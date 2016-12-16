@@ -114,6 +114,7 @@ public class OrderState {
 	public void cancelAbnormalOrder()  {
 		state.orderState=4;
 		state.cancel=Calendar.getInstance();
+		state.generationTime=Calendar.getInstance();
 		state.Update();
 		try {
 			orderData.update(state.po);

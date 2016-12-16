@@ -21,8 +21,13 @@ public class OrderDataHelperImpl implements OrderDataHelper{
 	private void init() {
 		driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
 		dbURL="jdbc:sqlserver://localhost:1433;DatabaseName=HRS";
+<<<<<<< HEAD
+		userName="lyx";
+		userPwd="liuyx970202";
+=======
 		userName="sa";
 		userPwd="123456";
+>>>>>>> upstream/master
 		try{
 			 Class.forName(driverName);
 			 dbConn=DriverManager.getConnection(dbURL,userName,userPwd);
@@ -81,23 +86,21 @@ public class OrderDataHelperImpl implements OrderDataHelper{
 		String sql1="";
 		String gen = sdf.format(po.getgenerationTime().getTime());
 		if(po.getComment()!=null){
-			sql1="update [Order] set comment = '"+po.getComment()+"'where orderNumber = '"+po.getOrderNumber()+"'";
+			sql1="comment = '"+po.getComment()+"'";
 		}
 		else{
-			sql1="update [Order] set comment = null where orderNumber = '"+po.getOrderNumber()+"'";
+			sql1="comment = null";
 		}
 		if(po.getCancel()!=null){
-			System.out.println("Cancel");
 			cancel = sdf.format(po.getCancel().getTime());
-			sql="update [Order] set UserID = '"+po.getUserID()+"',HotelID = '"+po.getHotelID()+"',orderState = '"+po.getOrderState()+"',orderValue = '"+po.getOrderValue()+"',numOfPerson = '"+po.getNumOfPerson()+"',child = '"+po.getChild()+"',roomType = '"+po.getRoomType()+"',roomNumber = '"+po.getRoomNumber()+"',expectedCheckIn = '"+in+"',expectedCheckOut = '"+out+"',latest = '"+late+"',cancel = '"+cancel+"',generationTime = '"+gen+"',score = '"+po.getScore()+"'where orderNumber = '"+po.getOrderNumber()+"'";
+			sql="update [Order] set UserID = '"+po.getUserID()+"',HotelID = '"+po.getHotelID()+"',orderState = '"+po.getOrderState()+"',orderValue = '"+po.getOrderValue()+"',numOfPerson = '"+po.getNumOfPerson()+"',child = '"+po.getChild()+"',roomType = '"+po.getRoomType()+"',roomNumber = '"+po.getRoomNumber()+"',expectedCheckIn = '"+in+"',expectedCheckOut = '"+out+"',latest = '"+late+"',cancel = '"+cancel+"',generationTime = '"+gen+"',"+sql1+",score = '"+po.getScore()+"'where orderNumber = '"+po.getOrderNumber()+"'";
 		}	
 		else{
-			sql="update [Order] set UserID = '"+po.getUserID()+"',HotelID = '"+po.getHotelID()+"',orderState = '"+po.getOrderState()+"',orderValue = '"+po.getOrderValue()+"',numOfPerson = '"+po.getNumOfPerson()+"',child = '"+po.getChild()+"',roomType = '"+po.getRoomType()+"',roomNumber = '"+po.getRoomNumber()+"',expectedCheckIn = '"+in+"',expectedCheckOut = '"+out+"',latest = '"+late+"',cancel = null,generationTime = '"+gen+"',score = '"+po.getScore()+"'where orderNumber = '"+po.getOrderNumber()+"'";
+			sql="update [Order] set UserID = '"+po.getUserID()+"',HotelID = '"+po.getHotelID()+"',orderState = '"+po.getOrderState()+"',orderValue = '"+po.getOrderValue()+"',numOfPerson = '"+po.getNumOfPerson()+"',child = '"+po.getChild()+"',roomType = '"+po.getRoomType()+"',roomNumber = '"+po.getRoomNumber()+"',expectedCheckIn = '"+in+"',expectedCheckOut = '"+out+"',latest = '"+late+"',cancel = null,generationTime = '"+gen+"',"+sql1+",score = '"+po.getScore()+"'where orderNumber = '"+po.getOrderNumber()+"'";
 		}
 		try {
 			Statement st=dbConn.createStatement();
-			int res=st.executeUpdate(sql1);
-			res=st.executeUpdate(sql);
+			int res=st.executeUpdate(sql);
 			if(res==1){
 				System.out.println("更新成功");
 			}

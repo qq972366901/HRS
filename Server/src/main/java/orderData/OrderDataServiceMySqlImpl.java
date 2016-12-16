@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
@@ -198,6 +199,24 @@ public class OrderDataServiceMySqlImpl implements OrderDataService,Serializable{
 		for(OrderPO po:list){
 			map.put(po.getOrderNumber(), po);
 		}
+	}
+	/**
+	 * 更新订单的状态，将超时的订单设置为异常
+	 */
+	public List<OrderPO> updateOrderState(){
+		List<OrderPO> list=new ArrayList<OrderPO>();
+		OrderPO po;
+		for(Entry<String,OrderPO> entry:map.entrySet()){
+			po=entry.getValue();
+			if(!(po.getLatest().compareTo(Calendar.getInstance())==1)){
+				if(po.getOrderState()==2){
+					po.setOrderState(3);
+					list.add(po);
+					orderdatahelper.update(po);
+				}	
+			}
+		}
+		return list;
 	}
 	/**
 	 * 结束持久化数据库的使用

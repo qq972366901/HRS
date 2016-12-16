@@ -7,4 +7,5 @@ public interface LoginViewControllerService {
          public boolean login(String logid,String password);
          public boolean register();
 		public void updateRegisterButton(String selected);
+		public void updateOrderState();
 }

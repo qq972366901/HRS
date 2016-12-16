@@ -60,7 +60,7 @@ public class OrderLineItem {
 		try {
 			OrderPO order=new OrderPO(vo.userID,vo.hotelID,vo.orderNumber,vo.orderState,vo.orderValue,vo.numOfPerson,vo.child,vo.roomType,vo.roomNumber,vo.expectedCheckIn
 					,vo.expectedCheckOut,vo.latest,vo.cancel,vo.generationTime,vo.comment,vo.score);
-			orderData.update(order);
+			orderData.insert(order);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}

@@ -61,7 +61,9 @@ public class Comment {
 			orderlist = orderData.findByHotelID(HotelID, 0);
 			List<CommentInfo> commentlist=new ArrayList<CommentInfo>();
 			for(OrderPO order:orderlist){
-				commentlist.add(new CommentInfo(order));
+				if(order.getComment()!=null){
+					commentlist.add(new CommentInfo(order));
+				}
 			}
 			return commentlist;
 		} catch (RemoteException e) {		

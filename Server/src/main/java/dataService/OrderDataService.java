@@ -29,11 +29,16 @@ public interface OrderDataService  extends DataService{
 		 */
 		public List<OrderPO> findByUserID(String userID,int orderstate) throws RemoteException;
 		/**
+		 * 更新订单的状态，将超时的订单设置为异常
+		 */
+		public List<OrderPO> updateOrderState()throws RemoteException;
+		/**
 		 * 找到一家酒店下的所有指定类型的订单（0为全部订单，1为已执行订单，2为未执行订单，3为异常订单，4为撤销订单）
 		 * @param hotelID String,酒店id
 		 * @param orderstate int,订单的状态
 		 * @return List<OrderPO> 订单列表
 		 */
+		
 		public List<OrderPO> findByHotelID(String hotelID,int orderstate) throws RemoteException;
 		/**
 		 * 生成一个随机的订单编号
