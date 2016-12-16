@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
+Built-By: LZ
+=======
 Built-By: zongkan
+>>>>>>> 74e0c797b8cf2bbe5103c2f6da412ae53603fe7c
 Build-Jdk: 1.8.0_74
 Created-By: Maven Integration for Eclipse
 
