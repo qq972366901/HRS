@@ -605,16 +605,15 @@ public class OrderBuildView extends JPanel{
 					   }
 					   Calendar calin=Calendar.getInstance();
 					   calin.set(Calendar.YEAR,(int)comboBox1.getSelectedItem());
-					   calin.set(Calendar.MONTH,(int)comboBox2.getSelectedItem());
+					   calin.set(Calendar.MONTH,(int)comboBox2.getSelectedItem()-1);
 					   calin.set(Calendar.DAY_OF_MONTH,(int)comboBox3.getSelectedItem());     
 					   Calendar calout=Calendar.getInstance();
 					   calout.set(Calendar.YEAR,(int)comboBox4.getSelectedItem());
-					   calout.set(Calendar.MONTH,(int)comboBox5.getSelectedItem());
+					   calout.set(Calendar.MONTH,(int)comboBox5.getSelectedItem()-1);
 					   calout.set(Calendar.DAY_OF_MONTH,(int)comboBox6.getSelectedItem());  
 					   controller.updateRoomState(controller.getHotelID(),(String)comboBox10.getSelectedItem(),selected);
 					   OrderVO ordervo=new OrderVO(controller.getHotelID(),controller.getUserID(),orderid,2,price,(int)comboBox12.getSelectedItem(),children,(String)comboBox10.getSelectedItem(),selected,calin,calout,calin,null,cal,null,0);
 					   controller.saveOrderInfo(ordervo);
-					   System.out.println("2");
 			
 					   label17.setText("已为你选择了最低的优惠策略，打折后总计"+price+"元，订单号为"+orderid);
 					   comboBox1.setEnabled(false);

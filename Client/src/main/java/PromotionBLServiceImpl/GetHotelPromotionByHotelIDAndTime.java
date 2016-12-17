@@ -78,7 +78,7 @@ public class GetHotelPromotionByHotelIDAndTime {
 		Date date1=cal1.getTime(); 
 		Date date2=cal2.getTime(); 
 		Date date3=cal3.getTime(); 
-	if(date3.getTime()>date1.getTime()&&date3.getTime()<date2.getTime()) {
+	if(date3.getTime()>=date1.getTime()&&date3.getTime()<=date2.getTime()) {
 			outcome = true;
 		}
 		return outcome;
