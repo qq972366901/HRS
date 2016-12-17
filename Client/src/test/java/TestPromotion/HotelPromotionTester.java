@@ -72,7 +72,7 @@ public class HotelPromotionTester {
 		cal3.set(Calendar.YEAR,2016);
 		cal3.set(Calendar.MONTH,11);
 		cal3.set(Calendar.DAY_OF_MONTH,30);
-		int discount=(int)(GetHotelPromotionDiscount.getGetHotelPromotionDiscountInstance().getHotelPromotionDiscount("ff5b036f06cb0e0cf6c5cca27ec17949","84da1cbf3a41ae26",4,cal3)*100);
+		int discount=(int)(GetHotelPromotionDiscount.getGetHotelPromotionDiscountInstance().getHotelPromotionDiscount("ff5b036f06cb0e0cf6c5cca27ec17949","84da1cbf3a41ae26",4,cal3,cal1,cal2)*100);
 		assertEquals(81,discount);
 	}
 	

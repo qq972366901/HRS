@@ -87,8 +87,8 @@ public class OrderBuildUiController implements OrderBuildUiService{
 		return promotion.getWebPromotionDiscount(userid,city,bussinesscircle,orderbuildtime);
 		
 	}
-	public double getHotelPromotionDiscount(String hotelid,String userid,int roomNumber,Calendar orderbuildtime) throws RemoteException{
-		return promotion.getHotelPromotionDiscount(hotelid,userid,roomNumber,orderbuildtime);
+	public double getHotelPromotionDiscount(String hotelid,String userid,int roomNumber,Calendar orderbuildtime,Calendar begintime,Calendar endtime) throws RemoteException{
+		return promotion.getHotelPromotionDiscount(hotelid,userid,roomNumber,orderbuildtime,begintime,endtime);
 		
 	}
 	public HotelVO findByHotelID(String hoteid){

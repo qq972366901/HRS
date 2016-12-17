@@ -582,7 +582,7 @@ public class OrderBuildView extends JPanel{
 					}
 					 double hoteldiscount =1;
 					try {
-						hoteldiscount = controller.getHotelPromotionDiscount(controller.getHotelID(),controller.getUserID(),selected,cal);
+						hoteldiscount = controller.getHotelPromotionDiscount(controller.getHotelID(),controller.getUserID(),selected,cal,cal1,cal2);
 					} catch (RemoteException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
