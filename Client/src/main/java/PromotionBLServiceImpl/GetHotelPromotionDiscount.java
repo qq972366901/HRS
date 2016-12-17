@@ -63,13 +63,31 @@ public class GetHotelPromotionDiscount {
 		discount=hpvo.discount/10;
 		UserVO vo1=Customer.getUserInstance().findByID(userID);
 		Calendar birthday=vo1.birthday;
-		String membertype=vo1.membertype;
-		if(birthday.compareTo(hpvo. promotionBegintime)>=0&&birthday.compareTo(hpvo. promotionEndtime)<=0){
+		Calendar cal1=Calendar.getInstance();
+		Calendar cal2=Calendar.getInstance();
+		Calendar cal3=Calendar.getInstance();
+		int year1=hpvo.promotionBegintime.get(Calendar.YEAR);
+		int month1=hpvo.promotionBegintime.get(Calendar.MONTH);
+		int day1=hpvo.promotionBegintime.get(Calendar.DAY_OF_MONTH);
+		cal1.set(year1,month1,day1);
+		int year2=hpvo.promotionEndtime.get(Calendar.YEAR);
+	    int month2=hpvo.promotionEndtime.get(Calendar.MONTH);
+		int day2=hpvo.promotionEndtime.get(Calendar.DAY_OF_MONTH);
+	    cal2.set(year2,month2,day2);
+	    int year3=birthday.get(Calendar.YEAR);
+	    int month3=birthday.get(Calendar.MONTH);
+		int day3=birthday.get(Calendar.DAY_OF_MONTH);
+		cal3.set(year3,month3,day3);
+		Date date1=cal1.getTime(); 
+		Date date2=cal2.getTime(); 
+		Date date3=cal3.getTime(); 
+	if(date3.getTime()>=date1.getTime()&&date3.getTime()<=date2.getTime()) {
 			discount=discount*(hpvo.birthdayDiscount/10);
 		}
 		if(roomNumber>=3){
 			discount=discount*(hpvo.roomDiscount/10);
 		}
+		String membertype=vo1.membertype;
 		if(membertype.equals("企业会员")){
 			discount=discount*(hpvo.enterpriseDiscount/10);
 		}
@@ -104,7 +122,7 @@ public class GetHotelPromotionDiscount {
 		Date date1=cal1.getTime(); 
 		Date date2=cal2.getTime(); 
 		Date date3=cal3.getTime();  
-	if(date3.getTime()>date1.getTime()&&date3.getTime()<date2.getTime()) {
+	if(date3.getTime()>=date1.getTime()&&date3.getTime()<=date2.getTime()) {
 			outcome = true;
 		}
 		return outcome;

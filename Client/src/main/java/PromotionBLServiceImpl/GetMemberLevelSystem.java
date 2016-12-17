@@ -36,7 +36,10 @@ public class GetMemberLevelSystem {
 		MemberLevelSystemVO vo=GetMemberLevelSystem.getMemberLevelSystemInstance().getMemberLevelSystem();
 		double[] discount=vo.discountOfLevel;
 		if(grade==0){
-			return 1;
+			return 10;
+		}
+		else if(grade==1){
+			return discount[0];
 		}
 		else if(grade==2){
 			return discount[1];

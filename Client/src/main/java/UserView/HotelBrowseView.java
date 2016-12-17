@@ -188,8 +188,14 @@ public class HotelBrowseView extends JPanel{
 	            state="撤销订单";
             }
 			inf.add(state);
-			inf.add(vo.expectedCheckIn);
-			inf.add(vo.expectedCheckOut);
+			int year1=vo.expectedCheckIn.get(Calendar.YEAR);
+			int month1=vo.expectedCheckIn.get(Calendar.MONTH)+1;
+			int day1=vo.expectedCheckIn.get(Calendar.DATE);
+			inf.add(year1+"/"+month1+"/"+day1);
+			int year2=vo.expectedCheckOut.get(Calendar.YEAR);
+			int month2=vo.expectedCheckOut.get(Calendar.MONTH)+1;
+			int day2=vo.expectedCheckOut.get(Calendar.DATE);
+			inf.add(year2+"/"+month2+"/"+day2);
 			inf.add(vo.roomType);
 			inf.add(vo.roomNumber);
 			inf.add(vo.orderValue);
