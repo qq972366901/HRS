@@ -48,9 +48,9 @@ public class GetHotelPromotionDiscount {
 	}
 	
 	public double getHotelPromotionDiscount(String hotelid,String userID,int roomNumber,Calendar orderbuildtime) throws RemoteException {
-		HotelPromotionVO  hpvo=new HotelPromotionVO();
+		HotelPromotionVO  hpvo=null;//=new HotelPromotionVO();
 		for(HotelPromotionVO vo : voList) {
-		if(getHotelPromotionDiscount.judgeHotel(vo,hotelid) &&getHotelPromotionDiscount.judgeTime(vo,orderbuildtime)) {				
+			if(getHotelPromotionDiscount.judgeHotel(vo,hotelid) &&getHotelPromotionDiscount.judgeTime(vo,orderbuildtime)) {				
 			    hpvo=vo;
 				break;
 			}

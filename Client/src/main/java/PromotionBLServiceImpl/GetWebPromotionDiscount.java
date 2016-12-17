@@ -42,7 +42,7 @@ public class GetWebPromotionDiscount {
 		}
 		
 		public double getWebPromotionDiscount(String userID,String city,String bussinesscircle,Calendar orderbuildtime) throws RemoteException {
-			WebPromotionVO  wpvo=new WebPromotionVO();
+			WebPromotionVO  wpvo=null;
 			int grade=Credit.getInstance().showLevel(userID);
 			MemberLevelSystemVO vo2=GetMemberLevelSystem.getMemberLevelSystemInstance().getMemberLevelSystem();
 			for(WebPromotionVO vo : voList) {
