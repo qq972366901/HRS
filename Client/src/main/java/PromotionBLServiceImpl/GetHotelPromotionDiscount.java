@@ -46,9 +46,9 @@ public class GetHotelPromotionDiscount {
 		}
 		return getHotelPromotionDiscount;
 	}
-	
-	public double getHotelPromotionDiscount(String hotelid,String userID,int roomNumber,Calendar orderbuildtime) throws RemoteException {
-		HotelPromotionVO  hpvo=null;//=new HotelPromotionVO();
+
+	public double getHotelPromotionDiscount(String hotelid,String userID,int roomNumber,Calendar orderbuildtime,Calendar begintime,Calendar endtime) throws RemoteException {
+		HotelPromotionVO  hpvo=null;
 		for(HotelPromotionVO vo : voList) {
 			if(getHotelPromotionDiscount.judgeHotel(vo,hotelid) &&getHotelPromotionDiscount.judgeTime(vo,orderbuildtime)) {				
 			    hpvo=vo;
@@ -56,7 +56,7 @@ public class GetHotelPromotionDiscount {
 			}
 		}
 		double discount;
-		if(hpvo==null){
+		if(hpvo.hotelID==null){
 			discount=1;
 		}
 		else{
@@ -66,13 +66,13 @@ public class GetHotelPromotionDiscount {
 		Calendar cal1=Calendar.getInstance();
 		Calendar cal2=Calendar.getInstance();
 		Calendar cal3=Calendar.getInstance();
-		int year1=hpvo.promotionBegintime.get(Calendar.YEAR);
-		int month1=hpvo.promotionBegintime.get(Calendar.MONTH);
-		int day1=hpvo.promotionBegintime.get(Calendar.DAY_OF_MONTH);
+		int year1=begintime.get(Calendar.YEAR);
+		int month1=begintime.get(Calendar.MONTH);
+		int day1=begintime.get(Calendar.DAY_OF_MONTH);
 		cal1.set(year1,month1,day1);
-		int year2=hpvo.promotionEndtime.get(Calendar.YEAR);
-	    int month2=hpvo.promotionEndtime.get(Calendar.MONTH);
-		int day2=hpvo.promotionEndtime.get(Calendar.DAY_OF_MONTH);
+		int year2=endtime.get(Calendar.YEAR);
+	    int month2=endtime.get(Calendar.MONTH);
+		int day2=endtime.get(Calendar.DAY_OF_MONTH);
 	    cal2.set(year2,month2,day2);
 	    int year3=birthday.get(Calendar.YEAR);
 	    int month3=birthday.get(Calendar.MONTH);

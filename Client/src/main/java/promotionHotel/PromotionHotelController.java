@@ -24,8 +24,8 @@ public class PromotionHotelController {
 	 * 得到在下订单时客户能获得的酒店营销策略折扣
 	 * @throws RemoteException 
      */
-	public double getHotelPromotionDiscount(String hotelid,String userID,int roomNumber,Calendar orderbuildtime) throws RemoteException {
-		return GetHotelPromotionDiscount.getGetHotelPromotionDiscountInstance().getHotelPromotionDiscount(hotelid,userID,roomNumber,orderbuildtime);
+	public double getHotelPromotionDiscount(String hotelid,String userID,int roomNumber,Calendar orderbuildtime,Calendar begintime,Calendar endtime) throws RemoteException {
+		return GetHotelPromotionDiscount.getGetHotelPromotionDiscountInstance().getHotelPromotionDiscount(hotelid,userID,roomNumber,orderbuildtime,begintime,endtime);
 	}
 	/**
 	 * 通过酒店ID查找酒店策略

@@ -26,7 +26,7 @@ public interface PromotionBLService {
 	 * 得到在下订单时客户能获得的酒店营销策略折扣
 	 * @throws RemoteException 
      */
-	public double getHotelPromotionDiscount(String hotelid,String userID,int roomNumber,Calendar orderbuildtime) throws RemoteException;
+	public double getHotelPromotionDiscount(String hotelid,String userID,int roomNumber,Calendar orderbuildtime,Calendar begintime,Calendar endtime) throws RemoteException;
 	/**
      * 添加一种新的网站营销策略，并公布
      * 

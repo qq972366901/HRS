@@ -198,7 +198,7 @@ public class HotelBrowseView extends JPanel{
 			inf.add(year2+"/"+month2+"/"+day2);
 			inf.add(vo.roomType);
 			inf.add(vo.roomNumber);
-			inf.add(vo.orderValue);
+			inf.add(vo.orderValue+"元");
 			inf.add(vo.score);
 			data1.add(inf);
 		}
