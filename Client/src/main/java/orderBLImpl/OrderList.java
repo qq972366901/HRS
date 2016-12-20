@@ -40,7 +40,6 @@ public class OrderList {
    		    List<OrderVO> volist=new ArrayList<OrderVO>();
    		switch(Type){
    		case "ALL":polist=orderData.findByUserID(userID, 0);
-   		           System.out.println(polist.size());
    				   break;
    		case "UnDone":polist=orderData.findByUserID(userID, 2);
 		           break;

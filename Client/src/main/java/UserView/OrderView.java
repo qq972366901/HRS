@@ -127,6 +127,7 @@ public class OrderView extends JPanel {
 		Columns.add("价值");
 		Columns.add("房间详情");
 		Columns.add("预订入住时间");
+		Columns.add("最晚入住时间");
 		Columns.add("评分");
 		model=new DefaultTableModel(Data,Columns);
 		table = new JTable(model){
