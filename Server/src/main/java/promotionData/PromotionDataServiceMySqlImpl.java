@@ -33,6 +33,7 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
 	private static final long serialVersionUID = 1L;
 	private DataHelperFactory datafactory;
 	private HashMap<String,PromotionPO> promotion;
+	private HashMap<String,Vector<PromotionPO>> hotelpromotion;
 	private PromotionDataHelper helper;
 	
 	
@@ -76,10 +77,15 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
 			}
 		}
 		else if(po.getHotelID()!=null){
-			//if(!promotion.containsKey(po.getHotelID())){
-				promotion.put(po.getHotelID(), po);
-				helper.insert(po);
-			//}
+			Vector<PromotionPO> list3=new Vector<PromotionPO>();
+			if(hotelpromotion.get(po.getHotelID())!=null){
+				for(PromotionPO hotelpo : hotelpromotion.get(po.getHotelID())){
+				      list3.add(hotelpo);	
+				}
+				}
+		      list3.add(po);
+		 hotelpromotion.put(po.getHotelID(),list3);
+		 helper.insert(po);
 		}
 		else{
 			if(!promotion.containsKey("会员等级系统")){
@@ -132,6 +138,7 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
 		datafactory=new DataHelperFactoryImpl();
 		helper=datafactory.getPromotionDataHelper();
 		promotion=new HashMap<String,PromotionPO>();
+		hotelpromotion=new HashMap<String,Vector<PromotionPO>>();
 		List<PromotionPO> list1=new ArrayList<PromotionPO>();
 		List<PromotionPO> list2=new ArrayList<PromotionPO>();
 		list1=helper.getAllWebPromotion();
@@ -140,18 +147,30 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
 		for(int i=0;i<list1.size();i++){
 			promotion.put(list1.get(i).getPromotionNumber(), list1.get(i));
 		}
-		for(int i=0;i<list2.size();i++){
-			promotion.put(list2.get(i).getHotelID(), list2.get(i));
+		for(PromotionPO hpo : list2){
+			hotelpromotion.put(hpo.getHotelID(),null);
+		}
+		for(PromotionPO hpo : list2){
+			String hotelid=hpo.getHotelID();
+			if(hotelpromotion.containsKey(hotelid)){
+			Vector<PromotionPO> list3=new Vector<PromotionPO>();
+			if(hotelpromotion.get(hotelid)!=null){
+			for(PromotionPO hotelpo : hotelpromotion.get(hotelid)){
+			      list3.add(hotelpo);	
+			}
+			}
+			list3.add(hpo);
+			hotelpromotion.put(hotelid,list3);
+			}
 		}
 		promotion.put("会员等级系统", po);
 	}
 	/**
 	 *得到所有的酒店策略
 	 */
-    public List<PromotionPO> getAllHotelPromotion(){
-    	List<PromotionPO> list=new Vector<PromotionPO>();
-		for (Map.Entry<String,PromotionPO> entry : promotion.entrySet()) {
-			if(entry.getValue().getHotelID()!=null)
+    public List<Vector<PromotionPO>> getAllHotelPromotion(){
+    	List<Vector<PromotionPO>> list=new ArrayList<Vector<PromotionPO>>();
+		for (Map.Entry<String,Vector<PromotionPO>> entry : hotelpromotion.entrySet()) {
 				list.add(entry.getValue());
         }
 		return list;
@@ -161,7 +180,7 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
 	 *得到所有的网站策略
 	 */
 	    public List<PromotionPO> getAllWebPromotion(){
-	    	List<PromotionPO> list=new Vector<PromotionPO>();
+	    	List<PromotionPO> list=new ArrayList<PromotionPO>();
 			for (Map.Entry<String,PromotionPO> entry : promotion.entrySet()) {
 				if(entry.getValue().getPromotionNumber()!=null)
 					list.add(entry.getValue());

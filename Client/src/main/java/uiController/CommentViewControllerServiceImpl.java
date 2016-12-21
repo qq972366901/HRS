@@ -91,6 +91,7 @@ public class CommentViewControllerServiceImpl implements CommentViewService{
 	@Override
 	public void comment(String score, String comment) {
 		order.updatecomment(comment, Integer.parseInt(score), OrderID);
+		hotel.changeHotelScore(order.showDetail(OrderID).hotelID,Integer.parseInt(score));
 		try {
 			view.exit();
 		} catch (RemoteException e) {
@@ -112,5 +113,12 @@ public class CommentViewControllerServiceImpl implements CommentViewService{
 		list.add(sdf.format(vo.expectedCheckIn.getTime()));
 		list.add(sdf.format(vo.expectedCheckOut.getTime()));
 		return list;
+	}
+	public void changeHotelScore(String hotelid, int score){
+		hotel.changeHotelScore(hotelid,score);
+	}
+	public String getHotelID(){
+		OrderVO vo=order.showDetail(OrderID);
+		return vo.hotelID;
 	}
 }

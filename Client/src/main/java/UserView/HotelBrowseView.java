@@ -5,6 +5,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Vector;
 
@@ -76,9 +78,8 @@ public class HotelBrowseView extends JPanel{
 		panel11.add(label11);
 		this.add(panel11);
 		JPanel panel12= new JPanel();		
-		panel12.setLayout(new FlowLayout(FlowLayout.LEFT));
+		panel12.setLayout(new FlowLayout(FlowLayout.LEFT));		
 		List<String> typelist=controller.getRoomType(hotelid);
-		System.out.println(typelist);
 		String type ="";
 		for(String tp : typelist){
 			type=type+tp+" ";
@@ -130,11 +131,12 @@ public class HotelBrowseView extends JPanel{
 		JPanel panel8= new JPanel();
 		panel8.setLayout(new FlowLayout(FlowLayout.LEFT));
 		String promotion;
-		if(controller.getHotelPromotionByHotelID(hotelid).promotionName==null){
-			promotion="无";
+		Calendar cal=Calendar.getInstance();
+		if(controller.getHotelPromotionByHotelIDAndTime(hotelid,cal).promotionName==null){
+			promotion="暂无";
 		}
 		else{
-			promotion=controller.getHotelPromotionByHotelID(hotelid).promotionName;
+			promotion=controller.getHotelPromotionByHotelIDAndTime(hotelid,cal).promotionName+" "+controller.getHotelPromotionByHotelIDAndTime(hotelid,cal).discount+"折起";
 		}
 		label8=new JLabel("酒店营销策略："+promotion);
 		panel8.add(label8);
@@ -154,7 +156,7 @@ public class HotelBrowseView extends JPanel{
 	private void initTable() {
 		JPanel panel1=new JPanel();
 		panel1.setLayout(new FlowLayout(FlowLayout.LEFT));
-		JLabel label1=new JLabel("历史订单：");
+		JLabel label1=new JLabel("你在该酒店的历史订单：");
 		panel1.add(label1);
 		this.add(panel1);
         JScrollPane scrollPane1 = new JScrollPane();  
@@ -186,11 +188,17 @@ public class HotelBrowseView extends JPanel{
 	            state="撤销订单";
             }
 			inf.add(state);
-			inf.add(vo.expectedCheckIn);
-			inf.add(vo.expectedCheckOut);
+			int year1=vo.expectedCheckIn.get(Calendar.YEAR);
+			int month1=vo.expectedCheckIn.get(Calendar.MONTH)+1;
+			int day1=vo.expectedCheckIn.get(Calendar.DATE);
+			inf.add(year1+"/"+month1+"/"+day1);
+			int year2=vo.expectedCheckOut.get(Calendar.YEAR);
+			int month2=vo.expectedCheckOut.get(Calendar.MONTH)+1;
+			int day2=vo.expectedCheckOut.get(Calendar.DATE);
+			inf.add(year2+"/"+month2+"/"+day2);
 			inf.add(vo.roomType);
 			inf.add(vo.roomNumber);
-			inf.add(vo.orderValue);
+			inf.add(vo.orderValue+"元");
 			inf.add(vo.score);
 			data1.add(inf);
 		}

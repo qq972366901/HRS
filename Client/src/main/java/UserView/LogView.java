@@ -100,6 +100,7 @@ public class LogView extends JPanel {
 		panel3 = new JPanel();
 		panel3.setLayout(new FlowLayout(FlowLayout.CENTER));
 		panel.add(panel3);
+		controller.updateOrderState();
 		init_optionpannel();
 		init_loginpannel();	
 	}

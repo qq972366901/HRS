@@ -20,8 +20,8 @@ public interface OrderBuildUiService {
 	public List<String> getRoomType(String hotelid);
 	public int getMaxRoomNumber(String hotelid, String roomType);
 	public int getOrderPrice(String hotelid, String roomType, int roomNumber);
-	public double getWebPromotionDiscount(String userID,String city,String bussinesscircle,Calendar orderbuildtime);
-	public double getHotelPromotionDiscount(String hotelid,String userID,int roomNumber,Calendar orderbuildtime);
+	public double getWebPromotionDiscount(String userID,String city,String bussinesscircle,Calendar orderbuildtime) throws RemoteException;
+	public double getHotelPromotionDiscount(String hotelid,String userID,int roomNumber,Calendar orderbuildtime,Calendar begintime,Calendar endtime) throws RemoteException;
 	public HotelVO findByHotelID(String hotelID);
 	public long showCredit(String userID);
 }

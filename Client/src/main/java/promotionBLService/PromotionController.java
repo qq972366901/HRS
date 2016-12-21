@@ -46,16 +46,12 @@ public class PromotionController implements PromotionBLService {
 	}
 
 	/**
+	 * @throws RemoteException 
 	 * 得到在下订单时客户能获得的酒店营销策略折扣
 	 * @throws  
      */
-	public double getHotelPromotionDiscount(String hotelid,String userID,int roomNumber,Calendar orderbuildtime){
-		try {
-			return promotionHotelController.getHotelPromotionDiscount(hotelid,userID,roomNumber,orderbuildtime);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		return 1;
+	public double getHotelPromotionDiscount(String hotelid,String userID,int roomNumber,Calendar orderbuildtime,Calendar begintime,Calendar endtime) throws RemoteException{
+			return promotionHotelController.getHotelPromotionDiscount(hotelid,userID,roomNumber,orderbuildtime,begintime,endtime);
 	}
 	/**
      * 添加一种新的网站营销策略，并公布
@@ -86,21 +82,16 @@ public class PromotionController implements PromotionBLService {
 	/**
 	 * 通过酒店ID查找酒店策略
      */
-	public HotelPromotionVO getHotelPromotionByHotelID(String hotelid){
-		return promotionHotelController.getHotelPromotionByHotelID(hotelid);
+	public HotelPromotionVO getHotelPromotionByHotelIDAndTime(String hotelid,Calendar time){
+		return promotionHotelController.getHotelPromotionByHotelIDAndTime(hotelid,time);
 	}
 	/**
+	 * @throws RemoteException 
 	 * 得到在下订单时客户能获得的网站营销策略折扣
 	 * @throws  
      */
-	public double getWebPromotionDiscount(String userID,String city,String bussinesscircle,Calendar orderbuildtime){
-		try {
+	public double getWebPromotionDiscount(String userID,String city,String bussinesscircle,Calendar orderbuildtime) throws RemoteException{
 			return promotionWebController.getWebPromotionDiscount(userID,city,bussinesscircle,orderbuildtime);
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return 1;
 	}
 	/**
 	 * 根据策略编号删除策略

@@ -1,6 +1,7 @@
 package uiService;
 
 import java.rmi.RemoteException;
+import java.util.Calendar;
 import java.util.List;
 
 import UserView.HotelBrowseView;
@@ -17,7 +18,7 @@ public interface HotelBrowseUiService {
 	public String getUserID();
 	public String getHotelID();
 	public List<String> getRoomType(String hotelid);
-	public HotelPromotionVO getHotelPromotionByHotelID(String hotelid);
+	public HotelPromotionVO getHotelPromotionByHotelIDAndTime(String hotelid,Calendar time);
 	public long getRoomPrice(String hotelid,String roomType);
 	public List<OrderVO> getFinishedOrders(String hotelId) ;
 }

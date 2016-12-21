@@ -451,7 +451,11 @@ public class OrderBuildView extends JPanel{
 				Calendar cal2=Calendar.getInstance();
 				cal1.set((int)comboBox1.getSelectedItem(),(int)comboBox2.getSelectedItem(),(int) comboBox3.getSelectedItem());
 				cal2.set((int)comboBox4.getSelectedItem(),(int)comboBox5.getSelectedItem(),(int) comboBox6.getSelectedItem());
-			
+			    
+			    long milliseconds1 = cal1.getTimeInMillis();  
+			    long milliseconds2 = cal2.getTimeInMillis();  
+			    long between_days=(milliseconds2-milliseconds1)/(1000*3600*24);        
+				
 				Date date1=cal1.getTime();
 				Date date2=cal2.getTime();
 				
@@ -569,10 +573,20 @@ public class OrderBuildView extends JPanel{
 					 int selected=(int)comboBox11.getSelectedItem();
 					 int price=controller.getOrderPrice(controller.getHotelID(),(String)comboBox10.getSelectedItem(),selected);
 					 HotelVO vo=controller.findByHotelID(controller.getHotelID());
-					 double webdiscount=controller.getWebPromotionDiscount(controller.getUserID(),vo.hotelCity,vo.hotelDistrict,cal);
-
-					 double hoteldiscount=controller.getHotelPromotionDiscount(controller.getHotelID(),controller.getUserID(),selected,cal);
-					 System.out.println("六");
+					 double webdiscount =1;
+					try {
+						webdiscount = controller.getWebPromotionDiscount(controller.getUserID(),vo.hotelCity,vo.hotelDistrict,cal);
+					} catch (RemoteException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					 double hoteldiscount =1;
+					try {
+						hoteldiscount = controller.getHotelPromotionDiscount(controller.getHotelID(),controller.getUserID(),selected,cal,cal1,cal2);
+					} catch (RemoteException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 					 double discount=1;
 					 if(webdiscount>=hoteldiscount){
 						 discount=hoteldiscount;
@@ -580,8 +594,8 @@ public class OrderBuildView extends JPanel{
 					 else{
 						 discount=webdiscount;
 					 }
-					 price=(int) (price*discount);
-					int option = JOptionPane.showConfirmDialog(pane,"你的订单总计"+price+"元"+"\n确认提交？","", JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE, null);
+					 price=(int) (price*discount*(Integer.parseInt(String.valueOf(between_days))));
+					int option = JOptionPane.showConfirmDialog(pane,"     你的订单总计"+price+"元"+"\n            确认提交？","", JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE, null);
 					     switch (option) {
 					     case JOptionPane.YES_OPTION:
 					   String orderid=UUID.randomUUID().toString().substring(0, 8);
@@ -591,15 +605,16 @@ public class OrderBuildView extends JPanel{
 					   }
 					   Calendar calin=Calendar.getInstance();
 					   calin.set(Calendar.YEAR,(int)comboBox1.getSelectedItem());
-					   calin.set(Calendar.MONTH,(int)comboBox2.getSelectedItem());
+					   calin.set(Calendar.MONTH,(int)comboBox2.getSelectedItem()-1);
 					   calin.set(Calendar.DAY_OF_MONTH,(int)comboBox3.getSelectedItem());     
 					   Calendar calout=Calendar.getInstance();
 					   calout.set(Calendar.YEAR,(int)comboBox4.getSelectedItem());
-					   calout.set(Calendar.MONTH,(int)comboBox5.getSelectedItem());
-					   calout.set(Calendar.DAY_OF_MONTH,(int)comboBox6.getSelectedItem());     
+					   calout.set(Calendar.MONTH,(int)comboBox5.getSelectedItem()-1);
+					   calout.set(Calendar.DAY_OF_MONTH,(int)comboBox6.getSelectedItem());  
+					   controller.updateRoomState(controller.getHotelID(),(String)comboBox10.getSelectedItem(),selected);
 					   OrderVO ordervo=new OrderVO(controller.getHotelID(),controller.getUserID(),orderid,2,price,(int)comboBox12.getSelectedItem(),children,(String)comboBox10.getSelectedItem(),selected,calin,calout,calin,null,cal,null,0);
 					   controller.saveOrderInfo(ordervo);
-					   controller.updateRoomState(controller.getHotelID(),(String)comboBox10.getSelectedItem(),selected);
+			
 					   label17.setText("已为你选择了最低的优惠策略，打折后总计"+price+"元，订单号为"+orderid);
 					   comboBox1.setEnabled(false);
 					   comboBox2.setEnabled(false);

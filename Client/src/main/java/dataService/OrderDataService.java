@@ -18,6 +18,10 @@ public interface OrderDataService  extends DataService,Remote{
  * @return 返回ResultMessage枚举的一项
  * @see data.Order
  */
+	/**
+	 * 更新订单的状态，将超时的订单设置为异常
+	 */
+	public List<OrderPO> updateOrderState()throws RemoteException;
 		public OrderPO find(String id) throws RemoteException ;
 		/**
 		 * 找到一个客户的所有制定类型的订单（0为全部订单，1为已执行订单，2为未执行订单，3为异常订单，4为撤销订单）
