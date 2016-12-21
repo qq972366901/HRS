@@ -1,6 +1,7 @@
 package UserView;
 
 import java.awt.FlowLayout;
+import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;
@@ -77,18 +78,18 @@ public class InformationView extends JPanel {
         panel_22=new JPanel();
         panel_22.setLayout(new FlowLayout(FlowLayout.CENTER));
         this.add(panel_22);
-        birth = new JLabel("\u751F\u65E5 \uFF1A"+Data.get(1));
+        birth = new JLabel("\u751F\u65E5      :"+" "+Data.get(1)+"    ");
         panel_22.add(birth);
         panel_23=new JPanel();
         panel_23.setLayout(new FlowLayout(FlowLayout.CENTER));
         this.add(panel_23);
         
-        tel = new JLabel("联系方式 ："+Data.get(2));
+        tel = new JLabel("联系方式  :"+" "+Data.get(2)+"   ");
         panel_23.add(tel);
         panel_24=new JPanel();
         panel_24.setLayout(new FlowLayout(FlowLayout.CENTER));
         this.add(panel_24);
-        enterprise = new JLabel("公司 ："+Data.get(3));
+        enterprise = new JLabel("公司      :"+" "+Data.get(3)+"    ");
         panel_24.add(enterprise);
         panel_25=new JPanel();
         panel_25.setLayout(new FlowLayout(FlowLayout.CENTER));
@@ -117,14 +118,14 @@ public class InformationView extends JPanel {
         			}
         		});
         		panel.add(back);
-        		name = new JLabel("姓名 :"+Data.get(0));
+        		name = new JLabel("姓名      :"+" "+Data.get(0)+"    ");
         		panel_1.add(name);
-		type = new JLabel("会员种类 ："+Data.get(4));
+		type = new JLabel("会员种类  :"+" "+Data.get(4)+"    ");
 		panel_25.add(type);
-		level = new JLabel("会员等级 ："+Data.get(5));
+		level = new JLabel("会员等级  :"+" "+Data.get(5)+"    ");
 		panel_26.add(level);
 		
-		credit = new JLabel("信用值 ："+Data.get(6));
+		credit = new JLabel("信用值    :"+" "+Data.get(6)+"    ");
 		panel_27.add(credit);
 		
 		reviseinformation = new JButton("\u4FEE\u6539\u57FA\u672C\u4FE1\u606F");

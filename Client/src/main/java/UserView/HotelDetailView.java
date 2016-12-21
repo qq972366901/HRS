@@ -69,23 +69,23 @@ public class HotelDetailView extends JPanel{
 		add(panel);
 		add(panel1);
 		HotelVO vo=controller.findByhotelID(HotelID);
-		hotelName = new JLabel("酒店名称："+vo.hotelName);
+		hotelName = new JLabel("酒店名称       ："+vo.hotelName);
 		panel1.add(hotelName);
 		add(panel2);
 		
-		hotelCity = new JLabel("酒店所在城市："+vo.hotelCity);
+		hotelCity = new JLabel("酒店所在城市   ："+vo.hotelCity);
 		panel2.add(hotelCity);
 		add(panel3);
 		
-		hotelCirc = new JLabel("酒店所在商圈："+vo.hotelDistrict);
+		hotelCirc = new JLabel("酒店所在商圈   ："+vo.hotelDistrict);
 		panel3.add(hotelCirc);
 		add(panel4);
 		DecimalFormat    df   = new DecimalFormat("######0.00"); 
-		hotelScore = new JLabel("酒店评分："+df.format(vo.score));
+		hotelScore = new JLabel("酒店评分       ："+df.format(vo.score)+"     ");
 		panel4.add(hotelScore);
 		add(panel5);
 		
-		hotelStar = new JLabel("酒店星级："+vo.hotelStar);
+		hotelStar = new JLabel("酒店星级       ："+vo.hotelStar+"        ");
 		panel5.add(hotelStar);
 		add(panel6);
 		String key="";
@@ -95,19 +95,19 @@ public class HotelDetailView extends JPanel{
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		hotelTel = new JLabel("酒店联系方式："+DES.decryptDES(vo.hotelPhone,key));
+		hotelTel = new JLabel("酒店联系方式   ："+DES.decryptDES(vo.hotelPhone,key));
 		panel6.add(hotelTel);
 		add(panel7);
 		
-		hotelService = new JLabel("酒店服务："+vo.hotelService);
+		hotelService = new JLabel("酒店服务       ："+vo.hotelService);
 		panel7.add(hotelService);
 		add(panel8);
 		
-		hotelAddress = new JLabel("酒店地址："+vo.hotelAddress);
+		hotelAddress = new JLabel("酒店地址       ："+vo.hotelAddress);
 		panel8.add(hotelAddress);
 		add(panel9);
 		
-		hotelIntroduce = new JLabel("酒店介绍：");
+		hotelIntroduce = new JLabel("酒店介绍       ：");
 		panel9.add(hotelIntroduce);
 		
 		hotelin = new JLabel(vo.hotelProfile);

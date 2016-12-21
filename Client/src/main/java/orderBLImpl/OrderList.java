@@ -1,7 +1,9 @@
 package orderBLImpl;
 
 import java.rmi.RemoteException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import PO.CreditPO;
@@ -256,5 +258,22 @@ public class OrderList {
 			e.printStackTrace();
 			return null;
 		}
+	}
+	/**
+	 * 获取酒店的所有当天的未执行订单
+	 * @param String HotelID,酒店id
+	 * @return List<OrderVO> 订单列表
+	 */
+	public List<OrderVO> getNowadaysUnfinishedOrder(String HotelID){
+		List<OrderVO> list= showTypeHotelOrderList(HotelID, "Unfinished");
+		List<OrderVO> returnlist=new ArrayList<OrderVO>();
+		for(OrderVO vo:list){
+			Calendar in=vo.expectedCheckIn;
+			SimpleDateFormat sdf=new SimpleDateFormat("yyyy/MM/dd");
+			if(sdf.format(in.getTime()).equals(sdf.format(Calendar.getInstance().getTime()))){
+				returnlist.add(vo);
+			}
+		}
+		return returnlist; 
 	}
 }
