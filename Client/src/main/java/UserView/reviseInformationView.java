@@ -95,20 +95,23 @@ public class reviseInformationView extends JPanel {
 	}
 	public void init_information(){
 		
-		name = new JLabel("姓名 ：");
+		name = new JLabel("          姓名 ：");
 		panel_2.add(name);
 		
-		birth = new JLabel("\u751F\u65E5 \uFF1A");
+		
+		birth = new JLabel("          生日 ：");
 		panel_3.add(birth);
 		
-		tel = new JLabel("\u8054\u7CFB\u65B9\u5F0F \uFF1A");
+		tel = new JLabel("          联系方式 ：");
 		panel_4.add(tel );
-		enterprise = new JLabel("\u516C\u53F8 \uFF1A");
+		enterprise = new JLabel("          公司 ：");
 		panel_5.add(enterprise);
 		
 		nameinput = new JTextField();
 		nameinput.setColumns(10);
 		panel_2.add(nameinput);	
+		JLabel templ=new JLabel("              ");
+		panel_2.add(templ);
 		
 		new JLabel("生日");
 		label5_1 = new JLabel("年");
@@ -163,11 +166,14 @@ public class reviseInformationView extends JPanel {
 		telinput = new JTextField();
 		telinput.setColumns(10);
 		panel_4.add(telinput);	
+		JLabel templ2=new JLabel("                   ");
+		panel_4.add(templ2);
 		
 		enterpriseinput = new JTextField();
 		enterpriseinput.setColumns(10);
 		panel_5.add(enterpriseinput);
-		
+		JLabel templ3=new JLabel("               ");
+		panel_5.add(templ3);
 		updateinformation = new JButton("\u786E\u5B9A\u4FEE\u6539");
 		updateinformation.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

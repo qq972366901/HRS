@@ -6,9 +6,11 @@ import VO.HotelVO;
 import runner.ClientRunner;
 import uiController.HistroyHotelViewControllerImpl;
 import uiController.HotelorderlistViewControllerImpl;
+import uiController.OrderBuildUiController;
 import uiService.HistroyHotelViewControllerService;
 import uiService.HotelDetailUiService;
 import uiService.HotelorderlistViewControllerService;
+import uiService.OrderBuildUiService;
 import userBLServiceImpl.DES;
 import userBLServiceImpl.Log;
 
@@ -51,6 +53,7 @@ public class HotelDetailView extends JPanel{
 	private JLabel hotelIntroduce;
 	private JLabel hotelin;
 	private JButton intoOrderList;
+	private JButton btnNewButton;
 	public HotelDetailView(HotelDetailUiService controller) {
 		UserID=controller.getUserID();
 		HotelID=controller.getHotelID();
@@ -122,6 +125,14 @@ public class HotelDetailView extends JPanel{
 			}
 		});
 		panel10.add(intoOrderList);
+		
+		btnNewButton = new JButton("生成订单");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			       buildOrder();
+			}
+		});
+		panel10.add(btnNewButton);
 		this.controller=controller;
 		init_exit();
 		init_information();
@@ -153,5 +164,18 @@ public class HotelDetailView extends JPanel{
 		HotelorderlistView vie = new HotelorderlistView(con);
 		con.setView(vie);
 		ClientRunner.change(vie);
+    }
+    public void buildOrder(){	
+		try {
+			OrderBuildUiService controller= new OrderBuildUiController(UserID,HotelID,2);
+			OrderBuildView view=new OrderBuildView(controller);
+			controller.setView(view);
+			ClientRunner.change(view);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    	
     }
 }

@@ -20,10 +20,12 @@ import VO.OrderVO;
 import runner.ClientRunner;
 import uiController.HistroyHotelViewControllerImpl;
 import uiController.HotelDetailUiController;
+import uiController.OrderBuildUiController;
 import uiController.orderDetailViewControllerServiceImpl;
 import uiService.HistroyHotelViewControllerService;
 import uiService.HotelDetailUiService;
 import uiService.HotelorderlistViewControllerService;
+import uiService.OrderBuildUiService;
 import uiService.orderDetailViewControllerService;
 
 import javax.swing.BoxLayout;
@@ -46,6 +48,8 @@ public class HotelorderlistView extends JPanel {
 	private String UserID;
 	private String HotelID;
 	private JButton back2;
+	private JPanel panel2;
+	private JButton btnNewButton;
 	/**
 	 * Create the panel.
 	 */
@@ -56,6 +60,17 @@ public class HotelorderlistView extends JPanel {
         add(panel);
         panel_1=new JPanel(new FlowLayout(FlowLayout.LEFT));
         add(panel_1);
+        panel2=new JPanel(new FlowLayout(FlowLayout.CENTER));
+        add(panel2);
+        
+        btnNewButton = new JButton("生成订单");
+        btnNewButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		buildOrder();
+        	}
+        });
+        btnNewButton.setPreferredSize(new Dimension(80, 20));
+        panel2.add(btnNewButton);
 		init_exit();
 		UserID=controller.getUserID();
 		HotelID=controller.getHotelID();
@@ -87,6 +102,7 @@ public class HotelorderlistView extends JPanel {
 		hotelname.setText("");
 		panel_1.add(label);
 		panel_1.add(hotelname);
+		
 		Vector<OrderVO> Data=new Vector<OrderVO>();
 		Data.addAll(controller.getOrderList());
 		Vector<String> Columns=new Vector<String>();
@@ -163,4 +179,15 @@ public class HotelorderlistView extends JPanel {
 		con.setView(vie);
 		ClientRunner.change(vie);
 	}
+	 public void buildOrder(){	
+			try {
+				OrderBuildUiService controller= new OrderBuildUiController(UserID,HotelID,3);
+				OrderBuildView view=new OrderBuildView(controller);
+				controller.setView(view);
+				ClientRunner.change(view);
+			} catch (RemoteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
+	    }
 }
