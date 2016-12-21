@@ -18,12 +18,19 @@ import uiService.customerMainViewControllerService;
 
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
+import javax.swing.ListCellRenderer;
 import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.JList;
+
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 
 import javax.swing.BoxLayout;
+import javax.swing.DefaultListCellRenderer;
+
+import java.awt.Font;
 
 
 public class HistroyHotelView extends JPanel {
@@ -48,7 +55,7 @@ public class HistroyHotelView extends JPanel {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         panel=new JPanel(new FlowLayout(FlowLayout.RIGHT));
         add(panel);
-        panel_1=new JPanel(new FlowLayout(FlowLayout.LEFT));
+        panel_1=new JPanel(new FlowLayout(FlowLayout.CENTER));
         add(panel_1);
         id=controller.getUserID();
         init_exit();
@@ -74,15 +81,19 @@ public class HistroyHotelView extends JPanel {
 		ClientRunner.change(vie);
 	}
 	public void init_hotelname(){	
-		label = new JLabel("所有历史酒店");
+		label = new JLabel("所有历史酒店",JLabel.CENTER);
         panel_1.add(label);
 		
 		JScrollPane scrollPane = new JScrollPane();
         
-		scrollPane.setPreferredSize(new Dimension(1000,500));
+		scrollPane.setPreferredSize(new Dimension(600,400));
         name=new Vector<String>();
         name.addAll(controller.getHotelName(id));
 		list = new JList<String>(name);
+		DefaultListCellRenderer renderer=new DefaultListCellRenderer();
+        renderer.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
+        renderer.setBackground(Color.gray);
+        list.setCellRenderer(renderer);
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		list.addMouseListener(new MouseListener(){
 			@Override

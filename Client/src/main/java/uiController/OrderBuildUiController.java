@@ -8,7 +8,6 @@ import javax.swing.JPanel;
 
 import UserView.HotelBrowseView;
 import UserView.HotelDetailView;
-import UserView.HotelorderlistView;
 import UserView.LogView;
 import UserView.OrderBuildView;
 import UserView.orderDetailView;
@@ -25,7 +24,6 @@ import roomBLService.RoomBLServiceController;
 import runner.ClientRunner;
 import uiService.HotelBrowseUiService;
 import uiService.HotelDetailUiService;
-import uiService.HotelorderlistViewControllerService;
 import uiService.LoginViewControllerService;
 import uiService.OrderBuildUiService;
 import uiService.orderDetailViewControllerService;
@@ -77,12 +75,6 @@ public class OrderBuildUiController implements OrderBuildUiService{
 		else if(from==2){
 			HotelDetailUiService con =  new HotelDetailUiController(id2,id1);
 			HotelDetailView vie = new HotelDetailView(con);
-			con.setView(vie);
-			ClientRunner.change(vie);
-		}
-		else{
-			HotelorderlistViewControllerService con =  new HotelorderlistViewControllerImpl(id2,id1);
-			HotelorderlistView vie = new HotelorderlistView(con);
 			con.setView(vie);
 			ClientRunner.change(vie);
 		}

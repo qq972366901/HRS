@@ -75,7 +75,7 @@ public class orderDetailViewControllerServiceImpl implements orderDetailViewCont
 			list.add(sdf.format(vo.expectedCheckIn.getTime()));
 			list.add(sdf.format(vo.expectedCheckOut.getTime()));
 			if(vo.score==0){
-				list.add("");
+				list.add("未评价");
 			}
 			else{
 				list.add(""+vo.score);

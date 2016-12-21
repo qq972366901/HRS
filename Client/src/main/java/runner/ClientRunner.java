@@ -12,8 +12,8 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 import UserView.MemberRegisterView;
 import UserView.HotelBrowseView;
+import UserView.HotelDetailView;
 import UserView.HotelSearchView;
-import UserView.HotelorderlistView;
 import UserView.InformationView;
 import UserView.LogView;
 import UserView.OrderBuildView;
@@ -113,7 +113,7 @@ public class ClientRunner implements Serializable{
 		else if(view instanceof HistroyHotelView) {
 		mFrame.setTitle("历史酒店浏览");
 		}
-		else if(view instanceof HotelorderlistView) {
+		else if(view instanceof HotelDetailView) {
 		mFrame.setTitle("酒店订单浏览");
 		}
 	}
