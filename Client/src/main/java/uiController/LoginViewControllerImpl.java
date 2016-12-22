@@ -1,6 +1,9 @@
 package uiController;
 
 import java.rmi.RemoteException;
+import java.util.Calendar;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import UserView.LogView;
 import orderBLService.OrderBLService;
@@ -20,6 +23,16 @@ public class LoginViewControllerImpl implements LoginViewControllerService{
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
+    	Timer timer = new Timer();
+    	timer.schedule(new TimerTask() {
+    	        public void run() {
+    	            if((Calendar.getInstance().get(Calendar.HOUR_OF_DAY)==0)&&
+    	            		(Calendar.getInstance().get(Calendar.MINUTE)==0)&&
+                                (Calendar.getInstance().get(Calendar.SECOND)==0)){
+    	            	order.updateOrderState();
+    	            }
+    	        }
+    	}, 0 , 1000);
     }
 	@Override
 	public void setView(LogView view) {

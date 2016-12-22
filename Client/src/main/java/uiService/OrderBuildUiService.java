@@ -10,7 +10,7 @@ import VO.OrderVO;
 
 public interface OrderBuildUiService {
 	public void setView(OrderBuildView view);
-	public void toHotelBrowseView(String id1,String id2) throws RemoteException;
+	public void toHotelBrowseView(String id1,String id2,int from) throws RemoteException;
 	public  void saveOrderInfo(OrderVO vo);
 	public boolean whetherMake(int numsOfRoom,String RoomType,String hotelID);
 	public String getUserID();
@@ -24,4 +24,5 @@ public interface OrderBuildUiService {
 	public double getHotelPromotionDiscount(String hotelid,String userID,int roomNumber,Calendar orderbuildtime,Calendar begintime,Calendar endtime) throws RemoteException;
 	public HotelVO findByHotelID(String hotelID);
 	public long showCredit(String userID);
+	public int getfrom();
 }

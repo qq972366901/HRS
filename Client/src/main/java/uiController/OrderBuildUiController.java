@@ -7,8 +7,10 @@ import java.util.List;
 import javax.swing.JPanel;
 
 import UserView.HotelBrowseView;
+import UserView.HotelDetailView;
 import UserView.LogView;
 import UserView.OrderBuildView;
+import UserView.orderDetailView;
 import VO.HotelVO;
 import VO.OrderVO;
 import hotelBLService.HotelBLService;
@@ -21,8 +23,10 @@ import roomBLService.RoomBLService;
 import roomBLService.RoomBLServiceController;
 import runner.ClientRunner;
 import uiService.HotelBrowseUiService;
+import uiService.HotelDetailUiService;
 import uiService.LoginViewControllerService;
 import uiService.OrderBuildUiService;
+import uiService.orderDetailViewControllerService;
 import userBLService.UserBLService;
 import userBLService.UserBLServiceController;
 
@@ -36,7 +40,8 @@ public class OrderBuildUiController implements OrderBuildUiService{
 	private HotelBLService hotel;
 	private PromotionBLService promotion;
 	private UserBLService user;
-	public OrderBuildUiController(String userID,String hotelID) throws RemoteException{
+	private int from;
+	public OrderBuildUiController(String userID,String hotelID,int come) throws RemoteException{
 		this.order=new OrderBLServiceController();
 	    this.room=new RoomBLServiceController();
 	    this.hotel=new HotelBLServiceController();
@@ -44,9 +49,13 @@ public class OrderBuildUiController implements OrderBuildUiService{
 	    this.user=new UserBLServiceController();
 		this.userID=userID;
 		this.hotelID=hotelID;
+		this.from=come;
 	}
 	public String getUserID(){
 		return userID;
+	}
+	public int getfrom(){
+		return from;
 	}
 	public String getHotelID(){
 		return hotelID;
@@ -56,11 +65,19 @@ public class OrderBuildUiController implements OrderBuildUiService{
 		// TODO Auto-generated method stub
 		this.view=view;
 }
-	public void toHotelBrowseView(String id1,String id2) throws RemoteException{
+	public void toHotelBrowseView(String id1,String id2,int from) throws RemoteException{
+		if(from==1){
 		HotelBrowseUiService controller=new HotelBrowseUiController(id1,id2);
 		HotelBrowseView view=new HotelBrowseView(controller);
 		controller.setView(view);
 		ClientRunner.change(view);
+		}
+		else if(from==2){
+			HotelDetailUiService con =  new HotelDetailUiController(id2,id1);
+			HotelDetailView vie = new HotelDetailView(con);
+			con.setView(vie);
+			ClientRunner.change(vie);
+		}
 	}
 	public  void saveOrderInfo(OrderVO vo){
 		order.saveOrderInfo(vo);

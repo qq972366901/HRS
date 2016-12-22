@@ -1,9 +1,12 @@
 package uiController;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.List;
 
 import UserView.HotelDetailView;
 import VO.HotelVO;
+import VO.OrderVO;
 import hotelBLService.HotelBLService;
 import hotelBLService.HotelBLServiceController;
 import uiService.HotelDetailUiService;
@@ -33,12 +36,21 @@ public class HotelDetailUiController implements HotelDetailUiService {
 	public HotelVO findByhotelID(String hotelID) {
 		return hotel.findByHotelID(hotelID);
 	}
-	public void intoOrderList() {
-		try {
-			view .intoOrderList();
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	@Override
+	public List<OrderVO> getOrderList() {
+		List<OrderVO> list=new ArrayList<OrderVO>();
+		list=hotel.findByHotelIDAndUserID(UserID, HotelID);
+		for(OrderVO vo: list){
+			vo.addorderNumber();
+			vo.addorderState();
+			vo.addnumOfPerson();
+			vo.addorderValue();
+			vo.addroomType();
+			vo.addroomNumber();
+			vo.addexpectedCheckIn();
+			vo.addexpectedCheckOut();
+			vo.addscore();
 		}
+		return list;
 	}
 }

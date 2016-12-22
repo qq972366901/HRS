@@ -52,7 +52,7 @@ public class OrderBuildView extends JPanel{
 		button1.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent e) {
 				try {
-					controller.toHotelBrowseView(controller.getUserID(),controller.getHotelID());
+					controller.toHotelBrowseView(controller.getUserID(),controller.getHotelID(),controller.getfrom());
 				} catch (RemoteException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

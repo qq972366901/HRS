@@ -50,6 +50,7 @@ public class OrderViewControllerImpl implements OrderViewControllerService {
 			vo.addorderValue();
 			vo.addroomType();
 			vo.addexpectedCheckIn();
+			vo.addlatest();
 			vo.addscore();
 			list.add(vo);
 		}
@@ -93,6 +94,7 @@ public class OrderViewControllerImpl implements OrderViewControllerService {
 			vo.addorderValue();
 			vo.addroomType();
 			vo.addexpectedCheckIn();
+			vo.addlatest();
 			vo.addscore();
 			list.add(vo);
 		}

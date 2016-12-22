@@ -11,16 +11,16 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import runner.ClientRunner;
 import uiController.HotelDetailUiController;
-import uiController.HotelorderlistViewControllerImpl;
 import uiController.OrderViewControllerImpl;
 import uiService.HotelDetailUiService;
-import uiService.HotelorderlistViewControllerService;
 import uiService.OrderViewControllerService;
 import uiService.orderDetailViewControllerService;
 
+import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 
 import javax.swing.UIManager;
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 
 public class orderDetailView extends JPanel {
@@ -68,6 +68,7 @@ public class orderDetailView extends JPanel {
 	private JPanel panel9;
 	private JPanel panel10;
 	private String hotelid;
+	private Box box1,box2,box3,box4,box1_2,box1_3,box2_2,box2_3,box3_2,box3_3,box4_2,box4_3;
 	/**
 	 * Create the panel.
 	 */
@@ -80,30 +81,13 @@ public class orderDetailView extends JPanel {
         
         panel1=new JPanel(new FlowLayout(FlowLayout.CENTER));
         add(panel1);
-        
-        panel2=new JPanel(new FlowLayout(FlowLayout.CENTER));
-        add(panel2);
-        
-        panel3=new JPanel(new FlowLayout(FlowLayout.CENTER));
-        add(panel3);
-        
-        panel4=new JPanel(new FlowLayout(FlowLayout.CENTER));
-        add(panel4);
-        
-        panel5=new JPanel(new FlowLayout(FlowLayout.CENTER));
-        add(panel5);
-        
-        panel6=new JPanel(new FlowLayout(FlowLayout.CENTER));
-        add(panel6);
-        
-        panel7=new JPanel(new FlowLayout(FlowLayout.CENTER));
-        add(panel7);
-        
-        panel8=new JPanel(new FlowLayout(FlowLayout.CENTER));
-        add(panel8);
-        
-        panel9=new JPanel(new FlowLayout(FlowLayout.CENTER));
-        add(panel9);
+        box1=Box.createVerticalBox();
+        box2=Box.createVerticalBox();
+        box3=Box.createHorizontalBox();
+        box3.add(Box.createHorizontalStrut(25));
+        panel1.add(box1);
+        panel1.add(box3);
+        panel1.add(box2);
         
         panel10=new JPanel(new FlowLayout(FlowLayout.LEFT));
         add(panel10);
@@ -130,38 +114,67 @@ public class orderDetailView extends JPanel {
 		ClientRunner.change(vie);
 	}
 	public void exit2(){
-		HotelorderlistViewControllerService con =  new HotelorderlistViewControllerImpl(hotelid,UserID);
-		HotelorderlistView vie = new HotelorderlistView(con);
+		HotelDetailUiService con =  new HotelDetailUiController(hotelid,UserID);
+		HotelDetailView vie = new HotelDetailView(con);
 		con.setView(vie);
 		ClientRunner.change(vie);
 	}
 	public void init_detail(){
 		List<String> data=controller.getDetail();
-		hotelName = new JLabel("\u9152\u5E97\u540D\u79F0\uFF1A"+data.get(0));
-        panel1.add(hotelName);
+		hotelName = new JLabel("\u9152\u5E97\u540D\u79F0\uFF1A");
+        box1.add(hotelName);
+        box2.add(new JLabel(data.get(0)));
+        box1.add(Box.createVerticalStrut(30));
+        box2.add(Box.createVerticalStrut(30));
 		
-		hotelType = new JLabel("\u623F\u95F4\u7C7B\u578B\uFF1A"+data.get(1));
-		panel2.add(hotelType);
+		hotelType = new JLabel("\u623F\u95F4\u7C7B\u578B\uFF1A");
+		box1.add(hotelType);
+		box2.add(new JLabel(data.get(1)));
+		 box1.add(Box.createVerticalStrut(30));
+	        box2.add(Box.createVerticalStrut(30));
 		
-		orderID = new JLabel("\u8BA2\u5355\u53F7\uFF1A"+data.get(2));
-		panel3.add(orderID);
-		orderValue = new JLabel("\u8BA2\u5355\u4EF7\u683C\uFF1A"+data.get(3));
-		panel4.add(orderValue);
+		orderID = new JLabel("订单号  ：");
+		box1.add(orderID);
+		box2.add(new JLabel(data.get(2)));
+		 box1.add(Box.createVerticalStrut(30));
+	        box2.add(Box.createVerticalStrut(30));
 		
-		numOfPeople = new JLabel("\u4F4F\u623F\u4EBA\u6570\uFF1A"+data.get(4));
-		panel5.add(numOfPeople);
+		orderValue = new JLabel("\u8BA2\u5355\u4EF7\u683C\uFF1A");
+		box1.add(orderValue);
+		box2.add(new JLabel(data.get(3)));
+		 box1.add(Box.createVerticalStrut(30));
+	        box2.add(Box.createVerticalStrut(30));
 		
-		roomNumber = new JLabel("房间数量："+data.get(5));
-		panel6.add(roomNumber);
+		numOfPeople = new JLabel("\u4F4F\u623F\u4EBA\u6570\uFF1A");
+		box1.add(numOfPeople);
+		box2.add(new JLabel(data.get(4)));
+		 box1.add(Box.createVerticalStrut(30));
+	        box2.add(Box.createVerticalStrut(30));
 		
-		inTime = new JLabel("\u5165\u4F4F\u65F6\u95F4\uFF1A"+data.get(6));
-		panel7.add(inTime);
+		roomNumber = new JLabel("房间数量：");
+		box1.add(roomNumber);
+		box2.add(new JLabel(data.get(5)));
+		 box1.add(Box.createVerticalStrut(30));
+	        box2.add(Box.createVerticalStrut(30));
 		
-		lastTime = new JLabel("离开时间："+data.get(7));
-		panel8.add(lastTime);
+		inTime = new JLabel("\u5165\u4F4F\u65F6\u95F4\uFF1A");
+		box1.add(inTime);
+		box2.add(new JLabel(data.get(6)));
+		 box1.add(Box.createVerticalStrut(30));
+	        box2.add(Box.createVerticalStrut(30));
 		
-		score = new JLabel("\u8BC4\u5206\uFF1A"+data.get(8));
-		panel9.add(score);
+		lastTime = new JLabel("离开时间：");
+		box1.add(lastTime);
+		box2.add(new JLabel(data.get(7)));
+		 box1.add(Box.createVerticalStrut(30));
+	       box2.add(Box.createVerticalStrut(30));
+		
+		score = new JLabel("评分    ：");
+		box1.add(score);
+		box2.add(new JLabel(data.get(8)));
+		box1.add(Box.createVerticalStrut(30));
+		 box2.add(Box.createVerticalStrut(30));
+
 		
 		comment = new JLabel("\u8BC4\u4EF7\uFF1A");
 		panel10.add(comment);
