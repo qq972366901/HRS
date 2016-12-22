@@ -213,7 +213,8 @@ public class UserManagementView extends JPanel{
 				String	selected=(String)comboBox.getSelectedItem();
 				//需要判断账号是否存在
 				try {
-					key=Log.getLogInstance().getKey(textField2.getText());
+					Log log=new Log();
+					key=log.getKey(textField2.getText());
 				} catch (RemoteException e1) {
 					System.out.println("获取密钥失败");
 					e1.printStackTrace();
@@ -772,7 +773,8 @@ public class UserManagementView extends JPanel{
 	        		String key1=DES.init();
 	        		String str5=DES.encryptDES(id,key1);
 	        		 try {
-							Log.getLogInstance().addKey(id,key1,str5);
+	        			Log log=new Log();
+						log.addKey(id,key1,str5);
 						} catch (RemoteException e2) {
 							// TODO Auto-generated catch block
 							e2.printStackTrace();

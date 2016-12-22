@@ -25,7 +25,8 @@ public class orderDetailViewControllerServiceImpl implements orderDetailViewCont
 	    private String HotelID;
 	    private String key;
 	    public orderDetailViewControllerServiceImpl(String UserID,String OrderID,String hotelID,int f) throws RemoteException{
-	    	key=Log.getLogInstance().getSKey(hotelID);
+	    	Log log=new Log();
+	    	key=log.getSKey(hotelID);
 	    	this.UserID=UserID;
 	    	from=f;
 	    	this.OrderID=OrderID;

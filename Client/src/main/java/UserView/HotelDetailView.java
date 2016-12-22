@@ -104,7 +104,8 @@ public class HotelDetailView extends JPanel{
 		box1.add(Box.createVerticalStrut(30));
 		String key="";
 		try {
-			key=Log.getLogInstance().getSKey(HotelID);
+			Log log=new Log();
+			key=log.getSKey(HotelID);
 		} catch (RemoteException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

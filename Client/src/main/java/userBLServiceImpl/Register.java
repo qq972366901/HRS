@@ -12,7 +12,7 @@ import VO.UserVO;
 public class Register {
 	private Customer user;
 	public Register() throws RemoteException{
-		user=Customer.getUserInstance();
+		user=new Customer();
 	}
 	/**
 	 * 增加一位用户

@@ -26,7 +26,7 @@ public class OrderManagementController{
 	public OrderManagementController() throws RemoteException{
 		list=new OrderList();
 		order=new OrderLineItem();
-		credit=Credit.getInstance();
+		credit=new Credit();
 	}
 	/**
      * 获得一个客户的所有订单

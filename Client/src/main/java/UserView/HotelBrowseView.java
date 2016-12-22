@@ -116,7 +116,8 @@ public class HotelBrowseView extends JPanel{
 		panel7.setLayout(new FlowLayout(FlowLayout.LEFT));
 		String key="";
 		try {
-			key=Log.getLogInstance().getSKey(hotelid);
+			Log log=new Log();
+			key=log.getSKey(hotelid);
 		} catch (RemoteException e1) {
 			System.out.println("获取密钥失败");
 			e1.printStackTrace();

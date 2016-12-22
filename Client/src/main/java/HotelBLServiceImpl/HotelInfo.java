@@ -28,7 +28,8 @@ public class HotelInfo {
 		df=RemoteHelper.getInstance().getDataFactoryService();
 		try {
 			hds = (HotelDataService)df.getDataService("Hotel");
-			key=Log.getLogInstance().getSKey(id);
+			Log log=new Log();
+			key=log.getSKey(id);
 			HotelPO hpo = hds.find(hotelID);
 			hvo = new HotelVO(hpo);
 		} catch (RemoteException e) {

@@ -16,6 +16,7 @@ import VO.CreditRecordVO;
 import common.Operate;
 import rmi.RemoteHelper;
 import userBLServiceImpl.Credit;
+import userBLServiceImpl.Customer;
 
 public class CreditTest {
 	private RemoteHelper remoteHelper;
@@ -32,20 +33,23 @@ public class CreditTest {
 	}
 	@Test
 	public void testUpdateCredit() throws RemoteException, ParseException {
+		Credit c=new Credit();
 		CreditRecordVO vo=new CreditRecordVO("000000","737e975f762214a1",Calendar.getInstance(),"1",Operate.Recharge,0,31700);
-		Credit.getInstance().updateCredit(vo);
-		assertEquals(31700,Credit.getInstance().showCredit("737e975f762214a1"));
+		c.updateCredit(vo);
+		assertEquals(31700,c.showCredit("737e975f762214a1"));
 	}
 
 	@Test
 	public void testUpdateLevel() throws RemoteException {
-		Credit.getInstance().updateLevel("737e975f762214a1", 0);
-		assertEquals(0,Credit.getInstance().showLevel("737e975f762214a1"));
+		Credit c=new Credit();
+		c.updateLevel("737e975f762214a1", 0);
+		assertEquals(0,c.showLevel("737e975f762214a1"));
 	}
 
 	@Test
 	public void testUpdateAllLevel() throws RemoteException {
-		assertEquals(true,Credit.getInstance().updateAllLevel());
+		Credit c=new Credit();
+		assertEquals(true,c.updateAllLevel());
 	}
 
 }

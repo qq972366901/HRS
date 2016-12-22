@@ -24,7 +24,8 @@ public class InputRoomInfoUiController implements InputRoomInfoUiService {
 	
 	public InputRoomInfoUiController(String id) {
 		try {
-			key=Log.getLogInstance().getKey(id);
+			Log log=new Log();
+			key=log.getKey(id);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}

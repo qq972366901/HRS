@@ -21,24 +21,20 @@ import rmi.RemoteHelper;
  * @see VO.UserVO
  */
 public class Account{
-	private static Account account;
 	private DataFactoryService df;
 	private HashMap<String,AccountInfo> worker;
 	UserDataService dh;
-	private Account() throws RemoteException{
+	public Account() throws RemoteException{
 		worker=new HashMap<String,AccountInfo>();
 		df=RemoteHelper.getInstance().getDataFactoryService();
 		dh=(UserDataService) df.getDataService("User");
+		init();
+	}
+	private void init() throws RemoteException{
 		List<UserPO> list=dh.getAllWorker();
 		for(int i=0;i<list.size();i++){
 			worker.put(list.get(i).getAccount(), new AccountInfo(list.get(i)));
 		}
-	}
-	public static Account getInstance() throws RemoteException{
-		if(account==null){
-			account=new Account();
-		}
-		return account;
 	}
 	/**
 	 * 获取持有此账号的客户的信息
@@ -53,11 +49,14 @@ public class Account{
 		}
 		else{
 			try {
-				UserVO userVO=Customer.getUserInstance().findByID(account);
+				Customer cu=new Customer();
+				UserVO userVO=cu.findByID(account);
 				if(userVO!=null){
-					String password=Log.getLogInstance().getPassword(account);
-					long credit=Credit.getInstance().showCredit(account);
-					int level=Credit.getInstance().showLevel(account);
+					Credit c=new Credit();
+					Log log=new Log();
+					String password=log.getPassword(account);
+					long credit=c.showCredit(account);
+					int level=c.showLevel(account);
 					AccountInfo user=new AccountInfo(userVO.username,password,userVO.id,userVO.contactway,userVO.membertype,UserType.Customer,userVO.birthday,userVO.enterprise,credit,level);
 					return user;
 				}
@@ -76,7 +75,8 @@ public class Account{
 	 */
 	public void update(UserVO vo,String password) throws RemoteException{
 		if(vo.type.equals(UserType.Customer)){
-			Customer.getUserInstance().updateUserInfo(vo);
+			Customer cu=new Customer();
+			cu.updateUserInfo(vo);
 		}
 		else{
 			AccountInfo user=new AccountInfo(vo.username,password,vo.id,vo.contactway,vo.membertype,vo.type,vo.birthday,vo.enterprise,(long)-1,-1);
@@ -84,7 +84,8 @@ public class Account{
 			UserPO po=new UserPO(vo.username,password,vo.id,vo.contactway,vo.membertype,vo.type,vo.birthday,vo.enterprise);
 			dh.update(po);
 		}
-		Log.getLogInstance().revisepassword(vo.id, password);
+		Log log=new Log();
+		log.revisepassword(vo.id, password);
 	}
 	/**
 	 * 更新工作人员的联系方式
@@ -111,9 +112,11 @@ public class Account{
 			dh.delete(id);
 		}
 		else{
-			Customer.getUserInstance().deleteCustomer(id);
+			Customer cu=new Customer();
+			cu.deleteCustomer(id);
 		}
-		Log.getLogInstance().delete(id);
+		Log log=new Log();
+		log.delete(id);
 	}
 	/**
 	 * 增加一个账户
@@ -125,7 +128,8 @@ public class Account{
 		if(!worker.containsKey(vo.id)){
 			AccountInfo user=new AccountInfo(vo.username,password,vo.id,vo.contactway,vo.membertype,vo.type,vo.birthday,vo.enterprise,(long)-1,-1);
 			worker.put(vo.id, user);
-			Log.getLogInstance().add(vo.id, new LogVO(password,vo.id,false));
+			Log log=new Log();
+			log.add(vo.id, new LogVO(password,vo.id,false));
 			UserPO po=new UserPO(vo.username,password,vo.id,vo.contactway,vo.membertype,vo.type,vo.birthday,vo.enterprise);
 			dh.insert(po);
 			return true;
@@ -145,7 +149,8 @@ public class Account{
 			return true;
 		}
 		else{
-			if(Customer.getUserInstance().hasCustomer(id)){
+			Customer cu=new Customer();
+			if(cu.hasCustomer(id)){
 				return true;
 			}
 			else{
@@ -155,11 +160,12 @@ public class Account{
 	}
 	
 	public UserType getType(String id) throws RemoteException{
+		Customer cu=new Customer();
 		if(worker.containsKey(id)){
 			return worker.get(id).type;
 		} 
-		else if(Customer.getUserInstance().hasCustomer(id)){
-			return Customer.getUserInstance().findByID(id).type;
+		else if(cu.hasCustomer(id)){
+			return cu.findByID(id).type;
 		}
 		else{
 			return null;

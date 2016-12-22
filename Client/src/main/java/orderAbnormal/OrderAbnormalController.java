@@ -18,7 +18,7 @@ public class OrderAbnormalController{
 	OrderState state;
 	Credit credit;
 	public OrderAbnormalController() throws RemoteException{
-	      credit=Credit.getInstance();
+	      credit=new Credit();
 	}
 	/**
      * 撤销异常订单

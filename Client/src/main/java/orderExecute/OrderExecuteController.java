@@ -19,7 +19,7 @@ public class OrderExecuteController{
 	OrderState state;
 	Credit credit;
 	public OrderExecuteController() throws RemoteException {
-		credit=Credit.getInstance();
+		credit=new Credit();
 	}
 	/**
      * 处理未执行订单

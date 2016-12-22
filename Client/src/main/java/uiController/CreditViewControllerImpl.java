@@ -21,7 +21,8 @@ public class CreditViewControllerImpl implements CreditViewControllerService {
 		
 		try {
 			user=new UserBLServiceController();
-			key=Log.getLogInstance().getSKey(id);
+			Log log=new Log();
+			key=log.getSKey(id);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

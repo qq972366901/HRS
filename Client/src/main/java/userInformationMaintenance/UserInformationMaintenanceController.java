@@ -9,7 +9,16 @@ import userBLServiceImpl.Log;
 
 
 public class UserInformationMaintenanceController{
-
+	private Customer c;
+	private Credit cr;
+	public UserInformationMaintenanceController(){
+		try {
+			c=new Customer();
+			cr=new Credit();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+	}
 	/**
 	 * 根据客户ID查找客户信息并返回
 	 * @param  userID String型，界面输入的客户ID
@@ -18,7 +27,7 @@ public class UserInformationMaintenanceController{
 	 * @see Customer.User
 	 */
 	public UserVO findByID(String userID) throws RemoteException{
-			return Customer.getUserInstance().findByID(userID);
+		return c.findByID(userID);
 	}
 	/**
 	 * 更新客户信息
@@ -27,7 +36,7 @@ public class UserInformationMaintenanceController{
 	 * @see Customer.User
 	 */
 	public void update(UserVO vo) throws RemoteException{
-			Customer.getUserInstance().updateUserInfo(vo);
+		c.updateUserInfo(vo);
 	}
 	/**
 	 * 显示信用等级
@@ -35,12 +44,6 @@ public class UserInformationMaintenanceController{
 	 * @return 返回此账号的信用等级
 	 */
 	public int showLevel(String id){
-		try {
-			return Credit.getInstance().showLevel(id);
-		} catch (RemoteException e) {
-			System.out.println("获取信用等级失败");
-			e.printStackTrace();
-			return 0;
-		}
+		return cr.showLevel(id);
 	}
 }

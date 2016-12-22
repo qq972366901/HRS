@@ -168,7 +168,8 @@ public class LogView extends JPanel {
 				type=(String)comboBox_1.getSelectedItem();
 				String key="";
 				try {
-					key=Log.getLogInstance().getKey(textField.getText());
+					Log log=new Log();
+					key=log.getKey(textField.getText());
 				} catch (RemoteException e1) {
 					System.out.println("获取密钥失败");
 					e1.printStackTrace();
@@ -181,7 +182,8 @@ public class LogView extends JPanel {
 					//System.out.println(pwd);
 					UserType idtype=null;
 					try {
-						idtype=Account.getInstance().getType(id);
+						Account a=new Account();
+						idtype=a.getType(id);
 					} catch (RemoteException e1) {
 						System.out.println("获取用户类型失败");
 						e1.printStackTrace();
@@ -215,7 +217,8 @@ public class LogView extends JPanel {
 	public void login(UserType t){
 		String key="";
 		try {
-			key=Log.getLogInstance().getKey(textField.getText());
+			Log log=new Log();
+			key=log.getKey(textField.getText());
 		} catch (RemoteException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

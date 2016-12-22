@@ -10,6 +10,10 @@ import userBLServiceImpl.PromotionInfo;
 
 
 public class UserCreditManagementController {
+	private Credit c;
+	public UserCreditManagementController() throws RemoteException{
+		c=new Credit();
+	}
 		/**
 		 * 更新会员等级
 		 * @param id String型，界面传入的客户账户
@@ -18,7 +22,7 @@ public class UserCreditManagementController {
 		 * @see bussinesslogic.Customer
 		 */
 		public void updateLevel(String id, long credit) throws RemoteException {
-			Credit.getInstance().updateLevel(id, credit);
+			c.updateLevel(id, credit);
 		}
 		/**
 		 * 根据信用记录更新信用值
@@ -26,7 +30,7 @@ public class UserCreditManagementController {
 		 * @see bussinesslogic.Customer
 		 */
 		public void updateCreditRecord(CreditRecordVO vo) throws RemoteException, ParseException {
-			Credit.getInstance().updateCredit(vo);
+			c.updateCredit(vo);
 		}
 		/**
 		 * 根据会员等级提供折扣
@@ -42,11 +46,6 @@ public class UserCreditManagementController {
 		 * @return 
 		 */
 		public boolean updateAllLevel() {
-			try {
-				return Credit.getInstance().updateAllLevel();
-			} catch (RemoteException e) {
-				e.printStackTrace();
-			}
-			return false;
+			return c.updateAllLevel();
 		}
 }

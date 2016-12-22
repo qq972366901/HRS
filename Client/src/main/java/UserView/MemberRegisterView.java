@@ -210,7 +210,8 @@ public class MemberRegisterView extends JPanel{
 							    		 String key=DES.init();
 							    		 String str1=DES.encryptDES(id,key);
 							    		 try {
-												Log.getLogInstance().addKey(id,key,str1);
+							    			Log log=new Log();
+											log.addKey(id,key,str1);
 											} catch (RemoteException e2) {
 												// TODO Auto-generated catch block
 												e2.printStackTrace();
@@ -269,7 +270,8 @@ public class MemberRegisterView extends JPanel{
 							    		 String key=DES.init();
 							    		 String str1=DES.encryptDES(id,key);
 							    		 try {
-												Log.getLogInstance().addKey(id,key,str1);
+							    			Log log=new Log();
+											log.addKey(id,key,str1);
 											} catch (RemoteException e2) {
 												// TODO Auto-generated catch block
 												e2.printStackTrace();

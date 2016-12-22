@@ -13,7 +13,8 @@ public class customerMainViewControllerImpl implements customerMainViewControlle
 	public customerMainViewControllerImpl(String id){
 		String key=null;
 		try {
-			key=Log.getLogInstance().getSKey(id);
+			Log log=new Log();
+			key=log.getSKey(id);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}

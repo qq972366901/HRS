@@ -20,21 +20,18 @@ import rmi.RemoteHelper;
 public class Customer {
 	private HashMap<String,UserVO> map;
 	private DataFactoryService df;
-	private static Customer user; 
-	private Customer() throws RemoteException{ 
+	UserDataService dh;
+	public Customer() throws RemoteException{ 
 		map=new HashMap<String,UserVO>();
 		df=RemoteHelper.getInstance().getDataFactoryService();
-		UserDataService dh=(UserDataService) df.getDataService("User");
+		dh=(UserDataService) df.getDataService("User");
+		init();
+	}
+	private void init() throws RemoteException{
 		List<UserPO> list=dh.getAllCustomer();
 		for(UserPO po:list){
 			map.put(po.getAccount(), new UserVO(po));
 		}
-	}
-	public static Customer getUserInstance() throws RemoteException{
-		if(user==null){
-			user=new Customer();
-		}
-		return user;
 	}
 	/**
 	 * 判断账号是否存在
@@ -80,7 +77,8 @@ public class Customer {
 	public void updateUserInfo(UserVO vo) throws RemoteException{
 		if(map.containsKey(vo.id)){
 			map.put(vo.id, vo);
-			UserPO userpo=new UserPO(vo.username,Log.getLogInstance().getPassword(vo.id),vo.id,vo.contactway,vo.membertype,vo.type,vo.birthday,vo.enterprise);
+			Log log=new Log();
+			UserPO userpo=new UserPO(vo.username,log.getPassword(vo.id),vo.id,vo.contactway,vo.membertype,vo.type,vo.birthday,vo.enterprise);
 			UserDataService dh=(UserDataService) df.getDataService("User");
 			dh.update(userpo);
 		}
@@ -96,7 +94,8 @@ public class Customer {
 	public boolean create(UserVO vo,String password) throws RemoteException{
 		if(!map.containsKey(vo.id)){
 			map.put(vo.id, vo);
-			Log.getLogInstance().add(vo.id, new LogVO(password,vo.id,true));
+			Log log=new Log();
+			log.add(vo.id, new LogVO(password,vo.id,true));
 			UserPO userpo=new UserPO(vo.username,password,vo.id,vo.contactway,vo.membertype,vo.type,vo.birthday,vo.enterprise);
 			UserDataService dh=(UserDataService) df.getDataService("User");
 			dh.insert(userpo);

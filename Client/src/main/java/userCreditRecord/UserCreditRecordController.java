@@ -7,6 +7,16 @@ import userBLServiceImpl.Credit;
 import userBLServiceImpl.CreditRecord;
 
 public class UserCreditRecordController{
+	private Credit c;
+	private CreditRecord cr;
+	public UserCreditRecordController(){
+		try {
+			c=new Credit();
+			cr=new CreditRecord();
+		} catch (RemoteException | ParseException e) {
+			e.printStackTrace();
+		}
+	}
 	/**
 	* 显示信用值
 	* @param userID String型，界面输入用户ID
@@ -15,7 +25,7 @@ public class UserCreditRecordController{
 	* @see bussinesslogic.Customer
 	*/
 	public long showCredit(String userID) throws RemoteException {
-		return Credit.getInstance().showCredit(userID);
+		return c.showCredit(userID);
 	}
 	/**
 	 * 信用记录显示
@@ -25,6 +35,6 @@ public class UserCreditRecordController{
 	 * @see Customer.User
 	 */
 	public HashMap<String,CreditRecordVO> showCreditRecord(String userID) throws RemoteException, ParseException {
-		return CreditRecord.getInstance().showCreditRecord(userID);
+		return cr.showCreditRecord(userID);
 	}	
 }

@@ -104,7 +104,8 @@ public class webPromotionUserUiController implements webPromotionUserUiService {
 				String acc = hotelField.getText();
 				String key=null;
 				try {
-					key=Log.getLogInstance().getKey(acc);
+					Log log=new Log();
+					key=log.getKey(acc);
 				} catch (RemoteException e1) {
 					System.out.println("获取密钥失败");
 					e1.printStackTrace();
