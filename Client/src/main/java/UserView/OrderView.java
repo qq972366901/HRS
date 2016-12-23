@@ -9,6 +9,8 @@ import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 
 import javax.swing.JButton;
@@ -29,7 +31,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
+import javax.swing.RowSorter;
+import javax.swing.SortOrder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import javax.swing.BoxLayout;
 
 public class OrderView extends JPanel {
@@ -141,7 +147,11 @@ public class OrderView extends JPanel {
 		table.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		scrollPane.setViewportView(table);
 		table.setFillsViewportHeight(true);
-		
+		RowSorter<TableModel> sorter = new TableRowSorter<TableModel>(model);
+        table.setRowSorter(sorter);
+        List<RowSorter.SortKey> sortKeys = new ArrayList<RowSorter.SortKey>();  
+        sortKeys.add(new RowSorter.SortKey(4, SortOrder.ASCENDING));
+        sorter.setSortKeys(sortKeys);
 		cancelorder = new JButton("\u64A4\u9500\u8BA2\u5355");
 		cancelorder.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

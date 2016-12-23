@@ -3,6 +3,12 @@ package UserView;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.RowSorter;
+import javax.swing.SortOrder;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
+
 import runner.ClientRunner;
 import uiController.customerMainViewControllerImpl;
 import uiService.CreditViewControllerService;
@@ -11,6 +17,8 @@ import uiService.customerMainViewControllerService;
 import javax.swing.JButton;
 
 import java.awt.FlowLayout;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 
 import javax.swing.JLabel;
@@ -74,13 +82,19 @@ public class CreditView extends JPanel {
 		Columns.add("动作");
 		Columns.add("信用变化");
 		Columns.add("信用总额");
-		table = new JTable(Data,Columns){
+		TableModel model = new DefaultTableModel(Data, Columns);
+		table = new JTable(model){
 			private static final long serialVersionUID = 1L;
 
 			public boolean isCellEditable(int row, int column){
 				return false;
 			}
 		};
+		RowSorter<TableModel> sorter = new TableRowSorter<TableModel>(model);
+        table.setRowSorter(sorter);
+        List<RowSorter.SortKey> sortKeys = new ArrayList<RowSorter.SortKey>();  
+        sortKeys.add(new RowSorter.SortKey(0, SortOrder.ASCENDING));
+        sorter.setSortKeys(sortKeys);
 		scrollPane = new JScrollPane();
 		scrollPane.setViewportView(table);
 		scrollPane.setEnabled(false);

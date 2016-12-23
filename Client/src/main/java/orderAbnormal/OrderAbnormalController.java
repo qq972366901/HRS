@@ -16,9 +16,7 @@ import userBLServiceImpl.Credit;
  */
 public class OrderAbnormalController{
 	OrderState state;
-	Credit credit;
-	public OrderAbnormalController() throws RemoteException{
-	      credit=Credit.getInstance();
+	public OrderAbnormalController(){
 	}
 	/**
      * 撤销异常订单

@@ -7,3 +7,14 @@ ERR.BR.2 6等 低 遗留部分流程，比如返回
 ERR.REDoc.11 7 高 正常流程只有一步闹哪样，2步还能接受。。。 
 ERR.UC.5 9等 高 5、6、7、8、9全是客户。。系统呢（为什么从5开始 
 ERR.TD.7 11 中 突然居中了什么鬼，还有字体编号也有很多不统一的地方 
+
+
+
+DecimalFormat    df   = new DecimalFormat("######0.00"); 
+String key="";
+		try {
+			key=Log.getLogInstance().getSKey(HotelID);
+		} catch (RemoteException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
