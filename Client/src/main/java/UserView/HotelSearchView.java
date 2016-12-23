@@ -567,8 +567,9 @@ public class HotelSearchView extends JPanel{
 					}
 					else{
 						roomNum=(int)comboBox9.getSelectedItem();
-					}					
-					hlist=controller.getHotelID((String)comboBox.getSelectedItem(),(String)comboBox2.getSelectedItem(),roomtype,roomNum,(int)comboBox4.getSelectedItem(), (int)comboBox5.getSelectedItem(),star,(int)comboBox6.getSelectedItem(),(int)comboBox7.getSelectedItem(),(String)comboBox16.getSelectedItem(),controller.getUserID());
+					}
+					//最后一个参数是界面输入的酒店名字，暂时取“”
+					hlist=controller.getHotelID((String)comboBox.getSelectedItem(),(String)comboBox2.getSelectedItem(),roomtype,roomNum,(int)comboBox4.getSelectedItem(), (int)comboBox5.getSelectedItem(),star,(int)comboBox6.getSelectedItem(),(int)comboBox7.getSelectedItem(),(String)comboBox16.getSelectedItem(),controller.getUserID(),"");
 					if(hlist==null || hlist.size() ==0 ){
 						JOptionPane.showMessageDialog(pane, "  未找到满足条件的酒店！","", JOptionPane.ERROR_MESSAGE);
 					}

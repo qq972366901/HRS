@@ -72,8 +72,8 @@ public class HotelSearchUiController implements HotelSearchUiService{
 		
 	}
 	public List<String> getHotelID(String city, String businessCircle, String roomType, int roomNumber,
-			int priceLow, int priceHigh, int hotelStar, int scoreLow, int scoreHigh, String everBooked,String userid){
-		return hotel.getHotelID(city,businessCircle,roomType,roomNumber,priceLow,priceHigh,hotelStar,scoreLow,scoreHigh,everBooked,userid);
+			int priceLow, int priceHigh, int hotelStar, int scoreLow, int scoreHigh, String everBooked,String userid,String name){
+		return hotel.getHotelID(city,businessCircle,roomType,roomNumber,priceLow,priceHigh,hotelStar,scoreLow,scoreHigh,everBooked,userid,name);
 	}
 	public String getUserID() {
 		// TODO Auto-generated method stub
