@@ -1,6 +1,5 @@
 package uiController;
 
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +9,11 @@ import VO.OrderVO;
 import hotelBLService.HotelBLService;
 import hotelBLService.HotelBLServiceController;
 import uiService.HotelDetailUiService;
-
+/**
+ * 酒店详细信息与酒店下的订单的初始界面接口的实现（方法的注释见及接口）
+ * @author 刘宇翔
+ *
+ */
 public class HotelDetailUiController implements HotelDetailUiService {
      private HotelDetailView view;
      private HotelBLService hotel;

@@ -23,7 +23,11 @@ import java.awt.event.ActionEvent;
 import javax.swing.UIManager;
 import java.awt.GridLayout;
 import javax.swing.JLabel;
-
+/**
+ * 客户初始界面的Panel
+ * @author 刘宇翔
+ *
+ */
 public class customerMainView extends JPanel {
 	/**
 	 * 
@@ -116,6 +120,9 @@ public class customerMainView extends JPanel {
          add(label_3);
          exit = new JButton("\u767B\u51FA\u8D26\u53F7");
          add(exit);
+         /**
+          * 返回按钮的监听
+          */
          exit.addActionListener(new ActionListener() {
          	public void actionPerformed(ActionEvent e) {
          		controller.exit();
@@ -160,6 +167,9 @@ public class customerMainView extends JPanel {
          add(label_15);
          information = new JButton("\u4FE1\u606F\u67E5\u770B");
          add(information);
+         /**
+          * 个人信息按钮的监听
+          */
          information.addActionListener(new ActionListener() {
          	public void actionPerformed(ActionEvent e) {
          		controller.information();
@@ -195,6 +205,9 @@ public class customerMainView extends JPanel {
          ordermanagement = new JButton("\u8BA2\u5355\u7BA1\u7406");
          add(ordermanagement);
          ordermanagement.setFont(UIManager.getFont("Button.font"));
+         /**
+          * 订单管理按钮的监听
+          */
          ordermanagement.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         	      controller.order();
@@ -230,6 +243,9 @@ public class customerMainView extends JPanel {
          creditmanagement = new JButton("\u4FE1\u7528\u67E5\u770B");
          add(creditmanagement);
          creditmanagement.setFont(UIManager.getFont("Button.font"));
+         /**
+          * 信用查看按钮的监听
+          */
          creditmanagement.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		   controller.credit();
@@ -264,6 +280,9 @@ public class customerMainView extends JPanel {
          add(label_42);
          searchhotel = new JButton("\u9152\u5E97\u641C\u7D22");
          add(searchhotel);
+         /**
+          * 搜索酒店按钮的监听
+          */
          searchhotel.addActionListener(new ActionListener() {
          	public void actionPerformed(ActionEvent e) {
          		controller.search();
@@ -300,6 +319,9 @@ public class customerMainView extends JPanel {
          histroyhotel = new JButton("\u5386\u53F2\u9152\u5E97");
          add(histroyhotel);
          histroyhotel.setFont(UIManager.getFont("Button.font"));
+         /**
+          * 历史酒店按钮的监听
+          */
          histroyhotel.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		controller.histroy();
@@ -329,24 +351,36 @@ public class customerMainView extends JPanel {
          
          UserID=controller.getUserID();
 	}
+	/**
+	 * 个人信息界面的跳转
+	 */
     public void information(){
     	InformationViewControllerService controller =  new InformationViewControllerImpl(UserID);
 		InformationView view = new InformationView(controller);
 		controller.setView(view);
 		ClientRunner.change(view);
     }
+    /**
+     * 信用查看界面的跳转
+     */
 	public void credit(){
 		CreditViewControllerService controller =  new CreditViewControllerImpl(UserID);
 		CreditView view = new CreditView(controller);
 		controller.setView(view);
 		ClientRunner.change(view);
 	}
+	/**
+	 * 退出的跳转
+	 */
 	public void exit(){
 		LoginViewControllerService controller =  new LoginViewControllerImpl();
 		LogView view = new LogView(controller);
 		controller.setView(view);
 		ClientRunner.change(view);
 	}
+	/**
+	 *酒店搜索界面的跳转
+	 */
 	public void search(){
 		HotelSearchUiService con;
 		try {
@@ -358,12 +392,18 @@ public class customerMainView extends JPanel {
 			e.printStackTrace();
 		}
 	}
+	/**
+	 * 历史酒店界面的跳转
+	 */
 	public void histroy(){
 		HistroyHotelViewControllerService controller =  new HistroyHotelViewControllerImpl(UserID);
 		HistroyHotelView view = new HistroyHotelView(controller);
 		controller.setView(view);
 		ClientRunner.change( view);
 	}
+	/**
+	 * 订单管理界面的跳转
+	 */
 	public void order() throws RemoteException{
 		OrderViewControllerService controller =  new OrderViewControllerImpl(UserID);
 		OrderView view = new OrderView(controller);

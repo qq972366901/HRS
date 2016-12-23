@@ -2,7 +2,7 @@ package orderBLImpl;
 
 import PO.OrderPO;
 
-public class CommentInfo{
+public class CommentInfo implements CommentInfoService{
 	public String comment;
 	public int score;
 	public String UserID;
@@ -28,5 +28,14 @@ public class CommentInfo{
 	public void update(){
 		po.setComment(comment);
 		po.setScore(score);
+	}
+	public void setComment(String str){
+		comment = str;
+	}
+	public void setscore(int sc){
+		score=sc;
+	}
+	public OrderPO getPO(){
+		return po;
 	}
 }

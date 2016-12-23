@@ -17,7 +17,6 @@ import uiService.orderDetailViewControllerService;
 import userBLServiceImpl.DES;
 import userBLServiceImpl.Log;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Label;
@@ -34,13 +33,15 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
+/**
+ * 酒店详细信息与订单列表的Panel
+ * @author 刘宇翔
+ *
+ */
 public class HotelDetailView extends JPanel{
 	private HotelDetailUiService controller;
 	private JPanel panel;
 	private JPanel panel1;
-	private JPanel panel3;
-	private JPanel panel4;
 	private JPanel panel5;
 	private JPanel panel10;
 	private JButton back;
@@ -61,6 +62,9 @@ public class HotelDetailView extends JPanel{
 	private JTable table;
 	private JScrollPane scrollPane;
 	private Box box1,box2,box3,box4;
+	/**
+	 * 界面的初始化
+	 */
 	public HotelDetailView(HotelDetailUiService controller) {
 		this.controller=controller;
 		UserID=controller.getUserID();
@@ -69,8 +73,8 @@ public class HotelDetailView extends JPanel{
 		panel=new JPanel(new FlowLayout(FlowLayout.RIGHT));
 		panel1=new JPanel(new FlowLayout(FlowLayout.CENTER));
 		new JPanel(new FlowLayout(FlowLayout.CENTER));
-		panel3=new JPanel(new FlowLayout(FlowLayout.CENTER));
-		panel4=new JPanel(new FlowLayout(FlowLayout.CENTER));
+		new JPanel(new FlowLayout(FlowLayout.CENTER));
+		new JPanel(new FlowLayout(FlowLayout.CENTER));
 		panel5=new JPanel(new FlowLayout(FlowLayout.CENTER));
 		panel10=new JPanel(new FlowLayout(FlowLayout.CENTER));
 		add(panel);
@@ -135,6 +139,9 @@ public class HotelDetailView extends JPanel{
 		add(panel10);
 		
 		btnNewButton = new JButton("生成订单");
+		/**
+		 * 生成订单按钮的监听
+		 */
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			       buildOrder();
@@ -144,6 +151,9 @@ public class HotelDetailView extends JPanel{
 		init_exit();
 		init_information();
 	}
+	/**
+	 *初始化表单
+	 */
     public void init_OrderList(){
     	Vector<OrderVO> Data=new Vector<OrderVO>();
 		Data.addAll(controller.getOrderList());
@@ -164,6 +174,9 @@ public class HotelDetailView extends JPanel{
 				return false;
 			}
 		};
+		/**
+		 * 表单项的鼠标监听
+		 */
 		table.addMouseListener(new MouseListener(){
 
 			@Override
@@ -209,10 +222,13 @@ public class HotelDetailView extends JPanel{
 		add(scrollPane);
     }
 	/**
-	 * 
+	 * 退出按钮的初始化
 	 */
 	public void init_exit(){
 		back = new JButton("\u8FD4\u56DE");
+		/**
+		 * 返回按钮的监听
+		 */
 		back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			controller.exit();
@@ -223,12 +239,18 @@ public class HotelDetailView extends JPanel{
 	public void init_information(){
 		
 	}
+	/**
+	 * 返回界面的跳转
+	 */
 	public void exit(){
 		HistroyHotelViewControllerService con =  new HistroyHotelViewControllerImpl(UserID);
 		HistroyHotelView vie = new HistroyHotelView(con);
 		con.setView(vie);
 		ClientRunner.change(vie);
 	}
+	/**
+	 * 生成订单界面的跳转
+	 */
     public void buildOrder(){	
 		try {
 			OrderBuildUiService controller= new OrderBuildUiController(UserID,HotelID,2);
@@ -240,6 +262,9 @@ public class HotelDetailView extends JPanel{
 			e.printStackTrace();
 		}
     }
+    /**
+     * 详细信息界面的跳转
+     */
     public void showDetail(String id) throws RemoteException{
 		orderDetailViewControllerService con =  new orderDetailViewControllerServiceImpl(UserID,id,HotelID,2);
 		orderDetailView vie = new orderDetailView(con);

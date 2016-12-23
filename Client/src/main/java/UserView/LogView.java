@@ -45,7 +45,11 @@ import HotelWorkerView.HotelMainView;
 
 import java.awt.BorderLayout;
 import javax.swing.BoxLayout;
-
+/**
+ * 登录界面的Panel
+ * @author 刘宇翔
+ *
+ */
 public class LogView extends JPanel {
 	/**
 	 * 
@@ -107,6 +111,9 @@ public class LogView extends JPanel {
 	}
 	public void init_optionpannel(){
 	}
+	/**
+	 * 登录panel的初始化
+	 */
 	public void init_loginpannel(){
 		
 		List<String> list=new ArrayList<String>();
@@ -121,6 +128,9 @@ public class LogView extends JPanel {
 		}
 		comboBox_1.setToolTipText("");
 		comboBox_1.setFont(UIManager.getFont("Button.font"));
+		/**
+		 * 选择栏的监听
+		 */
 		comboBox_1.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent evt) {
 			
@@ -148,6 +158,9 @@ public class LogView extends JPanel {
 		textField.setColumns(15);
 		panel2.add(textField);
 		register = new JButton("\u6CE8\u518C\u8D26\u53F7");
+		/**
+		 * 注册按钮的监听
+		 */
 		register.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controller.register();
@@ -162,7 +175,9 @@ public class LogView extends JPanel {
 		passwordField.setFont(UIManager.getFont("Button.font"));
 		panel3.add(passwordField);
 		login = new JButton("\u767B\u5F55");
-
+		/**
+		 * 登录按钮的监听
+		 */
 		login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				type=(String)comboBox_1.getSelectedItem();
@@ -214,6 +229,9 @@ public class LogView extends JPanel {
 		label2.setPreferredSize(new Dimension(10000,250));
 		panel3.add(label2);
 	}
+	/**
+	 * 登录的界面跳转
+	 */
 	public void login(UserType t){
 		String key="";
 		try {
@@ -253,12 +271,18 @@ public class LogView extends JPanel {
 			}
 	    }
 	}
+	/**
+	 * 注册界面的跳转
+	 */
 	public void register() throws RemoteException{
 		MemberRegisterUiService con=new MemberRegisterUiController();
 		MemberRegisterView vie=new MemberRegisterView(con);
 		con.setView(vie);
 		ClientRunner.change(vie);
 	}
+	/**
+	 * 当combobox中选项不是客户时注册按钮不可使用
+	 */
 	public void updateRegisterButton(String selected) {
 		if(selected!="客户"){
 			register.setEnabled(false);
@@ -267,6 +291,9 @@ public class LogView extends JPanel {
 			register.setEnabled(true);
 		}
 	}
+	/**
+	 * 将UserType转换为String
+	 */
 	private String typeToString(UserType type){
 		if(type.equals(UserType.Customer)){
 			return "Customer";
@@ -281,6 +308,9 @@ public class LogView extends JPanel {
 			return "WebManagementWorker";
 		}
 	}
+	/**
+	 * 将User的string转换为英文的string
+	 */
 	private String stringToString(String type){
 		if(type.equals("客户")){
 			return "Customer";

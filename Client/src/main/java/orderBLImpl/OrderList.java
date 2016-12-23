@@ -6,10 +6,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import PO.CreditPO;
 import PO.OrderPO;
 import VO.OrderVO;
-import dataService.CreditDataService;
 import dataService.DataFactoryService;
 import dataService.OrderDataService;
 import rmi.RemoteHelper;
@@ -20,12 +18,10 @@ import rmi.RemoteHelper;
  */
 public class OrderList {
        private DataFactoryService DataFactory;
-       private CreditDataService creditData;
        private OrderDataService orderData;
        public OrderList() throws RemoteException {   	   
             DataFactory=RemoteHelper.getInstance().getDataFactoryService();
 			orderData= (OrderDataService) DataFactory.getDataService("Order");
-			creditData=(CreditDataService) DataFactory.getDataService("Credit");
        }
        
        /**
@@ -52,9 +48,8 @@ public class OrderList {
    		case "Abnormal":polist=orderData.findByUserID(userID, 3);
 		            break;
    		}
-		CreditPO credit=creditData.find(userID);
    		for(OrderPO order:polist){
-   			volist.add(new OrderVO(credit,order));
+   			volist.add(new OrderVO(order));
    		}
 		return volist;
 		} catch (RemoteException e) {
@@ -230,10 +225,9 @@ public class OrderList {
 	public List<OrderVO> findByHotelID (String userID,String hotelID) {
 		try {
 	    List<OrderPO> order=orderData.getUserOrderlistinHotel(userID, hotelID);	
-		CreditPO credit=creditData.find(userID);
 		List<OrderVO> orderlist=new ArrayList<OrderVO>();
 		for(OrderPO a:order){
-			orderlist.add(new OrderVO(credit,a));
+			orderlist.add(new OrderVO(a));
 		}
 		return orderlist;
 		} catch (RemoteException e) {

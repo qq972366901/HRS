@@ -13,9 +13,12 @@ import hotelBLService.HotelBLServiceController;
 import orderBLService.OrderBLService;
 import orderBLService.OrderBLServiceController;
 import uiService.CommentViewService;
-import userBLServiceImpl.DES;
 import userBLServiceImpl.Log;
-
+/**
+ * 评论的初始界面接口的实现（方法的注释见及接口）
+ * @author 刘宇翔
+ *
+ */
 public class CommentViewControllerServiceImpl implements CommentViewService{
     private CommentView view;
     private String UserID;
@@ -49,6 +52,7 @@ public class CommentViewControllerServiceImpl implements CommentViewService{
 	public String getUserID() {
 		return UserID;
 	}
+	
 	@Override
 	public boolean judgeScore(String input) {
 		if(input.equals("")){

@@ -11,10 +11,9 @@ import userBLServiceImpl.Credit;
  *
  */
 public class OrderAbnormalController{
-	OrderState state;
-	Credit credit;
+	private OrderState state;
 	public OrderAbnormalController() throws RemoteException{
-	      credit=new Credit();
+	      state=new OrderState(orderID);
 	}
 	/**
      * 撤销异常订单
@@ -24,23 +23,6 @@ public class OrderAbnormalController{
      * @see bussinesslogic.Order
      */
 	public void cancelAbnormalOrder(String orderID)  {
-	     state=new OrderState(orderID);
 	     state.cancelAbnormalOrder();
 	}
-	/**
-	 * 当申诉成功后，为客户恢复信用值
-	 * @param userID String,客户id
-	 * @param orderID String,订单编号
-	 * @param value int,订单的价值
-	 */
-	/*
-	public void updateCredit(String userID,String orderID,int value){		
-	      try {
-			credit.updateCredit(new CreditRecordVO(null,userID,Calendar.getInstance(),orderID,Operate.Appeal, value/2, credit.showCredit(userID)+value/2));
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-	}*/
 }

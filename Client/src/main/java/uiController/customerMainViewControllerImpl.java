@@ -6,7 +6,11 @@ import java.rmi.RemoteException;
 import UserView.customerMainView;
 import uiService.customerMainViewControllerService;
 import userBLServiceImpl.Log;
-
+/**
+ * 客户的初始界面接口的实现（方法的注释见及接口）
+ * @author 刘宇翔
+ *
+ */
 public class customerMainViewControllerImpl implements customerMainViewControllerService{
 	private customerMainView view;
 	private String UserID;

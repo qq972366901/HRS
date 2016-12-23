@@ -9,6 +9,8 @@ import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 
 import javax.swing.JButton;
@@ -29,9 +31,17 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
+import javax.swing.RowSorter;
+import javax.swing.SortOrder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import javax.swing.BoxLayout;
-
+/**
+ * 订单管理的Panel
+ * @author 刘宇翔
+ *
+ */
 public class OrderView extends JPanel {
 	/**
 	 * 
@@ -75,8 +85,14 @@ public class OrderView extends JPanel {
         
         init_order();
 	}
+	/**
+	 * 返回按钮的初始化
+	 */
 	public void init_exit(){	
 		back = new JButton("\u8FD4\u56DE");
+		/**
+		 * 返回按钮的监听
+		 */
 		back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			controller.exit();
@@ -85,12 +101,18 @@ public class OrderView extends JPanel {
 		panel.add(back);
 		
 	}
+	/**
+	 * 返回的界面跳转
+	 */
 	public void exit(){
 		customerMainViewControllerService con =  new customerMainViewControllerImpl(UserID);
 		customerMainView vie = new customerMainView(con);
 		con.setView(vie);
 		ClientRunner.change(vie);
 	}
+	/**
+	 * 初始化订单表项，以及panel主界面
+	 */
 	public void init_order(){
 		
 		typebox = new JComboBox<String>();
@@ -104,6 +126,9 @@ public class OrderView extends JPanel {
 		for(String i:type){
 			typebox.addItem(i);
 		}
+		/**
+		 * combobox的监听，实现订单表源的更换
+		 */
 		typebox.addItemListener(new ItemListener(){
 			@Override
 			public void itemStateChanged(ItemEvent evt) {
@@ -142,7 +167,18 @@ public class OrderView extends JPanel {
 		scrollPane.setViewportView(table);
 		table.setFillsViewportHeight(true);
 		
+		/**
+		 * 为表单按照预定时间进行排序
+		 */
+		RowSorter<TableModel> sorter = new TableRowSorter<TableModel>(model);
+        table.setRowSorter(sorter);
+        List<RowSorter.SortKey> sortKeys = new ArrayList<RowSorter.SortKey>();  
+        sortKeys.add(new RowSorter.SortKey(4, SortOrder.ASCENDING));
+        sorter.setSortKeys(sortKeys);
 		cancelorder = new JButton("\u64A4\u9500\u8BA2\u5355");
+		/**
+		 * 撤销按钮的监听
+		 */
 		cancelorder.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int index = table.getSelectedRow();
@@ -157,6 +193,9 @@ public class OrderView extends JPanel {
 				}
 			}
 		});
+		/**
+		 * 实现双击表单中某一项实现查看订单详情
+		 */
 		table.addMouseListener(new MouseListener(){
 
 			@Override
@@ -195,6 +234,9 @@ public class OrderView extends JPanel {
 		
 		commentorder = new JButton("\u8BC4\u4EF7\u8BA2\u5355");
 		commentorder.setEnabled(false);
+		/**
+		 * 评价按钮的监听
+		 */
 		commentorder.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			      controller.comment();
@@ -203,6 +245,9 @@ public class OrderView extends JPanel {
 		panel3.add(cancelorder);
 		panel3.add(commentorder);
 	}
+	/**
+	 * 替换订单表源
+	 */
 	public void updateList(Vector<OrderVO> list,String type){
 		if(type.equals("未执行订单")){
 		    model.setRowCount(0);
@@ -229,6 +274,9 @@ public class OrderView extends JPanel {
 			commentorder.setEnabled(false);
 		}
 	}
+	/**
+	 * 评论界面的跳转
+	 */
 	public void comment() throws RemoteException{
 		int index = table.getSelectedRow();
 		if(index == -1){
@@ -245,9 +293,15 @@ public class OrderView extends JPanel {
 		con.setView(vie);
 		ClientRunner.change(vie);
 	}
+	/**
+	 * 撤销表单中的某一项
+	 */
 	public void cancel(){
 		model.removeRow(table.getSelectedRow());
 	}
+	/**
+	 * 订单详情界面的跳转
+	 */
 	public void showDetail(String id,String hotelid) throws RemoteException{
 		orderDetailViewControllerService con =  new orderDetailViewControllerServiceImpl(controller.getUserID(),id,hotelid,1);
 		orderDetailView vie = new orderDetailView(con);

@@ -1,11 +1,9 @@
 package UserView;
 
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.rmi.RemoteException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JButton;
@@ -22,7 +20,11 @@ import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
-
+/**
+ * 评论界面的Panel
+ * @author 刘宇翔
+ *
+ */
 public class CommentView extends JPanel {
     /**
 	 * 
@@ -67,13 +69,6 @@ public class CommentView extends JPanel {
 	private Box box1,box2,box3;
 private JPanel panel1;
 	
-	private JPanel panel2;
-	private JPanel panel3;
-	private JPanel panel4;
-	private JPanel panel5;
-	private JPanel panel6;
-	private JPanel panel7;
-	private JPanel panel8;
 	private JPanel panel9;
 	private JPanel panel10;
 	private JPanel panel10_1;
@@ -107,9 +102,15 @@ private JPanel panel1;
         init_exit();
         init_detail();
 	}
+	/**
+	 * 初始化退出
+	 */
 	public void init_exit(){
 		
 		back = new JButton("\u8FD4\u56DE");
+		/**
+		 * 返回按钮的监听
+		 */
 		back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			controller.exit();
@@ -117,12 +118,19 @@ private JPanel panel1;
 		});
 		panel.add(back);
 	}
+	/**
+	 * 退出界面的跳转
+	 * @throws RemoteException
+	 */
 	public void exit() throws RemoteException{
 		OrderViewControllerService con =  new OrderViewControllerImpl(UserID);
 		OrderView vie = new OrderView(con);
 		con.setView(vie);
 		ClientRunner.change(vie);
 	}
+	/**
+	 * 初始化panel中的详细信息
+	 */
 	public void init_detail(){
 		List<String> data=controller.getDetail();
 		hotelName = new JLabel("\u9152\u5E97\u540D\u79F0\uFF1A");
@@ -190,6 +198,10 @@ private JPanel panel1;
 		
 		commentinput = new JTextArea(10,130);
 		commentButton = new JButton("\u63D0\u4EA4\u8BC4\u4EF7");
+		
+		/**
+		 * 评论按钮的监听
+		 */
 		commentButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				judgeScore=controller.judgeScore(scoreinput.getText());
