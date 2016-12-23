@@ -1,8 +1,6 @@
 package List;
 import java.util.*;
 
-import VO.UserVO;
-import LineItem.OrderLineItem;
 import LineItem.PromotionLineItem;
 public class PromotionList {
 

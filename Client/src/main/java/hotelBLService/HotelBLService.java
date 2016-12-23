@@ -10,7 +10,7 @@ import VO.*;
 public interface HotelBLService {
 	
 	/**
-     * 更新酒店拥有的房间类型、数量、原始价格
+     * 更新酒店拥有的房间类型、数量、原始价格、房间号
      * 
      * @param id String型，酒店帐号
      * @param roomType String型，房间类型
@@ -29,6 +29,7 @@ public interface HotelBLService {
      * @param hotelArea String型，酒店商圈
      * @param hotelIntroduction String型，酒店简介
      * @param hotelStar int型，酒店星级
+     * @param hotelPhone String型，酒店联系电话
      */
 	public void updateHotelInfo(String id,String hotelName, String hotelLocation, String hotelService, String hotelCity,
 			String hotelArea, String hotelIntroduce, int hotelStar, String hotelPhone);
@@ -76,11 +77,13 @@ public interface HotelBLService {
      * @param scoreHigh int型，搜索选择的最高评分，若未选择，值为-1
      * @param everBooked String型，选择搜索的范围：全部，预定过，未预定过，若未选择，值为null
      * @param userid String型，客户的id
+     * @param name String型，酒店名称，若未选择，值为null
      * 
      * @return 返回符合条件的酒店ID列表
      */
 	public List<String> getHotelID(String city, String businessCircle, String roomType, int roomNumber,
-			int priceLow, int priceHigh, int hotelStar, int scoreLow, int scoreHigh, String everBooked,String userid);
+			int priceLow, int priceHigh, int hotelStar, int scoreLow, int scoreHigh, 
+			String everBooked,String userid,String name);
 	/**
      * 网站工作人员更新酒店的联系方式
      * 

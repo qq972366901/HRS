@@ -110,12 +110,14 @@ public class HotelBLServiceController implements HotelBLService {
      * @param scoreHigh int型，搜索选择的最高评分，若未选择，值为-1
      * @param everBooked String型，选择搜索的范围：全部，预定过，未预定过，若未选择，值为null
      * @param userid String型，客户的id
+     * @param name String型，酒店名称，若未选择，值为null
      * 
      * @return 返回符合条件的酒店ID列表
      */
 	public List<String> getHotelID(String city, String businessCircle, String roomType, int roomNumber,
-			int priceLow, int priceHigh, int hotelStar, int scoreLow, int scoreHigh, String everBooked,String userid) {
-		return hotelInformationSearchController.getHotelID(city, businessCircle, roomType, roomNumber, priceLow, priceHigh, hotelStar, scoreLow, scoreHigh, everBooked, userid);
+			int priceLow, int priceHigh, int hotelStar, int scoreLow, int scoreHigh, 
+			String everBooked,String userid,String name) {
+		return hotelInformationSearchController.getHotelID(city, businessCircle, roomType, roomNumber, priceLow, priceHigh, hotelStar, scoreLow, scoreHigh, everBooked, userid, name);
 	}
 	/**
      * 网站工作人员更新酒店的联系方式

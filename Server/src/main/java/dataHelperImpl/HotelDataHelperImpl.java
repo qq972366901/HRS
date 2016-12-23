@@ -19,12 +19,14 @@ public class HotelDataHelperImpl implements HotelDataHelper{
 	private String userName;
 	private String userPwd;
 	private Connection dbConn;
-	
+	/**
+	 * 连接数据库
+	 */
 	private void init() {
 		driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
 		dbURL="jdbc:sqlserver://localhost:1433;DatabaseName=HRS";
-		userName="liu";
-		userPwd="naigo961226";
+		userName="sa";
+		userPwd="123456";
 		try{
 			 Class.forName(driverName);
 			 dbConn=DriverManager.getConnection(dbURL,userName,userPwd);
@@ -34,6 +36,9 @@ public class HotelDataHelperImpl implements HotelDataHelper{
 			 System.out.print("连接失败");
 		 }
 	}
+	/**
+	 * 关闭数据库的连接
+	 */
 	private void finish(){
 		if(dbConn!=null){
 			try {
@@ -45,7 +50,12 @@ public class HotelDataHelperImpl implements HotelDataHelper{
 			}
 		}
 	}
-	
+	/**
+	 * 按酒店ID进行查找返回相应的HotelPO结果
+	 * 
+	 * @param id String型，界面输入的酒店id
+	 * @return 返回对应的HotelPO
+	 */
 	public HotelPO find(String id) throws RemoteException {
 		HotelPO po = null;
 		init();
@@ -73,6 +83,12 @@ public class HotelDataHelperImpl implements HotelDataHelper{
 		finish();
 		return po;
 	}
+	/**
+	 * 在数据库中查找一个用户的历史酒店
+	 * 
+	 * @param userid String型，用户ID
+	 * @return 此用户的历史酒店列表
+	 */
 	public List<HotelPO> getHistoryHotelByUser(String userid) throws RemoteException {
 		List<HotelPO> list = new ArrayList<HotelPO>();
 		init();
@@ -102,6 +118,11 @@ public class HotelDataHelperImpl implements HotelDataHelper{
 		finish();
 		return list;
 	}
+	/**
+	 * 得到所有酒店
+	 * 
+	 * @return 返回所以酒店的列表
+	 */
 	public List<HotelPO> getAllHotel() throws RemoteException {
 		List<HotelPO> list = new ArrayList<HotelPO>();
 		init();
@@ -131,7 +152,12 @@ public class HotelDataHelperImpl implements HotelDataHelper{
 		finish();
 		return list;
 	}
-	
+	/**
+	 * 在数据库中增加一个po记录
+	 * 
+	 * @param po HotelPO型，界面的选择
+	 * @return
+	 */
 	public void insert(HotelPO po) throws RemoteException {
 		init();
 		String sql="insert into [Hotel] values('"+po.gethotelAddress()+"','"+po.gethotelCity()+"','"+po.gethotelDistrict()+"','"+po.gethotelStar()+"','"+po.gethotelProfile()+"','"+po.gethotelService()+"','"+po.gethotelName()+"','"+po.gethotelAccount()+"','"+po.getScore()+"','"+po.getHotelPhone()+"')";
@@ -151,6 +177,12 @@ public class HotelDataHelperImpl implements HotelDataHelper{
 		}
 		finish();
 	}
+	/**
+	 * 在数据库中删除一个po
+	 * 
+	 * @param po HotelPO型，界面的选择
+	 * @return
+	 */
 	public void delete(HotelPO po) throws RemoteException {
 		init();
 		String sql="delete from [Hotel] where hotelAccount='"+po.gethotelAccount()+"'";
@@ -170,6 +202,12 @@ public class HotelDataHelperImpl implements HotelDataHelper{
 		}
 		finish();
 	}
+	/**
+	 * 在数据库中跟新一个po
+	 * 
+	 * @param po HotelPO型，界面的选择
+	 * @return
+	 */
 	public void update(HotelPO po) throws RemoteException {
 		init();
 		String hAddress = po.gethotelAddress();
@@ -200,25 +238,25 @@ public class HotelDataHelperImpl implements HotelDataHelper{
 		finish();
 	}
 	
-	public HotelPO findByName(String name) throws RemoteException {
-		init();
-		finish();
-		return null;
-	}
-	public ArrayList<HotelPO> findByDistrict(String district) throws RemoteException {
-		init();
-		finish();
-		return null;
-	}
-	public ArrayList<HotelPO> findByStar(int star) throws RemoteException {
-		init();
-		finish();
-		return null;
-	}
-	public ArrayList<HotelPO> findByScore(double sco) throws RemoteException {
-		init();
-		finish();
-		return null;
-	}
+//	public HotelPO findByName(String name) throws RemoteException {
+//		init();
+//		finish();
+//		return null;
+//	}
+//	public ArrayList<HotelPO> findByDistrict(String district) throws RemoteException {
+//		init();
+//		finish();
+//		return null;
+//	}
+//	public ArrayList<HotelPO> findByStar(int star) throws RemoteException {
+//		init();
+//		finish();
+//		return null;
+//	}
+//	public ArrayList<HotelPO> findByScore(double sco) throws RemoteException {
+//		init();
+//		finish();
+//		return null;
+//	}
 	
 }
