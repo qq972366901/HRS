@@ -61,7 +61,8 @@ public class GetHotelPromotionDiscount {
 		}
 		else{
 		discount=hpvo.discount/10;
-		UserVO vo1=Customer.getUserInstance().findByID(userID);
+		Customer c=new Customer();
+		UserVO vo1=c.findByID(userID);
 		Calendar birthday=vo1.birthday;
 		Calendar cal1=Calendar.getInstance();
 		Calendar cal2=Calendar.getInstance();

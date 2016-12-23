@@ -583,7 +583,8 @@ public class HotelSearchView extends JPanel{
 						Vector<Object> inf=new Vector<Object>();
 						String key="";
 						try {
-							key=Log.getLogInstance().getSKey(hotelid);
+							Log log=new Log();
+							key=log.getSKey(hotelid);
 						} catch (RemoteException e1) {
 							System.out.println("获取密钥失败");
 							e1.printStackTrace();
@@ -668,7 +669,8 @@ public class HotelSearchView extends JPanel{
 				String hid=(String)table.getValueAt(index,0);
 				String key1="";
 				try {
-					key1=Log.getLogInstance().getKey(hid);
+					Log log=new Log();
+					key1=log.getKey(hid);
 				} catch (RemoteException e1) {
 					System.out.println("获取密钥失败");
 					e1.printStackTrace();
@@ -694,7 +696,8 @@ public class HotelSearchView extends JPanel{
 					String hid=(String)table.getValueAt(index,0);
 					String key1="";
 					try {
-						key1=Log.getLogInstance().getKey(hid);
+						Log log=new Log();
+						key1=log.getKey(hid);
 					} catch (RemoteException e1) {
 						System.out.println("获取密钥失败");
 						e1.printStackTrace();
@@ -730,7 +733,8 @@ public class HotelSearchView extends JPanel{
 						Vector<Object> inf=new Vector<Object>();
 						String key="";
 						try {
-							key=Log.getLogInstance().getSKey(hotelid);
+							Log log=new Log();
+							key=log.getSKey(hotelid);
 						} catch (RemoteException e1) {
 							System.out.println("获取密钥失败");
 							e1.printStackTrace();
@@ -797,7 +801,8 @@ public class HotelSearchView extends JPanel{
 						Vector<Object> inf=new Vector<Object>();
 						String key="";
 						try {
-							key=Log.getLogInstance().getSKey(hotelid);
+							Log log=new Log();
+							key=log.getSKey(hotelid);
 						} catch (RemoteException e1) {
 							System.out.println("获取密钥失败");
 							e1.printStackTrace();
@@ -871,7 +876,8 @@ public class HotelSearchView extends JPanel{
 					Vector<Object> inf=new Vector<Object>();
 					String key="";
 					try {
-						key=Log.getLogInstance().getSKey(hotelid);
+						Log log=new Log();
+						key=log.getSKey(hotelid);
 					} catch (RemoteException e1) {
 						System.out.println("获取密钥失败");
 						e1.printStackTrace();
@@ -938,7 +944,8 @@ public class HotelSearchView extends JPanel{
 						Vector<Object> inf=new Vector<Object>();
 						String key="";
 						try {
-							key=Log.getLogInstance().getSKey(hotelid);
+							Log log=new Log();
+							key=log.getSKey(hotelid);
 						} catch (RemoteException e1) {
 							System.out.println("获取密钥失败");
 							e1.printStackTrace();
@@ -1011,7 +1018,8 @@ public class HotelSearchView extends JPanel{
 						Vector<Object> inf=new Vector<Object>();
 						String key="";
 						try {
-							key=Log.getLogInstance().getSKey(hotelid);
+							Log log=new Log();
+							key=log.getSKey(hotelid);
 						} catch (RemoteException e1) {
 							System.out.println("获取密钥失败");
 							e1.printStackTrace();
@@ -1078,7 +1086,8 @@ public class HotelSearchView extends JPanel{
 						Vector<Object> inf=new Vector<Object>();
 						String key="";
 						try {
-							key=Log.getLogInstance().getSKey(hotelid);
+							Log log=new Log();
+							key=log.getSKey(hotelid);
 						} catch (RemoteException e1) {
 							System.out.println("获取密钥失败");
 							e1.printStackTrace();

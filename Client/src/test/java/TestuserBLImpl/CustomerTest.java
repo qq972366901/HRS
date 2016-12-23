@@ -32,38 +32,43 @@ public class CustomerTest {
 	@Test
 	public void testHasCustomer() throws RemoteException {
 		String id="ac4410375dd760d1";
-		boolean result=Customer.getUserInstance().hasCustomer(id);
+		Customer c=new Customer();
+		boolean result=c.hasCustomer(id);
 		assertEquals(true,result);
 	}
 
 	@Test
 	public void testDeleteCustomer() throws RemoteException {
 		String id="ac4410375dd760d1";
-		Customer.getUserInstance().deleteCustomer(id);
-		assertEquals(null,Customer.getUserInstance().findByID(id));
+		Customer c=new Customer();
+		c.deleteCustomer(id);
+		assertEquals(null,c.findByID(id));
 	}
 
 	@Test
 	public void testFindByID() throws RemoteException {
 		String id="ac4410375dd760d1";
-		assertEquals(id,Customer.getUserInstance().findByID(id).id);
+		Customer c=new Customer();
+		assertEquals(id,c.findByID(id).id);
 	}
 
 	@Test
 	public void testUpdateUserInfo() throws RemoteException {
 		String id="ac4410375dd760d1";
-		UserVO vo=Customer.getUserInstance().findByID(id);
+		Customer c=new Customer();
+		UserVO vo=c.findByID(id);
 		vo.contactway="1";
-		Customer.getUserInstance().updateUserInfo(vo);
-		assertEquals("1",Customer.getUserInstance().findByID(id).contactway);
+		c.updateUserInfo(vo);
+		assertEquals("1",c.findByID(id).contactway);
 	}
 
 	@Test
 	public void testCreate() throws RemoteException {
 		UserVO vo=new UserVO("0","0","0","普通会员",UserType.Customer,Calendar.getInstance(),"");
 		String password="0";
-		Customer.getUserInstance().create(vo, password);
-		assertEquals(vo,Customer.getUserInstance().findByID(vo.id));
+		Customer c=new Customer();
+		c.create(vo, password);
+		assertEquals(vo,c.findByID(vo.id));
 	}
 
 }

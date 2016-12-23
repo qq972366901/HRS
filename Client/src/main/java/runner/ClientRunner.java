@@ -12,12 +12,19 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 import UserView.MemberRegisterView;
 import UserView.HotelBrowseView;
+import UserView.HotelDetailView;
 import UserView.HotelSearchView;
+import UserView.InformationView;
 import UserView.LogView;
 import UserView.OrderBuildView;
+import UserView.OrderView;
 import UserView.AddHotelView;
+import UserView.CommentView;
+import UserView.CreditView;
+import UserView.HistroyHotelView;
 import UserView.UserManagementView;
 import UserView.WebAdminUserView;
+import orderBLImpl.OrderList;
 import rmi.RemoteHelper;
 import uiController.LoginViewControllerImpl;
 import uiService.LoginViewControllerService;
@@ -90,6 +97,24 @@ public class ClientRunner implements Serializable{
 		}
 		else if(view instanceof OrderBuildView) {
 		mFrame.setTitle("生成订单");
+		}
+		else if(view instanceof OrderView) {
+		mFrame.setTitle("订单管理");
+		}
+		else if(view instanceof CommentView) {
+		mFrame.setTitle("订单评价");
+		}
+		else if(view instanceof InformationView) {
+		mFrame.setTitle("个人信息管理");
+		}
+		else if(view instanceof CreditView) {
+		mFrame.setTitle("信用管理");
+		}
+		else if(view instanceof HistroyHotelView) {
+		mFrame.setTitle("历史酒店浏览");
+		}
+		else if(view instanceof HotelDetailView) {
+		mFrame.setTitle("酒店订单浏览");
 		}
 	}
 

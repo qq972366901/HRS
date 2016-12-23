@@ -16,6 +16,7 @@ import common.UserType;
 import rmi.RemoteHelper;
 import userBLServiceImpl.Account;
 import userBLServiceImpl.AccountInfo;
+import userBLServiceImpl.Credit;
 
 public class AccountTest {
 	private RemoteHelper remoteHelper;
@@ -32,7 +33,8 @@ public class AccountTest {
 	}
 	@Test
 	public void testGetUser() throws RemoteException {
-		AccountInfo info=Account.getInstance().getUser(UserType.WebManagementWorker, "ac4410375dd760d1");
+		Account a=new Account();
+		AccountInfo info=a.getUser(UserType.WebManagementWorker, "ac4410375dd760d1");
 		assertNotNull(info);
 	}
 
@@ -40,22 +42,25 @@ public class AccountTest {
 	public void testUpdateContactway() throws RemoteException {
 		String id="ac4410375dd760d1";
 		String phone="ru29290t2t2d2c";
-		Account.getInstance().updateContactway(id, phone);
-		assertEquals(phone,Account.getInstance().getUser(UserType.WebManagementWorker,id).contactway);
+		Account a=new Account();
+		a.updateContactway(id, phone);
+		assertEquals(phone,a.getUser(UserType.WebManagementWorker,id).contactway);
 	}
 
 	@Test
 	public void testDelete() throws RemoteException {
 		String id="xx";
-		Account.getInstance().delete(id);
-		assertEquals(false,Account.getInstance().judgeAccount(id));
+		Account a=new Account();
+		a.delete(id);
+		assertEquals(false,a.judgeAccount(id));
 	}
 
 	@Test
 	public void testAdd() throws RemoteException {
 		UserVO vo=new UserVO("0","0","0","普通会员",UserType.Customer,Calendar.getInstance(),"");
 		String password="0";
-		boolean result=Account.getInstance().add(vo, password);
+		Account a=new Account();
+		boolean result=a.add(vo, password);
 		assertEquals(true,result);
 	}
 

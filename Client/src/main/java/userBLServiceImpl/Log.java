@@ -17,23 +17,19 @@ public class Log {
 	private HashMap<String,String> skey;//维护已加密的id和对应密钥
 	private DataFactoryService df;
 	UserDataService dh;
-	private static Log log;
-	private Log() throws RemoteException{
+	public Log() throws RemoteException{
 		list=new HashMap<String,LogVO>();
 		df=RemoteHelper.getInstance().getDataFactoryService();
 		dh=(UserDataService) df.getDataService("User");
+		init();
+	}
+	private void init() throws RemoteException{
 		key=dh.getAllKeys();
 		skey=dh.getAllSKeys();
 		List<UserPO> l=dh.getAllUser();
 		for(UserPO user:l){
 			list.put(user.getAccount(), new LogVO(user));
 		}
-	}
-	public static Log getLogInstance() throws RemoteException{
-		if(log==null){
-			log=new Log();
-		}
-		return log;
 	}
 	/**
 	 * 登出

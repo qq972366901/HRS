@@ -282,4 +282,12 @@ public class OrderBLServiceController implements OrderBLService{
 	public void updateOrderState() {
 		management.updateOrderState();
 	}
+	/**
+	 * 获取酒店的所有当天的未执行订单
+	 * @param String HotelID,酒店id
+	 * @return List<OrderVO> 订单列表
+	 */
+	public List<OrderVO> getNowadaysUnfinishedOrder(String HotelID){
+		return overview.getNowadaysUnfinishedOrder(HotelID);
+	}
 }

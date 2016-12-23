@@ -25,7 +25,8 @@ public class MakeHotelPromotionController implements MakeHotelPromotionUiService
 	
 	public MakeHotelPromotionController (String id) throws RemoteException {
 		try {
-			key=Log.getLogInstance().getKey(id);
+			Log log=new Log();
+			key=log.getKey(id);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}

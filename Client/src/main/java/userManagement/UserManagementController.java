@@ -5,8 +5,17 @@ import VO.UserVO;
 import common.UserType;
 import userBLServiceImpl.Account;
 import userBLServiceImpl.AccountInfo;
+import userBLServiceImpl.Customer;
 import userBLServiceImpl.Register;
 public class UserManagementController{
+	private Account a;
+	public UserManagementController(){
+		try {
+			a=new Account();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+	}
 	/**
 	 * 新增客户信息
 	 * @param vo UserVO型，界面输入的新增信息
@@ -15,7 +24,7 @@ public class UserManagementController{
 	 * @see Customer.User
 	 */
 		public boolean add(UserVO vo,String password) throws RemoteException {
-			return Account.getInstance().add(vo, password);
+			return a.add(vo, password);
 		}
 		/**
 		 * 删除客户信息
@@ -23,7 +32,7 @@ public class UserManagementController{
 		 * @see Customer.User
 		 */
 		public void delete(String id) throws RemoteException {
-			Account.getInstance().delete(id);
+			a.delete(id);
 		}
 		/**
 		 * 判断账号是否存在
@@ -32,7 +41,7 @@ public class UserManagementController{
 		 * @throws  
 		 */
 		public boolean judge(String id) throws RemoteException {
-			return Account.getInstance().judgeAccount(id);
+			return a.judgeAccount(id);
 		}
 		/**
 		 * 根据用户账号和类型获取客户账户信息，供网站管理人员查看
@@ -42,6 +51,6 @@ public class UserManagementController{
 		 * @throws RemoteException 
 		 */
 		public AccountInfo getUser(UserType type, String account) throws RemoteException {
-			return Account.getInstance().getUser(type, account);
+			return a.getUser(type, account);
 		}
 }

@@ -56,7 +56,7 @@ public class HotelBrowseUiController implements HotelBrowseUiService{
 		ClientRunner.change(view);
 	}
 	public void toOrderBuildView(String id1,String id2) throws RemoteException{
-		OrderBuildUiService controller=new OrderBuildUiController(id1,id2);
+		OrderBuildUiService controller=new OrderBuildUiController(id1,id2,1);
 		OrderBuildView view=new OrderBuildView(controller);
 		controller.setView(view);
 		ClientRunner.change(view);

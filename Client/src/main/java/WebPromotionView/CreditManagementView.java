@@ -78,7 +78,8 @@ public class CreditManagementView extends JPanel {
 				long time=100;
 				String key="";
 				try {
-					key=Log.getLogInstance().getKey(accountText.getText());
+					Log log=new Log();
+					key=log.getKey(accountText.getText());
 				} catch (RemoteException e1) {
 					System.out.println("获取密钥失败");
 					e1.printStackTrace();
@@ -87,7 +88,8 @@ public class CreditManagementView extends JPanel {
 					String acc=DES.encryptDES(accountText.getText(), key);
 					long value=Long.valueOf(valText.getText());
 					try {
-						if(Customer.getUserInstance().hasCustomer(acc)){
+						Customer c=new Customer();
+						if(c.hasCustomer(acc)){
 							long currentcredit=controller.getCurrencredit(acc);
 							currentcredit+=value*time; 
 							Date now = new Date(); 

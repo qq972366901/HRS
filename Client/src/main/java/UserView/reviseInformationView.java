@@ -1,5 +1,6 @@
 package UserView;
 
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,6 +20,7 @@ import uiService.reviseInformationViewControllerService;
 
 import javax.swing.JTextField;
 import javax.swing.UIManager;
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 
 public class reviseInformationView extends JPanel {
@@ -49,6 +51,9 @@ public class reviseInformationView extends JPanel {
 	private  JPanel panel_3;
 	private  JPanel panel_4;
 	private JPanel panel_5;
+	private JPanel panel21,panel22,panel23,panel24;
+	private JPanel panel_to;
+	private Box box,box1;
 	JComboBox<Integer> y;
 	JComboBox<Integer> m;
 	JComboBox<Integer> d;
@@ -67,44 +72,52 @@ public class reviseInformationView extends JPanel {
         panel_1.setLayout(new FlowLayout(FlowLayout.RIGHT));
         add(panel_1);
         
-        panel_2= new JPanel();
-        panel_2.setLayout(new FlowLayout(FlowLayout.CENTER));
-        add(panel_2);
-        
-        panel_3 = new JPanel();
-        panel_3.setLayout(new FlowLayout(FlowLayout.CENTER));
-        add(panel_3);
-        
-        panel_4 = new JPanel();
-        panel_4.setLayout(new FlowLayout(FlowLayout.CENTER));
-        add(panel_4);
-       
-        
-        panel_5 = new JPanel();
-        panel_5.setLayout(new FlowLayout(FlowLayout.CENTER));
-        add(panel_5);
-        
-        
+        panel_to = new JPanel();
+        panel_to.setLayout(new FlowLayout(FlowLayout.CENTER));
+        add(panel_to);
+        box=Box.createVerticalBox();
+        box1=Box.createVerticalBox();
+        panel_to.add(box);
+        panel_to.add(box1);
         panel= new JPanel();
         panel.setLayout(new FlowLayout(FlowLayout.CENTER));
         add(panel);
         UserID=controller.getUserID();
+        panel_3=new JPanel(new FlowLayout(FlowLayout.LEFT));
+        panel_2=new JPanel(new FlowLayout(FlowLayout.LEFT));
+        panel_4=new JPanel(new FlowLayout(FlowLayout.LEFT));
+        panel_5=new JPanel(new FlowLayout(FlowLayout.LEFT));
+        panel21=new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        panel22=new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        panel23=new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        panel24=new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        box1.add(panel_2);
+        box1.add(panel_3);
+        box1.add(panel_4);
+        box1.add(panel_5);
+        box.add(panel21);
+        box.add(panel22);
+        box.add(panel23);
+        box.add(panel24);
+        box.setPreferredSize(new Dimension(300,500));
+        box1.setPreferredSize(new Dimension(300,500));
         init_exit();
         
         init_information();
 	}
 	public void init_information(){
 		
-		name = new JLabel("姓名 ：");
-		panel_2.add(name);
+		name = new JLabel("姓名     ：");
+		panel21.add(name);
 		
-		birth = new JLabel("\u751F\u65E5 \uFF1A");
-		panel_3.add(birth);
 		
-		tel = new JLabel("\u8054\u7CFB\u65B9\u5F0F \uFF1A");
-		panel_4.add(tel );
-		enterprise = new JLabel("\u516C\u53F8 \uFF1A");
-		panel_5.add(enterprise);
+		birth = new JLabel("生日     ：");
+		panel22.add(birth);
+		
+		tel = new JLabel("联系方式  ：");
+		panel23.add(tel );
+		enterprise = new JLabel("公司      ：");
+		panel24.add(enterprise);
 		
 		nameinput = new JTextField();
 		nameinput.setColumns(10);
@@ -159,7 +172,6 @@ public class reviseInformationView extends JPanel {
 		panel_3.add(label5_2);
 		panel_3.add(d);
 		panel_3.add(label5_3);
-		
 		telinput = new JTextField();
 		telinput.setColumns(10);
 		panel_4.add(telinput);	
@@ -167,7 +179,6 @@ public class reviseInformationView extends JPanel {
 		enterpriseinput = new JTextField();
 		enterpriseinput.setColumns(10);
 		panel_5.add(enterpriseinput);
-		
 		updateinformation = new JButton("\u786E\u5B9A\u4FEE\u6539");
 		updateinformation.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

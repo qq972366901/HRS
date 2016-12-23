@@ -8,11 +8,18 @@ import userBLServiceImpl.Credit;
 import userBLServiceImpl.Log;
 import userBLServiceImpl.Register;
 public class UserRegisterAndLogController{
-	private Register register;
+	private Register r;
 	private Log log;
-	public UserRegisterAndLogController() throws RemoteException{
-		this.log=Log.getLogInstance();
-		this.register=new Register();
+	private Credit c;
+	public UserRegisterAndLogController(){
+		try {
+			r=new Register();
+			c=new Credit();
+			log=new Log();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	/**
 	 * 客户注册
@@ -22,9 +29,9 @@ public class UserRegisterAndLogController{
 	 * @see bussinesslogic.Customer
 	 */
 	public void register(UserVO vo,String password) throws RemoteException {
-		register.add(vo,password);
+		r.add(vo,password);
 		CreditVO cvo=new CreditVO(vo.id,0,0);
-		Credit.getInstance().add(cvo);
+		c.add(cvo);
 		log.add(vo.id, new LogVO(password,vo.id,true));
 	}
 	/**

@@ -30,8 +30,9 @@ public class LogTest {
 	@Test
 	public void testLogout() throws RemoteException {
 		String id="ac4410375dd760d1";
-		Log.getLogInstance().logout(id);
-		boolean result=Log.getLogInstance().logstate(id);
+		Log log=new Log();
+		log.logout(id);
+		boolean result=log.logstate(id);
 		assertEquals(false,result);
 	}
 
@@ -39,8 +40,9 @@ public class LogTest {
 	public void testLogin() throws RemoteException {
 		String id="ac4410375dd760d1";
 		String password="ac4410375dd760d1";
-		Log.getLogInstance().login(id, password);
-		boolean result=Log.getLogInstance().logstate(id);
+		Log log=new Log();
+		log.login(id, password);
+		boolean result=log.logstate(id);
 		assertEquals(true,result);
 	}
 
@@ -48,23 +50,26 @@ public class LogTest {
 	public void testRevisepassword() throws RemoteException {
 		String id="ac4410375dd760d1";
 		String password="ac4410375dd760d1";
-		Log.getLogInstance().revisepassword(id, password);
-		assertEquals(password,Log.getLogInstance().getPassword(id));
+		Log log=new Log();
+		log.revisepassword(id, password);
+		assertEquals(password,log.getPassword(id));
 	}
 
 	@Test
 	public void testDelete() throws RemoteException {
 		String id="xxxxxxx";
-		Log.getLogInstance().delete(id);
-		assertEquals(null,Log.getLogInstance().getKey(id));
+		Log log=new Log();
+		log.delete(id);
+		assertEquals(null,log.getKey(id));
 	}
 
 	@Test
 	public void testAdd() throws RemoteException {
 		String id="11";
 		String password="11";
-		Log.getLogInstance().add(id, new LogVO(id,password,false));
-		assertEquals(password,Log.getLogInstance().getPassword(id));
+		Log log=new Log();
+		log.add(id, new LogVO(id,password,false));
+		assertEquals(password,log.getPassword(id));
 	}
 
 	@Test
@@ -72,8 +77,9 @@ public class LogTest {
 		String id="11";
 		String key="111111111111";
 		String sid="00f7ce98c8cde2f2";
-		Log.getLogInstance().addKey(id, key,sid);
-		assertEquals(key,Log.getLogInstance().getKey(id));
+		Log log=new Log();
+		log.addKey(id, key,sid);
+		assertEquals(key,log.getKey(id));
 	}
 
 }

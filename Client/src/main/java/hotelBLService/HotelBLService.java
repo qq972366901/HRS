@@ -10,7 +10,7 @@ import VO.*;
 public interface HotelBLService {
 	
 	/**
-     * 更新酒店拥有的房间类型、数量、原始价格
+     * 更新酒店拥有的房间类型、数量、原始价格、房间号
      * 
      * @param id String型，酒店帐号
      * @param roomType String型，房间类型
@@ -29,6 +29,7 @@ public interface HotelBLService {
      * @param hotelArea String型，酒店商圈
      * @param hotelIntroduction String型，酒店简介
      * @param hotelStar int型，酒店星级
+     * @param hotelPhone String型，酒店联系电话
      */
 	public void updateHotelInfo(String id,String hotelName, String hotelLocation, String hotelService, String hotelCity,
 			String hotelArea, String hotelIntroduce, int hotelStar, String hotelPhone);

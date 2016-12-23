@@ -24,7 +24,8 @@ public class CommentViewControllerServiceImpl implements CommentViewService{
     private HotelBLService hotel;
     private String key;
     public CommentViewControllerServiceImpl(String UserID,String OrderID) throws RemoteException{
-    	key=Log.getLogInstance().getSKey(UserID);
+    	Log log=new Log();
+    	key=log.getSKey(UserID);
     	this.UserID=UserID;
     	this.OrderID=OrderID;
     	order=new OrderBLServiceController();

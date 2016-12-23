@@ -38,7 +38,8 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 	
 	private String key;
 	public ProcessOrderUiController(String hotelId,UserType type) throws RemoteException{
-		key=Log.getLogInstance().getSKey(hotelId);
+		Log log=new Log();
+		key=log.getSKey(hotelId);
 		this.hotelId =hotelId;
 		this.usertype=type;
 		user= new UserBLServiceController();
@@ -149,11 +150,7 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 	@Override
 	public void recover(Calendar calendar, String orderNo, Operate appeal, String strategy, int value, String userID) {
 		long currentcredit=0;
-		try {
-			currentcredit = Credit.getInstance().showCredit(userID);
-		} catch (RemoteException e1) {
-			e1.printStackTrace();
-		}
+		currentcredit = user.showCredit(userID);
 		if(strategy.equals("全部")){
 			currentcredit+=value;
 		}
@@ -162,13 +159,7 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 			currentcredit+=value;
 		}
 		CreditRecordVO vo=new CreditRecordVO(null,userID,calendar,orderNo,appeal,value,currentcredit);
-		try {
-			Credit.getInstance().updateCredit(vo);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+		user.updateCreditRecord(vo);
 	}
 	/**
 	 * 获取一个酒店所有已撤销订单
@@ -195,7 +186,8 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 			vo.adddetail();
 			String skey="";
 			try {
-				skey = Log.getLogInstance().getSKey(vo.userID);
+				Log log=new Log();
+				skey = log.getSKey(vo.userID);
 			} catch (RemoteException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

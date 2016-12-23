@@ -1,11 +1,7 @@
 package orderAbnormal;
 
 import java.rmi.RemoteException;
-import java.text.ParseException;
-import java.util.Calendar;
 
-import VO.CreditRecordVO;
-import common.Operate;
 import orderBLImpl.OrderState;
 import userBLServiceImpl.Credit;
 /**
@@ -18,7 +14,7 @@ public class OrderAbnormalController{
 	OrderState state;
 	Credit credit;
 	public OrderAbnormalController() throws RemoteException{
-	      credit=Credit.getInstance();
+	      credit=new Credit();
 	}
 	/**
      * 撤销异常订单

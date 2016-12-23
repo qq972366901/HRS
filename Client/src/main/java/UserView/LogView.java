@@ -71,6 +71,7 @@ public class LogView extends JPanel {
     private JLabel label2;
     private JLabel label3;
     private JPanel k;
+    private JLabel lblNewLabel;
     /**
 	 * Create the panel.
 	 */
@@ -138,7 +139,7 @@ public class LogView extends JPanel {
 		label3.setPreferredSize(new Dimension(150,10));
 		panel5.add(label3);
 		
-		admin = new JLabel("\u8D26\u53F7\u540D \uFF1A");
+		admin = new JLabel("账号名  ：");
 		admin.setForeground(new Color(0, 0, 0));
 		admin.setFont(UIManager.getFont("Button.font"));
 		panel2.add(admin);
@@ -154,7 +155,7 @@ public class LogView extends JPanel {
 		});
 		register.setFont(UIManager.getFont("Button.font"));
 		panel2.add(register);
-		password = new JLabel("\u5BC6\u7801 \uFF1A");
+		password = new JLabel("密码    ：");
 		panel3.add(password);
 		passwordField = new JPasswordField(15);
 
@@ -167,7 +168,8 @@ public class LogView extends JPanel {
 				type=(String)comboBox_1.getSelectedItem();
 				String key="";
 				try {
-					key=Log.getLogInstance().getKey(textField.getText());
+					Log log=new Log();
+					key=log.getKey(textField.getText());
 				} catch (RemoteException e1) {
 					System.out.println("获取密钥失败");
 					e1.printStackTrace();
@@ -180,7 +182,8 @@ public class LogView extends JPanel {
 					//System.out.println(pwd);
 					UserType idtype=null;
 					try {
-						idtype=Account.getInstance().getType(id);
+						Account a=new Account();
+						idtype=a.getType(id);
 					} catch (RemoteException e1) {
 						System.out.println("获取用户类型失败");
 						e1.printStackTrace();
@@ -204,6 +207,9 @@ public class LogView extends JPanel {
 			}
 		});
 		panel3.add(login);
+		
+		lblNewLabel = new JLabel("   ");
+		panel3.add(lblNewLabel);
 		label2=new JLabel();
 		label2.setPreferredSize(new Dimension(10000,250));
 		panel3.add(label2);
@@ -211,7 +217,8 @@ public class LogView extends JPanel {
 	public void login(UserType t){
 		String key="";
 		try {
-			key=Log.getLogInstance().getKey(textField.getText());
+			Log log=new Log();
+			key=log.getKey(textField.getText());
 		} catch (RemoteException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

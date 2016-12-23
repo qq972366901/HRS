@@ -33,7 +33,8 @@ public class CreditRecordTest {
 	}
 	@Test
 	public void testShowCreditRecord() throws RemoteException, ParseException {
-		HashMap<String,CreditRecordVO> map=CreditRecord.getInstance().showCreditRecord("737e975f762214a1");
+		CreditRecord cr=new CreditRecord();
+		HashMap<String,CreditRecordVO> map=cr.showCreditRecord("737e975f762214a1");
 		assertNotNull(map);
 	}
 
@@ -41,8 +42,9 @@ public class CreditRecordTest {
 	public void testAdd() throws RemoteException, ParseException {
 		CreditRecordVO vo=new CreditRecordVO("kkkkk","737e975f762214a1",Calendar.getInstance(),"1",Operate.Recharge,0,31700);
 		String id="737e975f762214a1";
-		int size=CreditRecord.getInstance().sizeOfRecord(id);
-		CreditRecord.getInstance().add(id, vo);
-		assertEquals(++size,CreditRecord.getInstance().sizeOfRecord(id));
+		CreditRecord cr=new CreditRecord();
+		int size=cr.sizeOfRecord(id);
+		cr.add(id, vo);
+		assertEquals(++size,cr.sizeOfRecord(id));
 	}
 }

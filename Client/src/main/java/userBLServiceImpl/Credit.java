@@ -26,24 +26,20 @@ import rmi.RemoteHelper;
 public class Credit {
 	private HashMap<String,CreditVO> map;
 	private PromotionInfo pi;
-	private static Credit credit;
 	DataFactoryService df;
 	CreditDataService cd;
-	private Credit() throws RemoteException{
+	public Credit() throws RemoteException{
 		df=RemoteHelper.getInstance().getDataFactoryService();
 		cd=(CreditDataService) df.getDataService("Credit");
 		map=new HashMap<String,CreditVO>();
+		init();
+	}
+	private void init() throws RemoteException{
 		ArrayList<CreditPO> list=cd.getAllCredit();
 		for(int i=0;i<list.size();i++){
 			CreditVO vo=new CreditVO(list.get(i));
 			map.put(vo.customerID,vo);
 		}
-	}
-	public static Credit getInstance() throws RemoteException{
-		if(credit==null){
-			credit=new Credit();
-		}
-		return credit;
 	}
 	/**
 	 * 显示信用值
@@ -73,7 +69,8 @@ public class Credit {
 			updateLevel(vo.account,vo.currentcredit);//更新等级
 			CreditPO po=new CreditPO(vo.account,vo.currentcredit,map.get(vo.account).level);
 			cd.update(po);
-			CreditRecord.getInstance().add(vo.account, vo);//更新信用记录
+			CreditRecord cr=new CreditRecord();
+			cr.add(vo.account, vo);//更新信用记录
 		}
 	}
 	/**

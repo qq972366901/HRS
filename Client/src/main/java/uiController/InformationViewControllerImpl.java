@@ -21,8 +21,9 @@ public class InformationViewControllerImpl implements InformationViewControllerS
     public InformationViewControllerImpl(String id){
 		key="";
     	try {
-			user=new UserBLServiceController();			
-			key=Log.getLogInstance().getSKey(id);
+			user=new UserBLServiceController();
+			Log log=new Log();
+			key=log.getSKey(id);
     	    UserID=id;
     	    vo=user.findByID(id);
     	    } catch (RemoteException e) {

@@ -23,11 +23,13 @@ public class CreditRecord {
 	private HashMap<String,HashMap<String,CreditRecordVO>> map;//一个用户ID对应其自身的一系列信用记录
 	private DataFactoryService df;
 	CreditRecordDataService dh;
-	private static CreditRecord creditRecord;
-	private CreditRecord() throws RemoteException, ParseException{
+	public CreditRecord() throws RemoteException, ParseException{
 		map=new HashMap<String,HashMap<String,CreditRecordVO>>();
 		df=RemoteHelper.getInstance().getDataFactoryService();
 		dh=(CreditRecordDataService) df.getDataService("CreditRecord");
+		init();
+	}
+	private void init() throws RemoteException, ParseException{
 		List<CreditRecordPO> list=dh.getAllCreditRecord();
 		for(int i=0;i<list.size();i++){
 			CreditRecordPO po=list.get(i);
@@ -40,12 +42,6 @@ public class CreditRecord {
 				map.put(po.getUserID(), h);
 			}
 		}
-	}
-	public static CreditRecord getInstance() throws RemoteException, ParseException{
-		if(creditRecord==null){
-			creditRecord=new CreditRecord();
-		}
-		return creditRecord;
 	}
 	/**
 	 * 显示信用记录
