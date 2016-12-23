@@ -10,7 +10,11 @@ import VO.UserVO;
 import dataService.DataFactoryService;
 import dataService.UserDataService;
 import rmi.RemoteHelper;
-
+/**
+ * 管理用户的登录以及加密
+ * @author LZ
+ *
+ */
 public class Log {
 	private HashMap<String,LogVO> list;
 	private HashMap<String,String> key;//维护未加密的id和对应密钥

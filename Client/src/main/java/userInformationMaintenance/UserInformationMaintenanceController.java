@@ -7,7 +7,11 @@ import userBLServiceImpl.Credit;
 import userBLServiceImpl.Customer;
 import userBLServiceImpl.Log;
 
-
+/**
+ * 用户信息维护控制器
+ * @author LZ
+ *
+ */
 public class UserInformationMaintenanceController{
 	private Customer c;
 	private Credit cr;

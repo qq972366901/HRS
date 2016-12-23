@@ -33,6 +33,7 @@ public class WebPromotionUserView extends JPanel {
 		initButton();
 		this.validate();
 	}
+	//初始化按钮
 	private void initButton(){
 		proStrategy=new JButton("制定营销策略");
 		proStrategy.addActionListener(new ActionListener() {

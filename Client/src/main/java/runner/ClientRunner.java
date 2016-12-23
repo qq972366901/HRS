@@ -33,12 +33,14 @@ import rmi.RemoteHelper;
 import uiController.LoginViewControllerImpl;
 import uiService.LoginViewControllerService;
 
-
+/**
+ * 客户端初始化
+ * @author LZ
+ *
+ */
 
 public class ClientRunner implements Serializable{
-/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	private RemoteHelper remoteHelper;
 	static JFrame mFrame;
@@ -77,6 +79,10 @@ public class ClientRunner implements Serializable{
     		mFrame.getContentPane().add(view);
         	mFrame.setVisible(true);
 	}
+	/**
+	 * 界面跳转
+	 * @param view JPanel型，界面层传入的panel
+	 */
 	public static void change(JPanel view){
 		mFrame.getContentPane().removeAll();
 		mFrame.getContentPane().add(view);

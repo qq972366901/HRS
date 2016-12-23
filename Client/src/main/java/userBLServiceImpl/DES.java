@@ -12,7 +12,11 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
-
+/**
+ * 加密机制
+ * @author LZ
+ *
+ */
 public class DES {
 	 /** 
      * 定义加密方式 
@@ -217,18 +221,4 @@ public class DES {
             return (c - 'A' + 10) & 0x0f;  
         return (c - '0') & 0x0f;  
     }  
-    /*
-    public static void main(String[] args) {  
-        String key = DES.init(); 
-        key="11111111111";
-        System.out.println("DES密钥:\n" + key);  
-  
-        String word = "11";  
-          
-  
-        String encWord = encryptDES(word, key);  
-  
-        System.out.println(word + "\n加密后：\n" + encWord);  
-        System.out.println(word + "\n解密后：\n" + decryptDES(encWord, key));  
-    }*/
 }

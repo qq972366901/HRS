@@ -1,12 +1,16 @@
 package userRegisterAndLog;
 import java.rmi.RemoteException;
-
 import VO.CreditVO;
 import VO.LogVO;
 import VO.UserVO;
 import userBLServiceImpl.Credit;
 import userBLServiceImpl.Log;
 import userBLServiceImpl.Register;
+/**
+ * 用户注册与登录控制器
+ * @author LZ
+ *
+ */
 public class UserRegisterAndLogController{
 	private Register r;
 	private Log log;
@@ -17,7 +21,6 @@ public class UserRegisterAndLogController{
 			c=new Credit();
 			log=new Log();
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

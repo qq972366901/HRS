@@ -5,7 +5,11 @@ import java.util.HashMap;
 import VO.CreditRecordVO;
 import userBLServiceImpl.Credit;
 import userBLServiceImpl.CreditRecord;
-
+/**
+ * 用户信用记录控制器
+ * @author LZ
+ *
+ */
 public class UserCreditRecordController{
 	private Credit c;
 	private CreditRecord cr;

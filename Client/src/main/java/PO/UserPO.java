@@ -10,7 +10,7 @@ import common.UserType;
  * @version 1.0
  * @see
  */
-public class UserPO extends PO implements Serializable{
+public class UserPO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String username;
 	private String userpassword;

@@ -6,7 +6,11 @@ import java.util.HashMap;
 
 import PO.PromotionPO;
 import PO.UserPO;
-
+/**
+ * 持久化用户数据
+ * @author LZ
+ *
+ */
 public interface UserDataHelper {
 	/**
 	 * 在数据库中增加一个po记录

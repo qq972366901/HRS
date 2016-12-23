@@ -8,7 +8,7 @@ import java.util.Calendar;
  * @version 1.0
  * @see
  */
-public class OrderPO extends PO implements Serializable{
+public class OrderPO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String UserID;
 	private String HotelID;

@@ -14,7 +14,11 @@ import dataHelper.CreditDataHelper;
 import dataHelper.DataHelperFactory;
 import dataHelperImpl.DataHelperFactoryImpl;
 import dataService.CreditDataService;
-
+/**
+ * 职责是将逻辑层面发来的请求转发给后台CreditData处理
+ * @author LZ
+ *
+ */
 public class CreditDataServiceMySqlImpl implements CreditDataService{
 
 	private CreditDataHelper creditDataHelper;

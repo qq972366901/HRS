@@ -8,7 +8,11 @@ import promotionMemberGrade.PromotionMemberGradeController;
 import userBLServiceImpl.Credit;
 import userBLServiceImpl.PromotionInfo;
 
-
+/**
+ * 用户信息值管理控制器
+ * @author LZ
+ *
+ */
 public class UserCreditManagementController {
 	private Credit c;
 	public UserCreditManagementController() throws RemoteException{

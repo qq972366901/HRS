@@ -4,7 +4,11 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import PO.CreditRecordPO;
-
+/**
+ * 持久化信用记录数据
+ * @author LZ
+ *
+ */
 public interface CreditRecordDataHelper {
 	/**
 	 * 在数据库中增加一个po记录

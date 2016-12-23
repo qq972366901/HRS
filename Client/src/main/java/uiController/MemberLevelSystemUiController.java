@@ -13,7 +13,11 @@ import uiService.MemberLevelSystemUiService;
 import uiService.webPromotionUserUiService;
 import userBLService.UserBLService;
 import userBLService.UserBLServiceController;
-
+/**
+ * 制定会员等级系统控制器
+ * @author LZ
+ *
+ */
 public class MemberLevelSystemUiController implements MemberLevelSystemUiService{
 	private MemberLevelSystemView view;
 	private PromotionBLService proService;

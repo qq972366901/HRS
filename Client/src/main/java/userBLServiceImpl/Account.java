@@ -158,7 +158,12 @@ public class Account{
 			}
 		}
 	}
-	
+	/**
+	 * 获取此拥有此账号的用户类型
+	 * @param id
+	 * @return
+	 * @throws RemoteException
+	 */
 	public UserType getType(String id) throws RemoteException{
 		Customer cu=new Customer();
 		if(worker.containsKey(id)){

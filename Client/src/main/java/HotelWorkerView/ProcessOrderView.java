@@ -30,7 +30,11 @@ import VO.OrderVO;
 import common.Operate;
 import common.UserType;
 import uiService.ProcessOrderUiService;
-
+/**
+ * 供酒店工作人员和网站营销人员处理订单
+ * @author LZ
+ *
+ */
 public class ProcessOrderView extends JPanel{
 	
 	private static final long serialVersionUID = 1L;
@@ -400,7 +404,9 @@ public class ProcessOrderView extends JPanel{
 		}
 		
 	}
-
+/**
+ * 处理异常订单申诉
+ */
 	public void cancelAbnormalOrder() {
 		int index = orderTable.getSelectedRow();
 		if(index == -1){
