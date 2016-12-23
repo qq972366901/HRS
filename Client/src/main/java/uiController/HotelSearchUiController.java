@@ -59,7 +59,7 @@ public class HotelSearchUiController implements HotelSearchUiService{
 		ClientRunner.change(view);
 	}
 	public void toOrderBuildView(String id1,String id2) throws RemoteException{
-		OrderBuildUiService controller=new OrderBuildUiController(id1,id2,1);
+		OrderBuildUiService controller=new OrderBuildUiController(id1,id2,4);
 		OrderBuildView view=new OrderBuildView(controller);
 		controller.setView(view);
 		ClientRunner.change(view);
