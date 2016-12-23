@@ -12,9 +12,6 @@ import userBLServiceImpl.Credit;
  */
 public class OrderAbnormalController{
 	private OrderState state;
-	public OrderAbnormalController() throws RemoteException{
-	      state=new OrderState(orderID);
-	}
 	/**
      * 撤销异常订单
      * 
@@ -23,6 +20,7 @@ public class OrderAbnormalController{
      * @see bussinesslogic.Order
      */
 	public void cancelAbnormalOrder(String orderID)  {
-	     state.cancelAbnormalOrder();
+		state=new OrderState(orderID);
+	    state.cancelAbnormalOrder();
 	}
 }
