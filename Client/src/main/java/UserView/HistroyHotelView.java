@@ -18,7 +18,6 @@ import uiService.customerMainViewControllerService;
 
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
-import javax.swing.ListCellRenderer;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.JList;
@@ -30,9 +29,11 @@ import java.awt.FlowLayout;
 import javax.swing.BoxLayout;
 import javax.swing.DefaultListCellRenderer;
 
-import java.awt.Font;
-
-
+/**
+ * 历史酒店界面的Panel
+ * @author 刘宇翔
+ *
+ */
 public class HistroyHotelView extends JPanel {
 	/**
 	 * 
@@ -62,9 +63,15 @@ public class HistroyHotelView extends JPanel {
         
         init_hotelname();
 	}
+	/**
+	 * 退出按钮的初始化
+	 */
 	public void init_exit(){
 		
 		back = new JButton("\u8FD4\u56DE");
+		/**
+		 * 返回按钮的监听
+		 */
 		back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			controller.exit();
@@ -74,12 +81,18 @@ public class HistroyHotelView extends JPanel {
 		
 		
 	}
+	/**
+	 * 退出界面的跳转
+	 */
 	public void exit(){
 		customerMainViewControllerService con =  new customerMainViewControllerImpl(id);
 		customerMainView vie = new customerMainView(con);
 		con.setView(vie);
 		ClientRunner.change(vie);
 	}
+	/**
+	 * 表单和主Panel的初始化
+	 */
 	public void init_hotelname(){	
 		label = new JLabel("所有历史酒店",JLabel.CENTER);
         panel_1.add(label);
@@ -95,6 +108,9 @@ public class HistroyHotelView extends JPanel {
         renderer.setBackground(Color.gray);
         list.setCellRenderer(renderer);
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		/**
+		 * 表单项的鼠标监听
+		 */
 		list.addMouseListener(new MouseListener(){
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -123,6 +139,9 @@ public class HistroyHotelView extends JPanel {
 		scrollPane.setViewportView(list);
 		add(scrollPane);
 	}
+	/**
+	 * 酒店详情界面的跳转
+	 */
 	public void intoOrderList(String HotelID,String UserID){
 		HotelDetailUiService con =  new HotelDetailUiController(HotelID,UserID);
 		HotelDetailView vie = new HotelDetailView(con);

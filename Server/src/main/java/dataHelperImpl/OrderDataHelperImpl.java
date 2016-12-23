@@ -11,13 +11,20 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import PO.OrderPO;
 import dataHelper.OrderDataHelper;
-
+/**
+ * 对于OrderDataHelper的接口的实现
+ * @author 刘宇翔
+ *
+ */
 public class OrderDataHelperImpl implements OrderDataHelper{
 	private String driverName;
 	private String dbURL;
 	private String userName;
 	private String userPwd;
 	private Connection dbConn;
+	/**
+	 * 
+	 */
 	private void init() {
 		driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
 		dbURL="jdbc:sqlserver://localhost:1433;DatabaseName=HRS";

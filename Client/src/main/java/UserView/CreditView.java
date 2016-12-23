@@ -25,7 +25,11 @@ import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.BoxLayout;
-
+/**
+ * 信用查看界面的Panel
+ * @author 刘宇翔
+ *
+ */
 public class CreditView extends JPanel {
 	/**
 	 * 
@@ -57,9 +61,15 @@ public class CreditView extends JPanel {
 		
 		init_table();
 	}
+	/**
+	 * 初始化退出按钮
+	 */
 	public void init_exit(){
 		
 		back = new JButton("\u8FD4\u56DE");
+		/**
+		 * 返回按钮的监听
+		 */
 		back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			controller.exit();
@@ -67,6 +77,9 @@ public class CreditView extends JPanel {
 		});
         panel.add(back);
 	}
+	/**
+	 * 初始化表单
+	 */
 	public void init_table(){
 		
 		label = new JLabel("\u4FE1\u7528\u603B\u989D\u5EA6\uFF1A");
@@ -101,6 +114,9 @@ public class CreditView extends JPanel {
 		table.setFillsViewportHeight(true);
 		add(scrollPane);
 	}
+	/**
+	 * 退出的跳转实现
+	 */
 	public void exit(){
 		customerMainViewControllerService con =  new customerMainViewControllerImpl(UserID);
 		customerMainView vie = new customerMainView(con);

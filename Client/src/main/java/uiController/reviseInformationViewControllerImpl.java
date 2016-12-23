@@ -13,7 +13,11 @@ import userBLService.UserBLService;
 import userBLService.UserBLServiceController;
 import userBLServiceImpl.DES;
 import userBLServiceImpl.Log;
-
+/**
+ * 修改个人信息的初始界面接口的实现（方法的注释见及接口）
+ * @author 刘宇翔
+ *
+ */
 public class reviseInformationViewControllerImpl implements reviseInformationViewControllerService {
 	private reviseInformationView view;
 	private UserBLService user;
@@ -55,9 +59,7 @@ public class reviseInformationViewControllerImpl implements reviseInformationVie
 						e.printStackTrace();
 					}
 				       break;
-				case 2:vo.contactway=DES.encryptDES(vector.get(i),key);
-				       break;
-				case 3:vo.enterprise=vector.get(i);
+				case 2:vo.enterprise=vector.get(i);
 				       break;
 				}
 			}

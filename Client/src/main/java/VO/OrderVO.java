@@ -80,6 +80,9 @@ public class OrderVO extends  Vector<String>{
         cancel=cal;
         generationTime=gen;
 	}
+    /**
+     * 为OrderVO这个Vector添加Object
+     */
     public void addscore(){
     	if(score>0){
     	this.add(String.valueOf(score));
@@ -88,56 +91,104 @@ public class OrderVO extends  Vector<String>{
     		this.add("");
     	}
     }
+    /**
+     * 为OrderVO这个Vector添加Object
+     */
     public void addcancel(){
     	SimpleDateFormat sdf =new SimpleDateFormat("yyyy/MM/dd");
     	this.add(sdf.format(this.cancel.getTime()));
     }
+    /**
+     * 为OrderVO这个Vector添加Object
+     */
     public void addcomment(){
     	this.add(comment);
     }
+    /**
+     * 为OrderVO这个Vector添加Object
+     */
     public void addlatest(){
     	SimpleDateFormat sdf =new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     	this.add(sdf.format(this.latest.getTime()));
     }
+    /**
+     * 为OrderVO这个Vector添加Object
+     */
     public void addgeenerationTim(){
     	SimpleDateFormat sdf =new SimpleDateFormat("yyyy/MM/dd");
     	this.add(sdf.format(generationTime.getTime()));
     }
+    /**
+     * 为OrderVO这个Vector添加Object
+     */
     public void addexpectedCheckIn(){
     	SimpleDateFormat sdf =new SimpleDateFormat("yyyy/MM/dd");
     	this.add(sdf.format(expectedCheckIn.getTime()));
     }
+    /**
+     * 为OrderVO这个Vector添加Object
+     */
     public void addexpectedCheckOut(){
     	SimpleDateFormat sdf =new SimpleDateFormat("yyyy/MM/dd");
     	this.add(sdf.format(expectedCheckOut.getTime()));
     }
+    /**
+     * 为OrderVO这个Vector添加Object
+     */
     public void addroomType(){
     	this.add(roomType);
     }
+    /**
+     * 为OrderVO这个Vector添加Object
+     */
     public void adddetail(){
     	this.add(roomType+":"+roomNumber+"间");
     }
+    /**
+     * 为OrderVO这个Vector添加Object
+     */
     public void addUserInfo(String username){
     	this.add(username);
     }
+    /**
+     * 为OrderVO这个Vector添加Object
+     */
     public void addroomNumber(){
     	this.add(String.valueOf(roomNumber));
     }
+    /**
+     * 为OrderVO这个Vector添加Object
+     */
     public void addnumOfPerson(){
     	this.add(String.valueOf(numOfPerson));
     }
+    /**
+     * 为OrderVO这个Vector添加Object
+     */
     public void addchild(){
     	this.add(String.valueOf(child));
     }
+    /**
+     * 为OrderVO这个Vector添加Object
+     */
     public void adduserID(){
     	this.add(userID);
     }
+    /**
+     * 为OrderVO这个Vector添加Object
+     */
     public void addhotelID(){
     	this.add(hotelID);
     }
+    /**
+     * 为OrderVO这个Vector添加Object
+     */
     public void addorderNumber(){
     	this.add(orderNumber);
     }
+    /**
+     * 为OrderVO这个Vector添加Object
+     */
     public void addorderState(){
     	if(orderState==1){
     		this.add("已执行");
@@ -152,9 +203,15 @@ public class OrderVO extends  Vector<String>{
     		this.add("已撤销");
     	}
     }
+    /**
+     * 为OrderVO这个Vector添加Object
+     */
     public void addorderValue(){
     	this.add(String.valueOf(orderValue));
     }
+    /**
+     * OrderVO的构造函数
+     */
     public OrderVO (OrderPO po){
     	userID=po.getUserID();
     	userLevel=0;

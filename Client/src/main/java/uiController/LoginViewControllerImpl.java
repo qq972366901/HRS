@@ -11,7 +11,11 @@ import orderBLService.OrderBLServiceController;
 import uiService.LoginViewControllerService;
 import userBLService.UserBLService;
 import userBLService.UserBLServiceController;
-
+/**
+ * 登录的初始界面接口的实现（方法的注释见及接口）
+ * @author 刘宇翔
+ *
+ */
 public class LoginViewControllerImpl implements LoginViewControllerService{
     private LogView view;
     private UserBLService user;

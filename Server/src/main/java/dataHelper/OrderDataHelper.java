@@ -4,7 +4,11 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import PO.OrderPO;
-
+/**
+ * 帮助数据层与数据库进行数据连通
+ * @author 刘宇翔
+ *
+ */
 public interface OrderDataHelper {
 	/**
 	 * 在数据库中增加一个po记录

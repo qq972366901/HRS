@@ -11,7 +11,11 @@ import common.Operate;
 import orderBLService.OrderBLService;
 import orderBLService.OrderBLServiceController;
 import uiService.OrderViewControllerService;
-
+/**
+ * 订单管理的初始界面接口的实现（方法的注释见及接口）
+ * @author 刘宇翔
+ *
+ */
 public class OrderViewControllerImpl implements OrderViewControllerService {
 	private OrderView view;
 	private OrderBLService order;

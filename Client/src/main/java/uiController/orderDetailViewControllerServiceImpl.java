@@ -14,7 +14,11 @@ import orderBLService.OrderBLService;
 import orderBLService.OrderBLServiceController;
 import uiService.orderDetailViewControllerService;
 import userBLServiceImpl.Log;
-
+/**
+ * 订单详情的初始界面接口的实现（方法的注释见及接口）
+ * @author 刘宇翔
+ *
+ */
 public class orderDetailViewControllerServiceImpl implements orderDetailViewControllerService {
 	  private orderDetailView view;
 	    private String UserID;

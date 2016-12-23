@@ -1,7 +1,6 @@
 package UserView;
 
 import java.awt.FlowLayout;
-import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;
@@ -20,7 +19,11 @@ import uiService.revisePasswordViewControllerService;
 
 import javax.swing.JLabel;
 import javax.swing.BoxLayout;
-
+/**
+ * 个人信息管理界面的Panel
+ * @author 刘宇翔
+ *
+ */
 public class InformationView extends JPanel {
     /**
 	 * 
@@ -114,6 +117,9 @@ public class InformationView extends JPanel {
         
         init_information();
 	}
+	/**
+	 * 主要panel的初始化
+	 */
 	public void init_information(){
         		panel_1.add(new JLabel("                                                                       "));
         		panel_25.add(new JLabel("                                                                       "));
@@ -121,6 +127,9 @@ public class InformationView extends JPanel {
         		panel_27.add(new JLabel("                                                                       "));
         		
         		back = new JButton("\u8FD4\u56DE");
+        		/**
+        		 * 返回按钮的监听
+        		 */
         		back.addActionListener(new ActionListener() {
         			public void actionPerformed(ActionEvent e) {
         			controller.exit();
@@ -138,6 +147,9 @@ public class InformationView extends JPanel {
 		panel_27.add(credit);
 		
 		reviseinformation = new JButton("\u4FEE\u6539\u57FA\u672C\u4FE1\u606F");
+		/**
+		 * 修改信息按钮的监听
+		 */
 		reviseinformation.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controller.reviseinformation();
@@ -146,6 +158,9 @@ public class InformationView extends JPanel {
       panel_2.add(reviseinformation);
 		
 		revisepassword = new JButton("\u4FEE\u6539\u5BC6\u7801");
+		/**
+		 * 修改密码按钮的监听
+		 */
 		revisepassword.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controller.revisepassword();
@@ -155,18 +170,27 @@ panel_2.add(revisepassword);
 	}
 	public void init_exit(){
 	}
+	/**
+	 * 返回按钮的跳转实现
+	 */
 	public void exit(){
 		customerMainViewControllerService con =  new customerMainViewControllerImpl(UserID);
 		customerMainView vie = new customerMainView(con);
 		con.setView(vie);
 		ClientRunner.change(vie);
 	}
+	/**
+	 * 修改信息界面的跳转
+	 */
 	public void reviseinformation(){
 		reviseInformationViewControllerService con =  new reviseInformationViewControllerImpl(UserID);
 		reviseInformationView vie = new reviseInformationView(con);
 		con.setView(vie);
 		ClientRunner.change(vie);
 	}
+	/**
+	 * 修改密码界面的跳转
+	 */
 	public void revisepassword(){
 		revisePasswordViewControllerService con =  new revisePasswordViewControllerImpl(UserID);
 		revisePasswordView vie = new revisePasswordView(con);

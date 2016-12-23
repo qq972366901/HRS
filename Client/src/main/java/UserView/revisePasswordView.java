@@ -15,7 +15,11 @@ import uiService.revisePasswordViewControllerService;
 
 import javax.swing.JPasswordField;
 import javax.swing.BoxLayout;
-
+/**
+ * 修改密码界面的Panel
+ * @author 刘宇翔
+ *
+ */
 public class revisePasswordView extends JPanel {
 	/**
 	 * 
@@ -77,6 +81,9 @@ public class revisePasswordView extends JPanel {
         
         init_information();
 	}
+	/**
+	 * 主要Panel的初始化
+	 */
 	public void init_information(){
 		
 		oldpassword = new JLabel("\u539F\u5BC6\u7801 \uFF1A");
@@ -102,6 +109,9 @@ public class revisePasswordView extends JPanel {
 		
 		
 		revisepassword = new JButton("\u786E\u5B9A\u4FEE\u6539");
+		/**
+		 * 修改密码按钮的监听
+		 */
 		revisepassword.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				oldPassword=controller.checkoldPassword(String.valueOf(passwordField.getPassword()));
@@ -129,10 +139,16 @@ public class revisePasswordView extends JPanel {
 		});
 		panel2.add(revisepassword);
 	}
+	/**
+	 * 返回按钮的初始化
+	 */
 	public void init_exit(){
 		
 		
 		back = new JButton("\u8FD4\u56DE");
+		/**
+		 * 返回按钮的监听
+		 */
 		back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			controller.exit();
@@ -141,6 +157,9 @@ public class revisePasswordView extends JPanel {
 		panel.add(back);
 		
 	}
+	/**
+	 * 返回界面的跳转
+	 */
 	public void exit(){
 	    InformationViewControllerService con =  new InformationViewControllerImpl(UserID);
 	    InformationView vie = new InformationView(con);

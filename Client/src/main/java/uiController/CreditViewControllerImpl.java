@@ -11,7 +11,11 @@ import uiService.CreditViewControllerService;
 import userBLService.UserBLService;
 import userBLService.UserBLServiceController;
 import userBLServiceImpl.Log;
-
+/**
+ * 信用查看的初始界面接口的实现（方法的注释见及接口）
+ * @author 刘宇翔
+ *
+ */
 public class CreditViewControllerImpl implements CreditViewControllerService {
 	private CreditView view;
 	private String id;

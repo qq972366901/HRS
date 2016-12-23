@@ -8,7 +8,11 @@ import VO.HotelVO;
 import hotelBLService.HotelBLService;
 import hotelBLService.HotelBLServiceController;
 import uiService.HistroyHotelViewControllerService;
-
+/**
+ * 历史酒店的初始界面接口的实现（方法的注释见及接口）
+ * @author 刘宇翔
+ *
+ */
 public class HistroyHotelViewControllerImpl implements HistroyHotelViewControllerService {
 	private HistroyHotelView view;
 	private String id;
