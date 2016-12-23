@@ -136,5 +136,11 @@ public interface UserBLService {
 	 * @return 返回此账号的信用等级
 	 */
 	public int showLevel(String id);
+	/**
+	 * 找到任一类型的用户的信息
+	 * @param type UserType型，界面传入的用户类型
+	 * @param userID String型，界面传入的用户ID
+	 * @return 返回此用户的信息
+	 */
 	public AccountInfo findAllPeopleByID(UserType type,String userID);
 }
