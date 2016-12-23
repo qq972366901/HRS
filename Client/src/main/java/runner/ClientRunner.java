@@ -24,6 +24,10 @@ import UserView.CreditView;
 import UserView.HistroyHotelView;
 import UserView.UserManagementView;
 import UserView.WebAdminUserView;
+import WebPromotionView.CreditManagementView;
+import WebPromotionView.MemberLevelSystemView;
+import WebPromotionView.WebPromotionStrategyView;
+import WebPromotionView.WebPromotionUserView;
 import orderBLImpl.OrderList;
 import rmi.RemoteHelper;
 import uiController.LoginViewControllerImpl;
@@ -64,7 +68,7 @@ public class ClientRunner implements Serializable{
 				| UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
 		}
-        	mFrame = new JFrame("HRS"); 
+        	mFrame = new JFrame("酒店预订系统"); 
        	 	mFrame.setSize(1000, 700);
         	mFrame.setLocation(10, 10);
         	LoginViewControllerService controller =  new LoginViewControllerImpl();
@@ -115,6 +119,21 @@ public class ClientRunner implements Serializable{
 		}
 		else if(view instanceof HotelDetailView) {
 		mFrame.setTitle("酒店订单浏览");
+		}
+		else if(view instanceof LogView){
+			mFrame.setTitle("酒店预订系统");
+		}
+		else if(view instanceof MemberLevelSystemView){
+			mFrame.setTitle("制定会员等级制度");
+		}
+		else if(view instanceof WebPromotionStrategyView){
+			mFrame.setTitle("制定网站营销策略");
+		}
+		else if(view instanceof WebPromotionUserView){
+			mFrame.setTitle("网站营销人员主界面");
+		}
+		else if(view instanceof CreditManagementView){
+			mFrame.setTitle("信用值管理");
 		}
 	}
 

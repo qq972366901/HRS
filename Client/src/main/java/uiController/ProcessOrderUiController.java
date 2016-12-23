@@ -64,7 +64,12 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 
 	@Override
 	public List<OrderVO> getUnfinishedOrders(String hotelId) {
-		return translate(orderService.getUnfinishedOrders(hotelId));
+		if(usertype.equals(UserType.HotelWorker)){
+			return translate(orderService.getUnfinishedOrders(hotelId));
+		}
+		else{
+			return translate(orderService.getNowadaysUnfinishedOrder(hotelId));
+		}
 	}
 
 	@Override
