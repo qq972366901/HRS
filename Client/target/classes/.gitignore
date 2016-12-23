@@ -1,6 +1,4 @@
 /META-INF/
-/uiService/
-/userBLService/
 /userBLServiceImpl/
 /userCreditManagement/
 /userCreditRecord/
@@ -8,6 +6,6 @@
 /userManagement/
 /userRegisterAndLog/
 /hotelBLService/
-/dataService/
-/List/
-/orderAbnormal/
+/uiController/
+/hotelInformationSearch/
+/HotelBLServiceImpl/

@@ -34,7 +34,7 @@ public class GetHotelIDTester {
 		
 		HotelBLService hotel = new HotelBLServiceController();
 		
-		List<String> list = hotel.getHotelID("南京", "新街口", "大床房", 1, 0, 300, 2, 0, 5, "全部", "b0eae4275d0e31a5");
+		List<String> list = hotel.getHotelID("南京", "新街口", "大床房", 1, 0, 300, 2, 0, 5, "全部", "b0eae4275d0e31a5", "1号酒店");
 		
 		assertEquals(1, list.size());
 		
