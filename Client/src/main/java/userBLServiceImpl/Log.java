@@ -1,4 +1,4 @@
-﻿package userBLServiceImpl;
+package userBLServiceImpl;
 
 import java.rmi.RemoteException;
 import java.util.HashMap;
