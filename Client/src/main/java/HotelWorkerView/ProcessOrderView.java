@@ -73,6 +73,10 @@ public class ProcessOrderView extends JPanel{
 	
 	private JFrame cancelFrame;
 	
+	private JTextField searchText;
+	
+	private JButton searchButton;
+	
 	public ProcessOrderView(ProcessOrderUiService controller){
 		this.controller = controller;
 		this.hotelId = controller.getHotelId();
@@ -80,6 +84,9 @@ public class ProcessOrderView extends JPanel{
 		
 		//初始化订单类型选择框
 		initOrderTypeCombobox();
+		
+		//初始化订单搜索框
+		initOrderSearch();
 		
 		//初始化操作按钮
 		initOrderProcessButtons();
@@ -132,6 +139,25 @@ public class ProcessOrderView extends JPanel{
 		
 	}
 	
+	private void initOrderSearch(){
+		searchText=new JTextField(10);
+		searchButton=new JButton("搜索");
+		//添加按钮监听事件
+		searchButton.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent arg0) {
+				
+				//搜索订单
+				String orderID=searchText.getText();
+				controller.updateListModel(orderID);
+			}
+		});
+		JPanel searchJPanel=new JPanel();
+		searchJPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+		searchJPanel.add(searchText);
+		searchJPanel.add(searchButton);
+		this.add(searchJPanel);	
+	}
 	private void initOrderProcessButtons(){
 	
 		delayButton = new JButton("订单延期");
@@ -319,6 +345,28 @@ public class ProcessOrderView extends JPanel{
 			//设置控件可用类型
 			cancel.setEnabled(false);
 			delayButton.setEnabled(false);
+			entryButton.setEnabled(false);
+		}
+		else{
+			//更新订单列表
+			orderListModel.setRowCount(0);
+			List<OrderVO> list=controller.getOrder(selected);
+			if(!list.isEmpty()){
+				for (OrderVO orderVo : list) {
+					if(orderVo.hotelID.equals(hotelId)){
+						orderListModel.addRow(orderVo);
+					}
+				} 
+			}
+			//设置控件可用类型
+			if(type.equals(UserType.WebPromotionWorker)){
+				cancel.setEnabled(true);
+				delayButton.setEnabled(false);
+			}
+			else{
+				cancel.setEnabled(false);
+				delayButton.setEnabled(true);
+			}
 			entryButton.setEnabled(false);
 		}
 	}

@@ -28,7 +28,6 @@ import WebPromotionView.CreditManagementView;
 import WebPromotionView.MemberLevelSystemView;
 import WebPromotionView.WebPromotionStrategyView;
 import WebPromotionView.WebPromotionUserView;
-import orderBLImpl.OrderList;
 import rmi.RemoteHelper;
 import uiController.LoginViewControllerImpl;
 import uiService.LoginViewControllerService;

@@ -36,7 +36,12 @@ public class OrderLineItem {
 	public OrderVO showDetail(String OrderID) {
 		try {
 			OrderPO order=orderData.find(OrderID);
-			return new OrderVO(order);		
+			if(order!=null){
+				return new OrderVO(order);
+			}
+			else{
+				return null;
+			}
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

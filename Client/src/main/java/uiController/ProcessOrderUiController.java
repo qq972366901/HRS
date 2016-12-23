@@ -3,9 +3,11 @@ package uiController;
 import java.rmi.RemoteException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Vector;
 
 import HotelWorkerView.HotelMainView;
 import HotelWorkerView.ProcessOrderView;
@@ -194,7 +196,6 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 				Log log=new Log();
 				skey = log.getSKey(vo.userID);
 			} catch (RemoteException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			vo.addUserInfo(DES.decryptDES(user.findByID(vo.userID).username, skey));
@@ -209,5 +210,15 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 	@Override
 	public UserType getUserType() {
 		return usertype;
+	}
+
+	@Override
+	public List<OrderVO> getOrder(String selected) {
+		OrderVO vo=orderService.showDetail(selected);
+		List<OrderVO> list=new Vector<OrderVO>();
+		if(vo!=null){
+			list.add(vo);
+		}
+		return translate(list);
 	}
 }

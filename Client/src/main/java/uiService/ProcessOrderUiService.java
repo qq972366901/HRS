@@ -45,5 +45,7 @@ public interface ProcessOrderUiService {
 
 	public UserType getUserType();
 
+	public List<OrderVO> getOrder(String selected);
+
 
 }
