@@ -4,6 +4,10 @@ import java.util.List;
 
 import HotelBLServiceImpl.HotelRoom;
 
+
+/**负责实现查看酒店所有的房间的信息的控制器
+ * @author 刘宗侃
+ */
 public class HotelRoomInfoController {
 
 	/**

@@ -13,6 +13,10 @@ import rmi.RemoteHelper;
 import roomBLService.RoomBLService;
 import roomBLService.RoomBLServiceController;
 
+/**
+ * 测试能否得到足够房间
+ * @author 刘宗侃
+ */
 public class WhetherSuccessTester {
 
 	private RemoteHelper remoteHelper;

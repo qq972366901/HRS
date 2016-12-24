@@ -10,6 +10,9 @@ import dataService.DataFactoryService;
 import dataService.RoomDataService;
 import rmi.RemoteHelper;
 
+/**负责实现添加房间和得到酒店房间信息的功能
+ * @author 刘宗侃
+ */
 public class HotelRoom {
 	
 	private static String hotelID;
@@ -19,7 +22,9 @@ public class HotelRoom {
 	private RoomDataService rds;
 	
 	private static HotelRoom hotelRoom;
-	
+	/**
+	 * HotelRoom类的构造方法
+	 */
 	private HotelRoom(String id) {
 		hotelID = id;
 		df=RemoteHelper.getInstance().getDataFactoryService();
@@ -34,7 +39,9 @@ public class HotelRoom {
 			e.printStackTrace();
 		}
 	}
-	
+	/**
+	 * 得到HotelRoom对象
+	 */
 	public static HotelRoom getHotelRoomInstance(String id) {
 		if(hotelRoom == null) {
 			hotelRoom = new HotelRoom(id);
@@ -50,6 +57,7 @@ public class HotelRoom {
      * @param roomType String型，房间类型
      * @param roomNumber int型，房间数量
      * @param roomPrice int型，房间原始价格
+     * @param roomNNN String型，房间号
      */
 	public void updateHotelRooms(String roomType, int roomNumber, int roomPrice,String roomNNN) {
 		int endIndex = roomNNN.indexOf("-");
@@ -68,7 +76,11 @@ public class HotelRoom {
 			}
 		}
 	}
-	
+	/**
+     * 得到酒店的空闲房间的房型列表
+     * 
+     * @return String型，房型列表
+     */
 	public List<String> getRoomType() {
 		List<String> type = new ArrayList<String>();
 		for(RoomVO vo : list) {
@@ -80,7 +92,12 @@ public class HotelRoom {
 		}
 		return type;
 	}
-	
+	/**
+     * 得到酒店空闲的此房型的剩余数量
+     * 
+     * @param rType String型，房间类型
+     * @return  int型，订单总的原价
+     */
 	public int getMaxRoomNumber(String rType) {
 		int num = 0;
 		for(RoomVO vo : list) {
@@ -90,7 +107,13 @@ public class HotelRoom {
 		}
 		return num;
 	}
-	
+	/**
+     * 得到客户酒店房间订单的总原价
+     * 
+     * @param rType String型，房间类型
+     * @param roomNumber int型，预定房间数量
+     * @return  int型，订单总的原价
+     */
 	public int getOrderPrice(String rType, int roomNumber) {
 		int onePrice = 0;
 		for(RoomVO vo : list) {

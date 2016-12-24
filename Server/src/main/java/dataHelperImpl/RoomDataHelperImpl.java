@@ -11,6 +11,11 @@ import java.util.List;
 import PO.RoomPO;
 import dataHelper.RoomDataHelper;
 
+/**
+ * 数据库对房间表的操作的实现
+ * @author 刘宗侃
+ *
+ */
 public class RoomDataHelperImpl implements RoomDataHelper{
 
 	private String driverName;
@@ -18,7 +23,9 @@ public class RoomDataHelperImpl implements RoomDataHelper{
 	private String userName;
 	private String userPwd;
 	private Connection dbConn;
-	
+	/**
+	 * 连接数据库
+	 */
 	private void init() {
 		driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
 		dbURL="jdbc:sqlserver://localhost:1433;DatabaseName=HRS";
@@ -33,6 +40,9 @@ public class RoomDataHelperImpl implements RoomDataHelper{
 			 System.out.print("连接失败");
 		 }
 	}
+	/**
+	 * 关闭数据库的连接
+	 */
 	private void finish(){
 		if(dbConn!=null){
 			try {
@@ -45,6 +55,12 @@ public class RoomDataHelperImpl implements RoomDataHelper{
 		}
 	}
 
+	/**
+	 * 在数据库中增加一个po记录
+	 * 
+	 * @param po RoomPO型，新增的房间
+	 * @return
+	 */
 	public void insert(RoomPO po) {
 		init();
 		String sql="insert into [Room] values('"+po.getHotelId()+"','"+po.getroomId()+"','"+po.getroomStatue()+"','"+po.getroomType()+"','"+po.getroomPrice()+"')";
@@ -65,6 +81,12 @@ public class RoomDataHelperImpl implements RoomDataHelper{
 		finish();
 	}
 	
+	/**
+	 * 在数据库中更新一个po记录
+	 * 
+	 * @param po RoomPO型，更新的房间
+	 * @return
+	 */
 	public void update(RoomPO po) {
 		init();
 		String hotelid = po.getHotelId();
@@ -90,6 +112,11 @@ public class RoomDataHelperImpl implements RoomDataHelper{
 		finish();
 	}
 
+	/**
+	 * 得到一个酒店的所有房间列表
+	 * @param hotelid String型，逻辑层传来的酒店ID
+	 * @return 一个酒店的所有房间列表
+	 */
 	public List<RoomPO> getAllRooms(String hotelid) {
 		List<RoomPO> list = new ArrayList<RoomPO>();
 		init();

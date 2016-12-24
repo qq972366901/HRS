@@ -12,6 +12,9 @@ import javax.swing.border.EmptyBorder;
 
 import uiService.AdminRoomUiService;
 
+/**实现管理客房的界面
+ * @author 刘宗侃
+ */
 public class AdminRoomView extends JPanel {
 
 	private static final long serialVersionUID = 1L;
@@ -24,6 +27,12 @@ public class AdminRoomView extends JPanel {
 	private JButton inputRoomButton;
 	private JButton updateRoomButton;
 	
+	/**
+	 * 管理客房界面的构造方法
+	 * 
+	 * @param controller
+	 * @param id
+	 */
 	public AdminRoomView(AdminRoomUiService controller, String id) {
 		this.controller = controller;
 		hotelID = id;
@@ -31,6 +40,9 @@ public class AdminRoomView extends JPanel {
 		this.validate();
 	}
 
+	/**
+	 * 构造管理客房的界面
+	 */
 	private void initPanel() {
 		this.setBorder(new EmptyBorder(5, 5, 5, 5));
 		this.setLayout(new BorderLayout(0, 0));
@@ -42,6 +54,9 @@ public class AdminRoomView extends JPanel {
 		backButton = new JButton("返回");
 		backPanel.add(backButton, BorderLayout.EAST);
 		backButton.addActionListener(new ActionListener(){
+			/**
+			 * 返回酒店工作人员主界面
+			 */
 			public void actionPerformed(ActionEvent arg0) {
 				controller.toHotelMainView();
 			}
@@ -71,6 +86,9 @@ public class AdminRoomView extends JPanel {
 		inputRoomButton = new JButton("录入客房信息");
 		choosePanel_1.add(inputRoomButton);
 		inputRoomButton.addActionListener(new ActionListener(){
+			/**
+			 * 进入录入客房信息界面
+			 */
 			public void actionPerformed(ActionEvent arg0) {
 				controller.toInputRoomInfoView();
 			}
@@ -82,6 +100,9 @@ public class AdminRoomView extends JPanel {
 		updateRoomButton = new JButton("更新房间信息");
 		choosePanel_2.add(updateRoomButton);
 		updateRoomButton.addActionListener(new ActionListener(){
+			/**
+			 * 进入更新房间信息界面
+			 */
 			public void actionPerformed(ActionEvent arg0) {
 				controller.toUpdateRoomInfoView();
 			}

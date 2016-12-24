@@ -14,6 +14,10 @@ import hotelBLService.HotelBLService;
 import hotelBLService.HotelBLServiceController;
 import rmi.RemoteHelper;
 
+/**
+ * 测试搜索得到酒店ID列表
+ * @author 刘宗侃
+ */
 public class GetHotelIDTester {
 
 	private RemoteHelper remoteHelper;

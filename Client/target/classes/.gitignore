@@ -9,3 +9,17 @@
 /uiController/
 /hotelInformationSearch/
 /HotelBLServiceImpl/
+/dataService/
+/hotelEverordered/
+/HotelWorkerView/
+/hotelInformationOverview/
+/HotelRoomAdd/
+/HotelRoomInfo/
+/VO/
+/roomAvailable/
+/RoomBLServiceImpl/
+/roomBLService/
+/roomList/
+/roomUpdate/
+/uiService/
+/runner/

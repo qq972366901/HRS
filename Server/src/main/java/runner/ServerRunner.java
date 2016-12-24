@@ -12,6 +12,11 @@ import javax.swing.border.EmptyBorder;
 
 import rmi.RemoteHelper;
 
+/**
+ * 服务器的启动和关闭
+ * @author 刘宗侃
+ *
+ */
 public class ServerRunner implements Serializable{
 	
 	private JPanel contentPane;
@@ -20,17 +25,27 @@ public class ServerRunner implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * 服务器构造方法
+	 */
 	public ServerRunner(){
 		//new RemoteHelper();
 		//System.out.println("Server is ready");
 		initFrame();
 	}
 
+	/**
+	 * 程序启动方法
+	 * @param args
+	 */
 	public static void main(String[] args){
 		
 		new ServerRunner();
 	}
 	
+	/**
+	 * 构造界面
+	 */
 	private void initFrame() {
 		JFrame frame = new JFrame("服务器");
 		contentPane = new JPanel();

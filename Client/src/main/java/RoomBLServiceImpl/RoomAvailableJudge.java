@@ -10,6 +10,11 @@ import dataService.DataFactoryService;
 import dataService.RoomDataService;
 import rmi.RemoteHelper;
 
+/**
+ * 判断酒店能否提供足够房间的类
+ * @author 刘宗侃
+ *
+ */
 public class RoomAvailableJudge {
 
 	private static String hotelID;
@@ -19,7 +24,10 @@ public class RoomAvailableJudge {
 	private RoomDataService rds;
 	
 	private static RoomAvailableJudge roomAvailableJudge;
-	
+	/**
+	 * 判断酒店能否提供足够房间的类的构造方法
+	 * @param id
+	 */
 	private RoomAvailableJudge(String id) {
 		hotelID = id;
 		df = RemoteHelper.getInstance().getDataFactoryService();
@@ -34,7 +42,11 @@ public class RoomAvailableJudge {
 			e.printStackTrace();
 		}
 	}
-	
+	/**
+	 * 得到判断酒店能否提供足够房间的类
+	 * @param id
+	 * @return
+	 */
 	public static RoomAvailableJudge getRoomAvailableJudgeInstance(String id) {
 		if(roomAvailableJudge == null) {
 			roomAvailableJudge = new RoomAvailableJudge(id);
@@ -44,7 +56,12 @@ public class RoomAvailableJudge {
 		}
 		return roomAvailableJudge;
 	}
-	
+	/**
+     * 判断能否酒店是否有足够房间
+     * 
+     * @param type String型，房型
+     * @param number String型，预定的房间数量
+     */
 	public boolean whetherSuccess(String type,int number) {
 		boolean success = false;
 		for(RoomVO rvo : list) {

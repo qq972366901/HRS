@@ -31,6 +31,10 @@ import common.Operate;
 import common.UserType;
 import uiService.ProcessOrderUiService;
 
+/**
+ * 查看订单界面
+ * @author 刘宗侃
+ */
 public class ProcessOrderView extends JPanel{
 	
 	private static final long serialVersionUID = 1L;
@@ -69,6 +73,10 @@ public class ProcessOrderView extends JPanel{
 	
 	private JFrame cancelFrame;
 	
+	/**
+	 * 查看订单界面构造方法
+	 * @param controller
+	 */
 	public ProcessOrderView(ProcessOrderUiService controller){
 		this.controller = controller;
 		this.hotelId = controller.getHotelId();
@@ -86,6 +94,9 @@ public class ProcessOrderView extends JPanel{
 		this.validate();
 	}
 
+	/**
+	 * 添加可选择的订单类型的方法
+	 */
 	private void initOrderTypeCombobox() {
 		
 		orderTypeComboBox = new JComboBox<String>();
@@ -127,7 +138,9 @@ public class ProcessOrderView extends JPanel{
 		this.add(orderTypeJpanel);
 		
 	}
-	
+	/**
+	 * 添加操作按钮的方法
+	 */
 	private void initOrderProcessButtons(){
 	
 		delayButton = new JButton("订单延期");
@@ -176,9 +189,15 @@ public class ProcessOrderView extends JPanel{
 		cancel.setEnabled(false);
 		this.add(processPanel);
 	}
+	/**
+	 * 返回酒店工作人员主界面
+	 */
     private void back(){
 		controller.back();
     }
+    /**
+     * 构造订单列表的表格
+     */
 	private void initOrderListTable() {
 		JScrollPane scrollPane = new JScrollPane();
 		

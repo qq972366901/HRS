@@ -13,6 +13,11 @@ import uiService.MakeHotelPromotionUiService;
 import userBLServiceImpl.DES;
 import userBLServiceImpl.Log;
 
+/**
+ * 制定酒店营销策略界面的控制器
+ * @author 刘宗侃
+ *
+ */
 public class MakeHotelPromotionController implements MakeHotelPromotionUiService {
 	
 	private MakeHotelPromotionView view;
@@ -23,6 +28,11 @@ public class MakeHotelPromotionController implements MakeHotelPromotionUiService
 	
 	private String key=null;
 	
+	/**
+	 * 制定酒店营销策略界面的控制器构造方法
+	 * @param id
+	 * @throws RemoteException
+	 */
 	public MakeHotelPromotionController (String id) throws RemoteException {
 		try {
 			Log log=new Log();
@@ -38,15 +48,25 @@ public class MakeHotelPromotionController implements MakeHotelPromotionUiService
 		}
 		init();
 	}
-	
+	/**
+	 * 初始化控制器
+	 * @throws RemoteException
+	 */
 	private void init() throws RemoteException {
 		promotion = new PromotionController();
 	}
 
+	/**
+	 * 设置界面
+	 * @param view
+	 */
 	public void setView(MakeHotelPromotionView view) {
 		this.view = view;
 	}
 
+	/**
+	 * 返回酒店工作人员主界面
+	 */
 	public void toHotelMainView() {
 		HotelMainUiService controller = new HotelMainUiController(DES.decryptDES(hotelID, key));
 		HotelMainView view = new HotelMainView(controller,hotelID);
@@ -54,8 +74,18 @@ public class MakeHotelPromotionController implements MakeHotelPromotionUiService
 		ClientRunner.change(view);
 	}
 
+	/**
+	 * 系统添加酒店营销策略
+	 * @param hotelid
+	 * @param promotionname
+	 * @param promotionbegintime
+	 * @param promotionendtime
+	 * @param promotiondiscount
+	 * @param birthdaydiscount
+	 * @param roomdiscount
+	 * @param enterprisediscount
+	 */
 	public void makeHotelPromotion(String hotelid,String promotionname,Calendar promotionbegintime,Calendar promotionendtime,double promotiondiscount,double birthdaydiscount,double roomdiscount,double enterprisediscount) {
-		//系统添加酒店营销策略
 		promotion.madebyhotel(hotelid, promotionname, promotionbegintime, promotionendtime, promotiondiscount, birthdaydiscount, roomdiscount, enterprisediscount);
 	}
 

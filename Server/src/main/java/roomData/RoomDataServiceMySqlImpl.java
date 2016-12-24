@@ -14,8 +14,6 @@ import dataService.RoomDataService;
 /**
  * 职责是将逻辑层面发来的请求转发给后台RoomData处理
  * @author 刘宗侃
- * @version 1.0
- * @see businesslogic.Room
  */
 public class RoomDataServiceMySqlImpl implements RoomDataService{
 
@@ -28,10 +26,18 @@ public class RoomDataServiceMySqlImpl implements RoomDataService{
 	private DataHelperFactory factory;
 	private RoomDataHelper roomDataHelper = new RoomDataHelperImpl();
 	
+	/**
+	 * 房间数据服务构造方法
+	 * @throws RemoteException
+	 */
 	private RoomDataServiceMySqlImpl() throws RemoteException{
 		UnicastRemoteObject.exportObject(this,8089);
 	}
-	
+	/**
+	 * 得到房间数据服务
+	 * @return
+	 * @throws RemoteException
+	 */
 	public static RoomDataServiceMySqlImpl getInstance() throws RemoteException{
 		if(roomDataServiceMySqlImpl==null){
 			roomDataServiceMySqlImpl=new RoomDataServiceMySqlImpl();

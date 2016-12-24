@@ -33,6 +33,11 @@ public class UpdateRoomInfoView extends JPanel {
 	private JButton checkinButton;
 	private JButton checkoutButton;
 	
+	/**
+	 * 更新房间信息的界面构造方法
+	 * @param controller
+	 * @param id
+	 */
 	public UpdateRoomInfoView(UpdateRoomInfoUiService controller,String id) {
 		this.controller = controller;
 		this.hotelID = id;
@@ -40,6 +45,9 @@ public class UpdateRoomInfoView extends JPanel {
 		this.validate();
 	}
 
+	/**
+	 * 构造更新房间信息界面
+	 */
 	private void initPanel() {
 		this.setBorder(new EmptyBorder(5, 5, 5, 5));
 		this.setLayout(new BorderLayout(0, 0));
@@ -51,6 +59,9 @@ public class UpdateRoomInfoView extends JPanel {
 		backButton = new JButton("返回");
 		backPanel.add(backButton, BorderLayout.EAST);
 		backButton.addActionListener(new ActionListener(){
+			/**
+			 * 返回酒店工作人员主界面
+			 */
 			public void actionPerformed(ActionEvent arg0) {
 				controller.toAdminRoomView();
 			}
@@ -131,8 +142,10 @@ public class UpdateRoomInfoView extends JPanel {
 		checkinButton = new JButton("入住");
 		panel_12_2.add(checkinButton);
 		checkinButton.addActionListener(new ActionListener(){
+			/**
+			 * 系统更新房间号的房间状态为入住
+			 */
 			public void actionPerformed(ActionEvent arg0) {
-				//系统更新房间号的房间状态为入住
 				String roomNumber = roomNumberTextField.getText();
 				if(roomNumber.length() < 1) {
 					JOptionPane.showMessageDialog(null, "请填写房间号！","", JOptionPane.ERROR_MESSAGE);
@@ -150,8 +163,10 @@ public class UpdateRoomInfoView extends JPanel {
 		checkoutButton = new JButton("退房");
 		panel_12_3.add(checkoutButton);
 		checkoutButton.addActionListener(new ActionListener(){
+			/**
+			 * 系统更新房间号的房间状态为空闲
+			 */
 			public void actionPerformed(ActionEvent arg0) {
-				//系统更新房间号的房间状态为空闲
 				String roomNumber = roomNumberTextField.getText();
 				if(roomNumber.length() < 1) {
 					JOptionPane.showMessageDialog(null, "请填写房间号！","", JOptionPane.ERROR_MESSAGE);

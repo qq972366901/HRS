@@ -26,6 +26,11 @@ import userBLServiceImpl.Credit;
 import userBLServiceImpl.DES;
 import userBLServiceImpl.Log;
 
+/**
+ * 浏览订单界面的控制器
+ * @author 刘宗侃
+ *
+ */
 public class ProcessOrderUiController implements ProcessOrderUiService{
 	private String hotelId;
 	
@@ -37,6 +42,12 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 	private UserType usertype;
 	
 	private String key;
+	/**
+	 * 浏览订单界面的控制器构造方法
+	 * @param hotelId
+	 * @param type
+	 * @throws RemoteException
+	 */
 	public ProcessOrderUiController(String hotelId,UserType type) throws RemoteException{
 		Log log=new Log();
 		key=log.getSKey(hotelId);
@@ -47,44 +58,75 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 		new UserBLServiceController();
 	}
 
-	@Override
+	/**
+	 * 得到酒店帐号的方法
+	 */
 	public String getHotelId() {
 		return hotelId;
 	}
 
-	@Override
+	/**
+	 * 设置界面
+	 * @param view
+	 */
 	public void setView(ProcessOrderView view) {
 		this.view = view;
 	}
 
-	@Override
+	/**
+	 * 得到所有订单
+	 * @param hotelId
+	 * @return
+	 */
 	public List<OrderVO> getAllOrders(String hotelId) {
 		return translate(orderService.getAllOrders(hotelId));
 	}
 
-	@Override
+	/**
+	 * 得到所有未执行订单
+	 * @param hotelId
+	 * @return
+	 */
 	public List<OrderVO> getUnfinishedOrders(String hotelId) {
 		return translate(orderService.getUnfinishedOrders(hotelId));
 	}
 
-	@Override
+	/**
+	 * 得到已执行订单
+	 * 
+	 * @param hotelId
+	 * @return
+	 */
 	public List<OrderVO> getFinishedOrders(String hotelId) {
 		return translate(orderService.getFinishedOrders(hotelId));
 	}
 
-	@Override
+	/**
+	 * 得到异常订单
+	 * @param hotelId
+	 * @return
+	 */
 	public List<OrderVO> getAbnormalOrders(String hotelId) {
 		return translate(orderService.getAbnormalOrders(hotelId));
 	}
 
-	@Override
+	/**
+	 * 处理未执行订单
+	 * @param orderId
+	 * @return
+	 */
 	public boolean processUnfinishedOrder(String orderId) {
 		OrderVO vo=orderService.showDetail(orderId);
 		orderService.updateCredit(vo.userID, orderId, vo.orderValue, Operate.Done);
 		return orderService.processUnfinishedOrder(orderId);
 	}
 
-	@Override
+	/**
+	 * 处理异常订单
+	 * @param orderId
+	 * @param delayTime
+	 * @return
+	 */
 	public boolean processAbnormalOrder(String orderId, String delayTime) {
 		SimpleDateFormat sdf= new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date;
@@ -100,21 +142,30 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 		return orderService.processAbnormalOrder(orderId, calendar);
 	}
 
-	@Override
+	/**
+	 * 更新所选列表
+	 * @param comboboxValue
+	 */
 	public void updateListModel(String comboboxValue) {
 		view.updateListModel(comboboxValue);
 	}
 
-	@Override
+	/**
+	 * 订单状态置为已执行
+	 */
 	public void processOrderButtonClicked() {
 		view.processOrderButtonClicked();
 	}
 
-	@Override
+	/**
+	 * 延时订单执行时间
+	 */
 	public void delayOrderButtonClicked() {
 		view.delayOrderButtonClicked();
 	}
-	@Override
+	/**
+	 * 返回上一界面
+	 */
 	public void back() {
 		switch(usertype){
 			case Customer:{
@@ -139,7 +190,9 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 			}
 		}
 	}
-	@Override
+	/**
+	 * 撤销异常订单
+	 */
 	public void cancelAbnormalOrder() {
 		view.cancelAbnormalOrder();
 	}
@@ -164,19 +217,20 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
 	/**
 	 * 获取一个酒店所有已撤销订单
 	 */
-	@Override
 	public List<OrderVO> getCanceledOrders(String hotelId) {
 		return translate(orderService.getCanceledOrders(hotelId));
 	}
 	/**
 	 * 根据订单编号获取用户账号
 	 */
-	@Override
 	public String getUserID(String orderNo) {
 		return orderService.getUserID(orderNo);
 	}
 
-	@Override
+	/**
+	 * 处理用户的异常订单
+	 * @param userID
+	 */
 	public void dealwithAbnormalOrder(String orderNo) {
 		orderService.cancelAbnormalOrder(orderNo);
 	}
@@ -201,7 +255,10 @@ public class ProcessOrderUiController implements ProcessOrderUiService{
     	return list;
     }
 
-	@Override
+    /**
+	 * 得到使用的用户类型
+	 * @return
+	 */
 	public UserType getUserType() {
 		return usertype;
 	}

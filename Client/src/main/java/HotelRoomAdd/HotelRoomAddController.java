@@ -2,6 +2,9 @@ package HotelRoomAdd;
 
 import HotelBLServiceImpl.HotelRoom;
 
+/**负责实现添加酒店房间功能的控制器
+ * @author 刘宗侃
+ */
 public class HotelRoomAddController{
 	/**
      * 更新酒店拥有的房间类型、数量、原始价格

@@ -13,6 +13,10 @@ import hotelBLService.HotelBLService;
 import hotelBLService.HotelBLServiceController;
 import rmi.RemoteHelper;
 
+/**
+ * 测试得到所选房型最大数量
+ * @author 刘宗侃
+ */
 public class GetMaxRoomNumberTester {
 
 	private RemoteHelper remoteHelper;

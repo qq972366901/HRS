@@ -29,6 +29,11 @@ public class HotelMainView extends JPanel {
 	private JButton browseOrderButton;
 	private JButton makeHotelPromotionButton;
 
+	/**
+	 * 酒店工作人员主界面的构造方法
+	 * @param controller
+	 * @param hotelid
+	 */
 	public HotelMainView(HotelMainUiService controller, String hotelid) {
 		this.controller = controller;
 		this.hotelID = hotelid;
@@ -36,6 +41,10 @@ public class HotelMainView extends JPanel {
 		this.validate();
 	}
 	
+	/**
+	 * 构造酒店工作人员主界面
+	 * 
+	 */
 	private void initPanel() {
 		this.setBorder(new EmptyBorder(5, 5, 5, 5));
 		this.setLayout(new GridLayout(3, 1, 0, 0));
@@ -50,6 +59,9 @@ public class HotelMainView extends JPanel {
 		
 		backButton = new JButton("返回");
 		backButton.addActionListener(new ActionListener(){
+			/**
+			 * 返回至登录界面
+			 */
 			public void actionPerformed(ActionEvent arg0) {
 				controller.toLogView();
 			}
@@ -73,6 +85,9 @@ public class HotelMainView extends JPanel {
 		updateHotelInfoButton = new JButton("维护酒店基本信息");
 		panel_4.add(updateHotelInfoButton);
 		updateHotelInfoButton.addActionListener(new ActionListener(){
+			/**
+			 * 进入维护酒店基本信息界面
+			 */
 			public void actionPerformed(ActionEvent arg0) {
 				controller.toUpdateHotelInfoView();
 			}
@@ -94,6 +109,9 @@ public class HotelMainView extends JPanel {
 		adminRoomButton = new JButton("管理客房信息");
 		panel_7.add(adminRoomButton);
 		adminRoomButton.addActionListener(new ActionListener(){
+			/**
+			 * 进入管理客房信息界面
+			 */
 			public void actionPerformed(ActionEvent arg0) {
 				controller.toAdminRoomView();
 			}
@@ -115,6 +133,9 @@ public class HotelMainView extends JPanel {
 		browseOrderButton = new JButton("浏览订单");
 		panel_10.add(browseOrderButton);
 		browseOrderButton.addActionListener(new ActionListener(){
+			/**
+			 * 进入浏览订单界面
+			 */
 			public void actionPerformed(ActionEvent arg0) {
 				controller.toProcessOrderOrderView();
 			}
@@ -136,6 +157,9 @@ public class HotelMainView extends JPanel {
 		makeHotelPromotionButton = new JButton("制定营销策略");
 		panel_13.add(makeHotelPromotionButton);
 		makeHotelPromotionButton.addActionListener(new ActionListener(){
+			/**
+			 * 进入制定营销策略界面
+			 */
 			public void actionPerformed(ActionEvent arg0) {
 				controller.toMakeHotelPromotionView();
 			}

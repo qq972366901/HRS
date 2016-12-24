@@ -4,15 +4,9 @@ import PO.HotelPO;
 /**
  * 酒店的属性及数据创建与更新
  * @author 刘宗侃
- * @version 1.0
- * @see Object.Hotel
  */
 public class HotelVO{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	public String hotelAddress;
 	public String hotelDistrict;
 	public int hotelStar;
@@ -24,6 +18,11 @@ public class HotelVO{
 	public String hotelPhone;
 	public String hotelCity;
 	
+	/**
+	 * 酒店数据
+	 * @param hpo HotelPO型，数据层传来的酒店
+	 * @return
+	 */
 	public HotelVO(HotelPO hpo) {
 		hotelAccount = hpo.gethotelAccount();
 		hotelName = hpo.gethotelName();
@@ -37,10 +36,6 @@ public class HotelVO{
 		score = hpo.getScore();
 	}
 	
-	public HotelVO(){};
-	public HotelVO(String id){
-		hotelName=id;
-	}
 	/**
 	 * 酒店数据
 	 * @param hAddress String型，逻辑层传来的酒店地址
@@ -53,8 +48,6 @@ public class HotelVO{
 	 * @param sco double型，逻辑侧传来的酒店评分
 	 * @param phone String型，逻辑层传来的酒店联系方式
 	 * @return
-	 * @throws
-	 * @see
 	 */
 
 	public HotelVO (String hCity,String hAddress,String hDistrict,int hStar,String hProfile,String hService,String hName,String hAccount,double sco,String phone) {
@@ -68,16 +61,6 @@ public class HotelVO{
 		hotelAccount=hAccount;
 	    score=sco;
 	    hotelPhone=phone;
-	}
-	/**
-     * 更新酒店信息
-     * 
-     * @param hotel Hotel型，一个用来更新数据的酒店对象
-     * @return 
-     * @see Object.Hotel
-     */
-	public void update(HotelVO hotel) {
-		
 	}
 	
 }

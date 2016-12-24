@@ -13,6 +13,10 @@ import rmi.RemoteHelper;
 import roomBLService.RoomBLService;
 import roomBLService.RoomBLServiceController;
 
+/**
+ * 测试得到最低房间价格
+ * @author 刘宗侃
+ */
 public class GetRoomLowestPriceTester {
 	
 	private RemoteHelper remoteHelper;

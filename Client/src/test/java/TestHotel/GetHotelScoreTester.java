@@ -13,6 +13,10 @@ import hotelBLService.HotelBLService;
 import hotelBLService.HotelBLServiceController;
 import rmi.RemoteHelper;
 
+/**
+ * 测试得到酒店评分
+ * @author 刘宗侃
+ */
 public class GetHotelScoreTester {
 
 	private RemoteHelper remoteHelper;

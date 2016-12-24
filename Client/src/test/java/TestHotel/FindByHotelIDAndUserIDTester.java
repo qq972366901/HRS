@@ -15,6 +15,10 @@ import hotelBLService.HotelBLService;
 import hotelBLService.HotelBLServiceController;
 import rmi.RemoteHelper;
 
+/**
+ * 测试用户的历史酒店列表
+ * @author 刘宗侃
+ */
 public class FindByHotelIDAndUserIDTester {
 	
 	private RemoteHelper remoteHelper;
