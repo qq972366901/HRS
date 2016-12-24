@@ -9,13 +9,13 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import runner.ClientRunner;
-import uiController.customerMainViewControllerImpl;
-import uiController.reviseInformationViewControllerImpl;
-import uiController.revisePasswordViewControllerImpl;
+import uiController.CustomerMainViewController;
+import uiController.ReviseInformationViewController;
+import uiController.RevisePasswordViewController;
 import uiService.InformationViewControllerService;
-import uiService.customerMainViewControllerService;
-import uiService.reviseInformationViewControllerService;
-import uiService.revisePasswordViewControllerService;
+import uiService.CustomerMainViewService;
+import uiService.ReviseInformationViewService;
+import uiService.RevisePasswordViewService;
 
 import javax.swing.JLabel;
 import javax.swing.BoxLayout;
@@ -174,8 +174,8 @@ panel_2.add(revisepassword);
 	 * 返回按钮的跳转实现
 	 */
 	public void exit(){
-		customerMainViewControllerService con =  new customerMainViewControllerImpl(UserID);
-		customerMainView vie = new customerMainView(con);
+		CustomerMainViewService con =  new CustomerMainViewController(UserID);
+		CustomerMainView vie = new CustomerMainView(con);
 		con.setView(vie);
 		ClientRunner.change(vie);
 	}
@@ -183,8 +183,8 @@ panel_2.add(revisepassword);
 	 * 修改信息界面的跳转
 	 */
 	public void reviseinformation(){
-		reviseInformationViewControllerService con =  new reviseInformationViewControllerImpl(UserID);
-		reviseInformationView vie = new reviseInformationView(con);
+		ReviseInformationViewService con =  new ReviseInformationViewController(UserID);
+		ReviseInformationView vie = new ReviseInformationView(con);
 		con.setView(vie);
 		ClientRunner.change(vie);
 	}
@@ -192,8 +192,8 @@ panel_2.add(revisepassword);
 	 * 修改密码界面的跳转
 	 */
 	public void revisepassword(){
-		revisePasswordViewControllerService con =  new revisePasswordViewControllerImpl(UserID);
-		revisePasswordView vie = new revisePasswordView(con);
+		RevisePasswordViewService con =  new RevisePasswordViewController(UserID);
+		RevisePasswordView vie = new RevisePasswordView(con);
 		con.setView(vie);
 		ClientRunner.change(vie);
 	}

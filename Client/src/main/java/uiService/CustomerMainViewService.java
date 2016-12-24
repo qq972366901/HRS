@@ -1,17 +1,17 @@
 package uiService;
 
-import UserView.customerMainView;
+import UserView.CustomerMainView;
 /**
  * 负责实现客户的初始界面
  * @author 刘宇翔
  *
  */
-public interface customerMainViewControllerService {
+public interface CustomerMainViewService {
 	/**
 	 * 设置一个customerMainView 的panel
 	 * @param view
 	 */
-	public void setView(customerMainView view);
+	public void setView(CustomerMainView view);
 	/**
 	 * 个人信息界面的跳转
 	 */

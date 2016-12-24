@@ -1,18 +1,18 @@
 package uiService;
 
-import UserView.revisePasswordView;
+import UserView.RevisePasswordView;
 
 /**
  * 负责实现修改密码的初始界面
  * @author 刘宇翔
  *
  */
-public interface revisePasswordViewControllerService {
+public interface RevisePasswordViewService {
 	/**
 	 * 设置一个revisePasswordView的panel
 	 * @param view
 	 */
-    public void setView(revisePasswordView view);
+    public void setView(RevisePasswordView view);
     /**
      * 返回跳转的实现
      */

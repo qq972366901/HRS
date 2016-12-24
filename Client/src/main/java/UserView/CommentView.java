@@ -12,9 +12,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import runner.ClientRunner;
-import uiController.OrderViewControllerImpl;
+import uiController.OrderViewController;
 import uiService.CommentViewService;
-import uiService.OrderViewControllerService;
+import uiService.OrderViewService;
 
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
@@ -123,7 +123,7 @@ private JPanel panel1;
 	 * @throws RemoteException
 	 */
 	public void exit() throws RemoteException{
-		OrderViewControllerService con =  new OrderViewControllerImpl(UserID);
+		OrderViewService con =  new OrderViewController(UserID);
 		OrderView vie = new OrderView(con);
 		con.setView(vie);
 		ClientRunner.change(vie);

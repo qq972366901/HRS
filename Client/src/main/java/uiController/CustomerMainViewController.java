@@ -3,18 +3,18 @@ package uiController;
 
 import java.rmi.RemoteException;
 
-import UserView.customerMainView;
-import uiService.customerMainViewControllerService;
+import UserView.CustomerMainView;
+import uiService.CustomerMainViewService;
 import userBLServiceImpl.Log;
 /**
  * 客户的初始界面接口的实现（方法的注释见及接口）
  * @author 刘宇翔
  *
  */
-public class customerMainViewControllerImpl implements customerMainViewControllerService{
-	private customerMainView view;
+public class CustomerMainViewController implements CustomerMainViewService{
+	private CustomerMainView view;
 	private String UserID;
-	public customerMainViewControllerImpl(String id){
+	public CustomerMainViewController(String id){
 		String key=null;
 		try {
 			key=Log.getLogInstance().getSKey(id);
@@ -29,7 +29,7 @@ public class customerMainViewControllerImpl implements customerMainViewControlle
 		}
     }
 	@Override
-	public void setView(customerMainView view) {
+	public void setView(CustomerMainView view) {
 		this.view=view;
 	}
 	@Override

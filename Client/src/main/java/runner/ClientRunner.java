@@ -26,7 +26,7 @@ import UserView.UserManagementView;
 import UserView.WebAdminUserView;
 import orderBLImpl.OrderList;
 import rmi.RemoteHelper;
-import uiController.LoginViewControllerImpl;
+import uiController.LoginViewController;
 import uiService.LoginViewControllerService;
 
 
@@ -67,7 +67,7 @@ public class ClientRunner implements Serializable{
         	mFrame = new JFrame("HRS"); 
        	 	mFrame.setSize(1000, 700);
         	mFrame.setLocation(10, 10);
-        	LoginViewControllerService controller =  new LoginViewControllerImpl();
+        	LoginViewControllerService controller =  new LoginViewController();
         	LogView view = new LogView(controller);
     		controller.setView(view);
     		mFrame.getContentPane().add(view);

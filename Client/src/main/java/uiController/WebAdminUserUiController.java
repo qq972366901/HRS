@@ -47,7 +47,7 @@ public class WebAdminUserUiController implements WebAdminUserUiService{
 		ClientRunner.change(view);
 	}
 	public void toLogView(){
-		LoginViewControllerService controller=new LoginViewControllerImpl();
+		LoginViewControllerService controller=new LoginViewController();
 		LogView view=new LogView(controller);
 		controller.setView(view);
 		ClientRunner.change(view);

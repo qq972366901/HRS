@@ -19,13 +19,13 @@ import runner.ClientRunner;
 import uiController.HotelMainUiController;
 import uiController.MemberRegisterUiController;
 import uiController.WebAdminUserUiController;
-import uiController.customerMainViewControllerImpl;
+import uiController.CustomerMainViewController;
 import uiController.webPromotionUserUiController;
 import uiService.HotelMainUiService;
 import uiService.LoginViewControllerService;
 import uiService.MemberRegisterUiService;
 import uiService.WebAdminUserUiService;
-import uiService.customerMainViewControllerService;
+import uiService.CustomerMainViewService;
 import uiService.webPromotionUserUiService;
 import userBLServiceImpl.Account;
 import userBLServiceImpl.DES;
@@ -239,8 +239,8 @@ public class LogView extends JPanel {
 			e1.printStackTrace();
 		}
 		if(this.type.equals("客户")&&t.equals(UserType.Customer)){
-		   customerMainViewControllerService controller =  new customerMainViewControllerImpl(DES.encryptDES(textField.getText(), key));
-		   customerMainView view = new customerMainView(controller);
+		   CustomerMainViewService controller =  new CustomerMainViewController(DES.encryptDES(textField.getText(), key));
+		   CustomerMainView view = new CustomerMainView(controller);
 		   controller.setView(view);
 		   ClientRunner.change(view);
 		}

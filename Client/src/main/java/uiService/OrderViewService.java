@@ -9,7 +9,7 @@ import VO.OrderVO;
  * @author 刘宇翔
  *
  */
-public interface OrderViewControllerService {
+public interface OrderViewService {
     /**
      * 返回按钮的实现
      */

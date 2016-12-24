@@ -19,14 +19,14 @@ import userBLServiceImpl.Log;
  * @author 刘宇翔
  *
  */
-public class CommentViewControllerServiceImpl implements CommentViewService{
+public class CommentViewController implements CommentViewService{
     private CommentView view;
     private String UserID;
     private String OrderID;
     private OrderBLService order;
     private HotelBLService hotel;
     private String key;
-    public CommentViewControllerServiceImpl(String UserID,String OrderID) throws RemoteException{
+    public CommentViewController(String UserID,String OrderID) throws RemoteException{
     	key=Log.getLogInstance().getSKey(UserID);
     	this.UserID=UserID;
     	this.OrderID=OrderID;

@@ -11,10 +11,10 @@ import javax.swing.JPanel;
 
 import runner.ClientRunner;
 import uiController.HotelDetailUiController;
-import uiController.customerMainViewControllerImpl;
+import uiController.CustomerMainViewController;
 import uiService.HistroyHotelViewControllerService;
 import uiService.HotelDetailUiService;
-import uiService.customerMainViewControllerService;
+import uiService.CustomerMainViewService;
 
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
@@ -85,8 +85,8 @@ public class HistroyHotelView extends JPanel {
 	 * 退出界面的跳转
 	 */
 	public void exit(){
-		customerMainViewControllerService con =  new customerMainViewControllerImpl(id);
-		customerMainView vie = new customerMainView(con);
+		CustomerMainViewService con =  new CustomerMainViewController(id);
+		CustomerMainView vie = new CustomerMainView(con);
 		con.setView(vie);
 		ClientRunner.change(vie);
 	}

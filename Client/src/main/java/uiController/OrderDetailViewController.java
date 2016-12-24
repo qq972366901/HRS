@@ -5,22 +5,22 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import UserView.orderDetailView;
+import UserView.OrderDetailView;
 import VO.HotelVO;
 import VO.OrderVO;
 import hotelBLService.HotelBLService;
 import hotelBLService.HotelBLServiceController;
 import orderBLService.OrderBLService;
 import orderBLService.OrderBLServiceController;
-import uiService.orderDetailViewControllerService;
+import uiService.OrderDetailViewService;
 import userBLServiceImpl.Log;
 /**
  * 订单详情的初始界面接口的实现（方法的注释见及接口）
  * @author 刘宇翔
  *
  */
-public class orderDetailViewControllerServiceImpl implements orderDetailViewControllerService {
-	  private orderDetailView view;
+public class OrderDetailViewController implements OrderDetailViewService {
+	  private OrderDetailView view;
 	    private String UserID;
 	    private String OrderID;
 	    private OrderBLService order;
@@ -28,7 +28,7 @@ public class orderDetailViewControllerServiceImpl implements orderDetailViewCont
 	    private int from;
 	    private String HotelID;
 	    private String key;
-	    public orderDetailViewControllerServiceImpl(String UserID,String OrderID,String hotelID,int f) throws RemoteException{
+	    public OrderDetailViewController(String UserID,String OrderID,String hotelID,int f) throws RemoteException{
 	    	key=Log.getLogInstance().getSKey(hotelID);
 	    	this.UserID=UserID;
 	    	from=f;
@@ -38,7 +38,7 @@ public class orderDetailViewControllerServiceImpl implements orderDetailViewCont
 	    	hotel=new HotelBLServiceController();
 	    }
 		@Override
-		public void setView(orderDetailView view) {
+		public void setView(OrderDetailView view) {
 			this.view=view;
 		}
         public String getHotelID(){

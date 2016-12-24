@@ -3,19 +3,19 @@ package UserView;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import runner.ClientRunner;
-import uiController.CreditViewControllerImpl;
-import uiController.HistroyHotelViewControllerImpl;
+import uiController.CreditViewController;
+import uiController.HistroyHotelViewController;
 import uiController.HotelSearchUiController;
 import uiController.InformationViewControllerImpl;
-import uiController.LoginViewControllerImpl;
-import uiController.OrderViewControllerImpl;
-import uiService.CreditViewControllerService;
+import uiController.LoginViewController;
+import uiController.OrderViewController;
+import uiService.CreditViewService;
 import uiService.HistroyHotelViewControllerService;
 import uiService.HotelSearchUiService;
 import uiService.InformationViewControllerService;
 import uiService.LoginViewControllerService;
-import uiService.OrderViewControllerService;
-import uiService.customerMainViewControllerService;
+import uiService.OrderViewService;
+import uiService.CustomerMainViewService;
 
 import java.awt.event.ActionListener;
 import java.rmi.RemoteException;
@@ -28,12 +28,12 @@ import javax.swing.JLabel;
  * @author 刘宇翔
  *
  */
-public class customerMainView extends JPanel {
+public class CustomerMainView extends JPanel {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private customerMainViewControllerService controller;
+	private CustomerMainViewService controller;
 	private JButton information;
 	private JButton exit;
 	private JButton ordermanagement;
@@ -103,7 +103,7 @@ public class customerMainView extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public customerMainView(customerMainViewControllerService controller) {
+	public CustomerMainView(CustomerMainViewService controller) {
          this.controller=controller;
          setLayout(new GridLayout(15, 12, 0, 0));
          
@@ -364,7 +364,7 @@ public class customerMainView extends JPanel {
      * 信用查看界面的跳转
      */
 	public void credit(){
-		CreditViewControllerService controller =  new CreditViewControllerImpl(UserID);
+		CreditViewService controller =  new CreditViewController(UserID);
 		CreditView view = new CreditView(controller);
 		controller.setView(view);
 		ClientRunner.change(view);
@@ -373,7 +373,7 @@ public class customerMainView extends JPanel {
 	 * 退出的跳转
 	 */
 	public void exit(){
-		LoginViewControllerService controller =  new LoginViewControllerImpl();
+		LoginViewControllerService controller =  new LoginViewController();
 		LogView view = new LogView(controller);
 		controller.setView(view);
 		ClientRunner.change(view);
@@ -396,7 +396,7 @@ public class customerMainView extends JPanel {
 	 * 历史酒店界面的跳转
 	 */
 	public void histroy(){
-		HistroyHotelViewControllerService controller =  new HistroyHotelViewControllerImpl(UserID);
+		HistroyHotelViewControllerService controller =  new HistroyHotelViewController(UserID);
 		HistroyHotelView view = new HistroyHotelView(controller);
 		controller.setView(view);
 		ClientRunner.change( view);
@@ -405,7 +405,7 @@ public class customerMainView extends JPanel {
 	 * 订单管理界面的跳转
 	 */
 	public void order() throws RemoteException{
-		OrderViewControllerService controller =  new OrderViewControllerImpl(UserID);
+		OrderViewService controller =  new OrderViewController(UserID);
 		OrderView view = new OrderView(controller);
 		controller.setView(view);
 		ClientRunner.change( view);

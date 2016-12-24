@@ -47,7 +47,7 @@ public class HotelMainUiController implements HotelMainUiService {
 	
 	public void toLogView() {
 		//跳转到初始登录界面
-		LoginViewControllerService controller =  new LoginViewControllerImpl();
+		LoginViewControllerService controller =  new LoginViewController();
     	LogView view = new LogView(controller);
 		controller.setView(view);
 		ClientRunner.change(view);

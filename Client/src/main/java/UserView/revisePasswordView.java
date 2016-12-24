@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import runner.ClientRunner;
 import uiController.InformationViewControllerImpl;
 import uiService.InformationViewControllerService;
-import uiService.revisePasswordViewControllerService;
+import uiService.RevisePasswordViewService;
 
 import javax.swing.JPasswordField;
 import javax.swing.BoxLayout;
@@ -20,14 +20,14 @@ import javax.swing.BoxLayout;
  * @author 刘宇翔
  *
  */
-public class revisePasswordView extends JPanel {
+public class RevisePasswordView extends JPanel {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel panel;
     private JButton back;
-    private revisePasswordViewControllerService controller;
+    private RevisePasswordViewService controller;
     private JPanel panel1 ;
     private JPanel panel11 ;
     private JPanel panel12 ;
@@ -53,7 +53,7 @@ public class revisePasswordView extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public revisePasswordView(revisePasswordViewControllerService controller) {
+	public RevisePasswordView(RevisePasswordViewService controller) {
         this.controller=controller;
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         UserID=controller.getUserID();

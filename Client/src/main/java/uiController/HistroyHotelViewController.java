@@ -13,12 +13,12 @@ import uiService.HistroyHotelViewControllerService;
  * @author 刘宇翔
  *
  */
-public class HistroyHotelViewControllerImpl implements HistroyHotelViewControllerService {
+public class HistroyHotelViewController implements HistroyHotelViewControllerService {
 	private HistroyHotelView view;
 	private String id;
 	private HotelBLService hotel;
 	private List<HotelVO> list;
-	public HistroyHotelViewControllerImpl(String id){
+	public HistroyHotelViewController(String id){
 		this.id=id;
 		hotel=new HotelBLServiceController();
 	}

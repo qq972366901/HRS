@@ -7,7 +7,7 @@ import java.util.Vector;
 
 import UserView.CreditView;
 import VO.CreditRecordVO;
-import uiService.CreditViewControllerService;
+import uiService.CreditViewService;
 import userBLService.UserBLService;
 import userBLService.UserBLServiceController;
 import userBLServiceImpl.Log;
@@ -16,12 +16,12 @@ import userBLServiceImpl.Log;
  * @author 刘宇翔
  *
  */
-public class CreditViewControllerImpl implements CreditViewControllerService {
+public class CreditViewController implements CreditViewService {
 	private CreditView view;
 	private String id;
 	private UserBLService user;
 	String key;
-	public CreditViewControllerImpl(String id){
+	public CreditViewController(String id){
 		
 		try {
 			user=new UserBLServiceController();

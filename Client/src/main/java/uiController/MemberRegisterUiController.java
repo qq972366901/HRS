@@ -5,7 +5,7 @@ import java.rmi.RemoteException;
 import javax.swing.JPanel;
 
 import UserView.MemberRegisterView;
-import UserView.customerMainView;
+import UserView.CustomerMainView;
 import VO.UserVO;
 import WebPromotionView.WebPromotionUserView;
 import UserView.AddHotelView;
@@ -15,7 +15,7 @@ import uiService.AddHotelUiService;
 import uiService.AdminRoomUiService;
 import uiService.LoginViewControllerService;
 import uiService.MemberRegisterUiService;
-import uiService.customerMainViewControllerService;
+import uiService.CustomerMainViewService;
 import uiService.webPromotionUserUiService;
 import userBLService.UserBLService;
 import userBLService.UserBLServiceController;
@@ -33,14 +33,14 @@ public class MemberRegisterUiController implements MemberRegisterUiService {
 }
 
 	public void tocustomerMainView(String id){
-		customerMainViewControllerService controller=new customerMainViewControllerImpl(id);
-		customerMainView view =new customerMainView(controller);
+		CustomerMainViewService controller=new CustomerMainViewController(id);
+		CustomerMainView view =new CustomerMainView(controller);
 		controller.setView(view);
 		ClientRunner.change(view);
 	}
     public void toLogView(){
     	LoginViewControllerService controller;
-		controller = new LoginViewControllerImpl();
+		controller = new LoginViewController();
 		LogView view=new LogView(controller);
 		controller.setView(view);
 		ClientRunner.change(view);
