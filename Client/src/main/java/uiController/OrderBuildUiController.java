@@ -93,9 +93,6 @@ public class OrderBuildUiController implements OrderBuildUiService{
 	public boolean whetherMake(int numsOfRoom,String RoomType,String hotelid){
 		return order.whetherMake(numsOfRoom,RoomType,hotelid);
 	}
-	public void updateRoomInfo(String hotelid, String roomNumber, String roomType, String roomState){
-		room.updateRoomInfo(hotelid,roomNumber,roomType,roomState);
-	}
 	public void updateRoomState(String hotelid, String roomType,int roomNumber){
 		room.updateRoomState(hotelid,roomType,roomNumber);
 	}

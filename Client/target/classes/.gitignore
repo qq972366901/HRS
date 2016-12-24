@@ -1,4 +1,12 @@
-/META-INF/
+/HotelBLServiceImpl/
+/HotelRoomAdd/
+/HotelRoomInfo/
+/HotelWorkerView/
+/LineItem/
+/List/
+/PO/
+/PromotionBLServiceImpl/
+/RoomBLServiceImpl/
 /UserView/
 /VO/
 /WebPromotionView/
@@ -36,3 +44,4 @@
 /userInformationMaintenance/
 /userManagement/
 /userRegisterAndLog/
+/META-INF/
