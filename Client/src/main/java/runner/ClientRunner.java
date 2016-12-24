@@ -24,6 +24,7 @@ import UserView.CreditView;
 import UserView.HistroyHotelView;
 import UserView.UserManagementView;
 import UserView.WebAdminUserView;
+import UserView.customerMainView;
 import WebPromotionView.CreditManagementView;
 import WebPromotionView.MemberLevelSystemView;
 import WebPromotionView.WebPromotionStrategyView;
@@ -77,6 +78,11 @@ public class ClientRunner implements Serializable{
     		controller.setView(view);
     		mFrame.getContentPane().add(view);
         	mFrame.setVisible(true);
+        	mFrame.addWindowListener(new java.awt.event.WindowAdapter(){
+        		public void windowClosing(java.awt.event.WindowEvent e){
+        			System.exit(0);
+        		}
+        	});
 	}
 	/**
 	 * 界面跳转
@@ -97,6 +103,9 @@ public class ClientRunner implements Serializable{
 		}
 		else if(view instanceof MemberRegisterView) {
 		mFrame.setTitle("会员注册");
+		}
+		else if(view instanceof customerMainView){
+			mFrame.setTitle("客户主界面");
 		}
 		else if(view instanceof HotelSearchView) {
 		mFrame.setTitle("酒店搜索");

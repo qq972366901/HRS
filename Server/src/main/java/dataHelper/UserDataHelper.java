@@ -34,7 +34,7 @@ public interface UserDataHelper {
 	 */
 		public void update(UserPO po);
 		/**
-		 * 获取所有CreditPO
+		 * 获取所有UserPO
 		 * @return
 		 * @throws RemoteException
 		 */

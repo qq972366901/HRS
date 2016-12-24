@@ -18,7 +18,7 @@ public interface CreditRecordDataHelper {
 	 */
 		public void insert(CreditRecordPO po);
 		/**
-		 * 获取所有CreditPO
+		 * 获取所有CreditRecordPO
 		 * @return
 		 * @throws RemoteException
 		 */

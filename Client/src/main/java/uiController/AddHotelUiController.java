@@ -31,7 +31,6 @@ public class AddHotelUiController implements  AddHotelUiService {
 	private PromotionBLService promotion;
 	private UserBLService user;
 	public AddHotelUiController(String id) throws RemoteException{
-    	//user=new UserBLServiceImpl();
     	this.UserID=id;
     	this.promotion=new PromotionController();
     	this.user=new UserBLServiceController();
@@ -39,7 +38,6 @@ public class AddHotelUiController implements  AddHotelUiService {
     }
 	@Override
 	public void setView(AddHotelView view) {
-		// TODO Auto-generated method stub
 		this.view=view;
 }
 	public void toWebAdminUserView(String id) throws RemoteException{
