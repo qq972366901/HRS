@@ -17,7 +17,7 @@ import rmi.RemoteHelper;
  *
  */
 public class ServerRunner implements Serializable{
-
+	private JPanel contentPane;
 	private static final long serialVersionUID = 1L;
 	/**
 	 * 服务器构造方法
