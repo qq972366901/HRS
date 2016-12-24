@@ -2,6 +2,10 @@ package hotelInformationOverview;
 
 import HotelBLServiceImpl.HotelInfo;
 import VO.HotelVO;
+
+/**负责实现查看酒店信息的控制器
+ * @author 刘宗侃
+ */
 public class HotelInformationOverviewController{
 	
 	/**

@@ -50,6 +50,11 @@ public class UpdateHotelInfoView extends JPanel {
 	
 	CityAndBussinessCircle cityAndCircle = new CityAndBussinessCircle();
 	
+	/**
+	 * 维护酒店基本信息界面构造方法
+	 * @param controller
+	 * @param id
+	 */
 	public UpdateHotelInfoView(UpdateHotelInfoUiService controller,String id) {
 		this.hotelID = id;
 		this.controller = controller;
@@ -57,6 +62,9 @@ public class UpdateHotelInfoView extends JPanel {
 		this.validate();
 	}
 
+	/**
+	 * 构造维护酒店基本信息界面
+	 */
 	private void initPanel() {
 		this.setBorder(new EmptyBorder(5, 5, 5, 5));
 		this.setLayout(new BorderLayout(0, 0));
@@ -68,6 +76,9 @@ public class UpdateHotelInfoView extends JPanel {
 		backButton = new JButton("返回");
 		backPanel.add(backButton, BorderLayout.EAST);
 		backButton.addActionListener(new ActionListener(){
+			/**
+			 * 返回酒店工作人员主界面
+			 */
 			public void actionPerformed(ActionEvent arg0) {
 				controller.toHotelMainView();
 			}
@@ -151,6 +162,9 @@ public class UpdateHotelInfoView extends JPanel {
 			hotelCityComboBox.addItem(cities.get(i));
 		}
 		hotelCityComboBox.addItemListener(new ItemListener() {
+			/**
+			 * 根据选择的城市添加商圈
+			 */
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
                 	hotelCity = hotelCityComboBox.getSelectedItem().toString();
@@ -183,6 +197,9 @@ public class UpdateHotelInfoView extends JPanel {
 		
 		panel3.add(hotelAreaJComboBox);
 		hotelAreaJComboBox.addItemListener(new ItemListener() {
+			/**
+			 * 得到所选商圈
+			 */
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
                 	hotelArea = hotelAreaJComboBox.getSelectedItem().toString();
@@ -232,7 +249,9 @@ public class UpdateHotelInfoView extends JPanel {
 		starComboBox.addItem(4);
 		starComboBox.addItem(5);
 		starComboBox.addItemListener(new ItemListener() {
-
+			/**
+			 * 得到所选酒店星级
+			 */
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
                 	hotelStar = Integer.parseInt(starComboBox.getSelectedItem().toString());
@@ -264,8 +283,10 @@ public class UpdateHotelInfoView extends JPanel {
 		submitButton = new JButton("提交");
 		submitPanel.add(submitButton);
 		submitButton.addActionListener(new ActionListener(){
+			/**
+			 * 系统更新酒店信息
+			 */
 			public void actionPerformed(ActionEvent arg0) {
-				//系统更新酒店信息
 				String hotelName = hotelNameTextArea.getText();
 				String hotelLocation = hotelLocationTextArea.getText();
 				String hotelService = hotelServiceTextArea.getText();

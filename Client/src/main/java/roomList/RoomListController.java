@@ -2,6 +2,11 @@ package roomList;
 
 import RoomBLServiceImpl.RoomAllOfHotel;
 
+/**
+ * 酒店所以房间列表的控制器
+ * @author 刘宗侃
+ *
+ */
 public class RoomListController {
 
 	/**

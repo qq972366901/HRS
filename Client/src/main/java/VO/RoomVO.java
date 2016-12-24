@@ -6,8 +6,6 @@ import PO.RoomPO;
 /**
  * 房间的属性及数据创建与更新
  * @author 刘宗侃
- * @version 1.0
- * @see Object.Room
  */
 
 public class RoomVO{
@@ -26,8 +24,6 @@ public class RoomVO{
 	 * @param roomtype String型，房间类型
 	 * @param roomprice int型，房间价格
 	 * @return
-	 * @throws
-	 * @see
 	 */
     public RoomVO (String hotelid,String roomid,String roomstatue,String roomtype,int roomprice){
     	hotelID = hotelid;
@@ -36,6 +32,11 @@ public class RoomVO{
 	    roomType=roomtype;
 	    roomPrice=roomprice;
     }
+    /**
+   	 * 房间数据
+   	 * @param po RoomPO型，数据层传来的房间
+   	 * @return
+   	 */
     public RoomVO (RoomPO po) {
     	hotelID = po.getHotelId();
     	roomId = po.getroomId();

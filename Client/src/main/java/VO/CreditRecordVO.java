@@ -12,8 +12,6 @@ import common.Operate;
 /**
  * 信用记录的属性及数据创建与更新
  * @author 刘宗侃
- * @version 1.0
- * @see Object.CreditRecord
  */
 
 public class CreditRecordVO{

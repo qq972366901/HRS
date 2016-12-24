@@ -1,6 +1,11 @@
 package roomAvailable;
 import RoomBLServiceImpl.RoomAvailableJudge;
 
+/**
+ * 判断能否酒店是否有足够房间的控制器
+ * @author 刘宗侃
+ *
+ */
 public class RoomAvailableController{
 	
 	/**
@@ -15,27 +20,4 @@ public class RoomAvailableController{
 		return roomAvailableJudge.whetherSuccess(roomType, roomNumber);
 	}
 	
-
-//	/**
-//     * 返回可入住房间
-//     * 
-//     * @return ArrayList<RoomVO>,一个房间值对象列表
-//     * @see bussinesslogic.Room
-//     */
-//	public ArrayList<RoomVO> getRoom() {
-//		ArrayList<RoomVO> array=new ArrayList<RoomVO>(); 
-//		return array;
-//	}
-//	
-//	
-//	/**
-//     * 返回房间的价格
-//     * 
-//     * @param roomType String型，一种房间类型
-//     * @return 返回一个long数值
-//     * @see bussinesslogic.Room
-//     */
-//	public long getPrice(String roomType) {
-//		return 200;
-//	}
 }

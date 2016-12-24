@@ -41,6 +41,11 @@ public class MakeHotelPromotionView extends JPanel {
 	JButton backButton;
 	JButton submitButton;
 	
+	/**
+	 * 制定营销策略界面的构造方法
+	 * @param controller
+	 * @param id
+	 */
 	public MakeHotelPromotionView(MakeHotelPromotionUiService controller,String id) {
 		this.hotelID = id;
 		this.controller = controller;
@@ -48,6 +53,9 @@ public class MakeHotelPromotionView extends JPanel {
 		this.validate();
 	}
 
+	/**
+	 * 构造制定营销策略界面
+	 */
 	private void initPanel() {
 		this.setBorder(new EmptyBorder(5, 5, 5, 5));
 		this.setLayout(new BorderLayout(0, 0));
@@ -59,6 +67,9 @@ public class MakeHotelPromotionView extends JPanel {
 		backButton = new JButton("返回");
 		backPanel.add(backButton, BorderLayout.EAST);
 		backButton.addActionListener(new ActionListener(){
+			/**
+			 * 返回酒店工作人员主界面
+			 */
 			public void actionPerformed(ActionEvent arg0) {
 				controller.toHotelMainView();
 			}
@@ -221,6 +232,9 @@ public class MakeHotelPromotionView extends JPanel {
 		submitButton = new JButton("确定");
 		panel_15.add(submitButton);
 		submitButton.addActionListener(new ActionListener(){
+			/**
+			 * 提交酒店营销策略的信息
+			 */
 			public void actionPerformed(ActionEvent arg0) {
 				//系统添加酒店营销策略
 				String name = promotionNameTextField.getText();

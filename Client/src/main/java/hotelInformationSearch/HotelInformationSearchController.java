@@ -2,6 +2,10 @@ package hotelInformationSearch;
 import java.util.List;
 import HotelBLServiceImpl.HotelSearch;
 
+
+/**负责实现查找符合条件的酒店列表功能的控制器
+ * @author 刘宗侃
+ */
 public class HotelInformationSearchController{
 	
 	/**

@@ -13,6 +13,10 @@ import hotelBLService.HotelBLService;
 import hotelBLService.HotelBLServiceController;
 import rmi.RemoteHelper;
 
+/**
+ * 测试得到订单原始价格
+ * @author 刘宗侃
+ */
 public class GetOrderPriceTester {
 	
 	private RemoteHelper remoteHelper;

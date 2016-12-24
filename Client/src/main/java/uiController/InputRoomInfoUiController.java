@@ -12,6 +12,10 @@ import uiService.InputRoomInfoUiService;
 import userBLServiceImpl.DES;
 import userBLServiceImpl.Log;
 
+/**
+ * 负责实现录入客房界面的控制器
+ * @author 刘宗侃
+ */
 public class InputRoomInfoUiController implements InputRoomInfoUiService {
 	
 	private InputRoomInfoView view;
@@ -22,6 +26,10 @@ public class InputRoomInfoUiController implements InputRoomInfoUiService {
 	
 	private String key=null;
 	
+	/**
+	 * 录入客房界面的控制器构造方法
+	 * @param id
+	 */
 	public InputRoomInfoUiController(String id) {
 		try {
 			Log log=new Log();
@@ -37,10 +45,17 @@ public class InputRoomInfoUiController implements InputRoomInfoUiService {
 		}
 	}
 
+	/**
+	 * 设置界面
+	 * @param view
+	 */
 	public void setView(InputRoomInfoView view) {
 		this.view = view;
 	}
 
+	/**
+	 * 返回管理客房界面
+	 */
 	public void toAdminRoomView() {
 		AdminRoomUiService controller = new AdminRoomUiController(DES.decryptDES(hotelID, key));
 		AdminRoomView view = new AdminRoomView(controller, hotelID);
@@ -48,8 +63,14 @@ public class InputRoomInfoUiController implements InputRoomInfoUiService {
 		ClientRunner.change(view);
 	}
 
+	/**
+	 * 系统更新酒店拥有的房间信息
+	 * @param roomType String型，房型
+	 * @param roomNumber int型，房间数量
+	 * @param roomPrice int型，房间原始价格
+	 * @param roomNNN String型，房间号
+	 */
 	public void inputRoomInfo(String roomType, int roomNumber, int roomPrice, String roomNNN) {
-		//系统更新酒店拥有的房间信息
 		hotel.updateHotelRooms(hotelID, roomType, roomNumber, roomPrice, roomNNN);
 	}
 

@@ -3,6 +3,11 @@ package roomUpdate;
 import RoomBLServiceImpl.RoomStateChange;
 import RoomBLServiceImpl.RoomsReserved;
 
+/**
+ * 更新房间信息的控制器
+ * @author 刘宗侃
+ *
+ */
 public class RoomUpdateController{
 	/**
      * 酒店工作人员更新单个房间的状态

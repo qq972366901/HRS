@@ -6,8 +6,6 @@ import PO.*;
 /**
  * 促销策略的属性及数据创建与更新
  * @author 刘宗侃
- * @version 1.0
- * @see Object.Promotion
  */
 
 public class HotelPromotionVO{

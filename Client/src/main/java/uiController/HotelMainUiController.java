@@ -19,6 +19,10 @@ import uiService.UpdateHotelInfoUiService;
 import userBLServiceImpl.DES;
 import userBLServiceImpl.Log;
 
+/**
+ * 负责实现酒店管理系统的酒店工作人员的初始界面的控制器
+ * @author 刘宗侃
+ */
 public class HotelMainUiController implements HotelMainUiService {
 
 	private HotelMainView view;
@@ -26,7 +30,10 @@ public class HotelMainUiController implements HotelMainUiService {
 	private String hotelID;
 	
 	private String key=null;
-	
+	/**
+	 * 酒店工作人员主界面控制器构造方法
+	 * @param id
+	 */
 	public HotelMainUiController(String id) {
 		try {
 			Log log=new Log();
@@ -42,18 +49,27 @@ public class HotelMainUiController implements HotelMainUiService {
 		}
 	}
 	
+	/**
+	 * 设置界面
+	 * @param view
+	 */
 	public void setView(HotelMainView view){
 		this.view = view;
 	}
 	
+	/**
+	 * 返回登录界面
+	 */
 	public void toLogView() {
-		//跳转到初始登录界面
 		LoginViewControllerService controller =  new LoginViewControllerImpl();
     	LogView view = new LogView(controller);
 		controller.setView(view);
 		ClientRunner.change(view);
 	}
 	
+	/**
+	 * 进入维护酒店基本信息界面
+	 */
 	public void toUpdateHotelInfoView() {
 		UpdateHotelInfoUiService controller = new UpdateHotelInfoUiController(DES.decryptDES(hotelID, key));
 		UpdateHotelInfoView view = new UpdateHotelInfoView(controller,hotelID);
@@ -61,6 +77,9 @@ public class HotelMainUiController implements HotelMainUiService {
 		ClientRunner.change(view);
 	}
 
+	/**
+	 * 进入管理房间界面
+	 */
 	public void toAdminRoomView() {
 		AdminRoomUiService controller = new AdminRoomUiController(DES.decryptDES(hotelID, key));
 		AdminRoomView view = new AdminRoomView(controller,hotelID);
@@ -69,6 +88,9 @@ public class HotelMainUiController implements HotelMainUiService {
 		
 	}
 
+	/**
+	 * 进入制定酒店营销策略界面
+	 */
 	public void toMakeHotelPromotionView() {
 		MakeHotelPromotionUiService controller;
 		try {
@@ -81,7 +103,9 @@ public class HotelMainUiController implements HotelMainUiService {
 		}
 	}
 
-	@Override
+	/**
+	 * 进入浏览订单界面
+	 */
 	public void toProcessOrderOrderView() {
 		ProcessOrderUiService controller;
 		try {

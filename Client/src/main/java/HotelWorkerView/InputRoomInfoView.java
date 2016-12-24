@@ -34,6 +34,11 @@ public class InputRoomInfoView extends JPanel {
 	private JButton backButton;
 	private JButton submitButton;
 	
+	/**
+	 * 录入客房信息的构造方法
+	 * @param controller
+	 * @param id
+	 */
 	public InputRoomInfoView(InputRoomInfoUiService controller,String id) {
 		this.controller = controller;
 		this.hotelID = id;
@@ -41,6 +46,9 @@ public class InputRoomInfoView extends JPanel {
 		this.validate();
 	}
 
+	/**
+	 * 构造录入客房信息界面
+	 */
 	private void initPanel() {
 		this.setBorder(new EmptyBorder(5, 5, 5, 5));
 		this.setLayout(new BorderLayout(0, 0));
@@ -52,6 +60,9 @@ public class InputRoomInfoView extends JPanel {
 		backButton = new JButton("返回");
 		backPanel.add(backButton, BorderLayout.EAST);
 		backButton.addActionListener(new ActionListener(){
+			/**
+			 * 返回管理客房信息界面
+			 */
 			public void actionPerformed(ActionEvent arg0) {
 				controller.toAdminRoomView();
 			}
@@ -154,6 +165,9 @@ public class InputRoomInfoView extends JPanel {
 		submitButton = new JButton("提交");
 		panel_8.add(submitButton);
 		submitButton.addActionListener(new ActionListener(){
+			/**
+			 * 提交要添加的房间
+			 */
 			public void actionPerformed(ActionEvent arg0) {
 				//系统更新酒店拥有的房间信息
 				String roomType = roomTypeTextField.getText();

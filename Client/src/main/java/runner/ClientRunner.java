@@ -10,6 +10,13 @@ import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import HotelWorkerView.AdminRoomView;
+import HotelWorkerView.HotelMainView;
+import HotelWorkerView.InputRoomInfoView;
+import HotelWorkerView.MakeHotelPromotionView;
+import HotelWorkerView.ProcessOrderView;
+import HotelWorkerView.UpdateHotelInfoView;
+import HotelWorkerView.UpdateRoomInfoView;
 import UserView.MemberRegisterView;
 import UserView.HotelBrowseView;
 import UserView.HotelDetailView;
@@ -38,7 +45,6 @@ import uiService.LoginViewControllerService;
  * @author LZ
  *
  */
-
 public class ClientRunner implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -93,46 +99,67 @@ public class ClientRunner implements Serializable{
 		mFrame.getContentPane().add(view);
 		mFrame.setVisible(true);
 		if(view instanceof WebAdminUserView) {
-        mFrame.setTitle("网站管理人员主界面");
+			mFrame.setTitle("网站管理人员主界面");
 		}
 		else if(view instanceof UserManagementView) {
-	    mFrame.setTitle("用户管理");
+			mFrame.setTitle("用户管理");
 		}
 		else if(view instanceof AddHotelView) {
-	    mFrame.setTitle("添加酒店");
+			mFrame.setTitle("添加酒店");
 		}
 		else if(view instanceof MemberRegisterView) {
-		mFrame.setTitle("会员注册");
+			mFrame.setTitle("会员注册");
 		}
 		else if(view instanceof customerMainView){
 			mFrame.setTitle("客户主界面");
 		}
 		else if(view instanceof HotelSearchView) {
-		mFrame.setTitle("酒店搜索");
+			mFrame.setTitle("酒店搜索");
 		}
 		else if(view instanceof HotelBrowseView) {
-		mFrame.setTitle("酒店浏览");
+			mFrame.setTitle("酒店浏览");
 		}
 		else if(view instanceof OrderBuildView) {
-		mFrame.setTitle("生成订单");
+			mFrame.setTitle("生成订单");
 		}
 		else if(view instanceof OrderView) {
-		mFrame.setTitle("订单管理");
+			mFrame.setTitle("订单管理");
 		}
 		else if(view instanceof CommentView) {
-		mFrame.setTitle("订单评价");
+			mFrame.setTitle("订单评价");
 		}
 		else if(view instanceof InformationView) {
-		mFrame.setTitle("个人信息管理");
+			mFrame.setTitle("个人信息管理");
 		}
 		else if(view instanceof CreditView) {
-		mFrame.setTitle("信用管理");
+			mFrame.setTitle("信用管理");
 		}
 		else if(view instanceof HistroyHotelView) {
-		mFrame.setTitle("历史酒店浏览");
+			mFrame.setTitle("历史酒店浏览");
 		}
 		else if(view instanceof HotelDetailView) {
-		mFrame.setTitle("酒店订单浏览");
+			mFrame.setTitle("酒店订单浏览");
+		}
+		else if(view instanceof AdminRoomView) {
+			mFrame.setTitle("管理客房信息");
+		}
+		else if(view instanceof HotelMainView) {
+			mFrame.setTitle("酒店工作人员主界面");
+		}
+		else if(view instanceof InputRoomInfoView) {
+			mFrame.setTitle("录入客房信息");
+		}
+		else if(view instanceof MakeHotelPromotionView) {
+			mFrame.setTitle("制定营销策略");
+		}
+		else if(view instanceof ProcessOrderView) {
+			mFrame.setTitle("浏览订单");
+		}
+		else if(view instanceof UpdateHotelInfoView) {
+			mFrame.setTitle("维护酒店基本信息");
+		}
+		else if(view instanceof UpdateRoomInfoView) {
+			mFrame.setTitle("更新房间信息");
 		}
 		else if(view instanceof LogView){
 			mFrame.setTitle("酒店预订系统");

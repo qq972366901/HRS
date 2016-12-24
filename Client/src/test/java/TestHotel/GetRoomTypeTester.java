@@ -14,6 +14,10 @@ import hotelBLService.HotelBLService;
 import hotelBLService.HotelBLServiceController;
 import rmi.RemoteHelper;
 
+/**
+ * 测试得到酒店空闲房型列表
+ * @author 刘宗侃
+ */
 public class GetRoomTypeTester {
 
 	private RemoteHelper remoteHelper;

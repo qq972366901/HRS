@@ -62,7 +62,7 @@ public class HotelSearch {
      * @param roomNumber int型，房间数量，若未选择，值为-1
      * @param priceLow int型，房间最低价格，若未选择，值为-1
      * @param priceHigh int型，房间最高价格，若未选择，值为-1
-     * @param hotelStar int型，酒店星级，若未选择，值为-1
+     * @param star int型，酒店星级，若未选择，值为-1
      * @param scoreLow int型，搜索选择的最低评分，若未选择，值为-1
      * @param scoreHigh int型，搜索选择的最高评分，若未选择，值为-1
      * @param everBooked String型，选择搜索的范围：全部，预定过，未预定过，若未选择，值为null
@@ -87,7 +87,14 @@ public class HotelSearch {
 		
 		return hotelidList;
 	}
-	
+	/**
+     * 判断城市是否符合条件
+     * 
+     * @param vo HotelVo型，判断的酒店
+     * @param city String型，界面得到的城市
+     * 
+     * @return 符合返回true，不符合返回false
+     */
 	private boolean judgeCity(HotelVO vo, String city) {
 		boolean outcome = false;
 		if(city.length() < 1 || city == null) {
@@ -98,6 +105,14 @@ public class HotelSearch {
 		}
 		return outcome;
 	}
+	/**
+     * 判断商圈是否符合条件
+     * 
+     * @param vo HotelVo型，判断的酒店
+     * @param businessCircle String型，界面得到的商圈
+     * 
+     * @return 符合返回true，不符合返回false
+     */
 	private boolean judgeBusinessCircle(HotelVO vo, String businessCircle) {
 		boolean outcome = false;
 		if(businessCircle.length() < 1 || businessCircle == null) {
@@ -107,8 +122,18 @@ public class HotelSearch {
 			outcome = true;
 		}
 		return outcome;
-		
 	}
+	/**
+     * 判断房间是否符合条件
+     * 
+     * @param vo HotelVo型，判断的酒店
+     * @param rType String型，房型
+     * @param roomNUmber int型，房间数量
+     * @param priceLow int型，最低价格
+     * @param priceHigh int型，最高价格
+     * 
+     * @return 符合返回true，不符合返回false
+     */
 	private boolean judgeRoom(HotelVO vo, String rType, int roomNumber,
 			int priceLow, int priceHigh) {
 		boolean outcome = false;
@@ -151,6 +176,14 @@ public class HotelSearch {
 		}
 		return outcome;
 	}
+	/**
+     * 判断星级是否符合条件
+     * 
+     * @param vo HotelVo型，判断的酒店
+     * @param star int型，要求的最低星级
+     * 
+     * @return 符合返回true，不符合返回false
+     */
 	private boolean judgeStar(HotelVO vo, int star) {
 		boolean outcome = false;
 		if(star == -1) {
@@ -161,6 +194,15 @@ public class HotelSearch {
 		}
 		return outcome;
 	}
+	/**
+     * 判断评分是否符合条件
+     * 
+     * @param vo HotelVo型，判断的酒店
+     * @param scoreLow int型，要求的最低评分
+     * @param scoreHigh int型，要求的最高评分
+     * 
+     * @return 符合返回true，不符合返回false
+     */
 	private boolean judgeScore(HotelVO vo, int scoreLow, int scoreHigh) {
 		boolean outcome = false;
 		if(scoreLow == -1 && scoreHigh == -1) {
@@ -180,6 +222,15 @@ public class HotelSearch {
 		}
 		return outcome;
 	}
+	/**
+     * 判断预定条件是否符合条件
+     * 
+     * @param vo HotelVo型，判断的酒店
+     * @param everBooked String型，预定条件
+     * @param userid String型，用户ID
+     * 
+     * @return 符合返回true，不符合返回false
+     */
 	private boolean judgeEverBooked(HotelVO vo, String everBooked, String userid) {
 		boolean outcome = false;
 		if(everBooked.equals("全部") || everBooked.length() < 1 || everBooked == null) {
@@ -208,6 +259,14 @@ public class HotelSearch {
 		}
 		return outcome;
 	}
+	/**
+     * 判断酒店名称是否符合条件
+     * 
+     * @param vo HotelVo型，判断的酒店
+     * @param name String型，被包含的酒店名称部分
+     * 
+     * @return 符合返回true，不符合返回false
+     */
 	private boolean judgeName(HotelVO vo,String name) {
 		if(name.length() < 1 || name == null) {
 			return true;

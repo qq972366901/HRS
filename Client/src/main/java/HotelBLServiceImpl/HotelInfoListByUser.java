@@ -10,6 +10,10 @@ import dataService.DataFactoryService;
 import dataService.HotelDataService;
 import rmi.RemoteHelper;
 
+
+/**负责实现得到用户历史酒店列表的功能
+ * @author 刘宗侃
+ */
 public class HotelInfoListByUser {
 
 	private String userID;
@@ -19,7 +23,9 @@ public class HotelInfoListByUser {
 	private HotelDataService hds;
 	
 	private static HotelInfoListByUser hotelInfoListByUser;
-	
+	/**
+	 * HotelInfoListByUser类的构造方法
+	 */
 	private HotelInfoListByUser(String userid) {
 		userID = userid;
 		df=RemoteHelper.getInstance().getDataFactoryService();
@@ -35,14 +41,20 @@ public class HotelInfoListByUser {
 			e.printStackTrace();
 		}
 	}
-	
+	/**
+	 * 得到HotelInfoListByUser对象
+	 */
 	public static HotelInfoListByUser getHotelInfoListByUserInstance(String userid) {
 		if(hotelInfoListByUser == null) {
 			hotelInfoListByUser = new HotelInfoListByUser(userid);
 		}
 		return hotelInfoListByUser;
 	}
-	
+	/**
+     * 查找用户的历史酒店并返回历史酒店列表
+     * 
+     * @return 返回酒店的一个列表
+     */
 	public List<HotelVO> getHistoryHotel() {
 		return list;
 	}

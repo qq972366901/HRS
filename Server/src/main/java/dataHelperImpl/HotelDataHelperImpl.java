@@ -12,6 +12,11 @@ import java.util.List;
 import PO.HotelPO;
 import dataHelper.HotelDataHelper;
 
+/**
+ * 数据库对酒店表的操作的实现
+ * @author 刘宗侃
+ *
+ */
 public class HotelDataHelperImpl implements HotelDataHelper{
 
 	private String driverName;
@@ -121,7 +126,7 @@ public class HotelDataHelperImpl implements HotelDataHelper{
 	/**
 	 * 得到所有酒店
 	 * 
-	 * @return 返回所以酒店的列表
+	 * @return 返回所有酒店的列表
 	 */
 	public List<HotelPO> getAllHotel() throws RemoteException {
 		List<HotelPO> list = new ArrayList<HotelPO>();
@@ -155,7 +160,7 @@ public class HotelDataHelperImpl implements HotelDataHelper{
 	/**
 	 * 在数据库中增加一个po记录
 	 * 
-	 * @param po HotelPO型，界面的选择
+	 * @param po HotelPO型，新增的酒店
 	 * @return
 	 */
 	public void insert(HotelPO po) throws RemoteException {
@@ -180,7 +185,7 @@ public class HotelDataHelperImpl implements HotelDataHelper{
 	/**
 	 * 在数据库中删除一个po
 	 * 
-	 * @param po HotelPO型，界面的选择
+	 * @param po HotelPO型，删除的酒店
 	 * @return
 	 */
 	public void delete(HotelPO po) throws RemoteException {
@@ -203,9 +208,9 @@ public class HotelDataHelperImpl implements HotelDataHelper{
 		finish();
 	}
 	/**
-	 * 在数据库中跟新一个po
+	 * 在数据库中更新一个po
 	 * 
-	 * @param po HotelPO型，界面的选择
+	 * @param po HotelPO型，更新的酒店
 	 * @return
 	 */
 	public void update(HotelPO po) throws RemoteException {
@@ -237,26 +242,5 @@ public class HotelDataHelperImpl implements HotelDataHelper{
 		}
 		finish();
 	}
-	
-//	public HotelPO findByName(String name) throws RemoteException {
-//		init();
-//		finish();
-//		return null;
-//	}
-//	public ArrayList<HotelPO> findByDistrict(String district) throws RemoteException {
-//		init();
-//		finish();
-//		return null;
-//	}
-//	public ArrayList<HotelPO> findByStar(int star) throws RemoteException {
-//		init();
-//		finish();
-//		return null;
-//	}
-//	public ArrayList<HotelPO> findByScore(double sco) throws RemoteException {
-//		init();
-//		finish();
-//		return null;
-//	}
 	
 }
