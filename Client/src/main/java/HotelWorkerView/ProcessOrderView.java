@@ -353,21 +353,34 @@ public class ProcessOrderView extends JPanel{
 			List<OrderVO> list=controller.getOrder(selected);
 			if(!list.isEmpty()){
 				for (OrderVO orderVo : list) {
-					if(orderVo.hotelID.equals(hotelId)){
+					if(orderVo.hotelID.equals(hotelId)&&((type.equals(UserType.WebPromotionWorker)&&(orderVo.orderState==2||orderVo.orderState==3))||(type.equals(UserType.HotelWorker)))){
 						orderListModel.addRow(orderVo);
 					}
 				} 
 			}
 			//设置控件可用类型
-			if(type.equals(UserType.WebPromotionWorker)){
-				cancel.setEnabled(true);
-				delayButton.setEnabled(false);
+			cancel.setEnabled(false);
+			delayButton.setEnabled(false);
+			entryButton.setEnabled(false);
+			if(!type.equals(UserType.WebPromotionWorker)){
+				if(!list.isEmpty()){
+					OrderVO vo=list.get(0);
+					if(vo.orderState==2){
+						entryButton.setEnabled(true);
+					}
+					if(vo.orderState==3){
+						delayButton.setEnabled(true);
+					}
+				}
 			}
 			else{
-				cancel.setEnabled(false);
-				delayButton.setEnabled(true);
+				if(!list.isEmpty()){
+					OrderVO vo=list.get(0);
+					if(vo.orderState==3){
+						cancel.setEnabled(true);
+					}
+				}
 			}
-			entryButton.setEnabled(false);
 		}
 	}
 	
