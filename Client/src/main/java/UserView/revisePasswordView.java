@@ -131,7 +131,7 @@ public class RevisePasswordView extends JPanel {
 					return;
 				}
 				else if(same_oldnew){
-					JOptionPane.showMessageDialog(null, "新旧密码一致！","", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(k, "新旧密码一致！","", JOptionPane.ERROR_MESSAGE);
 					return;
 				}
 				controller.revisepassword(String.valueOf(passwordField_1.getPassword()));

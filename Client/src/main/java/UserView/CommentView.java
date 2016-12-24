@@ -72,11 +72,13 @@ private JPanel panel1;
 	private JPanel panel9;
 	private JPanel panel10;
 	private JPanel panel10_1;
+	private JPanel k;
 	/**
 	 * Create the panel.
 	 */
 	public CommentView(CommentViewService controller) {
         this.controller=controller;
+        k=this;
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         panel=new JPanel(new FlowLayout(FlowLayout.RIGHT));
         add(panel);
@@ -207,11 +209,11 @@ private JPanel panel1;
 				judgeScore=controller.judgeScore(scoreinput.getText());
 				judgeComment=controller.judgeComment(commentinput.getText());
 				if(!judgeScore){
-			    	   JOptionPane.showMessageDialog(null, "请检查评分是否填写或是否正确！","", JOptionPane.ERROR_MESSAGE);
+			    	   JOptionPane.showMessageDialog(k, "请检查评分是否填写或是否正确！","", JOptionPane.ERROR_MESSAGE);
 			    	   return;
 			       }
 			       else if(!judgeComment){
-			    	   JOptionPane.showMessageDialog(null, "请检查评价是否大于等于5个字！","", JOptionPane.ERROR_MESSAGE);
+			    	   JOptionPane.showMessageDialog(k, "请检查评价是否大于等于5个字！","", JOptionPane.ERROR_MESSAGE);
 			    	   return;
 			       }
 			       else{

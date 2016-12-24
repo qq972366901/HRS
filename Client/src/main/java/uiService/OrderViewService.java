@@ -29,7 +29,7 @@ public interface OrderViewService {
      */
     public void comment();
     /**
-     * 撤销一个顶大
+     * 撤销一个订单
      * @param orderID 订单id
      */
     public void cancel(String orderID);
