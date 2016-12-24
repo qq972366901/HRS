@@ -5,6 +5,8 @@ import java.awt.FlowLayout;
 import java.awt.ScrollPane;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.math.BigDecimal;
@@ -45,6 +47,7 @@ public class HotelSearchView extends JPanel{
 	private JLabel label,label1,label2,label3,label4,label5,label6,label7,label8,label9,label10,label11,label12,label13,label14,label15,label16,label17,label18,label19;
 	private JComboBox<String> comboBox,comboBox1,comboBox2,comboBox8,comboBox16;
 	private JComboBox<Integer> comboBox3,comboBox4,comboBox5,comboBox6,comboBox7,comboBox9,comboBox10,comboBox11,comboBox12,comboBox13,comboBox14,comboBox15;
+	private JTextField textfield;
 	private JTable table;
 	private JPanel pane;
 	List<String> hlist;
@@ -522,7 +525,29 @@ public class HotelSearchView extends JPanel{
 	private void initButton(){
 		JPanel panel7=  new JPanel();
 		panel7.setLayout(new FlowLayout(FlowLayout.LEFT));
-		label19=new JLabel("                                                                            ");
+		label19=new JLabel("                                                         ");
+		textfield=new JTextField(30);
+		textfield.setText("请输入酒店名称");
+		  textfield.addFocusListener(new FocusAdapter()
+	        {
+	            public void focusGained(FocusEvent e)
+	            {	            	
+	            String str=textfield.getText();
+	            textfield.setText("");
+	  			  if(!str.equals("请输入酒店名称")){
+	  		    textfield.setText(str);
+	            }
+	            }
+	            public void focusLost(FocusEvent e)
+	            {
+	            String str=textfield.getText();
+	            textfield.setText("请输入酒店名称");
+	            if(!str.equals("")){
+		  		    textfield.setText(str);
+		            }
+	            }
+	        });		  
+
 		button4=new JButton("搜索");
 		button4.addActionListener(new ActionListener(){			
 			public void actionPerformed(ActionEvent e){
@@ -568,8 +593,11 @@ public class HotelSearchView extends JPanel{
 					else{
 						roomNum=(int)comboBox9.getSelectedItem();
 					}
-					//最后一个参数是界面输入的酒店名字，暂时取“”
-					hlist=controller.getHotelID((String)comboBox.getSelectedItem(),(String)comboBox2.getSelectedItem(),roomtype,roomNum,(int)comboBox4.getSelectedItem(), (int)comboBox5.getSelectedItem(),star,(int)comboBox6.getSelectedItem(),(int)comboBox7.getSelectedItem(),(String)comboBox16.getSelectedItem(),controller.getUserID(),"");
+					String hotelname="";
+					if(!textfield.getText().equals("请输入酒店名称")){
+					hotelname=textfield.getText();
+					}
+					hlist=controller.getHotelID((String)comboBox.getSelectedItem(),(String)comboBox2.getSelectedItem(),roomtype,roomNum,(int)comboBox4.getSelectedItem(), (int)comboBox5.getSelectedItem(),star,(int)comboBox6.getSelectedItem(),(int)comboBox7.getSelectedItem(),(String)comboBox16.getSelectedItem(),controller.getUserID(),hotelname);
 					if(hlist==null || hlist.size() ==0 ){
 						JOptionPane.showMessageDialog(pane, "  未找到满足条件的酒店！","", JOptionPane.ERROR_MESSAGE);
 					}
@@ -650,6 +678,7 @@ public class HotelSearchView extends JPanel{
 			}
 		});
 		panel7.add(label19);
+		panel7.add(textfield);
 		panel7.add(button4);
 		this.add(panel7);
 		JPanel panel6 = new JPanel();
