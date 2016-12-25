@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: TestuserBLImpl.LogTest
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 6.025 sec <<< FAILURE!
-testRevisepassword(TestuserBLImpl.LogTest)  Time elapsed: 0.971 sec  <<< ERROR!
+Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 5.905 sec <<< FAILURE!
+testRevisepassword(TestuserBLImpl.LogTest)  Time elapsed: 0.87 sec  <<< ERROR!
 java.lang.NullPointerException
 	at userBLServiceImpl.Log.<init>(Log.java:27)
 	at TestuserBLImpl.LogTest.testRevisepassword(LogTest.java:53)
@@ -37,7 +37,7 @@ java.lang.NullPointerException
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testAdd(TestuserBLImpl.LogTest)  Time elapsed: 1.007 sec  <<< ERROR!
+testAdd(TestuserBLImpl.LogTest)  Time elapsed: 1.011 sec  <<< ERROR!
 java.lang.NullPointerException
 	at userBLServiceImpl.Log.<init>(Log.java:27)
 	at TestuserBLImpl.LogTest.testAdd(LogTest.java:70)
@@ -72,7 +72,7 @@ java.lang.NullPointerException
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testLogin(TestuserBLImpl.LogTest)  Time elapsed: 1.008 sec  <<< ERROR!
+testLogin(TestuserBLImpl.LogTest)  Time elapsed: 1.031 sec  <<< ERROR!
 java.lang.NullPointerException
 	at userBLServiceImpl.Log.<init>(Log.java:27)
 	at TestuserBLImpl.LogTest.testLogin(LogTest.java:43)
@@ -107,7 +107,7 @@ java.lang.NullPointerException
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testAddKey(TestuserBLImpl.LogTest)  Time elapsed: 1.006 sec  <<< ERROR!
+testAddKey(TestuserBLImpl.LogTest)  Time elapsed: 0.978 sec  <<< ERROR!
 java.lang.NullPointerException
 	at userBLServiceImpl.Log.<init>(Log.java:27)
 	at TestuserBLImpl.LogTest.testAddKey(LogTest.java:80)
@@ -142,7 +142,7 @@ java.lang.NullPointerException
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testDelete(TestuserBLImpl.LogTest)  Time elapsed: 1.018 sec  <<< ERROR!
+testDelete(TestuserBLImpl.LogTest)  Time elapsed: 1.01 sec  <<< ERROR!
 java.lang.NullPointerException
 	at userBLServiceImpl.Log.<init>(Log.java:27)
 	at TestuserBLImpl.LogTest.testDelete(LogTest.java:61)
@@ -177,7 +177,7 @@ java.lang.NullPointerException
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testLogout(TestuserBLImpl.LogTest)  Time elapsed: 1.013 sec  <<< ERROR!
+testLogout(TestuserBLImpl.LogTest)  Time elapsed: 1.003 sec  <<< ERROR!
 java.lang.NullPointerException
 	at userBLServiceImpl.Log.<init>(Log.java:27)
 	at TestuserBLImpl.LogTest.testLogout(LogTest.java:33)

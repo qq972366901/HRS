@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: TestuserBLImpl.CreditTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 2.98 sec <<< FAILURE!
-testUpdateLevel(TestuserBLImpl.CreditTest)  Time elapsed: 0.96 sec  <<< ERROR!
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 2.962 sec <<< FAILURE!
+testUpdateLevel(TestuserBLImpl.CreditTest)  Time elapsed: 0.949 sec  <<< ERROR!
 java.lang.NullPointerException
 	at userBLServiceImpl.Credit.<init>(Credit.java:33)
 	at TestuserBLImpl.CreditTest.testUpdateLevel(CreditTest.java:44)
@@ -37,7 +37,7 @@ java.lang.NullPointerException
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testUpdateCredit(TestuserBLImpl.CreditTest)  Time elapsed: 1.008 sec  <<< ERROR!
+testUpdateCredit(TestuserBLImpl.CreditTest)  Time elapsed: 1.004 sec  <<< ERROR!
 java.lang.NullPointerException
 	at userBLServiceImpl.Credit.<init>(Credit.java:33)
 	at TestuserBLImpl.CreditTest.testUpdateCredit(CreditTest.java:36)
@@ -72,7 +72,7 @@ java.lang.NullPointerException
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testUpdateAllLevel(TestuserBLImpl.CreditTest)  Time elapsed: 1.01 sec  <<< ERROR!
+testUpdateAllLevel(TestuserBLImpl.CreditTest)  Time elapsed: 1.007 sec  <<< ERROR!
 java.lang.NullPointerException
 	at userBLServiceImpl.Credit.<init>(Credit.java:33)
 	at TestuserBLImpl.CreditTest.testUpdateAllLevel(CreditTest.java:51)

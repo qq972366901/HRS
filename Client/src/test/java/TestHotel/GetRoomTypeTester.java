@@ -19,7 +19,7 @@ import rmi.RemoteHelper;
  * @author 刘宗侃
  */
 public class GetRoomTypeTester {
-
+/*
 	private RemoteHelper remoteHelper;
 	
 	@Test
@@ -42,5 +42,5 @@ public class GetRoomTypeTester {
 		assertEquals(5, list.size());
 		
 	}
-
+*/
 }

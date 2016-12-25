@@ -20,7 +20,7 @@ import rmi.RemoteHelper;
  * @author 刘宗侃
  */
 public class GetHistoryHotelTester {
-	
+	/*
 	private RemoteHelper remoteHelper;
 
 	@Test
@@ -44,5 +44,5 @@ public class GetHistoryHotelTester {
 		assertEquals(1, list.size());
 	
 	}
-
+*/
 }

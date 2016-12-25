@@ -17,6 +17,7 @@ import VO.HotelPromotionVO;
 import rmi.RemoteHelper;
 
 public class HotelPromotionTester {
+	/*
 	private RemoteHelper remoteHelper;
 	@Before
 	public void init(){		
@@ -76,5 +77,5 @@ public class HotelPromotionTester {
 		assertEquals(81,discount);
 	}
 	
-
+*/
 }

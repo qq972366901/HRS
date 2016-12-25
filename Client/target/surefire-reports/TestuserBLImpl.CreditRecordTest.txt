@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: TestuserBLImpl.CreditRecordTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 2.001 sec <<< FAILURE!
-testAdd(TestuserBLImpl.CreditRecordTest)  Time elapsed: 0.984 sec  <<< ERROR!
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 1.932 sec <<< FAILURE!
+testAdd(TestuserBLImpl.CreditRecordTest)  Time elapsed: 0.933 sec  <<< ERROR!
 java.lang.NullPointerException
 	at userBLServiceImpl.CreditRecord.<init>(CreditRecord.java:29)
 	at TestuserBLImpl.CreditRecordTest.testAdd(CreditRecordTest.java:45)
@@ -37,7 +37,7 @@ java.lang.NullPointerException
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testShowCreditRecord(TestuserBLImpl.CreditRecordTest)  Time elapsed: 1.017 sec  <<< ERROR!
+testShowCreditRecord(TestuserBLImpl.CreditRecordTest)  Time elapsed: 0.998 sec  <<< ERROR!
 java.lang.NullPointerException
 	at userBLServiceImpl.CreditRecord.<init>(CreditRecord.java:29)
 	at TestuserBLImpl.CreditRecordTest.testShowCreditRecord(CreditRecordTest.java:36)

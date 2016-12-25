@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: TestuserBLImpl.AccountTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 3.991 sec <<< FAILURE!
-testAdd(TestuserBLImpl.AccountTest)  Time elapsed: 0.963 sec  <<< ERROR!
+Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 3.933 sec <<< FAILURE!
+testAdd(TestuserBLImpl.AccountTest)  Time elapsed: 0.921 sec  <<< ERROR!
 java.lang.NullPointerException
 	at userBLServiceImpl.Account.<init>(Account.java:30)
 	at TestuserBLImpl.AccountTest.testAdd(AccountTest.java:62)
@@ -37,7 +37,7 @@ java.lang.NullPointerException
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testGetUser(TestuserBLImpl.AccountTest)  Time elapsed: 1.007 sec  <<< ERROR!
+testGetUser(TestuserBLImpl.AccountTest)  Time elapsed: 0.999 sec  <<< ERROR!
 java.lang.NullPointerException
 	at userBLServiceImpl.Account.<init>(Account.java:30)
 	at TestuserBLImpl.AccountTest.testGetUser(AccountTest.java:36)
@@ -72,7 +72,7 @@ java.lang.NullPointerException
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testDelete(TestuserBLImpl.AccountTest)  Time elapsed: 1.009 sec  <<< ERROR!
+testDelete(TestuserBLImpl.AccountTest)  Time elapsed: 1.007 sec  <<< ERROR!
 java.lang.NullPointerException
 	at userBLServiceImpl.Account.<init>(Account.java:30)
 	at TestuserBLImpl.AccountTest.testDelete(AccountTest.java:53)
@@ -107,7 +107,7 @@ java.lang.NullPointerException
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testUpdateContactway(TestuserBLImpl.AccountTest)  Time elapsed: 1.007 sec  <<< ERROR!
+testUpdateContactway(TestuserBLImpl.AccountTest)  Time elapsed: 1.004 sec  <<< ERROR!
 java.lang.NullPointerException
 	at userBLServiceImpl.Account.<init>(Account.java:30)
 	at TestuserBLImpl.AccountTest.testUpdateContactway(AccountTest.java:45)

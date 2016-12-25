@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: TestOrder.TestOrder
 -------------------------------------------------------------------------------
-Tests run: 7, Failures: 0, Errors: 7, Skipped: 0, Time elapsed: 7.594 sec <<< FAILURE!
-testGetHotelComment(TestOrder.TestOrder)  Time elapsed: 1.378 sec  <<< ERROR!
+Tests run: 7, Failures: 0, Errors: 7, Skipped: 0, Time elapsed: 7.734 sec <<< FAILURE!
+testGetHotelComment(TestOrder.TestOrder)  Time elapsed: 1.431 sec  <<< ERROR!
 java.lang.NullPointerException
 	at TestOrder.TestOrder.testGetHotelComment(TestOrder.java:64)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -35,7 +35,7 @@ java.lang.NullPointerException
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testSaveOrderInfo(TestOrder.TestOrder)  Time elapsed: 1.038 sec  <<< ERROR!
+testSaveOrderInfo(TestOrder.TestOrder)  Time elapsed: 1.037 sec  <<< ERROR!
 java.lang.NullPointerException
 	at TestOrder.TestOrder.testSaveOrderInfo(TestOrder.java:76)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -68,7 +68,7 @@ java.lang.NullPointerException
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testShowDetail(TestOrder.TestOrder)  Time elapsed: 1.011 sec  <<< ERROR!
+testShowDetail(TestOrder.TestOrder)  Time elapsed: 1.071 sec  <<< ERROR!
 java.lang.NullPointerException
 	at TestOrder.TestOrder.testShowDetail(TestOrder.java:84)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -101,7 +101,7 @@ java.lang.NullPointerException
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testShowOrderList(TestOrder.TestOrder)  Time elapsed: 1.01 sec  <<< ERROR!
+testShowOrderList(TestOrder.TestOrder)  Time elapsed: 1.017 sec  <<< ERROR!
 java.lang.NullPointerException
 	at TestOrder.TestOrder.testShowOrderList(TestOrder.java:41)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -134,7 +134,7 @@ java.lang.NullPointerException
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testUserInHotel(TestOrder.TestOrder)  Time elapsed: 1.028 sec  <<< ERROR!
+testUserInHotel(TestOrder.TestOrder)  Time elapsed: 1.06 sec  <<< ERROR!
 java.lang.NullPointerException
 	at TestOrder.TestOrder.testUserInHotel(TestOrder.java:95)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -167,7 +167,7 @@ java.lang.NullPointerException
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testUpdateComment(TestOrder.TestOrder)  Time elapsed: 1.006 sec  <<< ERROR!
+testUpdateComment(TestOrder.TestOrder)  Time elapsed: 1.046 sec  <<< ERROR!
 java.lang.NullPointerException
 	at TestOrder.TestOrder.testUpdateComment(TestOrder.java:56)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -200,7 +200,7 @@ java.lang.NullPointerException
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testGetUserID(TestOrder.TestOrder)  Time elapsed: 1.016 sec  <<< ERROR!
+testGetUserID(TestOrder.TestOrder)  Time elapsed: 0.945 sec  <<< ERROR!
 java.lang.NullPointerException
 	at TestOrder.TestOrder.testGetUserID(TestOrder.java:89)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)

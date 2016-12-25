@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: TestOrder.TestOrderState
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 3.86 sec <<< FAILURE!
-testCancelAbnormal(TestOrder.TestOrderState)  Time elapsed: 0.815 sec  <<< ERROR!
+Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 3.831 sec <<< FAILURE!
+testCancelAbnormal(TestOrder.TestOrderState)  Time elapsed: 0.827 sec  <<< ERROR!
 java.lang.NullPointerException
 	at orderBLImpl.OrderState.<init>(OrderState.java:23)
 	at TestOrder.TestOrderState.testCancelAbnormal(TestOrderState.java:43)
@@ -36,7 +36,7 @@ java.lang.NullPointerException
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testDelay(TestOrder.TestOrderState)  Time elapsed: 1.015 sec  <<< ERROR!
+testDelay(TestOrder.TestOrderState)  Time elapsed: 0.987 sec  <<< ERROR!
 java.lang.NullPointerException
 	at orderBLImpl.OrderState.<init>(OrderState.java:23)
 	at TestOrder.TestOrderState.testDelay(TestOrderState.java:59)
@@ -70,7 +70,7 @@ java.lang.NullPointerException
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testProcess(TestOrder.TestOrderState)  Time elapsed: 1.011 sec  <<< ERROR!
+testProcess(TestOrder.TestOrderState)  Time elapsed: 1.016 sec  <<< ERROR!
 java.lang.NullPointerException
 	at orderBLImpl.OrderState.<init>(OrderState.java:23)
 	at TestOrder.TestOrderState.testProcess(TestOrderState.java:51)
@@ -104,7 +104,7 @@ java.lang.NullPointerException
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testCancel(TestOrder.TestOrderState)  Time elapsed: 1.018 sec  <<< ERROR!
+testCancel(TestOrder.TestOrderState)  Time elapsed: 0.999 sec  <<< ERROR!
 java.lang.NullPointerException
 	at orderBLImpl.OrderState.<init>(OrderState.java:23)
 	at TestOrder.TestOrderState.testCancel(TestOrderState.java:34)

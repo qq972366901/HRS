@@ -17,6 +17,7 @@ import VO.WebPromotionVO;
 import rmi.RemoteHelper;
 
 public class WebPromotionTester {
+	/*
 	private RemoteHelper remoteHelper;
 	@Before
 	public void init(){		
@@ -61,4 +62,5 @@ public class WebPromotionTester {
 		int discount=(int)(100*GetWebPromotionDiscount.getWebPromotionDiscountInstance().getWebPromotionDiscount("a03b7c8497bbb00458c63328e0052c39","南京","新街口",cal3));
 		assertEquals(95,discount);
 	}
+	*/
 }
