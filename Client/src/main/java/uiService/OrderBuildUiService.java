@@ -15,7 +15,6 @@ public interface OrderBuildUiService {
 	public boolean whetherMake(int numsOfRoom,String RoomType,String hotelID);
 	public String getUserID();
 	public String getHotelID();
-	public void updateRoomInfo(String hotelID, String roomNumber, String roomType, String roomState);
 	public void updateRoomState(String hotelID, String roomType,int roomNumber);
 	public List<String> getRoomType(String hotelid);
 	public int getMaxRoomNumber(String hotelid, String roomType);
