@@ -20,7 +20,7 @@ import rmi.RemoteHelper;
  * @author 刘宗侃
  */
 public class FindByHotelIDAndUserIDTester {
-	
+	/*
 	private RemoteHelper remoteHelper;
 
 	@Test
@@ -45,5 +45,5 @@ public class FindByHotelIDAndUserIDTester {
 		assertEquals(2, list1.size());
 		assertEquals(1, list2.size());
 	}
-
+*/
 }

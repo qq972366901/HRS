@@ -14,6 +14,7 @@ import PromotionBLServiceImpl.GetMemberLevelSystem;
 import rmi.RemoteHelper;
 
 public class MemberLevelSystemTester {
+	/*
 	private RemoteHelper remoteHelper;
 	@Before
 	public void init(){		
@@ -31,5 +32,5 @@ public class MemberLevelSystemTester {
 		int discount=(int)( 10*GetMemberLevelSystem.getMemberLevelSystemInstance().getDiscountOfLevel(1));
 		assertEquals(95,discount);
 	}
-
+*/
 }

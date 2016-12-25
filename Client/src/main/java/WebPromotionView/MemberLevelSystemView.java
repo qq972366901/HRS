@@ -135,6 +135,7 @@ public class MemberLevelSystemView extends JPanel{
 		JPanel p8=new JPanel();
 		p8.setLayout(new FlowLayout(FlowLayout.CENTER));
 		confir=new JButton("确定");
+		//更新或者新建会员等级制度
 		confir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				long credit1=Long.valueOf(l1.getText());
@@ -178,7 +179,7 @@ public class MemberLevelSystemView extends JPanel{
 		p8.add(cancel);
 		this.add(p8);
 	}
-	
+	//显示会员等级系统
 	public void showMemberLevelSystem(MemberLevelSystemVO vo){
 		if(vo!=null){
 			hasMemberLevelSystem=true;

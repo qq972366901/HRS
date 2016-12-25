@@ -45,6 +45,7 @@ public class CreditManagementView extends JPanel {
 		init();
 		this.validate();
 	}
+	//初始化界面
 	private void init(){
 		back=new JButton("返回");
 		back.addActionListener(new ActionListener() {

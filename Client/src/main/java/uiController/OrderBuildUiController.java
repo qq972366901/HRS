@@ -8,9 +8,10 @@ import javax.swing.JPanel;
 
 import UserView.HotelBrowseView;
 import UserView.HotelDetailView;
+import UserView.HotelSearchView;
 import UserView.LogView;
 import UserView.OrderBuildView;
-import UserView.orderDetailView;
+import UserView.OrderDetailView;
 import VO.HotelVO;
 import VO.OrderVO;
 import hotelBLService.HotelBLService;
@@ -24,9 +25,10 @@ import roomBLService.RoomBLServiceController;
 import runner.ClientRunner;
 import uiService.HotelBrowseUiService;
 import uiService.HotelDetailUiService;
+import uiService.HotelSearchUiService;
 import uiService.LoginViewControllerService;
 import uiService.OrderBuildUiService;
-import uiService.orderDetailViewControllerService;
+import uiService.OrderDetailViewService;
 import userBLService.UserBLService;
 import userBLService.UserBLServiceController;
 
@@ -78,15 +80,18 @@ public class OrderBuildUiController implements OrderBuildUiService{
 			con.setView(vie);
 			ClientRunner.change(vie);
 		}
+		else if(from==4){
+			HotelSearchUiService controller=new HotelSearchUiController(id1);
+			HotelSearchView view=new HotelSearchView(controller);
+			controller.setView(view);
+			ClientRunner.change(view);
+		}
 	}
 	public  void saveOrderInfo(OrderVO vo){
 		order.saveOrderInfo(vo);
 	}
 	public boolean whetherMake(int numsOfRoom,String RoomType,String hotelid){
 		return order.whetherMake(numsOfRoom,RoomType,hotelid);
-	}
-	public void updateRoomInfo(String hotelid, String roomNumber, String roomType, String roomState){
-		room.updateRoomInfo(hotelid,roomNumber,roomType,roomState);
 	}
 	public void updateRoomState(String hotelid, String roomType,int roomNumber){
 		room.updateRoomState(hotelid,roomType,roomNumber);

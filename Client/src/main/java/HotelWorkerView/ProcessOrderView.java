@@ -30,10 +30,10 @@ import VO.OrderVO;
 import common.Operate;
 import common.UserType;
 import uiService.ProcessOrderUiService;
-
 /**
- * 查看订单界面
- * @author 刘宗侃
+ * 供酒店工作人员和网站营销人员处理订单
+ * @author LZ&刘宗侃
+ *
  */
 public class ProcessOrderView extends JPanel{
 	
@@ -73,6 +73,10 @@ public class ProcessOrderView extends JPanel{
 	
 	private JFrame cancelFrame;
 	
+	private JTextField searchText;
+	
+	private JButton searchButton;
+
 	/**
 	 * 查看订单界面构造方法
 	 * @param controller
@@ -84,6 +88,9 @@ public class ProcessOrderView extends JPanel{
 		
 		//初始化订单类型选择框
 		initOrderTypeCombobox();
+		
+		//初始化订单搜索框
+		initOrderSearch();
 		
 		//初始化操作按钮
 		initOrderProcessButtons();
@@ -137,6 +144,26 @@ public class ProcessOrderView extends JPanel{
 		orderTypeJpanel.add(orderTypeComboBox);
 		this.add(orderTypeJpanel);
 		
+	}
+	
+	private void initOrderSearch(){
+		searchText=new JTextField(10);
+		searchButton=new JButton("搜索");
+		//添加按钮监听事件
+		searchButton.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent arg0) {
+				
+				//搜索订单
+				String orderID=searchText.getText();
+				controller.updateListModel(orderID);
+			}
+		});
+		JPanel searchJPanel=new JPanel();
+		searchJPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+		searchJPanel.add(searchText);
+		searchJPanel.add(searchButton);
+		this.add(searchJPanel);	
 	}
 	/**
 	 * 添加操作按钮的方法
@@ -336,6 +363,41 @@ public class ProcessOrderView extends JPanel{
 			delayButton.setEnabled(false);
 			entryButton.setEnabled(false);
 		}
+		else{
+			//更新订单列表
+			orderListModel.setRowCount(0);
+			List<OrderVO> list=controller.getOrder(selected);
+			if(!list.isEmpty()){
+				for (OrderVO orderVo : list) {
+					if(orderVo.hotelID.equals(hotelId)&&((type.equals(UserType.WebPromotionWorker)&&(orderVo.orderState==2||orderVo.orderState==3))||(type.equals(UserType.HotelWorker)))){
+						orderListModel.addRow(orderVo);
+					}
+				} 
+			}
+			//设置控件可用类型
+			cancel.setEnabled(false);
+			delayButton.setEnabled(false);
+			entryButton.setEnabled(false);
+			if(!type.equals(UserType.WebPromotionWorker)){
+				if(!list.isEmpty()){
+					OrderVO vo=list.get(0);
+					if(vo.orderState==2){
+						entryButton.setEnabled(true);
+					}
+					if(vo.orderState==3){
+						delayButton.setEnabled(true);
+					}
+				}
+			}
+			else{
+				if(!list.isEmpty()){
+					OrderVO vo=list.get(0);
+					if(vo.orderState==3){
+						cancel.setEnabled(true);
+					}
+				}
+			}
+		}
 	}
 	
 	/**
@@ -419,7 +481,9 @@ public class ProcessOrderView extends JPanel{
 		}
 		
 	}
-
+/**
+ * 处理异常订单申诉
+ */
 	public void cancelAbnormalOrder() {
 		int index = orderTable.getSelectedRow();
 		if(index == -1){

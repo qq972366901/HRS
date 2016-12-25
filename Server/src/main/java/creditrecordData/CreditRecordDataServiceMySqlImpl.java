@@ -68,8 +68,7 @@ public class CreditRecordDataServiceMySqlImpl implements CreditRecordDataService
 	 * @throws 远程调用失败
 	 * @see PO.CreditRecordPO
 	 */
-	@Override
-	public void init() throws RemoteException {
+	private void init() throws RemoteException {
 		factory=new DataHelperFactoryImpl();
 		helper=factory.getCreditRecordDataHelper();
 		list=helper.getAllCredit();

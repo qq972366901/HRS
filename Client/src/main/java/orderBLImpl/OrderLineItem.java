@@ -1,10 +1,8 @@
 package orderBLImpl;
 
 import java.rmi.RemoteException;
-import PO.CreditPO;
 import PO.OrderPO;
 import VO.OrderVO;
-import dataService.CreditDataService;
 import dataService.DataFactoryService;
 import dataService.OrderDataService;
 import rmi.RemoteHelper;
@@ -16,12 +14,10 @@ import rmi.RemoteHelper;
 public class OrderLineItem {
 	private DataFactoryService DataFactory;
     private OrderDataService orderData;
-    private CreditDataService creditData;
     public OrderLineItem() {
  	   DataFactory=RemoteHelper.getInstance().getDataFactoryService();
 	   try {
 		orderData= (OrderDataService) DataFactory.getDataService("Order");
-		creditData=(CreditDataService) DataFactory.getDataService("Credit");
 	} catch (RemoteException e) {
 		e.printStackTrace();
 	}
@@ -40,7 +36,12 @@ public class OrderLineItem {
 	public OrderVO showDetail(String OrderID) {
 		try {
 			OrderPO order=orderData.find(OrderID);
-			return new OrderVO(order);		
+			if(order!=null){
+				return new OrderVO(order);
+			}
+			else{
+				return null;
+			}
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

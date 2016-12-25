@@ -9,7 +9,7 @@ import java.util.Calendar;
  * @see
  */
 
-public class PromotionPO extends PO implements Serializable{
+public class PromotionPO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String hotelID;
 	private String promotionNumber;

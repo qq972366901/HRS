@@ -18,7 +18,7 @@ import rmi.RemoteHelper;
  * @author 刘宗侃
  */
 public class GetHotelScoreTester {
-
+/*
 	private RemoteHelper remoteHelper;
 	
 	@Test
@@ -46,5 +46,5 @@ public class GetHotelScoreTester {
 		assertEquals(true, equal);
 	
 	}
-
+*/
 }

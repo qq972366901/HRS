@@ -5,13 +5,15 @@ import java.util.HashMap;
 import VO.CreditRecordVO;
 import userBLServiceImpl.Credit;
 import userBLServiceImpl.CreditRecord;
-
+/**
+ * 用户信用记录控制器
+ * @author LZ
+ *
+ */
 public class UserCreditRecordController{
-	private Credit c;
 	private CreditRecord cr;
 	public UserCreditRecordController(){
 		try {
-			c=new Credit();
 			cr=new CreditRecord();
 		} catch (RemoteException | ParseException e) {
 			e.printStackTrace();
@@ -25,6 +27,7 @@ public class UserCreditRecordController{
 	* @see bussinesslogic.Customer
 	*/
 	public long showCredit(String userID) throws RemoteException {
+		Credit c=new Credit();
 		return c.showCredit(userID);
 	}
 	/**

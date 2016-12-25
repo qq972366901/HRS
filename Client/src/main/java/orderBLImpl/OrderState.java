@@ -5,7 +5,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import PO.OrderPO;
 import dataService.DataFactoryService;
 import dataService.OrderDataService;
 import rmi.RemoteHelper;
@@ -17,7 +16,7 @@ import rmi.RemoteHelper;
 public class OrderState {
 	private DataFactoryService DataFactory;
     private OrderDataService orderData;
-    private OrderStateInfo state;
+    private OrderStateInfoService state;
     public OrderState(String orderID) {
  	 try {   
  		 DataFactory=RemoteHelper.getInstance().getDataFactoryService();   
@@ -36,19 +35,19 @@ public class OrderState {
 	public boolean cancel() {
 		try {
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		state.orderState=4;
+		state.setOrderState(4);
 		Calendar cal=Calendar.getInstance();
 		try {
-			cal.setTime(sdf.parse(sdf.format(state.latest.getTime())));
+			cal.setTime(sdf.parse(sdf.format(state.getLatest().getTime())));
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
 		cal.add(Calendar.HOUR, -6);
 		Calendar rightnow=Calendar.getInstance();		
-		state.cancel=Calendar.getInstance();
-		state.generationTime=Calendar.getInstance();
+		state.setCancel(Calendar.getInstance());
+		state.setGen(Calendar.getInstance());
 		state.Update();		
-		orderData.update(state.po);		
+		orderData.update(state.getPO());		
 		if(cal.compareTo(rightnow)==-1){
 			return true;
 		}
@@ -70,11 +69,11 @@ public class OrderState {
      */
 	public boolean processUnfinishedOrder()  {
 		try {
-		state.orderState=1;
-		state.generationTime=Calendar.getInstance();
-		state.Update();
-	    orderData.update(state.po);
-		return true;
+			state.setOrderState(1);
+			state.setGen(Calendar.getInstance());
+		    state.Update();
+	        orderData.update(state.getPO());
+		    return true;
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return false;
@@ -93,12 +92,12 @@ public class OrderState {
      */
 	public boolean processAbnormalOrder(Calendar delayTime)  {
 		try {
-		state.orderState=2;
-		state.latest=delayTime;
-		state.generationTime=Calendar.getInstance();
-		state.Update();
-		orderData.update(state.po);
-		return true;
+			state.setOrderState(2);
+			state.setGen(Calendar.getInstance());
+			state.setLatest(delayTime);
+		    state.Update();
+		    orderData.update(state.getPO());
+		    return true;
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return false;
@@ -112,12 +111,12 @@ public class OrderState {
      * @see bussinesslogic.Order
      */
 	public void cancelAbnormalOrder()  {
-		state.orderState=4;
-		state.cancel=Calendar.getInstance();
-		state.generationTime=Calendar.getInstance();
+		state.setOrderState(4);
+		state.setCancel(Calendar.getInstance());
+		state.setGen(Calendar.getInstance());
 		state.Update();
 		try {
-			orderData.update(state.po);
+			orderData.update(state.getPO());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}

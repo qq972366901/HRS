@@ -17,6 +17,7 @@ import rmi.RemoteHelper;
 import userBLServiceImpl.Customer;
 
 public class CustomerTest {
+	/*
 	private RemoteHelper remoteHelper;
 	@Before
 	public void setup(){
@@ -70,5 +71,5 @@ public class CustomerTest {
 		c.create(vo, password);
 		assertEquals(vo,c.findByID(vo.id));
 	}
-
+*/
 }

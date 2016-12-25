@@ -19,6 +19,7 @@ import rmi.RemoteHelper;
 import userBLServiceImpl.CreditRecord;
 
 public class CreditRecordTest {
+	/*
 	private RemoteHelper remoteHelper;
 	@Before
 	public void setup(){
@@ -47,4 +48,5 @@ public class CreditRecordTest {
 		cr.add(id, vo);
 		assertEquals(++size,cr.sizeOfRecord(id));
 	}
+	*/
 }

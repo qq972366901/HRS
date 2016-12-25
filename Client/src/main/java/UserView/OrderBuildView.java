@@ -107,6 +107,49 @@ public class OrderBuildView extends JPanel{
 					comboBox2.addItem(1);
 				}
 				label9.setText("订单最晚执行时间:"+comboBox1.getSelectedItem()+"年"+comboBox2.getSelectedItem()+"月"+comboBox3.getSelectedItem()+"日当晚凌晨12点整");
+				Calendar cal4=Calendar.getInstance();
+				Calendar cal1=Calendar.getInstance();
+				Calendar cal2=Calendar.getInstance();
+				cal1.set((int)comboBox1.getSelectedItem(),(int)comboBox2.getSelectedItem(),(int) comboBox3.getSelectedItem());
+				cal2.set((int)comboBox4.getSelectedItem(),(int)comboBox5.getSelectedItem(),(int) comboBox6.getSelectedItem());		    
+			    long milliseconds1 = cal1.getTimeInMillis();  
+			    long milliseconds2 = cal2.getTimeInMillis();  
+			    long between_days=(milliseconds2-milliseconds1)/(1000*3600*24);        
+				
+				int selected1=(int)comboBox11.getSelectedItem();
+				 int price1=controller.getOrderPrice(controller.getHotelID(),(String)comboBox10.getSelectedItem(),selected1);
+				 HotelVO vo=controller.findByHotelID(controller.getHotelID());
+				 double webdiscount =1;
+				try {
+					webdiscount = controller.getWebPromotionDiscount(controller.getUserID(),vo.hotelCity,vo.hotelDistrict,cal4);
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				 double hoteldiscount =1;
+				try {
+					hoteldiscount = controller.getHotelPromotionDiscount(controller.getHotelID(),controller.getUserID(),selected1,cal4,cal1,cal2);
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				 double discount=1;
+				 if(webdiscount>=hoteldiscount){
+					 discount=hoteldiscount;
+				 }
+				 else{
+					 discount=webdiscount;
+				 }
+				 int price2=(int) (price1*discount*(Integer.parseInt(String.valueOf(between_days))));
+				 if(price2<=0){
+					 label17.setText("你的开始时间与退房时间冲突!");
+				 }
+				 else if(price1!=price2){
+					 label17.setText("已为你选择了最优的促销策略，打折前总计"+price1+"元，打折后总计"+price2+"元");
+					}
+					 else{
+						 label17.setText("没有适合的促销策略，订单总计"+price1+"元");
+						}			
 				}
 			}
 		});
@@ -199,6 +242,49 @@ public class OrderBuildView extends JPanel{
 						}
 					}
 					label9.setText("订单最晚执行时间:"+comboBox1.getSelectedItem()+"年"+comboBox2.getSelectedItem()+"月"+comboBox3.getSelectedItem()+"日当晚凌晨12点整");
+					Calendar cal4=Calendar.getInstance();
+					Calendar cal1=Calendar.getInstance();
+					Calendar cal2=Calendar.getInstance();
+					cal1.set((int)comboBox1.getSelectedItem(),(int)comboBox2.getSelectedItem(),(int) comboBox3.getSelectedItem());
+					cal2.set((int)comboBox4.getSelectedItem(),(int)comboBox5.getSelectedItem(),(int) comboBox6.getSelectedItem());		    
+				    long milliseconds1 = cal1.getTimeInMillis();  
+				    long milliseconds2 = cal2.getTimeInMillis();  
+				    long between_days=(milliseconds2-milliseconds1)/(1000*3600*24);        
+					
+					int selected11=(int)comboBox11.getSelectedItem();
+					 int price1=controller.getOrderPrice(controller.getHotelID(),(String)comboBox10.getSelectedItem(),selected11);
+					 HotelVO vo=controller.findByHotelID(controller.getHotelID());
+					 double webdiscount =1;
+					try {
+						webdiscount = controller.getWebPromotionDiscount(controller.getUserID(),vo.hotelCity,vo.hotelDistrict,cal4);
+					} catch (RemoteException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					 double hoteldiscount =1;
+					try {
+						hoteldiscount = controller.getHotelPromotionDiscount(controller.getHotelID(),controller.getUserID(),selected11,cal4,cal1,cal2);
+					} catch (RemoteException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					 double discount=1;
+					 if(webdiscount>=hoteldiscount){
+						 discount=hoteldiscount;
+					 }
+					 else{
+						 discount=webdiscount;
+					 }
+					 int price2=(int) (price1*discount*(Integer.parseInt(String.valueOf(between_days))));
+					 if(price2<=0){
+						 label17.setText("你的开始时间与退房时间冲突!");
+					 }
+					 else if(price1!=price2){
+						 label17.setText("已为你选择了最优的促销策略，打折前总计"+price1+"元，打折后总计"+price2+"元");
+						}
+						 else{
+							 label17.setText("没有适合的促销策略，订单总计"+price1+"元");
+							}			
 					}
 				}
 		});
@@ -273,6 +359,49 @@ public class OrderBuildView extends JPanel{
 			public void itemStateChanged(ItemEvent evt) {
 				if(evt.getStateChange() == ItemEvent.SELECTED){	
 		label9.setText("订单最晚执行时间:"+comboBox1.getSelectedItem()+"年"+comboBox2.getSelectedItem()+"月"+comboBox3.getSelectedItem()+"日当晚凌晨12点整");
+		Calendar cal4=Calendar.getInstance();
+		Calendar cal1=Calendar.getInstance();
+		Calendar cal2=Calendar.getInstance();
+		cal1.set((int)comboBox1.getSelectedItem(),(int)comboBox2.getSelectedItem(),(int) comboBox3.getSelectedItem());
+		cal2.set((int)comboBox4.getSelectedItem(),(int)comboBox5.getSelectedItem(),(int) comboBox6.getSelectedItem());		    
+	    long milliseconds1 = cal1.getTimeInMillis();  
+	    long milliseconds2 = cal2.getTimeInMillis();  
+	    long between_days=(milliseconds2-milliseconds1)/(1000*3600*24);        
+		
+		int selected1=(int)comboBox11.getSelectedItem();
+		 int price1=controller.getOrderPrice(controller.getHotelID(),(String)comboBox10.getSelectedItem(),selected1);
+		 HotelVO vo=controller.findByHotelID(controller.getHotelID());
+		 double webdiscount =1;
+		try {
+			webdiscount = controller.getWebPromotionDiscount(controller.getUserID(),vo.hotelCity,vo.hotelDistrict,cal4);
+		} catch (RemoteException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		 double hoteldiscount =1;
+		try {
+			hoteldiscount = controller.getHotelPromotionDiscount(controller.getHotelID(),controller.getUserID(),selected1,cal4,cal1,cal2);
+		} catch (RemoteException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		 double discount=1;
+		 if(webdiscount>=hoteldiscount){
+			 discount=hoteldiscount;
+		 }
+		 else{
+			 discount=webdiscount;
+		 }
+		 int price2=(int) (price1*discount*(Integer.parseInt(String.valueOf(between_days))));
+		 if(price2<=0){
+			 label17.setText("你的开始时间与退房时间冲突!");
+		 }
+		 else if(price1!=price2){
+			 label17.setText("已为你选择了最优的促销策略，打折前总计"+price1+"元，打折后总计"+price2+"元");
+			}
+			 else{
+				 label17.setText("没有适合的促销策略，订单总计"+price1+"元");
+				}			
 				}
 			}
 		});
@@ -324,6 +453,49 @@ public class OrderBuildView extends JPanel{
 					comboBox6.addItem(k);
 				}
 				}
+				Calendar cal4=Calendar.getInstance();
+				Calendar cal1=Calendar.getInstance();
+				Calendar cal2=Calendar.getInstance();
+				cal1.set((int)comboBox1.getSelectedItem(),(int)comboBox2.getSelectedItem(),(int) comboBox3.getSelectedItem());
+				cal2.set((int)comboBox4.getSelectedItem(),(int)comboBox5.getSelectedItem(),(int) comboBox6.getSelectedItem());		    
+			    long milliseconds1 = cal1.getTimeInMillis();  
+			    long milliseconds2 = cal2.getTimeInMillis();  
+			    long between_days=(milliseconds2-milliseconds1)/(1000*3600*24);        
+				
+				int selected11=(int)comboBox11.getSelectedItem();
+				 int price1=controller.getOrderPrice(controller.getHotelID(),(String)comboBox10.getSelectedItem(),selected11);
+				 HotelVO vo=controller.findByHotelID(controller.getHotelID());
+				 double webdiscount =1;
+				try {
+					webdiscount = controller.getWebPromotionDiscount(controller.getUserID(),vo.hotelCity,vo.hotelDistrict,cal4);
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				 double hoteldiscount =1;
+				try {
+					hoteldiscount = controller.getHotelPromotionDiscount(controller.getHotelID(),controller.getUserID(),selected11,cal4,cal1,cal2);
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				 double discount=1;
+				 if(webdiscount>=hoteldiscount){
+					 discount=hoteldiscount;
+				 }
+				 else{
+					 discount=webdiscount;
+				 }
+				 int price2=(int) (price1*discount*(Integer.parseInt(String.valueOf(between_days))));
+				 if(price2<=0){
+					 label17.setText("你的开始时间与退房时间冲突!");
+				 }
+				 else if(price1!=price2){
+					 label17.setText("已为你选择了最优的促销策略，打折前总计"+price1+"元，打折后总计"+price2+"元");
+					}
+					 else{
+						 label17.setText("没有适合的促销策略，订单总计"+price1+"元");
+						}			
 				}
 			}
 		});
@@ -344,6 +516,49 @@ public class OrderBuildView extends JPanel{
 				for(int k=1;k<maxDate+1;k++){
 					comboBox6.addItem(k);
 				}
+				Calendar cal4=Calendar.getInstance();
+				Calendar cal1=Calendar.getInstance();
+				Calendar cal2=Calendar.getInstance();
+				cal1.set((int)comboBox1.getSelectedItem(),(int)comboBox2.getSelectedItem(),(int) comboBox3.getSelectedItem());
+				cal2.set((int)comboBox4.getSelectedItem(),(int)comboBox5.getSelectedItem(),(int) comboBox6.getSelectedItem());		    
+			    long milliseconds1 = cal1.getTimeInMillis();  
+			    long milliseconds2 = cal2.getTimeInMillis();  
+			    long between_days=(milliseconds2-milliseconds1)/(1000*3600*24);        
+				
+				int selected11=(int)comboBox11.getSelectedItem();
+				 int price1=controller.getOrderPrice(controller.getHotelID(),(String)comboBox10.getSelectedItem(),selected11);
+				 HotelVO vo=controller.findByHotelID(controller.getHotelID());
+				 double webdiscount =1;
+				try {
+					webdiscount = controller.getWebPromotionDiscount(controller.getUserID(),vo.hotelCity,vo.hotelDistrict,cal4);
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				 double hoteldiscount =1;
+				try {
+					hoteldiscount = controller.getHotelPromotionDiscount(controller.getHotelID(),controller.getUserID(),selected11,cal4,cal1,cal2);
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				 double discount=1;
+				 if(webdiscount>=hoteldiscount){
+					 discount=hoteldiscount;
+				 }
+				 else{
+					 discount=webdiscount;
+				 }
+				 int price2=(int) (price1*discount*(Integer.parseInt(String.valueOf(between_days))));
+				 if(price2<=0){
+					 label17.setText("你的开始时间与退房时间冲突!");
+				 }
+				 else if(price1!=price2){
+					 label17.setText("已为你选择了最优的促销策略，打折前总计"+price1+"元，打折后总计"+price2+"元");
+					}
+					 else{
+						 label17.setText("没有适合的促销策略，订单总计"+price1+"元");
+						}			
 				}
 			}
 		});
@@ -352,6 +567,55 @@ public class OrderBuildView extends JPanel{
 		for(int i=nextday;i<nextmax+1;i++){
 		    comboBox6.addItem(i);
 			}
+		comboBox6.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent evt) {
+				if(evt.getStateChange() == ItemEvent.SELECTED){	
+		Calendar cal4=Calendar.getInstance();
+		Calendar cal1=Calendar.getInstance();
+		Calendar cal2=Calendar.getInstance();
+		cal1.set((int)comboBox1.getSelectedItem(),(int)comboBox2.getSelectedItem(),(int) comboBox3.getSelectedItem());
+		cal2.set((int)comboBox4.getSelectedItem(),(int)comboBox5.getSelectedItem(),(int) comboBox6.getSelectedItem());		    
+	    long milliseconds1 = cal1.getTimeInMillis();  
+	    long milliseconds2 = cal2.getTimeInMillis();  
+	    long between_days=(milliseconds2-milliseconds1)/(1000*3600*24);        
+		
+		int selected1=(int)comboBox11.getSelectedItem();
+		 int price1=controller.getOrderPrice(controller.getHotelID(),(String)comboBox10.getSelectedItem(),selected1);
+		 HotelVO vo=controller.findByHotelID(controller.getHotelID());
+		 double webdiscount =1;
+		try {
+			webdiscount = controller.getWebPromotionDiscount(controller.getUserID(),vo.hotelCity,vo.hotelDistrict,cal4);
+		} catch (RemoteException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		 double hoteldiscount =1;
+		try {
+			hoteldiscount = controller.getHotelPromotionDiscount(controller.getHotelID(),controller.getUserID(),selected1,cal4,cal1,cal2);
+		} catch (RemoteException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		 double discount=1;
+		 if(webdiscount>=hoteldiscount){
+			 discount=hoteldiscount;
+		 }
+		 else{
+			 discount=webdiscount;
+		 }
+		 int price2=(int) (price1*discount*(Integer.parseInt(String.valueOf(between_days))));
+		 if(price2<=0){
+			 label17.setText("你的开始时间与退房时间冲突!");
+		 }
+		 else if(price1!=price2){
+			 label17.setText("已为你选择了最优的促销策略，打折前总计"+price1+"元，打折后总计"+price2+"元");
+			}
+			 else{
+				 label17.setText("没有适合的促销策略，订单总计"+price1+"元");
+				}			
+				}
+			}
+		});
 		label8=new JLabel("日");
 		panel2.add(label5);
 		panel2.add(comboBox4);
@@ -387,7 +651,50 @@ public class OrderBuildView extends JPanel{
 				for(int i=1;i<max+1;i++){
 					comboBox11.addItem(i);
 				}
+				Calendar cal4=Calendar.getInstance();
+				Calendar cal1=Calendar.getInstance();
+				Calendar cal2=Calendar.getInstance();
+				cal1.set((int)comboBox1.getSelectedItem(),(int)comboBox2.getSelectedItem(),(int) comboBox3.getSelectedItem());
+				cal2.set((int)comboBox4.getSelectedItem(),(int)comboBox5.getSelectedItem(),(int) comboBox6.getSelectedItem());		    
+			    long milliseconds1 = cal1.getTimeInMillis();  
+			    long milliseconds2 = cal2.getTimeInMillis();  
+			    long between_days=(milliseconds2-milliseconds1)/(1000*3600*24);        
+				
+				int selected1=(int)comboBox11.getSelectedItem();
+				 int price1=controller.getOrderPrice(controller.getHotelID(),(String)comboBox10.getSelectedItem(),selected1);
+				 HotelVO vo=controller.findByHotelID(controller.getHotelID());
+				 double webdiscount =1;
+				try {
+					webdiscount = controller.getWebPromotionDiscount(controller.getUserID(),vo.hotelCity,vo.hotelDistrict,cal4);
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
+				 double hoteldiscount =1;
+				try {
+					hoteldiscount = controller.getHotelPromotionDiscount(controller.getHotelID(),controller.getUserID(),selected1,cal4,cal1,cal2);
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				 double discount=1;
+				 if(webdiscount>=hoteldiscount){
+					 discount=hoteldiscount;
+				 }
+				 else{
+					 discount=webdiscount;
+				 }
+				 int price2=(int) (price1*discount*(Integer.parseInt(String.valueOf(between_days))));
+				 if(price2<=0){
+					 label17.setText("你的开始时间与退房时间冲突!");
+				 }
+				 else if(price1!=price2){
+					 label17.setText("已为你选择了最优的促销策略，打折前总计"+price1+"元，打折后总计"+price2+"元");
+					}
+					 else{
+						 label17.setText("没有适合的促销策略，订单总计"+price1+"元");
+						}			
+				}				
 			}
 		});
 		panel4.add(label13);
@@ -403,6 +710,55 @@ public class OrderBuildView extends JPanel{
 		for(int i=1;i<controller.getMaxRoomNumber(controller.getHotelID(),(String)comboBox10.getSelectedItem())+1;i++){
 		    comboBox11.addItem(i);
 			}
+		comboBox11.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent evt) {
+				if(evt.getStateChange() == ItemEvent.SELECTED){	
+					Calendar cal4=Calendar.getInstance();
+					Calendar cal1=Calendar.getInstance();
+					Calendar cal2=Calendar.getInstance();
+					cal1.set((int)comboBox1.getSelectedItem(),(int)comboBox2.getSelectedItem(),(int) comboBox3.getSelectedItem());
+					cal2.set((int)comboBox4.getSelectedItem(),(int)comboBox5.getSelectedItem(),(int) comboBox6.getSelectedItem());		    
+				    long milliseconds1 = cal1.getTimeInMillis();  
+				    long milliseconds2 = cal2.getTimeInMillis();  
+				    long between_days=(milliseconds2-milliseconds1)/(1000*3600*24);        
+					
+					int selected1=(int)comboBox11.getSelectedItem();
+					 int price1=controller.getOrderPrice(controller.getHotelID(),(String)comboBox10.getSelectedItem(),selected1);
+					 HotelVO vo=controller.findByHotelID(controller.getHotelID());
+					 double webdiscount =1;
+					try {
+						webdiscount = controller.getWebPromotionDiscount(controller.getUserID(),vo.hotelCity,vo.hotelDistrict,cal4);
+					} catch (RemoteException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					 double hoteldiscount =1;
+					try {
+						hoteldiscount = controller.getHotelPromotionDiscount(controller.getHotelID(),controller.getUserID(),selected1,cal4,cal1,cal2);
+					} catch (RemoteException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					 double discount=1;
+					 if(webdiscount>=hoteldiscount){
+						 discount=hoteldiscount;
+					 }
+					 else{
+						 discount=webdiscount;
+					 }
+					 int price2=(int) (price1*discount*(Integer.parseInt(String.valueOf(between_days))));
+					 if(price2<=0){
+						 label17.setText("你的开始时间与退房时间冲突!");
+					 }
+					 else if(price1!=price2){
+						 label17.setText("已为你选择了最优的促销策略，打折前总计"+price1+"元，打折后总计"+price2+"元");
+						}
+						 else{
+							 label17.setText("没有适合的促销策略，订单总计"+price1+"元");
+							}			
+				}
+			}
+		});
 		panel5.add(label14);
 		panel5.add(comboBox11);
 		panel5.add(label14_1);
@@ -432,7 +788,46 @@ public class OrderBuildView extends JPanel{
 		this.add(panel7);
 		JPanel panel8 = new JPanel();
 		panel8.setLayout(new FlowLayout(FlowLayout.CENTER));
-		label17=new JLabel("已为你选择了最低的优惠策略，打折后总计    元");
+		Calendar cal4=Calendar.getInstance();
+		Calendar cal1=Calendar.getInstance();
+		Calendar cal2=Calendar.getInstance();
+		cal1.set((int)comboBox1.getSelectedItem(),(int)comboBox2.getSelectedItem(),(int) comboBox3.getSelectedItem());
+		cal2.set((int)comboBox4.getSelectedItem(),(int)comboBox5.getSelectedItem(),(int) comboBox6.getSelectedItem());		    
+	    long milliseconds1 = cal1.getTimeInMillis();  
+	    long milliseconds2 = cal2.getTimeInMillis();  
+	    long between_days=(milliseconds2-milliseconds1)/(1000*3600*24);        
+		
+		int selected3=(int)comboBox11.getSelectedItem();
+		 int price1=controller.getOrderPrice(controller.getHotelID(),(String)comboBox10.getSelectedItem(),selected3);
+		 HotelVO vo=controller.findByHotelID(controller.getHotelID());
+		 double webdiscount =1;
+		try {
+			webdiscount = controller.getWebPromotionDiscount(controller.getUserID(),vo.hotelCity,vo.hotelDistrict,cal4);
+		} catch (RemoteException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		 double hoteldiscount =1;
+		try {
+			hoteldiscount = controller.getHotelPromotionDiscount(controller.getHotelID(),controller.getUserID(),selected3,cal4,cal1,cal2);
+		} catch (RemoteException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		 double discount=1;
+		 if(webdiscount>=hoteldiscount){
+			 discount=hoteldiscount;
+		 }
+		 else{
+			 discount=webdiscount;
+		 }
+		int price2=(int) (price1*discount*(Integer.parseInt(String.valueOf(between_days))));
+		 if(price1!=price2){
+			 label17=new JLabel("已为你选择了最优的促销策略，打折前总计"+price1+"元，打折后总计"+price2+"元");
+			}
+			 else{
+			 label17=new JLabel("没有适合的促销策略，订单总计"+price1+"元");
+				}			
 		panel8.add(label17);
 		this.add(panel8);
 		JPanel panel9 = new JPanel();
@@ -571,7 +966,7 @@ public class OrderBuildView extends JPanel{
 				}
 				else{
 					 int selected=(int)comboBox11.getSelectedItem();
-					 int price=controller.getOrderPrice(controller.getHotelID(),(String)comboBox10.getSelectedItem(),selected);
+					 int price1=controller.getOrderPrice(controller.getHotelID(),(String)comboBox10.getSelectedItem(),selected);
 					 HotelVO vo=controller.findByHotelID(controller.getHotelID());
 					 double webdiscount =1;
 					try {
@@ -594,8 +989,8 @@ public class OrderBuildView extends JPanel{
 					 else{
 						 discount=webdiscount;
 					 }
-					 price=(int) (price*discount*(Integer.parseInt(String.valueOf(between_days))));
-					int option = JOptionPane.showConfirmDialog(pane,"     你的订单总计"+price+"元"+"\n            确认提交？","", JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE, null);
+					 int price2=(int) (price1*discount*(Integer.parseInt(String.valueOf(between_days))));
+					int option = JOptionPane.showConfirmDialog(pane,"      你的订单总计"+price2+"元"+"\n             确认提交？","", JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE, null);
 					     switch (option) {
 					     case JOptionPane.YES_OPTION:
 					   String orderid=UUID.randomUUID().toString().substring(0, 8);
@@ -606,16 +1001,29 @@ public class OrderBuildView extends JPanel{
 					   Calendar calin=Calendar.getInstance();
 					   calin.set(Calendar.YEAR,(int)comboBox1.getSelectedItem());
 					   calin.set(Calendar.MONTH,(int)comboBox2.getSelectedItem()-1);
-					   calin.set(Calendar.DAY_OF_MONTH,(int)comboBox3.getSelectedItem());     
+					   calin.set(Calendar.DAY_OF_MONTH,(int)comboBox3.getSelectedItem()); 
+					   calin.set(Calendar.HOUR_OF_DAY,12);
+					   calin.set(Calendar.MINUTE,0);
+					   calin.set(Calendar.SECOND,0);
 					   Calendar calout=Calendar.getInstance();
 					   calout.set(Calendar.YEAR,(int)comboBox4.getSelectedItem());
 					   calout.set(Calendar.MONTH,(int)comboBox5.getSelectedItem()-1);
-					   calout.set(Calendar.DAY_OF_MONTH,(int)comboBox6.getSelectedItem());  
+					   calout.set(Calendar.DAY_OF_MONTH,(int)comboBox6.getSelectedItem());
+					   calout.set(Calendar.HOUR_OF_DAY,12);
+					   calout.set(Calendar.MINUTE,0);
+					   calout.set(Calendar.SECOND,0);
+					   Calendar callast=Calendar.getInstance();
+					   callast.set(Calendar.YEAR,(int)comboBox1.getSelectedItem());
+					   callast.set(Calendar.MONTH,(int)comboBox2.getSelectedItem()-1);
+					   callast.set(Calendar.DAY_OF_MONTH,(int)comboBox3.getSelectedItem()); 
+					   callast.set(Calendar.HOUR_OF_DAY,24);
+					   callast.set(Calendar.MINUTE,0);
+					   callast.set(Calendar.SECOND,0);
 					   controller.updateRoomState(controller.getHotelID(),(String)comboBox10.getSelectedItem(),selected);
-					   OrderVO ordervo=new OrderVO(controller.getHotelID(),controller.getUserID(),orderid,2,price,(int)comboBox12.getSelectedItem(),children,(String)comboBox10.getSelectedItem(),selected,calin,calout,calin,null,cal,null,0);
+					   OrderVO ordervo=new OrderVO(controller.getHotelID(),controller.getUserID(),orderid,2,price2,(int)comboBox12.getSelectedItem(),children,(String)comboBox10.getSelectedItem(),selected,calin,calout,callast,null,cal,null,0);
 					   controller.saveOrderInfo(ordervo);
 			
-					   label17.setText("已为你选择了最低的优惠策略，打折后总计"+price+"元，订单号为"+orderid);
+					   label17.setText("你的订单总计"+price2+"元，订单号为"+orderid);
 					   comboBox1.setEnabled(false);
 					   comboBox2.setEnabled(false);
 					   comboBox3.setEnabled(false);

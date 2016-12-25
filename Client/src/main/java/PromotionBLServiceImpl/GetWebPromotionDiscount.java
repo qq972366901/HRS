@@ -93,6 +93,8 @@ public class GetWebPromotionDiscount {
 		}
 		private boolean judgeCity(WebPromotionVO vo, String city) {
 			boolean outcome = false;
+			System.out.println(vo.applyCity);
+			System.out.println(city);
 			if(vo.applyCity.equals(city)) {
 				outcome = true;
 			}

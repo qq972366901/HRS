@@ -3,7 +3,7 @@ package orderBLImpl;
 import java.util.Calendar;
 import PO.OrderPO;
 
-public class OrderStateInfo{
+public class OrderStateInfo implements OrderStateInfoService{
 	/**
 	 * 
 	 */
@@ -37,5 +37,29 @@ public class OrderStateInfo{
 		po.setLatest(this.latest);
 		po.setcancel(this.cancel);
 		po.setgenerationTime(this.generationTime);
+	}
+	public void setOrderState(int i){
+		orderState=i;
+	}
+	public void setIn(Calendar time){
+		expectedCheckIn=time;
+	}
+	public void setOut(Calendar time){
+		expectedCheckOut=time;
+	}
+	public void setLatest(Calendar time){
+		latest=time;
+	}
+	public void setCancel(Calendar time){
+		cancel=time;
+	}
+	public void setGen(Calendar time){
+		generationTime=time;
+	}
+	public OrderPO getPO(){
+		return po;
+	}
+	public Calendar getLatest(){
+		return latest;
 	}
 }

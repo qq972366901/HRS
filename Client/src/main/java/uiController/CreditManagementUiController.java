@@ -11,7 +11,11 @@ import uiService.CreditManagementUiService;
 import uiService.webPromotionUserUiService;
 import userBLService.UserBLService;
 import userBLService.UserBLServiceController;
-
+/**
+ * 用户信用值管理界面控制器
+ * @author LZ
+ *
+ */
 public class CreditManagementUiController implements CreditManagementUiService{
 	private CreditManagementView view;
 	private UserBLService userService;
@@ -20,12 +24,10 @@ public class CreditManagementUiController implements CreditManagementUiService{
 	}
 	@Override
 	public void setView(CreditManagementView view) {
-		// TODO Auto-generated method stub
 		this.view=view;
 	}
 	@Override
 	public void toWebPromotionUserView() {
-		// TODO Auto-generated method stub
 		webPromotionUserUiService controller=new webPromotionUserUiController();
 		WebPromotionUserView view=new WebPromotionUserView(controller);
 		try {
@@ -43,7 +45,6 @@ public class CreditManagementUiController implements CreditManagementUiService{
 	}
 	@Override
 	public long getCurrencredit(String acc) {
-		// TODO Auto-generated method stub
 		return userService.showCredit(acc);
 	}
 }

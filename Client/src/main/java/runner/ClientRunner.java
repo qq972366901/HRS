@@ -28,13 +28,23 @@ import UserView.OrderView;
 import UserView.AddHotelView;
 import UserView.CommentView;
 import UserView.CreditView;
+import UserView.CustomerMainView;
 import UserView.HistroyHotelView;
 import UserView.UserManagementView;
 import UserView.WebAdminUserView;
+import WebPromotionView.CreditManagementView;
+import WebPromotionView.MemberLevelSystemView;
+import WebPromotionView.WebPromotionStrategyView;
+import WebPromotionView.WebPromotionUserView;
 import rmi.RemoteHelper;
-import uiController.LoginViewControllerImpl;
+import uiController.LoginViewController;
 import uiService.LoginViewControllerService;
 
+/**
+ * 客户端初始化
+ * @author LZ
+ *
+ */
 public class ClientRunner implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -66,15 +76,24 @@ public class ClientRunner implements Serializable{
 				| UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
 		}
-        	mFrame = new JFrame("HRS"); 
+        	mFrame = new JFrame("酒店预订系统"); 
        	 	mFrame.setSize(1000, 700);
         	mFrame.setLocation(10, 10);
-        	LoginViewControllerService controller =  new LoginViewControllerImpl();
+        	LoginViewControllerService controller =  new LoginViewController();
         	LogView view = new LogView(controller);
     		controller.setView(view);
     		mFrame.getContentPane().add(view);
         	mFrame.setVisible(true);
+        	mFrame.addWindowListener(new java.awt.event.WindowAdapter(){
+        		public void windowClosing(java.awt.event.WindowEvent e){
+        			System.exit(0);
+        		}
+        	});
 	}
+	/**
+	 * 界面跳转
+	 * @param view JPanel型，界面层传入的panel
+	 */
 	public static void change(JPanel view){
 		mFrame.getContentPane().removeAll();
 		mFrame.getContentPane().add(view);
@@ -90,6 +109,9 @@ public class ClientRunner implements Serializable{
 		}
 		else if(view instanceof MemberRegisterView) {
 			mFrame.setTitle("会员注册");
+		}
+		else if(view instanceof CustomerMainView){
+			mFrame.setTitle("客户主界面");
 		}
 		else if(view instanceof HotelSearchView) {
 			mFrame.setTitle("酒店搜索");
@@ -138,6 +160,21 @@ public class ClientRunner implements Serializable{
 		}
 		else if(view instanceof UpdateRoomInfoView) {
 			mFrame.setTitle("更新房间信息");
+		}
+		else if(view instanceof LogView){
+			mFrame.setTitle("酒店预订系统");
+		}
+		else if(view instanceof MemberLevelSystemView){
+			mFrame.setTitle("制定会员等级制度");
+		}
+		else if(view instanceof WebPromotionStrategyView){
+			mFrame.setTitle("制定网站营销策略");
+		}
+		else if(view instanceof WebPromotionUserView){
+			mFrame.setTitle("网站营销人员主界面");
+		}
+		else if(view instanceof CreditManagementView){
+			mFrame.setTitle("信用值管理");
 		}
 	}
 

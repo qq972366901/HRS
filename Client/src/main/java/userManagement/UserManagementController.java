@@ -6,7 +6,11 @@ import common.UserType;
 import userBLServiceImpl.Account;
 import userBLServiceImpl.AccountInfo;
 import userBLServiceImpl.Customer;
-import userBLServiceImpl.Register;
+/**
+ * 用户账号管理控制器
+ * @author LZ
+ *
+ */
 public class UserManagementController{
 	private Account a;
 	public UserManagementController(){

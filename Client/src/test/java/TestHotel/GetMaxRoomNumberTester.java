@@ -18,7 +18,7 @@ import rmi.RemoteHelper;
  * @author 刘宗侃
  */
 public class GetMaxRoomNumberTester {
-
+/*
 	private RemoteHelper remoteHelper;
 	
 	@Test
@@ -42,5 +42,5 @@ public class GetMaxRoomNumberTester {
 		
 		
 	}
-
+*/
 }

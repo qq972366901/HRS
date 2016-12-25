@@ -57,6 +57,7 @@ public class WebPromotionStrategyView  extends JPanel{
 		initStrategyList();
 		this.validate();
 	}
+	//初始化按钮
 	private void initButton(){
 		back=new JButton("返回");
 		back.addActionListener(new ActionListener() {
@@ -86,6 +87,7 @@ public class WebPromotionStrategyView  extends JPanel{
 		processPanel.add(del);
 		this.add(processPanel);
 	}
+	//初始化策略表
 	private void initStrategyList(){
 		JScrollPane scrollPane = new JScrollPane();
 		vColumns = new Vector<String>();
@@ -111,6 +113,7 @@ public class WebPromotionStrategyView  extends JPanel{
 		strategyTable.setFillsViewportHeight(true);
 		this.add(scrollPane);
 	}
+	//处理增加按钮响应事件
 	public void addButtonClicked() {
 		addFrame = new JFrame("增加策略");
 		addFrame.setSize(1000, 700);
@@ -175,6 +178,7 @@ public class WebPromotionStrategyView  extends JPanel{
 		JPanel p8=new JPanel();
 		p8.setLayout(new FlowLayout(FlowLayout.CENTER));
 		JButton contin=new JButton("继续");
+		//缓存现有的策略
 		contin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				boolean beginIsValid=timeIsValid(begintext.getText());
@@ -214,6 +218,7 @@ public class WebPromotionStrategyView  extends JPanel{
 			}
 		});
 		JButton confir=new JButton("确定");
+		//将缓存列表中的策略全部保存
 		confir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				boolean beginIsValid=timeIsValid(begintext.getText());
@@ -253,6 +258,7 @@ public class WebPromotionStrategyView  extends JPanel{
 		addFrame.getContentPane().add(addPanel);
 		addFrame.setVisible(true);
 	}
+	//更新策略表
 	public void updateListModel() {
 		vData.clear();
 		((DefaultTableModel) strategyTable.getModel()).getDataVector().clear();
@@ -272,6 +278,7 @@ public class WebPromotionStrategyView  extends JPanel{
 		}
 		return true;
 	}
+	//处理删除策略响应事件
 	public void delButtonClicked() {
 		int index = strategyTable.getSelectedRow();
 		if(index == -1){

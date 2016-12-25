@@ -7,7 +7,7 @@ import java.io.Serializable;
  * @version 1.0
  * @see
  */
-public class HotelPO extends PO implements Serializable{
+public class HotelPO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String hotelAddress;
 	private String hotelCity;

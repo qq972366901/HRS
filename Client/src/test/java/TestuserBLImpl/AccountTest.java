@@ -19,6 +19,7 @@ import userBLServiceImpl.AccountInfo;
 import userBLServiceImpl.Credit;
 
 public class AccountTest {
+	/*
 	private RemoteHelper remoteHelper;
 	@Before
 	public void setup(){
@@ -63,5 +64,5 @@ public class AccountTest {
 		boolean result=a.add(vo, password);
 		assertEquals(true,result);
 	}
-
+*/
 }

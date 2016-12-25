@@ -16,6 +16,7 @@ import rmi.RemoteHelper;
 public class Comment {
 	private DataFactoryService DataFactory;
     private OrderDataService orderData;
+    private CommentInfoService info;
     public Comment() {   
  	   try {
  		  DataFactory=RemoteHelper.getInstance().getDataFactoryService();
@@ -38,11 +39,11 @@ public class Comment {
 	public void updatecomment(String comment,int score,String orderID) {
 		try {
 			OrderPO po = orderData.find(orderID);
-			CommentInfo info=new CommentInfo(po);
-			info.comment=comment;
-			info.score=score;
+			info=new CommentInfo(po);
+			info.setComment(comment);
+			info.setscore(score);
 			info.update();
-			orderData.update(info.po);
+			orderData.update(info.getPO());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}

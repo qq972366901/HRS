@@ -11,26 +11,29 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import runner.ClientRunner;
 import uiController.HotelDetailUiController;
-import uiController.OrderViewControllerImpl;
+import uiController.OrderViewController;
 import uiService.HotelDetailUiService;
-import uiService.OrderViewControllerService;
-import uiService.orderDetailViewControllerService;
+import uiService.OrderViewService;
+import uiService.OrderDetailViewService;
 
-import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 
 import javax.swing.UIManager;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
-
-public class orderDetailView extends JPanel {
+/**
+ * 订单详情界面的Panel
+ * @author 刘宇翔
+ *
+ */
+public class OrderDetailView extends JPanel {
     /**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel panel;
     private JButton back;
-    private orderDetailViewControllerService controller;
+    private OrderDetailViewService controller;
 	
 	private String UserID;
 	
@@ -58,21 +61,13 @@ public class orderDetailView extends JPanel {
 	private JTextArea commentinput;
 	private JPanel panel1;
 	
-	private JPanel panel2;
-	private JPanel panel3;
-	private JPanel panel4;
-	private JPanel panel5;
-	private JPanel panel6;
-	private JPanel panel7;
-	private JPanel panel8;
-	private JPanel panel9;
 	private JPanel panel10;
 	private String hotelid;
-	private Box box1,box2,box3,box4,box1_2,box1_3,box2_2,box2_3,box3_2,box3_3,box4_2,box4_3;
+	private Box box1,box2,box3;
 	/**
 	 * Create the panel.
 	 */
-	public orderDetailView(orderDetailViewControllerService controller) {
+	public OrderDetailView(OrderDetailViewService controller) {
         this.controller=controller;
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         
@@ -97,9 +92,15 @@ public class orderDetailView extends JPanel {
         init_exit();
         init_detail();
 	}
+	/**
+	 * 退出按钮的初始化
+	 */
 	public void init_exit(){
 		
 		back = new JButton("\u8FD4\u56DE");
+		/**
+		 * 返回按钮的监听
+		 */
 		back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			controller.exit();
@@ -107,18 +108,27 @@ public class orderDetailView extends JPanel {
 		});
 		panel.add(back);
 	}
+	/**
+	 * 跳转到订单管理界面
+	 */
 	public void exit() throws RemoteException{
-		OrderViewControllerService con =  new OrderViewControllerImpl(UserID);
+		OrderViewService con =  new OrderViewController(UserID);
 		OrderView vie = new OrderView(con);
 		con.setView(vie);
 		ClientRunner.change(vie);
 	}
+	/**
+	 * 跳转到订单详情
+	 */
 	public void exit2(){
 		HotelDetailUiService con =  new HotelDetailUiController(hotelid,UserID);
 		HotelDetailView vie = new HotelDetailView(con);
 		con.setView(vie);
 		ClientRunner.change(vie);
 	}
+	/**
+	 * 初始化主panel界面
+	 */
 	public void init_detail(){
 		List<String> data=controller.getDetail();
 		hotelName = new JLabel("\u9152\u5E97\u540D\u79F0\uFF1A");

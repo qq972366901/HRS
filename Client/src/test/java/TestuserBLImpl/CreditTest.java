@@ -19,6 +19,7 @@ import userBLServiceImpl.Credit;
 import userBLServiceImpl.Customer;
 
 public class CreditTest {
+	/*
 	private RemoteHelper remoteHelper;
 	@Before
 	public void setup(){
@@ -51,5 +52,5 @@ public class CreditTest {
 		Credit c=new Credit();
 		assertEquals(true,c.updateAllLevel());
 	}
-
+*/
 }

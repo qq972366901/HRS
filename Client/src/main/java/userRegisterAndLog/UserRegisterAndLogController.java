@@ -1,23 +1,24 @@
 package userRegisterAndLog;
 import java.rmi.RemoteException;
-
 import VO.CreditVO;
 import VO.LogVO;
 import VO.UserVO;
 import userBLServiceImpl.Credit;
 import userBLServiceImpl.Log;
 import userBLServiceImpl.Register;
+/**
+ * 用户注册与登录控制器
+ * @author LZ
+ *
+ */
 public class UserRegisterAndLogController{
 	private Register r;
 	private Log log;
-	private Credit c;
 	public UserRegisterAndLogController(){
 		try {
 			r=new Register();
-			c=new Credit();
 			log=new Log();
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -31,6 +32,7 @@ public class UserRegisterAndLogController{
 	public void register(UserVO vo,String password) throws RemoteException {
 		r.add(vo,password);
 		CreditVO cvo=new CreditVO(vo.id,0,0);
+		Credit c=new Credit();
 		c.add(cvo);
 		log.add(vo.id, new LogVO(password,vo.id,true));
 	}

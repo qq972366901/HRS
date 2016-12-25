@@ -18,7 +18,7 @@ import rmi.RemoteHelper;
  * @author 刘宗侃
  */
 public class GetOrderPriceTester {
-	
+	/*
 	private RemoteHelper remoteHelper;
 
 	@Test
@@ -41,5 +41,5 @@ public class GetOrderPriceTester {
 		assertEquals(800, price);
 		
 	}
-
+*/
 }

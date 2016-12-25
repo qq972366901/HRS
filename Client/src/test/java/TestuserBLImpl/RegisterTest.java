@@ -17,6 +17,7 @@ import rmi.RemoteHelper;
 import userBLServiceImpl.Register;
 
 public class RegisterTest {
+	/*
 	Calendar c=Calendar.getInstance();
 	UserVO vo;
 	Register register;
@@ -40,5 +41,5 @@ public class RegisterTest {
 		boolean result=register.add(vo,"1"); 
 		assertEquals(false,result); 
 	}
-
+*/
 }

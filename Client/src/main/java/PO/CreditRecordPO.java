@@ -10,7 +10,7 @@ import common.Operate;
  * @version 1.0
  * @see
  */
-public class CreditRecordPO  extends PO implements Serializable{
+public class CreditRecordPO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String crid;
 	private String userID;

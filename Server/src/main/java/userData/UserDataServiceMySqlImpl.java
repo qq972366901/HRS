@@ -95,8 +95,7 @@ public class UserDataServiceMySqlImpl implements UserDataService{
 	 * @throws RemoteException
 	 * @see PO.UserPO
 	 */
-	@Override
-	public void init() throws RemoteException {
+	private void init() throws RemoteException {
 		dataFactory=new DataHelperFactoryImpl();
 		helper=dataFactory.getUserDataHelper();
 		user=new HashMap<String,UserPO>();

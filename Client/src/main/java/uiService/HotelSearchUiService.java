@@ -20,7 +20,7 @@ public interface HotelSearchUiService {
 	public List<String> getCity();
 	public Vector<String> getCircle(String city);
 	public List<String> getHotelID(String city, String businessCircle, String roomType, int roomNumber,
-			int priceLow, int priceHigh, int hotelStar, int scoreLow, int scoreHigh, String everBooked,String userid);
+			int priceLow, int priceHigh, int hotelStar, int scoreLow, int scoreHigh, String everBooked,String userid,String name);
 	public HotelVO findByHotelID(String hotelID);
 	public int getRoomLowestPrice(String hotelID);
 	public HotelPromotionVO getHotelPromotionByHotelIDAndTime(String hotelid,Calendar time);

@@ -1,4 +1,4 @@
-﻿package userBLServiceImpl;
+package userBLServiceImpl;
 
 import java.rmi.RemoteException;
 import java.util.HashMap;
@@ -10,7 +10,11 @@ import VO.UserVO;
 import dataService.DataFactoryService;
 import dataService.UserDataService;
 import rmi.RemoteHelper;
-
+/**
+ * 管理用户的登录以及加密
+ * @author LZ
+ *
+ */
 public class Log {
 	private HashMap<String,LogVO> list;
 	private HashMap<String,String> key;//维护未加密的id和对应密钥
@@ -126,7 +130,7 @@ public class Log {
 		}
 	}
 	/**
-	 * @return 
+	 * 
 	 * 增加一个密钥
 	 * @param id
 	 * @param k

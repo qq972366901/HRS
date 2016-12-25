@@ -5,7 +5,11 @@ import java.rmi.Remote;
 
 import dataService.DataFactoryService;
 
-
+/**
+ * 帮助实现rmi
+ * @author LZ
+ *
+ */
 public class RemoteHelper implements Serializable{
 	/**
 	 * 

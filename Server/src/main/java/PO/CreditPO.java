@@ -7,7 +7,7 @@ import java.io.Serializable;
  * @author LZ
  *
  */
-public class CreditPO extends PO implements Serializable{
+public class CreditPO implements Serializable{
 	
 	/**
 	 * 

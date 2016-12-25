@@ -18,7 +18,7 @@ import roomBLService.RoomBLServiceController;
  * @author 刘宗侃
  */
 public class WhetherSuccessTester {
-
+/*
 	private RemoteHelper remoteHelper;
 	
 	@Test
@@ -44,5 +44,5 @@ public class WhetherSuccessTester {
 		assertEquals(false, test2);
 		
 	}
-
+*/
 }

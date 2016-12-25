@@ -21,7 +21,6 @@ public class UserManagementUiController implements UserManagementUiService {
 	private UserBLService user;
 	private String UserID;
 	public UserManagementUiController(String id) throws RemoteException{
-    	//user=new UserBLServiceImpl();
     	this.UserID=id;
     	this.user=new UserBLServiceController();
     }
@@ -29,7 +28,6 @@ public class UserManagementUiController implements UserManagementUiService {
 		return UserID;
 	}
 	public void setView(UserManagementView view) {
-		// TODO Auto-generated method stub
 		this.view=view;
 }
 	public void toWebAdminUserView(String id) throws RemoteException{
