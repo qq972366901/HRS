@@ -47,9 +47,9 @@ public class HotelSearch {
      * @return 返回HotelSearch对象
      */
 	public static HotelSearch getHotelSearchInstance() {
-		if(hotelSearch == null) {
-			hotelSearch = new HotelSearch();
-		}
+		
+		hotelSearch = new HotelSearch();
+		
 		return hotelSearch;
 	}
 	
