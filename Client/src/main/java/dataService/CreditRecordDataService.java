@@ -26,14 +26,6 @@ public interface CreditRecordDataService extends DataService,Remote{
  * @see data.CreditRecord
  */
 	public void insert(CreditRecordPO po) throws RemoteException;
-
-/**
- * 按初始化持久化数据库
- * @param in MessageInput型，界面的选择
- * @return 
- * @see data.CreditRecord
- */
-	public void init() throws RemoteException;
 	/**
 	 * 获取所有信用记录
 	 * @return

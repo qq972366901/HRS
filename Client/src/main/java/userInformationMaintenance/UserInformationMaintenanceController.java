@@ -14,11 +14,9 @@ import userBLServiceImpl.Log;
  */
 public class UserInformationMaintenanceController{
 	private Customer c;
-	private Credit cr;
 	public UserInformationMaintenanceController(){
 		try {
 			c=new Customer();
-			cr=new Credit();
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
@@ -48,6 +46,13 @@ public class UserInformationMaintenanceController{
 	 * @return 返回此账号的信用等级
 	 */
 	public int showLevel(String id){
-		return cr.showLevel(id);
+		Credit cr;
+		try {
+			cr = new Credit();
+			return cr.showLevel(id);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return -1;
 	}
 }

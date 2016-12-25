@@ -11,11 +11,9 @@ import userBLServiceImpl.CreditRecord;
  *
  */
 public class UserCreditRecordController{
-	private Credit c;
 	private CreditRecord cr;
 	public UserCreditRecordController(){
 		try {
-			c=new Credit();
 			cr=new CreditRecord();
 		} catch (RemoteException | ParseException e) {
 			e.printStackTrace();
@@ -29,6 +27,7 @@ public class UserCreditRecordController{
 	* @see bussinesslogic.Customer
 	*/
 	public long showCredit(String userID) throws RemoteException {
+		Credit c=new Credit();
 		return c.showCredit(userID);
 	}
 	/**

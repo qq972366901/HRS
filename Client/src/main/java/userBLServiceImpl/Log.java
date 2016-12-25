@@ -130,7 +130,7 @@ public class Log {
 		}
 	}
 	/**
-	 * @return 
+	 * 
 	 * 增加一个密钥
 	 * @param id
 	 * @param k

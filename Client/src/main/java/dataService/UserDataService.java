@@ -41,13 +41,6 @@ public interface UserDataService  extends DataService{
 	 * @see data.User
 	 */
 		public void update(UserPO po) throws RemoteException;
-	/**
-	 * 按初始化持久化数据库
-	 * @param in MessageInput型，界面的选择
-	 * @return 
-	 * @see data.User
-	 */
-		public void init() throws RemoteException;
 		/**
 		 * 获取所有客户信息
 		 * @return

@@ -14,11 +14,9 @@ import userBLServiceImpl.Register;
 public class UserRegisterAndLogController{
 	private Register r;
 	private Log log;
-	private Credit c;
 	public UserRegisterAndLogController(){
 		try {
 			r=new Register();
-			c=new Credit();
 			log=new Log();
 		} catch (RemoteException e) {
 			e.printStackTrace();
@@ -34,6 +32,7 @@ public class UserRegisterAndLogController{
 	public void register(UserVO vo,String password) throws RemoteException {
 		r.add(vo,password);
 		CreditVO cvo=new CreditVO(vo.id,0,0);
+		Credit c=new Credit();
 		c.add(cvo);
 		log.add(vo.id, new LogVO(password,vo.id,true));
 	}
