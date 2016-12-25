@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import UserView.HotelBrowseView;
 import UserView.HotelSearchView;
 import UserView.OrderBuildView;
-import UserView.customerMainView;
+import UserView.CustomerMainView;
 import VO.HotelPromotionVO;
 import VO.HotelVO;
 import VO.OrderVO;
@@ -24,7 +24,7 @@ import runner.ClientRunner;
 import uiService.HotelBrowseUiService;
 import uiService.HotelSearchUiService;
 import uiService.OrderBuildUiService;
-import uiService.customerMainViewControllerService;
+import uiService.CustomerMainViewService;
 
 
 public class HotelSearchUiController implements HotelSearchUiService{
@@ -47,8 +47,8 @@ public class HotelSearchUiController implements HotelSearchUiService{
 		this.view=view;
 }
 	public void toUserView(String id){
-		customerMainViewControllerService controller =  new customerMainViewControllerImpl(userID);
-		customerMainView view = new customerMainView(controller);
+		CustomerMainViewService controller =  new CustomerMainViewController(userID);
+		CustomerMainView view = new CustomerMainView(controller);
 		controller.setView(view);
 		ClientRunner.change(view);
 	}

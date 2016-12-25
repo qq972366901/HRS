@@ -16,11 +16,11 @@ import userBLService.UserBLServiceController;
  * @author 刘宇翔
  *
  */
-public class LoginViewControllerImpl implements LoginViewControllerService{
+public class LoginViewController implements LoginViewControllerService{
     private LogView view;
     private UserBLService user;
     private OrderBLService order;
-	public LoginViewControllerImpl(){
+	public LoginViewController(){
     	try {
 			user=new UserBLServiceController();
 			order=new OrderBLServiceController();

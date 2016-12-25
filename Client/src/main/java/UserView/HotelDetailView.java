@@ -7,13 +7,13 @@ import javax.swing.JTable;
 import VO.HotelVO;
 import VO.OrderVO;
 import runner.ClientRunner;
-import uiController.HistroyHotelViewControllerImpl;
+import uiController.HistroyHotelViewController;
 import uiController.OrderBuildUiController;
-import uiController.orderDetailViewControllerServiceImpl;
+import uiController.OrderDetailViewController;
 import uiService.HistroyHotelViewControllerService;
 import uiService.HotelDetailUiService;
 import uiService.OrderBuildUiService;
-import uiService.orderDetailViewControllerService;
+import uiService.OrderDetailViewService;
 import userBLServiceImpl.DES;
 import userBLServiceImpl.Log;
 
@@ -243,7 +243,7 @@ public class HotelDetailView extends JPanel{
 	 * 返回界面的跳转
 	 */
 	public void exit(){
-		HistroyHotelViewControllerService con =  new HistroyHotelViewControllerImpl(UserID);
+		HistroyHotelViewControllerService con =  new HistroyHotelViewController(UserID);
 		HistroyHotelView vie = new HistroyHotelView(con);
 		con.setView(vie);
 		ClientRunner.change(vie);
@@ -266,8 +266,8 @@ public class HotelDetailView extends JPanel{
      * 详细信息界面的跳转
      */
     public void showDetail(String id) throws RemoteException{
-		orderDetailViewControllerService con =  new orderDetailViewControllerServiceImpl(UserID,id,HotelID,2);
-		orderDetailView vie = new orderDetailView(con);
+		OrderDetailViewService con =  new OrderDetailViewController(UserID,id,HotelID,2);
+		OrderDetailView vie = new OrderDetailView(con);
 		con.setView(vie);
 		ClientRunner.change(vie);
 	}

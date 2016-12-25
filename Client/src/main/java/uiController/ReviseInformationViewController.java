@@ -6,9 +6,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Vector;
 
-import UserView.reviseInformationView;
+import UserView.ReviseInformationView;
 import VO.UserVO;
-import uiService.reviseInformationViewControllerService;
+import uiService.ReviseInformationViewService;
 import userBLService.UserBLService;
 import userBLService.UserBLServiceController;
 import userBLServiceImpl.DES;
@@ -18,12 +18,12 @@ import userBLServiceImpl.Log;
  * @author 刘宇翔
  *
  */
-public class reviseInformationViewControllerImpl implements reviseInformationViewControllerService {
-	private reviseInformationView view;
+public class ReviseInformationViewController implements ReviseInformationViewService {
+	private ReviseInformationView view;
 	private UserBLService user;
 	private String UserID;
 	private String key;
-	public reviseInformationViewControllerImpl(String id){
+	public ReviseInformationViewController(String id){
 		try {
 			user=new UserBLServiceController();
 			Log log=new Log();
@@ -35,7 +35,7 @@ public class reviseInformationViewControllerImpl implements reviseInformationVie
 		UserID=id;
 	}
 	@Override
-	public void setView(reviseInformationView view) {
+	public void setView(ReviseInformationView view) {
 		this.view=view;
 	}
 

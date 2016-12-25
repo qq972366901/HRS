@@ -9,7 +9,7 @@ import VO.OrderVO;
  * @author 刘宇翔
  *
  */
-public interface OrderViewControllerService {
+public interface OrderViewService {
     /**
      * 返回按钮的实现
      */
@@ -29,7 +29,7 @@ public interface OrderViewControllerService {
      */
     public void comment();
     /**
-     * 撤销一个顶大
+     * 撤销一个订单
      * @param orderID 订单id
      */
     public void cancel(String orderID);

@@ -18,13 +18,13 @@ import javax.swing.JPanel;
 
 import VO.OrderVO;
 import runner.ClientRunner;
-import uiController.CommentViewControllerServiceImpl;
-import uiController.customerMainViewControllerImpl;
-import uiController.orderDetailViewControllerServiceImpl;
+import uiController.CommentViewController;
+import uiController.CustomerMainViewController;
+import uiController.OrderDetailViewController;
 import uiService.CommentViewService;
-import uiService.OrderViewControllerService;
-import uiService.customerMainViewControllerService;
-import uiService.orderDetailViewControllerService;
+import uiService.OrderViewService;
+import uiService.CustomerMainViewService;
+import uiService.OrderDetailViewService;
 
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -47,7 +47,7 @@ public class OrderView extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private OrderViewControllerService controller;
+	private OrderViewService controller;
 	private JPanel panel;
     private JButton back;
     private JComboBox<String> typebox;
@@ -68,7 +68,7 @@ public class OrderView extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public OrderView(OrderViewControllerService controller) {
+	public OrderView(OrderViewService controller) {
 		this.controller=controller;
 		k=this;
         this.controller=controller;
@@ -105,8 +105,8 @@ public class OrderView extends JPanel {
 	 * 返回的界面跳转
 	 */
 	public void exit(){
-		customerMainViewControllerService con =  new customerMainViewControllerImpl(UserID);
-		customerMainView vie = new customerMainView(con);
+		CustomerMainViewService con =  new CustomerMainViewController(UserID);
+		CustomerMainView vie = new CustomerMainView(con);
 		con.setView(vie);
 		ClientRunner.change(vie);
 	}
@@ -288,7 +288,7 @@ public class OrderView extends JPanel {
 			return;
 		}
 		String id=(String)table.getValueAt(index, 0);
-		CommentViewService con =  new CommentViewControllerServiceImpl(controller.getUserID(),id);
+		CommentViewService con =  new CommentViewController(controller.getUserID(),id);
 		CommentView vie = new CommentView(con);
 		con.setView(vie);
 		ClientRunner.change(vie);
@@ -303,8 +303,8 @@ public class OrderView extends JPanel {
 	 * 订单详情界面的跳转
 	 */
 	public void showDetail(String id,String hotelid) throws RemoteException{
-		orderDetailViewControllerService con =  new orderDetailViewControllerServiceImpl(controller.getUserID(),id,hotelid,1);
-		orderDetailView vie = new orderDetailView(con);
+		OrderDetailViewService con =  new OrderDetailViewController(controller.getUserID(),id,hotelid,1);
+		OrderDetailView vie = new OrderDetailView(con);
 		con.setView(vie);
 		ClientRunner.change(vie);
 	}

@@ -11,7 +11,7 @@ import UserView.HotelDetailView;
 import UserView.HotelSearchView;
 import UserView.LogView;
 import UserView.OrderBuildView;
-import UserView.orderDetailView;
+import UserView.OrderDetailView;
 import VO.HotelVO;
 import VO.OrderVO;
 import hotelBLService.HotelBLService;
@@ -28,7 +28,7 @@ import uiService.HotelDetailUiService;
 import uiService.HotelSearchUiService;
 import uiService.LoginViewControllerService;
 import uiService.OrderBuildUiService;
-import uiService.orderDetailViewControllerService;
+import uiService.OrderDetailViewService;
 import userBLService.UserBLService;
 import userBLService.UserBLServiceController;
 

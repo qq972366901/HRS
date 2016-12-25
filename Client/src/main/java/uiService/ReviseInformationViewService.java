@@ -2,18 +2,18 @@ package uiService;
 
 import java.util.Vector;
 
-import UserView.reviseInformationView;
+import UserView.ReviseInformationView;
 /**
  * 负责实现修改个人信息的初始界面
  * @author 刘宇翔
  *
  */
-public interface reviseInformationViewControllerService {
+public interface ReviseInformationViewService {
 	/**
 	 * 设置一个reviseInformationView的panel
 	 * @param view
 	 */
-     public void setView(reviseInformationView view);
+     public void setView(ReviseInformationView view);
      /**
       * 返回跳转的实现
       */

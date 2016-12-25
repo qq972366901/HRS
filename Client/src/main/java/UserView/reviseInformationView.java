@@ -16,7 +16,7 @@ import javax.swing.JPanel;
 import runner.ClientRunner;
 import uiController.InformationViewControllerImpl;
 import uiService.InformationViewControllerService;
-import uiService.reviseInformationViewControllerService;
+import uiService.ReviseInformationViewService;
 
 import javax.swing.JTextField;
 import javax.swing.UIManager;
@@ -27,14 +27,14 @@ import javax.swing.BoxLayout;
  * @author 刘宇翔
  *
  */
-public class reviseInformationView extends JPanel {
+public class ReviseInformationView extends JPanel {
     /**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel panel;
     private JButton back;
-    private reviseInformationViewControllerService controller;
+    private ReviseInformationViewService controller;
 	
 	private JLabel name ;
 	
@@ -64,7 +64,7 @@ public class reviseInformationView extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public reviseInformationView(reviseInformationViewControllerService controller) {
+	public ReviseInformationView(ReviseInformationViewService controller) {
         this.controller=controller;
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         

@@ -1,8 +1,8 @@
 package uiController;
 
 import java.rmi.RemoteException;
-import UserView.revisePasswordView;
-import uiService.revisePasswordViewControllerService;
+import UserView.RevisePasswordView;
+import uiService.RevisePasswordViewService;
 import userBLService.UserBLService;
 import userBLService.UserBLServiceController;
 import userBLServiceImpl.DES;
@@ -12,12 +12,12 @@ import userBLServiceImpl.Log;
  * @author 刘宇翔
  *
  */
-public class revisePasswordViewControllerImpl implements revisePasswordViewControllerService {
-	private revisePasswordView view;
+public class RevisePasswordViewController implements RevisePasswordViewService {
+	private RevisePasswordView view;
 	private UserBLService user;
 	private String UserID;
 	String key;
-	public revisePasswordViewControllerImpl(String ID){
+	public RevisePasswordViewController(String ID){
 		try {
 			user=new UserBLServiceController();
 			Log log=new Log();
@@ -30,7 +30,7 @@ public class revisePasswordViewControllerImpl implements revisePasswordViewContr
 		
 	}
 	@Override
-	public void setView(revisePasswordView view) {
+	public void setView(RevisePasswordView view) {
 		this.view=view;
 	}
 

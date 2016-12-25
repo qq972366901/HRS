@@ -8,7 +8,7 @@ import UserView.CreditView;
  * @author 刘宇翔
  *
  */
-public interface CreditViewControllerService {
+public interface CreditViewService {
 	/**
 	 * 设置一个CreditView panel
 	 * @param view

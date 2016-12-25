@@ -28,16 +28,16 @@ import UserView.OrderView;
 import UserView.AddHotelView;
 import UserView.CommentView;
 import UserView.CreditView;
+import UserView.CustomerMainView;
 import UserView.HistroyHotelView;
 import UserView.UserManagementView;
 import UserView.WebAdminUserView;
-import UserView.customerMainView;
 import WebPromotionView.CreditManagementView;
 import WebPromotionView.MemberLevelSystemView;
 import WebPromotionView.WebPromotionStrategyView;
 import WebPromotionView.WebPromotionUserView;
 import rmi.RemoteHelper;
-import uiController.LoginViewControllerImpl;
+import uiController.LoginViewController;
 import uiService.LoginViewControllerService;
 
 /**
@@ -79,7 +79,7 @@ public class ClientRunner implements Serializable{
         	mFrame = new JFrame("酒店预订系统"); 
        	 	mFrame.setSize(1000, 700);
         	mFrame.setLocation(10, 10);
-        	LoginViewControllerService controller =  new LoginViewControllerImpl();
+        	LoginViewControllerService controller =  new LoginViewController();
         	LogView view = new LogView(controller);
     		controller.setView(view);
     		mFrame.getContentPane().add(view);
@@ -110,7 +110,7 @@ public class ClientRunner implements Serializable{
 		else if(view instanceof MemberRegisterView) {
 			mFrame.setTitle("会员注册");
 		}
-		else if(view instanceof customerMainView){
+		else if(view instanceof CustomerMainView){
 			mFrame.setTitle("客户主界面");
 		}
 		else if(view instanceof HotelSearchView) {

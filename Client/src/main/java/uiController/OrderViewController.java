@@ -10,17 +10,17 @@ import VO.OrderVO;
 import common.Operate;
 import orderBLService.OrderBLService;
 import orderBLService.OrderBLServiceController;
-import uiService.OrderViewControllerService;
+import uiService.OrderViewService;
 /**
  * 订单管理的初始界面接口的实现（方法的注释见及接口）
  * @author 刘宇翔
  *
  */
-public class OrderViewControllerImpl implements OrderViewControllerService {
+public class OrderViewController implements OrderViewService {
 	private OrderView view;
 	private OrderBLService order;
 	private String id;
-	public OrderViewControllerImpl(String UserID){
+	public OrderViewController(String UserID){
 		id=UserID;
 		try {
 			order=new OrderBLServiceController();

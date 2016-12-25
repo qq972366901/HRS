@@ -10,9 +10,9 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
 import runner.ClientRunner;
-import uiController.customerMainViewControllerImpl;
-import uiService.CreditViewControllerService;
-import uiService.customerMainViewControllerService;
+import uiController.CustomerMainViewController;
+import uiService.CreditViewService;
+import uiService.CustomerMainViewService;
 
 import javax.swing.JButton;
 
@@ -36,7 +36,7 @@ public class CreditView extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private CreditViewControllerService controller;
+	private CreditViewService controller;
     
 	private JPanel panel;
 	private JButton back;
@@ -49,7 +49,7 @@ public class CreditView extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public CreditView(CreditViewControllerService controller) {
+	public CreditView(CreditViewService controller) {
 		this.controller=controller;
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		panel=new JPanel(new FlowLayout(FlowLayout.RIGHT));
@@ -118,8 +118,8 @@ public class CreditView extends JPanel {
 	 * 退出的跳转实现
 	 */
 	public void exit(){
-		customerMainViewControllerService con =  new customerMainViewControllerImpl(UserID);
-		customerMainView vie = new customerMainView(con);
+		CustomerMainViewService con =  new CustomerMainViewController(UserID);
+		CustomerMainView vie = new CustomerMainView(con);
 		con.setView(vie);
 		ClientRunner.change(vie);
 	}

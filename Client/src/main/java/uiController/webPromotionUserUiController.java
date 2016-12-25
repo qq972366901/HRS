@@ -77,7 +77,7 @@ public class webPromotionUserUiController implements webPromotionUserUiService {
 
 	@Override
 	public void toLogView() {
-		LoginViewControllerService controller =  new LoginViewControllerImpl();
+		LoginViewControllerService controller =  new LoginViewController();
     	LogView view = new LogView(controller);
 		controller.setView(view);
 		ClientRunner.change(view);

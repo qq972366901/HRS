@@ -2,18 +2,18 @@ package uiService;
 
 import java.util.List;
 
-import UserView.orderDetailView;
+import UserView.OrderDetailView;
 /**
  * 负责实现订单详情的初始界面
  * @author 刘宇翔
  *
  */
-public interface orderDetailViewControllerService {
+public interface OrderDetailViewService {
 	/**
 	 * 设置一个OrderDetailView的panel
 	 * @param view
 	 */
-	 public void setView(orderDetailView view);
+	 public void setView(OrderDetailView view);
 	 /**
 	  * 返回按钮的实现
 	  */

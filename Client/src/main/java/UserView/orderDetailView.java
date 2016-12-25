@@ -11,10 +11,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import runner.ClientRunner;
 import uiController.HotelDetailUiController;
-import uiController.OrderViewControllerImpl;
+import uiController.OrderViewController;
 import uiService.HotelDetailUiService;
-import uiService.OrderViewControllerService;
-import uiService.orderDetailViewControllerService;
+import uiService.OrderViewService;
+import uiService.OrderDetailViewService;
 
 import java.awt.FlowLayout;
 
@@ -26,14 +26,14 @@ import javax.swing.BoxLayout;
  * @author 刘宇翔
  *
  */
-public class orderDetailView extends JPanel {
+public class OrderDetailView extends JPanel {
     /**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel panel;
     private JButton back;
-    private orderDetailViewControllerService controller;
+    private OrderDetailViewService controller;
 	
 	private String UserID;
 	
@@ -67,7 +67,7 @@ public class orderDetailView extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public orderDetailView(orderDetailViewControllerService controller) {
+	public OrderDetailView(OrderDetailViewService controller) {
         this.controller=controller;
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         
@@ -112,7 +112,7 @@ public class orderDetailView extends JPanel {
 	 * 跳转到订单管理界面
 	 */
 	public void exit() throws RemoteException{
-		OrderViewControllerService con =  new OrderViewControllerImpl(UserID);
+		OrderViewService con =  new OrderViewController(UserID);
 		OrderView vie = new OrderView(con);
 		con.setView(vie);
 		ClientRunner.change(vie);
