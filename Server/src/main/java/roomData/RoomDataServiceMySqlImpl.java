@@ -111,7 +111,7 @@ public class RoomDataServiceMySqlImpl implements RoomDataService{
 	 * @throws RemoteException
 	 * @see PO.RoomPO
 	 */
-	public List<RoomPO> getAllRooms(String hotelid) {
+	public List<RoomPO> getAllRooms(String hotelid) throws RemoteException {
 		if(hotelID != hotelid) {
 			hotelID = hotelid;
 			room.clear();
