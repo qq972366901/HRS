@@ -47,9 +47,9 @@ public class HotelSearch {
      * @return 返回HotelSearch对象
      */
 	public static HotelSearch getHotelSearchInstance() {
-		if(hotelSearch == null) {
-			hotelSearch = new HotelSearch();
-		}
+		
+		hotelSearch = new HotelSearch();
+		
 		return hotelSearch;
 	}
 	
@@ -78,7 +78,7 @@ public class HotelSearch {
 			if(hotelSearch.judgeCity(hvo, city) && hotelSearch.judgeBusinessCircle(hvo, businessCircle)
 					&& hotelSearch.judgeRoom(hvo, roomType, roomNumber, priceLow, priceHigh) && 
 					hotelSearch.judgeStar(hvo, star) && hotelSearch.judgeScore(hvo, scoreLow, scoreHigh)
-					&& hotelSearch.judgeEverBooked(hvo, everBooked, userid) && hotelSearch.judgeName(hvo, name)) {
+					&& hotelSearch.judgeEverBooked(hvo, everBooked.trim(), userid) && hotelSearch.judgeName(hvo, name)) {
 				
 				hotelidList.add(hvo.hotelAccount);
 				

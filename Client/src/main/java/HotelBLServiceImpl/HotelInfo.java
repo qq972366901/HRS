@@ -127,7 +127,7 @@ public class HotelInfo {
 //		}
 		OrderBLService obls;
 		List<OrderVO> list;
-		int num = 0;
+		double num = 0.0;
 		int has = 0;
 		try {
 			obls = new OrderBLServiceController();
@@ -141,7 +141,7 @@ public class HotelInfo {
 						has++;
 					}
 				}
-				newScore = (num + sco) / (has + 1);
+				newScore = num / has;
 			}
 		} catch (RemoteException e1) {
 			e1.printStackTrace();
