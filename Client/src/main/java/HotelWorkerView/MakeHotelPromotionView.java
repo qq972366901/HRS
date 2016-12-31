@@ -263,10 +263,23 @@ public class MakeHotelPromotionView extends JPanel {
 				}
 				Calendar calendar2 = Calendar.getInstance();
 				calendar2.setTime(date2);
-				double discount = Double.parseDouble(discountTextField.getText());
-				double birthdayDiscount = Double.parseDouble(birthdayDiscountTextField.getText());
-				double threeRoomsDiscount = Double.parseDouble(threeRoomsDiscountTextField.getText());
-				double businessLogicDiscount = Double.parseDouble(businessDiscountTextField.getText());
+				if(!date1.before(date2)) {
+					JOptionPane.showMessageDialog(null, "请填写正确的时间先后顺序！","", JOptionPane.ERROR_MESSAGE);
+					return;
+				}
+				double discount;
+				double birthdayDiscount;
+				double threeRoomsDiscount;
+				double businessLogicDiscount;
+				try {
+					discount = Double.parseDouble(discountTextField.getText());
+					birthdayDiscount = Double.parseDouble(birthdayDiscountTextField.getText());
+					threeRoomsDiscount = Double.parseDouble(threeRoomsDiscountTextField.getText());
+					businessLogicDiscount = Double.parseDouble(businessDiscountTextField.getText());
+				} catch (NumberFormatException e) {
+					JOptionPane.showMessageDialog(null, "请填写正确的折扣！","", JOptionPane.ERROR_MESSAGE);
+					return;
+				}
 				if(discount < 0.5 || discount > 10 || birthdayDiscount < 0.5 || birthdayDiscount > 10 ||
 					threeRoomsDiscount < 0.5 || threeRoomsDiscount > 10 || businessLogicDiscount < 0.5 || businessLogicDiscount > 10) {
 					JOptionPane.showMessageDialog(null, "折扣在0.5到10之间！","", JOptionPane.ERROR_MESSAGE);

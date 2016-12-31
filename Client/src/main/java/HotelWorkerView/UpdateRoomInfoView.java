@@ -27,7 +27,7 @@ public class UpdateRoomInfoView extends JPanel {
 	private UpdateRoomInfoUiService controller;
 	
 	private JTextField roomNumberTextField;
-	private JTextField roomTypeTextField;
+	//private JTextField roomTypeTextField;
 	
 	private JButton backButton;
 	private JButton checkinButton;
@@ -69,7 +69,7 @@ public class UpdateRoomInfoView extends JPanel {
 		
 		JPanel updatePanel = new JPanel();
 		this.add(updatePanel, BorderLayout.CENTER);
-		updatePanel.setLayout(new GridLayout(13, 1, 0, 0));
+		updatePanel.setLayout(new GridLayout(12, 1, 0, 0));
 		
 		JPanel panel_1 = new JPanel();
 		updatePanel.add(panel_1);
@@ -104,23 +104,23 @@ public class UpdateRoomInfoView extends JPanel {
 		JPanel panel_6 = new JPanel();
 		updatePanel.add(panel_6);
 		
-		JPanel panel_7 = new JPanel();
-		updatePanel.add(panel_7);
-		panel_7.setLayout(new GridLayout(1, 4, 0, 0));
-		
-		JPanel panel_7_1 = new JPanel();
-		panel_7.add(panel_7_1);
-		
-		JLabel roomTypeLabel = new JLabel("房型：");
-		roomTypeLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_7.add(roomTypeLabel);
-		
-		roomTypeTextField = new JTextField();
-		panel_7.add(roomTypeTextField);
-		roomTypeTextField.setColumns(10);
-		
-		JPanel panel_7_2 = new JPanel();
-		panel_7.add(panel_7_2);
+//		JPanel panel_7 = new JPanel();
+//		updatePanel.add(panel_7);
+//		panel_7.setLayout(new GridLayout(1, 4, 0, 0));
+//		
+//		JPanel panel_7_1 = new JPanel();
+//		panel_7.add(panel_7_1);
+//		
+//		JLabel roomTypeLabel = new JLabel("房型：");
+//		roomTypeLabel.setHorizontalAlignment(SwingConstants.CENTER);
+//		panel_7.add(roomTypeLabel);
+//		
+//		roomTypeTextField = new JTextField();
+//		panel_7.add(roomTypeTextField);
+//		roomTypeTextField.setColumns(10);
+//		
+//		JPanel panel_7_2 = new JPanel();
+//		panel_7.add(panel_7_2);
 
 		JPanel panel_8 = new JPanel();
 		updatePanel.add(panel_8);
@@ -149,13 +149,17 @@ public class UpdateRoomInfoView extends JPanel {
 				String roomNumber = roomNumberTextField.getText();
 				if(roomNumber.length() < 1) {
 					JOptionPane.showMessageDialog(null, "请填写房间号！","", JOptionPane.ERROR_MESSAGE);
+					return;
 				}
-				String roomType = roomTypeTextField.getText();
-				if(roomType.length() < 1) {
-					JOptionPane.showMessageDialog(null, "请填写房型！","", JOptionPane.ERROR_MESSAGE);
+//				String roomType = roomTypeTextField.getText();
+//				if(roomType.length() < 1) {
+//					JOptionPane.showMessageDialog(null, "请填写房型！","", JOptionPane.ERROR_MESSAGE);
+//				}
+				if(!controller.exist(hotelID, roomNumber)) {
+					JOptionPane.showMessageDialog(null, "房间号不存在！","", JOptionPane.ERROR_MESSAGE);
+					return;
 				}
-				
-				controller.updateRoomInfo(hotelID, roomNumber, roomType,"已入住");
+				controller.updateRoomInfo(hotelID, roomNumber, "已入住");
 			    JOptionPane.showMessageDialog(null, "入住成功！");  
 			}
 		});
@@ -170,13 +174,17 @@ public class UpdateRoomInfoView extends JPanel {
 				String roomNumber = roomNumberTextField.getText();
 				if(roomNumber.length() < 1) {
 					JOptionPane.showMessageDialog(null, "请填写房间号！","", JOptionPane.ERROR_MESSAGE);
+					return;
 				}
-				String roomType = roomTypeTextField.getText();
-				if(roomType.length() < 1) {
-					JOptionPane.showMessageDialog(null, "请填写房型！","", JOptionPane.ERROR_MESSAGE);
+//				String roomType = roomTypeTextField.getText();
+//				if(roomType.length() < 1) {
+//					JOptionPane.showMessageDialog(null, "请填写房型！","", JOptionPane.ERROR_MESSAGE);
+//				}
+				if(!controller.exist(hotelID, roomNumber)) {
+					JOptionPane.showMessageDialog(null, "房间号不存在！","", JOptionPane.ERROR_MESSAGE);
+					return;
 				}
-				
-				controller.updateRoomInfo(hotelID, roomNumber, roomType,"空闲");
+				controller.updateRoomInfo(hotelID, roomNumber, "空闲");
 				JOptionPane.showMessageDialog(null, "退房成功！");
 			}
 		});

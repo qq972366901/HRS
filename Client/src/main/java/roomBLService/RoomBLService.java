@@ -12,10 +12,9 @@ public interface RoomBLService {
      * 
      * @param hotelID String型，酒店帐号
      * @param roomNumber String型，房间号
-     * @param roomType String型，房型
      * @param roomState String型，房间状态
      */
-	public void updateRoomInfo(String hotelID, String roomNumber, String roomType, String roomState);
+	public void updateRoomInfo(String hotelID, String roomNumber, String roomState);
 	/**
      * 判断能否酒店是否有足够房间
      * 
@@ -47,5 +46,13 @@ public interface RoomBLService {
      * @return 返回酒店的某房间类型的价格
      */
 	public int getRoomPrice(String hotelid, String roomType);
+	
+	/**
+     * 房间是否存在
+     * 
+     * @param hotelID String型，酒店帐号
+     * @param roomNumber String型，房间号
+     */
+	public boolean exist(String hotelID, String roomNumber);
 	
 }

@@ -67,11 +67,20 @@ public class UpdateRoomInfoUiController implements UpdateRoomInfoUiService {
      * 
      * @param hotelID String型，酒店帐号
      * @param roomNumber String型，房间号
-     * @param roomType String型，房型
      * @param roomState String型，房间状态
      */
-	public void updateRoomInfo(String hotelID, String roomNumber,String roomType, String roomState) {
-		room.updateRoomInfo(hotelID, roomNumber,roomType, roomState);
+	public void updateRoomInfo(String hotelID, String roomNumber,String roomState) {
+		room.updateRoomInfo(hotelID, roomNumber, roomState);
 	}
 
+	/**
+     * 房间是否存在
+     * 
+     * @param hotelID String型，酒店帐号
+     * @param roomNumber String型，房间号
+     */
+	public boolean exist(String hotelID, String roomNumber) {
+		return room.exist(hotelID, roomNumber);
+	}
+	
 }

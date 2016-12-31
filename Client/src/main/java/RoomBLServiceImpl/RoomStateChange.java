@@ -60,13 +60,12 @@ public class RoomStateChange {
      * 酒店工作人员更新单个房间的状态
      * 
      * @param rNumber String型，房间号
-     * @param rType String型，房型
      * @param rState String型，房间状态
      */
-	public void updateRoomState(String rNumber, String rType, String rState) {
+	public void updateRoomState(String rNumber, String rState) {
 		if(rState.equals("空闲")) {
 			for(RoomVO rvo: list) {
-				if(rvo.roomType.equals(rType) && rvo.roomStatue.equals("已入住") && rvo.roomId.equals(rNumber)) {
+				if(rvo.roomStatue.equals("已入住") && rvo.roomId.equals(rNumber)) {
 					rvo.roomStatue = "空闲";
 					RoomPO rpo = new RoomPO(rvo.hotelID,rvo.roomId,"空闲",rvo.roomType,rvo.roomPrice);
 					try {
@@ -81,7 +80,7 @@ public class RoomStateChange {
 		
 		if(rState.equals("已入住")) {
 			for(RoomVO rvo: list) {
-				if(rvo.roomType.equals(rType) && !rvo.roomStatue.equals("已入住") && rvo.roomId.equals(rNumber)) {
+				if(!rvo.roomStatue.equals("已入住") && rvo.roomId.equals(rNumber)) {
 					rvo.roomStatue = "已入住";
 					RoomPO rpo = new RoomPO(rvo.hotelID,rvo.roomId,"已入住",rvo.roomType,rvo.roomPrice);
 					try {
@@ -93,6 +92,22 @@ public class RoomStateChange {
 				}
 			}
 		}
+	}
+	
+	/**
+     * 房间是否存在
+     * 
+     * @param roomNumber String型，房间号
+     */
+	public boolean exist(String roomNumber) {
+		boolean outcome = false;
+		for(RoomVO rvo: list) {
+			if(rvo.roomId.equals(roomNumber)) {
+				outcome = true;
+				break;
+			}
+		}
+		return outcome;
 	}
 	
 }
