@@ -5,20 +5,13 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
-import java.util.Set;
 import java.util.Vector;
 
-import PO.HotelPO;
 import PO.PromotionPO;
-import PO.UserPO;
-import common.UserType;
 import dataHelper.DataHelperFactory;
 import dataHelper.PromotionDataHelper;
-import dataHelper.UserDataHelper;
 import dataHelperImpl.DataHelperFactoryImpl;
 /**
  * 职责是将逻辑层面发来的请求转发给后台PromotionData处理

@@ -2,7 +2,6 @@ package UserView;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.ScrollPane;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;

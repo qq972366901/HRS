@@ -9,7 +9,6 @@ import java.util.Vector;
 
 import PO.PromotionPO;
 import VO.HotelPromotionVO;
-import VO.HotelVO;
 import VO.UserVO;
 import dataService.DataFactoryService;
 import dataService.PromotionDataService;

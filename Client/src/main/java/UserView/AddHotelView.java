@@ -25,7 +25,6 @@ import javax.swing.JTextField;
 import VO.UserVO;
 import common.UserType;
 import uiService.AddHotelUiService;
-import userBLServiceImpl.Credit;
 import userBLServiceImpl.DES;
 import userBLServiceImpl.Log;
 

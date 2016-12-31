@@ -3,7 +3,6 @@ package PromotionBLServiceImpl;
 import java.rmi.RemoteException;
 
 import PO.PromotionPO;
-import VO.HotelVO;
 import VO.MemberLevelSystemVO;
 import dataService.DataFactoryService;
 import dataService.PromotionDataService;

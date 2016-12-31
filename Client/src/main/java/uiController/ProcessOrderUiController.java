@@ -3,7 +3,6 @@ package uiController;
 import java.rmi.RemoteException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -24,7 +23,6 @@ import uiService.ProcessOrderUiService;
 import uiService.webPromotionUserUiService;
 import userBLService.UserBLService;
 import userBLService.UserBLServiceController;
-import userBLServiceImpl.Credit;
 import userBLServiceImpl.DES;
 import userBLServiceImpl.Log;
 

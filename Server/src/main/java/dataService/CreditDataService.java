@@ -3,10 +3,7 @@ package dataService;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
-import java.util.List;
-
 import PO.CreditPO;
-import PO.CreditRecordPO;
 
 /**负责实现信用数据储存所需要的服务接口
  * @author LZ
