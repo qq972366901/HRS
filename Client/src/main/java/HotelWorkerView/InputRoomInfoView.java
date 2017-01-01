@@ -170,6 +170,11 @@ public class InputRoomInfoView extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				//系统更新酒店拥有的房间信息
 				String roomType = roomTypeTextField.getText();
+				if( ! ( roomType.equals("大床房") || roomType.equals("标准双人间") || roomType.equals("三人间") ||  
+						roomType.equals("豪华套房") || roomType.equals("总统套房") ) ) {
+					JOptionPane.showMessageDialog(null, "请输入正确的房型！","", JOptionPane.ERROR_MESSAGE);
+					return;
+				}
 				String roomNumString = roomNumberTextField.getText();
 				boolean validNum = true;
 				for(int i=0;i<roomNumString.length();i++) {
