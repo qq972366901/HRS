@@ -12,7 +12,11 @@ import VO.HotelPromotionVO;
 import dataService.DataFactoryService;
 import dataService.PromotionDataService;
 import rmi.RemoteHelper;
-
+/**
+ * 获取酒店策略的实现类
+ * @author Administrator
+ *
+ */
 public class GetHotelPromotionByHotelIDAndTime {
 	private DataFactoryService df;
 	private PromotionDataService pds;

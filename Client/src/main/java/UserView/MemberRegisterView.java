@@ -24,7 +24,11 @@ import common.UserType;
 import uiService.MemberRegisterUiService;
 import userBLServiceImpl.DES;
 import userBLServiceImpl.Log;
-
+/**
+ * 会员注册界面的Panel
+ * @author lw
+ *
+ */
 public class MemberRegisterView extends JPanel{
 	private static final long serialVersionUID = 1L;
 	private JButton button1,button2;

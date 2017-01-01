@@ -6,7 +6,10 @@ import java.util.Vector;
 
 import PO.PromotionPO;
 import PromotionBLServiceImpl.GetMemberLevelSystem;
-
+/**
+ * 网站策略的属性及数据创建与更新
+ * @author lw
+ */
 public class WebPromotionVO{
 	 public String promotionNumber;
 	 public String promotionName;

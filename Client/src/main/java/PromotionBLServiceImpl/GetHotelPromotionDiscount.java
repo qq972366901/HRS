@@ -14,7 +14,11 @@ import dataService.DataFactoryService;
 import dataService.PromotionDataService;
 import rmi.RemoteHelper;
 import userBLServiceImpl.Customer;
-
+/**
+ * 获取酒店策略折扣实现类
+ * @author Administrator
+ *
+ */
 public class GetHotelPromotionDiscount {
 	private DataFactoryService df;
 	private PromotionDataService pds;

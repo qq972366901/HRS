@@ -6,7 +6,11 @@ import VO.WebPromotionVO;
 import dataService.DataFactoryService;
 import dataService.PromotionDataService;
 import rmi.RemoteHelper;
-
+/**
+ * 添加网站策略实现类
+ * @author Administrator
+ *
+ */
 public class AddWebPromotion {
 
 	private DataFactoryService df;
