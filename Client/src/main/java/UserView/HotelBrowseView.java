@@ -23,7 +23,11 @@ import uiService.HotelBrowseUiService;
 import userBLServiceImpl.DES;
 import userBLServiceImpl.Log;
 
-
+/**
+ * 酒店浏览界面的Panel
+ * @author lw
+ *
+ */
 public class HotelBrowseView extends JPanel{
 	private static final long serialVersionUID = 1L;
 	private JLabel label1,label2,label3,label4,label5,label6,label7,label8,label9,label10,label11,label12;

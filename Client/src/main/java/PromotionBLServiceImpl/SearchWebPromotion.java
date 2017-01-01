@@ -10,7 +10,11 @@ import VO.WebPromotionVO;
 import dataService.DataFactoryService;
 import dataService.PromotionDataService;
 import rmi.RemoteHelper;
-
+/**
+ * 查找网站策略实现类
+ * @author Administrator
+ *
+ */
 public class SearchWebPromotion {
 	private DataFactoryService df;
 	private PromotionDataService pds;

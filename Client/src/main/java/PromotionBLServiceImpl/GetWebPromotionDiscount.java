@@ -13,7 +13,11 @@ import dataService.DataFactoryService;
 import dataService.PromotionDataService;
 import rmi.RemoteHelper;
 import userBLServiceImpl.Credit;
-
+/**
+ * 获取网站策略折扣的实现类
+ * @author Administrator
+ *
+ */
 public class GetWebPromotionDiscount {
 		private DataFactoryService df;
 		private PromotionDataService pds;

@@ -7,7 +7,11 @@ import PO.PromotionPO;
 import dataService.DataFactoryService;
 import dataService.PromotionDataService;
 import rmi.RemoteHelper;
-
+/**
+ * 添加酒店策略的实现类
+ * @author Administrator
+ *
+ */
 public class AddHotelPromotion {
 
 	private DataFactoryService df;

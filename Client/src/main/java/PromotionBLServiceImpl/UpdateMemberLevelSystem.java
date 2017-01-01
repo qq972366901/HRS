@@ -7,7 +7,11 @@ import VO.MemberLevelSystemVO;
 import dataService.DataFactoryService;
 import dataService.PromotionDataService;
 import rmi.RemoteHelper;
-
+/**
+ * 更新会员等级制度的实现类
+ * @author Administrator
+ *
+ */
 public class UpdateMemberLevelSystem {
 	private DataFactoryService df;
 	private PromotionDataService pds;

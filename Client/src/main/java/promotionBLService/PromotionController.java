@@ -14,7 +14,7 @@ import promotionMemberGrade.PromotionMemberGradeController;
 import promotionWeb.PromotionWebController;
 
 /**
- * Promotion模块的实现
+ * 负责实现promotion功能的服务接口
  * @author LW
  *
  */

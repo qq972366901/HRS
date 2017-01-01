@@ -3,8 +3,8 @@ package PO;
 import java.io.Serializable;
 import java.util.Calendar;
 /**
- * 淇冮攢绛栫暐鐨勬暟鎹疄浣�
- * @author LZ
+ * 策略的数据实体
+ * @author LW
  * @version 1.0
  * @see
  */
@@ -26,16 +26,15 @@ public class PromotionPO implements Serializable{
 	private double roomDiscount;
 	private double enterpriseDiscount;
 	/**
-	 * 酒店营销策略
-	 * @param promotionnumber String鍨嬶紝閫昏緫灞備紶鏉ョ殑绛栫暐缂栧彿
-	 * @param promotionname String鍨嬶紝閫昏緫灞備紶鏉ョ殑绛栫暐鍚嶇О
-	 * @param promotionbegintime Time鍨嬶紝閫昏緫灞備紶鏉ョ殑绛栫暐寮�濮嬫椂闂�
-	 * @param promotionendtime Time鍨嬶紝閫昏緫灞備紶鏉ョ殑绛栫暐缁撴潫鏃堕棿
-	 * @param usertype Time鍨嬶紝閫昏緫灞備紶鏉ョ殑瀹㈡埛绫诲瀷
-	 * @param hotelbusinesscircle String鍨嬶紝閫昏緫灞備紶鏉ョ殑閫傜敤鍟嗗湀
-	 * @param usershipgrade int鍨嬶紝閫昏緫灞備紶鏉ョ殑瀹㈡埛閫傜敤绛夌骇
-	 * @param num int鍨嬶紝閫昏緫灞備紶鏉ョ殑鏈�浣庤璐暟閲�
-	 * @param promotiondiscount double鍨嬶紝閫昏緫灞備紶鏉ョ殑鎶樻墸
+	 * 酒店营销策略的数据实体
+	 * @param hotelid String逻辑层传来的酒店ID
+	 * @param promotionname String逻辑层传来的策略名
+	 * @param promotionbegintime Time逻辑层传来的策略开始时间
+	 * @param promotionendtime Time逻辑层传来的策略结束时间
+	 * @param promotiondiscount double逻辑层传来的基础折扣
+	 * @param birthdaydiscount double逻辑层传来的生日折扣
+	 * @param roomdiscount double逻辑层传来的房间折扣
+	 * @param enterprisediscount double逻辑层传来的企业会员折扣
 	 * @return
 	 * @throws
 	 * @see
@@ -51,7 +50,18 @@ public class PromotionPO implements Serializable{
 	     enterpriseDiscount=enterprisediscount;
 	 }
 	/**
-	 * 网站营销策略
+	 * 网站营销策略的数据实体
+	 * @param promotionnumber String逻辑层传来的策略号
+	 * @param promotionname String逻辑层传来的策略名
+	 * @param promotionbegintime Time逻辑层传来的策略开始时间
+	 * @param promotionendtime Time逻辑层传来的策略结束时间
+	 * @param city String逻辑层传来城市
+	 * @param hotelbusinesscircle String逻辑层传来的商圈
+	 * @param usershipgrade int逻辑层传来的会员等级
+	 * @param promotiondiscount double逻辑层传来的基础折扣
+	 * @return
+	 * @throws
+	 * @see
 	 */
 	public PromotionPO(String promotionnumber,String promotionname,Calendar promotionbegintime,Calendar promotionendtime, String city,String hotelbusinesscircle,int usershipgrade,double dis){
 	     promotionNumber=promotionnumber;
@@ -65,9 +75,9 @@ public class PromotionPO implements Serializable{
 	 }
 	
 	/**
-	 * 鏋勯�犱細鍛樼瓑绾у埗搴�
-	 * @param a int[]鍨嬶紝閫昏緫灞備紶鏉ョ殑姣忎釜绛夌骇鐨勪俊鐢ㄥ��
-	 * @param b int[]鍨嬨�傞�昏緫灞備紶鏉ョ殑姣忎釜绛夌骇鐨勬姌鎵�
+	 * 会员等级制度的数据实体
+	 * @param a int[]逻辑层传来的信用值的数组
+	 * @param b int[]逻辑层传来的折扣的数组
 	 * @return
 	 * @throws
 	 * @see
@@ -81,9 +91,9 @@ public class PromotionPO implements Serializable{
 		}
 	}
 	/**
-	 * 鑾峰彇姣忎釜绛夌骇鐨勪俊鐢ㄥ��
+	 * 会员等级的信用值
 	 * @param
-	 * @return 杩斿洖姣忎釜绛夌骇鐨勪俊鐢ㄥ��
+	 * @return long[]型，信用值的数组
 	 * @throws
 	 * @see
 	 */
@@ -91,8 +101,8 @@ public class PromotionPO implements Serializable{
 		 return creditOfLevel;
 	 }
 	 /**
-		 * 璁剧疆绛栫暐姣忎釜绛夌骇淇＄敤鍊�
-		 * @param a int[]鍨嬶紝閫昏緫灞備紶鏉ョ殑姣忎釜绛夌骇鐨勪俊鐢ㄥ��
+		 * 设置会员等级的信用值
+		 * @param a int[]信用值的数组
 		 * @return 
 		 * @throws
 		 * @see
@@ -103,9 +113,9 @@ public class PromotionPO implements Serializable{
 		}
 	 }
 	 /**
-		 * 鑾峰彇姣忎釜绛夌骇鐨勬姌鎵�
+		 * 得到会员等级的折扣
 		 * @param
-		 * @return 杩斿洖姣忎釜绛夌骇鐨勬姌鎵�
+		 * @return 会员等级的折扣数组
 		 * @throws
 		 * @see
 		 */
@@ -113,8 +123,8 @@ public class PromotionPO implements Serializable{
 		 return discountOfLevel;
 	 }
 	 /**
-		 * 璁剧疆绛栫暐姣忎釜绛夌骇鎶樻墸
-		 * @param b int[]鍨嬨�傞�昏緫灞備紶鏉ョ殑姣忎釜绛夌骇鐨勬姌鎵�
+		 * 设置会员等级的折扣
+		 * @param b int[]会员等级折扣的数组
 		 * @return
 		 * @throws
 		 * @see
@@ -125,9 +135,9 @@ public class PromotionPO implements Serializable{
 			}
 	 }
 	 /**
-		 * 鑾峰彇绛栫暐缂栧彿
+		 * 等到酒店ID
 		 * @param
-		 * @return 杩斿洖绛栫暐缂栧彿
+		 * @return String型，酒店ID
 		 * @throws
 		 * @see
 		 */
@@ -135,8 +145,8 @@ public class PromotionPO implements Serializable{
 	     return hotelID;
 	 }
 	 /**
-		 * 璁剧疆绛栫暐缂栧彿
-		 * @param number String鍨嬶紝閫昏緫灞備紶鏉ョ殑绛栫暐缂栧彿
+		 * 设置酒店ID
+		 * @param number String型，酒店ID
 		 * @return
 		 * @throws
 		 * @see
@@ -145,9 +155,9 @@ public class PromotionPO implements Serializable{
 	     hotelID=id;
 	 }
 	 /**
-		 * 鑾峰彇绛栫暐缂栧彿
+		 * 得到策略号
 		 * @param
-		 * @return 杩斿洖绛栫暐缂栧彿
+		 * @return String型，策略号
 		 * @throws
 		 * @see
 		 */
@@ -155,8 +165,8 @@ public class PromotionPO implements Serializable{
 	     return promotionNumber;
 	 }
 	 /**
-		 * 璁剧疆绛栫暐缂栧彿
-		 * @param number String鍨嬶紝閫昏緫灞備紶鏉ョ殑绛栫暐缂栧彿
+		 * 设置策略号
+		 * @param number String型，策略号
 		 * @return
 		 * @throws
 		 * @see
@@ -165,9 +175,9 @@ public class PromotionPO implements Serializable{
 	     promotionNumber=number;
 	 }
 	 /**
-		 * 鑾峰彇绛栫暐鍚嶇О
+		 * 得到策略名称
 		 * @param
-		 * @return 杩斿洖绛栫暐鍚嶇О
+		 * @return String型，策略名称
 		 * @throws
 		 * @see
 		 */
@@ -175,8 +185,8 @@ public class PromotionPO implements Serializable{
 	     return promotionName;
 	 }
 	 /**
-		 * 璁剧疆绛栫暐鍚嶇О
-		 * @param name String鍨嬶紝閫昏緫灞備紶鏉ョ殑绛栫暐鍚嶇О
+		 * 设置策略名称
+		 * @param name String型，策略名称
 		 * @return
 		 * @throws
 		 * @see
@@ -185,9 +195,9 @@ public class PromotionPO implements Serializable{
 	     promotionName=name;
 	 }
 	 /**
-		 * 鑾峰彇绛栫暐寮�濮嬫椂闂�
+		 * 得到策略开始时间
 		 * @param
-		 * @return 杩斿洖绛栫暐寮�濮嬫椂闂�
+		 * @return Calendar型，策略开始时间
 		 * @throws
 		 * @see
 		 */
@@ -195,8 +205,8 @@ public class PromotionPO implements Serializable{
 	     return promotionBegintime;
 	 }
 	 /**
-		 * 璁剧疆绛栫暐寮�濮嬫椂闂�
-		 * @param begintime Time鍨嬶紝閫昏緫灞備紶鏉ョ殑寮�濮嬫椂闂�
+		 * 设置策略开始时间
+		 * @param begintime Calendar型，设置策略开始时间
 		 * @return
 		 * @throws
 		 * @see
@@ -205,9 +215,9 @@ public class PromotionPO implements Serializable{
 	     promotionBegintime=begintime;
 	 }
 	 /**
-		 * 鑾峰彇绛栫暐缁撴潫鏃堕棿
+		 * 得到策略结束时间
 		 * @param
-		 * @return 杩斿洖绛栫暐缁撴潫鏃堕棿
+		 * @return Calendar型，策略结束时间
 		 * @throws
 		 * @see
 		 */
@@ -215,8 +225,8 @@ public class PromotionPO implements Serializable{
 	     return promotionEndtime;
 	 }
 	 /**
-		 * 璁剧疆绛栫暐缁撴潫鏃堕棿
-		 * @param endtime Time鍨嬶紝閫昏緫灞備紶鏉ョ殑缁撴潫鏃堕棿
+		 * 设置策略结束时间
+		 * @param endtime Calendar型，策略结束时间
 		 * @return
 		 * @throws
 		 * @see
@@ -226,9 +236,9 @@ public class PromotionPO implements Serializable{
 	 }
 
 	 /**
-		 * 鑾峰彇閫傜敤鍟嗗湀
+		 * 得到酒店商圈
 		 * @param 
-		 * @return 杩斿洖閫傜敤鍟嗗湀
+		 * @return String型，酒店的商圈
 		 * @throws
 		 * @see
 		 */
@@ -236,8 +246,8 @@ public class PromotionPO implements Serializable{
 	    return applybussinesscircle;
 	 }
 	 /**
-		 * 璁剧疆閫傜敤鍟嗗湀
-		 * @param circle String鍨嬶紝閫昏緫灞備紶鏉ョ殑閫傜敤鍟嗗湀
+		 * 设置酒店的商圈
+		 * @param circle String型，酒店的商圈
 		 * @return
 		 * @throws
 		 * @see
@@ -246,9 +256,9 @@ public class PromotionPO implements Serializable{
 		 applybussinesscircle=circle;
 	 }
 	 /**
-		 * 鑾峰彇瀹㈡埛閫傜敤绛夌骇
+		 * 得到适用的会员等级
 		 * @param
-		 * @return 杩斿洖瀹㈡埛閫傜敤绛夌骇
+		 * @return int型，适用的会员等级
 		 * @throws
 		 * @see
 		 */
@@ -256,8 +266,8 @@ public class PromotionPO implements Serializable{
 	     return applyuserShipgrade;
 	 }
 	 /**
-		 * 璁剧疆瀹㈡埛閫傜敤绛夌骇
-		 * @param grade int鍨嬶紝閫昏緫灞備紶鏉ョ殑瀹㈡埛閫傜敤绛夌骇
+		 * 设置适用的会员等级
+		 * @param grade int型，适用的会员等级
 		 * @return
 		 * @throws
 		 * @see
@@ -267,9 +277,9 @@ public class PromotionPO implements Serializable{
 	 }
 
 	 /**
-		 * 鑾峰彇绛栫暐鎶樻墸
+		 * 得到策略的折扣
 		 * @param
-		 * @return 杩斿洖绛栫暐鎶樻墸
+		 * @return double型，策略的折扣
 		 * @throws
 		 * @see
 		 */
@@ -277,8 +287,8 @@ public class PromotionPO implements Serializable{
 	     return Discount;
 	 }
 	 /**
-		 * 璁剧疆绛栫暐鎶樻墸
-		 * @param discount double鍨嬶紝閫昏緫灞備紶鏉ョ殑绛栫暐鎶樻墸
+		 * 设置策略的折扣
+		 * @param discount double型，策略的折扣
 		 * @return
 		 * @throws
 		 * @see
@@ -286,30 +296,93 @@ public class PromotionPO implements Serializable{
 	 public void setPromotionDiscount(double discount){
 	     Discount=discount;
 	 }
+	 /**
+		 * 得到生日的折扣
+		 * @param
+		 * @return double型，生日的折扣
+		 * @throws
+		 * @see
+		 */
 	 public double getBirthdayDiscount(){
 	     return birthdayDiscount;
 	 }
+	 /**
+		 * 设置生日的折扣
+		 * @param discount double型，生日的折扣
+		 * @return
+		 * @throws
+		 * @see
+		 */
 	 public void setBirthdayDiscount(double birthdaydiscount){
 		 birthdayDiscount=birthdaydiscount;
 	 }
+	 /**
+		 * 得到房间的折扣
+		 * @param
+		 * @return double型，房间的折扣
+		 * @throws
+		 * @see
+		 */
 	 public double getRoomDiscount(){
 	     return roomDiscount;
 	 }
+	 /**
+		 * 设置房间的折扣
+		 * @param discount double型，房间的折扣
+		 * @return
+		 * @throws
+		 * @see
+		 */
 	 public void setRoomDiscount(double roomdiscount){
 		 roomDiscount=roomdiscount;
 	 }
+	 /**
+		 * 得到企业会员的折扣
+		 * @param
+		 * @return double型，企业会员的折扣
+		 * @throws
+		 * @see
+		 */
 	 public double getEnterpriseDiscount(){
 	     return enterpriseDiscount;
 	 }
+	 /**
+		 * 设置企业会员的折扣
+		 * @param discount double型，企业会员的折扣
+		 * @return
+		 * @throws
+		 * @see
+		 */
 	 public void setEnterpriseDiscount(double enterprisediscount){
 		 enterpriseDiscount=enterprisediscount;
 	 }
+	 /**
+		 * 得到适用的城市
+		 * @param
+		 * @return String型，适用的城市
+		 * @throws
+		 * @see
+		 */
 	 public String getApplyCity(){
 	     return applycity;
 	 }
+	 /**
+		 * 设置适用的城市
+		 * @param city String型，适用的城市
+		 * @return
+		 * @throws
+		 * @see
+		 */
 	 public void setApplyCity(String city){
 		 applycity=city;
 	 }
+	 /**
+		 * 得到策略的折扣
+		 * @param
+		 * @return double型，策略的折扣
+		 * @throws
+		 * @see
+		 */
 	 public double getDiscount() {
 			return Discount;
 		}

@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Vector;
-
+/**
+ *为酒店预订系统添加初始的城市和商圈
+ */
 public class CityAndBussinessCircle implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private HashMap<String,Vector<String>> cityandbussinesscircle;
