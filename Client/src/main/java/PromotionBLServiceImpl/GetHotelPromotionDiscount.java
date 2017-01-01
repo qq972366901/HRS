@@ -55,7 +55,7 @@ public class GetHotelPromotionDiscount {
 			}
 		}
 		double discount;
-		if(hpvo.hotelID==null){
+		if(hpvo==null){
 			discount=1;
 		}
 		else{
