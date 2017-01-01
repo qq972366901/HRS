@@ -6,7 +6,11 @@ import PO.PromotionPO;
 import dataService.DataFactoryService;
 import dataService.PromotionDataService;
 import rmi.RemoteHelper;
-
+/**
+ * 添加会员等级制度实现类
+ * @author Administrator
+ *
+ */
 public class AddMemberLevelSystem {
 	private DataFactoryService df;
 	private PromotionDataService pds;
