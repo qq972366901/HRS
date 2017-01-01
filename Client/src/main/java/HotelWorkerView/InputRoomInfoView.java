@@ -213,7 +213,20 @@ public class InputRoomInfoView extends JPanel {
 					JOptionPane.showMessageDialog(null, "请输入正确的房间号!","", JOptionPane.ERROR_MESSAGE);
 					return;
 				}
-				
+				int numberOf_sign = 0;
+				for(int i=0;i<roomNNN.length();i++) {
+					if(roomNNN.charAt(i) == '-') {
+						numberOf_sign ++;
+					}
+				}
+				if(numberOf_sign != 1) {
+					JOptionPane.showMessageDialog(null, "请输入正确的房间号范围!","", JOptionPane.ERROR_MESSAGE);
+					return;
+				}
+				if(roomNNN.charAt(roomNNN.length()-1) < '0' || roomNNN.charAt(roomNNN.length()-1) > '9' ) {
+					JOptionPane.showMessageDialog(null, "请输入正确的房间号范围!","", JOptionPane.ERROR_MESSAGE);
+					return;
+				}
 				controller.inputRoomInfo(roomType,roomNumber,roomPrice,roomNNN);
 				JOptionPane.showMessageDialog(null, "录入成功！");
 			}
