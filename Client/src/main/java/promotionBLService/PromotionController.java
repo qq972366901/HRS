@@ -5,7 +5,6 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Vector;
 
-import PromotionBLServiceImpl.GetMemberLevelSystem;
 import VO.HotelPromotionVO;
 import VO.MemberLevelSystemVO;
 import VO.WebPromotionVO;

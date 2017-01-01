@@ -16,7 +16,6 @@ import userBLService.UserBLServiceController;
 import userBLServiceImpl.AccountInfo;
 
 public class UserManagementUiController implements UserManagementUiService {
-	private static final long serialVersionUID = 1L;
 	private JPanel view;
 	private UserBLService user;
 	private String UserID;

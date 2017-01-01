@@ -6,9 +6,6 @@ import PromotionBLServiceImpl.AddHotelPromotion;
 import PromotionBLServiceImpl.GetHotelPromotionByHotelIDAndTime;
 import PromotionBLServiceImpl.GetHotelPromotionDiscount;
 import VO.HotelPromotionVO;
-import VO.UserVO;
-import VO.WebPromotionVO;
-import userBLServiceImpl.Customer;
 public class PromotionHotelController {
 	  /**
      * 添加一种新的酒店营销策略，并公布

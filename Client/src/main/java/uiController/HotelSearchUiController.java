@@ -28,7 +28,6 @@ import uiService.CustomerMainViewService;
 
 
 public class HotelSearchUiController implements HotelSearchUiService{
-	private static final long serialVersionUID = 1L;
 	private JPanel view;
 	private String userID;
 	private HotelBLService hotel;

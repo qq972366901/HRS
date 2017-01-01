@@ -33,7 +33,6 @@ import userBLService.UserBLService;
 import userBLService.UserBLServiceController;
 
 public class OrderBuildUiController implements OrderBuildUiService{
-	private static final long serialVersionUID = 1L;
 	private JPanel view;
 	private String userID;
 	private String hotelID;

@@ -15,8 +15,6 @@ import uiService.UserManagementUiService;
 import uiService.WebAdminUserUiService;
 import userBLService.UserBLService;
 import userBLService.UserBLServiceController;
-import userBLServiceImpl.DES;
-import userBLServiceImpl.Log;
 
 public class WebAdminUserUiController implements WebAdminUserUiService{
 	private JPanel view;

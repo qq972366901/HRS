@@ -1,16 +1,12 @@
 package promotionWeb;
 import java.rmi.RemoteException;
 import java.util.Calendar;
-import java.util.List;
 import java.util.Vector;
 
 import PromotionBLServiceImpl.AddWebPromotion;
-import PromotionBLServiceImpl.GetMemberLevelSystem;
 import PromotionBLServiceImpl.GetWebPromotionDiscount;
 import PromotionBLServiceImpl.SearchWebPromotion;
-import VO.MemberLevelSystemVO;
 import VO.WebPromotionVO;
-import userBLServiceImpl.Credit;
 public class PromotionWebController{
 	/**
      * 添加一种新的网站营销策略，并公布

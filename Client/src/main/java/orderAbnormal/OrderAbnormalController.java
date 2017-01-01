@@ -1,9 +1,6 @@
 package orderAbnormal;
 
-import java.rmi.RemoteException;
-
 import orderBLImpl.OrderState;
-import userBLServiceImpl.Credit;
 /**
  * 网站人员对于异常订单申诉成功的订单进行撤销操作
  * 

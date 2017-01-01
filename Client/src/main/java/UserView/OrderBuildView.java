@@ -140,7 +140,8 @@ public class OrderBuildView extends JPanel{
 				 else{
 					 discount=webdiscount;
 				 }
-				 int price2=(int) (price1*discount*(Integer.parseInt(String.valueOf(between_days))));
+				 price1=price1*(Integer.parseInt(String.valueOf(between_days)));
+				 int price2=(int) (price1*discount);
 				 if(price2<=0){
 					 label17.setText("你的开始时间与退房时间冲突!");
 				 }
@@ -275,7 +276,8 @@ public class OrderBuildView extends JPanel{
 					 else{
 						 discount=webdiscount;
 					 }
-					 int price2=(int) (price1*discount*(Integer.parseInt(String.valueOf(between_days))));
+					 price1=price1*(Integer.parseInt(String.valueOf(between_days)));
+					 int price2=(int) (price1*discount);
 					 if(price2<=0){
 						 label17.setText("你的开始时间与退房时间冲突!");
 					 }
@@ -392,7 +394,8 @@ public class OrderBuildView extends JPanel{
 		 else{
 			 discount=webdiscount;
 		 }
-		 int price2=(int) (price1*discount*(Integer.parseInt(String.valueOf(between_days))));
+		 price1=price1*(Integer.parseInt(String.valueOf(between_days)));
+		 int price2=(int) (price1*discount);
 		 if(price2<=0){
 			 label17.setText("你的开始时间与退房时间冲突!");
 		 }
@@ -486,7 +489,8 @@ public class OrderBuildView extends JPanel{
 				 else{
 					 discount=webdiscount;
 				 }
-				 int price2=(int) (price1*discount*(Integer.parseInt(String.valueOf(between_days))));
+				 price1=price1*(Integer.parseInt(String.valueOf(between_days)));
+				 int price2=(int) (price1*discount);
 				 if(price2<=0){
 					 label17.setText("你的开始时间与退房时间冲突!");
 				 }
@@ -549,7 +553,8 @@ public class OrderBuildView extends JPanel{
 				 else{
 					 discount=webdiscount;
 				 }
-				 int price2=(int) (price1*discount*(Integer.parseInt(String.valueOf(between_days))));
+				 price1=price1*(Integer.parseInt(String.valueOf(between_days)));
+				 int price2=(int) (price1*discount);
 				 if(price2<=0){
 					 label17.setText("你的开始时间与退房时间冲突!");
 				 }
@@ -603,7 +608,8 @@ public class OrderBuildView extends JPanel{
 		 else{
 			 discount=webdiscount;
 		 }
-		 int price2=(int) (price1*discount*(Integer.parseInt(String.valueOf(between_days))));
+		 price1=price1*(Integer.parseInt(String.valueOf(between_days)));
+		 int price2=(int) (price1*discount);
 		 if(price2<=0){
 			 label17.setText("你的开始时间与退房时间冲突!");
 		 }
@@ -684,7 +690,8 @@ public class OrderBuildView extends JPanel{
 				 else{
 					 discount=webdiscount;
 				 }
-				 int price2=(int) (price1*discount*(Integer.parseInt(String.valueOf(between_days))));
+				 price1=price1*(Integer.parseInt(String.valueOf(between_days)));
+				 int price2=(int) (price1*discount);
 				 if(price2<=0){
 					 label17.setText("你的开始时间与退房时间冲突!");
 				 }
@@ -746,7 +753,8 @@ public class OrderBuildView extends JPanel{
 					 else{
 						 discount=webdiscount;
 					 }
-					 int price2=(int) (price1*discount*(Integer.parseInt(String.valueOf(between_days))));
+					 price1=price1*(Integer.parseInt(String.valueOf(between_days)));
+					 int price2=(int) (price1*discount);
 					 if(price2<=0){
 						 label17.setText("你的开始时间与退房时间冲突!");
 					 }
@@ -821,7 +829,8 @@ public class OrderBuildView extends JPanel{
 		 else{
 			 discount=webdiscount;
 		 }
-		int price2=(int) (price1*discount*(Integer.parseInt(String.valueOf(between_days))));
+		 price1=price1*(Integer.parseInt(String.valueOf(between_days)));
+		 int price2=(int) (price1*discount);
 		 if(price1!=price2){
 			 label17=new JLabel("已为你选择了最优的促销策略，打折前总计"+price1+"元，打折后总计"+price2+"元");
 			}
@@ -989,7 +998,8 @@ public class OrderBuildView extends JPanel{
 					 else{
 						 discount=webdiscount;
 					 }
-					 int price2=(int) (price1*discount*(Integer.parseInt(String.valueOf(between_days))));
+					 price1=price1*(Integer.parseInt(String.valueOf(between_days)));
+					 int price2=(int) (price1*discount);
 					int option = JOptionPane.showConfirmDialog(pane,"      你的订单总计"+price2+"元"+"\n             确认提交？","", JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE, null);
 					     switch (option) {
 					     case JOptionPane.YES_OPTION:

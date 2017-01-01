@@ -7,7 +7,6 @@ import java.util.Vector;
 import javax.swing.JPanel;
 
 import UserView.AddHotelView;
-import UserView.MemberRegisterView;
 import UserView.UserManagementView;
 import UserView.WebAdminUserView;
 import VO.UserVO;
@@ -17,7 +16,6 @@ import promotionBLService.PromotionBLService;
 import promotionBLService.PromotionController;
 import runner.ClientRunner;
 import uiService.AddHotelUiService;
-import uiService.MemberRegisterUiService;
 import uiService.UserManagementUiService;
 import uiService.WebAdminUserUiService;
 import userBLService.UserBLService;

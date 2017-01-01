@@ -4,7 +4,6 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import PO.PromotionPO;
 import PO.UserPO;
 /**
  * 持久化用户数据

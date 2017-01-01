@@ -3,7 +3,6 @@ package uiController;
 import java.rmi.RemoteException;
 
 import VO.CreditRecordVO;
-import VO.UserVO;
 import WebPromotionView.CreditManagementView;
 import WebPromotionView.WebPromotionUserView;
 import runner.ClientRunner;

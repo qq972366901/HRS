@@ -9,7 +9,6 @@ import java.util.Vector;
 
 import PO.PromotionPO;
 import VO.HotelPromotionVO;
-import VO.WebPromotionVO;
 import dataService.DataFactoryService;
 import dataService.PromotionDataService;
 import rmi.RemoteHelper;

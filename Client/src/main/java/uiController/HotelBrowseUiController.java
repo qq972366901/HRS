@@ -24,8 +24,6 @@ import runner.ClientRunner;
 import uiService.HotelBrowseUiService;
 import uiService.HotelSearchUiService;
 import uiService.OrderBuildUiService;
-import userBLServiceImpl.DES;
-import userBLServiceImpl.Log;
 
 
 public class HotelBrowseUiController implements HotelBrowseUiService{

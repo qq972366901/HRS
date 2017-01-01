@@ -12,10 +12,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import PO.HotelPO;
 import PO.PromotionPO;
-import PO.UserPO;
-import common.UserType;
 import dataHelper.PromotionDataHelper;
 
 public class PromotionDataHelperImpl implements PromotionDataHelper{
@@ -28,8 +25,8 @@ public class PromotionDataHelperImpl implements PromotionDataHelper{
 	private void init() {
 		driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
 		dbURL="jdbc:sqlserver://localhost:1433;DatabaseName=HRS";
-		userName="sa";
-		userPwd="123456";
+		userName="liu";
+		userPwd="naigo961226";
 		try{
 			 Class.forName(driverName);
 			 dbConn=DriverManager.getConnection(dbURL,userName,userPwd);

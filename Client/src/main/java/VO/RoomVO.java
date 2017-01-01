@@ -1,6 +1,4 @@
 package VO;
-import java.util.Vector;
-
 import PO.RoomPO;
 
 /**

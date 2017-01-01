@@ -9,7 +9,6 @@ import java.util.Vector;
 
 import PO.PromotionPO;
 import VO.HotelPromotionVO;
-import VO.HotelVO;
 import VO.UserVO;
 import dataService.DataFactoryService;
 import dataService.PromotionDataService;
@@ -56,7 +55,7 @@ public class GetHotelPromotionDiscount {
 			}
 		}
 		double discount;
-		if(hpvo.hotelID==null){
+		if(hpvo==null){
 			discount=1;
 		}
 		else{

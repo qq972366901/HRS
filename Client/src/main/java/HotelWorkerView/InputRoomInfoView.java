@@ -13,7 +13,6 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import uiController.InputRoomInfoUiController;
 import uiService.InputRoomInfoUiService;
 /**
  * 录入客房信息的界面

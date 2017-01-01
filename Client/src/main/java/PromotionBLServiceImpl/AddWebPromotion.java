@@ -1,8 +1,6 @@
 package PromotionBLServiceImpl;
 
 import java.rmi.RemoteException;
-import java.util.Calendar;
-
 import PO.PromotionPO;
 import VO.WebPromotionVO;
 import dataService.DataFactoryService;

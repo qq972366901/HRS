@@ -2,7 +2,6 @@ package promotionBLService;
 import java.rmi.RemoteException;
 import java.util.*;
 
-import PromotionBLServiceImpl.GetMemberLevelSystem;
 import VO.*;
 
 /**
