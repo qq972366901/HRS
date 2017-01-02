@@ -10,10 +10,10 @@ import java.util.List;
 
 import org.junit.Test;
 
-import VO.HotelVO;
 import hotelBLService.HotelBLService;
 import hotelBLService.HotelBLServiceController;
 import rmi.RemoteHelper;
+import vo.HotelVO;
 
 /**
  * 测试得到用户的历史酒店

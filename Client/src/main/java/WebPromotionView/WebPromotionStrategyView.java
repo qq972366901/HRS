@@ -1,4 +1,4 @@
-package WebPromotionView;
+package webPromotionView;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -23,9 +23,9 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
-import PromotionBLServiceImpl.GetMemberLevelSystem;
-import VO.WebPromotionVO;
+import promotionBLServiceImpl.GetMemberLevelSystem;
 import uiService.WebPromotionStrategyUiService;
+import vo.WebPromotionVO;
 /**
  * 网站营销策略界面
  * @author LZ

@@ -1,7 +1,7 @@
-package List;
+package list;
 import java.util.*;
 
-import LineItem.PromotionLineItem;
+import lineItem.PromotionLineItem;
 public class PromotionList {
 
 	List<PromotionLineItem> promotions;

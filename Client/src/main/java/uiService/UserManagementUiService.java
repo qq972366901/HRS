@@ -2,10 +2,10 @@ package uiService;
 
 import java.rmi.RemoteException;
 
-import UserView.UserManagementView;
-import VO.UserVO;
 import common.UserType;
 import userBLServiceImpl.AccountInfo;
+import userView.UserManagementView;
+import vo.UserVO;
 /**
  * 用户账号管理控制器接口
  * @author LZ

@@ -11,12 +11,12 @@ import java.util.List;
 
 import org.junit.Test;
 
-import VO.OrderVO;
 import orderBLImpl.Comment;
 import orderBLImpl.CommentInfo;
 import orderBLImpl.OrderLineItem;
 import orderBLImpl.OrderList;
 import rmi.RemoteHelper;
+import vo.OrderVO;
 
 public class TestOrder {
 	/*

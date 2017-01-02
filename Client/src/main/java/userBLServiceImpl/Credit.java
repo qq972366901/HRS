@@ -6,19 +6,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import PO.CreditPO;
-import VO.CreditRecordVO;
-import VO.CreditVO;
-import VO.MemberLevelSystemVO;
 import dataService.CreditDataService;
 import dataService.DataFactoryService;
+import po.CreditPO;
 import promotionMemberGrade.PromotionMemberGradeController;
 import rmi.RemoteHelper;
+import vo.CreditRecordVO;
+import vo.CreditVO;
+import vo.MemberLevelSystemVO;
 /**
  * 负责对于信用值的操作
  * @author LZ
  * @version 1.0
- * @see VO.CreditRecordVO
+ * @see vo.CreditRecordVO
  */
 public class Credit {
 	private HashMap<String,CreditVO> map;
@@ -74,7 +74,7 @@ public class Credit {
 	 * 更新用户等级
 	 * @param UserVO型，界面层传来的VO对象
 	 * @throws RemoteException
-	 * @see VO.UserVO
+	 * @see vo.UserVO
 	 */
 	public void updateLevel(String id ,long credit) throws RemoteException{
 		pi=new PromotionMemberGradeController();

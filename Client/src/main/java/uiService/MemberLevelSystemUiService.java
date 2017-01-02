@@ -1,7 +1,7 @@
 package uiService;
 
-import VO.MemberLevelSystemVO;
-import WebPromotionView.MemberLevelSystemView;
+import vo.MemberLevelSystemVO;
+import webPromotionView.MemberLevelSystemView;
 /**
  * 制定会员等级系统控制器接口
  * @author LZ

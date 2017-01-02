@@ -1,6 +1,6 @@
-package LineItem;
+package lineItem;
 
-import VO.CreditRecordVO;
+import vo.CreditRecordVO;
 
 public class CreditRecordLineItem {
    CreditRecordVO c;

@@ -4,10 +4,6 @@ import java.rmi.RemoteException;
 
 import javax.swing.JPanel;
 
-import UserView.AddHotelView;
-import UserView.LogView;
-import UserView.UserManagementView;
-import UserView.WebAdminUserView;
 import runner.ClientRunner;
 import uiService.AddHotelUiService;
 import uiService.LoginViewControllerService;
@@ -15,6 +11,10 @@ import uiService.UserManagementUiService;
 import uiService.WebAdminUserUiService;
 import userBLService.UserBLService;
 import userBLService.UserBLServiceController;
+import userView.AddHotelView;
+import userView.LogView;
+import userView.UserManagementView;
+import userView.WebAdminUserView;
 /**
  * 网站管理人员主界面的控制器
  * @author lw

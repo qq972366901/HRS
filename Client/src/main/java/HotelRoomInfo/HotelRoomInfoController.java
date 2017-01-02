@@ -1,8 +1,8 @@
-package HotelRoomInfo;
+package hotelRoomInfo;
 
 import java.util.List;
 
-import HotelBLServiceImpl.HotelRoom;
+import hotelBLServiceImpl.HotelRoom;
 
 
 /**负责实现查看酒店所有的房间的信息的控制器

@@ -1,7 +1,8 @@
-package VO;
+package vo;
 
 import java.util.Calendar;
-import PO.*;
+
+import po.*;
 
 /**
  * 促销策略的属性及数据创建与更新

@@ -1,18 +1,18 @@
-package HotelBLServiceImpl;
+package hotelBLServiceImpl;
 
 import java.rmi.RemoteException;
 import java.util.List;
 
-import PO.HotelPO;
-import VO.HotelVO;
-import VO.OrderVO;
+import common.DES;
 import dataService.DataFactoryService;
 import dataService.HotelDataService;
 import orderBLService.OrderBLService;
 import orderBLService.OrderBLServiceController;
+import po.HotelPO;
 import rmi.RemoteHelper;
-import userBLServiceImpl.DES;
 import userBLServiceImpl.Log;
+import vo.HotelVO;
+import vo.OrderVO;
 
 /**负责实现更新与得到酒店信息的功能
  * @author 刘宗侃

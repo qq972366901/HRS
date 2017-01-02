@@ -1,4 +1,4 @@
-package UserView;
+package userView;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -20,9 +20,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import VO.HotelVO;
-import VO.OrderVO;
 import uiService.OrderBuildUiService;
+import vo.HotelVO;
+import vo.OrderVO;
 /**
  * 订单生成界面的Panel
  * @author lw

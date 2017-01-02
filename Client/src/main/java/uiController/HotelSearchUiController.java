@@ -7,13 +7,6 @@ import java.util.Vector;
 
 import javax.swing.JPanel;
 
-import UserView.HotelBrowseView;
-import UserView.HotelSearchView;
-import UserView.OrderBuildView;
-import UserView.CustomerMainView;
-import VO.HotelPromotionVO;
-import VO.HotelVO;
-import VO.OrderVO;
 import hotelBLService.HotelBLService;
 import hotelBLService.HotelBLServiceController;
 import promotionBLService.PromotionBLService;
@@ -24,6 +17,13 @@ import runner.ClientRunner;
 import uiService.HotelBrowseUiService;
 import uiService.HotelSearchUiService;
 import uiService.OrderBuildUiService;
+import userView.CustomerMainView;
+import userView.HotelBrowseView;
+import userView.HotelSearchView;
+import userView.OrderBuildView;
+import vo.HotelPromotionVO;
+import vo.HotelVO;
+import vo.OrderVO;
 import uiService.CustomerMainViewService;
 
 /**

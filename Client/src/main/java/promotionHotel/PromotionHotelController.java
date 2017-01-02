@@ -2,10 +2,10 @@ package promotionHotel;
 import java.rmi.RemoteException;
 import java.util.Calendar;
 
-import PromotionBLServiceImpl.AddHotelPromotion;
-import PromotionBLServiceImpl.GetHotelPromotionByHotelIDAndTime;
-import PromotionBLServiceImpl.GetHotelPromotionDiscount;
-import VO.HotelPromotionVO;
+import promotionBLServiceImpl.AddHotelPromotion;
+import promotionBLServiceImpl.GetHotelPromotionByHotelIDAndTime;
+import promotionBLServiceImpl.GetHotelPromotionDiscount;
+import vo.HotelPromotionVO;
 public class PromotionHotelController {
 	  /**
      * 添加一种新的酒店营销策略，并公布

@@ -1,4 +1,4 @@
-package UserView;
+package userView;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -18,11 +18,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import VO.UserVO;
+import common.DES;
 import common.UserType;
 import uiService.UserManagementUiService;
-import userBLServiceImpl.DES;
 import userBLServiceImpl.Log;
+import vo.UserVO;
 
 
 /**

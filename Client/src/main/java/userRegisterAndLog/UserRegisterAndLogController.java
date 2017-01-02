@@ -1,11 +1,12 @@
 package userRegisterAndLog;
 import java.rmi.RemoteException;
-import VO.CreditVO;
-import VO.LogVO;
-import VO.UserVO;
+
 import userBLServiceImpl.Credit;
 import userBLServiceImpl.Log;
 import userBLServiceImpl.Register;
+import vo.CreditVO;
+import vo.LogVO;
+import vo.UserVO;
 /**
  * 用户注册与登录控制器
  * @author LZ

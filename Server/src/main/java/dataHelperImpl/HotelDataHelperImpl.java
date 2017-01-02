@@ -9,8 +9,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import PO.HotelPO;
 import dataHelper.HotelDataHelper;
+import po.HotelPO;
 
 /**
  * 数据库对酒店表的操作的实现

@@ -3,17 +3,18 @@ package userBLServiceImpl;
 import java.rmi.RemoteException;
 import java.util.HashMap;
 import java.util.List;
-import PO.UserPO;
-import VO.LogVO;
-import VO.UserVO;
+
 import dataService.DataFactoryService;
 import dataService.UserDataService;
+import po.UserPO;
 import rmi.RemoteHelper;
+import vo.LogVO;
+import vo.UserVO;
 /**
  * 负责对客户的操作
  * @author LZ
  * @version 1.0
- * @see VO.UserVO
+ * @see vo.UserVO
  */
 public class Customer {
 	private HashMap<String,UserVO> map;
@@ -60,7 +61,7 @@ public class Customer {
 	 * 按ID查找用户
 	 * @param userID String型，界面层传来的用户ID
 	 * @return 返回属于此ID的用户信息
-	 * @see VO.UserVO
+	 * @see vo.UserVO
 	 */
 	public  UserVO findByID(String userID){
 		UserVO user=map.get(userID);
@@ -70,7 +71,7 @@ public class Customer {
 	 * 更新用户信息
 	 * @param vo UserVO型，界面层传来的VO对象
 	 * @throws RemoteException
-	 * @see VO.UserVO
+	 * @see vo.UserVO
 	 */
 	public void updateUserInfo(UserVO vo) throws RemoteException{
 		if(map.containsKey(vo.id)){
@@ -87,7 +88,7 @@ public class Customer {
 	 * @param vo UserVO型，界面层传来的VO对象
 	 * @return 
 	 * @throws RemoteException
-	 * @see VO.UserVO
+	 * @see vo.UserVO
 	 */
 	public boolean create(UserVO vo,String password) throws RemoteException{
 		if(!map.containsKey(vo.id)){

@@ -4,9 +4,6 @@ import java.rmi.RemoteException;
 
 import javax.swing.JPanel;
 
-import UserView.UserManagementView;
-import UserView.WebAdminUserView;
-import VO.UserVO;
 import common.UserType;
 import runner.ClientRunner;
 import uiService.UserManagementUiService;
@@ -14,6 +11,9 @@ import uiService.WebAdminUserUiService;
 import userBLService.UserBLService;
 import userBLService.UserBLServiceController;
 import userBLServiceImpl.AccountInfo;
+import userView.UserManagementView;
+import userView.WebAdminUserView;
+import vo.UserVO;
 /**
  * 用户管理界面的控制器
  * @author lw

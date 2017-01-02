@@ -6,13 +6,13 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Vector;
 
-import UserView.ReviseInformationView;
-import VO.UserVO;
+import common.DES;
 import uiService.ReviseInformationViewService;
 import userBLService.UserBLService;
 import userBLService.UserBLServiceController;
-import userBLServiceImpl.DES;
 import userBLServiceImpl.Log;
+import userView.ReviseInformationView;
+import vo.UserVO;
 /**
  * 修改个人信息的初始界面接口的实现（方法的注释见及接口）
  * @author 刘宇翔

@@ -5,10 +5,10 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Vector;
 
-import UserView.HotelSearchView;
-import VO.HotelPromotionVO;
-import VO.HotelVO;
-import VO.OrderVO;
+import userView.HotelSearchView;
+import vo.HotelPromotionVO;
+import vo.HotelVO;
+import vo.OrderVO;
 /**
  * 酒店搜索界面接口的实现接口
  * @author 刘伟

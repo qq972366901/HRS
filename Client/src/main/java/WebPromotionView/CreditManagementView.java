@@ -1,4 +1,4 @@
-package WebPromotionView;
+package webPromotionView;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -14,12 +14,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import VO.CreditRecordVO;
+import common.DES;
 import common.Operate;
 import uiService.CreditManagementUiService;
 import userBLServiceImpl.Customer;
-import userBLServiceImpl.DES;
 import userBLServiceImpl.Log;
+import vo.CreditRecordVO;
 /**
  * 信用管理界面
  * @author LZ

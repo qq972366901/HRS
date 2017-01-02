@@ -1,6 +1,6 @@
 package userBLServiceImpl;
 
-import VO.MemberLevelSystemVO;
+import vo.MemberLevelSystemVO;
 /**
  * 负责提供关于会员等级系统的信息
  * @author LZ

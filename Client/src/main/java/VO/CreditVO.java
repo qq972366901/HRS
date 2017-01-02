@@ -1,6 +1,6 @@
-package VO;
+package vo;
 
-import PO.CreditPO;
+import po.CreditPO;
 /**
  * 信用的属性及数据创建
  * @author LZ

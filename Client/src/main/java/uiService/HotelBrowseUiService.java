@@ -4,10 +4,10 @@ import java.rmi.RemoteException;
 import java.util.Calendar;
 import java.util.List;
 
-import UserView.HotelBrowseView;
-import VO.HotelPromotionVO;
-import VO.HotelVO;
-import VO.OrderVO;
+import userView.HotelBrowseView;
+import vo.HotelPromotionVO;
+import vo.HotelVO;
+import vo.OrderVO;
 /**
  * 酒店浏览界面接口的实现接口
  * @author 刘伟

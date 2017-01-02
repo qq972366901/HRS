@@ -1,4 +1,4 @@
-package WebPromotionView;
+package webPromotionView;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;

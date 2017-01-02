@@ -1,11 +1,10 @@
-package UserView;
+package userView;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-import VO.HotelVO;
-import VO.OrderVO;
+import common.DES;
 import runner.ClientRunner;
 import uiController.HistroyHotelViewController;
 import uiController.OrderBuildUiController;
@@ -14,8 +13,9 @@ import uiService.HistroyHotelViewControllerService;
 import uiService.HotelDetailUiService;
 import uiService.OrderBuildUiService;
 import uiService.OrderDetailViewService;
-import userBLServiceImpl.DES;
 import userBLServiceImpl.Log;
+import vo.HotelVO;
+import vo.OrderVO;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;

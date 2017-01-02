@@ -1,4 +1,4 @@
-package WebPromotionView;
+package webPromotionView;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -12,8 +12,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import VO.MemberLevelSystemVO;
 import uiService.MemberLevelSystemUiService;
+import vo.MemberLevelSystemVO;
 /**
  * 会员等级制度界面
  * @author LZ

@@ -3,9 +3,9 @@ package uiController;
 
 import java.rmi.RemoteException;
 
-import UserView.CustomerMainView;
 import uiService.CustomerMainViewService;
 import userBLServiceImpl.Log;
+import userView.CustomerMainView;
 /**
  * 客户的初始界面接口的实现（方法的注释见及接口）
  * @author 刘宇翔

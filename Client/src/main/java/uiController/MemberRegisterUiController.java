@@ -4,12 +4,6 @@ import java.rmi.RemoteException;
 
 import javax.swing.JPanel;
 
-import UserView.MemberRegisterView;
-import UserView.CustomerMainView;
-import VO.UserVO;
-import WebPromotionView.WebPromotionUserView;
-import UserView.AddHotelView;
-import UserView.LogView;
 import runner.ClientRunner;
 import uiService.AddHotelUiService;
 import uiService.AdminRoomUiService;
@@ -20,6 +14,12 @@ import uiService.webPromotionUserUiService;
 import userBLService.UserBLService;
 import userBLService.UserBLServiceController;
 import userBLServiceImpl.Customer;
+import userView.AddHotelView;
+import userView.CustomerMainView;
+import userView.LogView;
+import userView.MemberRegisterView;
+import vo.UserVO;
+import webPromotionView.WebPromotionUserView;
 /**
  * 会员注册界面的控制器
  * @author lw

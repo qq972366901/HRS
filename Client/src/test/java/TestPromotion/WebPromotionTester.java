@@ -11,10 +11,10 @@ import java.util.Calendar;
 import org.junit.Before;
 import org.junit.Test;
 
-import PromotionBLServiceImpl.GetWebPromotionDiscount;
-import PromotionBLServiceImpl.SearchWebPromotion;
-import VO.WebPromotionVO;
+import promotionBLServiceImpl.GetWebPromotionDiscount;
+import promotionBLServiceImpl.SearchWebPromotion;
 import rmi.RemoteHelper;
+import vo.WebPromotionVO;
 
 public class WebPromotionTester {
 	/*

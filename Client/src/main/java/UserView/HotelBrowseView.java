@@ -1,4 +1,4 @@
-package UserView;
+package userView;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -18,10 +18,10 @@ import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
-import VO.OrderVO;
+import common.DES;
 import uiService.HotelBrowseUiService;
-import userBLServiceImpl.DES;
 import userBLServiceImpl.Log;
+import vo.OrderVO;
 
 /**
  * 酒店浏览界面的Panel
@@ -126,7 +126,7 @@ public class HotelBrowseView extends JPanel{
 		}
 		String str=null;
 		if(key!=null){
-		str=DES.decryptDES(controller. findByHotelID(hotelid).hotelPhone, key);
+			str=DES.decryptDES(controller. findByHotelID(hotelid).hotelPhone, key);
 		}
 		label7=new JLabel("酒店联系方式："+str);
 		panel7.add(label7);

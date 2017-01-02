@@ -1,14 +1,14 @@
-package RoomBLServiceImpl;
+package roomBLServiceImpl;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
-import PO.RoomPO;
-import VO.RoomVO;
 import dataService.DataFactoryService;
 import dataService.RoomDataService;
+import po.RoomPO;
 import rmi.RemoteHelper;
+import vo.RoomVO;
 
 /**
  * 判断酒店能否提供足够房间的类

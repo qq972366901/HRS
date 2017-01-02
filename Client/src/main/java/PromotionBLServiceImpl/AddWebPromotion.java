@@ -1,11 +1,12 @@
-package PromotionBLServiceImpl;
+package promotionBLServiceImpl;
 
 import java.rmi.RemoteException;
-import PO.PromotionPO;
-import VO.WebPromotionVO;
+
 import dataService.DataFactoryService;
 import dataService.PromotionDataService;
+import po.PromotionPO;
 import rmi.RemoteHelper;
+import vo.WebPromotionVO;
 /**
  * 添加网站策略实现类
  * @author Administrator

@@ -1,4 +1,4 @@
-package HotelWorkerView;
+package hotelWorkerView;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;

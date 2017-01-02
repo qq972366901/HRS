@@ -4,10 +4,10 @@ import java.rmi.RemoteException;
 import java.text.ParseException;
 import java.util.Calendar;
 
-import VO.CreditRecordVO;
 import common.Operate;
 import orderBLImpl.OrderState;
 import userBLServiceImpl.Credit;
+import vo.CreditRecordVO;
 /**
  * 酒店工作人员对订单的操作
  * 对于未执行订单，将其状态更改为已执行，并为客户增加相应价值的信用值

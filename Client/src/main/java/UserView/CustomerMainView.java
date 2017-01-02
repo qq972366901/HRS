@@ -1,4 +1,4 @@
-package UserView;
+package userView;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;

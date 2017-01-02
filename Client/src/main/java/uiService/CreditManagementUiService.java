@@ -1,7 +1,7 @@
 package uiService;
 
-import VO.CreditRecordVO;
-import WebPromotionView.CreditManagementView;
+import vo.CreditRecordVO;
+import webPromotionView.CreditManagementView;
 
 public interface CreditManagementUiService {
 

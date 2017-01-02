@@ -1,6 +1,6 @@
 package uiService;
 
-import HotelWorkerView.InputRoomInfoView;
+import hotelWorkerView.InputRoomInfoView;
 
 /**
  * 负责实现录入客房界面的服务

@@ -5,12 +5,12 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Vector;
 
-import UserView.CreditView;
-import VO.CreditRecordVO;
 import uiService.CreditViewService;
 import userBLService.UserBLService;
 import userBLService.UserBLServiceController;
 import userBLServiceImpl.Log;
+import userView.CreditView;
+import vo.CreditRecordVO;
 /**
  * 信用查看的初始界面接口的实现（方法的注释见及接口）
  * @author 刘宇翔

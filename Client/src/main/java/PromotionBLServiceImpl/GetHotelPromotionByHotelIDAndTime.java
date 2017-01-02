@@ -1,4 +1,4 @@
-package PromotionBLServiceImpl;
+package promotionBLServiceImpl;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -7,11 +7,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.Vector;
 
-import PO.PromotionPO;
-import VO.HotelPromotionVO;
 import dataService.DataFactoryService;
 import dataService.PromotionDataService;
+import po.PromotionPO;
 import rmi.RemoteHelper;
+import vo.HotelPromotionVO;
 /**
  * 获取酒店策略的实现类
  * @author Administrator

@@ -2,8 +2,9 @@ package uiService;
 
 import java.util.List;
 import java.util.Vector;
-import VO.WebPromotionVO;
-import WebPromotionView.WebPromotionStrategyView;
+
+import vo.WebPromotionVO;
+import webPromotionView.WebPromotionStrategyView;
 /**
  * 制定网站营销策略控制器接口
  * @author LZ

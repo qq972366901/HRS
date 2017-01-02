@@ -2,7 +2,7 @@ package uiService;
 
 import java.util.Calendar;
 
-import HotelWorkerView.MakeHotelPromotionView;
+import hotelWorkerView.MakeHotelPromotionView;
 
 /**
  * 制定酒店营销策略界面的服务

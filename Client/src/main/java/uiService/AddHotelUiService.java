@@ -4,8 +4,8 @@ import java.rmi.RemoteException;
 import java.util.List;
 import java.util.Vector;
 
-import UserView.AddHotelView;
-import VO.UserVO;
+import userView.AddHotelView;
+import vo.UserVO;
 /**
  * 添加酒店界面接口的实现接口
  * @author 刘伟

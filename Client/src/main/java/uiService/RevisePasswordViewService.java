@@ -1,6 +1,6 @@
 package uiService;
 
-import UserView.RevisePasswordView;
+import userView.RevisePasswordView;
 
 /**
  * 负责实现修改密码的初始界面

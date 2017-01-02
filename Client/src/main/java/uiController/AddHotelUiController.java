@@ -6,10 +6,6 @@ import java.util.Vector;
 
 import javax.swing.JPanel;
 
-import UserView.AddHotelView;
-import UserView.UserManagementView;
-import UserView.WebAdminUserView;
-import VO.UserVO;
 import hotelBLService.HotelBLService;
 import hotelBLService.HotelBLServiceController;
 import promotionBLService.PromotionBLService;
@@ -20,6 +16,10 @@ import uiService.UserManagementUiService;
 import uiService.WebAdminUserUiService;
 import userBLService.UserBLService;
 import userBLService.UserBLServiceController;
+import userView.AddHotelView;
+import userView.UserManagementView;
+import userView.WebAdminUserView;
+import vo.UserVO;
 /**
  * 添加酒店界面的控制器
  * @author lw

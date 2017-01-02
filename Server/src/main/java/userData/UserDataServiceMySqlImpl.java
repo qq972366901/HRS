@@ -6,12 +6,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import PO.UserPO;
+
 import common.UserType;
 import dataHelper.DataHelperFactory;
 import dataHelper.UserDataHelper;
 import dataHelperImpl.DataHelperFactoryImpl;
 import dataService.UserDataService;
+import po.UserPO;
 /**
  * 职责是将逻辑层面发来的请求转发给后台UserData处理
  * @author LZ
@@ -40,7 +41,7 @@ public class UserDataServiceMySqlImpl implements UserDataService{
 	 * @param
 	 * @return
 	 * @throws RemoteException
-	 * @see PO.UserPO
+	 * @see po.UserPO
 	 */
 	@Override
 	public UserPO find(String id) throws RemoteException {
@@ -51,7 +52,7 @@ public class UserDataServiceMySqlImpl implements UserDataService{
 	 * @param po UserPO型，逻辑层传来的PO实体
 	 * @return
 	 * @throws RemoteException
-	 * @see PO.UserPO
+	 * @see po.UserPO
 	 */
 	@Override
 	public void insert(UserPO po) throws RemoteException {
@@ -65,7 +66,7 @@ public class UserDataServiceMySqlImpl implements UserDataService{
 	 * @param po UserPO型，逻辑层传来的PO实体
 	 * @return
 	 * @throws RemoteException
-	 * @see PO.UserPO
+	 * @see po.UserPO
 	 */
 	@Override
 	public void delete(String userID) throws RemoteException {
@@ -79,7 +80,7 @@ public class UserDataServiceMySqlImpl implements UserDataService{
 	 * @param po UserPO型，逻辑层传来的PO实体
 	 * @return
 	 * @throws RemoteException
-	 * @see PO.UserPO
+	 * @see po.UserPO
 	 */
 	@Override
 	public void update(UserPO po) throws RemoteException {
@@ -93,7 +94,7 @@ public class UserDataServiceMySqlImpl implements UserDataService{
 	 * @param
 	 * @return
 	 * @throws RemoteException
-	 * @see PO.UserPO
+	 * @see po.UserPO
 	 */
 	private void init() throws RemoteException {
 		dataFactory=new DataHelperFactoryImpl();

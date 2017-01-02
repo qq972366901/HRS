@@ -4,18 +4,18 @@ import java.rmi.RemoteException;
 import java.util.HashMap;
 import java.util.List;
 
-import PO.UserPO;
-import VO.LogVO;
-import VO.UserVO;
 import common.UserType;
 import dataService.DataFactoryService;
 import dataService.UserDataService;
+import po.UserPO;
 import rmi.RemoteHelper;
+import vo.LogVO;
+import vo.UserVO;
 /**
  * 负责网站管理人员对于账户的操作，维护除了客户以外的所有用户类型，修改客户信息则调用Customer类的方法
  * @author LZ
  * @version 1.0
- * @see VO.UserVO
+ * @see vo.UserVO
  */
 public class Account{
 	private DataFactoryService df;
@@ -68,7 +68,7 @@ public class Account{
 	 * 更新账户基本信息
 	 * @param vo UserVO型，界面层传来的VO对象
 	 * @throws RemoteException
-	 * @see VO.UserVO
+	 * @see vo.UserVO
 	 */
 	public void update(UserVO vo,String password) throws RemoteException{
 		if(vo.type.equals(UserType.Customer)){
@@ -101,7 +101,7 @@ public class Account{
 	 * 删除某个账户
 	 * @param vo UserVO型，界面层传来的VO对象
 	 * @throws RemoteException
-	 * @see VO.UserVO
+	 * @see vo.UserVO
 	 */
 	public void delete(String id) throws RemoteException{
 		if(worker.containsKey(id)){
@@ -119,7 +119,7 @@ public class Account{
 	 * 增加一个账户
 	 * @param vo UserVO型，界面层传来的VO对象
 	 * @throws RemoteException
-	 * @see VO.UserVO
+	 * @see vo.UserVO
 	 */
 	public boolean add(UserVO vo,String password) throws RemoteException{
 		if(!worker.containsKey(vo.id)){

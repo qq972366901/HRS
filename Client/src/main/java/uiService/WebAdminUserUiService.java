@@ -2,7 +2,7 @@ package uiService;
 
 import java.rmi.RemoteException;
 
-import UserView.WebAdminUserView;
+import userView.WebAdminUserView;
 
 /**
  * 网站管理人员主界面接口的实现接口

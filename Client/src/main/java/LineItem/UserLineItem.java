@@ -1,6 +1,6 @@
-package LineItem;
+package lineItem;
 
-import VO.UserVO;
+import vo.UserVO;
 
 public class UserLineItem {
 	 UserVO c;

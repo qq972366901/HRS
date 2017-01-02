@@ -1,4 +1,4 @@
-package UserView;
+package userView;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -30,15 +30,15 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
-import VO.HotelVO;
-import VO.OrderVO;
+import common.DES;
 import hotelBLService.HotelBLService;
 import hotelBLService.HotelBLServiceController;
 import roomBLService.RoomBLService;
 import roomBLService.RoomBLServiceController;
 import uiService.HotelSearchUiService;
-import userBLServiceImpl.DES;
 import userBLServiceImpl.Log;
+import vo.HotelVO;
+import vo.OrderVO;
 /**
  * 酒店搜索界面的Panel
  * @author lw

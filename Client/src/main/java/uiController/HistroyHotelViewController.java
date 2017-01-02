@@ -3,11 +3,11 @@ package uiController;
 import java.util.ArrayList;
 import java.util.List;
 
-import UserView.HistroyHotelView;
-import VO.HotelVO;
 import hotelBLService.HotelBLService;
 import hotelBLService.HotelBLServiceController;
 import uiService.HistroyHotelViewControllerService;
+import userView.HistroyHotelView;
+import vo.HotelVO;
 /**
  * 历史酒店的初始界面接口的实现（方法的注释见及接口）
  * @author 刘宇翔

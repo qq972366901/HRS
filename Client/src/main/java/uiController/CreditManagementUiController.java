@@ -2,14 +2,14 @@ package uiController;
 
 import java.rmi.RemoteException;
 
-import VO.CreditRecordVO;
-import WebPromotionView.CreditManagementView;
-import WebPromotionView.WebPromotionUserView;
 import runner.ClientRunner;
 import uiService.CreditManagementUiService;
 import uiService.webPromotionUserUiService;
 import userBLService.UserBLService;
 import userBLService.UserBLServiceController;
+import vo.CreditRecordVO;
+import webPromotionView.CreditManagementView;
+import webPromotionView.WebPromotionUserView;
 /**
  * 用户信用值管理界面控制器
  * @author LZ

@@ -1,11 +1,11 @@
-package PromotionBLServiceImpl;
+package promotionBLServiceImpl;
 
 import java.rmi.RemoteException;
 import java.util.Calendar;
 
-import PO.PromotionPO;
 import dataService.DataFactoryService;
 import dataService.PromotionDataService;
+import po.PromotionPO;
 import rmi.RemoteHelper;
 /**
  * 添加酒店策略的实现类

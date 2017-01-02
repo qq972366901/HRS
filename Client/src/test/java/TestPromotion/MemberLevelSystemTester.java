@@ -10,7 +10,7 @@ import java.rmi.RemoteException;
 import org.junit.Before;
 import org.junit.Test;
 
-import PromotionBLServiceImpl.GetMemberLevelSystem;
+import promotionBLServiceImpl.GetMemberLevelSystem;
 import rmi.RemoteHelper;
 
 public class MemberLevelSystemTester {

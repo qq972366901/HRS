@@ -1,6 +1,6 @@
 package uiService;
 
-import UserView.CustomerMainView;
+import userView.CustomerMainView;
 /**
  * 负责实现客户的初始界面
  * @author 刘宇翔

@@ -2,7 +2,7 @@ package uiService;
 
 import java.util.List;
 
-import UserView.CommentView;
+import userView.CommentView;
 /**
  * 负责实现评论界面的初始界面
  * @author 刘宇翔

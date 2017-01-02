@@ -3,7 +3,7 @@ package dataHelper;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import PO.CreditRecordPO;
+import po.CreditRecordPO;
 /**
  * 持久化信用记录数据
  * @author LZ

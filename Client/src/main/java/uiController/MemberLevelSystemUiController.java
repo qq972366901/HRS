@@ -3,9 +3,6 @@ package uiController;
 
 import java.rmi.RemoteException;
 
-import VO.MemberLevelSystemVO;
-import WebPromotionView.MemberLevelSystemView;
-import WebPromotionView.WebPromotionUserView;
 import promotionBLService.PromotionBLService;
 import promotionBLService.PromotionController;
 import runner.ClientRunner;
@@ -13,6 +10,9 @@ import uiService.MemberLevelSystemUiService;
 import uiService.webPromotionUserUiService;
 import userBLService.UserBLService;
 import userBLService.UserBLServiceController;
+import vo.MemberLevelSystemVO;
+import webPromotionView.MemberLevelSystemView;
+import webPromotionView.WebPromotionUserView;
 /**
  * 制定会员等级系统控制器
  * @author LZ

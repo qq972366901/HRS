@@ -2,14 +2,14 @@ package hotelBLService;
 
 import java.util.List;
 
-import HotelRoomAdd.HotelRoomAddController;
-import HotelRoomInfo.HotelRoomInfoController;
-import VO.HotelVO;
-import VO.OrderVO;
 import hotelEverordered.HotelEverorderedController;
 import hotelInformationMaintenance.HotelInformationMaintenanceController;
 import hotelInformationOverview.HotelInformationOverviewController;
 import hotelInformationSearch.HotelInformationSearchController;
+import hotelRoomAdd.HotelRoomAddController;
+import hotelRoomInfo.HotelRoomInfoController;
+import vo.HotelVO;
+import vo.OrderVO;
 
 /**
  * 负责实现酒店功能的服务接口

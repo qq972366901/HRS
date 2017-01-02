@@ -1,6 +1,6 @@
 package uiService;
 
-import WebPromotionView.WebPromotionUserView;
+import webPromotionView.WebPromotionUserView;
 
 /**
  * 负责实现酒店管理系统的网站营销人员的初始界面

@@ -1,4 +1,4 @@
-package UserView;
+package userView;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;

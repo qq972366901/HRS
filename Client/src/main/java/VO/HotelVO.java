@@ -1,5 +1,5 @@
-package VO;
-import PO.HotelPO;
+package vo;
+import po.HotelPO;
 
 /**
  * 酒店的属性及数据创建与更新

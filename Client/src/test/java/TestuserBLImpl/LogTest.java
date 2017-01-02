@@ -10,9 +10,9 @@ import java.rmi.RemoteException;
 import org.junit.Before;
 import org.junit.Test;
 
-import VO.LogVO;
 import rmi.RemoteHelper;
 import userBLServiceImpl.Log;
+import vo.LogVO;
 
 public class LogTest {
 	/*

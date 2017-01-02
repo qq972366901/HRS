@@ -2,7 +2,7 @@ package uiService;
 
 import java.util.Vector;
 
-import UserView.ReviseInformationView;
+import userView.ReviseInformationView;
 /**
  * 负责实现修改个人信息的初始界面
  * @author 刘宇翔

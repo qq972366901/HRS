@@ -1,6 +1,6 @@
 package roomList;
 
-import RoomBLServiceImpl.RoomAllOfHotel;
+import roomBLServiceImpl.RoomAllOfHotel;
 
 /**
  * 酒店所以房间列表的控制器

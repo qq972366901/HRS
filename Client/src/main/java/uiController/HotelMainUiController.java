@@ -2,13 +2,13 @@ package uiController;
 
 import java.rmi.RemoteException;
 
-import HotelWorkerView.AdminRoomView;
-import HotelWorkerView.HotelMainView;
-import HotelWorkerView.MakeHotelPromotionView;
-import HotelWorkerView.ProcessOrderView;
-import HotelWorkerView.UpdateHotelInfoView;
+import common.DES;
 import common.UserType;
-import UserView.LogView;
+import hotelWorkerView.AdminRoomView;
+import hotelWorkerView.HotelMainView;
+import hotelWorkerView.MakeHotelPromotionView;
+import hotelWorkerView.ProcessOrderView;
+import hotelWorkerView.UpdateHotelInfoView;
 import runner.ClientRunner;
 import uiService.AdminRoomUiService;
 import uiService.HotelMainUiService;
@@ -16,8 +16,8 @@ import uiService.LoginViewControllerService;
 import uiService.MakeHotelPromotionUiService;
 import uiService.ProcessOrderUiService;
 import uiService.UpdateHotelInfoUiService;
-import userBLServiceImpl.DES;
 import userBLServiceImpl.Log;
+import userView.LogView;
 
 /**
  * 负责实现酒店管理系统的酒店工作人员的初始界面的控制器

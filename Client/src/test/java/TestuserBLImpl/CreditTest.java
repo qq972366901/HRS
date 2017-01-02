@@ -12,11 +12,11 @@ import java.util.Calendar;
 import org.junit.Before;
 import org.junit.Test;
 
-import VO.CreditRecordVO;
 import common.Operate;
 import rmi.RemoteHelper;
 import userBLServiceImpl.Credit;
 import userBLServiceImpl.Customer;
+import vo.CreditRecordVO;
 
 public class CreditTest {
 	/*

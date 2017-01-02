@@ -1,9 +1,9 @@
-package VO;
+package vo;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Vector;
 
-import PO.*;
+import po.*;
 
 /**
  * 订单的属性及数据创建与更新

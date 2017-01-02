@@ -6,14 +6,6 @@ import java.util.List;
 
 import javax.swing.JPanel;
 
-import UserView.HotelBrowseView;
-import UserView.HotelDetailView;
-import UserView.HotelSearchView;
-import UserView.LogView;
-import UserView.OrderBuildView;
-import UserView.OrderDetailView;
-import VO.HotelVO;
-import VO.OrderVO;
 import hotelBLService.HotelBLService;
 import hotelBLService.HotelBLServiceController;
 import orderBLService.OrderBLService;
@@ -31,6 +23,14 @@ import uiService.OrderBuildUiService;
 import uiService.OrderDetailViewService;
 import userBLService.UserBLService;
 import userBLService.UserBLServiceController;
+import userView.HotelBrowseView;
+import userView.HotelDetailView;
+import userView.HotelSearchView;
+import userView.LogView;
+import userView.OrderBuildView;
+import userView.OrderDetailView;
+import vo.HotelVO;
+import vo.OrderVO;
 /**
  * 订单生成界面的控制器
  * @author lw

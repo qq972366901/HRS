@@ -1,6 +1,6 @@
 package orderBLImpl;
 
-import PO.OrderPO;
+import po.OrderPO;
 
 public class CommentInfo implements CommentInfoService{
 	public String comment;

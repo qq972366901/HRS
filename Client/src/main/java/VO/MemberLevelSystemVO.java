@@ -1,6 +1,6 @@
-package VO;
+package vo;
 
-import PO.PromotionPO;
+import po.PromotionPO;
 /**
  * 会员等级制度属性及数据创建与更新
  * @author lw

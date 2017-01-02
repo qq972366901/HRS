@@ -1,6 +1,6 @@
 package uiService;
 
-import UserView.LogView;
+import userView.LogView;
 /**
  * 修改个人信息的初始界面借口的实现接口
  * @author 刘宇翔

@@ -1,7 +1,7 @@
 package uiService;
 
-import UserView.MemberRegisterView;
-import VO.UserVO;
+import userView.MemberRegisterView;
+import vo.UserVO;
 /**
  * 会员注册界面接口的实现接口
  * @author 刘伟

@@ -4,9 +4,9 @@ import java.rmi.RemoteException;
 import java.util.Calendar;
 import java.util.List;
 
-import UserView.OrderBuildView;
-import VO.HotelVO;
-import VO.OrderVO;
+import userView.OrderBuildView;
+import vo.HotelVO;
+import vo.OrderVO;
 /**
  * 订单生成界面接口的实现接口
  * @author 刘伟

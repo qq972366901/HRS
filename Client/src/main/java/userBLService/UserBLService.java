@@ -1,8 +1,9 @@
 package userBLService;
 import java.util.HashMap;
-import VO.*;
+
 import common.UserType;
 import userBLServiceImpl.AccountInfo;
+import vo.*;
 /**
  * 负责实现用户管理界面所需要的服务接口
  * @author 刘伟

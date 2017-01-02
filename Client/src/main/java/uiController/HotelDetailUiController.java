@@ -3,12 +3,12 @@ package uiController;
 import java.util.ArrayList;
 import java.util.List;
 
-import UserView.HotelDetailView;
-import VO.HotelVO;
-import VO.OrderVO;
 import hotelBLService.HotelBLService;
 import hotelBLService.HotelBLServiceController;
 import uiService.HotelDetailUiService;
+import userView.HotelDetailView;
+import vo.HotelVO;
+import vo.OrderVO;
 /**
  * 酒店详细信息与酒店下的订单的初始界面接口的实现（方法的注释见及接口）
  * @author 刘宇翔

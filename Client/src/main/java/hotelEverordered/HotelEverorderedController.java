@@ -2,10 +2,10 @@ package hotelEverordered;
 import java.rmi.RemoteException;
 import java.util.List;
 
-import HotelBLServiceImpl.HotelInfoListByUser;
-import VO.HotelVO;
-import VO.OrderVO;
+import hotelBLServiceImpl.HotelInfoListByUser;
 import orderBLImpl.OrderList;
+import vo.HotelVO;
+import vo.OrderVO;
 
 /**负责实现查看酒店历史订单的控制器
  * @author 刘宗侃

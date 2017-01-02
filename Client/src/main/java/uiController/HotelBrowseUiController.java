@@ -6,12 +6,6 @@ import java.util.List;
 
 import javax.swing.JPanel;
 
-import UserView.HotelBrowseView;
-import UserView.HotelSearchView;
-import UserView.OrderBuildView;
-import VO.HotelPromotionVO;
-import VO.HotelVO;
-import VO.OrderVO;
 import hotelBLService.HotelBLService;
 import hotelBLService.HotelBLServiceController;
 import orderBLService.OrderBLService;
@@ -24,6 +18,12 @@ import runner.ClientRunner;
 import uiService.HotelBrowseUiService;
 import uiService.HotelSearchUiService;
 import uiService.OrderBuildUiService;
+import userView.HotelBrowseView;
+import userView.HotelSearchView;
+import userView.OrderBuildView;
+import vo.HotelPromotionVO;
+import vo.HotelVO;
+import vo.OrderVO;
 
 /**
  * 浏览酒店界面的控制器
