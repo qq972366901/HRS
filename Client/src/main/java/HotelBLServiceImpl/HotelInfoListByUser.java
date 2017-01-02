@@ -1,14 +1,14 @@
-package HotelBLServiceImpl;
+package hotelBLServiceImpl;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
-import PO.HotelPO;
-import VO.HotelVO;
 import dataService.DataFactoryService;
 import dataService.HotelDataService;
+import po.HotelPO;
 import rmi.RemoteHelper;
+import vo.HotelVO;
 
 
 /**负责实现得到用户历史酒店列表的功能

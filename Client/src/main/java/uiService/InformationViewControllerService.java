@@ -2,7 +2,7 @@ package uiService;
 
 import java.util.Vector;
 
-import UserView.InformationView;
+import userView.InformationView;
 /**
  * 负责实现个人信息管理的初始界面
  * @author 刘宇翔

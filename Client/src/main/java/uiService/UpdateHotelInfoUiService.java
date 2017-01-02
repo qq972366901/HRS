@@ -1,6 +1,6 @@
 package uiService;
 
-import HotelWorkerView.UpdateHotelInfoView;
+import hotelWorkerView.UpdateHotelInfoView;
 
 /**
  * 维护酒店基本信息的界面的服务

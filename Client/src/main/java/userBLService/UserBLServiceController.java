@@ -3,8 +3,7 @@ package userBLService;
 import java.rmi.RemoteException;
 import java.text.ParseException;
 import java.util.HashMap;
-import VO.CreditRecordVO;
-import VO.UserVO;
+
 import common.UserType;
 import userBLServiceImpl.AccountInfo;
 import userCreditManagement.UserCreditManagementController;
@@ -12,6 +11,8 @@ import userCreditRecord.UserCreditRecordController;
 import userInformationMaintenance.UserInformationMaintenanceController;
 import userManagement.UserManagementController;
 import userRegisterAndLog.UserRegisterAndLogController;
+import vo.CreditRecordVO;
+import vo.UserVO;
 /**
  * User模块的实现
  * @author LZ

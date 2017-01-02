@@ -1,7 +1,7 @@
 package hotelBLService;
 import java.util.List;
 
-import VO.*;
+import vo.*;
 
 /**
  * 负责实现酒店功能的服务接口

@@ -1,12 +1,13 @@
 package uiController;
 
 import java.rmi.RemoteException;
-import UserView.RevisePasswordView;
+
+import common.DES;
 import uiService.RevisePasswordViewService;
 import userBLService.UserBLService;
 import userBLService.UserBLServiceController;
-import userBLServiceImpl.DES;
 import userBLServiceImpl.Log;
+import userView.RevisePasswordView;
 /**
  * 修改密码的初始界面接口的实现（方法的注释见及接口）
  * @author 刘宇翔

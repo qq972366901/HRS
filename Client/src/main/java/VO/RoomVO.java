@@ -1,5 +1,5 @@
-package VO;
-import PO.RoomPO;
+package vo;
+import po.RoomPO;
 
 /**
  * 房间的属性及数据创建与更新

@@ -4,9 +4,6 @@ import java.rmi.RemoteException;
 import java.util.List;
 import java.util.Vector;
 
-import VO.WebPromotionVO;
-import WebPromotionView.WebPromotionStrategyView;
-import WebPromotionView.WebPromotionUserView;
 import promotionBLService.PromotionBLService;
 import promotionBLService.PromotionController;
 import runner.ClientRunner;
@@ -14,6 +11,9 @@ import uiService.WebPromotionStrategyUiService;
 import uiService.webPromotionUserUiService;
 import userBLService.UserBLService;
 import userBLService.UserBLServiceController;
+import vo.WebPromotionVO;
+import webPromotionView.WebPromotionStrategyView;
+import webPromotionView.WebPromotionUserView;
 
 public class WebPromotionStrategyUiController implements WebPromotionStrategyUiService{
 	private WebPromotionStrategyView view;

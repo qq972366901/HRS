@@ -1,6 +1,6 @@
-package VO;
+package vo;
 
-import PO.UserPO;
+import po.UserPO;
 /**
  * 登录有关的数据
  * @author LZ

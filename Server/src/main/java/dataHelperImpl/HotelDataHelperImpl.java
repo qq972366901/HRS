@@ -9,8 +9,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import PO.HotelPO;
 import dataHelper.HotelDataHelper;
+import po.HotelPO;
 
 /**
  * 数据库对酒店表的操作的实现
@@ -30,8 +30,8 @@ public class HotelDataHelperImpl implements HotelDataHelper{
 	private void init() {
 		driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
 		dbURL="jdbc:sqlserver://localhost:1433;DatabaseName=HRS";
-		userName="sa";
-		userPwd="123456";
+		userName="liu";
+		userPwd="naigo961226";
 		try{
 			 Class.forName(driverName);
 			 dbConn=DriverManager.getConnection(dbURL,userName,userPwd);

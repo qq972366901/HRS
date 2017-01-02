@@ -1,8 +1,9 @@
-package VO;
+package vo;
 
 import java.util.Calendar;
-import PO.UserPO;
+
 import common.UserType;
+import po.UserPO;
 
 /**
  * 用户的属性及数据创建与更新
@@ -45,7 +46,7 @@ public class UserVO{
      * 
      * @param user UserVO型，一个用来更新数据的用户对象
      * @return 
-     * @see VO.UserVO
+     * @see vo.UserVO
      */
 	public void update(UserVO user) {
 		contactway=user.contactway;

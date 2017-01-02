@@ -1,8 +1,8 @@
 package orderBuild;
 
-import RoomBLServiceImpl.RoomAvailableJudge;
-import VO.OrderVO;
 import orderBLImpl.OrderLineItem;
+import roomBLServiceImpl.RoomAvailableJudge;
+import vo.OrderVO;
 /**
  * 生成订单
  * 判断订单是否能够执行，倘若能够执行，那么记录订单信息并保存到数据库中

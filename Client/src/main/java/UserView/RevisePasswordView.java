@@ -1,4 +1,4 @@
-package UserView;
+package userView;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;

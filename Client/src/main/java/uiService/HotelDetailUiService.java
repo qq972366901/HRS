@@ -2,9 +2,9 @@ package uiService;
 
 import java.util.List;
 
-import UserView.HotelDetailView;
-import VO.HotelVO;
-import VO.OrderVO;
+import userView.HotelDetailView;
+import vo.HotelVO;
+import vo.OrderVO;
 /**
  * 负责实现酒店详细信息及相关订单的初始界面
  * @author 刘宇翔

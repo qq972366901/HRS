@@ -1,10 +1,10 @@
 package promotionMemberGrade;
 
-import PromotionBLServiceImpl.AddMemberLevelSystem;
-import PromotionBLServiceImpl.GetMemberLevelSystem;
-import PromotionBLServiceImpl.UpdateMemberLevelSystem;
-import VO.MemberLevelSystemVO;
+import promotionBLServiceImpl.AddMemberLevelSystem;
+import promotionBLServiceImpl.GetMemberLevelSystem;
+import promotionBLServiceImpl.UpdateMemberLevelSystem;
 import userBLServiceImpl.PromotionInfo;
+import vo.MemberLevelSystemVO;
 public class PromotionMemberGradeController implements PromotionInfo{	
 	/**
      * 添加一种新的会员等级制度

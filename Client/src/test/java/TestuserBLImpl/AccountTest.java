@@ -11,12 +11,12 @@ import java.util.Calendar;
 import org.junit.Before;
 import org.junit.Test;
 
-import VO.UserVO;
 import common.UserType;
 import rmi.RemoteHelper;
 import userBLServiceImpl.Account;
 import userBLServiceImpl.AccountInfo;
 import userBLServiceImpl.Credit;
+import vo.UserVO;
 
 public class AccountTest {
 	/*

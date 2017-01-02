@@ -1,8 +1,8 @@
 package orderBLService;
 import java.util.*;
 
-import VO.*;
 import common.*;
+import vo.*;
 
 /**
  * 负责实现订单界面所需要的服务接口

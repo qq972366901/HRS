@@ -1,16 +1,16 @@
-package HotelBLServiceImpl;
+package hotelBLServiceImpl;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
-import PO.HotelPO;
-import RoomBLServiceImpl.RoomAllOfHotel;
-import VO.HotelVO;
-import VO.RoomVO;
 import dataService.DataFactoryService;
 import dataService.HotelDataService;
+import po.HotelPO;
 import rmi.RemoteHelper;
+import roomBLServiceImpl.RoomAllOfHotel;
+import vo.HotelVO;
+import vo.RoomVO;
 /**
  * 负责酒店查找功能的具体实现
  * @author 刘宗侃

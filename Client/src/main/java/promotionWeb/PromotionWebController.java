@@ -3,10 +3,10 @@ import java.rmi.RemoteException;
 import java.util.Calendar;
 import java.util.Vector;
 
-import PromotionBLServiceImpl.AddWebPromotion;
-import PromotionBLServiceImpl.GetWebPromotionDiscount;
-import PromotionBLServiceImpl.SearchWebPromotion;
-import VO.WebPromotionVO;
+import promotionBLServiceImpl.AddWebPromotion;
+import promotionBLServiceImpl.GetWebPromotionDiscount;
+import promotionBLServiceImpl.SearchWebPromotion;
+import vo.WebPromotionVO;
 public class PromotionWebController{
 	/**
      * 添加一种新的网站营销策略，并公布

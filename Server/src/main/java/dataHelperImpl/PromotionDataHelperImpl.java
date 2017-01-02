@@ -12,21 +12,27 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import PO.PromotionPO;
 import dataHelper.PromotionDataHelper;
-
+import po.PromotionPO;
+/**
+ * 数据库对策略表的操作的实现
+ * @author 刘宗侃
+ *
+ */
 public class PromotionDataHelperImpl implements PromotionDataHelper{
 	private String driverName;
 	private String dbURL;
 	private String userName;
 	private String userPwd;
 	private Connection dbConn;
-	
+	/**
+	 * 连接数据库
+	 */
 	private void init() {
 		driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
 		dbURL="jdbc:sqlserver://localhost:1433;DatabaseName=HRS";
-		userName="sa";
-		userPwd="123456";
+		userName="liu";
+		userPwd="naigo961226";
 		try{
 			 Class.forName(driverName);
 			 dbConn=DriverManager.getConnection(dbURL,userName,userPwd);
@@ -36,6 +42,9 @@ public class PromotionDataHelperImpl implements PromotionDataHelper{
 			 System.out.print("连接失败");
 		 }
 	}
+	/**
+	 * 关闭数据库的连接
+	 */
 	private void finish(){
 		if(dbConn!=null){
 			try {
@@ -47,6 +56,12 @@ public class PromotionDataHelperImpl implements PromotionDataHelper{
 			}
 		}
 	}
+	/**
+	 * 在数据库中增加一个po记录
+	 * 
+	 * @param po PromotionPO型，新增策略
+	 * @return
+	 */
 	@Override
 	public void insert(PromotionPO po) {
 		// TODO Auto-generated method stub
@@ -119,7 +134,12 @@ public class PromotionDataHelperImpl implements PromotionDataHelper{
 		
 		finish();
 	}
-
+	/**
+	 * 在数据库中删除一个po记录
+	 * 
+	 * @param po PromotionPO型，删除的策略
+	 * @return
+	 */
 	@Override
 	public void delete(String id) {
 		// TODO Auto-generated method stub
@@ -141,7 +161,12 @@ public class PromotionDataHelperImpl implements PromotionDataHelper{
 		}
 		finish();	
 	}
-
+	/**
+	 * 在数据库中更新一个po记录
+	 * 
+	 * @param po PromotionPO型，更新策略
+	 * @return
+	 */
 	@Override
 	public void update(PromotionPO po) {
 		// TODO Auto-generated method stub
@@ -174,7 +199,12 @@ public class PromotionDataHelperImpl implements PromotionDataHelper{
 		finish();
 	}
 
-
+	/**
+	 * 在数据库中查找一个po记录
+	 * 
+	 * @param po PromotionPO型，查找的策略
+	 * @return
+	 */
 	@Override
 	public PromotionPO find(String id) {
 		// TODO Auto-generated method stub
@@ -220,7 +250,12 @@ public class PromotionDataHelperImpl implements PromotionDataHelper{
 		finish();
 		return po;
 	}
-
+	/**
+	 * 得到所有的网站策略
+	 * 
+	 * @param List<PromotionPO>型，策略的列表
+	 * @return
+	 */
 	@Override
 	public List<PromotionPO> getAllWebPromotion() {
 		// TODO Auto-generated method stub
@@ -271,7 +306,12 @@ public class PromotionDataHelperImpl implements PromotionDataHelper{
 		finish();
 		return list;
 	}
-
+	/**
+	 * 得到所有的酒店策略
+	 * 
+	 * @param List<PromotionPO>型，策略的列表
+	 * @return
+	 */
 	@Override
 	public List<PromotionPO> getAllHotelPromotion() {
 		ArrayList<PromotionPO> list=new ArrayList<PromotionPO>();
@@ -321,7 +361,12 @@ public class PromotionDataHelperImpl implements PromotionDataHelper{
 		finish();
 		return list;
 	}
-
+	/**
+	 * 得到会员等级制度
+	 * 
+	 * @param PromotionPO型，会员等级制度
+	 * @return
+	 */
 	@Override
 	public PromotionPO getSystemMemberGrade() {
 		// TODO Auto-generated method stub

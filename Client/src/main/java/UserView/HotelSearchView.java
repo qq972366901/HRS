@@ -1,4 +1,4 @@
-package UserView;
+package userView;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -30,16 +30,20 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
-import VO.HotelVO;
-import VO.OrderVO;
+import common.DES;
 import hotelBLService.HotelBLService;
 import hotelBLService.HotelBLServiceController;
 import roomBLService.RoomBLService;
 import roomBLService.RoomBLServiceController;
 import uiService.HotelSearchUiService;
-import userBLServiceImpl.DES;
 import userBLServiceImpl.Log;
-
+import vo.HotelVO;
+import vo.OrderVO;
+/**
+ * 酒店搜索界面的Panel
+ * @author lw
+ *
+ */
 public class HotelSearchView extends JPanel{
 	private static final long serialVersionUID = 1L;
 	private JButton button1,button2,button3,button4,button5,button6,button7;
@@ -841,7 +845,6 @@ public class HotelSearchView extends JPanel{
 						inf.add(controller.findByHotelID(hotelid).hotelName);
 						inf.add(controller.findByHotelID(hotelid).hotelAddress);
 						String promotioninf="暂无";
-						System.out.println(controller.getHotelPromotionByHotelIDAndTime(hotelid,cal).promotionName);
 						if(controller.getHotelPromotionByHotelIDAndTime(hotelid,cal).promotionName!=null){
 							promotioninf=controller.getHotelPromotionByHotelIDAndTime(hotelid,cal).promotionName+" "+controller.getHotelPromotionByHotelIDAndTime(hotelid,cal).discount+"折起";
 						}

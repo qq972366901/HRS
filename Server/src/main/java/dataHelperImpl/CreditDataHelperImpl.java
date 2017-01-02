@@ -6,8 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import PO.CreditPO;
+
 import dataHelper.CreditDataHelper;
+import po.CreditPO;
 
 public class CreditDataHelperImpl implements CreditDataHelper{
 	private String driverName;
@@ -82,8 +83,8 @@ public class CreditDataHelperImpl implements CreditDataHelper{
 	private void init() {
 		driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
 		dbURL="jdbc:sqlserver://localhost:1433;DatabaseName=HRS";
-		userName="sa";
-		userPwd="123456";
+		userName="liu";
+		userPwd="naigo961226";
 		try{
 			 Class.forName(driverName);
 			 dbConn=DriverManager.getConnection(dbURL,userName,userPwd);

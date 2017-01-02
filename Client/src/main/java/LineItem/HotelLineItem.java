@@ -1,6 +1,6 @@
-package LineItem;
+package lineItem;
 
-import VO.HotelVO;
+import vo.HotelVO;
 /**
  * 单个酒店
  * @author 刘宗侃

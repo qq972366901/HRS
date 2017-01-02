@@ -2,7 +2,7 @@ package uiService;
 
 import java.util.List;
 
-import UserView.HistroyHotelView;
+import userView.HistroyHotelView;
 /**
  * 负责实现历史酒店的初始界面
  * @author 刘宇翔

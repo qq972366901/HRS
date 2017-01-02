@@ -1,7 +1,8 @@
-package LineItem;
+package lineItem;
 
 import java.util.Calendar;
-import VO.OrderVO;
+
+import vo.OrderVO;
 /**
  * OrderLineItem
  * @author 刘宇翔

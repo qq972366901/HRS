@@ -1,4 +1,4 @@
-package UserView;
+package userView;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -18,14 +18,18 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import VO.UserVO;
+import common.DES;
 import common.UserType;
 import uiService.UserManagementUiService;
-import userBLServiceImpl.DES;
 import userBLServiceImpl.Log;
+import vo.UserVO;
 
 
-
+/**
+ * 用户管理界面的Panel
+ * @author lw
+ *
+ */
 public class UserManagementView extends JPanel{
 	private static final long serialVersionUID = 1L;
 	private JButton button1,button2,button3,button4,button5,button6,button7;

@@ -5,16 +5,16 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Vector;
 
-import VO.HotelPromotionVO;
-import VO.MemberLevelSystemVO;
-import VO.WebPromotionVO;
 import common.CityAndBussinessCircle;
 import promotionHotel.PromotionHotelController;
 import promotionMemberGrade.PromotionMemberGradeController;
 import promotionWeb.PromotionWebController;
+import vo.HotelPromotionVO;
+import vo.MemberLevelSystemVO;
+import vo.WebPromotionVO;
 
 /**
- * Promotion模块的实现
+ * 负责实现promotion功能的服务接口
  * @author LW
  *
  */

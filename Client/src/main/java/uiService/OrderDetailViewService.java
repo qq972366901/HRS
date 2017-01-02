@@ -2,7 +2,7 @@ package uiService;
 
 import java.util.List;
 
-import UserView.OrderDetailView;
+import userView.OrderDetailView;
 /**
  * 负责实现订单详情的初始界面
  * @author 刘宇翔

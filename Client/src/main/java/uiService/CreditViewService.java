@@ -2,7 +2,7 @@ package uiService;
 
 import java.util.Vector;
 
-import UserView.CreditView;
+import userView.CreditView;
 /**
  * 负责实现信用查看的初始界面
  * @author 刘宇翔

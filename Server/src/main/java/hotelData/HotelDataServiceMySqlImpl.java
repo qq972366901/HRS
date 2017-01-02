@@ -7,12 +7,12 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
-import PO.HotelPO;
 import dataHelper.DataHelperFactory;
 import dataHelper.HotelDataHelper;
 import dataHelperImpl.DataHelperFactoryImpl;
 import dataHelperImpl.HotelDataHelperImpl;
 import dataService.HotelDataService;
+import po.HotelPO;
 /**
  * 职责是将逻辑层面发来的请求转发给后台HotelData处理
  * @author 刘宗侃
@@ -51,7 +51,7 @@ public class HotelDataServiceMySqlImpl implements HotelDataService{
 	 * @param
 	 * @return
 	 * @throws RemoteException
-	 * @see PO.HotelPO
+	 * @see po.HotelPO
 	 */
 	private void init() {
 		hotel=new HashMap<String,HotelPO>();
@@ -72,7 +72,7 @@ public class HotelDataServiceMySqlImpl implements HotelDataService{
 	 * @param id String型，逻辑层传来的酒店账号
 	 * @return 返回找到的PO实体
 	 * @throws RemoteException
-	 * @see PO.HotelPO
+	 * @see po.HotelPO
 	 */
 	public HotelPO find(String id) throws RemoteException {
 		return hotel.get(id);
@@ -82,7 +82,7 @@ public class HotelDataServiceMySqlImpl implements HotelDataService{
 	 * @param po HotelPO型，逻辑层传来的PO实体
 	 * @return 
 	 * @throws RemoteException
-	 * @see PO.HotelPO
+	 * @see po.HotelPO
 	 */
 	public void insert(HotelPO po) throws RemoteException {
 		if(!hotel.containsKey(po.gethotelAccount())) {
@@ -95,7 +95,7 @@ public class HotelDataServiceMySqlImpl implements HotelDataService{
 	 * @param po HotelPO型，逻辑层传来的PO实体
 	 * @return
 	 * @throws RemoteException
-	 * @see PO.HotelPO
+	 * @see po.HotelPO
 	 */
 	public void delete(HotelPO po) throws RemoteException {
 		if(hotel.containsKey(po.gethotelAccount())) {
@@ -108,7 +108,7 @@ public class HotelDataServiceMySqlImpl implements HotelDataService{
 	 * @param po HotelPO型，逻辑层传来的PO实体
 	 * @return
 	 * @throws RemoteException
-	 * @see PO.HotelPO
+	 * @see po.HotelPO
 	 */
 	public void update(HotelPO po) throws RemoteException {
 		if(hotel.containsKey(po.gethotelAccount())) {

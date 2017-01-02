@@ -1,5 +1,5 @@
 package roomAvailable;
-import RoomBLServiceImpl.RoomAvailableJudge;
+import roomBLServiceImpl.RoomAvailableJudge;
 
 /**
  * 判断能否酒店是否有足够房间的控制器

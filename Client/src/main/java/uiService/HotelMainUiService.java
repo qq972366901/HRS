@@ -1,6 +1,6 @@
 package uiService;
 
-import HotelWorkerView.HotelMainView;
+import hotelWorkerView.HotelMainView;
 
 /**
  * 负责实现酒店管理系统的酒店工作人员的初始界面的服务

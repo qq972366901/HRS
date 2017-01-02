@@ -1,10 +1,10 @@
-package HotelBLServiceImpl;
+package hotelBLServiceImpl;
 
 import java.rmi.RemoteException;
 
-import PO.HotelPO;
 import dataService.DataFactoryService;
 import dataService.HotelDataService;
+import po.HotelPO;
 import rmi.RemoteHelper;
 
 /**负责实现添加酒店的功能

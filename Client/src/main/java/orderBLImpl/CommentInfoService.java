@@ -1,6 +1,6 @@
 package orderBLImpl;
 
-import PO.OrderPO;
+import po.OrderPO;
 
 public interface CommentInfoService {
 	public void update();

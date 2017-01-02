@@ -1,14 +1,14 @@
-package HotelBLServiceImpl;
+package hotelBLServiceImpl;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
-import PO.RoomPO;
-import VO.RoomVO;
 import dataService.DataFactoryService;
 import dataService.RoomDataService;
+import po.RoomPO;
 import rmi.RemoteHelper;
+import vo.RoomVO;
 
 /**负责实现添加房间和得到酒店房间信息的功能
  * @author 刘宗侃

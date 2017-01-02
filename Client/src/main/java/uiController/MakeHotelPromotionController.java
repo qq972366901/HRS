@@ -3,14 +3,14 @@ package uiController;
 import java.rmi.RemoteException;
 import java.util.Calendar;
 
-import HotelWorkerView.HotelMainView;
-import HotelWorkerView.MakeHotelPromotionView;
+import common.DES;
+import hotelWorkerView.HotelMainView;
+import hotelWorkerView.MakeHotelPromotionView;
 import promotionBLService.PromotionBLService;
 import promotionBLService.PromotionController;
 import runner.ClientRunner;
 import uiService.HotelMainUiService;
 import uiService.MakeHotelPromotionUiService;
-import userBLServiceImpl.DES;
 import userBLServiceImpl.Log;
 
 /**

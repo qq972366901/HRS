@@ -5,12 +5,12 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import PO.RoomPO;
 import dataHelper.DataHelperFactory;
 import dataHelper.RoomDataHelper;
 import dataHelperImpl.DataHelperFactoryImpl;
 import dataHelperImpl.RoomDataHelperImpl;
 import dataService.RoomDataService;
+import po.RoomPO;
 /**
  * 职责是将逻辑层面发来的请求转发给后台RoomData处理
  * @author 刘宗侃
@@ -50,7 +50,7 @@ public class RoomDataServiceMySqlImpl implements RoomDataService{
 	 * @param
 	 * @return
 	 * @throws RemoteException
-	 * @see PO.RoomPO
+	 * @see po.RoomPO
 	 */
 	public void init() throws RemoteException {
 		factory=new DataHelperFactoryImpl();
@@ -61,7 +61,7 @@ public class RoomDataServiceMySqlImpl implements RoomDataService{
 	 * @param po RoomPO型，逻辑层传来的PO实体
 	 * @return
 	 * @throws RemoteException
-	 * @see PO.RoomPO
+	 * @see po.RoomPO
 	 */
 	public void insert(RoomPO po) throws RemoteException {
 		if(hotelID != po.getHotelId()) {
@@ -82,7 +82,7 @@ public class RoomDataServiceMySqlImpl implements RoomDataService{
 	 * @param po RoomPO型，逻辑层传来的PO实体
 	 * @return
 	 * @throws RemoteException
-	 * @see PO.RoomPO
+	 * @see po.RoomPO
 	 */
 	public void update(RoomPO po) throws RemoteException {
 		if(hotelID != po.getHotelId()) {
@@ -109,7 +109,7 @@ public class RoomDataServiceMySqlImpl implements RoomDataService{
 	 * @param hotelid String型，逻辑层传来的酒店ID
 	 * @return 一个酒店的所有房间列表
 	 * @throws RemoteException
-	 * @see PO.RoomPO
+	 * @see po.RoomPO
 	 */
 	public List<RoomPO> getAllRooms(String hotelid) throws RemoteException {
 		if(hotelID != hotelid) {

@@ -1,4 +1,4 @@
-package HotelWorkerView;
+package hotelWorkerView;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -26,10 +26,10 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
-import VO.OrderVO;
 import common.Operate;
 import common.UserType;
 import uiService.ProcessOrderUiService;
+import vo.OrderVO;
 /**
  * 供酒店工作人员和网站营销人员处理订单
  * @author LZ&刘宗侃

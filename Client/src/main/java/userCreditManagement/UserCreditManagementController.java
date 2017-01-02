@@ -3,10 +3,10 @@ package userCreditManagement;
 import java.rmi.RemoteException;
 import java.text.ParseException;
 
-import VO.CreditRecordVO;
 import promotionMemberGrade.PromotionMemberGradeController;
 import userBLServiceImpl.Credit;
 import userBLServiceImpl.PromotionInfo;
+import vo.CreditRecordVO;
 
 /**
  * 用户信息值管理控制器

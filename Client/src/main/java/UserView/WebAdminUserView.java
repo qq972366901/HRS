@@ -1,4 +1,4 @@
-package UserView;
+package userView;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -13,7 +13,11 @@ import javax.swing.JPanel;
 import uiService.WebAdminUserUiService;
 
 
-
+/**
+ * 网站管理人员主界面的Panel
+ * @author lw
+ *
+ */
 public class WebAdminUserView extends JPanel{
 	private static final long serialVersionUID = 1L;
 	private JButton button1,button2,button3;

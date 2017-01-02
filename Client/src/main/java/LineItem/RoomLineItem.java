@@ -1,6 +1,6 @@
-package LineItem;
+package lineItem;
 
-import VO.RoomVO;
+import vo.RoomVO;
 /**
  * 单个房间
  * @author 刘宗侃

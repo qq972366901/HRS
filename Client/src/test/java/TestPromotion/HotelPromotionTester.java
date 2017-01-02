@@ -11,10 +11,10 @@ import java.util.Calendar;
 import org.junit.Before;
 import org.junit.Test;
 
-import PromotionBLServiceImpl.GetHotelPromotionByHotelIDAndTime;
-import PromotionBLServiceImpl.GetHotelPromotionDiscount;
-import VO.HotelPromotionVO;
+import promotionBLServiceImpl.GetHotelPromotionByHotelIDAndTime;
+import promotionBLServiceImpl.GetHotelPromotionDiscount;
 import rmi.RemoteHelper;
+import vo.HotelPromotionVO;
 
 public class HotelPromotionTester {
 	/*

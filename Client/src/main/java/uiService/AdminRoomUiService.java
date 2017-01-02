@@ -1,6 +1,6 @@
 package uiService;
 
-import HotelWorkerView.AdminRoomView;
+import hotelWorkerView.AdminRoomView;
 
 /**
  * 管理客房界面的服务

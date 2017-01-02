@@ -1,4 +1,4 @@
-package PromotionBLServiceImpl;
+package promotionBLServiceImpl;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -6,14 +6,18 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import PO.PromotionPO;
-import VO.MemberLevelSystemVO;
-import VO.WebPromotionVO;
 import dataService.DataFactoryService;
 import dataService.PromotionDataService;
+import po.PromotionPO;
 import rmi.RemoteHelper;
 import userBLServiceImpl.Credit;
-
+import vo.MemberLevelSystemVO;
+import vo.WebPromotionVO;
+/**
+ * 获取网站策略折扣的实现类
+ * @author Administrator
+ *
+ */
 public class GetWebPromotionDiscount {
 		private DataFactoryService df;
 		private PromotionDataService pds;

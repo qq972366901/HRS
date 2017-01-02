@@ -1,4 +1,4 @@
-package userBLServiceImpl;
+package common;
 
 import java.security.InvalidKeyException;
 import java.security.Key;

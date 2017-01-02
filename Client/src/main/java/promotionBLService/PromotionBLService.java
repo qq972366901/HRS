@@ -2,7 +2,7 @@ package promotionBLService;
 import java.rmi.RemoteException;
 import java.util.*;
 
-import VO.*;
+import vo.*;
 
 /**
  * 负责实现营销策略界面所需要的服务接口  

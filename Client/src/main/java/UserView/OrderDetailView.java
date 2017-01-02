@@ -1,4 +1,4 @@
-package UserView;
+package userView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

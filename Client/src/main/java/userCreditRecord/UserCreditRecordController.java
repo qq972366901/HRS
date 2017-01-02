@@ -2,9 +2,10 @@ package userCreditRecord;
 import java.rmi.RemoteException;
 import java.text.ParseException;
 import java.util.HashMap;
-import VO.CreditRecordVO;
+
 import userBLServiceImpl.Credit;
 import userBLServiceImpl.CreditRecord;
+import vo.CreditRecordVO;
 /**
  * 用户信用记录控制器
  * @author LZ

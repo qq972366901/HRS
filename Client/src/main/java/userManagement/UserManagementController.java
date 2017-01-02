@@ -1,11 +1,12 @@
 package userManagement;
 
 import java.rmi.RemoteException;
-import VO.UserVO;
+
 import common.UserType;
 import userBLServiceImpl.Account;
 import userBLServiceImpl.AccountInfo;
 import userBLServiceImpl.Customer;
+import vo.UserVO;
 /**
  * 用户账号管理控制器
  * @author LZ

@@ -1,4 +1,4 @@
-package LineItem;
+package lineItem;
 
 public class PromotionLineItem {	
 	

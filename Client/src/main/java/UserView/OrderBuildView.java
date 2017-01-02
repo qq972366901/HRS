@@ -1,4 +1,4 @@
-package UserView;
+package userView;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -20,10 +20,14 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import VO.HotelVO;
-import VO.OrderVO;
 import uiService.OrderBuildUiService;
-
+import vo.HotelVO;
+import vo.OrderVO;
+/**
+ * 订单生成界面的Panel
+ * @author lw
+ *
+ */
 public class OrderBuildView extends JPanel{
 	private static final long serialVersionUID = 1L;
 	private JLabel label1,label2,label3,label4,label5,label6,label7,label8,label9,label13,label14,label15,label16,label17,label1_1,label5_1;
@@ -653,7 +657,6 @@ public class OrderBuildView extends JPanel{
 				String selected=(String)comboBox10.getSelectedItem();
 				comboBox11.removeAllItems();
 				int max=controller.getMaxRoomNumber(controller.getHotelID(),selected);
-				System.out.println(max);
 				for(int i=1;i<max+1;i++){
 					comboBox11.addItem(i);
 				}

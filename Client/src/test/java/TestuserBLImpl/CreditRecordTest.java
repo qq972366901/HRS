@@ -13,10 +13,10 @@ import java.util.HashMap;
 import org.junit.Before;
 import org.junit.Test;
 
-import VO.CreditRecordVO;
 import common.Operate;
 import rmi.RemoteHelper;
 import userBLServiceImpl.CreditRecord;
+import vo.CreditRecordVO;
 
 public class CreditRecordTest {
 	/*

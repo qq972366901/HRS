@@ -1,6 +1,6 @@
-package HotelRoomAdd;
+package hotelRoomAdd;
 
-import HotelBLServiceImpl.HotelRoom;
+import hotelBLServiceImpl.HotelRoom;
 
 /**负责实现添加酒店房间功能的控制器
  * @author 刘宗侃

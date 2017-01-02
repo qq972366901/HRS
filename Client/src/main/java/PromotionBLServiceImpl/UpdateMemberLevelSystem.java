@@ -1,13 +1,17 @@
-package PromotionBLServiceImpl;
+package promotionBLServiceImpl;
 
 import java.rmi.RemoteException;
 
-import PO.PromotionPO;
-import VO.MemberLevelSystemVO;
 import dataService.DataFactoryService;
 import dataService.PromotionDataService;
+import po.PromotionPO;
 import rmi.RemoteHelper;
-
+import vo.MemberLevelSystemVO;
+/**
+ * 更新会员等级制度的实现类
+ * @author Administrator
+ *
+ */
 public class UpdateMemberLevelSystem {
 	private DataFactoryService df;
 	private PromotionDataService pds;

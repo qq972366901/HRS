@@ -1,4 +1,4 @@
-package UserView;
+package userView;
 
 import javax.swing.JPanel;
 import javax.swing.JComboBox;
@@ -12,9 +12,9 @@ import java.awt.FlowLayout;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import UserView.MemberRegisterView;
-import WebPromotionView.WebPromotionUserView;
+import common.DES;
 import common.UserType;
+import hotelWorkerView.HotelMainView;
 import runner.ClientRunner;
 import uiController.HotelMainUiController;
 import uiController.MemberRegisterUiController;
@@ -28,8 +28,9 @@ import uiService.WebAdminUserUiService;
 import uiService.CustomerMainViewService;
 import uiService.webPromotionUserUiService;
 import userBLServiceImpl.Account;
-import userBLServiceImpl.DES;
 import userBLServiceImpl.Log;
+import userView.MemberRegisterView;
+import webPromotionView.WebPromotionUserView;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -40,8 +41,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.UIManager;
-
-import HotelWorkerView.HotelMainView;
 
 import java.awt.BorderLayout;
 import javax.swing.BoxLayout;

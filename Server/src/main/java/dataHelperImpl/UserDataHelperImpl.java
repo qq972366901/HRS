@@ -12,9 +12,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 
-import PO.UserPO;
 import common.UserType;
 import dataHelper.UserDataHelper;
+import po.UserPO;
 
 public class UserDataHelperImpl implements UserDataHelper{
 	private String driverName;
@@ -25,8 +25,8 @@ public class UserDataHelperImpl implements UserDataHelper{
 	private void init() {
 		driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
 		dbURL="jdbc:sqlserver://localhost:1433;DatabaseName=HRS";
-		userName="sa";
-		userPwd="123456";
+		userName="liu";
+		userPwd="naigo961226";
 		try{
 			 Class.forName(driverName);
 			 dbConn=DriverManager.getConnection(dbURL,userName,userPwd);

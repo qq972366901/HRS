@@ -9,10 +9,10 @@ import java.rmi.RemoteException;
 
 import org.junit.Test;
 
-import VO.HotelVO;
 import hotelBLService.HotelBLService;
 import hotelBLService.HotelBLServiceController;
 import rmi.RemoteHelper;
+import vo.HotelVO;
 
 /**
  * 测试得到酒店信息

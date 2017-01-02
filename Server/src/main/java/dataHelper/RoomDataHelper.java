@@ -2,7 +2,7 @@ package dataHelper;
 
 import java.util.List;
 
-import PO.RoomPO;
+import po.RoomPO;
 
 /**
  * 数据库对房间表的操作的服务

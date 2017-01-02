@@ -11,13 +11,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import HotelWorkerView.ProcessOrderView;
-import UserView.LogView;
-import WebPromotionView.CreditManagementView;
-import WebPromotionView.MemberLevelSystemView;
-import WebPromotionView.WebPromotionStrategyView;
-import WebPromotionView.WebPromotionUserView;
+import common.DES;
 import common.UserType;
+import hotelWorkerView.ProcessOrderView;
 import runner.ClientRunner;
 import uiService.CreditManagementUiService;
 import uiService.LoginViewControllerService;
@@ -25,8 +21,12 @@ import uiService.MemberLevelSystemUiService;
 import uiService.ProcessOrderUiService;
 import uiService.WebPromotionStrategyUiService;
 import uiService.webPromotionUserUiService;
-import userBLServiceImpl.DES;
 import userBLServiceImpl.Log;
+import userView.LogView;
+import webPromotionView.CreditManagementView;
+import webPromotionView.MemberLevelSystemView;
+import webPromotionView.WebPromotionStrategyView;
+import webPromotionView.WebPromotionUserView;
 
 /**
  * 负责实现酒店管理系统的网站营销人员界面的控制器

@@ -2,8 +2,8 @@ package orderOverview;
 import java.rmi.RemoteException;
 import java.util.List;
 
-import VO.OrderVO;
 import orderBLImpl.OrderList;
+import vo.OrderVO;
 /**
  * 浏览酒店的所有订单
  * @author Administrator

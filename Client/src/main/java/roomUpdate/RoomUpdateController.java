@@ -1,7 +1,7 @@
 package roomUpdate;
 
-import RoomBLServiceImpl.RoomStateChange;
-import RoomBLServiceImpl.RoomsReserved;
+import roomBLServiceImpl.RoomStateChange;
+import roomBLServiceImpl.RoomsReserved;
 
 /**
  * 更新房间信息的控制器

@@ -11,10 +11,10 @@ import java.util.Calendar;
 import org.junit.Before;
 import org.junit.Test;
 
-import VO.UserVO;
 import common.UserType;
 import rmi.RemoteHelper;
 import userBLServiceImpl.Customer;
+import vo.UserVO;
 
 public class CustomerTest {
 	/*

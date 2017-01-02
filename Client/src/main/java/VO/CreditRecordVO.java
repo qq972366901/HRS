@@ -1,12 +1,12 @@
-package VO;
+package vo;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Vector;
 
-import PO.CreditRecordPO;
 import common.Operate;
+import po.CreditRecordPO;
 
 /**
  * 信用记录的属性及数据创建与更新

@@ -1,4 +1,4 @@
-package UserView;
+package userView;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -16,13 +16,13 @@ import java.util.Vector;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import VO.OrderVO;
 import runner.ClientRunner;
 import uiController.CommentViewController;
 import uiController.CustomerMainViewController;
 import uiController.OrderDetailViewController;
 import uiService.CommentViewService;
 import uiService.OrderViewService;
+import vo.OrderVO;
 import uiService.CustomerMainViewService;
 import uiService.OrderDetailViewService;
 

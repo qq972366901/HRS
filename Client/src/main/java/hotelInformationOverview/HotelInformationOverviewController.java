@@ -1,7 +1,7 @@
 package hotelInformationOverview;
 
-import HotelBLServiceImpl.HotelInfo;
-import VO.HotelVO;
+import hotelBLServiceImpl.HotelInfo;
+import vo.HotelVO;
 
 /**负责实现查看酒店信息的控制器
  * @author 刘宗侃

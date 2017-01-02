@@ -3,7 +3,7 @@ package dataHelper;
 import java.rmi.RemoteException;
 import java.util.List;
 
-import PO.HotelPO;
+import po.HotelPO;
 
 /**
  * 数据库对酒店表的操作的服务

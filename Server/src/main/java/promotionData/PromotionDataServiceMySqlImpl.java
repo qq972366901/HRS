@@ -9,10 +9,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
-import PO.PromotionPO;
 import dataHelper.DataHelperFactory;
 import dataHelper.PromotionDataHelper;
 import dataHelperImpl.DataHelperFactoryImpl;
+import po.PromotionPO;
 /**
  * 职责是将逻辑层面发来的请求转发给后台PromotionData处理
  * @author LZ
@@ -46,7 +46,7 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
 	 * @param id String 型，逻辑层传来的策略编号
 	 * @return 返回找到的PO实体
 	 * @throws RemoteException
-	 * @see PO.PromotionPO
+	 * @see po.PromotionPO
 	 */
 	@Override
 	public PromotionPO find(String id) throws RemoteException {
@@ -58,7 +58,7 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
 	 * @param po PromotionPO型，逻辑层传来的PO实体
 	 * @return
 	 * @throws RemoteException
-	 * @see PO.PromotionPO
+	 * @see po.PromotionPO
 	 */
 	@Override
 	public void insert(PromotionPO po) throws RemoteException {
@@ -92,7 +92,7 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
 	 * @param po PromotionPO型，逻辑层传来的PO实体
 	 * @return
 	 * @throws RemoteException
-	 * @see PO.PromotionPO
+	 * @see po.PromotionPO
 	 */
 	@Override
 	public void delete(String id) throws RemoteException {
@@ -108,7 +108,7 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
 	 * @param po PromotionPO型，逻辑层传来的PO实体
 	 * @return
 	 * @throws RemoteException
-	 * @see PO.PromotionPO
+	 * @see po.PromotionPO
 	 */
 	@Override
 	public void update(PromotionPO po) throws RemoteException {
@@ -123,7 +123,7 @@ public class PromotionDataServiceMySqlImpl implements Serializable,dataService.P
 	 * @param
 	 * @return
 	 * @throws RemoteException
-	 * @see PO.PromotionPO
+	 * @see po.PromotionPO
 	 */
 	@Override
 	public void init() throws RemoteException {

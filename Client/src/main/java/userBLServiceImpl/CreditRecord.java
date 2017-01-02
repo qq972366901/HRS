@@ -6,16 +6,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
-import PO.CreditRecordPO;
-import VO.CreditRecordVO;
 import dataService.CreditRecordDataService;
 import dataService.DataFactoryService;
+import po.CreditRecordPO;
 import rmi.RemoteHelper;
+import vo.CreditRecordVO;
 /**
  * 负责对于信用记录的操作
  * @author LZ
  *@version 1.0
- *@see VO.CreditRecordVO
+ *@see vo.CreditRecordVO
  */
 public class CreditRecord {
 	private HashMap<String,HashMap<String,CreditRecordVO>> map;//一个用户ID对应其自身的一系列信用记录
@@ -45,7 +45,7 @@ public class CreditRecord {
 	 * 显示信用记录
 	 * @param id String型，界面层传来的客户ID
 	 * @return 返回属于此ID的所有信用记录
-	 * @see VO.CreditRecordVO
+	 * @see vo.CreditRecordVO
 	 */
 	public HashMap<String,CreditRecordVO> showCreditRecord(String id){
 		return map.get(id);
@@ -55,7 +55,7 @@ public class CreditRecord {
 	 * @param userID String型，界面层传来的客户ID
 	 * @param vo CreditRecordVO型，界面层传来的vo对象
 	 * @throws RemoteException
-	 * @see VO.CreditRecordVO
+	 * @see vo.CreditRecordVO
 	 */
 	public void add(String userID,CreditRecordVO vo) throws RemoteException{
 		if(map.containsKey(userID)){
@@ -75,7 +75,7 @@ public class CreditRecord {
 	 * @param userID String型，界面层传来的客户ID
 	 * @param orderID String型，界面层传来的记录编号
 	 * @return 返回属于此客户ID和记录编号的VO对象
-	 * @see VO.CreditRecordVO
+	 * @see vo.CreditRecordVO
 	 */
 	public CreditRecordVO getCreditRecord(String userID,String orderID){
 		return map.get(userID).get(orderID);

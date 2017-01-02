@@ -9,8 +9,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import PO.OrderPO;
+
 import dataHelper.OrderDataHelper;
+import po.OrderPO;
 /**
  * 对于OrderDataHelper的接口的实现
  * @author 刘宇翔
@@ -28,8 +29,8 @@ public class OrderDataHelperImpl implements OrderDataHelper{
 	private void init() {
 		driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
 		dbURL="jdbc:sqlserver://localhost:1433;DatabaseName=HRS";
-		userName="sa";
-		userPwd="123456";
+		userName="liu";
+		userPwd="naigo961226";
 		try{
 			 Class.forName(driverName);
 			 dbConn=DriverManager.getConnection(dbURL,userName,userPwd);

@@ -2,9 +2,9 @@ package userInformationMaintenance;
 
 import java.rmi.RemoteException;
 
-import VO.UserVO;
 import userBLServiceImpl.Credit;
 import userBLServiceImpl.Customer;
+import vo.UserVO;
 
 /**
  * 用户信息维护控制器

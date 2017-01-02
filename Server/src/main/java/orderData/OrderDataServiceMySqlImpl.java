@@ -11,11 +11,11 @@ import java.util.Map.Entry;
 import java.util.Random;
 import java.util.Set;
 
-import PO.OrderPO;
 import dataHelper.DataHelperFactory;
 import dataHelper.OrderDataHelper;
 import dataHelperImpl.DataHelperFactoryImpl;
 import dataService.OrderDataService;
+import po.OrderPO;
 /**
  * 职责是将逻辑层面发来的请求转发给后台OrderData处理
  * @author LZ
@@ -46,7 +46,7 @@ public class OrderDataServiceMySqlImpl implements OrderDataService,Serializable{
 	 * @param id String型，逻辑层传来的订单编号
 	 * @return 返回找到的PO实体
 	 * @throws RemoteException
-	 * @see PO.OrderPO
+	 * @see po.OrderPO
 	 */
 	@Override
 	public OrderPO find(String id) throws RemoteException {
@@ -63,7 +63,7 @@ public class OrderDataServiceMySqlImpl implements OrderDataService,Serializable{
 	 * @param po OrderPO型，逻辑层传来的PO实体
 	 * @return
 	 * @throws RemoteException
-	 * @see PO.OrderPO
+	 * @see po.OrderPO
 	 */
 	@Override
 	public void insert(OrderPO po) throws RemoteException {
@@ -75,7 +75,7 @@ public class OrderDataServiceMySqlImpl implements OrderDataService,Serializable{
 	 * @param po OrderPO型，逻辑层传来的PO实体
 	 * @return
 	 * @throws RemoteException
-	 * @see PO.OrderPO
+	 * @see po.OrderPO
 	 */
 	@Override
 	public void delete(OrderPO po) throws RemoteException {
@@ -87,7 +87,7 @@ public class OrderDataServiceMySqlImpl implements OrderDataService,Serializable{
 	 * @param po OrderPO型，逻辑层传来的PO实体
 	 * @return 
 	 * @throws RemoteException
-	 * @see PO.OrderPO
+	 * @see po.OrderPO
 	 */
 	@Override
 	public void update(OrderPO po) throws RemoteException {
@@ -188,7 +188,7 @@ public class OrderDataServiceMySqlImpl implements OrderDataService,Serializable{
 	 * @param
 	 * @return
 	 * @throws RemoteException
-	 * @see PO.OrderPO
+	 * @see po.OrderPO
 	 */
 	@Override
 	public void init() throws RemoteException {
@@ -223,7 +223,7 @@ public class OrderDataServiceMySqlImpl implements OrderDataService,Serializable{
 	 * @param
 	 * @return
 	 * @throws RemoteException
-	 * @see PO.OrderPO
+	 * @see po.OrderPO
 	 */
 	@Override
 	public void finish() throws RemoteException {

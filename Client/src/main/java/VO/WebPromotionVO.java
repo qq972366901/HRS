@@ -1,12 +1,15 @@
-package VO;
+package vo;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Vector;
 
-import PO.PromotionPO;
-import PromotionBLServiceImpl.GetMemberLevelSystem;
-
+import po.PromotionPO;
+import promotionBLServiceImpl.GetMemberLevelSystem;
+/**
+ * 网站策略的属性及数据创建与更新
+ * @author lw
+ */
 public class WebPromotionVO{
 	 public String promotionNumber;
 	 public String promotionName;

@@ -5,11 +5,11 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import PO.CreditRecordPO;
 import dataHelper.CreditRecordDataHelper;
 import dataHelper.DataHelperFactory;
 import dataHelperImpl.DataHelperFactoryImpl;
 import dataService.CreditRecordDataService;
+import po.CreditRecordPO;
 /**
  * 职责是将逻辑层面发来的请求转发给后台CreditRecordData处理
  * @author LZ
@@ -37,7 +37,7 @@ public class CreditRecordDataServiceMySqlImpl implements CreditRecordDataService
 	 * @param id String型，逻辑层传来的信用记录编号
 	 * @return 返回找到的PO实体
 	 * @throws 远程调用失败
-	 * @see PO.CreditRecordPO
+	 * @see po.CreditRecordPO
 	 */
 	@Override
 	public List<CreditRecordPO> find(String id) throws RemoteException {
@@ -54,7 +54,7 @@ public class CreditRecordDataServiceMySqlImpl implements CreditRecordDataService
 	 * @param po CreditRecordPO型，逻辑层传来的信用记录实体
 	 * @return
 	 * @throws 远程调用失败 
-	 * @see PO.CreditRecordPO
+	 * @see po.CreditRecordPO
 	 */
 	@Override
 	public void insert(CreditRecordPO po) throws RemoteException {
@@ -66,7 +66,7 @@ public class CreditRecordDataServiceMySqlImpl implements CreditRecordDataService
 	 * @param
 	 * @return
 	 * @throws 远程调用失败
-	 * @see PO.CreditRecordPO
+	 * @see po.CreditRecordPO
 	 */
 	private void init() throws RemoteException {
 		factory=new DataHelperFactoryImpl();
